@@ -1,0 +1,254 @@
+/*
+ HTML5/CSS3, EDGE/CHROME                                  *** ContactUs.css ***
+
+ ******************************************************************************
+ * KwinFlat.ru                Развернуть формы входа, регистрации и контактов *
+ ******************************************************************************
+
+                                                     Автор:       Труфанов В.Е.
+                                                     Дата создания:  01.11.2017
+ Copyright © 2017 tve                                Посл.изменение: 30.04.2018
+*/
+
+/* 
+ Снимаем умалчиваемый стили браузеров при фокусировании на поле ввода 
+*/
+*:focus
+{
+    outline: none;
+}
+/* 
+ Определяем типографские стили к форме 
+*/
+body 
+{
+    font:0.8rem/1.3rem "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+.contact_form h2, .contact_form label 
+{
+    font-family:Georgia, Times, "Times New Roman", serif;
+}
+.form_hint, .required_notification 
+{
+    font-size:0.7rem;
+}
+/* 
+ Определяем стили списка в форме 
+*/
+.contact_form ul 
+{
+    width:46rem;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0;
+    padding:0;
+}
+.contact_form li
+{
+    padding:0.8rem; 
+    border-bottom:0.1rem solid #eee;
+    position:relative;
+} 
+/* 
+ Добавляем линии разграничения после первого и последнего элементов списка 
+*/
+.contact_form li:first-child, .contact_form li:last-child 
+{
+    border-bottom:0.1rem solid #777;
+}
+/* 
+ Переформатируем заголовок формы: выстроим в линию и изменим размеры 
+ заголовка и уведомления о том , что "*" отмечены поля, которые обязательны
+ для заполнения
+*/ 
+.contact_form h2 
+{
+    margin:0;
+    display: inline;
+}
+.required_notification 
+{
+    color:#d45252; 
+    margin:0.5rem 0 0 0; 
+    display:inline;
+    float:right;
+}
+/* 
+ Назначаем стили основным элементам формы, предназначенным для сбора
+ пользовательской информации
+*/
+.contact_form label 
+{
+    width:8rem;
+    margin-top:0.3rem;
+    display:inline-block;
+    float:left;
+    padding:0.3rem;
+}
+.contact_form input 
+{
+    height:1rem; 
+    width:20rem; 
+    padding:0.3rem 0.5rem;
+}
+.contact_form textarea 
+{
+    padding:0.8rem; 
+    width:28rem;
+}
+.contact_form button 
+{
+    padding: 0.5rem 1.6rem; 
+    margin-left:8.5rem;
+}
+.contact_form .home 
+{
+    float:right;
+}
+/*
+ Назначаем дополнительные визуальные стили (некоторые видны только в
+ современных браузерах
+*/
+.contact_form input, .contact_form textarea 
+{ 
+    border:0.1rem solid #aaa;
+    box-shadow: 0 0 0.3rem #ccc, 0 1rem 1.4rem #eee inset;
+    border-radius:0.2rem;
+}
+.contact_form input:focus, .contact_form textarea:focus 
+{
+    background: #fff; 
+    border:0.1rem solid #555; 
+    box-shadow: 0 0 0.3rem #aaa; 
+}
+/* 
+ Редактируем изображение кнопки
+*/ 
+button.submit 
+{
+    background-color: #68b12f;
+    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+
+    background: -webkit-linear-gradient(top, #68b12f, #50911e);
+    background: -moz-linear-gradient(top, #68b12f, #50911e);
+    background: -ms-linear-gradient(top, #68b12f, #50911e);
+    background: -o-linear-gradient(top, #68b12f, #50911e);
+    background: linear-gradient(top, #68b12f, #50911e);
+	
+    border: 0.1rem solid #509111;
+    border-bottom: 0.1rem solid #5b992b;
+
+    -webkit-border-radius: 0.3rem;
+	-moz-border-radius: 0.3rem;
+	-ms-border-radius: 0.3rem;
+	-o-border-radius: 0.3rem;
+    border-radius: 0.3rem;
+
+	-webkit-box-shadow: 0 0.1rem 0 0 #9fd574 inset ;
+	-moz-box-shadow: 0 0.1rem 0 0 #9fd574 inset;
+	-ms-box-shadow: 0 0.1rem 0 0 #9fd574 inset;
+	-o-box-shadow: 0 0.1rem 0 0 #9fd574 inset;
+    box-shadow: inset 0 0.1rem 0 0 #9fd574;
+	
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 -0.1rem 0 #396715;
+}
+/* 
+ Обеспечиваем побледнение кнопок при наведении на них курсора
+*/	 
+button.submit:hover, a.home:hover
+{
+    opacity:.80;
+    cursor: pointer; 
+}
+/* 
+ Создаём изменяющий оттенок цвета при нажатии на кнопку
+*/	 
+button.submit:active 
+{
+    border: 0.1rem solid #20911e;
+	   -webkit-box-shadow:0 0 0.8rem 0.4rem #356b0b inset ;
+	   -moz-box-shadow: 0 0 0.8rem 0.4rem #356b0b inset;
+	   -ms-box-shadow: 0 0 0.8rem 0.4rem #356b0b inset;
+	   -o-box-shadow: 0 0 0.8rem 0.4rem #356b0b inset;
+    box-shadow: 0 0 0.8rem 0.4rem #356b0b inset; 
+}
+/* 
+ Добавляем интерактивности - заставляем выбранное в данный момент поле увеличиваться 
+ путем добавления отступа
+*/	 
+.contact_form input:focus, .contact_form textarea:focus 
+{
+    padding-right: 4rem;
+}
+/* 
+ Делаем увеличение поля гладким (чуть замедленным) переходом
+*/	 
+.contact_form input, .contact_form textarea 
+{ 
+    -moz-transition: padding .25s;
+    -webkit-transition: padding .25s;
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+/* 
+ Добавляем пространство для звездочки в обязательных для заполнения полях
+*/	 
+.contact_form input, .contact_form textarea 
+{ 
+    padding-right: 2.5rem;
+}
+/* 
+ Размещаем звездочку в обязательных для заполнения полях
+*/	 
+.contact_form input:required, .contact_form textarea:required 
+{
+    background: #fff url(/Images/red_asterisk.png) no-repeat 98% center;
+}
+/* 
+ Назначаем нестандартные стили недостоверным полям. Здесь определяем элементы
+ формы, как невалидные, когда они находятся в фокусе: добавляем красную окантовку, 
+ красную тень и красную иконку невалидного поля
+*/	 
+.contact_form input:focus:invalid, .contact_form textarea:focus:invalid 
+{
+    background: #fff url(/Images/invalid.png) no-repeat 98% center;
+    box-shadow: 0 0 0.4rem #d45252;
+    border-color: #b03535
+}
+/* 
+ Делаем зелёную окантовку, зелёную тень и зелёную иконку с галочкой ко всем
+ валидным полям, независимо от того, находятся ли они в фокусе или нет
+*/	 
+.contact_form input:required:valid, .contact_form textarea:required:valid 
+{
+    background: #fff url(/Images/valid.png) no-repeat 98% center;
+    box-shadow: 0 0 0.4rem #5cd053;
+    border-color: #28921f;
+}
+/*
+input.website:valid {
+    background: #fff url(images/valid.png) no-repeat 98% center;
+    box-shadow: 0 0 0.4rem #5cd053;
+    border-color: #28921f;
+}
+*/
+#Ers 
+{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #FF0000;
+    font-weight: bold; 
+}
+.contact_form input.infile	
+{
+    width:30.8rem; 
+    height:1.8rem; 
+    padding-right: 0;
+    text-align: left;
+}	
+/*
+ ************************************************************ ContactUs.css ***
+*/	
+ 

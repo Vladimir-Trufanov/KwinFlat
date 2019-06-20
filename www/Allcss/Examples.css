@@ -1,0 +1,74 @@
+/*
+ HTML5/CSS3, EDGE/CHROME                                   *** Examples.css ***
+
+ ******************************************************************************
+ * KwinFlat.ru           Установить стили представления инструкции и примеров *
+ ******************************************************************************
+
+                                                     Автор:       Труфанов В.Е.
+                                                     Дата создания:  13.04.2018
+ Copyright © 2018 tve                                Посл.изменение: 13.04.2018
+*/
+
+
+/* 
+ Определяем главную помощь в верхней части экрана сайта
+*/
+
+#notes p
+{ 
+    text-indent: 1.5rem; /* Отступ первой строки */
+    padding: 0.7rem 0 0 0;
+}
+ 
+#notes
+{
+    display: block;
+    text-align: justify;
+    margin: 0 0.7rem 0.3rem 0.7rem;
+    padding: 0 0.7rem 0 0;
+    font-size: 1.4rem;
+    overflow: auto;          /* Полоса прокрутки при необходимости */ 
+}
+#notesh1
+{
+    display: block;
+    float: left; 
+    margin: 0 0.7rem 0 -0.3rem;
+}
+.newp
+{
+    display: inline-block;
+}
+
+#notes img.figl 
+{
+    float: left;           /* Обтекание картинки по левому краю */
+    padding-top: 0.5rem;   
+    padding-right: 0.7rem; /* Отступ слева */
+}
+
+#notes img.figr 
+{
+    float: right;           
+    padding-top: 0.5rem;   
+    padding-left: 0.7rem;
+}
+
+.lettkvin
+{
+    color: #46874D;
+    font-weight: 500;
+}
+.lettrule
+{
+    color: #993300;
+}
+
+
+
+
+
+/*
+ ************************************************************* Examples.css ***
+*/

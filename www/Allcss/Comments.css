@@ -1,0 +1,131 @@
+/*
+ HTML5/CSS3, EDGE/CHROME                                   *** Comments.css ***
+
+ ******************************************************************************
+ * KwinFlat.ru                 Установить стили представления дома и квартиры *
+ ******************************************************************************
+
+                                                     Автор:       Труфанов В.Е.
+                                                     Дата создания:  22.02.2018
+ Copyright © 2018 tve                                Посл.изменение: 03.05.2018
+*/
+
+.frmDomKvar
+{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.7rem;
+	border-collapse: collapse;
+}
+.frmDomKvar li 
+{
+    width: 100%;
+    display:inline-block;
+    background-color: #EAE1E7;  
+}
+/*
+ Вырисовываем границы у позиций "Дом и квартира"
+*/
+.frmDomKvar li.liPlk, li.liPld, li.liVidblag, li.liEtd, li.liGst, li.liKtd, li.liOtp 
+{
+    border-top:   0.1rem solid #DDB575; 
+    border-left:  0.1rem solid #DDB575; 
+    border-right: 0.1rem solid #DDB575;  
+}
+.frmDomKvar li.liOtp 
+{
+    border-bottom: 0.1rem solid #DDB575; 
+}
+.frmDomKvar td, .frmDomKvar th
+{
+    border: 0.1rem solid #DDB575; 
+}
+/*
+ Достраиваем пестрый фон
+*/
+.frmDomKvar li.liPlk, li.liEtd, li.liKtd 
+{
+    background-color: #EDF3FF; 
+}
+
+
+.frmDomKvar label 
+{
+    float: left;
+    width: 40%;
+    padding: 0.5rem 0 0 0.3rem;
+}
+.frmDomKvar input,select
+{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    background-color: rgba(255,255,255,.1);
+    font-size: 1.7rem;
+    padding: 0.3rem 0 0.2rem 0.3rem;
+}
+.frmDomKvar input
+{
+    border: 0;
+}
+/*.frmDomKvar   input:checked + span {*/
+.frmDomKvar input:checked
+{
+    background: #fc0;
+}
+.frmDomKvar select
+{
+    border: 0;
+    width: 60%;
+}
+.legDomKvar, .frmDomKvar th
+{
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 0.3rem 0.7rem 0.2rem 0.7rem; 
+    text-transform: uppercase;
+    text-align: left;
+    background: rgb(229,76,16);
+    background: linear-gradient(to bottom, rgb(229,76,16), rgb(173,54,8));
+    color: white;
+} 
+.frmDomKvar tr:nth-of-type(even), .inpEven 
+{
+    background-color: rgba(255,255,255,.1);
+}
+.frmDomKvar tr:nth-of-type(odd), .inpOdd
+{
+    background-color: rgba(229,76,16,.1);
+}
+/*
+ Регулируем изображение меню
+*/
+#LineCommon
+{
+    display: inline-block;
+    margin: 0.4rem 0 0 0;
+}
+#btnDomKvar
+{
+    font-size: 1.6rem;   
+    float: left;
+    padding: 0 0.3rem 0.1rem 0.3rem;
+    margin: 0 1rem 0 0;
+}
+.frmDomKvar nav li
+{
+    display: inline;
+    margin: 0 0 0 -0.2rem;
+}
+/*
+ Позиционируем кнопку "Рассчитать льготы"
+*/
+.tblProzh
+{
+    width: 100%; 
+}
+.tblProzh select
+{
+    width: 100%; 
+}
+
+/*
+ ************************************************************* Comments.css ***
+*/

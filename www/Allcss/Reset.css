@@ -1,0 +1,117 @@
+/*
+ HTML5/CSS3, EDGE/CHROME                                       *** Reset.css ***
+
+ *******************************************************************************
+ * KwinFlat.ru                                         Сбросить стили браузера *
+ *******************************************************************************
+
+                                                      Автор:       Труфанов В.Е.
+                                                      Дата создания:  01.11.2017
+ Copyright © 2017 tve                                 Посл.изменение: 26.03.2018
+*/
+
+* 
+{
+    /* Содержим поля в ширине блока (кроме margin) */
+    box-sizing: border-box; 
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
+pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, 
+q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, 
+dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, 
+thead, tr, th, td, article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, 
+summary, time, mark, audio, video 
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+    /* Выравниваем базовую линию блока по базовой линии родителя */
+	vertical-align: baseline;
+}
+/* 
+  Снимаем умалчиваемый стили браузеров при фокусировании на поле ввода 
+*/
+*:focus {outline: none;}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+section 
+{
+	display: block;
+}
+
+ol 
+{ 
+    /* Нумеруем списки арабскими числами (1,2,3,4,...) */
+	list-style: decimal;
+}
+
+ul 
+{
+    /* Ставим маркер в виде квадрата в маркированных списках */
+	list-style: square;
+}
+
+table 
+{
+    /* Склеиваем линии между ячейками */
+	border-collapse: collapse;
+} 
+
+html
+{
+    /* Определяем базовый шрифт */
+    font-family: verdana, arial, sans-serif;
+    /* Для простоты вычислений в качестве базового размера шрифта задаем 10 пикселей */
+    font-size: 62.5%;
+}
+
+/* Заполняем фон сайта */
+body 
+{
+    /* Устанавливаем размеры шрифтов по умолчанию */
+    font-size: 16px;   /* для старых браузеров, что rem не поддерживают */
+    font-size: 1.6rem;  
+
+    /* background: url(/Background/Bereg16x9.gif) no-repeat; */
+    /* background: url(/Background/Malep16x9.gif) no-repeat; */
+    /* background: url(/Background/Razlom16x9.gif) no-repeat; */
+    /* background: url(/Background/Etomjata16x9.gif) no-repeat; */
+    /* background: url(/Background/Kupola_kv.gif) no-repeat; */ 
+    /* background: url(/Background/Doroga_kv.gif) no-repeat; */ 
+    /* background: url(/Background/Kudri_kv.gif) no-repeat; */ 
+    /* background: url(/Background/Kaktusy_kv.gif) no-repeat; */ 
+    /* background: url(/Background/VnizuVoda_kv.gif) no-repeat; */ 
+    /* background: url(/Background/Ladoga_kv.gif) no-repeat; */ 
+    /* background: url(/Background/Vodopadik_kv.gif) no-repeat; */ 
+  
+    /* background: url(/Background/Kupola_kv.gif) no-repeat; */ 
+    /* -moz-background-size: 100%;     Firefox 3.6+ */
+    /* -webkit-background-size: 100%;  Safari 3.1+ и Chrome 4.0+ */
+    /* -o-background-size: 100%;       Opera 9.6+ */
+    /* background-size: 100%;          Современные браузеры */
+}
+
+h1,h2 
+{
+	font: bold italic 2.4rem Baskerville, "Palatino Linotype", "Times New Roman", serif;
+	color: #46874D;
+	background: url(../images/underline.png) no-repeat 0px 88%;
+	padding-left: 0.5rem;
+}
+
+h1 
+{ 
+	margin-left: 0.5rem;
+}
+
+h3 
+{
+    font-size: 1.3rem;
+    margin: 0 0 .2rem 0;
+}
+
+/*
+ ***************************************************************** Reset.css ***
+*/

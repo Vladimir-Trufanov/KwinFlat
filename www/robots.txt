@@ -1,0 +1,29 @@
+
+User-agent: Google
+Disallow: /
+Allow: /$
+Allow: /sitemap.xml$
+Allow: /Main.php?Com=Norms$
+Allow: /Main.php?Com=Laws$
+Allow: /Main.php?Com=Atfirst$
+Allow: /Normativy_po_otopleniyu$
+
+User-agent: Yandex
+Disallow: /
+Allow: /$
+Allow: /sitemap.xml$
+Allow: /Main.php?Com=Norms$
+Allow: /Main.php?Com=Laws$
+Allow: /Main.php?Com=Atfirst$
+Allow: /Normativy_po_otopleniyu$
+
+User-agent: *
+Disallow: /
+Allow: /$
+Allow: /sitemap.xml$
+Allow: /Main.php?Com=Norms$
+Allow: /Main.php?Com=Laws$
+Allow: /Main.php?Com=Atfirst$
+Allow: /Normativy_po_otopleniyu$
+
+Sitemap: https://kwinflat.ru/sitemap.xml

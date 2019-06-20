@@ -1,0 +1,43 @@
+
+User-agent: Google
+Disallow: /Images/
+Disallow: /Reset/
+Disallow: /Entrys/
+Disallow: /tinymce/
+Disallow: /Background/
+Disallow: /KwinflatUpdate/
+Disallow: /StoveMaster/
+Disallow: /TException/
+Disallow: /TPHPPROWN/
+Sitemap: https://kwinflat.ru/sitemap.xml
+
+User-agent: Yandex
+Disallow: /Images/
+Disallow: /Reset/
+Disallow: /Entrys/
+Disallow: /tinymce/
+Disallow: /Background/
+Disallow: /KwinflatUpdate/
+Disallow: /StoveMaster/
+Disallow: /TException/
+Disallow: /TPHPPROWN/
+Sitemap: https://kwinflat.ru/sitemap.xml
+
+User-agent: *
+Disallow: /Images/
+Disallow: /Reset/
+Disallow: /Entrys/
+Disallow: /tinymce/
+Disallow: /Background/
+Disallow: /KwinflatUpdate/
+Disallow: /StoveMaster/
+Disallow: /TException/
+Disallow: /TPHPPROWN/
+Sitemap: https://kwinflat.ru/sitemap.xml
+
+# Disallow: /wp-
+# Disallow: /xmlrpc.php
+# Disallow: /category/
+# Disallow: */trackback/
+# Disallow: /?feed=
+# Allow: /wp-content/uploads/
