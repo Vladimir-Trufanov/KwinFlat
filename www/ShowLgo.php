@@ -12,19 +12,19 @@
 function ShowLgo($Lgo,$Domik)
 {
     $Result=0;
-    $w2e = new Exceptionizer(E_ALL);
-    try 
-    {
+    //$w2e = new Exceptionizer(E_ALL);
+    //try 
+    //{
         // Трассируем варианты ошибок
         // fopen("spoon","r");
         // trigger_error("Сгенерирована ошибка!",E_USER_ERROR);
         
         $Lgo->show($Domik);
-    } 
-    catch (E_EXCEPTION $e) 
-    {
-        echo "<pre><b>LGO!</b>\n",$e,"</pre>";
-    }
+    //} 
+    //catch (E_EXCEPTION $e) 
+    //{
+    //    echo "<pre><b>LGO!</b>\n",$e,"</pre>";
+    //}
     return $Result;
 }
 //echo "<br>".'out_ShowLgo';

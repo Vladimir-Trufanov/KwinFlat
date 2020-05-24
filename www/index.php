@@ -13,7 +13,30 @@
 // session_start();
 
 // Запускаем начальную страницу
-require_once "Main.php";
+// require_once "Main.php";
+
+// Инициализируем рабочее пространство: корневой каталог сайта и т.д.
+require_once 'iniWorkSpace.php';
+$_WORKSPACE=iniWorkSpace();
+$SiteHost    = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
+// Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
+// страницы с выводом сообщений, а также комментариев для PHP5-PHP7
+require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
+try 
+{
+   // Запускаем сценарий сайта
+   require_once $_SERVER['DOCUMENT_ROOT']."/Main.php";
+}
+catch (E_EXCEPTION $e) 
+{
+   /**
+    * ПОМНИТЬ(16.02.2019)! Если в коде сайта включается своя обработка исключений,
+    * то управление выводом ошибок display_errors на сайте NIC.RU отключается и
+    * работает только error_reporting (нужно разрешить обработку всех ошибок)
+   **/
+   // Подключаем обработку исключений верхнего уровня
+   DoorTryPage($e);
+}
 
 // ************************************************************ KwinFlat.ru ***
 ?>

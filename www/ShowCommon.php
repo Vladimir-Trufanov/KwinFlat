@@ -12,10 +12,10 @@
 function ShowCommon($Comm,$Domik,$Ref,$Law,$Norm,$db,$Nch)
 {
     $Result=0;
-    $w2e = new Exceptionizer(E_ALL);
+    //$w2e = new Exceptionizer(E_ALL);
     // Отрабатываем основной код
-    try 
-    {
+    //try 
+    //{
         // Трассируем параметры
         // prown\ViewArray($_GET,'$_GET');
         // echo '$Comm='.$Comm; 
@@ -81,17 +81,17 @@ function ShowCommon($Comm,$Domik,$Ref,$Law,$Norm,$db,$Nch)
         }
         echo "</div>";
         echo "</section>";
-    } 
+    //} 
     // Перехватываем пользовательскую ошибку/сообщение
-    catch (E_USER_ERROR $e) 
-    {
-        echo "<pre><b>E_USER_ERROR!</b>\n",$e,"</pre>";
-    }
+    //catch (E_USER_ERROR $e) 
+    //{
+    //    echo "<pre><b>E_USER_ERROR!</b>\n",$e,"</pre>";
+    //}
     // Перехватываем ошибку сайта
-    catch (E_EXCEPTION $e) 
-    {
-        echo "<pre><b>COMMON!</b>\n",$e,"</pre>";
-    }
+    //catch (E_EXCEPTION $e) 
+    //{
+     //   echo "<pre><b>COMMON!</b>\n",$e,"</pre>";
+    //}
     return $Result;
 }
 //echo "<br>".'out_ShowCommon';

@@ -24,9 +24,9 @@ define ("ListUsl",    "liu");   // "Изменить список услуг"
 define ("ChangeSize", "chs");   // "Изменить размер базового шрифта"  
 
 // Общесайтовые переменные
-$SiteRoot = $_SERVER['DOCUMENT_ROOT'];       // Корневой каталог сайта
-$SiteAbove = \prown\GetAbove($SiteRoot);     // Надсайтовый каталог
-$SiteHost = \prown\GetAbove($SiteAbove);     // Каталог хостинга
+//$SiteRoot = $_SERVER['DOCUMENT_ROOT'];       // Корневой каталог сайта
+//$SiteAbove = \prown\GetAbove($SiteRoot);     // Надсайтовый каталог
+//$SiteHost = \prown\GetAbove($SiteAbove);     // Каталог хостинга
 
 $VariBack = 0;                               // 1 - менять фон при каждом запуске
 $PersName = $_COOKIE['PersName'] ?? "Гость"; // Логин посетителя

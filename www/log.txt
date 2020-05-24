@@ -1,0 +1,27 @@
+[24-May-2020 22:05:21 Asia/Kuwait] PHP Fatal error:  Cannot redeclare prown\GetAbove() (previously declared in C:\TPhpPrown\TPhpPrown\CommonPrown.php:102) in C:\KwinFlat\www\TPHPPROWN\GetAbove.php on line 37
+[24-May-2020 22:07:03 Asia/Kuwait] PHP Fatal error:  Cannot declare class E_EXCEPTION, because the name is already in use in C:\KwinFlat\www\TException\ExceptionClass.php on line 124
+[24-May-2020 22:07:40 Asia/Kuwait] PHP Fatal error:  Cannot redeclare prown\NoZero() (previously declared in C:\TPhpPrown\TPhpPrown\CommonPrown.php:189) in C:\KwinFlat\www\TPHPPROWN\NoZero.php on line 27
+[24-May-2020 22:08:18 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Class 'Exceptionizer' not found in C:\KwinFlat\www\IniCtrlObj.php:18
+Stack trace:
+#0 C:\KwinFlat\www\Main.php(77): IniCtrlObj(Object(PDO), NULL, NULL, NULL, NULL, NULL, NULL, 'Common', 'ina')
+#1 C:\KwinFlat\www\index.php(31): require_once('C:\\KwinFlat\\www...')
+#2 {main}
+  thrown in C:\KwinFlat\www\IniCtrlObj.php on line 18
+[24-May-2020 22:12:25 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Class 'Exceptionizer' not found in C:\KwinFlat\www\ShowNch.php:15
+Stack trace:
+#0 C:\KwinFlat\www\Main.php(140): ShowNch(Object(vnch\ViewNach), Object(PDO), Object(domik\Domikva))
+#1 C:\KwinFlat\www\index.php(31): require_once('C:\\KwinFlat\\www...')
+#2 {main}
+  thrown in C:\KwinFlat\www\ShowNch.php on line 15
+[24-May-2020 22:13:39 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Class 'Exceptionizer' not found in C:\KwinFlat\www\ShowLgo.php:15
+Stack trace:
+#0 C:\KwinFlat\www\Main.php(160): ShowLgo(Object(vlgo\ViewLgo), Object(domik\Domikva))
+#1 C:\KwinFlat\www\index.php(31): require_once('C:\\KwinFlat\\www...')
+#2 {main}
+  thrown in C:\KwinFlat\www\ShowLgo.php on line 15
+[24-May-2020 22:14:25 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Class 'Exceptionizer' not found in C:\KwinFlat\www\ShowCommon.php:15
+Stack trace:
+#0 C:\KwinFlat\www\Main.php(168): ShowCommon('Common', Object(domik\Domikva), Object(reff\Refbooks), Object(laws\ViewLaws), Object(norms\ViewNorms), Object(PDO), Object(vnch\ViewNach))
+#1 C:\KwinFlat\www\index.php(31): require_once('C:\\KwinFlat\\www...')
+#2 {main}
+  thrown in C:\KwinFlat\www\ShowCommon.php on line 15

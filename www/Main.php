@@ -10,19 +10,31 @@
 // Copyright © 2016 TVE                              Посл.изменение: 05.03.2018
 
 // Объявляем и инициируем сайтовые переменные
-require_once $_SERVER['DOCUMENT_ROOT']."/TPHPPROWN/GetAbove.php";
+
+// Инициализируем рабочее пространство: корневой каталог сайта и т.д.
+require_once 'iniWorkSpace.php';
+$_WORKSPACE=iniWorkSpace();
+$SiteRoot    = $_WORKSPACE[wsSiteRoot];     // Корневой каталог сайта
+$SiteAbove   = $_WORKSPACE[wsSiteAbove];    // Надсайтовый каталог
+$SiteHost    = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
+$SiteDevice  = $_WORKSPACE[wsSiteDevice];   // Computer | Mobile | Tablet
+
+//require_once $_SERVER['DOCUMENT_ROOT']."/TPHPPROWN/GetAbove.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/TPHPPROWN/MakeCookie.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/VerifyParm.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/Common.php";
+
+//echo '$SiteRoot = '.$SiteRoot.'<br>';
+
 require_once $_SERVER['DOCUMENT_ROOT']."/Inimem.php";
 
 // Подключаем рабочие модули
-require_once $SiteRoot."/TException/ExceptionClass.php";
-require_once $SiteRoot."/TException/UserMessages.php";
+//require_once $SiteRoot."/TException/ExceptionClass.php";
+//require_once $SiteRoot."/TException/UserMessages.php";
 require_once $SiteRoot."/IniMenu.php";
 
 require_once $SiteRoot."/TPHPPROWN/OutFit.php";
-require_once $SiteRoot."/TPHPPROWN/NoZero.php";
+//require_once $SiteRoot."/TPHPPROWN/NoZero.php";
 require_once $SiteRoot."/TPHPPROWN/regx.php";
 require_once $SiteRoot."/TPHPPROWN/ViewGlobal.php";
 require_once $SiteRoot."/TPHPPROWN/ViewArray.php";

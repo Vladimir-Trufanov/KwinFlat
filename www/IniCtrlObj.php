@@ -15,10 +15,10 @@ function IniCtrlObj($db,&$Domik,&$Nch,&$Lgo,&$Ref,&$Law,&$Norm,$Comm,$Atfirst)
     global $PersEntry;   // Число входов посетителя на сайт 
 
     $Result=0;
-    $w2e = new Exceptionizer(E_ALL);
+    //$w2e = new Exceptionizer(E_ALL);
     // Отрабатываем основной код
-    try 
-    {
+    //try 
+    //{
     
         /* Проба по счетчику
         //session_save_path('philipp');
@@ -79,7 +79,8 @@ function IniCtrlObj($db,&$Domik,&$Nch,&$Lgo,&$Ref,&$Law,&$Norm,$Comm,$Atfirst)
         $Law->init($_GET,$Comm);
         $Norm=new norms\ViewNorms;
         $Norm->init($_GET,$Comm);
-    } 
+    //} 
+    /*
     // Перехватываем пользовательскую ошибку/сообщение
     catch (E_USER_ERROR $e) {MakeUserMessage($e);}
     // Перехватываем ошибку сайта
@@ -92,6 +93,7 @@ function IniCtrlObj($db,&$Domik,&$Nch,&$Lgo,&$Ref,&$Law,&$Norm,$Comm,$Atfirst)
         //print_r($_SERVER);
         echo "<pre><b>INI!</b>\n",$e,"</pre>";
     }
+    */
     return $Result;
 }
 //echo "<br>".'out_IniCtrlObj';
