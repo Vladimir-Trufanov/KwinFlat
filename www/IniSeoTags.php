@@ -19,7 +19,7 @@ function isComRequest($subs)
     return $Result;
 }
 
-function IniSeoTags()
+function IniSeoTags($SiteDevice)
 {
     $Result=true;
 
@@ -52,7 +52,14 @@ function IniSeoTags()
     echo "<link href='https://fonts.googleapis.com/css?family=Kurale' rel='stylesheet'>";
     echo "<link href=\"https://fonts.googleapis.com/css?family=Pattaya&subset=cyrillic\" rel=\"stylesheet\">";        
     echo "<link href=\"https://fonts.googleapis.com/css?family=Podkova&subset=cyrillic\" rel=\"stylesheet\">";  
-    echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"Allcss/Main.css\"/>";
+    if ($SiteDevice=='Mobile')
+    {
+      echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"Allcss/Main_mobi.css\"/>";
+    }
+    else
+    {
+      echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"Allcss/Main.css\"/>";
+    }
     echo "</head>";
     echo "<body>";
     return $Result;

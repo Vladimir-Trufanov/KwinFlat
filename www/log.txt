@@ -25,3 +25,4 @@ Stack trace:
 #1 C:\KwinFlat\www\index.php(31): require_once('C:\\KwinFlat\\www...')
 #2 {main}
   thrown in C:\KwinFlat\www\ShowCommon.php on line 15
+[25-May-2020 09:38:49 Asia/Kuwait] PHP Fatal error:  Cannot redeclare prown\MakeType() (previously declared in C:\TPhpPrown\TPhpPrown\MakeType.php:61) in C:\KwinFlat\www\TPHPPROWN\OutFit.php on line 39

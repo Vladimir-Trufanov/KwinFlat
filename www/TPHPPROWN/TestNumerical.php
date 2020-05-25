@@ -23,14 +23,14 @@ function TestNumerical($Value,$Default,$Dec)
     if (preg_match($reg,$Value,$matches)) 
     {
         // когда число есть
-        $elem=MakeType($matches[0],tfloat);
+        $elem=MakeType($matches[0],tFloat);
         // когда пустая строка
-        if ($elem=='') $elem=MakeType($Default,tfloat);
+        if ($elem=='') $elem=MakeType($Default,tFloat);
     }
     else
     {
         // когда нет результатов
-        $elem=MakeType($Default,tfloat);
+        $elem=MakeType($Default,tFloat);
     }
     return $elem;
 }

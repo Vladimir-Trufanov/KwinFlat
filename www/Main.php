@@ -19,8 +19,13 @@ $SiteAbove   = $_WORKSPACE[wsSiteAbove];    // Надсайтовый катал
 $SiteHost    = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
 $SiteDevice  = $_WORKSPACE[wsSiteDevice];   // Computer | Mobile | Tablet
 
-//require_once $_SERVER['DOCUMENT_ROOT']."/TPHPPROWN/GetAbove.php";
-require_once $_SERVER['DOCUMENT_ROOT']."/TPHPPROWN/MakeCookie.php";
+// Подключаем файлы библиотеки прикладных модулей:
+$TPhpPrown=$SiteHost.'/TPhpPrown';
+require_once $TPhpPrown."/TPhpPrown/CommonPrown.php";
+require_once $TPhpPrown."/TPhpPrown/MakeCookie.php";
+require_once $TPhpPrown."/TPhpPrown/iniConstMem.php";
+
+//require_once $_SERVER['DOCUMENT_ROOT']."/TPHPPROWN/MakeCookie.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/VerifyParm.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/Common.php";
 
@@ -33,7 +38,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/Inimem.php";
 //require_once $SiteRoot."/TException/UserMessages.php";
 require_once $SiteRoot."/IniMenu.php";
 
-require_once $SiteRoot."/TPHPPROWN/OutFit.php";
+//require_once $SiteRoot."/TPHPPROWN/OutFit.php";
 //require_once $SiteRoot."/TPHPPROWN/NoZero.php";
 require_once $SiteRoot."/TPHPPROWN/regx.php";
 require_once $SiteRoot."/TPHPPROWN/ViewGlobal.php";
@@ -88,7 +93,7 @@ IniHeightInstr($wi);
 // Инициируем параметры расчета
 IniCtrlObj($db,$Domik,$Nch,$Lgo,$Ref,$Law,$Norm,$Comm,$Atfirst);
 // Инициируем SEO-теги и начало главной страницы
-IniSeoTags();
+IniSeoTags($SiteDevice);
 echo "<div id=\"notes\" style=\"max-height: ".$wi."rem\">";
 
 // Формируем заголовок H1, настраиваем плюс-минус и

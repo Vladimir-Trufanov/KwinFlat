@@ -12,17 +12,20 @@ DontOpen=0
 AbsolutePath=0
 FileFormat=0
 ProjectFilesOnly=0
+HTServer=localhost
 Extensions=*.*
 [Project tree]
 KwinFlat
-	-www
-		-Allcss
+	+www
+		+Allcss
 			www\Allcss\Comments.css
 			www\Allcss\ContactUs.css
 			www\Allcss\Entrys.css
 			www\Allcss\Examples.css
 			www\Allcss\LineNav.css
 			www\Allcss\Main.css
+			www\Allcss\Main_mobi.css
+			www\Allcss\Main_mobiOld.css
 			www\Allcss\Refbooks.css
 			www\Allcss\Reset.css
 			www\Allcss\Section.css
@@ -303,7 +306,7 @@ KwinFlat
 			www\TViewLgo\ParamNachLgo.php
 			www\TViewLgo\SxelXX.php
 			www\TViewLgo\ViewLgoClass.php
-		-TViewNach
+		+TViewNach
 			www\TViewNach\ControlArray.php
 			www\TViewNach\DefoNach.php
 			www\TViewNach\DelUslugu.php
@@ -346,12 +349,36 @@ KwinFlat
 [Open project files]
 0=www\index.php
 1=www\Main.php
+2=www\IniSeoTags.php
+3=www\Allcss\Main_mobi.css
+4=www\IniMenu.php
+5=www\Allcss\Main.css
+6=www\TViewNach\ViewNachClass.php
+7=www\Allcss\Reset.css
 [Selected Project Files]
 Main=
-Selected=www\Main.php
+Selected=www\Allcss\Reset.css
 [www\index.php]
 TopLine=13
 Caret=1,22
 [www\Main.php]
-TopLine=3
-Caret=1,21
+TopLine=133
+Caret=52,134
+[www\IniSeoTags.php]
+TopLine=33
+Caret=1,57
+[www\Allcss\Main_mobi.css]
+TopLine=63
+Caret=22,69
+[www\IniMenu.php]
+TopLine=75
+Caret=32,87
+[www\Allcss\Main.css]
+TopLine=27
+Caret=1,78
+[www\TViewNach\ViewNachClass.php]
+TopLine=139
+Caret=1,1
+[www\Allcss\Reset.css]
+TopLine=97
+Caret=20,100

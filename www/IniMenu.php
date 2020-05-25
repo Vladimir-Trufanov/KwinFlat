@@ -84,7 +84,7 @@ function IniBottomMenu()
                                                               
 function IniPlusMinus($parm,$isMinus=true)
 {
-    echo "<nav>";
+    echo '<nav class="PlusMinus">';
     echo "<ul>";
     if ($parm==Instr)
     {

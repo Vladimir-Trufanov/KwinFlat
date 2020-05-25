@@ -14,10 +14,10 @@
 function IniNachStep(&$UslCount,&$aInusl,&$aTarif,&$aKolich,&$aKorr,$Mode)
 {
     $MaxCount=14;    // максимальное количество проживающих
-    \prown\PullArray($aInusl,'Inusl',$Mode,tint,$MaxCount);
-    \prown\PullArray($aTarif,'Tarif',$Mode,tfloat,$MaxCount);
-    \prown\PullArray($aKolich,'Kolich',$Mode,tfloat,$MaxCount);
-    \prown\PullArray($aKorr,'Korr',$Mode,tfloat,$MaxCount);
+    \prown\PullArray($aInusl,'Inusl',$Mode,tInt,$MaxCount);
+    \prown\PullArray($aTarif,'Tarif',$Mode,tFloat,$MaxCount);
+    \prown\PullArray($aKolich,'Kolich',$Mode,tFloat,$MaxCount);
+    \prown\PullArray($aKorr,'Korr',$Mode,tFloat,$MaxCount);
     $UslCount=count($aInusl);
     \prown\MakeCookie('UslCount',$UslCount);
 
