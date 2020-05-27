@@ -1,0 +1,164 @@
+/*
+ HTML5/CSS3, EDGE/CHROME                              *** Comments_mobi.css ***
+
+ ******************************************************************************
+ * KwinFlat.ru                 Установить стили представления дома и квартиры *
+ ******************************************************************************
+
+                                                     Автор:       Труфанов В.Е.
+                                                     Дата создания:  22.02.2018
+ Copyright © 2018 tve                                Посл.изменение: 25.05.2020
+*/
+
+.frmDomKvar
+{
+   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+   font-size: 1.7rem;
+	border-collapse: collapse;
+}
+.frmDomKvar li 
+{
+   width: 100%;
+   display:inline-block;
+   background-color: rgba(255,255,255,.1);
+}
+/* Вырисовываем границы у позиций "Дом и квартира" */
+.frmDomKvar li.liPlk, li.liPld, li.liVidblag, li.liEtd, li.liGst, li.liKtd, li.liOtp 
+{
+   border-top:   0.1rem solid #DDB575; 
+   border-left:  0.1rem solid #DDB575; 
+   border-right: 0.1rem solid #DDB575;  
+}
+.frmDomKvar li.liOtp 
+{
+   border-bottom: 0.1rem solid #DDB575; 
+}
+.frmDomKvar td, .frmDomKvar th
+{
+   border: 0.1rem solid #DDB575; 
+}
+/* Достраиваем пестрый фон */
+.frmDomKvar li.liPlk, li.liEtd, li.liKtd 
+{
+   background-color: rgba(229,76,16,.1);
+}
+.frmDomKvar label 
+{
+   float: left;
+   width: 40%;
+   padding: 0.5rem 0 0 0.3rem;
+}
+.frmDomKvar input,select
+{
+   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+   background-color: rgba(255,255,255,.1);
+   font-size: 1.7rem;
+   padding: 0.3rem 0 0.2rem 0.3rem;
+}
+.frmDomKvar input
+{
+   border: 0;
+}
+/*.frmDomKvar   input:checked + span {*/
+.frmDomKvar input:checked
+{
+   background: #fc0;
+}
+.frmDomKvar select
+{
+   border: 0;
+   width: 60%;
+}
+.legDomKvar, .frmDomKvar th
+{
+   font-size: 1.6rem;
+   font-weight: bold;
+   padding: 0.3rem 0.7rem 0.2rem 0.7rem; 
+   text-transform: uppercase;
+   text-align: left;
+   background: rgb(229,76,16);
+   background: linear-gradient(to bottom, rgb(229,76,16), rgb(173,54,8));
+   color: white;
+} 
+.frmDomKvar tr:nth-of-type(even), .inpEven 
+{
+   background-color: rgba(255,255,255,.1);
+}
+.frmDomKvar tr:nth-of-type(odd), .inpOdd
+{
+   background-color: rgba(229,76,16,.1);
+}
+/* Регулируем изображение меню */
+#LineCommon
+{
+   display: inline-block;
+   margin: 0.4rem 0 0 0;
+   height: 4.2rem;
+   width: 30%;
+   padding: .5rem 35% 0 35%;
+}
+#btnDomKvar
+{
+   font-size: 2.6rem;   
+   float: left;
+   padding: 0 0.3rem 0.1rem 0.3rem;
+   margin: 0 1rem 0 0;
+}
+.frmDomKvar nav li
+{
+   display: inline;
+   margin: 0 0 0 -0.2rem;
+}
+/* Позиционируем кнопку "Рассчитать льготы" */
+.tblProzh
+{
+   width: 100%; 
+}
+.tblProzh select
+{
+   width: 100%; 
+}
+/* Внешний вид всех кнопок */
+.buttons
+{
+    font-family: 'Pattaya', sans-serif;
+    /* Элемент блочный - обтекается другими элементами подобно строчному */
+    display: inline-block;  
+    /* Отменяются все эффекты текста, в том числе и подчёркивание у ссылок */
+    text-decoration: none;
+    /* Цвет и фон текста кнопок */
+    color: #290671;     /* #290671; black; */     
+    background: #DCFA70; /* #FFAA00 */
+    /* Толщина, стиль и цвет границы вокруг элемента*/
+    border: 0.0rem solid #FFAA00;   /* #FFAA00 */ 
+    border-radius: 0.5rem;
+    /* Распределяем пространство в кнопке вокруг текста */
+    padding: 0 0.5rem 0 0.5rem;
+    /* Резервируем пространство расширения вокруг элемента сверху и снизу*/
+    /*margin: 0.1em 0 0.1em 0;*/ 
+    /* box-shadow: inset 3px 3px 3px 3px rgba(255,255,255,0.7); */
+    /* box-shadow: 3px 3px 3px 3px;*/
+    box-shadow: inset 0rem 0rem 1.6rem rgba(255,255,255,0.7);
+}
+/* Определяем анимировать все изменения свойств элемента за 0.3 секунды; анимировать 
+изменение фонового цвета за 0.5 секунд с начальной задержкой в 0.2 секунды */
+.buttons
+{
+    /* для сафари */
+    -webkit-transition: -webkit-transform .3s, background-color .5s ease-in .2s;
+    /* для остальных браузеров */ 
+    transition: transform .3s, background-color .5s ease-in .2s;
+}
+/* Определяем поведение кнопки меню при наведении мыши с помощью функции scale, 
+увеличивающей кнопку */
+.buttons:hover 
+{
+    background-color: #FFAA00;      /* до достижения золотого цвета */
+    color: white;      /* до достижения золотого цвета */
+    -webkit-transform: scale(1.1);  /* трансформация для сафари */
+    -ms-transform: scale(1.1);      /* трансформация для IE9 */
+    transform: scale(1.1);          /* трансформация для других браузеров */
+}
+/*
+ ******************************************************** Comments_mobi.css ***
+*/

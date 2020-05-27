@@ -19,6 +19,7 @@ KwinFlat
 	+www
 		+Allcss
 			www\Allcss\Comments.css
+			www\Allcss\Comments_mobi.css
 			www\Allcss\ContactUs.css
 			www\Allcss\Entrys.css
 			www\Allcss\Examples.css
@@ -103,7 +104,7 @@ KwinFlat
 			www\StoveMaster\vverhu_i_vnizu.jpg
 			www\StoveMaster\Zadvizhkam_30_let.jpg
 			www\StoveMaster\Zadvizhki_za_1-30.jpg
-		-TDomikva
+		+TDomikva
 			www\TDomikva\AddProzhiv.php
 			www\TDomikva\DelProzhiv.php
 			www\TDomikva\DomikvaClass.php
@@ -306,7 +307,7 @@ KwinFlat
 			www\TViewLgo\ParamNachLgo.php
 			www\TViewLgo\SxelXX.php
 			www\TViewLgo\ViewLgoClass.php
-		+TViewNach
+		-TViewNach
 			www\TViewNach\ControlArray.php
 			www\TViewNach\DefoNach.php
 			www\TViewNach\DelUslugu.php
@@ -353,32 +354,40 @@ KwinFlat
 3=www\Allcss\Main_mobi.css
 4=www\IniMenu.php
 5=www\Allcss\Main.css
-6=www\TViewNach\ViewNachClass.php
-7=www\Allcss\Reset.css
+6=www\Allcss\Comments_mobi.css
+7=www\TViewNach\ViewNachClass.php
+8=www\TDomikva\DomikvaClass.php
+9=www\Allcss\LineNav.css
 [Selected Project Files]
 Main=
-Selected=www\Allcss\Reset.css
+Selected=www\Allcss\Comments_mobi.css
 [www\index.php]
 TopLine=13
 Caret=1,22
 [www\Main.php]
-TopLine=133
+TopLine=168
 Caret=52,134
 [www\IniSeoTags.php]
 TopLine=33
-Caret=1,57
+Caret=78,58
 [www\Allcss\Main_mobi.css]
-TopLine=63
-Caret=22,69
+TopLine=186
+Caret=1,194
 [www\IniMenu.php]
-TopLine=75
+TopLine=69
 Caret=32,87
 [www\Allcss\Main.css]
-TopLine=27
-Caret=1,78
+TopLine=80
+Caret=1,148
+[www\Allcss\Comments_mobi.css]
+TopLine=87
+Caret=15,96
 [www\TViewNach\ViewNachClass.php]
-TopLine=139
+TopLine=87
 Caret=1,1
-[www\Allcss\Reset.css]
-TopLine=97
-Caret=20,100
+[www\TDomikva\DomikvaClass.php]
+TopLine=93
+Caret=33,105
+[www\Allcss\LineNav.css]
+TopLine=91
+Caret=1,111

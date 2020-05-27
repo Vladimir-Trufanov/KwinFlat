@@ -136,7 +136,7 @@ class ViewNach
 			    // то выводим его, как ссылку
 	            echo"
                 <td class=\"Tarif\"><a href=\"../Main.php?ta=".$i."\"".
-                " rel=\"nofollow\">".$this->aTarif[$i]."₽</a></td>";
+                " rel=\"nofollow\">".$this->aTarif[$i]."</a></td>";
 			}
 	        else 
 			{
@@ -201,7 +201,7 @@ class ViewNach
                 </td>";
             }
 			// Выводим итоговые суммы
-		    echo"<td class=\"Nach\">".number_format($this->aSumUsl[$i],2,'.','')."₽</td>";
+		    echo"<td class=\"Nach\">".number_format($this->aSumUsl[$i],2,'.','')."</td>";
             // Завершаем таблицу
             echo"</tr>";
         }

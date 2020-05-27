@@ -101,8 +101,8 @@ class Domikva
     echo "</div>";
     
     // Управляем вводом
-    echo "<div id=\"LineCommon\">";
-    echo "<button id=\"btnDomKvar\" class=\"buttons\" type=\"submit\">Рассчитать льготы</button>";
+    echo '<div id="LineCommon">';
+    echo '<button id="btnDomKvar" class="buttons" type="submit">Рассчитать льготы</button>';
     IniPlusMinus(Zhkvar,false);
     echo "</div>";
     

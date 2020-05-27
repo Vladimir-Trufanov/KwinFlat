@@ -124,10 +124,73 @@ h3
 {
     text-align: left;
 }
-
-
-
-
+/* Определяем вид наименований услуг, единиц измерения, нормативов, тарифов и т.д. */
+.NameUsl 
+{
+    text-align: left;
+}
+.EdIzm 
+{
+    text-align: center;
+}
+.Norma 
+{
+    text-align: right;
+    /* color: yellow; */
+}
+.Dolya 
+{
+    text-align: right;
+    /* color: yellow; */
+}
+.Tarif 
+{
+    text-align: right;
+}
+.Tarif:hover 
+{
+    background:#51AE3A;
+}
+.Tarif:hover a 
+{
+    color:#fff;
+}
+.Kolich 
+{
+    text-align: right;
+}
+.Kolich:hover 
+{
+    background:#51AE3A;
+}
+.Kolich:hover a 
+{
+    color:#fff;
+}
+.Nach 
+{
+    text-align: right;
+}
+.Korr 
+{
+    text-align: right;
+}
+.Korr:hover 
+{
+    background:#51AE3A;
+}
+.Korr:hover a 
+{
+    color:#fff;
+}
+.Katlgo 
+{
+    text-align: center;
+}
+.Famio 
+{
+    text-align: left;
+}
 /*
  ************************************************************ Main_mobi.css ***
 */	

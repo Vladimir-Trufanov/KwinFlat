@@ -55,6 +55,7 @@ function IniSeoTags($SiteDevice)
     if ($SiteDevice=='Mobile')
     {
       echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"Allcss/Main_mobi.css\"/>";
+      echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"Allcss/Comments_mobi.css\"/>";
     }
     else
     {
