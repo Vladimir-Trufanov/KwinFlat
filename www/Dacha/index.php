@@ -38,30 +38,7 @@ try
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
       <title>Дачная страница</title>
-      <!-- <link rel="stylesheet" type="text/css" href="Allcss/Reset.css" /> -->
-    
-      <style>
-         html{font-family:Helvetica; display:inline-block; margin:0px auto; text-align: center;}
-         body{margin-top:50px;} h1{color:#444444; margin:50px auto 30px;} h3{color:#444444; margin-bottom:50px;}
-      
-         .button
-         {
-            display:block; width:80px; background-color:#3498db; border:none; color:white; padding:13px 30px; 
-            text-decoration:none; font-size:25px; margin:0px auto 35px; cursor:pointer; border-radius: 4px;
-         }
-      
-         .button-on         {background-color:#3498db;}
-         .button-on:active  {background-color:#2980b9;}
-         .button-off        {background-color:#34495e;}
-         .button-off:active {background-color:#2c3e50;}
-      
-         p {font-size:14px; color:#888; margin-bottom:10px;}
-         
-         #DachaStatus 
-         {
-            display:none;
-         }
-      </style>
+      <link rel="stylesheet" type="text/css" href="Dacha.css">
    </head>
 
    <body>
@@ -95,7 +72,6 @@ try
          Copyright &copy; Владимир Труфанов
       </footer>
       
-      <div id="DachaStatus">
       <?php
       $dom = new DOMDocument('1.0','UTF-8');
       $dom->formatOutput = true;
@@ -111,10 +87,9 @@ try
       $result->appendChild( $dom->createElement('sgpa', '8.1') );
       $result->appendChild( $dom->createElement('cgpa', '8.4') );
 
-      echo '<xmp>'. $dom->saveXML() .'</xmp>';
+      //echo '<xmp>'. $dom->saveXML() .'</xmp>';
       $dom->save('result.xml') or die('XML Create Error');
       ?>
-      </div>
 
    </body>
    </html>
