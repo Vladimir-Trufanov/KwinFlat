@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 KwinFlat
-	-www
+	+www
 		-.well-known
 			-pki-validation
 				www\.well-known\pki-validation\gsdv.txt
@@ -49,9 +49,154 @@ KwinFlat
 			www\Background\Razlom16x9.gif
 			www\Background\VnizuVoda_kv.gif
 			www\Background\Vodopadik_kv.gif
-		-Dacha
-			www\DachaXML\index.php
+		+Dacha
+			www\Dacha\index.php
+			www\Dacha\iniWorkSpace.php
 		-DachaXML
+			-simplehtmldom_1_9_1
+				-example
+					-scraping
+						www\DachaXML\simplehtmldom_1_9_1\example\scraping\example_scraping_digg.php
+						www\DachaXML\simplehtmldom_1_9_1\example\scraping\example_scraping_general.php
+						www\DachaXML\simplehtmldom_1_9_1\example\scraping\example_scraping_imdb.php
+						www\DachaXML\simplehtmldom_1_9_1\example\scraping\example_scraping_slashdot.php
+					www\DachaXML\simplehtmldom_1_9_1\example\example_advanced_selector.php
+					www\DachaXML\simplehtmldom_1_9_1\example\example_basic_selector.php
+					www\DachaXML\simplehtmldom_1_9_1\example\example_callback.php
+					www\DachaXML\simplehtmldom_1_9_1\example\example_extract_html.php
+					www\DachaXML\simplehtmldom_1_9_1\example\example_modify_contents.php
+					www\DachaXML\simplehtmldom_1_9_1\example\simple_html_dom_utility.php
+				-manual
+					-custom_theme
+						www\DachaXML\simplehtmldom_1_9_1\manual\custom_theme\main.html
+					-docs
+						-api
+							-simple_html_dom
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\__construct.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\__destruct.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\__get.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\__toString.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\as_text_node.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\childNodes.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\clear.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\copy_skip.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\copy_until.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\copy_until_char.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\createElement.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\createTextNode.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\dump.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\find.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\firstChild.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\getElementById.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\getElementByTagName.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\getElementsById.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\getElementsByTagName.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\lastChild.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\link_nodes.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\load.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\load_file.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\loadFile.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\parse.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\parse_attr.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\parse_charset.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\prepare.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\read_tag.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\remove_callback.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\remove_noise.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\restore_noise.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\save.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\search_noise.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\set_callback.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\simple_html_dom.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom\skip.md
+							-simple_html_dom_node
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\__construct.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\__destruct.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\__get.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\__isset.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\__set.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\__toString.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\__unset.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\addClass.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\appendChild.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\childNodes.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\children.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\clear.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\convert_text.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\dump.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\dump_node.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\find.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\find_ancestor_tag.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\first_child.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\firstChild.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\get_display_size.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\getAllAttributes.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\getAttribute.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\getElementById.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\getElementByTagName.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\getElementsById.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\getElementsByTagName.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\has_child.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\hasAttribute.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\hasChildNodes.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\hasClass.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\innertext.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\is_utf8.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\last_child.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\lastChild.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\makeup.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\match.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\next_sibling.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\nextSibling.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\nodeName.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\outertext.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\parent.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\parentNode.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\parse_selector.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\prev_sibling.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\prevSibling.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\remove.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\removeAttribute.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\removeChild.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\removeClass.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\save.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\seek.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\setAttribute.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\simple_html_dom_node.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\text.md
+								www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\simple_html_dom_node\xmltext.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\api.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\constants.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\definitions.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\file_get_html.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\api\str_get_html.md
+						-manual
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\manual\accessing-element-attributes.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\manual\adding-nodes.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\manual\creating-dom-objects.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\manual\customizing-parsing-behavior.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\manual\finding-html-elements.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\manual\saving-dom-objects.md
+							www\DachaXML\simplehtmldom_1_9_1\manual\docs\manual\traversing-dom-tree.md
+						www\DachaXML\simplehtmldom_1_9_1\manual\docs\faq.md
+						www\DachaXML\simplehtmldom_1_9_1\manual\docs\index.md
+						www\DachaXML\simplehtmldom_1_9_1\manual\docs\quick-start.md
+						www\DachaXML\simplehtmldom_1_9_1\manual\docs\requirements.md
+					-site
+						www\DachaXML\simplehtmldom_1_9_1\manual\site\.gitkeep
+					www\DachaXML\simplehtmldom_1_9_1\manual\extra.css
+					www\DachaXML\simplehtmldom_1_9_1\manual\mkdocs.yml
+					www\DachaXML\simplehtmldom_1_9_1\manual\README.md
+				www\DachaXML\simplehtmldom_1_9_1\CHANGELOG.md
+				www\DachaXML\simplehtmldom_1_9_1\LICENSE
+				www\DachaXML\simplehtmldom_1_9_1\phpcompatibility.xml
+				www\DachaXML\simplehtmldom_1_9_1\phpcs.xml
+				www\DachaXML\simplehtmldom_1_9_1\simple_html_dom.php
+			www\DachaXML\index.php
+			www\DachaXML\result.xml
+			www\DachaXML\simple_html_dom.php
+			www\DachaXML\simplehtmldom_1_9_1.zip
+			www\DachaXML\users.xml
 		-Entrys
 			www\Entrys\AddUsl.php
 			www\Entrys\AddZhkvar.php
@@ -356,18 +501,26 @@ KwinFlat
 		www\VerifyParm.php
 		www\yandex_6c84a6d35d387988.html
 [Open project files]
-0=www\index.php
-1=www\DachaXML\index.php
-2=www\IniMenu.php
+0=www\DachaXML\index.php
+1=www\IniMenu.php
+2=www\Dacha\index.php
+3=www\Dacha\iniWorkSpace.php
+4=..\TPhpPrown\TPhpPrown\CommonPrown.php
 [Selected Project Files]
 Main=
-Selected=www\DachaXML\index.php
-[www\index.php]
-TopLine=3
-Caret=1,22
+Selected=www\Dacha\index.php
 [www\DachaXML\index.php]
-TopLine=1
-Caret=3,18
+TopLine=50
+Caret=1,89
 [www\IniMenu.php]
 TopLine=3
 Caret=56,41
+[www\Dacha\index.php]
+TopLine=37
+Caret=26,62
+[www\Dacha\iniWorkSpace.php]
+TopLine=32
+Caret=32,42
+[..\TPhpPrown\TPhpPrown\CommonPrown.php]
+TopLine=113
+Caret=1,149
