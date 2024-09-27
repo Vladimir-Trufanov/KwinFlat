@@ -377,7 +377,7 @@ Selected=www\Dacha\result.xml
 TopLine=1
 Caret=104,13
 [www\IniMenu.php]
-TopLine=3
+TopLine=9
 Caret=56,41
 [www\Dacha\iniWorkSpace.php]
 TopLine=32
@@ -386,8 +386,8 @@ Caret=32,42
 TopLine=1
 Caret=1,29
 [www\Dacha\index.php]
-TopLine=67
+TopLine=93
 Caret=1,93
 [www\Dacha\result.xml]
 TopLine=1
-Caret=1,1
+Caret=8,4
