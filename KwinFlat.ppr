@@ -53,13 +53,7 @@ KwinFlat
 			www\Dacha\Dacha.css
 			www\Dacha\index.php
 			www\Dacha\iniWorkSpace.php
-			www\Dacha\log.txt
-			www\Dacha\result.xml
-		-DachaXML
-			www\DachaXML\index.php
-			www\DachaXML\result.xml
-			www\DachaXML\simple_html_dom.php
-			www\DachaXML\users.xml
+			www\Dacha\Positions.xml
 		-Entrys
 			www\Entrys\AddUsl.php
 			www\Entrys\AddZhkvar.php
@@ -364,30 +358,26 @@ KwinFlat
 		www\VerifyParm.php
 		www\yandex_6c84a6d35d387988.html
 [Open project files]
-0=www\DachaXML\index.php
-1=www\IniMenu.php
-2=www\Dacha\iniWorkSpace.php
-3=www\Dacha\Dacha.css
-4=www\Dacha\index.php
-5=www\Dacha\result.xml
+0=www\IniMenu.php
+1=www\Dacha\iniWorkSpace.php
+2=www\Dacha\Dacha.css
+3=www\Dacha\index.php
+4=www\Dacha\Positions.xml
 [Selected Project Files]
 Main=
-Selected=www\Dacha\result.xml
-[www\DachaXML\index.php]
-TopLine=1
-Caret=104,13
+Selected=www\Dacha\index.php
 [www\IniMenu.php]
-TopLine=9
-Caret=56,41
+TopLine=103
+Caret=1,122
 [www\Dacha\iniWorkSpace.php]
 TopLine=32
 Caret=32,42
 [www\Dacha\Dacha.css]
 TopLine=1
-Caret=1,29
+Caret=90,28
 [www\Dacha\index.php]
-TopLine=93
-Caret=1,93
-[www\Dacha\result.xml]
+TopLine=46
+Caret=36,64
+[www\Dacha\Positions.xml]
 TopLine=1
-Caret=8,4
+Caret=7,5
