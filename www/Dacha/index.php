@@ -19,6 +19,9 @@ $SiteDevice   = $_WORKSPACE[wsSiteDevice];   // 'Computer' | 'Mobile' | 'Tablet'
 $UserAgent    = $_WORKSPACE[wsUserAgent];    // HTTP_USER_AGENT
 $urlHome      = $_WORKSPACE[wsUrlHome];      // Начальная страница сайта 
 
+// Подключаем модули парсера XML-файлов
+include 'simple_html_dom.php';
+
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
@@ -47,6 +50,9 @@ try
          <div class="header-bg">
          <img src="../Images/Kwinflat.jpg" alt="Kwinflat-близкий всем!" />
          </div>
+         <?php
+            ReadPositions();
+         ?>
       </header>
 
       <article>
@@ -73,17 +79,15 @@ try
       <footer>
          Copyright &copy; Владимир Труфанов
       </footer>
-      
-      <?php
 
-      
+      <?php
+         CreatePositions();
       ?>
 
    </body>
    </html>
 
    <?php
-   CreatePositions();
 }
 catch (E_EXCEPTION $e) 
 {
@@ -102,11 +106,40 @@ function CreatePositions()
 {
    $dom = new DOMDocument('1.0','UTF-8');
    $dom->formatOutput = true;
+   
    $root = $dom->createElement('positions');
    $dom->appendChild($root);
-   $root->appendChild( $dom->createElement('name', 'Всем привет!') );
-   $root->appendChild( $dom->createElement('sgpa', '181') );
+   $root->setAttribute('id','root');
+   
+   $name=$dom->createElement('name','Всем привет!'); 
+   $root->appendChild($name);
+   
+   $sgpa=$dom->createElement('sgpa','181');
+   $root->appendChild($sgpa);
+   $sgpa->setAttribute('id','sgpa');
+
    $dom->save('Positions.xml') or die('XML Create Error');
+}
+
+// ****************************************************************************
+// *                   Сбросить состояния в Positions.xml                     *
+// ****************************************************************************
+function ReadPositions()
+{
+   //echo '<p>ReadPositions()</p>';
+      $xml = file_get_html('https://kwinflat.ru/Dacha/Positions.xml'); // загружаем данные
+   // $xml = file_get_html('http://localhost:100/Dacha/Positions.xml'); // загружаем данные
+   // Выводим контекст страницы
+   // echo $xml->plaintext;
+   
+   //
+   foreach($xml->find('#sgpa') as $title) 
+   {
+      // Выводим текст заголовка
+      echo '===<br>';
+      echo 'sgpa='.$title->plaintext.'<br>';
+      echo '===<br>';
+   }
 }
 
 ?>

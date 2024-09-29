@@ -54,6 +54,7 @@ KwinFlat
 			www\Dacha\index.php
 			www\Dacha\iniWorkSpace.php
 			www\Dacha\Positions.xml
+			www\Dacha\simple_html_dom.php
 		-Entrys
 			www\Entrys\AddUsl.php
 			www\Entrys\AddZhkvar.php
@@ -363,6 +364,7 @@ KwinFlat
 2=www\Dacha\Dacha.css
 3=www\Dacha\index.php
 4=www\Dacha\Positions.xml
+5=www\Dacha\simple_html_dom.php
 [Selected Project Files]
 Main=
 Selected=www\Dacha\index.php
@@ -376,8 +378,11 @@ Caret=32,42
 TopLine=1
 Caret=90,28
 [www\Dacha\index.php]
-TopLine=46
-Caret=36,64
+TopLine=107
+Caret=11,130
 [www\Dacha\Positions.xml]
 TopLine=1
-Caret=7,5
+Caret=8,4
+[www\Dacha\simple_html_dom.php]
+TopLine=1
+Caret=60,3
