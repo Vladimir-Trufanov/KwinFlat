@@ -15,11 +15,16 @@ define ("wsSiteHost",      2);          // Каталог хостинга
 define ("wsSiteDevice",    3);          // 'Computer' | 'Mobile' | 'Tablet'
 define ("wsUserAgent",     4);          // HTTP_USER_AGENT
 define ("wsTimeRequest",   5);          // Время запроса сайта
-define ("wsRemoteAddr",    6);          // IP-адрес запроса сайта
+define ("wsRemoteAddr",    6);          // IP-адрес запроса сайта, с которого пользователь просматривает страницу
 define ("wsSiteName",      7);          // Доменное имя сайта
 define ("wsPhpVersion",    8);          // Версия PHP
 define ("wsSiteProtocol",  9);          // HTTP или HTTPS
 define ("wsUrlHome",      10);          // Начальная страница сайта
+define ("wsRootDir",      11);          // Каталог корня сайта, в котором выполняется текущий скрипт
+define ("wsRootUrl",      12);          // Путь и имя выполняемого скрипта
+define ("wsRemoteHost",   13);          // Удаленный хост, с которого пользователь просматривает текущую страницу
+define ("wsHttpReferer",  14);          // Адрес страницы, с которой браузер пользователя перешёл на текущую страницу
+
 // Формируем массив параметров рабочего пространства сайта 
 // и соответствующие глобальные переменные
 function iniWorkSpace()
@@ -29,6 +34,10 @@ function iniWorkSpace()
    $SiteHost=Above($SiteAbove);          // Каталог хостинга
    include_once($SiteHost.'/TPhpPrown/TPhpPrown/CommonPrown.php');
    include_once($SiteHost.'/TPhpPrown/TPhpPrown/WorkSpace/getSiteDevice.php');
+   // Если есть, назначаем реферальную ссылку
+   if (IsSet($_SERVER['HTTP_REFERER'])) $Refer=$_SERVER['HTTP_REFERER'];
+   else $Refer='NoExist';
+   // Собираем массив параметров рабочего пространства сайта 
    $_WORKSPACE=array
    (
       wsSiteRoot      => $SiteRoot,  
@@ -42,7 +51,13 @@ function iniWorkSpace()
       wsPhpVersion    => prown\getPhpVersion(), 
       wsSiteProtocol  => isProtocol(), 
       wsUrlHome       => isProtocol().'://'.$_SERVER['HTTP_HOST'], 
-   );
+      wsRootDir       => $_SERVER['DOCUMENT_ROOT'],
+      wsRootUrl       => $_SERVER['SCRIPT_NAME'],
+      wsRemoteHost    => $_SERVER['REMOTE_HOST'],
+      wsHttpReferer   => $Refer,
+   );                              
+   // Сбрасываем в лог-файл значения массива $ _SERVER для разных клиентов 
+   file_put_contents(__DIR__ . '/server.log', print_r($_SERVER, true) . PHP_EOL, FILE_APPEND);
    return $_WORKSPACE;
 }   
 // ****************************************************************************

@@ -15,13 +15,9 @@ echo '<div id="Header">';
 echo 'id="Header"'; 
 echo '</div>';
 
-echo '<div id="Life">';
-echo 'id="Life"'; 
+echo '<div id="Article">';
+echo 'id="Article"'; 
 echo '</div>';
-
-echo '<div id="Gallery">';
-echo 'id="Gallery"'; 
-echo '</div>'; 
 
 echo '<div id="Footer">';
 echo 'id="Footer"'; 
