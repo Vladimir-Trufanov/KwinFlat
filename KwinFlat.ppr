@@ -49,11 +49,15 @@ KwinFlat
 			www\Background\Razlom16x9.gif
 			www\Background\VnizuVoda_kv.gif
 			www\Background\Vodopadik_kv.gif
-		+Dacha
+		-Dacha
+			-lead
+			-state
+			-view
 			www\Dacha\Dacha.css
 			www\Dacha\index.php
 			www\Dacha\iniWorkSpace.php
 			www\Dacha\Positions.xml
+			www\Dacha\Proba.xml
 			www\Dacha\simple_html_dom.php
 		-Entrys
 			www\Entrys\AddUsl.php
@@ -104,6 +108,31 @@ KwinFlat
 		-Reset
 			www\Reset\e404.php
 			www\Reset\index.php
+		+root
+			www\root\.htaccess
+			www\root\.user.ini
+			www\root\About.php
+			www\root\Codif.php
+			www\root\Common.php
+			www\root\desktop.ini
+			www\root\favicon.ico
+			www\root\IniCtrlObj.php
+			www\root\Inimem.php
+			www\root\IniMenu.php
+			www\root\IniNorm.php
+			www\root\IniSeoTags.php
+			www\root\iniWorkSpace.php
+			www\root\Introductions.php
+			www\root\kwiflatn.db3
+			www\root\log.txt
+			www\root\Main.php
+			www\root\robots.txt
+			www\root\ShowCommon.php
+			www\root\ShowLgo.php
+			www\root\ShowNch.php
+			www\root\sitemap.xml
+			www\root\VerifyParm.php
+			www\root\yandex_6c84a6d35d387988.html
 		-StoveMaster
 			www\StoveMaster\byla_razdelka.jpg
 			www\StoveMaster\index.html
@@ -333,56 +362,32 @@ KwinFlat
 			www\TViewNorms\PPRK129-20070827_O_socnormah_ploschadi.html
 			www\TViewNorms\PPRK469-20171226_O_minimalnom_VKR.html
 			www\TViewNorms\ViewNormsClass.php
-		www\.htaccess
-		www\.user.ini
-		www\About.php
-		www\Codif.php
-		www\Common.php
-		www\desktop.ini
-		www\favicon.ico
 		www\index.php
-		www\IniCtrlObj.php
-		www\Inimem.php
-		www\IniMenu.php
-		www\IniNorm.php
-		www\IniSeoTags.php
+		www\iniMem.php
 		www\iniWorkSpace.php
-		www\Introductions.php
-		www\kwiflatn.db3
-		www\log.txt
-		www\Main.php
-		www\robots.txt
-		www\ShowCommon.php
-		www\ShowLgo.php
-		www\ShowNch.php
-		www\sitemap.xml
-		www\VerifyParm.php
-		www\yandex_6c84a6d35d387988.html
+		www\UpSiteBODY.php
+		www\UpSiteHEAD.php
 [Open project files]
-0=www\IniMenu.php
-1=www\Dacha\iniWorkSpace.php
-2=www\Dacha\Dacha.css
-3=www\Dacha\index.php
-4=www\Dacha\Positions.xml
-5=www\Dacha\simple_html_dom.php
+0=www\index.php
+1=www\iniWorkSpace.php
+2=www\iniMem.php
+3=www\UpSiteBODY.php
+4=www\UpSiteHEAD.php
 [Selected Project Files]
 Main=
-Selected=www\Dacha\index.php
-[www\IniMenu.php]
-TopLine=103
-Caret=1,122
-[www\Dacha\iniWorkSpace.php]
-TopLine=32
-Caret=32,42
-[www\Dacha\Dacha.css]
+Selected=www\UpSiteBODY.php
+[www\index.php]
+TopLine=29
+Caret=1,33
+[www\iniWorkSpace.php]
+TopLine=11
+Caret=1,23
+[www\iniMem.php]
 TopLine=1
-Caret=90,28
-[www\Dacha\index.php]
-TopLine=107
-Caret=11,130
-[www\Dacha\Positions.xml]
+Caret=1,1
+[www\UpSiteBODY.php]
 TopLine=1
-Caret=8,4
-[www\Dacha\simple_html_dom.php]
+Caret=1,30
+[www\UpSiteHEAD.php]
 TopLine=1
-Caret=60,3
+Caret=1,1

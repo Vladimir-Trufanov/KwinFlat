@@ -5,27 +5,53 @@
 // *                                                   KwinFlat-близкий всем! *
 // ****************************************************************************
 
-//                                                   Автор:       Труфанов В.Е.
-//                                                   Дата создания:  14.08.2016
-// Copyright © 2016 tve                              Посл.изменение: 29.08.2018
+// v4.0, 02.10.2024                                   Автор:      Труфанов В.Е.
+// Copyright © 2016 tve                               Дата создания: 14.08.2016
 
-// Явно запускаем сессию (независимо от состояния session.auto_start)
-// session_start();
-
-// Запускаем начальную страницу
-// require_once "Main.php";
 
 // Инициализируем рабочее пространство: корневой каталог сайта и т.д.
 require_once 'iniWorkSpace.php';
 $_WORKSPACE=iniWorkSpace();
-$SiteHost    = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
+
+$SiteRoot     = $_WORKSPACE[wsSiteRoot];     // Корневой каталог сайта
+$SiteAbove    = $_WORKSPACE[wsSiteAbove];    // Надсайтовый каталог
+$SiteHost     = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
+$SiteDevice   = $_WORKSPACE[wsSiteDevice];   // 'Computer' | 'Mobile' | 'Tablet'
+$UserAgent    = $_WORKSPACE[wsUserAgent];    // HTTP_USER_AGENT
+$TimeRequest  = $_WORKSPACE[wsTimeRequest];  // Время запроса сайта
+$RemoteAddr   = $_WORKSPACE[wsRemoteAddr];   // IP-адрес запроса сайта
+$SiteName     = $_WORKSPACE[wsSiteName];     // Доменное имя сайта
+$PhpVersion   = $_WORKSPACE[wsPhpVersion];   // Версия PHP
+$SiteProtocol = $_WORKSPACE[wsSiteProtocol]; // HTTP или HTTPS
+$urlHome      = $_WORKSPACE[wsUrlHome];      // Начальная страница сайта 
+
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
-   // Запускаем сценарий сайта
-   require_once $_SERVER['DOCUMENT_ROOT']."/Main.php";
+   // ---------------------------------------------------------------- INIT ---
+   // Выполняем начальную инициализацию переменных, определяем константы,
+   // создаем классы для начального заполнения разметки
+   require_once "iniMem.php"; 
+   // Начинаем разметку страниц сайта c кодировкой UTF8
+   echo '<!DOCTYPE html>'; // определили разметку HTML5
+   echo '<html lang="ru">'; // назначили русский язык для сайта
+   echo '<meta http-equiv="content-type" content="text/html; charset=utf-8">';
+   // ------------------------------------------------------- HEAD and LAST ---
+   // Указываем индивидуальные данные страниц сайта для поисковых систем 
+   // и пользователей, подключаем персональные стили для настольных и мобильных 
+   // версий страниц сайта
+   echo "<head>";
+   require_once "UpSiteHEAD.php";
+   echo "</head>";
+   // ---------------------------------------------------------------- BODY ---
+   // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
+   echo '<body>'; 
+   require_once "UpSiteBODY.php";
+   echo '</body>'; 
+   // Завершаем разметку
+   echo '</html>';
 }
 catch (E_EXCEPTION $e) 
 {
@@ -37,6 +63,17 @@ catch (E_EXCEPTION $e)
    // Подключаем обработку исключений верхнего уровня
    DoorTryPage($e);
 }
+
+?> <!-- --> <?php // ******************************************** index.php ***
+
+
+
+
+
+
+
+
+
 
 // ************************************************************ KwinFlat.ru ***
 ?>

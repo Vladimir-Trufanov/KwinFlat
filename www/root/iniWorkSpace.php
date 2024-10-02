@@ -6,20 +6,18 @@
 
 //                                                   Автор:       Труфанов В.Е.
 //                                                   Дата создания:  31.01.2020
-// Copyright © 2020 TVE                              Посл.изменение: 22.07.2021
+// Copyright © 2020 TVE                              Посл.изменение: 20.03.2020
 
-// Определяем константы перечня элементов массива рабочего пространства 
-define ("wsSiteRoot",      0);          // Корневой каталог сайта 
-define ("wsSiteAbove",     1);          // Надсайтовый каталог
-define ("wsSiteHost",      2);          // Каталог хостинга
-define ("wsSiteDevice",    3);          // 'Computer' | 'Mobile' | 'Tablet'
-define ("wsUserAgent",     4);          // HTTP_USER_AGENT
-define ("wsTimeRequest",   5);          // Время запроса сайта
-define ("wsRemoteAddr",    6);          // IP-адрес запроса сайта
-define ("wsSiteName",      7);          // Доменное имя сайта
-define ("wsPhpVersion",    8);          // Версия PHP
-define ("wsSiteProtocol",  9);          // HTTP или HTTPS
-define ("wsUrlHome",      10);          // Начальная страница сайта
+// Определяем константы перечня элементов массива рабочего пространства ---
+define ("wsSiteRoot",    0);          // Корневой каталог сайта 
+define ("wsSiteAbove",   1);          // Надсайтовый каталог
+define ("wsSiteHost",    2);          // Каталог хостинга
+define ("wsSiteDevice",  3);          // 'Computer' | 'Mobile' | 'Tablet'
+define ("wsUserAgent",   4);          // HTTP_USER_AGENT
+define ("wsTimeRequest", 5);          // Время запроса сайта
+define ("wsRemoteAddr",  6);          // IP-адрес запроса сайта
+define ("wsSiteName",    7);          // Доменное имя сайта
+define ("wsPhpVersion",  8);          // Версия PHP
 // Формируем массив параметров рабочего пространства сайта 
 // и соответствующие глобальные переменные
 function iniWorkSpace()
@@ -31,17 +29,15 @@ function iniWorkSpace()
    include_once($SiteHost.'/TPhpPrown/TPhpPrown/WorkSpace/getSiteDevice.php');
    $_WORKSPACE=array
    (
-      wsSiteRoot      => $SiteRoot,  
-      wsSiteAbove     => $SiteAbove, 
-      wsSiteHost      => $SiteHost, 
-      wsSiteDevice    => getSiteDevice(),  // 'Computer' | 'Mobile' | 'Tablet'
-      wsUserAgent     => $_SERVER['HTTP_USER_AGENT'],    
-      wsTimeRequest   => $_SERVER['REQUEST_TIME'],    
-      wsRemoteAddr    => $_SERVER['REMOTE_ADDR'],    
-      wsSiteName      => $_SERVER['HTTP_HOST'],    
-      wsPhpVersion    => prown\getPhpVersion(), 
-      wsSiteProtocol  => isProtocol(), 
-      wsUrlHome       => isProtocol().'://'.$_SERVER['HTTP_HOST'], 
+      wsSiteRoot    => $SiteRoot,  
+      wsSiteAbove   => $SiteAbove, 
+      wsSiteHost    => $SiteHost, 
+      wsSiteDevice  => getSiteDevice(),  // 'Computer' | 'Mobile' | 'Tablet'
+      wsUserAgent   => $_SERVER['HTTP_USER_AGENT'],    
+      wsTimeRequest => $_SERVER['REQUEST_TIME'],    
+      wsRemoteAddr  => $_SERVER['REMOTE_ADDR'],    
+      wsSiteName    => $_SERVER['HTTP_HOST'],    
+      wsPhpVersion  => prown\getPhpVersion(),    
    );
    return $_WORKSPACE;
 }   
@@ -102,26 +98,6 @@ function isMatches($aMatches)
       }
    }
    return $Result;
-}
-// ****************************************************************************
-// *                Определить тип протокола сайта 'HTTP' или 'HTTPS'         *
-// ****************************************************************************
-// http://reset.name/php/php-opredelit-https-ili-http-ispolzuetsja-pri-podkljuchenii/
-function isProtocol()
-{
-   if($_SERVER["SERVER_PORT"] == 443)
-      $protocol = 'https';
-   elseif (isset($_SERVER["HTTPS"]) && (($_SERVER["HTTPS"] == 'on') || ($_SERVER["HTTPS"] == '1')))
-      $protocol = 'https';
-   elseif (
-   !empty($_SERVER["HTTP_X_FORWARDED_PROTO"]) && $_SERVER["HTTP_X_FORWARDED_PROTO"] == 'https' || 
-   !empty($_SERVER["HTTP_X_FORWARDED_SSL"]) && $_SERVER["HTTP_X_FORWARDED_SSL"] == 'on')
-      $protocol = 'https';
-   elseif (strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5)) == 'https')
-      $protocol = 'https';
-   else
-      $protocol = 'http';
-   return $protocol;
 }
 // ******************************************************* iniWorkSpace.php ***
  
