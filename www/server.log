@@ -1,6 +1,6 @@
 Array
 (
-    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-dde3a456-5701-4891-9490-fa736fe49f2d
+    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-26805f21-91b8-4232-a3ea-30f54c97ef45
     [ALLUSERSPROFILE] => C:\ProgramData
     [APPDATA] => C:\WINDOWS\system32\config\systemprofile\AppData\Roaming
     [APP_POOL_CONFIG] => C:\inetpub\temp\apppools\100-KwinFlat\100-KwinFlat.config
@@ -47,7 +47,7 @@ Array
     [REQUEST_URI] => /
     [REQUEST_METHOD] => GET
     [REMOTE_USER] => 
-    [REMOTE_PORT] => 62103
+    [REMOTE_PORT] => 53965
     [REMOTE_HOST] => ::1
     [REMOTE_ADDR] => ::1
     [QUERY_STRING] => 
@@ -86,7 +86,7 @@ Array
     [HTTP_SEC_CH_UA] => "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
     [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
     [HTTP_HOST] => localhost:100
-    [HTTP_COOKIE] => PresMode=%D0%9E%D0%B4%D0%BD%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%BD%D0%BE%D1%87%D0%BD%D1%8B%D0%B9+%D1%81+%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9+%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D0%B5%D0%B9; aKorr=a%3A4%3A%7Bi%3A0%3Bd%3A214.17%3Bi%3A1%3Bd%3A0%3Bi%3A2%3Bd%3A-14.24%3Bi%3A3%3Bd%3A0%3B%7D; UslCount=4; PlDom=2147.1; PlKvar=52.3; Vidblag=1; EtDom=9; GodStr=2016; KatDom=2; PerOto=1; NewsForm=1; NewsAmt=8; NewsView=1; Orient=landscape; ModeImg=%D0%92+%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D0%BE%D0%BC+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B5+%D0%B2+%D0%BF%D0%B8%D0%BA%D1%81%D0%B5%D0%BB%D0%B0%D1%85+-+%D0%BA%D0%B0%D0%BA+%D0%B5%D1%81%D1%82%D1%8C; PhoneImg=%D0%9E%D0%B1%D1%8B%D1%87%D0%BD%D1%8B%D0%B9+%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9+%D1%84%D0%BE%D0%BD; Pass=sddffgg234-SDF; PunktMenu=osobennosti-ustrojstva-vintikov-v-moej-golove; UserName=Гость; PersMail=Гость; PersPass=Гость; PersName=%D0%93%D0%BE%D1%81%D1%82%D1%8C; WasTest=WasTest; FileStamp=images%2Fistamp.png; _octo=GH1.1.1796295021.1705904153; FileImg=images%2Fiphoto.jpg; FileProba=images%2Fiproba.jpeg; wi=24; EditImg=Images%2Fsampo.jpg; ResCookie=0; aInusl=a%3A4%3A%7Bi%3A0%3Bi%3A1%3Bi%3A1%3Bi%3A7%3Bi%3A2%3Bi%3A151%3Bi%3A3%3Bi%3A206%3B%7D; aTarif=a%3A4%3A%7Bi%3A0%3Bd%3A22.92%3Bi%3A1%3Bd%3A38.24%3Bi%3A2%3Bd%3A2.13%3Bi%3A3%3Bd%3A7.6%3B%7D; aKolich=a%3A4%3A%7Bi%3A0%3Bd%3A52.3%3Bi%3A1%3Bd%3A3.214%3Bi%3A2%3Bd%3A0.736%3Bi%3A3%3Bd%3A52.3%3B%7D; Comm=About; CurrStih=kapriznyj-starik; SignaPhoto=69; PointCorner=%D0%9B%D0%B5%D0%B2%D1%8B%D0%B9+%D0%B2%D0%B5%D1%80%D1%85%D0%BD%D0%B8%D0%B9+%D1%83%D0%B3%D0%BE%D0%BB; PerSizeImg=20; PerMargeWidth=5; PerMargeHight=5; MaintainProp=%D0%94%D0%B0%2C+%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D1%8F%D1%82%D1%8C; BrowEntry=5657; PersEntry=4322
+    [HTTP_COOKIE] => PresMode=%D0%9E%D0%B4%D0%BD%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%BD%D0%BE%D1%87%D0%BD%D1%8B%D0%B9+%D1%81+%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9+%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D0%B5%D0%B9; aKorr=a%3A4%3A%7Bi%3A0%3Bd%3A214.17%3Bi%3A1%3Bd%3A0%3Bi%3A2%3Bd%3A-14.24%3Bi%3A3%3Bd%3A0%3B%7D; UslCount=4; PlDom=2147.1; PlKvar=52.3; Vidblag=1; EtDom=9; GodStr=2016; KatDom=2; PerOto=1; NewsForm=1; NewsAmt=8; NewsView=1; Orient=landscape; ModeImg=%D0%92+%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D0%BE%D0%BC+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B5+%D0%B2+%D0%BF%D0%B8%D0%BA%D1%81%D0%B5%D0%BB%D0%B0%D1%85+-+%D0%BA%D0%B0%D0%BA+%D0%B5%D1%81%D1%82%D1%8C; PhoneImg=%D0%9E%D0%B1%D1%8B%D1%87%D0%BD%D1%8B%D0%B9+%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9+%D1%84%D0%BE%D0%BD; Pass=sddffgg234-SDF; PunktMenu=osobennosti-ustrojstva-vintikov-v-moej-golove; UserName=Гость; PersMail=Гость; PersPass=Гость; PersName=%D0%93%D0%BE%D1%81%D1%82%D1%8C; WasTest=WasTest; FileStamp=images%2Fistamp.png; _octo=GH1.1.1796295021.1705904153; FileImg=images%2Fiphoto.jpg; FileProba=images%2Fiproba.jpeg; wi=24; EditImg=Images%2Fsampo.jpg; ResCookie=0; aInusl=a%3A4%3A%7Bi%3A0%3Bi%3A1%3Bi%3A1%3Bi%3A7%3Bi%3A2%3Bi%3A151%3Bi%3A3%3Bi%3A206%3B%7D; aTarif=a%3A4%3A%7Bi%3A0%3Bd%3A22.92%3Bi%3A1%3Bd%3A38.24%3Bi%3A2%3Bd%3A2.13%3Bi%3A3%3Bd%3A7.6%3B%7D; aKolich=a%3A4%3A%7Bi%3A0%3Bd%3A52.3%3Bi%3A1%3Bd%3A3.214%3Bi%3A2%3Bd%3A0.736%3Bi%3A3%3Bd%3A52.3%3B%7D; Comm=About; CurrStih=kapriznyj-starik; SignaPhoto=69; PointCorner=%D0%9B%D0%B5%D0%B2%D1%8B%D0%B9+%D0%B2%D0%B5%D1%80%D1%85%D0%BD%D0%B8%D0%B9+%D1%83%D0%B3%D0%BE%D0%BB; PerSizeImg=20; PerMargeWidth=5; PerMargeHight=5; MaintainProp=%D0%94%D0%B0%2C+%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D1%8F%D1%82%D1%8C; BrowEntry=5657; PersEntry=4322; PHPSESSID=o79ujj3eejnpohsak56nl2gkjl
     [HTTP_ACCEPT_LANGUAGE] => ru,en-US;q=0.9,en;q=0.8
     [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
     [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
@@ -94,7 +94,7 @@ Array
     [HTTP_CONNECTION] => keep-alive
     [FCGI_ROLE] => RESPONDER
     [PHP_SELF] => /index.php
-    [REQUEST_TIME_FLOAT] => 1727942640.1196
-    [REQUEST_TIME] => 1727942640
+    [REQUEST_TIME_FLOAT] => 1727978814.0129
+    [REQUEST_TIME] => 1727978814
 )
 

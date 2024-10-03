@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 KwinFlat
-	+www
+	-www
 		-.well-known
 			-pki-validation
 				www\.well-known\pki-validation\gsdv.txt
@@ -93,22 +93,14 @@ KwinFlat
 			www\Images\tick20.png
 			www\Images\underline.png
 			www\Images\valid.png
-		-Reset
-			www\Reset\e404.php
-			www\Reset\index.php
 		-root
-			www\root\.htaccess
-			www\root\.user.ini
 			www\root\About.php
 			www\root\Codif.php
 			www\root\desktop.ini
-			www\root\favicon.ico
 			www\root\IniCtrlObj.php
-			www\root\Inimem.php
 			www\root\IniMenu.php
 			www\root\IniNorm.php
 			www\root\IniSeoTags.php
-			www\root\iniWorkSpace.php
 			www\root\Introductions.php
 			www\root\kwiflatn.db3
 			www\root\log.txt
@@ -275,7 +267,7 @@ KwinFlat
 			www\TinyMCE\jquery.tinymce.min.js
 			www\TinyMCE\license.txt
 			www\TinyMCE\tinymce.min.js
-		+TKvizzyMaker
+		-TKvizzyMaker
 			-fil
 				www\TKvizzyMaker\fil\ArticlesMaker.js
 				www\TKvizzyMaker\fil\ArticlesMakerClass.php
@@ -320,12 +312,16 @@ KwinFlat
 			www\TViewNorms\PPRK129-20070827_O_socnormah_ploschadi.html
 			www\TViewNorms\PPRK469-20171226_O_minimalnom_VKR.html
 			www\TViewNorms\ViewNormsClass.php
+		www\.htaccess
+		www\.user.ini
 		www\Common.php
+		www\e404.php
+		www\favicon.ico
 		www\index.php
 		www\iniMem.php
 		www\iniWorkSpace.php
 		www\kwinflat-log.txt
-		www\log.txt
+		www\photo-8i.jpg
 		www\server.log
 		www\UpSiteBODY.php
 		www\UpSiteHEAD.php
@@ -336,32 +332,24 @@ KwinFlat
 3=www\TKvizzyMaker\ArticlesMakerClass.php
 4=www\iniMem.php
 5=..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php
-6=www\TKvizzyMaker\CommonArticlesMaker.php
-7=www\TKvizzyMaker\fil\CommonIttveMe.php
 [Selected Project Files]
 Main=
-Selected=www\UpSiteBODY.php
+Selected=www\UpSiteHEAD.php
 [www\index.php]
-TopLine=13
-Caret=11,20
+TopLine=17
+Caret=1,10
 [www\UpSiteBODY.php]
 TopLine=1
-Caret=6,22
+Caret=1,28
 [www\UpSiteHEAD.php]
 TopLine=1
-Caret=1,1
+Caret=35,26
 [www\TKvizzyMaker\ArticlesMakerClass.php]
 TopLine=203
 Caret=1,1
 [www\iniMem.php]
-TopLine=114
+TopLine=103
 Caret=1,142
 [..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php]
-TopLine=37
+TopLine=31
 Caret=37,59
-[www\TKvizzyMaker\CommonArticlesMaker.php]
-TopLine=1
-Caret=1,35
-[www\TKvizzyMaker\fil\CommonIttveMe.php]
-TopLine=39
-Caret=1,56

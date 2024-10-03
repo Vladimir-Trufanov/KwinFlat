@@ -25,7 +25,6 @@ echo $RemoteAddr.'<BR>';
 echo '$UserAgent'.'<BR>'; 
 echo $UserAgent.'<BR>'; 
 $browser = get_browser(null, true);
-//echo $browser;
 echo '<pre>';
 print_r($browser);
 echo '</pre>';

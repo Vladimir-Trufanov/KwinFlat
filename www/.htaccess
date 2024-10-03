@@ -1,12 +1,12 @@
-## PHP-APACHE                                                   *** .htaccess ***
+## PHP-APACHE                                                 *** .htaccess ***
 ##
-## ******************************************************************************
-## * kwinflat.ru                   Произвести локальные установки PHP на APACHE *
-## ******************************************************************************
+## ****************************************************************************
+## * kwinflat.ru                 Произвести локальные установки PHP на APACHE *
+## ****************************************************************************
 ##
-##                                                     Автор:       Труфанов В.Е.
-##                                                     Дата создания:  01.11.2016
-## Copyright © 2016 tve                                Посл.изменение: 08.05.2018
+##                                                   Автор:       Труфанов В.Е.
+##                                                   Дата создания:  01.11.2016
+## Copyright © 2016 tve                              Посл.изменение: 03.10.2024
 
 ## Устанавливаем кодировку сайта по умолчанию
 AddDefaultCharset utf-8
@@ -36,10 +36,10 @@ php_flag session.auto_start off
 
 # php_value session.cookie_lifetime 10800
 
-## Запрещаем загрузку базы данных управления начислениями kwiflatn.db3
+## Запрещаем загрузку баз данных
 <FilesMatch "\.db3$">        
-    Order allow,deny
-    Deny from all     
+   Order allow,deny
+   Deny from all     
 </FilesMatch>
 
 ## Закрываем доступ к файлам с определенными расширениями
@@ -48,28 +48,24 @@ php_flag session.auto_start off
     Deny from all
 </FilesMatch>
 
-## *************************************************************** kwinflat.ru ***
-
 RewriteEngine On
 
-RewriteRule ^Normativy_po_otopleniyu$ Main.php?Com=refNormotop [L]
-RewriteRule ^Redaktor_tekstov$ /TinyMCE/ [L]
-RewriteRule ^reset$ /Reset/ [L]
-
+## RewriteRule ^Normativy_po_otopleniyu$ Main.php?Com=refNormotop [L]
+## RewriteRule ^Redaktor_tekstov$ /TinyMCE/ [L]
+## RewriteRule ^reset$ /Reset/ [L]
 
 ## Перенаправляем все запросы с HTTP на HTTPS
 RewriteCond %{ENV:HTTPS} !on
 RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 ## Перенаправляем ошибки в файл e404.php
-ErrorDocument 400 https://kwinflat.ru/Reset/e404.php?err=400 
-ErrorDocument 403 https://kwinflat.ru/Reset/e404.php?err=403 
-ErrorDocument 404 https://kwinflat.ru/Reset/e404.php?err=404 
-ErrorDocument 405 https://kwinflat.ru/Reset/e404.php?err=405 
-ErrorDocument 408 https://kwinflat.ru/Reset/e404.php?err=408 
-
-ErrorDocument 500 https://kwinflat.ru/Reset/e404.php?err=500 
-ErrorDocument 502 https://kwinflat.ru/Reset/e404.php?err=502 
-ErrorDocument 504 https://kwinflat.ru/Reset/e404.php?err=504 
+ErrorDocument 400 /e404.php?err=400 
+ErrorDocument 403 /e404.php?err=403 
+ErrorDocument 404 /e404.php?err=404
+ErrorDocument 405 /e404.php?err=405 
+ErrorDocument 408 /e404.php?err=408
+ErrorDocument 500 /e404.php?err=500
+ErrorDocument 502 /e404.php?err=502
+ErrorDocument 504 /e404.php?err=504
 
 ## **************************************************************** .htaccess ***
