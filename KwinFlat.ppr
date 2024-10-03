@@ -275,7 +275,7 @@ KwinFlat
 			www\TinyMCE\jquery.tinymce.min.js
 			www\TinyMCE\license.txt
 			www\TinyMCE\tinymce.min.js
-		-TKvizzyMaker
+		+TKvizzyMaker
 			-fil
 				www\TKvizzyMaker\fil\ArticlesMaker.js
 				www\TKvizzyMaker\fil\ArticlesMakerClass.php
@@ -336,15 +336,17 @@ KwinFlat
 3=www\TKvizzyMaker\ArticlesMakerClass.php
 4=www\iniMem.php
 5=..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php
+6=www\TKvizzyMaker\CommonArticlesMaker.php
+7=www\TKvizzyMaker\fil\CommonIttveMe.php
 [Selected Project Files]
 Main=
-Selected=www\iniMem.php
+Selected=www\UpSiteBODY.php
 [www\index.php]
-TopLine=5
-Caret=1,31
+TopLine=13
+Caret=11,20
 [www\UpSiteBODY.php]
 TopLine=1
-Caret=18,19
+Caret=6,22
 [www\UpSiteHEAD.php]
 TopLine=1
 Caret=1,1
@@ -353,7 +355,13 @@ TopLine=203
 Caret=1,1
 [www\iniMem.php]
 TopLine=114
-Caret=29,145
+Caret=1,142
 [..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php]
-TopLine=29
-Caret=33,57
+TopLine=37
+Caret=37,59
+[www\TKvizzyMaker\CommonArticlesMaker.php]
+TopLine=1
+Caret=1,35
+[www\TKvizzyMaker\fil\CommonIttveMe.php]
+TopLine=39
+Caret=1,56

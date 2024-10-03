@@ -1,6 +1,0 @@
-[02-Oct-2024 21:12:24 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'ttools/TMenuLeader/MenuLeaderClass.php' (include_path='.;C:\php\pear') in C:\KwinFlat\www\iniMem.php on line 143
-[02-Oct-2024 21:19:34 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function prown\MakeCookie() in C:\KwinFlat\www\iniMem.php:142
-Stack trace:
-#0 C:\KwinFlat\www\index.php(40): require_once()
-#1 {main}
-  thrown in C:\KwinFlat\www\iniMem.php on line 142
