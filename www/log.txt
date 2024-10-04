@@ -1,0 +1,16 @@
+[04-Oct-2024 13:30:12 Asia/Kuwait] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST) in C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php on line 714
+[04-Oct-2024 13:48:44 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function ttools\_BaseFirstCreate() in C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php:72
+Stack trace:
+#0 C:\KwinFlat\www\iniMem.php(147): ttools\KvizzyMaker->BaseFirstCreate()
+#1 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#2 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php on line 72
+[04-Oct-2024 14:08:08 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: ControllersType.typectrl in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:41
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(41): PDOStatement->execute(Array)
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(257): ttools\CreateTables(Object(PDO), '-')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(147): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 41

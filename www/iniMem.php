@@ -116,7 +116,7 @@ require_once pathPhpPrown."/ViewGlobal.php";
 require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
 require_once pathPhpTools."/TNotice/NoticeClass.php";
 // Подключаем внутренние классы
-//require_once "ttools/TArticlesMaker/ArticlesMakerClass.php";
+require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
 // Выполняем запуск сессии и работу с лог-файлом
 $oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
 // Выбираем данные из браузера - UserAgent
@@ -130,25 +130,25 @@ if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
 
 // Пропускаем пользователя на сайт
 //SiteEntry($c_UserName,$c_PersName,$c_PersMail,$c_PersPass,$c_BrowEntry,$c_PersEntry,$s_Counter);
-// Определяем данные для работы с базой данных материалов 
+// Подключаем объект единообразного вывода сообщений
+$note=new ttools\Notice();
+
+// Определяем данные для работы с базой данных моего хозяйства 
 $basename=$SiteHost.'/Base'.'/kvizzy';          // имя базы без расширения 'db3'
 $email='tve58@inbox.ru';                        // email посетителя
 $username='tve';                                // логин посетителя для авторизации
 $password='23ety17'; 
-// Подключаем объект единообразного вывода сообщений
-$note=new ttools\Notice();
-// Подключаем объекты для работы с базой данных материалов и пользователей 
-//$Arti=new ttools\ArticlesMaker($basename,$username,$password,$note);
+// Подключаем объект для работы с базой данных моего хозяйства
+$Kvizzy=new ttools\KvizzyMaker($basename,$username,$password,$note);
+// При необходимости создаем базу данных моего хозяйства
+//$BaseCreate='Exist';
+//if (!file_exists($basename.'.db3')) 
+//{
+   $Kvizzy->BaseFirstCreate();
+   //$BaseCreate='Yes';
+//}
+
 //$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note); 
-// При необходимости создаем базу данных материалов
-/*
-$BaseCreate='Exist';
-if (!file_exists($basename.'.db3')) 
-{
-   $Arti->BaseFirstCreate();
-   $BaseCreate='Yes';
-}
-*/
 // Меняем кукис ориентации устройства 
 $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr,true);             // ориентация устройства
 if (IsSet($_GET["orient"]))
