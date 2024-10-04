@@ -22,33 +22,100 @@ function CreateTables($pdo,$aCharters)
       $sql='PRAGMA foreign_keys=on;';
       $st = $pdo->query($sql);
       
+      // Создаём таблицу подсистем моего хозяйства
+      $sql='CREATE TABLE SubSystems ('.
+         'idsys     INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // идентификатор подсистемы
+         'namesys   VARCHAR NOT NULL UNIQUE)';              // название подсистемы
+      $st = $pdo->query($sql);
+      // Заполняем таблицу подсистем
+      $aSubSystems=[
+         [ 1,'В квартире'],
+         [ 2,'На даче'],
+      ];
+      $statement = $pdo->prepare("INSERT INTO [SubSystems] ".
+         "([idsys],[namesys]) VALUES ".
+         "(:idsys, :namesys);");
+      $i=0;
+      foreach ($aSubSystems as [$idsys,$namesys])
+      $statement->execute([
+         "idsys"   => $idsys,
+         "namesys" => $namesys
+      ]);
+      
       // Создаём таблицу типов контроллеров
       $sql='CREATE TABLE ControllersType ('.
-         'tctrlid     INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,'.  // идентификатор типа контроллера
-         'typectrl    VARCHAR NOT NULL UNIQUE)';                     // тип контроллера
+         'tidctrl     INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // идентификатор типа контроллера
+         'typectrl    VARCHAR NOT NULL UNIQUE)';              // тип контроллера
       $st = $pdo->query($sql);
       // Заполняем таблицу типов контроллеров
       $aControllersType=[
-         [ 'Esp32-CAM'],
-         [ 'Arduino Pro Mini'],
+         [ 1,'Esp32-CAM'],
+         [ 2,'Arduino Pro Mini'],
+         [ 3,'Esp01'],
       ];
       $statement = $pdo->prepare("INSERT INTO [ControllersType] ".
-         "([typectrl]) VALUES ".
-         "(:typectrl);");
+         "([tidctrl],[typectrl]) VALUES ".
+         "(:tidctrl, :typectrl);");
       $i=0;
-      foreach ($aControllersType as [$typectrl])
+      foreach ($aControllersType as [$tidctrl,$typectrl])
       $statement->execute([
+         "tidctrl"  => $tidctrl,
          "typectrl" => $typectrl
       ]);
       
-      
-      /*
-      // Создаём таблицу идентификаторов типов статей   
-      $sql='CREATE TABLE Controllers ('.
-         'cid         INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,'.  // идентификатор контроллера
-         'IdCue          INTEGER PRIMARY KEY NOT NULL UNIQUE,'.
-         'NameCue        VARCHAR )';
+      // Создаём таблицу мест размещения контроллеров, оборудования и датчиков
+      $sql='CREATE TABLE Places ('.
+         'idplace    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.            // идентификатор места размещения
+         'idsys      INTEGER NOT NULL REFERENCES SubSystems(idsys),'.  // идентификатор подсистемы
+         'nameplace  VARCHAR NOT NULL UNIQUE)';                        // место размещения
       $st = $pdo->query($sql);
+      // Заполняем таблицу мест размещения
+      $aPlaces=[
+         [ 201,2,'Во двор дачи'],
+         [ 202,2,'С дачи на дорогу'],
+         [ 203,2,'На стене веранды'],
+      ];
+      $statement = $pdo->prepare("INSERT INTO [Places] ".
+         "([idplace],[idsys],[nameplace]) VALUES ".
+         "(:idplace, :idsys, :nameplace);");
+      $i=0;
+      foreach ($aPlaces as [$idplace,$idsys,$nameplace])
+      $statement->execute([
+         "idplace"   => $idplace,
+         "idsys"     => $idsys,
+         "nameplace" => $nameplace
+      ]);
+      // Создаем индекс по транслиту имени файла без расширения в таблице изображений      
+      $sql='CREATE INDEX IF NOT EXISTS iTranslitPic ON picturepw (TranslitPic)';
+      CREATE INDEX IF NOT EXISTS dbname.ixname ON tblname (columnname1, columnname2);
+      $st = $pdo->query($sql);
+
+      
+      // Создаём таблицу контроллеров
+      $sql='CREATE TABLE Controllers ('.
+         'idctrl    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.                   // идентификатор контроллера
+         'tidctrl   INTEGER NOT NULL REFERENCES ControllersType(tidctrl),'.  // идентификатор типа контроллера
+         'idplace   INTEGER NOT NULL REFERENCES Places(idplace),'.           // идентификатор места размещения
+         'namectrl  VARCHAR NOT NULL UNIQUE)';                               // тип контроллера и место размещения
+      $st = $pdo->query($sql);
+      // Заполняем таблицу контроллеров
+      $aControllers=[
+         [ 201,1,201,'Esp32-CAM во двор дачи'],  
+         [ 202,3,203,'Esp01 на стене веранды'],  
+       ];
+      $statement = $pdo->prepare("INSERT INTO [Controllers] ".
+         "([idctrl],[tidctrl],[idplace],[namectrl]) VALUES ".
+         "(:idctrl, :tidctrl, :idplace, :namectrl);");
+      $i=0;
+      foreach ($aControllers as [$idctrl,$tidctrl,$idplace,$namectrl])
+      $statement->execute([
+         "idctrl"    => $idctrl,
+         "tidctrl"   => $tidctrl,
+         "idplace"   => $idplace,
+         "namectrl"  => $namectrl
+      ]);
+
+      /*
       // Заполняем таблицу идентификаторов типов статей
       // (для правильного формирования тегов, введено понятие раздела без материалов. 
       // Добавление нового раздела в базу данных сопровождается пометкой

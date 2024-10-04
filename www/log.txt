@@ -14,3 +14,57 @@ Stack trace:
 #4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
 #5 {main}
   thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 41
+[04-Oct-2024 18:45:28 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: Places.idsys in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:85
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(85): PDOStatement->execute(Array)
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(318): ttools\CreateTables(Object(PDO), '-')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(147): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 85
+[04-Oct-2024 18:50:47 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 near ",": syntax error in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:95
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(95): PDO->query('CREATE TABLE Co...')
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(319): ttools\CreateTables(Object(PDO), '-')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(147): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 95
+[04-Oct-2024 18:53:56 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 25 column index out of range in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:110
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(110): PDOStatement->execute(Array)
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(319): ttools\CreateTables(Object(PDO), '-')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(147): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 110
+[04-Oct-2024 18:54:59 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 25 column index out of range in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:110
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(110): PDOStatement->execute(Array)
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(319): ttools\CreateTables(Object(PDO), '-')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(147): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 110
+[04-Oct-2024 18:55:11 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 25 column index out of range in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:110
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(110): PDOStatement->execute(Array)
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(319): ttools\CreateTables(Object(PDO), '-')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(147): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 110
+[04-Oct-2024 18:55:24 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 25 column index out of range in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:110
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(110): PDOStatement->execute(Array)
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(319): ttools\CreateTables(Object(PDO), '-')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(147): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 110
