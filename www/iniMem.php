@@ -6,7 +6,7 @@
 // *                              проинициализировать общесайтовые переменные *
 // ****************************************************************************
 
-// v4.0, 02.10.2024                                  Автор:       Труфанов В.Е. 
+// v4.0, 04.10.2024                                  Автор:       Труфанов В.Е. 
 // Copyright © 2019 tve                              Дата создания:  13.01.2019 
 
 require_once "Common.php";  
@@ -119,6 +119,15 @@ require_once pathPhpTools."/TNotice/NoticeClass.php";
 //require_once "ttools/TArticlesMaker/ArticlesMakerClass.php";
 // Выполняем запуск сессии и работу с лог-файлом
 $oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
+// Выбираем данные из браузера - UserAgent
+$browseri = get_browser(null, true);
+$platform = $browseri['platform'];
+$browser = $browseri['browser'];
+$version = $browseri['version'];
+$device_type = $browseri['device_type'];
+// При запросе через $UserAgent=ESP32HTTPClient
+if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
+
 // Пропускаем пользователя на сайт
 //SiteEntry($c_UserName,$c_PersName,$c_PersMail,$c_PersPass,$c_BrowEntry,$c_PersEntry,$s_Counter);
 // Определяем данные для работы с базой данных материалов 

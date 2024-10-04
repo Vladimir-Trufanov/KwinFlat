@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 KwinFlat
-	-www
+	+www
 		-.well-known
 			-pki-validation
 				www\.well-known\pki-validation\gsdv.txt
@@ -49,7 +49,7 @@ KwinFlat
 			www\Background\Razlom16x9.gif
 			www\Background\VnizuVoda_kv.gif
 			www\Background\Vodopadik_kv.gif
-		-Dacha
+		+Dacha
 			-lead
 			-state
 			-view
@@ -332,15 +332,16 @@ KwinFlat
 3=www\TKvizzyMaker\ArticlesMakerClass.php
 4=www\iniMem.php
 5=..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php
+6=www\Dacha\index.php
 [Selected Project Files]
 Main=
-Selected=www\UpSiteHEAD.php
+Selected=www\UpSiteBODY.php
 [www\index.php]
-TopLine=17
-Caret=1,10
+TopLine=10
+Caret=11,19
 [www\UpSiteBODY.php]
 TopLine=1
-Caret=1,28
+Caret=20,28
 [www\UpSiteHEAD.php]
 TopLine=1
 Caret=35,26
@@ -348,8 +349,11 @@ Caret=35,26
 TopLine=203
 Caret=1,1
 [www\iniMem.php]
-TopLine=103
-Caret=1,142
+TopLine=101
+Caret=1,130
 [..\TPhpPrown\TPhpPrown\WorkSpace\iniWorkSpace.php]
 TopLine=31
 Caret=37,59
+[www\Dacha\index.php]
+TopLine=25
+Caret=1,54

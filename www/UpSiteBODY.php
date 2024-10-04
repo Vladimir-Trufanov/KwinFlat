@@ -19,22 +19,21 @@ echo '<div id="Article">';
 echo 'id="Article"'; 
 
 
-echo '<BR>'; 
-echo '$RemoteAddr'.'<BR>'; 
-echo $RemoteAddr.'<BR>'; 
-echo '$UserAgent'.'<BR>'; 
-echo $UserAgent.'<BR>'; 
-$browser = get_browser(null, true);
-echo '<pre>';
-print_r($browser);
-echo '</pre>';
-
-
-
 echo '</div>';
 
 echo '<div id="Footer">';
-echo 'id="Footer"'; 
+//echo '<pre>';
+echo '$UserAgent='.$UserAgent.'<BR>';
+?>
+<div id="footer-img">
+<img src="../Images/Kwinflat.jpg" alt="Kwinflat-близкий всем!" />
+</div>
+<?php
+echo '$platform='.$platform.'<BR>';
+echo '$browser='.$browser.'<BR>';
+echo '$version='.$version.'<BR>';
+echo '$device_type='.$device_type.'<BR>';
+//echo '</pre>';
 echo '</div>';
 
 
