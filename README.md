@@ -4,6 +4,12 @@
 
 ***Kwinflat*** - сайт мониторинга и управления моим  хозяйством.
 
+#### [Таймеры Html5+JS](https://thecode.media/count-timer/)
+
+#### [Timers](https://dev.w3.org/html5/spec-LC/timers.html)
+
+#### [Простой таймер](https://sky.pro/wiki/html/sozdaem-taymer-obratnogo-otscheta-na-js-i-html-bez-css/)
+
 ![](BP1/kwf0.png)
 
 ### Осенние тезисы 2024-09-30
