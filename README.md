@@ -4,12 +4,6 @@
 
 ***Kwinflat*** - сайт мониторинга и управления моим  хозяйством.
 
-#### [Таймеры Html5+JS](https://thecode.media/count-timer/)
-
-#### [Timers](https://dev.w3.org/html5/spec-LC/timers.html)
-
-#### [Простой таймер](https://sky.pro/wiki/html/sozdaem-taymer-obratnogo-otscheta-na-js-i-html-bez-css/)
-
 ![](BP1/kwf0.png)
 
 ### Осенние тезисы 2024-09-30
@@ -27,3 +21,11 @@
 - STATE - сервер регистрации изменений состояния доступен лишь контроллерам моего хозяйства. Все изменения регистрируются в SQLite3-базе данных ***kvizzy.db3***.
 
 - **Порядок взаимодействия**: а) контроллеры выполняют пинги и отправляют запросы серверу STATE c параметрами своего состояния, состояния устройств и показаниями датчиков в JSON-формате; б) STATE заносит изменения в базу kvizzy.db3; в) 
+
+### Библиография
+
+#### [Таймеры Html5+JS](https://thecode.media/count-timer/)
+
+#### [Timers](https://dev.w3.org/html5/spec-LC/timers.html)
+
+#### [Простой таймер](https://sky.pro/wiki/html/sozdaem-taymer-obratnogo-otscheta-na-js-i-html-bez-css/)

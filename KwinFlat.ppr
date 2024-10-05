@@ -93,67 +93,13 @@ KwinFlat
 			www\Images\tick20.png
 			www\Images\underline.png
 			www\Images\valid.png
-		-root
-			www\root\About.php
-			www\root\Codif.php
-			www\root\desktop.ini
-			www\root\IniCtrlObj.php
-			www\root\IniMenu.php
-			www\root\IniNorm.php
-			www\root\IniSeoTags.php
-			www\root\Introductions.php
-			www\root\kwiflatn.db3
-			www\root\log.txt
-			www\root\Main.php
-			www\root\robots.txt
-			www\root\ShowCommon.php
-			www\root\ShowLgo.php
-			www\root\ShowNch.php
-			www\root\sitemap.xml
-			www\root\VerifyParm.php
-			www\root\yandex_6c84a6d35d387988.html
-		-TException
-			www\TException\ExceptionClass.php
-			www\TException\UserMessages.php
-		-TRefbooks
-			www\TRefbooks\MenuRomashka.html
-			www\TRefbooks\RefbooksClass.php
-			www\TRefbooks\ViewGusl.php
-			www\TRefbooks\ViewLgokat.php
-			www\TRefbooks\ViewNormotop.php
-			www\TRefbooks\ViewNormvoda.php
 		+TTools
 			+TKvizzyMaker
 				www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 				www\TTools\TKvizzyMaker\KvizzyMakerClass.php
 				www\TTools\TKvizzyMaker\TestBase.php
-		-TViewLaws
-			www\TViewLaws\F1244-19910515_O_soczaschite_chernobylcev.html
-			www\TViewLaws\F181-19951124_O_soczaschite_invalidov.html
-			www\TViewLaws\F5-19950112_O_veteranah.html
-			www\TViewLaws\ViewLawsClass.php
-			www\TViewLaws\ZRK827-20041209_Po_kategoriyam_grazhdan.html
-		-TViewLgo
-			www\TViewLgo\isCalcS.php
-			www\TViewLgo\ParamNachLgo.php
-			www\TViewLgo\SxelXX.php
-			www\TViewLgo\ViewLgoClass.php
-		-TViewNach
-			www\TViewNach\ControlArray.php
-			www\TViewNach\DefoNach.php
-			www\TViewNach\DelUslugu.php
-			www\TViewNach\InitNach.php
-			www\TViewNach\MarkZhu.php
-			www\TViewNach\RecalcNach.php
-			www\TViewNach\UpdateArray.php
-			www\TViewNach\VerifyNach.php
-			www\TViewNach\ViewNachClass.php
-		-TViewNorms
-			www\TViewNorms\getNorms.php
-			www\TViewNorms\PPRF541-20050829_O_Federalnyh_standartah_zhilya.html
-			www\TViewNorms\PPRK129-20070827_O_socnormah_ploschadi.html
-			www\TViewNorms\PPRK469-20171226_O_minimalnom_VKR.html
-			www\TViewNorms\ViewNormsClass.php
+		+Update
+			www\Update\UpdateScreen.php
 		www\.htaccess
 		www\.user.ini
 		www\Common.php
@@ -162,6 +108,7 @@ KwinFlat
 		www\iniMem.php
 		www\iniWorkSpace.php
 		www\kwinflat-log.txt
+		www\log.txt
 		www\manifest.json
 		www\photo-8i.jpg
 		www\server.log
@@ -169,29 +116,21 @@ KwinFlat
 		www\UpSiteHEAD.php
 [Open project files]
 0=www\index.php
-1=www\UpSiteBODY.php
-2=www\UpSiteHEAD.php
-3=www\iniMem.php
-4=www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
-5=www\TTools\TKvizzyMaker\KvizzyMakerClass.php
+1=www\Update\UpdateScreen.php
+2=www\UpSiteBODY.php
+3=www\TTools\TKvizzyMaker\KvizzyMakerClass.php
 [Selected Project Files]
 Main=
-Selected=www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
+Selected=www\UpSiteBODY.php
 [www\index.php]
-TopLine=34
+TopLine=1
 Caret=80,51
+[www\Update\UpdateScreen.php]
+TopLine=1
+Caret=36,18
 [www\UpSiteBODY.php]
 TopLine=1
-Caret=20,28
-[www\UpSiteHEAD.php]
-TopLine=1
-Caret=35,26
-[www\iniMem.php]
-TopLine=123
-Caret=3,149
-[www\TTools\TKvizzyMaker\CommonKvizzyMaker.php]
-TopLine=85
-Caret=86,90
+Caret=1,22
 [www\TTools\TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=14
-Caret=32,14
+TopLine=1
+Caret=1,15

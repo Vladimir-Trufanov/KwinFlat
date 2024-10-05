@@ -68,3 +68,4 @@ Stack trace:
 #4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
 #5 {main}
   thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 110
+[05-Oct-2024 07:08:48 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'INDEX' (T_STRING) in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 90

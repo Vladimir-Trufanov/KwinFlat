@@ -86,9 +86,9 @@ function CreateTables($pdo,$aCharters)
          "nameplace" => $nameplace
       ]);
       // Создаем индекс по транслиту имени файла без расширения в таблице изображений      
-      $sql='CREATE INDEX IF NOT EXISTS iTranslitPic ON picturepw (TranslitPic)';
-      CREATE INDEX IF NOT EXISTS dbname.ixname ON tblname (columnname1, columnname2);
-      $st = $pdo->query($sql);
+      //$sql='CREATE INDEX IF NOT EXISTS iTranslitPic ON picturepw (TranslitPic)';
+      //CREATE INDEX IF NOT EXISTS dbname.ixname ON tblname (columnname1, columnname2);
+      //$st = $pdo->query($sql);
 
       
       // Создаём таблицу контроллеров
