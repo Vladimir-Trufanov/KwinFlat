@@ -22,9 +22,11 @@ define ("nstNoVyb",     "не выбрано");
 define ("nstNoNaz",     "не назначено");
 define ("nstErr",       'произошла ошибка');  
 define ("nstOk",        'все в порядке'); 
+define ('nobase',       'Нет базы');   // Аякс-запрос базы завершился ошибкой
 
 define ("oriLandscape", 'landscape');  // Ландшафтное расположение устройства
 define ("oriPortrait",  'portrait');   // Портретное расположение устройства
+
 
 // -------------- Дополнительные контроли адреса электронной почты и пароля ---
 define ("mEmneformat",   'Адрес email не соответствует разрешённому формату \r\n (правильно, например: tve@karelia.ru, tve58@inbox.ru)'); //   
@@ -38,7 +40,7 @@ define ("mNumbers",      "Должны присутствовать цифры (
 define ("mSpecsim",      'Должен присутствовать хотя бы один специальный символ, \r\n например из набора +-*_#@!?%&$~%^'); 
 define ("mPassNoDbl",    'Пароль и его подтверждение не совпадают'); 
 
-// Подключить переменные и константы JavaScript, соответствующие определениям в PHP
+// Объявляем переменные и константы JavaScript, соответствующие определениям в PHP
 function DefineJS($SiteHost,$urlHome)
 {
    // Добавляем к штатным, дополнительные контроли правильности заполнения адреса электронной почты и пароля
@@ -68,11 +70,12 @@ function DefineJS($SiteHost,$urlHome)
    'nstNoNaz="'            .nstNoNaz.'";'.
    'nstErr="'              .nstErr.'";'.
    'nstOk="'               .nstOk.'";'.
+   'nobase="'              .nobase.'";'.
    'SiteHost="'            .$SiteHost.'";'.
    'urlHome="'             .$urlHome.'";'.
    '</script>';
    echo $define;
-}   
+} 
 
 // Инициализируем общесайтовые константы (здесь стараемся не назначать константу = 0, так как 
 // проверка значению "==" может не отличить 0 от NULL)
@@ -112,13 +115,17 @@ require_once pathPhpPrown."/MakeCookie.php";
 require_once pathPhpPrown."/MakeSession.php";
 require_once pathPhpPrown."/ViewGlobal.php";
 */
-// Подключаем прикладные классы TPhpTools
+
+// Выполняем запуск сессии и работу с лог-файлом
 require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
+$oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
+// Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
+DefineJS($SiteHost,$urlHome);
+
+// Подключаем прикладные классы TPhpTools
 require_once pathPhpTools."/TNotice/NoticeClass.php";
 // Подключаем внутренние классы
 require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
-// Выполняем запуск сессии и работу с лог-файлом
-$oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
 // Выбираем данные из браузера - UserAgent
 $browseri = get_browser(null, true);
 $platform = $browseri['platform'];

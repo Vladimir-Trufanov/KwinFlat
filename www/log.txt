@@ -69,3 +69,6 @@ Stack trace:
 #5 {main}
   thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 110
 [05-Oct-2024 07:08:48 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'INDEX' (T_STRING) in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 90
+[05-Oct-2024 19:25:24 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\UpSiteBODY.php on line 26
+[05-Oct-2024 21:57:36 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Update\UpdateScreen.php on line 54
+[05-Oct-2024 21:58:41 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Update\UpdateScreen.php on line 54
