@@ -93,13 +93,29 @@ KwinFlat
 			www\Images\tick20.png
 			www\Images\underline.png
 			www\Images\valid.png
-		+TTools
-			+TKvizzyMaker
+		-jQuery
+			-images
+				www\jQuery\images\ui-icons_444444_256x240.png
+				www\jQuery\images\ui-icons_555555_256x240.png
+				www\jQuery\images\ui-icons_777620_256x240.png
+				www\jQuery\images\ui-icons_777777_256x240.png
+				www\jQuery\images\ui-icons_cc0000_256x240.png
+				www\jQuery\images\ui-icons_ffffff_256x240.png
+			www\jQuery\jquery-1.11.1.min.js
+			www\jQuery\jquery-1.11.1.min.map
+			www\jQuery\jquery-ui.min.css
+			www\jQuery\jquery-ui.min.js
+		-Lead
+		-Meet
+		-State
+		-TTools
+			-TKvizzyMaker
 				www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 				www\TTools\TKvizzyMaker\KvizzyMakerClass.php
 				www\TTools\TKvizzyMaker\TestBase.php
 		+Update
-			www\Update\UpdateScreen.php
+			www\Update\Update.php
+		-View
 		www\.htaccess
 		www\.user.ini
 		www\Common.php
@@ -116,25 +132,20 @@ KwinFlat
 		www\UpSiteHEAD.php
 [Open project files]
 0=www\index.php
-1=www\Update\UpdateScreen.php
-2=www\UpSiteBODY.php
-3=www\TTools\TKvizzyMaker\KvizzyMakerClass.php
-4=..\IttveMe\www\ttools\TNewCue\NewCueClass.php
-5=www\UpSiteHEAD.php
-6=..\IttveMe\www\UpSiteCSS.php
-7=www\iniMem.php
+1=www\UpSiteBODY.php
+2=www\TTools\TKvizzyMaker\KvizzyMakerClass.php
+3=..\IttveMe\www\ttools\TNewCue\NewCueClass.php
+4=www\UpSiteHEAD.php
+5=www\Update\Update.php
 [Selected Project Files]
 Main=
-Selected=www\Update\UpdateScreen.php
+Selected=www\Update\Update.php
 [www\index.php]
 TopLine=26
 Caret=80,51
-[www\Update\UpdateScreen.php]
-TopLine=38
-Caret=1,37
 [www\UpSiteBODY.php]
 TopLine=1
-Caret=1,26
+Caret=28,21
 [www\TTools\TKvizzyMaker\KvizzyMakerClass.php]
 TopLine=15
 Caret=1,44
@@ -144,9 +155,6 @@ Caret=1,1
 [www\UpSiteHEAD.php]
 TopLine=1
 Caret=1,32
-[..\IttveMe\www\UpSiteCSS.php]
-TopLine=21
-Caret=1,56
-[www\iniMem.php]
-TopLine=71
-Caret=1,124
+[www\Update\Update.php]
+TopLine=1
+Caret=32,77

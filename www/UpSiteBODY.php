@@ -18,7 +18,7 @@ echo '</div>';
 echo '<div id="Article">';
 echo 'id="Article"'; 
 // Подгружаем обновление значений датчиков, состояний устройств и контроллеров
-require_once("Update/UpdateScreen.php"); 
+require_once("Update/Update.php"); 
 echo '</div>';
 
 echo '<div id="Footer">';
