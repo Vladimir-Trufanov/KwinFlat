@@ -148,10 +148,10 @@ $password='23ety17';
 // Подключаем объект для работы с базой данных моего хозяйства
 $Kvizzy=new ttools\KvizzyMaker($basename,$username,$password,$note);
 // При необходимости создаем базу данных моего хозяйства
-if (!file_exists($basename.'.db3')) 
-{
+//if (!file_exists($basename.'.db3')) 
+//{
    $Kvizzy->BaseFirstCreate();
-}
+//}
 
 //$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note); 
 // Меняем кукис ориентации устройства 

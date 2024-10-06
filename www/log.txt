@@ -72,3 +72,21 @@ Stack trace:
 [05-Oct-2024 19:25:24 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\UpSiteBODY.php on line 26
 [05-Oct-2024 21:57:36 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Update\UpdateScreen.php on line 54
 [05-Oct-2024 21:58:41 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Update\UpdateScreen.php on line 54
+[06-Oct-2024 14:57:56 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 near ";": syntax error in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:152
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(152): PDO->prepare('INSERT INTO [De...')
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(229): ttools\CreateTables(Object(PDO), '-')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(153): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 152
+[06-Oct-2024 14:59:14 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: Devices.namedev in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:159
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(159): PDOStatement->execute(Array)
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(229): ttools\CreateTables(Object(PDO), '-')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(153): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 159

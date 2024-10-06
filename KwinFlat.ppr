@@ -108,12 +108,12 @@ KwinFlat
 		-Lead
 		-Meet
 		-State
-		-TTools
-			-TKvizzyMaker
+		+TTools
+			+TKvizzyMaker
 				www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 				www\TTools\TKvizzyMaker\KvizzyMakerClass.php
 				www\TTools\TKvizzyMaker\TestBase.php
-		+Update
+		-Update
 			www\Update\Update.php
 		-View
 		www\.htaccess
@@ -134,12 +134,13 @@ KwinFlat
 0=www\index.php
 1=www\UpSiteBODY.php
 2=www\TTools\TKvizzyMaker\KvizzyMakerClass.php
-3=..\IttveMe\www\ttools\TNewCue\NewCueClass.php
-4=www\UpSiteHEAD.php
-5=www\Update\Update.php
+3=www\UpSiteHEAD.php
+4=www\Update\Update.php
+5=www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
+6=www\iniMem.php
 [Selected Project Files]
 Main=
-Selected=www\Update\Update.php
+Selected=www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 [www\index.php]
 TopLine=26
 Caret=80,51
@@ -149,12 +150,15 @@ Caret=28,21
 [www\TTools\TKvizzyMaker\KvizzyMakerClass.php]
 TopLine=15
 Caret=1,44
-[..\IttveMe\www\ttools\TNewCue\NewCueClass.php]
-TopLine=1
-Caret=1,1
 [www\UpSiteHEAD.php]
 TopLine=1
 Caret=1,32
 [www\Update\Update.php]
-TopLine=1
+TopLine=38
 Caret=32,77
+[www\TTools\TKvizzyMaker\CommonKvizzyMaker.php]
+TopLine=181
+Caret=37,195
+[www\iniMem.php]
+TopLine=119
+Caret=3,154
