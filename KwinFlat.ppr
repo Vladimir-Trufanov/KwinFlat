@@ -50,9 +50,6 @@ KwinFlat
 			www\Background\VnizuVoda_kv.gif
 			www\Background\Vodopadik_kv.gif
 		-Dacha
-			-lead
-			-state
-			-view
 			www\Dacha\Dacha.css
 			www\Dacha\index.php
 			www\Dacha\iniWorkSpace.php
@@ -107,9 +104,10 @@ KwinFlat
 			www\jQuery\jquery-ui.min.js
 		-Lead
 		-Meet
-		-State
-		+TTools
-			+TKvizzyMaker
+		+State
+			www\State\State.php
+		-TTools
+			-TKvizzyMaker
 				www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 				www\TTools\TKvizzyMaker\KvizzyMakerClass.php
 				www\TTools\TKvizzyMaker\TestBase.php
@@ -138,12 +136,13 @@ KwinFlat
 4=www\Update\Update.php
 5=www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 6=www\iniMem.php
+7=www\State\State.php
 [Selected Project Files]
 Main=
-Selected=www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
+Selected=www\State\State.php
 [www\index.php]
-TopLine=26
-Caret=80,51
+TopLine=41
+Caret=1,71
 [www\UpSiteBODY.php]
 TopLine=1
 Caret=28,21
@@ -152,9 +151,9 @@ TopLine=15
 Caret=1,44
 [www\UpSiteHEAD.php]
 TopLine=1
-Caret=1,32
+Caret=1,22
 [www\Update\Update.php]
-TopLine=38
+TopLine=36
 Caret=32,77
 [www\TTools\TKvizzyMaker\CommonKvizzyMaker.php]
 TopLine=181
@@ -162,3 +161,6 @@ Caret=37,195
 [www\iniMem.php]
 TopLine=119
 Caret=3,154
+[www\State\State.php]
+TopLine=21
+Caret=1,57
