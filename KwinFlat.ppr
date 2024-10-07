@@ -49,7 +49,7 @@ KwinFlat
 			www\Background\Razlom16x9.gif
 			www\Background\VnizuVoda_kv.gif
 			www\Background\Vodopadik_kv.gif
-		-Dacha
+		+Dacha
 			www\Dacha\Dacha.css
 			www\Dacha\index.php
 			www\Dacha\iniWorkSpace.php
@@ -104,7 +104,8 @@ KwinFlat
 			www\jQuery\jquery-ui.min.js
 		-Lead
 		-Meet
-		+State
+		-State
+			www\State\ParseXMLfile-LeadLEDs.xml
 			www\State\State.php
 		-TTools
 			-TKvizzyMaker
@@ -153,14 +154,14 @@ Caret=1,44
 TopLine=1
 Caret=1,22
 [www\Update\Update.php]
-TopLine=36
+TopLine=38
 Caret=32,77
 [www\TTools\TKvizzyMaker\CommonKvizzyMaker.php]
-TopLine=181
-Caret=37,195
+TopLine=119
+Caret=33,125
 [www\iniMem.php]
 TopLine=119
 Caret=3,154
 [www\State\State.php]
-TopLine=21
+TopLine=19
 Caret=1,57

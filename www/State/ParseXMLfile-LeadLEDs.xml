@@ -1,0 +1,6 @@
+<positions id="root">
+   <name>Всем привет!</name>
+   <sgpa id="sgpa">181</sgpa>
+   <Led04 id="Led04">HIGH</Led04>
+   <Led33 id="inLed33">inHIGH</Led33>
+</positions>

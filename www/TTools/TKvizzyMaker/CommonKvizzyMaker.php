@@ -121,8 +121,8 @@ function CreateTables($pdo,$aCharters)
       $st = $pdo->query($sql);
       // Заполняем таблицу типов устройств
       $aDevicesType=[
-         [ 1,'inLed'],                       // встроенный светодиод контроллера
-         [ 2,'Led'],                         // внешний светодиод
+         [ 1,'inLed'],       // светодиод c обратной логикой
+         [ 2,'Led'],         // светодиод
       ];
       $statement = $pdo->prepare("INSERT INTO [DevicesType] ".
          "([tiddev],[typedev]) VALUES ".
