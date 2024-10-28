@@ -123,6 +123,9 @@ function CreateTables($pdo,$aCharters)
       $aDevicesType=[
          [ 1,'inLed'],       // светодиод c обратной логикой
          [ 2,'Led'],         // светодиод
+         [ 3,'Core32'],      // ядро Esp32
+         [ 4,'DHT11'],         
+         [ 5,'DHT22'],       
       ];
       $statement = $pdo->prepare("INSERT INTO [DevicesType] ".
          "([tiddev],[typedev]) VALUES ".
