@@ -73,6 +73,7 @@ try
          echo '<p>LED33 - светодиод выключен</p><a id="LED33off" class="button button-off" href="?Com=led33on"> ВКЛ. </a>';
          
       echo "Всем большой привет с дачной страницы";
+      echo "<br>com=".$parm;
       ?>
       </article>
 
@@ -113,6 +114,10 @@ function CreatePositions()
    
    $name=$dom->createElement('name','Всем привет!'); 
    $root->appendChild($name);
+   
+   $sgpa=$dom->createElement('sgpa','181');
+   $root->appendChild($sgpa);
+   $sgpa->setAttribute('id','sgpa');
    
    $sgpa=$dom->createElement('sgpa','181');
    $root->appendChild($sgpa);

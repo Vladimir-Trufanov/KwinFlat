@@ -1,5 +1,5 @@
 <?php
-// PHP7/HTML5, EDGE/CHROME                                    *** State.php ***
+// PHP7/HTML5, EDGE/CHROME                          *** State/index.php.php ***
 
 // ****************************************************************************
 // * KwinFlat/State                      Зарегистрировать изменения состояний *
@@ -23,9 +23,20 @@ $urlHome      = $_WORKSPACE[wsUrlHome];      // Начальная страни�
 // Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
 // страницы с выводом сообщений, а также комментариев для PHP5-PHP7
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
+
+
+// Подключаем задействованные классы
+require_once $SiteHost."/TPhpTools/TPhpTools/TPageStarter/PageStarterClass.php";
+require_once($SiteHost.'/TPhpPrown/TPhpPrown/CommonPrown.php');
+
+
 try 
 {
-   // require_once($SiteHost.'/TPhpPrown/TPhpPrown/CommonPrown.php');
+   $parm=prown\getComRequest();
+   if ($parm==NULL) $parm='NULL';
+   // Выполняем запуск сессии и начальную инициализацию
+   $oStarter = new PageStarter('Main');
+   $oStarter->Message('$parm = '.$parm);
    ?>
    <!DOCTYPE html> 
    <html>
@@ -41,7 +52,30 @@ try
    <article>
       <?php 
          $backmessage='State';
-         echo $backmessage;
+         echo $backmessage.'<br>';
+         
+         // http://localhost:100/State/?Com={%22nicctrl%22:%22myjoy%22,%22led33%22:[{%22typedev%22:%22inLed%22,%22status%22:%22inHIGH%22}]}
+         // http://localhost:100/State/?Com={"nicctrl":"myjoy","led33":[{%22typedev%22:%22inLed%22,%22status%22:%22inHIGH%22}]}
+
+         // $json = '{"name": "John Doe", "age": 30}';
+         // Конвертация JSON-строки в PHP-объект
+         // $user = json_decode($json);
+         // Использование
+         // echo $user->name;  // Выведет «John Doe»
+         // echo $user->age;  // Выведет 30
+ 
+ 
+         
+         $nicctrl = json_decode($parm);
+         //echo '$nicctrl->nicctrl = '.$nicctrl->nicctrl.'<br>'; 
+         $led33=$nicctrl->led33[0];
+         //echo '$led33->typedev = '.$led33->typedev.'<br>'; 
+         //echo '$led33->status = '.$led33->status.'<br>'; 
+         
+         $oStarter->Message('$nicctrl->nicctrl = '.$nicctrl->nicctrl);
+         $oStarter->Message('$led33->typedev = '.$led33->typedev);
+         $oStarter->Message('$led33->status = '.$led33->status);
+         
       ?>
    </article>
    <footer>
@@ -56,5 +90,5 @@ catch (E_EXCEPTION $e)
 {
    DoorTryPage($e);
 }
-?> <!-- --> <?php // ******************************************** State.php ***
+?> <!-- --> <?php // ********************************** State/index.php.php ***
 
