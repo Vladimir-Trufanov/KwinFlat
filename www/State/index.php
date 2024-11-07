@@ -65,7 +65,7 @@ try
          // echo $user->age;  // Выведет 30
  
  
-         
+         /*
          $nicctrl = json_decode($parm);
          //echo '$nicctrl->nicctrl = '.$nicctrl->nicctrl.'<br>'; 
          $led33=$nicctrl->led33[0];
@@ -75,7 +75,7 @@ try
          $oStarter->Message('$nicctrl->nicctrl = '.$nicctrl->nicctrl);
          $oStarter->Message('$led33->typedev = '.$led33->typedev);
          $oStarter->Message('$led33->status = '.$led33->status);
-         
+         */
       ?>
    </article>
    <footer>

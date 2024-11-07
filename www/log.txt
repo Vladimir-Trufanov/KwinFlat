@@ -90,3 +90,12 @@ Stack trace:
 #4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
 #5 {main}
   thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 159
+[07-Nov-2024 20:40:34 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [14] unable to open database file in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php:235
+Stack trace:
+#0 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(235): PDO->__construct('sqlite:C:/Base/...', 'tve', '23ety17', Array)
+#1 C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php(271): ttools\_BaseConnect('C:/Base/kvizzy', 'tve', '23ety17')
+#2 C:\KwinFlat\www\TTools\TKvizzyMaker\KvizzyMakerClass.php(75): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17', '-')
+#3 C:\KwinFlat\www\iniMem.php(153): ttools\KvizzyMaker->BaseFirstCreate()
+#4 C:\KwinFlat\www\index.php(39): require_once('C:\\KwinFlat\\www...')
+#5 {main}
+  thrown in C:\KwinFlat\www\TTools\TKvizzyMaker\CommonKvizzyMaker.php on line 235
