@@ -124,8 +124,6 @@ function CreateTables($pdo,$aCharters)
          [ 1,'inLed'],       // светодиод c обратной логикой
          [ 2,'Led'],         // светодиод
          [ 3,'Core32'],      // ядро Esp32
-         [ 4,'DHT11'],         
-         [ 5,'DHT22'],       
       ];
       $statement = $pdo->prepare("INSERT INTO [DevicesType] ".
          "([tiddev],[typedev]) VALUES ".
@@ -166,7 +164,7 @@ function CreateTables($pdo,$aCharters)
          'typesens   VARCHAR NOT NULL UNIQUE)';              // тип датчика
       $st = $pdo->query($sql);
       // Заполняем таблицу типов датчиков
-      $aDevicesType=[
+      $aSensorsType=[
          [ 1,'DHT11'],         
          [ 2,'DHT22'],       
       ];
@@ -174,7 +172,7 @@ function CreateTables($pdo,$aCharters)
          "([tidsens],[typesens]) VALUES ".
          "(:tidsens, :typesens);");
       $i=0;
-      foreach ($aDevicesType as [$tidsens,$typesens])
+      foreach ($aSensorsType as [$tidsens,$typesens])
       $statement->execute([
          "tidsens"  => $tidsens,
          "typesens" => $typesens
