@@ -1,9 +1,0 @@
-===Main===Wed, 06 Nov 2024 20:18:41 +0300 IP: ::1 URL: /State/?Com={%22nicctrl%22:%22myjoy%22,%22led33%22:[{%22typedev%22:%22inLed%22,%22status%22:%22inHIGH%22}]} 
-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 
-Main: $parm = {"nicctrl":"myjoy","led33":[{"typedev":"inLed","status":"inHIGH"}]}Main: $nicctrl->nicctrl = Main: $led33->typedev = Main: $led33->status = ===Main===Wed, 06 Nov 2024 20:19:51 +0300 IP: ::1 URL: /State/?Com={%22nicctrl%22:%22myjoy%22,%22led33%22:[{%22typedev%22:%22inLed%22,%22status%22:%22inHIGH%22}]} 
-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 
-Main: $parm = {"nicctrl":"myjoy","led33":[{"typedev":"inLed","status":"inHIGH"}]}Main: $nicctrl->nicctrl = myjoyMain: $led33->typedev = inLedMain: $led33->status = inHIGH***Main***Thu, 07 Nov 2024 20:43:00 +0300 IP: ::1 URL: /State/ 
-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 
-Main: $parm = NULLMain: $nicctrl->nicctrl = Main: $led33->typedev = Main: $led33->status = ===Main===Thu, 07 Nov 2024 20:47:46 +0300 IP: ::1 URL: /State/ 
-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 
-Main: $parm = NULL

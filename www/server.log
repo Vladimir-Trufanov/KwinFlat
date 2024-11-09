@@ -1,6 +1,6 @@
 Array
 (
-    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-7ec65e92-0c37-4acc-93b2-b814f8e0cad8
+    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-3fcf4bd8-a3f0-4477-b7b0-4d39b40e0076
     [PHP_FCGI_MAX_REQUESTS] => 10000
     [PHPRC] => C:\Program Files\iis express\PHP\v7.1
     [ALLUSERSPROFILE] => C:\ProgramData
@@ -46,13 +46,13 @@ Array
     [SERVER_NAME] => localhost
     [SCRIPT_NAME] => /State/index.php
     [SCRIPT_FILENAME] => C:\KwinFlat\www\State\index.php
-    [REQUEST_URI] => /State/
+    [REQUEST_URI] => /State/?Com=dfg
     [REQUEST_METHOD] => GET
     [REMOTE_USER] => 
-    [REMOTE_PORT] => 50611
+    [REMOTE_PORT] => 63105
     [REMOTE_HOST] => ::1
     [REMOTE_ADDR] => ::1
-    [QUERY_STRING] => 
+    [QUERY_STRING] => Com=dfg
     [PATH_TRANSLATED] => C:\KwinFlat\www\State\index.php
     [LOGON_USER] => 
     [LOCAL_ADDR] => ::1
@@ -88,17 +88,15 @@ Array
     [HTTP_SEC_CH_UA] => "Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"
     [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
     [HTTP_HOST] => localhost:100
-    [HTTP_COOKIE] => PHPSESSID=hl8cbdsb6isktulge8b9ee6knk; Orient=landscape
+    [HTTP_COOKIE] => Orient=landscape; PHPSESSID=pnfmmqu20uks179utpr8n4fq2t
     [HTTP_ACCEPT_LANGUAGE] => ru,en-US;q=0.9,en;q=0.8
     [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
     [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
     [HTTP_CONTENT_LENGTH] => 0
-    [HTTP_PRAGMA] => no-cache
     [HTTP_CONNECTION] => keep-alive
-    [HTTP_CACHE_CONTROL] => no-cache
     [FCGI_ROLE] => RESPONDER
     [PHP_SELF] => /State/index.php
-    [REQUEST_TIME_FLOAT] => 1731001666.7645
-    [REQUEST_TIME] => 1731001666
+    [REQUEST_TIME_FLOAT] => 1731170624.9765
+    [REQUEST_TIME] => 1731170624
 )
 

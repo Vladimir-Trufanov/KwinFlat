@@ -26,7 +26,7 @@ require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 
 
 // Подключаем задействованные классы
-require_once $SiteHost."/TPhpTools/TPhpTools/TPageStarter/PageStarterClass.php";
+// require_once $SiteHost."/TPhpTools/TPhpTools/TPageStarter/PageStarterClass.php";
 require_once($SiteHost.'/TPhpPrown/TPhpPrown/CommonPrown.php');
 
 
@@ -35,8 +35,8 @@ try
    $parm=prown\getComRequest();
    if ($parm==NULL) $parm='NULL';
    // Выполняем запуск сессии и начальную инициализацию
-   $oStarter = new PageStarter('Main');
-   $oStarter->Message('$parm = '.$parm);
+   //$oStarter = new PageStarter('Main');
+   //$oStarter->Message('$parm = '.$parm);
    ?>
    <!DOCTYPE html> 
    <html>
@@ -49,10 +49,15 @@ try
    </head>
 
    <body>
+   <!-- 
    <article>
-      <?php 
-         $backmessage='State';
-         echo $backmessage.'<br>';
+   -->
+      <?php
+         echo '***';
+         echo $parm; 
+         echo '***<br>'; 
+         //$backmessage='State';
+         //echo $backmessage.'<br>';
          
          // http://localhost:100/State/?Com={%22nicctrl%22:%22myjoy%22,%22led33%22:[{%22typedev%22:%22inLed%22,%22status%22:%22inHIGH%22}]}
          // http://localhost:100/State/?Com={"nicctrl":"myjoy","led33":[{%22typedev%22:%22inLed%22,%22status%22:%22inHIGH%22}]}
@@ -76,11 +81,16 @@ try
          $oStarter->Message('$led33->typedev = '.$led33->typedev);
          $oStarter->Message('$led33->status = '.$led33->status);
          */
+         //$oStarter->Message('Привет!');
+         
+         
       ?>
+   <!-- 
    </article>
    <footer>
       Copyright &copy; Владимир Труфанов
    </footer>
+   -->
    </body>
    </html>
 
