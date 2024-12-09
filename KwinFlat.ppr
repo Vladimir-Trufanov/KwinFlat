@@ -6,138 +6,190 @@ Compilator.ProgSaveAll=0
 Compilator.ProgRunSelection=0
 Compilator.LogType=0
 Compilator.LogEncoding=0
-DefaultDir=C:\KwinFlat\www
+DefaultDir=C:\KwinFlat
 DefaultCP=0
 LogtoEnd=1
 DontOpen=0
 AbsolutePath=0
 FileFormat=0
 ProjectFilesOnly=0
-HTServer=localhost
 Extensions=*.*
 [Project tree]
 KwinFlat
-	+www
-		-.well-known
-			-pki-validation
-				www\.well-known\pki-validation\gsdv.txt
-		-Allcss
-			www\Allcss\Comments.css
-			www\Allcss\Comments_mobi.css
-			www\Allcss\ContactUs.css
-			www\Allcss\Entrys.css
-			www\Allcss\Examples.css
-			www\Allcss\LineNav.css
-			www\Allcss\Main.css
-			www\Allcss\Main_mobi.css
-			www\Allcss\Main_mobiOld.css
-			www\Allcss\Refbooks.css
-			www\Allcss\Reset.css
-			www\Allcss\Section.css
-			www\Allcss\TinyMCE.css
-			www\Allcss\ViewLaws.css
-		-Background
-			www\Background\Bereg16x9.gif
-			www\Background\Doroga_kv.gif
-			www\Background\Etomjata16x9.gif
-			www\Background\Kaktusy_kv.gif
-			www\Background\Kudri_kv.gif
-			www\Background\Kupola_kv.gif
-			www\Background\Kwinflat.gif
-			www\Background\Ladoga_kv.gif
-			www\Background\Malep16x9.gif
-			www\Background\Razlom16x9.gif
-			www\Background\VnizuVoda_kv.gif
-			www\Background\Vodopadik_kv.gif
-		+Dacha
-			www\Dacha\Dacha.css
-			www\Dacha\index.php
-			www\Dacha\iniWorkSpace.php
-			www\Dacha\Positions.xml
-			www\Dacha\Proba.xml
-			www\Dacha\simple_html_dom.php
-		-Entrys
-			www\Entrys\AddUsl.php
-			www\Entrys\AddZhkvar.php
-			www\Entrys\Authentich.php
-			www\Entrys\CheckPassword.php
-			www\Entrys\ContactUs.php
-			www\Entrys\Indoor.php
-			www\Entrys\Register.php
-			www\Entrys\Register_user_text.php
-		-favicon260x260
-			www\favicon260x260\android-chrome-192x192.png
-			www\favicon260x260\android-chrome-256x256.png
-			www\favicon260x260\apple-touch-icon.png
-			www\favicon260x260\browserconfig.xml
-			www\favicon260x260\favicon.ico
-			www\favicon260x260\favicon-16x16.png
-			www\favicon260x260\favicon-32x32.png
-			www\favicon260x260\mstile-150x150.png
-			www\favicon260x260\safari-pinned-tab.svg
-		-Images
-			www\Images\bg_page.png
-			www\Images\delusl.png
-			www\Images\ecskursii.jpg
-			www\Images\Home.png
-			www\Images\index.html
-			www\Images\invalid.png
-			www\Images\Kwinflat.jpg
-			www\Images\red_asterisk.png
-			www\Images\star.png
-			www\Images\submi.png
-			www\Images\tick.png
-			www\Images\tick20.png
-			www\Images\underline.png
-			www\Images\valid.png
-		-jQuery
-			-images
-				www\jQuery\images\ui-icons_444444_256x240.png
-				www\jQuery\images\ui-icons_555555_256x240.png
-				www\jQuery\images\ui-icons_777620_256x240.png
-				www\jQuery\images\ui-icons_777777_256x240.png
-				www\jQuery\images\ui-icons_cc0000_256x240.png
-				www\jQuery\images\ui-icons_ffffff_256x240.png
-			www\jQuery\jquery-1.11.1.min.js
-			www\jQuery\jquery-1.11.1.min.map
-			www\jQuery\jquery-ui.min.css
-			www\jQuery\jquery-ui.min.js
-		-Lead
-		-Meet
-		+State
-			www\State\index.php
-			www\State\ParseXMLfile-LeadLEDs.xml
-		-TTools
-			-TKvizzyMaker
-				www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
-				www\TTools\TKvizzyMaker\KvizzyMakerClass.php
-				www\TTools\TKvizzyMaker\TestBase.php
-		-Update
-			www\Update\Update.php
-		-View
-		www\.htaccess
-		www\.user.ini
-		www\Common.php
-		www\e404.php
-		www\index.php
-		www\iniMem.php
-		www\iniWorkSpace.php
-		www\kwinflat-log.txt
-		www\log.txt
-		www\manifest.json
-		www\photo-8i.jpg
-		www\server.log
-		www\UpSiteBODY.php
-		www\UpSiteHEAD.php
+	+KwinFlat
+		-BP1
+			BP1\DomikvaClass.bp1
+			BP1\Kvizzy.bp1
+			BP1\kwf0.png
+			BP1\KwinFlat.bp1
+		-Favicon
+			-favicon_package_v0.16
+				Favicon\favicon_package_v0.16\android-chrome-192x192.png
+				Favicon\favicon_package_v0.16\android-chrome-256x256.png
+				Favicon\favicon_package_v0.16\apple-touch-icon.png
+				Favicon\favicon_package_v0.16\browserconfig.xml
+				Favicon\favicon_package_v0.16\favicon.ico
+				Favicon\favicon_package_v0.16\favicon-16x16.png
+				Favicon\favicon_package_v0.16\favicon-32x32.png
+				Favicon\favicon_package_v0.16\mstile-150x150.png
+				Favicon\favicon_package_v0.16\safari-pinned-tab.svg
+				Favicon\favicon_package_v0.16\site.webmanifest
+				Favicon\favicon_package_v0.16\О favicon для kwinflat-ru.md
+				Favicon\favicon_package_v0.16\О favicon.doc
+			Favicon\favicon.ico
+			Favicon\favicon1.png
+			Favicon\favicon2.png
+			Favicon\favicon3.png
+		-Private
+			Private\Еncrypted.fil
+		-RobotsMap
+			-v1
+				RobotsMap\v1\robots.txt
+				RobotsMap\v1\sitemap.xml
+			-v2018-06-01
+				RobotsMap\v2018-06-01\robots.txt
+				RobotsMap\v2018-06-01\sitemap.xml
+		+www
+			-.well-known
+				-pki-validation
+					www\.well-known\pki-validation\gsdv.txt
+			-404
+				www\404\404.jpg
+				www\404\error.css
+				www\404\error.php
+			-Allcss
+				www\Allcss\Comments.css
+				www\Allcss\Comments_mobi.css
+				www\Allcss\ContactUs.css
+				www\Allcss\Entrys.css
+				www\Allcss\Examples.css
+				www\Allcss\LineNav.css
+				www\Allcss\Main.css
+				www\Allcss\Main_mobi.css
+				www\Allcss\Main_mobiOld.css
+				www\Allcss\Refbooks.css
+				www\Allcss\Reset.css
+				www\Allcss\Section.css
+				www\Allcss\TinyMCE.css
+				www\Allcss\ViewLaws.css
+			-Background
+				www\Background\Bereg16x9.gif
+				www\Background\Doroga_kv.gif
+				www\Background\Etomjata16x9.gif
+				www\Background\Kaktusy_kv.gif
+				www\Background\Kudri_kv.gif
+				www\Background\Kupola_kv.gif
+				www\Background\Kwinflat.gif
+				www\Background\Ladoga_kv.gif
+				www\Background\Malep16x9.gif
+				www\Background\Razlom16x9.gif
+				www\Background\VnizuVoda_kv.gif
+				www\Background\Vodopadik_kv.gif
+			-Dacha
+				www\Dacha\Dacha.css
+				www\Dacha\index.php
+				www\Dacha\iniWorkSpace.php
+				www\Dacha\Positions.xml
+				www\Dacha\Proba.xml
+				www\Dacha\simple_html_dom.php
+			-Entrys
+				www\Entrys\AddUsl.php
+				www\Entrys\AddZhkvar.php
+				www\Entrys\Authentich.php
+				www\Entrys\CheckPassword.php
+				www\Entrys\ContactUs.php
+				www\Entrys\Indoor.php
+				www\Entrys\Register.php
+				www\Entrys\Register_user_text.php
+			-favicon260x260
+				www\favicon260x260\android-chrome-192x192.png
+				www\favicon260x260\android-chrome-256x256.png
+				www\favicon260x260\apple-touch-icon.png
+				www\favicon260x260\browserconfig.xml
+				www\favicon260x260\favicon.ico
+				www\favicon260x260\favicon-16x16.png
+				www\favicon260x260\favicon-32x32.png
+				www\favicon260x260\mstile-150x150.png
+				www\favicon260x260\safari-pinned-tab.svg
+			-Images
+				www\Images\bg_page.png
+				www\Images\delusl.png
+				www\Images\ecskursii.jpg
+				www\Images\Home.png
+				www\Images\index.html
+				www\Images\invalid.png
+				www\Images\Kwinflat.jpg
+				www\Images\red_asterisk.png
+				www\Images\star.png
+				www\Images\submi.png
+				www\Images\tick.png
+				www\Images\tick20.png
+				www\Images\underline.png
+				www\Images\valid.png
+			-jQuery
+				-images
+					www\jQuery\images\ui-icons_444444_256x240.png
+					www\jQuery\images\ui-icons_555555_256x240.png
+					www\jQuery\images\ui-icons_777620_256x240.png
+					www\jQuery\images\ui-icons_777777_256x240.png
+					www\jQuery\images\ui-icons_cc0000_256x240.png
+					www\jQuery\images\ui-icons_ffffff_256x240.png
+				www\jQuery\jquery-1.11.1.min.js
+				www\jQuery\jquery-1.11.1.min.map
+				www\jQuery\jquery-ui.min.css
+				www\jQuery\jquery-ui.min.js
+			-Lead
+			-Meet
+			-State
+				www\State\index.php
+				www\State\ParseXMLfile-LeadLEDs.xml
+			-TTools
+				-TKvizzyMaker
+					www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
+					www\TTools\TKvizzyMaker\KvizzyMakerClass.php
+					www\TTools\TKvizzyMaker\TestBase.php
+			-Update
+				www\Update\Update.php
+			-View
+			www\.htaccess
+			www\.user.ini
+			www\Common.php
+			www\e404.php
+			www\index.php
+			www\iniMem.php
+			www\iniWorkSpace.php
+			www\kwinflat-log.txt
+			www\log.txt
+			www\manifest.json
+			www\photo-8i.jpg
+			www\server.log
+			www\UpSiteBODY.php
+			www\UpSiteHEAD.php
+		-Крошки опыта
+			-About
+				Крошки опыта\About\about.pdf
+				Крошки опыта\About\О программе.doc
+				Крошки опыта\About\О программе.html
+			Крошки опыта\Как не потерять посетителя при 404 ошибке.doc
+			Крошки опыта\Как установить счетчик посещаемости на сайт.doc
+			Крошки опыта\Крошки опыта.doc
+			Крошки опыта\Описание программы KwinFlat для помощи.html
+			Крошки опыта\Описание программы KwinFlat.html
+		-Управление
+			Управление\httpd_KWINFLATHT.conf
+			Управление\PHP Info IIS.doc
+			Управление\PHP Info NICRU.doc
+			Управление\php_IIS.ini
+			Управление\SEO-теги KwinFlat.xls
+			Управление\Контрольные позиции продвижения.doc
+			Управление\Параметры и кукисы KwinFlat.xls
+		KwinFlat.ppr
+		README.md
 [Open project files]
 0=www\index.php
-1=www\State\index.php
 [Selected Project Files]
 Main=
-Selected=www\State\index.php
+Selected=www\index.php
 [www\index.php]
-TopLine=46
-Caret=1,71
-[www\State\index.php]
-TopLine=47
-Caret=12,73
+TopLine=25
+Caret=1,1
