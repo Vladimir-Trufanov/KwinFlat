@@ -36,6 +36,12 @@ php_flag session.auto_start off
 
 # php_value session.cookie_lifetime 10800
 
+## Запрещаем просмотр файла php.ini
+<Files php.ini>  
+order allow,deny  
+deny from all  
+</Files>
+
 ## Запрещаем загрузку баз данных
 <FilesMatch "\.db3$">        
    Order allow,deny
@@ -55,8 +61,12 @@ RewriteEngine On
 ## RewriteRule ^reset$ /Reset/ [L]
 
 ## Перенаправляем все запросы с HTTP на HTTPS
-RewriteCond %{ENV:HTTPS} !on
-RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+## RewriteCond %{ENV:HTTPS} !on
+## RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+## Уточненные настройки MASTERHOST
+RewriteCond %{HTTP:PORT} !^443$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R]
 
 ## Перенаправляем ошибки в файл e404.php
 ErrorDocument 400 /e404.php?err=400 
