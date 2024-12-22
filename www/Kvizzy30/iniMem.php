@@ -12,9 +12,6 @@
 require_once "Common.php";  
 
 // ---------------------------------- Межязыковые (PHP-JScript) определения ---
-define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
-define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
-
 define ("RootDir",      $_SERVER['DOCUMENT_ROOT']); 
 define ("RootUrl",      $_SERVER['SCRIPT_NAME']); 
   
@@ -106,7 +103,6 @@ $iniMem=nstOk;
 
 // Подключаем прикладные функции TPhpPrown
 /*
-require_once pathPhpPrown."/CommonPrown.php";
 require_once pathPhpPrown."/getTranslit.php";
 require_once pathPhpPrown."/iniConstMem.php";
 */
@@ -132,6 +128,7 @@ $platform = $browseri['platform'];
 $browser = $browseri['browser'];
 $version = $browseri['version'];
 $device_type = $browseri['device_type'];
+
 // При запросе через $UserAgent=ESP32HTTPClient
 if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
 

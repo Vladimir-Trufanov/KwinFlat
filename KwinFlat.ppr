@@ -117,8 +117,8 @@ KwinFlat
 				www\jQuery\jquery-1.11.1.min.map
 				www\jQuery\jquery-ui.min.css
 				www\jQuery\jquery-ui.min.js
-			+Kvizzy
-				+Allcss
+			-Kvizzy
+				-Allcss
 					www\Kvizzy\Allcss\Comments.css
 					www\Kvizzy\Allcss\Comments_mobi.css
 					www\Kvizzy\Allcss\ContactUs.css
@@ -143,10 +143,11 @@ KwinFlat
 					www\Kvizzy30\Dacha\simple_html_dom.php
 				-Lead
 				-Meet
-				-State
-					www\Kvizzy30\State\index.php
+				+State
+					www\Kvizzy30\State\State.php
+					www\Kvizzy30\State\indexOld.php
 					www\Kvizzy30\State\ParseXMLfile-LeadLEDs.xml
-				+Styles
+				-Styles
 					www\Kvizzy30\Styles\Home.css
 				-Update
 					www\Kvizzy30\Update\Update.php
@@ -192,29 +193,29 @@ KwinFlat
 		README.md
 [Open project files]
 0=www\index.php
-1=www\Kvizzy30\UpSiteHEAD.php
-2=www\Kvizzy30\Styles\Home.css
-3=www\Kvizzy30\UpSiteBODY.php
-4=..\IttveMe\www\Styles\Content.css
-5=..\IttveMe\www\Styles\iniStyles.css
+1=www\Kvizzy30\State\State.php
+2=www\Kvizzy30\UpSiteBODY.php
+3=www\Kvizzy30\State\indexOld.php
+4=www\Kvizzy30\iniMem.php
+5=www\Kvizzy30\UpSiteHEAD.php
 [Selected Project Files]
 Main=
-Selected=www\Kvizzy30\Styles\Home.css
+Selected=www\index.php
 [www\index.php]
-TopLine=1
-Caret=1,10
-[www\Kvizzy30\UpSiteHEAD.php]
-TopLine=1
-Caret=46,33
-[www\Kvizzy30\Styles\Home.css]
-TopLine=57
-Caret=12,91
+TopLine=47
+Caret=9,75
+[www\Kvizzy30\State\State.php]
+TopLine=19
+Caret=1,25
 [www\Kvizzy30\UpSiteBODY.php]
-TopLine=2
-Caret=13,18
-[..\IttveMe\www\Styles\Content.css]
-TopLine=59
-Caret=1,92
-[..\IttveMe\www\Styles\iniStyles.css]
-TopLine=11
-Caret=1,95
+TopLine=5
+Caret=1,39
+[www\Kvizzy30\State\indexOld.php]
+TopLine=13
+Caret=1,37
+[www\Kvizzy30\iniMem.php]
+TopLine=1
+Caret=1,15
+[www\Kvizzy30\UpSiteHEAD.php]
+TopLine=4
+Caret=1,1

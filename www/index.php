@@ -46,6 +46,13 @@ $HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с 
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
+   define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
+   define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
+   require_once pathPhpPrown."/CommonPrown.php";
+
+   $parm=prown\getComRequest();
+   if ($parm==NULL) $parm='NULL';
+
    // ---------------------------------------------------------------- INIT ---
    // Выполняем начальную инициализацию переменных, определяем константы,
    // создаем классы для начального заполнения разметки
@@ -64,7 +71,8 @@ try
    // ---------------------------------------------------------------- BODY ---
    // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
    echo '<body>'; 
-   require_once APP.'/UpSiteBODY.php';
+   if ($parm=='State') require_once APP.'/State/State.php'; 
+   else require_once APP.'/UpSiteBODY.php';
    echo '</body>'; 
    // Завершаем разметку
    echo '</html>';
@@ -82,14 +90,3 @@ catch (E_EXCEPTION $e)
 
 ?> <!-- --> <?php // ******************************************** index.php ***
 
-
-
-
-
-
-
-
-
-
-// ************************************************************ KwinFlat.ru ***
-?>

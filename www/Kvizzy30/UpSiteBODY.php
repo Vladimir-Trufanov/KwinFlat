@@ -27,17 +27,17 @@ echo '</div>';
 
 echo '<div id="Footer">';
 echo '<pre>';
-echo '$UserAgent='.$UserAgent.'<br>';
-echo '$platform='.$platform.'<BR>';
 echo '$browser='.$browser.'<BR>';
 echo '$version='.$version.'<BR>';
+echo '$platform='.$platform.'<BR>';
 echo '$device_type='.$device_type.'<BR>';
 echo '</pre>';
 echo '</div>';
 echo '</div>';
 
 echo '<div id="Right">';
-echo 'Right';
+echo '$parm='.$parm.'<br>';
+echo '$Page='.$Page.'<br>';
 echo '</div>';
 
 

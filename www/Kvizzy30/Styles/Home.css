@@ -83,7 +83,7 @@ body
 }
 #kwf
 {
-   width:67%;
+   height:90%;
 }
 #Article 
 {
@@ -94,6 +94,7 @@ body
 {
    background:Lavender;
    height:20%;
+   overflow:auto;
 }
 
 /**************************************************************** Home.css ***/
