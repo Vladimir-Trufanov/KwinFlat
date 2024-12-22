@@ -29,6 +29,9 @@ echo '
     <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
     <script src="/jQuery/jquery-ui.min.js"></script>
 ';
+// Подключаем CSS
+if ($Page=='Home') echo '<link href="'.APP.'/Styles/Home.css" rel="stylesheet">';
+
 
 // Обобщаем мобильную версию сайта
 if ($SiteDevice==Mobile)

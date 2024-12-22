@@ -11,22 +11,21 @@
 
 // ------------------------------------------------------------------- BODY ---
 
+echo '<div id="Left">';
 echo '<div id="Header">';
-echo 'id="Header"'; 
+?>
+<div id="footer-img">
+<img id="kwf" src="../Images/Kwinflat.jpg" alt="Kwinflat-близкий всем!" />
+</div>
+<?php
 echo '</div>';
 
 echo '<div id="Article">';
-echo 'id="Article"'; 
 // Подгружаем обновление значений датчиков, состояний устройств и контроллеров
 require_once("Update/Update.php"); 
 echo '</div>';
 
 echo '<div id="Footer">';
-?>
-<div id="footer-img">
-<img src="../Images/Kwinflat.jpg" alt="Kwinflat-близкий всем!" />
-</div>
-<?php
 echo '<pre>';
 echo '$UserAgent='.$UserAgent.'<br>';
 echo '$platform='.$platform.'<BR>';
@@ -35,5 +34,12 @@ echo '$version='.$version.'<BR>';
 echo '$device_type='.$device_type.'<BR>';
 echo '</pre>';
 echo '</div>';
+echo '</div>';
+
+echo '<div id="Right">';
+echo 'Right';
+echo '</div>';
+
+
 
 // <!-- --> ************************************************ UpSiteBODY.php ***

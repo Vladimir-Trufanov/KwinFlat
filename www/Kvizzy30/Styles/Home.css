@@ -1,0 +1,99 @@
+/** HTML5/CSS3, EDGE/CHROME                                    *** Home.css ***
+ *
+ ******************************************************************************
+ * Kvizzy30                                           Стили домашней страницы *
+ ******************************************************************************
+ *
+ * v4.0.1, 22.12.2024                                 Автор:      Труфанов В.Е.
+ * Copyright © 2024 tve                               Дата создания: 22.12.2024
+ * 
+**/
+
+/* Cбрасываем стили браузера */
+*
+{
+   box-sizing:border-box; 
+}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,
+acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,
+strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,
+figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,
+time,mark,audio,video 
+{
+   margin:0;
+   padding:0;
+   border:0;
+   font-size:100%;
+   vertical-align:baseline;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section 
+{
+   display:block;
+}
+/**
+ * Определяем базовый шрифт, устанавливаем размеры шрифтов по умолчанию, стили
+ * списков и таблиц и определяем в процентах пространство документа 
+**/
+html
+{
+   /*font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;*/	
+   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+   font-size:10px;
+}
+body 
+{
+   font-size:1.6rem;  
+   width:100%;
+   height:100%;
+   min-width:102rem;
+}
+/* Выравниваем дивы */
+#Left,#Right
+{
+   position:fixed; 
+   margin:0;
+   padding:0;
+   border:0;
+   vertical-align:baseline;
+   /*overflow:auto;*/
+}
+#Right 
+{
+   background:LightCyan;
+   top:0;
+   right:0;
+   height:100%;
+   width:33%;
+}
+#Left 
+{
+   background:transparent; 
+   top:0;
+   left:0;
+   height:100%;
+   width:67%;
+}
+#Header 
+{
+   background:white;
+   height:20%;
+   text-align: center;
+   vertical-align: middle;
+}
+#kwf
+{
+   width:67%;
+}
+#Article 
+{
+   background:PapayaWhip;
+   height:60%;
+}
+#Footer 
+{
+   background:Lavender;
+   height:20%;
+}
+
+/**************************************************************** Home.css ***/
