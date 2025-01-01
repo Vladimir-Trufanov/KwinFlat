@@ -117,11 +117,6 @@ KwinFlat
 				www\jQuery\jquery-1.11.1.min.map
 				www\jQuery\jquery-ui.min.css
 				www\jQuery\jquery-ui.min.js
-			-kv
-				www\kv\index.php
-				www\kv\iniMem.php
-				www\kv\UpSiteBODY.php
-				www\kv\UpSiteHEAD.php
 			-Kvizzy
 				-Allcss
 					www\Kvizzy\Allcss\Comments.css
@@ -146,13 +141,7 @@ KwinFlat
 					www\Kvizzy30\Dacha\Positions.xml
 					www\Kvizzy30\Dacha\Proba.xml
 					www\Kvizzy30\Dacha\simple_html_dom.php
-				-Lead
 				-Meet
-				-State
-					www\Kvizzy30\State\index.php
-					www\Kvizzy30\State\indexOld.php
-					www\Kvizzy30\State\ParseXMLfile-LeadLEDs.xml
-					www\Kvizzy30\State\State.php
 				-Styles
 					www\Kvizzy30\Styles\Home.css
 				-Update
@@ -161,6 +150,19 @@ KwinFlat
 				www\Kvizzy30\iniMem.php
 				www\Kvizzy30\UpSiteBODY.php
 				www\Kvizzy30\UpSiteHEAD.php
+			+Lead
+				www\Lead\index.php
+				www\Lead\indexLead.php
+				www\Lead\iniMem.php
+				www\Lead\UpSiteBODY.php
+				www\Lead\UpSiteHEAD.php
+			-State
+				www\State\index.php
+				www\State\indexState.php
+				www\State\iniMem.php
+				www\State\ParseXMLfile-LeadLEDs.xml
+				www\State\UpSiteBODY.php
+				www\State\UpSiteHEAD.php
 			-TTools
 				-TKvizzyMaker
 					www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
@@ -198,22 +200,10 @@ KwinFlat
 		KwinFlat.ppr
 		README.md
 [Open project files]
-0=www\kv\index.php
-1=www\kv\iniMem.php
-2=www\kv\UpSiteHEAD.php
-3=www\kv\UpSiteBODY.php
+0=www\Lead\index.php
 [Selected Project Files]
 Main=
-Selected=www\kv\UpSiteBODY.php
-[www\kv\index.php]
-TopLine=23
-Caret=1,28
-[www\kv\iniMem.php]
-TopLine=146
-Caret=3,237
-[www\kv\UpSiteHEAD.php]
-TopLine=6
-Caret=3,42
-[www\kv\UpSiteBODY.php]
-TopLine=6
-Caret=1,16
+Selected=www\Lead\index.php
+[www\Lead\index.php]
+TopLine=38
+Caret=1,1
