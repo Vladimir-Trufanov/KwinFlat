@@ -133,7 +133,7 @@ KwinFlat
 					www\Kvizzy\Allcss\Section.css
 					www\Kvizzy\Allcss\TinyMCE.css
 					www\Kvizzy\Allcss\ViewLaws.css
-			-Kvizzy30
+			+Kvizzy30
 				-Dacha
 					www\Kvizzy30\Dacha\Dacha.css
 					www\Kvizzy30\Dacha\index.php
@@ -142,15 +142,16 @@ KwinFlat
 					www\Kvizzy30\Dacha\Proba.xml
 					www\Kvizzy30\Dacha\simple_html_dom.php
 				-Meet
-				-Styles
+				+Styles
 					www\Kvizzy30\Styles\Home.css
+					www\Kvizzy30\Styles\Update.css
 				-Update
 					www\Kvizzy30\Update\Update.php
 				-View
 				www\Kvizzy30\iniMem.php
 				www\Kvizzy30\UpSiteBODY.php
 				www\Kvizzy30\UpSiteHEAD.php
-			+Lead
+			-Lead
 				www\Lead\index.php
 				www\Lead\indexLead.php
 				www\Lead\iniMem.php
@@ -163,7 +164,7 @@ KwinFlat
 				www\State\ParseXMLfile-LeadLEDs.xml
 				www\State\UpSiteBODY.php
 				www\State\UpSiteHEAD.php
-			-TTools
+			+TTools
 				-TKvizzyMaker
 					www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 					www\TTools\TKvizzyMaker\KvizzyMakerClass.php
@@ -179,6 +180,8 @@ KwinFlat
 			www\manifest.json
 			www\photo-8i.jpg
 			www\server.log
+		-Авторизация в ВК
+			Авторизация в ВК\Авторизация в ВК.md
 		-Крошки опыта
 			-About
 				Крошки опыта\About\about.pdf
@@ -200,10 +203,30 @@ KwinFlat
 		KwinFlat.ppr
 		README.md
 [Open project files]
-0=www\Lead\index.php
+0=www\index.php
+1=www\Kvizzy30\UpSiteBODY.php
+2=www\Kvizzy30\Update\Update.php
+3=www\Kvizzy30\UpSiteHEAD.php
+4=www\Kvizzy30\Styles\Update.css
+5=www\Kvizzy30\Styles\Home.css
 [Selected Project Files]
 Main=
-Selected=www\Lead\index.php
-[www\Lead\index.php]
-TopLine=38
-Caret=1,1
+Selected=www\Kvizzy30\Update\Update.php
+[www\index.php]
+TopLine=47
+Caret=6,75
+[www\Kvizzy30\UpSiteBODY.php]
+TopLine=4
+Caret=1,18
+[www\Kvizzy30\Update\Update.php]
+TopLine=71
+Caret=25,102
+[www\Kvizzy30\UpSiteHEAD.php]
+TopLine=4
+Caret=40,35
+[www\Kvizzy30\Styles\Update.css]
+TopLine=61
+Caret=16,92
+[www\Kvizzy30\Styles\Home.css]
+TopLine=61
+Caret=1,87

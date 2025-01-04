@@ -71,8 +71,9 @@ try
    // ---------------------------------------------------------------- BODY ---
    // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
    echo '<body>'; 
-   if ($parm=='State') require_once APP.'/State/State.php'; 
-   else require_once APP.'/UpSiteBODY.php';
+   //if ($parm=='State') require_once APP.'/State/State.php'; 
+   //else 
+   require_once APP.'/UpSiteBODY.php';
    echo '</body>'; 
    // Завершаем разметку
    echo '</html>';

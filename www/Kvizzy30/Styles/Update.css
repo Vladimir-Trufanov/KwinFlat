@@ -1,0 +1,100 @@
+/** HTML5/CSS3, EDGE/CHROME                                  *** Update.css ***
+ *
+ ******************************************************************************
+ * Kvizzy30                           Обновить показания счетчиков, состояния *
+ *                                                   устройств и контроллеров *
+ ******************************************************************************
+ *
+ * v1.0.1, 03.01.2025                                 Автор:      Труфанов В.Е.
+ * Copyright © 2024 tve                               Дата создания: 22.12.2024
+ * 
+**/
+#led33
+{
+   background:LightYellow;
+   top:0;
+   left:0;
+   height:46%;
+   width:100%;
+}
+#led4 
+{
+   background:Honeydew; 
+   top:46%;
+   left:50%;
+   height:46%;
+   width:100%;
+}
+
+#led33,led4
+{
+}
+
+/* Создаем площадку для размещения заголовков и элементов LED33 */
+#led33
+{
+   padding-left:8%;
+}
+#shsh
+{
+   /*background:yellow;*/
+   height:20%;
+}
+#lplp
+{
+   /*background:blue;*/
+   height:50%;
+}
+/* Размещаем заголовки и элементы управления LED33 */
+.shled33,.cled33
+{
+   width: 17.4%;
+   margin-right:2.6%;
+   text-align:center; 
+}
+.shled33
+{
+   background:transparent;
+   float:left;
+}
+.cled33
+{
+   background:Silver;
+   float:left;
+   height:80%;
+}
+.cp33
+{
+   /*color:red;*/
+   font-size:3.4rem;  
+   font-weight:bold;
+   margin-top:2rem;
+}
+.pshled33
+{
+   font-size:1.4rem;  
+   font-weight:bold;
+   padding-top:2rem;
+}
+/* Иммитируем лампочку */
+#spot
+{
+   margin-top:-2rem;
+   width: 10rem;
+   height: 10rem;
+   border-radius:50%;
+}
+/* Высвечиваем события */
+.shled33:hover
+{
+   color:#F4A460;
+}
+.shled33:active
+{
+   color:red;
+}
+
+
+
+
+/************************************************************** Update.css ***/

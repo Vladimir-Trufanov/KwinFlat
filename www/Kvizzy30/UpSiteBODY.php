@@ -14,9 +14,7 @@
 echo '<div id="Left">';
 echo '<div id="Header">';
 ?>
-<div id="footer-img">
 <img id="kwf" src="../Images/Kwinflat.jpg" alt="Kwinflat-близкий всем!" />
-</div>
 <?php
 echo '</div>';
 

@@ -30,7 +30,9 @@ echo '
     <script src="/jQuery/jquery-ui.min.js"></script>
 ';
 // Подключаем CSS
-if ($Page=='Home') echo '<link href="'.APP.'/Styles/Home.css" rel="stylesheet">';
+// if ($Page=='Home') 
+echo '<link href="'.APP.'/Styles/Home.css" rel="stylesheet">';
+echo '<link href="'.APP.'/Styles/Update.css" rel="stylesheet">';
 
 
 // Обобщаем мобильную версию сайта
