@@ -9,6 +9,8 @@
 // v1.0.1, 03.01.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 05.10.2024
 
+require_once 'State/CommonStateMaker.php';
+
 ?>
 <div id="led33">
 
@@ -51,7 +53,13 @@
 
 <?php
 echo '<div id="led4">';
-echo 'led4';
+echo 'led4 <br>';
+$pdo=StateConnect($SiteHost);
+$table=SelectLed33($pdo);
+echo 'myTime: '.$table['myTime'].'<br>'; 
+echo 'myDate: '.$table['myDate'].'<br>'; 
+echo 'cycle: ' .$table['cycle']. '<br>'; 
+echo 'sjson: ' .$table['sjson']. '<br>'; 
 echo '</div>';
 ?>
 <script>

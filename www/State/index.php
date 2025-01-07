@@ -3,7 +3,7 @@
 
 // ****************************************************************************
 // * State                               Зарегистрировать изменения состояний *
-// *                                        контроллеров и показаний датчиков *
+// *                                           устройств и показаний датчиков *
 // ****************************************************************************
 
 // v2.0.1, 26.12.2024                                 Автор:      Труфанов В.Е.
@@ -34,18 +34,14 @@ $HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с 
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
-   /*
    define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
    define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
    require_once pathPhpPrown."/CommonPrown.php";
 
-   $parm=prown\getComRequest();
-   if ($parm==NULL) $parm='NULL';
-   */
    // ---------------------------------------------------------------- INIT ---
    // Выполняем начальную инициализацию переменных, определяем константы,
    // создаем классы для начального заполнения разметки
-   require_once 'iniMem.php'; 
+   require_once 'iniState.php'; 
    // Начинаем разметку страниц сайта c кодировкой UTF8
    /*
    echo '<!DOCTYPE html>'; // определили разметку HTML5
@@ -57,16 +53,15 @@ try
    // Указываем индивидуальные данные страниц сайта для поисковых систем 
    // и пользователей, подключаем персональные стили для настольных и мобильных 
    // версий страниц сайта
-   /*
-   echo "<head>";
-   require_once 'UpSiteHEAD.php';
-   echo "</head>";
-   */
+   //echo "<head>";
+   //require_once 'UpStateHEAD.php';
+   //echo "</head>";
    // ---------------------------------------------------------------- BODY ---
    // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
-   //echo '<body>'; 
-   require_once 'UpSiteBODY.php';
-   //echo '</body>'; 
+   echo '<body>'; 
+   require_once 'CommonStateMaker.php';
+   require_once 'UpStateBODY.php';
+   echo '</body>'; 
    // Завершаем разметку
    //echo '</html>';
    

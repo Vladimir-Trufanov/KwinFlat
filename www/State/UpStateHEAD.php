@@ -1,13 +1,13 @@
 <?php
-// PHP7/HTML5, EDGE/CHROME/YANDEX                        *** UpSiteHEAD.php ***
+// PHP7/HTML5, EDGE/CHROME/YANDEX                       *** UpStateHEAD.php ***
 
 // ****************************************************************************
 // * State                               Зарегистрировать изменения состояний *
 // *                                        контроллеров и показаний датчиков *
 // ****************************************************************************
 
-// v2.0.1, 26.12.2024                                 Автор:      Труфанов В.Е.
-// Copyright © 2023 tve                               Дата создания: 08.10.2023
+// v2.0.1, 07.01.2025                                 Автор:      Труфанов В.Е.
+// Copyright © 2025 tve                               Дата создания: 07.01.2025
 
 // ---------------------------------------------------------- HEAD and LAST ---
 // Выводим данные о favicon
@@ -23,12 +23,18 @@ echo '
 <meta name="msapplication-config" content="/favicon260x260/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 ';
+*/
 // Подключаем jQuery 
 echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
 echo '
     <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
     <script src="/jQuery/jquery-ui.min.js"></script>
 ';
+echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
+// Подключаем js приложения
+echo '<script src="/State/State.js"></script>';
+echo '<link rel="stylesheet" type="text/css" href="/State/State.css">';
+/*
 // Подключаем CSS
 if ($Page=='Home') echo '<link href="'.APP.'/Styles/Home.css" rel="stylesheet">';
 
@@ -41,4 +47,4 @@ if ($SiteDevice==Mobile)
 */
 // end ------------------------------------------------------ HEAD and LAST ---
 
-// <!-- --> ************************************************ UpSiteHEAD.php ***
+// <!-- --> *********************************************** UpStateHEAD.php ***
