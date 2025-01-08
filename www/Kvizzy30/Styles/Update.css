@@ -33,7 +33,7 @@
 /* Создаем площадку для размещения заголовков и элементов LED33 */
 #led33
 {
-   padding-left:8%;
+   padding-left:8%; 
 }
 #shsh
 {
@@ -94,7 +94,72 @@
    color:red;
 }
 
-
-
+/* 4 вариант: https://liondigital.ru/kak-sdelat-begushhuyu-stroku-v-css/ */
+.marquee-container 
+{
+   overflow: hidden;
+   height: 20px;
+}
+.marquee2 
+{
+   animation: marquee2 10s linear infinite;
+   display: inline-block;
+   white-space: nowrap;
+   padding-right: 100%;
+}
+@keyframes marquee2 
+{
+   0% 
+   {
+      transform: translateX(0);
+   }
+   100% 
+   {
+      transform: translateX(-100%);
+   }
+}
+/* 5 вариант: https://ru.stackoverflow.com/questions/1533916/Сделать-на-чистом-css-зацикленую-бегущую-строку-без-рывков */
+.tickers 
+{
+   position: relative;
+   display: inline-block;
+   white-space: nowrap;
+   width: 1310px;
+   overflow: hidden;
+}
+.ticker 
+{
+   display: flex;
+   font-family: var(--font-first);
+   font-size: 2rem;
+   font-style: normal;
+   font-weight: 400;
+   color: #969696;
+   animation: startLine 15s linear, marquee12 15s linear 15s infinite; 
+   width: 2630px;
+   margin: 0 auto;
+}
+.ticker__head 
+{
+   width: 430px;
+   text-align: center;
+   margin-left: 10px;
+}
+@keyframes startLine {
+   0% {
+    transform: translateX(-100%);
+   }
+   100% {
+    transform: translateX(-50%);
+   }
+}
+@keyframes marquee12 {
+   0% {
+    transform: translateX(-50%);
+   }
+   100% {
+    transform: translateX(0%);
+   }
+}
 
 /************************************************************** Update.css ***/

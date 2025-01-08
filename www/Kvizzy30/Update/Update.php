@@ -11,6 +11,21 @@
 
 require_once 'State/CommonStateMaker.php';
 
+
+// 4 вариант. 
+// https://liondigital.ru/kak-sdelat-begushhuyu-stroku-v-css/
+?>
+<div class="marquee-container">
+  <div class="marquee2">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+</div>
+<?php
+echo '<br>';
+echo '<br>';
+echo '<br>';
+
+/*
 ?>
 <div id="led33">
 
@@ -52,15 +67,20 @@ require_once 'State/CommonStateMaker.php';
 </div>
 
 <?php
+
+*/
+
 echo '<div id="led4">';
-echo 'led4 <br>';
+//echo 'led4 <br>';
 $pdo=StateConnect($SiteHost);
 $table=SelectLed33($pdo);
 echo 'myTime: '.$table['myTime'].'<br>'; 
 echo 'myDate: '.$table['myDate'].'<br>'; 
-echo 'cycle: ' .$table['cycle']. '<br>'; 
-echo 'sjson: ' .$table['sjson']. '<br>'; 
+//echo 'cycle: ' .$table['cycle']. '<br>'; 
+//echo 'sjson: ' .$table['sjson']. '<br>';
+//echo '<br>';
 echo '</div>';
+
 ?>
 <script>
 $(document).ready(function() 

@@ -141,7 +141,7 @@ KwinFlat
 					www\Kvizzy30\Dacha\Proba.xml
 					www\Kvizzy30\Dacha\simple_html_dom.php
 				-Meet
-				-Styles
+				+Styles
 					www\Kvizzy30\Styles\Home.css
 					www\Kvizzy30\Styles\Update.css
 				+Update
@@ -210,21 +210,33 @@ KwinFlat
 2=www\Kvizzy30\UpSiteBODY.php
 3=www\Kvizzy30\Update\Update.php
 4=www\State\UpStateBODY.php
+5=www\Kvizzy30\UpSiteHEAD.php
+6=www\Kvizzy30\Styles\Update.css
+7=www\Kvizzy30\Styles\Home.css
 [Selected Project Files]
 Main=
-Selected=www\Kvizzy30\Update\Update.php
+Selected=www\Kvizzy30\Styles\Update.css
 [www\State\index.php]
-TopLine=33
+TopLine=32
 Caret=1,63
 [www\index.php]
-TopLine=1
+TopLine=34
 Caret=1,1
 [www\Kvizzy30\UpSiteBODY.php]
-TopLine=1
-Caret=1,1
+TopLine=14
+Caret=1,37
 [www\Kvizzy30\Update\Update.php]
-TopLine=44
-Caret=1,143
+TopLine=1
+Caret=49,14
 [www\State\UpStateBODY.php]
 TopLine=1
 Caret=1,35
+[www\Kvizzy30\UpSiteHEAD.php]
+TopLine=5
+Caret=1,1
+[www\Kvizzy30\Styles\Update.css]
+TopLine=93
+Caret=1,121
+[www\Kvizzy30\Styles\Home.css]
+TopLine=59
+Caret=12,91
