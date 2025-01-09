@@ -25,7 +25,6 @@ echo '<br>';
 echo '<br>';
 echo '<br>';
 
-/*
 ?>
 <div id="led33">
 
@@ -68,17 +67,15 @@ echo '<br>';
 
 <?php
 
-*/
-
 echo '<div id="led4">';
-//echo 'led4 <br>';
+echo 'led4 <br>';
 $pdo=StateConnect($SiteHost);
 $table=SelectLed33($pdo);
 echo 'myTime: '.$table['myTime'].'<br>'; 
 echo 'myDate: '.$table['myDate'].'<br>'; 
-//echo 'cycle: ' .$table['cycle']. '<br>'; 
-//echo 'sjson: ' .$table['sjson']. '<br>';
-//echo '<br>';
+echo 'cycle: ' .$table['cycle']. '<br>'; 
+echo 'sjson: ' .$table['sjson']. '<br>';
+echo '<br>';
 echo '</div>';
 
 ?>

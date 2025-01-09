@@ -26,12 +26,10 @@ $myDate = date("y-m-d h:i:s");
 //CreateStateTables($pdo);
 UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);
 
-/*
 $table=SelectLed33($pdo);
 echo 'myTime: '.$table['myTime'].'<br>'; 
 echo 'myDate: '.$table['myDate'].'<br>'; 
 echo 'cycle: ' .$table['cycle']. '<br>'; 
 echo 'sjson: ' .$table['sjson']. '<br>'; 
-*/
 
 // <!-- --> *********************************************** UpStateBODY.php ***
