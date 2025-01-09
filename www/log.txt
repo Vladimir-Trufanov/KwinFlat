@@ -103,3 +103,6 @@ Stack trace:
 [24-Dec-2024 23:30:34 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '/iniMem.php' (include_path='.;C:\php\pear') in C:\KwinFlat\www\index.php on line 60
 [07-Jan-2025 19:21:37 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Kvizzy30\Update\Update.php on line 77
 [08-Jan-2025 09:39:02 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Kvizzy30\UpSiteBODY.php on line 42
+[09-Jan-2025 21:12:03 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Kvizzy30\UpSiteBODY.php on line 37
+[09-Jan-2025 21:12:41 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Kvizzy30\UpSiteBODY.php on line 37
+[09-Jan-2025 22:34:57 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Kvizzy30\UpSiteBODY.php on line 35

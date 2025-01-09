@@ -215,7 +215,7 @@ KwinFlat
 7=www\Kvizzy30\Styles\Home.css
 [Selected Project Files]
 Main=
-Selected=www\State\index.php
+Selected=www\Kvizzy30\Styles\Home.css
 [www\State\index.php]
 TopLine=32
 Caret=1,63
@@ -223,20 +223,20 @@ Caret=1,63
 TopLine=54
 Caret=1,1
 [www\Kvizzy30\UpSiteBODY.php]
-TopLine=4
-Caret=1,41
+TopLine=48
+Caret=33,77
 [www\Kvizzy30\Update\Update.php]
-TopLine=40
-Caret=1,69
+TopLine=11
+Caret=4,14
 [www\State\UpStateBODY.php]
 TopLine=1
 Caret=1,34
 [www\Kvizzy30\UpSiteHEAD.php]
-TopLine=1
+TopLine=7
 Caret=1,1
 [www\Kvizzy30\Styles\Update.css]
 TopLine=54
-Caret=1,97
+Caret=1,56
 [www\Kvizzy30\Styles\Home.css]
-TopLine=61
-Caret=12,91
+TopLine=105
+Caret=29,140

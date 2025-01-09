@@ -97,4 +97,52 @@ body
    overflow:auto;
 }
 
+/* Бегущая строка json-сообщений */
+
+.tickers 
+{
+   position: relative;
+   display: inline-block;
+   white-space: nowrap;
+   overflow: hidden;
+}
+.ticker 
+{
+   display: flex;
+   font-family: var(--font-first);
+   font-size: 1rem;
+   font-style: normal;
+   font-weight: 400;
+   color: #969696;
+   animation: startLine 15s linear, marquee12 15s linear 15s infinite; 
+   margin: 0 auto;
+}
+.ticker:hover{animation-play-state: paused}
+.ticker__head 
+{
+   /*width: 430px;*/
+   width: 8rem;
+   text-align: center;
+   margin-left: 10px;
+   float:left;
+}
+
+@keyframes startLine {
+   0% {
+    transform: translateX(-100%);
+   }
+   100% {
+    transform: translateX(-50%);
+   }
+}
+@keyframes marquee12 {
+   0% {
+    transform: translateX(-50%);
+   }
+   100% {
+    transform: translateX(0%);
+   }
+}
+
+
 /**************************************************************** Home.css ***/

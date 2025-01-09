@@ -12,17 +12,13 @@
 #led33
 {
    background:LightYellow;
-   top:0;
-   left:0;
-   height:46%;
+   height:50%;
    width:100%;
 }
 #led4 
 {
    background:Honeydew; 
-   top:46%;
-   left:50%;
-   height:46%;
+   height:50%;
    width:100%;
 }
 
@@ -33,7 +29,7 @@
 /* Создаем площадку для размещения заголовков и элементов LED33 */
 #led33
 {
-   padding-left:8%; 
+   padding-left:2.6%;
 }
 #shsh
 {

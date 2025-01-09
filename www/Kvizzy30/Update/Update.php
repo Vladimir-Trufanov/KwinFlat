@@ -11,23 +11,9 @@
 
 require_once 'State/CommonStateMaker.php';
 
-
-// 4 вариант. 
-// https://liondigital.ru/kak-sdelat-begushhuyu-stroku-v-css/
-?>
-<div class="marquee-container">
-  <div class="marquee2">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  </div>
-</div>
-<?php
-echo '<br>';
-echo '<br>';
-echo '<br>';
-
 ?>
 <div id="led33">
-
+   
    <div id=shsh>
    <div id="shlmp" class="shled33" onclick="onShlmp()">
       <p class="pshled33">ВКЛЮЧИТЬ РЕЖИМ</p>
@@ -42,7 +28,6 @@ echo '<br>';
       <p class="pshled33">ПЕРИОД (мсек)</p>
    </div>
    <div id="shspot" class="shled33">
-      
    </div>
    </div>
 
@@ -86,14 +71,14 @@ $(document).ready(function()
   var valTimeBeg = new Date();
   // Выбираем элемент отражения времени с начала сессии
   var timeElement = document.getElementById('currentTime');
-  // Запускаем вызов ежесекундного (990 мкс) обновления экрана
+  // Запускаем вызов ежесекундного (250 мкс) обновления экрана
   const intervalId = setInterval(
   function() 
   {
     // Выбираем элемент отражения времени с начала сессии
-    //var timeElement = document.getElementById('currentTime');
+    // var timeElement = document.getElementById('currentTime');
     // Трассируем запуск обработки таймера
-    console.log('Я выполняюсь почти каждую секунду');
+    // console.log('Я выполняюсь почти каждую секунду');
     // Делаем аякс-запрос с выборкой изменений показаний датчиков и
     // состояний устройств и контроллеров
     let StatusList=nobase;
@@ -107,7 +92,7 @@ $(document).ready(function()
       UpdateStatus();
     }
   }
-  ,990)
+  ,250)
 });
  
 function onShlmp()
@@ -126,7 +111,6 @@ function onShtime()
 {
    console.log("onShtime");
 } 
-
 
 // ****************************************************************************
 // *                     Показать новое время с начала сессии                 *
@@ -152,13 +136,5 @@ function UpdateStatus()
 
 </script>
 <?php
-
-// Размещаем див с отражением времени с начала сессии
-// или текста 'Нет базы', когда аякс-запрос не отрабатывается
-echo '
-  <div id="sessiontime">
-  <p id="currentTime"></p>
-  </div>
-';
 
 // <!-- --> **************************************************** Update.php ***
