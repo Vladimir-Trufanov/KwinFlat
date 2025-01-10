@@ -37,71 +37,76 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
 **/
 html
 {
-   /*font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;*/	
-   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-   font-size:10px;
+   font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;
+   width:100%;
+   height:100%;
 }
 body 
 {
-   font-size:1.6rem;  
+   /* Отзывчивый шрифт (width): 1920px -> 20px; 480px -> 12px */
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 20 - 12 ) + 12px );
+   background:#CCC;
+   display:flex;
+   height:100%;
    width:100%;
-   height:100%;
-   min-width:102rem;
+   overflow:hidden;
+   /*
+   align-items: center;
+   justify-content: center;
+   */
 }
-/* Выравниваем дивы */
-#Left,#Right
+#Left
 {
-   position:fixed; 
-   margin:0;
-   padding:0;
-   border:0;
-   vertical-align:baseline;
-   /*overflow:auto;*/
-}
-#Right 
-{
-   background:LightCyan;
-   top:0;
-   right:0;
-   height:100%;
-   width:33%;
-}
-#Left 
-{
-   background:transparent; 
-   top:0;
-   left:0;
+   background:NavajoWhite; 
+   z-index:1;
    height:100%;
    width:67%;
 }
+#Right
+{
+   background:LightCyan;
+   z-index:1;
+   height:100%;
+   width:33%;
+}
 #Header 
 {
-   background:white;
+   background:White;
    height:20%;
-   text-align: center;
-   vertical-align: middle;
+   z-index:2;
+
+   display: flex;
+   align-items: center;
+   justify-content: center
+
 }
 #kwf
 {
-   height:50%;
+   width:80%;
+   height:80%;
+   border:double .6rem DarkGoldenRod;
+   border-radius:20%;
+   padding-bottom: .6rem;
 }
+
 #Article 
 {
-   background:transparent;
+   background:LemonChiffon;
    height:60%;
+   z-index:2;
 }
 #Footer 
 {
    background:Lavender;
    height:20%;
-   overflow:auto;
+   z-index:2;
+   /*overflow:auto;*/
 }
-
-/* Бегущая строка json-сообщений */
-
-.tickers 
+/*
+#tickers 
 {
    position: relative;
+   padding-top:4%;
    display: inline-block;
    white-space: nowrap;
    overflow: hidden;
@@ -110,39 +115,20 @@ body
 {
    display: flex;
    font-family: var(--font-first);
-   font-size: 1rem;
+   font-size: 1.2rem;
    font-style: normal;
-   font-weight: 400;
+   font-weight: 900;
    color: #969696;
-   animation: startLine 15s linear, marquee12 15s linear 15s infinite; 
-   margin: 0 auto;
 }
-.ticker:hover{animation-play-state: paused}
 .ticker__head 
 {
-   /*width: 430px;*/
-   width: 8rem;
-   text-align: center;
-   margin-left: 10px;
-   float:left;
+   width:8rem;
+   text-align:left;
+   margin-left:.6rem;
+   border: solid yellow;
+   overflow: hidden;
 }
-
-@keyframes startLine {
-   0% {
-    transform: translateX(-100%);
-   }
-   100% {
-    transform: translateX(-50%);
-   }
-}
-@keyframes marquee12 {
-   0% {
-    transform: translateX(-50%);
-   }
-   100% {
-    transform: translateX(0%);
-   }
-}
-
+*/
 
 /**************************************************************** Home.css ***/
+

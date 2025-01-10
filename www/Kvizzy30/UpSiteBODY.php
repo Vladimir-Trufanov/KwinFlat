@@ -27,50 +27,15 @@ echo '<div id="Left">';
    echo '<pre>';
    echo '$browser='.$browser.'<BR>';
    echo '$version='.$version.'<BR>';
+   /*
    echo '$platform='.$platform.'<BR>';
    echo '$device_type='.$device_type.'<BR>';
+   */
    echo '</pre>';
-   
-   /*
-   ?>
-   <div class="tickers">
-   <div class="ticker">
-   <h2 class="ticker__head">ДОБРОГО ВАМ ДНЯ!</h2>
-   <h2 class="ticker__head">ДОБРОГО ВАМ ДНЯ!</h2>
-   <h2 class="ticker__head">ДОБРОГО ВАМ ДНЯ!</h2>
-   <h2 class="ticker__head">ДОБРОГО ВАМ ДНЯ!</h2>
-   <h2 class="ticker__head">ДОБРОГО ВАМ ДНЯ!</h2>
-   <h2 class="ticker__head">ДОБРОГО ВАМ ДНЯ!</h2>
-   </div>
-   </div>
-   <?php
-   */
-
-   /*
-   ?>
-   <div class="tickers">
-   <div class="ticker">
-   <div class="ticker__head">6ДОБРОГО ВАМ ДНЯ!</div>
-   <div class="ticker__head">5ДОБРОГО ДНЯ!</div>
-   <div class="ticker__head">4ДОБРОГО ВАМ ДНЯ!</div>
-   <div class="ticker__head">3ДОБРОГО ВАМ ДНЯ!</div>
-   <div class="ticker__head">2ДОБРОГО ВАМ ДНЯ!</div>
-   <div class="ticker__head">1ДОБРОГО ВАМ!</div>
-   </div>
-   </div>
-   <?php
-   */
-
 
    ?>
-   <div class="tickers">
+   <div id="tickers">
    <div class="ticker">
-   <div class="ticker__head">fСЕГОДНЯ</div>
-   <div class="ticker__head">eСЕГОДНЯ</div>
-   <div class="ticker__head">dСЕГОДНЯ</div>
-   <div class="ticker__head">cСЕГОДНЯ</div>
-   <div class="ticker__head">bСЕГОДНЯ</div>
-   <div class="ticker__head">aСЕГОДНЯ</div>
    <div class="ticker__head">9СЕГОДНЯ</div>
    <div class="ticker__head">8СЕГОДНЯ</div>
    <div class="ticker__head">7СЕГОДНЯ</div>
@@ -84,15 +49,6 @@ echo '<div id="Left">';
    </div>
    <?php
 
-
-
-
-
-
-
-
-
-   
    echo '</div>';
 echo '</div>';
 

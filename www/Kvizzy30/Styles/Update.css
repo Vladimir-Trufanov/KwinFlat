@@ -9,6 +9,7 @@
  * Copyright © 2024 tve                               Дата создания: 22.12.2024
  * 
 **/
+
 #led33
 {
    background:LightYellow;
@@ -22,26 +23,28 @@
    width:100%;
 }
 
+/*
+
 #led33,led4
 {
 }
 
-/* Создаем площадку для размещения заголовков и элементов LED33 */
+/ * Создаем площадку для размещения заголовков и элементов LED33 * /
 #led33
 {
    padding-left:2.6%;
 }
 #shsh
 {
-   /*background:yellow;*/
+   / *background:yellow;* /
    height:20%;
 }
 #lplp
 {
-   /*background:blue;*/
+   /* background:blue;* /
    height:50%;
 }
-/* Размещаем заголовки и элементы управления LED33 */
+/ * Размещаем заголовки и элементы управления LED33 * /
 .shled33,.cled33
 {
    width: 17.4%;
@@ -55,24 +58,29 @@
 }
 .cled33
 {
+   padding-top:0;
+   margin-top:10%;
    background:Silver;
    float:left;
    height:80%;
 }
 .cp33
 {
-   /*color:red;*/
-   font-size:3.4rem;  
+   / *color:red;* /
+   /* font-size:3.4rem;* /  
    font-weight:bold;
-   margin-top:2rem;
+   /* margin-top:2rem;* / 
 }
+/ *
 .pshled33
 {
    font-size:1.4rem;  
    font-weight:bold;
    padding-top:2rem;
 }
-/* Иммитируем лампочку */
+* /
+/            * Иммитируем лампочку * /
+/ *
 #spot
 {
    margin-top:-2rem;
@@ -80,7 +88,8 @@
    height: 10rem;
    border-radius:50%;
 }
-/* Высвечиваем события */
+   * /
+/ * Высвечиваем события * /
 .shled33:hover
 {
    color:#F4A460;
@@ -89,5 +98,6 @@
 {
    color:red;
 }
+*/
 
 /************************************************************** Update.css ***/
