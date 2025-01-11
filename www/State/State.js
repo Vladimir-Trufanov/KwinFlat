@@ -10,7 +10,7 @@ $(document).ready(function()
  
 function onProba()
 {
-   //console.log("donProba");
+   console.log("onProba");
    const params = new URLSearchParams(window.location.search);
    params.forEach((value, key) => 
    {

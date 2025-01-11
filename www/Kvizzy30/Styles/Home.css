@@ -45,19 +45,16 @@ body
 {
    /* Отзывчивый шрифт (width): 1920px -> 20px; 480px -> 12px */
    font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 20 - 12 ) + 12px );
-   background:#CCC;
+   /*background:#CCC;*/
    display:flex;
    height:100%;
    width:100%;
    overflow:hidden;
-   /*
-   align-items: center;
-   justify-content: center;
-   */
 }
 #Left
 {
-   background:NavajoWhite; 
+   /*background:NavajoWhite;*/ 
+   background:transparent; 
    z-index:1;
    height:100%;
    width:67%;
@@ -78,20 +75,19 @@ body
    display: flex;
    align-items: center;
    justify-content: center
-
 }
 #kwf
 {
    width:80%;
    height:80%;
-   border:double .6rem DarkGoldenRod;
+   border:solid .3rem DarkGoldenRod;
    border-radius:20%;
    padding-bottom: .6rem;
 }
-
 #Article 
 {
-   background:LemonChiffon;
+   /*background:LemonChiffon;*/
+   background:transparent; 
    height:60%;
    z-index:2;
 }

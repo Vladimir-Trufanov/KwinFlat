@@ -5,14 +5,15 @@
  *                                                   устройств и контроллеров *
  ******************************************************************************
  *
- * v1.0.1, 03.01.2025                                 Автор:      Труфанов В.Е.
+ * v1.0.2, 11.01.2025                                 Автор:      Труфанов В.Е.
  * Copyright © 2024 tve                               Дата создания: 22.12.2024
  * 
 **/
-
+/* Выделяем площадки управления светодиодами */
 #led33
 {
-   background:LightYellow;
+   /*background:LightYellow;*/
+   background:transparent; 
    height:50%;
    width:100%;
 }
@@ -22,29 +23,29 @@
    height:50%;
    width:100%;
 }
-
-/*
-
-#led33,led4
-{
-}
-
-/ * Создаем площадку для размещения заголовков и элементов LED33 * /
-#led33
-{
-   padding-left:2.6%;
-}
+/* Создаем площадку для размещения заголовков и элементов LED33 */
+#led33{padding-left:2.6%;}
 #shsh
 {
-   / *background:yellow;* /
+   display:flex;
+   /*background:Tomato;*/ 
+   background:transparent; 
    height:20%;
+   width:100%;
+   align-items:end;
+   justify-content:center;
 }
 #lplp
 {
-   /* background:blue;* /
+   display:flex;
+   /*background:yellow;*/ 
+   background:transparent; 
    height:50%;
+   width:100%;
+   align-items:center;
+   justify-content:center;
 }
-/ * Размещаем заголовки и элементы управления LED33 * /
+/* Размещаем заголовки и элементы управления LED33 */
 .shled33,.cled33
 {
    width: 17.4%;
@@ -53,43 +54,27 @@
 }
 .shled33
 {
-   background:transparent;
-   float:left;
+   font-weight: 900;
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 16 - 10 ) + 10px );
 }
 .cled33
-{
-   padding-top:0;
-   margin-top:10%;
+{  
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   font-weight: 900;
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 48 - 18 ) + 18px );
    background:Silver;
-   float:left;
    height:80%;
+   border-radius:5%;
 }
-.cp33
-{
-   / *color:red;* /
-   /* font-size:3.4rem;* /  
-   font-weight:bold;
-   /* margin-top:2rem;* / 
-}
-/ *
-.pshled33
-{
-   font-size:1.4rem;  
-   font-weight:bold;
-   padding-top:2rem;
-}
-* /
-/            * Иммитируем лампочку * /
-/ *
+/* Иммитируем лампочку */
 #spot
 {
-   margin-top:-2rem;
-   width: 10rem;
-   height: 10rem;
-   border-radius:50%;
+   border-radius:20%;
+   height: 120%;
 }
-   * /
-/ * Высвечиваем события * /
+/* Высвечиваем события */
 .shled33:hover
 {
    color:#F4A460;
@@ -98,6 +83,5 @@
 {
    color:red;
 }
-*/
 
 /************************************************************** Update.css ***/
