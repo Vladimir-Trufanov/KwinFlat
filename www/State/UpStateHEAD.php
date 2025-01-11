@@ -24,7 +24,12 @@ echo '
 <meta name="theme-color" content="#ffffff">
 ';
 */
+
+
+// ЭТО СЕРВЕР!
+
 // Подключаем jQuery 
+/*
 echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
 echo '
     <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
@@ -34,6 +39,7 @@ echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
 // Подключаем js приложения
 echo '<script src="/State/State.js"></script>';
 echo '<link rel="stylesheet" type="text/css" href="/State/State.css">';
+*.
 /*
 // Подключаем CSS
 if ($Page=='Home') echo '<link href="'.APP.'/Styles/Home.css" rel="stylesheet">';

@@ -29,8 +29,8 @@ echo '
     <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
     <script src="/jQuery/jquery-ui.min.js"></script>
 ';
-// Подключаем CSS
-// if ($Page=='Home') 
+// Подключаем js и CSS
+echo '<script src="/'.APP.'/Update/Update.js"></script>';
 echo '<link href="'.APP.'/Styles/Home.css" rel="stylesheet">';
 echo '<link href="'.APP.'/Styles/Update.css" rel="stylesheet">';
 

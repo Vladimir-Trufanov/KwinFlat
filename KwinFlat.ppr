@@ -22,6 +22,7 @@ KwinFlat
 			BP1\Kvizzy30.bp1
 			BP1\kwf0.png
 			BP1\KwinFlat.bp1
+			BP1\Разметка Kwinflat.xls
 		-Favicon
 			-favicon_package_v0.16
 				Favicon\favicon_package_v0.16\android-chrome-192x192.png
@@ -97,6 +98,7 @@ KwinFlat
 				www\Images\index.html
 				www\Images\invalid.png
 				www\Images\Kwinflat.jpg
+				www\Images\majskij-vecher-v-karelii_2416x503.jpg
 				www\Images\red_asterisk.png
 				www\Images\star.png
 				www\Images\submi.png
@@ -141,10 +143,11 @@ KwinFlat
 					www\Kvizzy30\Dacha\Proba.xml
 					www\Kvizzy30\Dacha\simple_html_dom.php
 				-Meet
-				+Styles
+				-Styles
 					www\Kvizzy30\Styles\Home.css
 					www\Kvizzy30\Styles\Update.css
 				+Update
+					www\Kvizzy30\Update\Update.js
 					www\Kvizzy30\Update\Update.php
 				-View
 				www\Kvizzy30\iniMem.php
@@ -212,27 +215,39 @@ KwinFlat
 4=www\Kvizzy30\UpSiteHEAD.php
 5=www\Kvizzy30\Styles\Update.css
 6=www\Kvizzy30\Styles\Home.css
+7=www\State\UpStateHEAD.php
+8=www\State\UpStateBODY.php
+9=www\Kvizzy30\Update\Update.js
 [Selected Project Files]
 Main=
-Selected=www\Kvizzy30\Styles\Home.css
+Selected=www\Kvizzy30\Update\Update.js
 [www\State\index.php]
 TopLine=26
 Caret=4,58
 [www\index.php]
-TopLine=54
+TopLine=5
 Caret=1,1
 [www\Kvizzy30\UpSiteBODY.php]
-TopLine=24
-Caret=64,38
+TopLine=11
+Caret=18,38
 [www\Kvizzy30\Update\Update.php]
-TopLine=13
-Caret=106,27
+TopLine=25
+Caret=1,66
 [www\Kvizzy30\UpSiteHEAD.php]
-TopLine=7
-Caret=1,1
+TopLine=5
+Caret=36,33
 [www\Kvizzy30\Styles\Update.css]
-TopLine=48
+TopLine=18
 Caret=72,58
 [www\Kvizzy30\Styles\Home.css]
-TopLine=88
-Caret=1,120
+TopLine=78
+Caret=12,109
+[www\State\UpStateHEAD.php]
+TopLine=7
+Caret=3,42
+[www\State\UpStateBODY.php]
+TopLine=1
+Caret=1,1
+[www\Kvizzy30\Update\Update.js]
+TopLine=95
+Caret=30,105

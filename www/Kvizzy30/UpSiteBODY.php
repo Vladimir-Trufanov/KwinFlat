@@ -35,7 +35,7 @@ echo '<div id="Left">';
 
    ?>
    <div id="tickers">
-   <div class="ticker" style="border:solid .1rem DarkGoldenRod">1iДОБРОГО</div>
+   <div id="tick1" class="ticker" style="border:solid .1rem DarkGoldenRod">1iДОБРОГО</div>
    <div class="ticker">2iВАМ</div>
    <div class="ticker">3iИ</div>
    <div class="ticker">4iСЧАСТЛИВОГО</div>
