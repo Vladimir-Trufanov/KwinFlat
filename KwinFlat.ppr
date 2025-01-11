@@ -222,8 +222,8 @@ Caret=4,58
 TopLine=54
 Caret=1,1
 [www\Kvizzy30\UpSiteBODY.php]
-TopLine=12
-Caret=26,15
+TopLine=24
+Caret=64,38
 [www\Kvizzy30\Update\Update.php]
 TopLine=13
 Caret=106,27
@@ -231,8 +231,8 @@ Caret=106,27
 TopLine=7
 Caret=1,1
 [www\Kvizzy30\Styles\Update.css]
-TopLine=9
-Caret=1,17
+TopLine=48
+Caret=72,58
 [www\Kvizzy30\Styles\Home.css]
-TopLine=55
-Caret=24,48
+TopLine=88
+Caret=1,120

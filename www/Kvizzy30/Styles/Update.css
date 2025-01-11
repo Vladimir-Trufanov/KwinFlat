@@ -55,7 +55,7 @@
 .shled33
 {
    font-weight: 900;
-   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 16 - 10 ) + 10px );
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 16 - 8 ) + 8px );
 }
 .cled33
 {  
@@ -63,7 +63,7 @@
    align-items:center;
    justify-content:center;
    font-weight: 900;
-   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 48 - 18 ) + 18px );
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 48 - 16 ) + 16px );
    background:Silver;
    height:80%;
    border-radius:5%;
@@ -71,7 +71,7 @@
 /* Иммитируем лампочку */
 #spot
 {
-   border-radius:20%;
+   border-radius:34%;
    height: 120%;
 }
 /* Высвечиваем события */

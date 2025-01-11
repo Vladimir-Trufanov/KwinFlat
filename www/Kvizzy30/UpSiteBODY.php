@@ -24,28 +24,26 @@ echo '<div id="Left">';
    echo '</div>';
 
    echo '<div id="Footer">';
+   echo '<div id="FooterTop">';
    echo '<pre>';
    echo '$browser='.$browser.'<BR>';
    echo '$version='.$version.'<BR>';
-   /*
    echo '$platform='.$platform.'<BR>';
    echo '$device_type='.$device_type.'<BR>';
-   */
    echo '</pre>';
+   echo '</div>';
 
    ?>
    <div id="tickers">
-   <div class="ticker">
-   <div class="ticker__head">9СЕГОДНЯ</div>
-   <div class="ticker__head">8СЕГОДНЯ</div>
-   <div class="ticker__head">7СЕГОДНЯ</div>
-   <div class="ticker__head">6СЕ</div>
-   <div class="ticker__head">5ДНЯ</div>
-   <div class="ticker__head">4СЧАСТЛИВОГО</div>
-   <div class="ticker__head">3И</div>
-   <div class="ticker__head">2ВАМ</div>
-   <div class="ticker__head">1ДОБРОГО</div>
-   </div>
+   <div class="ticker" style="border:solid .1rem DarkGoldenRod">1iДОБРОГО</div>
+   <div class="ticker">2iВАМ</div>
+   <div class="ticker">3iИ</div>
+   <div class="ticker">4iСЧАСТЛИВОГО</div>
+   <div class="ticker">5iДНЯ</div>
+   <div class="ticker">6i,</div>
+   <div class="ticker">7iСЕГОДНЯ</div>
+   <div class="ticker">8iИ</div>
+   <div class="ticker">9iВСЕГДА</div>
    </div>
    <?php
 
