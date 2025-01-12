@@ -229,7 +229,7 @@ TopLine=5
 Caret=1,1
 [www\Kvizzy30\UpSiteBODY.php]
 TopLine=31
-Caret=61,35
+Caret=29,35
 [www\Kvizzy30\Update\Update.php]
 TopLine=13
 Caret=20,21
@@ -249,5 +249,5 @@ Caret=3,42
 TopLine=1
 Caret=1,1
 [www\Kvizzy30\Update\Update.js]
-TopLine=180
-Caret=1,169
+TopLine=95
+Caret=32,38
