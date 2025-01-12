@@ -31,10 +31,17 @@ $(document).ready(function()
     }
   }
   ,250)
+
+  let tickers = new TTickers(9);
+  tickers.render('Ghbdtn!');
+  tickers.render('Ghb3dtn!');
+  tickers.render('Ghb4dtn!');
+  tickers.render('Ghb56dtn!');
+  tickers.render('Ghb78dtn!');
+  say(tickers);
   
-  let clock = new Clock({template: 'h:m:s'});
+  let clock = new TClock({template: 'h:m:s'}, tickers);
   clock.start();
-  
 });
  
 function onShlmp()
@@ -76,11 +83,12 @@ function UpdateStatus()
 {
 }
 
-class Clock 
+class TClock 
 {
-   constructor({ template }) 
+   constructor({ template },tickers) 
    {
       this.template = template;
+      this.tickers = tickers;
    }
 
    render() 
@@ -102,7 +110,9 @@ class Clock
         .replace('s', secs);
        
       //console.log(output);
-      $('#tick1').html(output);
+      //$('#tick1').html(output);
+      //tickers.render(output);
+      this.tickers.render(output);
    }
 
    stop() 
@@ -115,6 +125,49 @@ class Clock
       this.render();
       this.timer = setInterval(() => this.render(), 1000);
    }
+}
+
+class TTickers 
+{
+   constructor(count) 
+   {
+      this.count = count;
+      this.ARRY = new Array();
+      this.HTML = '';
+   }
+   
+   create()
+   {
+      
+      for (let i=0; i<this.count; i++) 
+      {
+         this.ARRY[i]='--'+i+'--';
+         if (i==0)
+            this.HTML=this.HTML+
+            '<div id="tick'+i+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[i]+'</div>';
+         else
+            this.HTML=this.HTML+
+            '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
+      }
+      //console.log(this.HTML);
+      $('#tickers').html(this.HTML);
+   }
+   
+   render(input) 
+   {
+      //console.log(this.ARRY.length);
+      //console.log(this.count);
+      if (this.ARRY.length<1) this.create();
+      for (let i=this.count-1; i>0; i--) this.ARRY[i]=this.ARRY[i-1]; 
+      this.ARRY[0]=input;
+      for (let i=0; i<this.count; i++) $('#tick'+i).html(this.ARRY[i]);
+   }
+}
+
+function say(tickers)
+{
+   console.log('this.count');
+   tickers.render('this.count');
 }
 
 /*
