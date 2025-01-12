@@ -5,43 +5,61 @@
 
 $(document).ready(function() 
 {
-  // Фиксируем начало запуска сайта
-  var valTimeBeg = new Date();
-  // Выбираем элемент отражения времени с начала сессии
-  var timeElement = document.getElementById('currentTime');
-  // Запускаем вызов ежесекундного (250 мкс) обновления экрана
-  const intervalId = setInterval(
-  function() 
-  {
-    // Выбираем элемент отражения времени с начала сессии
-    // var timeElement = document.getElementById('currentTime');
-    // Трассируем запуск обработки таймера
-    // console.log('Я выполняюсь почти каждую секунду');
-    // Делаем аякс-запрос с выборкой изменений показаний датчиков и
-    // состояний устройств и контроллеров
-    let StatusList=nobase;
-    // Если аякс-запрос успешен, то обновляем данные на странице и
-    // показываем новое время с начала сессии
-    if (StatusList == nobase)
-    {
-      // Пересчитываем время с начала сессии
-      NewSessionOld(valTimeBeg,timeElement);
-      // Обновляем показания и состояния
-      UpdateStatus();
-    }
-  }
-  ,250)
-
-  let tickers = new TTickers(9);
-  tickers.render('Ghbdtn!');
-  tickers.render('Ghb3dtn!');
-  tickers.render('Ghb4dtn!');
-  tickers.render('Ghb56dtn!');
-  tickers.render('Ghb78dtn!');
-  say(tickers);
+   // Фиксируем начало запуска сайта
+   var valTimeBeg = new Date();
+   // Выбираем элемент отражения времени с начала сессии
+   var timeElement = document.getElementById('currentTime');
+   // Запускаем вызов ежесекундного (250 мкс) обновления экрана
+   const intervalId = setInterval(
+   function() 
+   {
+      // Выбираем элемент отражения времени с начала сессии
+      // var timeElement = document.getElementById('currentTime');
+      // Трассируем запуск обработки таймера
+      // console.log('Я выполняюсь почти каждую секунду');
+      // Делаем аякс-запрос с выборкой изменений показаний датчиков и
+      // состояний устройств и контроллеров
+      let StatusList=nobase;
+      // Если аякс-запрос успешен, то обновляем данные на странице и
+      // показываем новое время с начала сессии
+      if (StatusList == nobase)
+      {
+         // Пересчитываем время с начала сессии
+         NewSessionOld(valTimeBeg,timeElement);
+         // Обновляем показания и состояния
+         UpdateStatus();
+      }
+   }
+   ,250)
   
-  let clock = new TClock({template: 'h:m:s'}, tickers);
-  clock.start();
+   // Создаём поле демонтрации поступающих json-сообщений для 9 последних 
+   let tickers = new TTickers(9);
+   // Обеспечиваем остановку изменения массива состояний и изменение курсора 
+   // при наезде на поле демонтрации поступающих json-сообщений
+   var tickCursor=$("#tickers").css('cursor');
+   //console.log("tickCursor=",tickCursor);
+   $('#tickers').hover(
+      function () 
+      {
+         tickers.noRender();
+         $('#tickers').css('cursor','wait');      
+      },
+      function () 
+      {
+         tickers.yesRender();
+         $('#tickers').css('cursor',this.tickCursor);      
+      }
+   );
+   //
+   tickers.render('Ghbdtn!');
+   tickers.render('Ghb3dtn!');
+   tickers.render('Ghb4dtn!');
+   tickers.render('Ghb56dtn!');
+   tickers.render('Ghb78dtn!');
+   say(tickers);
+   //
+   let clock = new TClock({template: 'h:m:s'}, tickers);
+   clock.start();
 });
  
 function onShlmp()
@@ -134,11 +152,20 @@ class TTickers
       this.count = count;
       this.ARRY = new Array();
       this.HTML = '';
+      this.isRender='yes';
    }
    
+   noRender()
+   {
+      this.isRender='no';
+   }
+   yesRender()
+   {
+      this.isRender='yes';
+   }
+
    create()
    {
-      
       for (let i=0; i<this.count; i++) 
       {
          this.ARRY[i]='--'+i+'--';
@@ -158,9 +185,12 @@ class TTickers
       //console.log(this.ARRY.length);
       //console.log(this.count);
       if (this.ARRY.length<1) this.create();
-      for (let i=this.count-1; i>0; i--) this.ARRY[i]=this.ARRY[i-1]; 
-      this.ARRY[0]=input;
-      for (let i=0; i<this.count; i++) $('#tick'+i).html(this.ARRY[i]);
+      if (this.isRender=='yes')
+      {
+         for (let i=this.count-1; i>0; i--) this.ARRY[i]=this.ARRY[i-1]; 
+         this.ARRY[0]=input;
+         for (let i=0; i<this.count; i++) $('#tick'+i).html(this.ARRY[i]);
+      }
    }
 }
 

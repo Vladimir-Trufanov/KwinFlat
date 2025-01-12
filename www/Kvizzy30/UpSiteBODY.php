@@ -17,7 +17,6 @@ echo '<div id="Left">';
    <img id="kwf" src="../Images/Kwinflat.jpg" alt="Kwinflat-близкий всем!" />
    <?php
    echo '</div>';
-
    echo '<div id="Article">';
    // Подгружаем обновление значений датчиков, состояний устройств и контроллеров
    require_once("Update/Update.php"); 
@@ -33,8 +32,10 @@ echo '<div id="Left">';
    echo '</pre>';
    echo '</div>';
 
+   // Определяем поле демонтрации поступающих json-сообщений
+   echo '<div id="tickers">';
+   /*
    ?>
-   <div id="tickers">
    <div id="tick1" class="ticker" style="border:solid .1rem DarkGoldenRod">1iДОБРОГО</div>
    <div class="ticker">2iВАМ</div>
    <div class="ticker">3iИ</div>
@@ -44,10 +45,10 @@ echo '<div id="Left">';
    <div class="ticker">7iСЕГОДНЯ</div>
    <div class="ticker">8iИ</div>
    <div class="ticker">9iВСЕГДА</div>
-   </div>
    <?php
-
-   echo '</div>';
+   */
+   echo '</div>'; // id="tickers"
+   echo '</div>'; // id="Footer"
 echo '</div>';
 
 echo '<div id="Right">';
