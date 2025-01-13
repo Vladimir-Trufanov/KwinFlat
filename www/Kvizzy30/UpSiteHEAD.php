@@ -30,6 +30,7 @@ echo '
     <script src="/jQuery/jquery-ui.min.js"></script>
 ';
 // Подключаем js и CSS
+echo '<script src="CommonTools.js"></script>';
 echo '<script src="/'.APP.'/Update/Update.js"></script>';
 echo '<link href="'.APP.'/Styles/Home.css" rel="stylesheet">';
 echo '<link href="'.APP.'/Styles/Update.css" rel="stylesheet">';

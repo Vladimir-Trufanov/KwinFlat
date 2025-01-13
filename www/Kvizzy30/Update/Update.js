@@ -60,6 +60,11 @@ $(document).ready(function()
    //
    let clock = new TClock({template: 'h:m:s'}, tickers);
    clock.start();
+   
+      getLastStateMess();
+
+   
+   
 });
  
 function onShlmp()
@@ -100,6 +105,115 @@ function NewSessionOld(valTimeBeg,timeElement)
 function UpdateStatus()
 {
 }
+
+// ****************************************************************************
+// *                   Получить последнее json-сообщение на State             *
+// ****************************************************************************
+function getLastStateMess()
+{
+   // Выводим в диалог предварительный результат выполнения запроса
+   htmlText="Выбрать json-сообщение на State не удалось!";
+   // Выполняем запрос
+   pathphp="getLastStateMess1.php";
+   // Делаем запрос на определение наименования раздела материалов
+   $.ajax({
+      url: pathphp,
+      type: 'POST',
+      data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
+      // Выводим ошибки при выполнении запроса в PHP-сценарии
+      //error: DialogWind(SmarttodoError(jqXHR)), //    //DialogWind('htmlText'),//function (jqXHR,exception) {SmarttodoError(jqXHR,exception)},
+      //error: function (jqXHR,exception) {SmarttodoErrori(jqXHR,exception)},
+       error: function (jqXHR, exception) {
+	if (jqXHR.status === 0) {
+		alert('Not connect. Verify Network.');
+	} else if (jqXHR.status == 404) {
+		alert('Requested page not found (404).');
+	} else if (jqXHR.status == 500) {
+		alert('Internal Server Error (500).');
+	} else if (exception === 'parsererror') {
+		alert('Requested JSON parse failed.');
+	} else if (exception === 'timeout') {
+		alert('Time out error.');
+	} else if (exception === 'abort') {
+		alert('Ajax request aborted.');
+	} else {
+		alert('Uncaught Error. ' + jqXHR.responseText);
+	}
+      console.log('здесь ошибка');
+    },
+      
+      
+      // Обрабатываем ответное сообщение
+      success: function(message)
+      {
+         // Вырезаем из запроса чистое сообщение
+         // messa=FreshLabel(message);
+         messa=message;
+         /*
+         // Получаем параметры ответа
+         parm=JSON.parse(messa);
+         // Если ошибка PHP-сценария (SelectLed33)
+         if (parm.cycle<0) 
+         {
+            DialogWind(parm.cycle+': '+parm.sjson)
+         }
+         // Выводим результаты выполнения
+         else
+         {
+            DialogWind(messa)
+         }
+         */
+            DialogWind(messa);
+      }
+   });
+}
+
+function SmarttodoErrori(jqXHR,exception) 
+{
+   if (jqXHR.status === 0) 
+   {
+      messi='Ошибка/нет соединения.';
+   } 
+   else if (jqXHR.status == 404) 
+   {
+      messi='Требуемая страница не найдена (404).';
+   } 
+   else if (jqXHR.status == 500) 
+   {
+      messi='Внутренняя ошибка сервера (500).';
+   } 
+   else if (exception === 'parsererror') 
+   {
+      messi='Cинтаксический анализ JSON не выполнен.';
+   } 
+   else if (exception === 'timeout')          
+   {
+      messi='Ошибка (time out) времени ожидания ответа.';
+   } 
+   else if (exception === 'abort') 
+   {
+      messi='Ajax-запрос прерван.';
+   } 
+   else 
+   {
+      messi='Неперехваченная ошибка: '+jqXHR.responseText;
+   }
+   DialogWind(messi);
+   return messi;
+}
+
+function DialogWind(htmlText)
+{
+   $('#DialogWind').html(htmlText);
+   delayClose=100;
+   $('#DialogWind').dialog
+   ({
+      width:600,
+      hide:{effect:"explode",delay:delayClose,duration:1000,easing:'swing'},
+      title: "Запрос json-сообщения на State",
+   });
+}
+
 
 class TClock 
 {

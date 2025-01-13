@@ -83,5 +83,12 @@
 {
    color:red;
 }
+#DialogWind
+{
+   display:flex;
+   align-items:center;
+   color:red;
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 36 - 12 ) + 12px );
+}
 
 /************************************************************** Update.css ***/

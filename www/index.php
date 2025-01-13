@@ -49,6 +49,9 @@ try
    define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
    define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
    require_once pathPhpPrown."/CommonPrown.php";
+   // Подключаем прикладные классы TPhpTools
+   // require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
+   // require_once pathPhpTools."/TNotice/NoticeClass.php";
 
    $parm=prown\getComRequest();
    if ($parm==NULL) $parm='NULL';
@@ -71,8 +74,6 @@ try
    // ---------------------------------------------------------------- BODY ---
    // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
    echo '<body>'; 
-   //if ($parm=='State') require_once APP.'/State/State.php'; 
-   //else 
    require_once APP.'/UpSiteBODY.php';
    echo '</body>'; 
    // Завершаем разметку

@@ -64,6 +64,11 @@ echo '
 echo '$parm='.$parm.'<br>';
 echo '$Page='.$Page.'<br>';
 echo '<br>';
+
+echo '<div id="DialogWind">';
+echo '</div>';
+
+
 echo '</div>';
 
 

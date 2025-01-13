@@ -146,7 +146,7 @@ KwinFlat
 				-Styles
 					www\Kvizzy30\Styles\Home.css
 					www\Kvizzy30\Styles\Update.css
-				+Update
+				-Update
 					www\Kvizzy30\Update\Update.js
 					www\Kvizzy30\Update\Update.php
 				-View
@@ -159,7 +159,7 @@ KwinFlat
 				www\Lead\iniMem.php
 				www\Lead\UpSiteBODY.php
 				www\Lead\UpSiteHEAD.php
-			+State
+			-State
 				www\State\CommonStateMaker.php
 				www\State\index.php
 				www\State\iniState.php
@@ -177,7 +177,9 @@ KwinFlat
 			www\.htaccess
 			www\.user.ini
 			www\Common.php
+			www\CommonTools.js
 			www\e404.php
+			www\getLastStateMess.php
 			www\index.php
 			www\iniWorkSpace.php
 			www\kwinflat-log.txt
@@ -208,46 +210,46 @@ KwinFlat
 		KwinFlat.ppr
 		README.md
 [Open project files]
-0=www\State\index.php
-1=www\index.php
-2=www\Kvizzy30\UpSiteBODY.php
-3=www\Kvizzy30\Update\Update.php
-4=www\Kvizzy30\UpSiteHEAD.php
-5=www\Kvizzy30\Styles\Update.css
-6=www\Kvizzy30\Styles\Home.css
-7=www\State\UpStateHEAD.php
-8=www\State\UpStateBODY.php
-9=www\Kvizzy30\Update\Update.js
+0=www\index.php
+1=www\Kvizzy30\Update\Update.php
+2=www\Kvizzy30\Update\Update.js
+3=www\Kvizzy30\UpSiteBODY.php
+4=www\Kvizzy30\iniMem.php
+5=www\Kvizzy30\UpSiteHEAD.php
+6=www\getLastStateMess.php
+7=www\State\CommonStateMaker.php
+8=www\CommonTools.js
+9=..\TDoorTryer\DoorTryerPage.php
 [Selected Project Files]
 Main=
 Selected=www\Kvizzy30\Update\Update.js
-[www\State\index.php]
-TopLine=26
-Caret=4,58
 [www\index.php]
-TopLine=5
-Caret=1,1
-[www\Kvizzy30\UpSiteBODY.php]
-TopLine=31
-Caret=29,35
+TopLine=33
+Caret=1,92
 [www\Kvizzy30\Update\Update.php]
-TopLine=13
-Caret=20,21
-[www\Kvizzy30\UpSiteHEAD.php]
-TopLine=5
-Caret=36,33
-[www\Kvizzy30\Styles\Update.css]
-TopLine=19
-Caret=72,58
-[www\Kvizzy30\Styles\Home.css]
-TopLine=78
-Caret=21,105
-[www\State\UpStateHEAD.php]
-TopLine=7
-Caret=3,42
-[www\State\UpStateBODY.php]
-TopLine=1
-Caret=1,1
+TopLine=27
+Caret=1,64
 [www\Kvizzy30\Update\Update.js]
-TopLine=95
-Caret=32,38
+TopLine=115
+Caret=30,117
+[www\Kvizzy30\UpSiteBODY.php]
+TopLine=34
+Caret=26,68
+[www\Kvizzy30\iniMem.php]
+TopLine=81
+Caret=1,119
+[www\Kvizzy30\UpSiteHEAD.php]
+TopLine=6
+Caret=31,33
+[www\getLastStateMess.php]
+TopLine=6
+Caret=1,40
+[www\State\CommonStateMaker.php]
+TopLine=84
+Caret=22,89
+[www\CommonTools.js]
+TopLine=34
+Caret=1,58
+[..\TDoorTryer\DoorTryerPage.php]
+TopLine=337
+Caret=1,366
