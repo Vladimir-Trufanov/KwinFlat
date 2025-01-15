@@ -16,7 +16,6 @@ require_once("CommonKvizzyMaker.php");
 class KvizzyMaker
 {
    // ----------------------------------------------------- СВОЙСТВА КЛАССА ---
-   public $note;           // объект вывода сообщений
    protected $basename;    // база данных моего хозяйства 
    protected $username;    // логин для доступа к базе данных
    protected $password;    // пароль
@@ -24,10 +23,9 @@ class KvizzyMaker
    // ------------------------------------------------------- МЕТОДЫ КЛАССА ---
 
    // ---------------------------------------------------------------- INIT ---
-   public function __construct($basename,$username,$password,$note) 
+   public function __construct($basename,$username,$password) 
    {
       // Инициализируем свойства класса
-      $this->note        = $note; 
       $this->basename    = $basename;
       $this->username    = $username;
       $this->password    = $password;

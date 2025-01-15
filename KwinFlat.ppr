@@ -146,7 +146,7 @@ KwinFlat
 				-Styles
 					www\Kvizzy30\Styles\Home.css
 					www\Kvizzy30\Styles\Update.css
-				-Update
+				+Update
 					www\Kvizzy30\Update\Update.js
 					www\Kvizzy30\Update\Update.php
 				-View
@@ -169,8 +169,8 @@ KwinFlat
 				www\State\State.js
 				www\State\UpStateBODY.php
 				www\State\UpStateHEAD.php
-			-TTools
-				-TKvizzyMaker
+			+TTools
+				+TKvizzyMaker
 					www\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 					www\TTools\TKvizzyMaker\KvizzyMakerClass.php
 					www\TTools\TKvizzyMaker\TestBase.php
@@ -211,37 +211,29 @@ KwinFlat
 		README.md
 [Open project files]
 0=www\index.php
-1=www\Kvizzy30\Update\Update.php
+1=www\Kvizzy30\iniMem.php
 2=www\Kvizzy30\Update\Update.js
-3=www\Kvizzy30\UpSiteBODY.php
-4=www\Kvizzy30\iniMem.php
-5=www\Kvizzy30\UpSiteHEAD.php
-6=www\getLastStateMess.php
-7=www\State\CommonStateMaker.php
+3=www\Kvizzy30\Update\Update.php
+4=www\Kvizzy30\UpSiteBODY.php
+5=www\State\UpStateBODY.php
 [Selected Project Files]
 Main=
-Selected=www\Kvizzy30\UpSiteHEAD.php
+Selected=www\State\UpStateBODY.php
 [www\index.php]
 TopLine=53
 Caret=1,92
-[www\Kvizzy30\Update\Update.php]
-TopLine=25
-Caret=1,64
-[www\Kvizzy30\Update\Update.js]
-TopLine=136
-Caret=1,153
-[www\Kvizzy30\UpSiteBODY.php]
-TopLine=34
-Caret=26,68
 [www\Kvizzy30\iniMem.php]
-TopLine=81
-Caret=1,119
-[www\Kvizzy30\UpSiteHEAD.php]
-TopLine=6
-Caret=31,33
-[www\getLastStateMess.php]
-TopLine=1
-Caret=1,31
-[www\State\CommonStateMaker.php]
-TopLine=85
+TopLine=41
+Caret=18,44
+[www\Kvizzy30\Update\Update.js]
+TopLine=116
+Caret=28,126
+[www\Kvizzy30\Update\Update.php]
+TopLine=28
 Caret=1,1
+[www\Kvizzy30\UpSiteBODY.php]
+TopLine=1
+Caret=21,60
+[www\State\UpStateBODY.php]
+TopLine=1
+Caret=95,14

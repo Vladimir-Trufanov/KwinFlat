@@ -10,6 +10,9 @@
 // Copyright © 2023 tve                               Дата создания: 07.01.2025
 
 // ------------------------------------------------------------------- BODY ---
+
+// Рабочий запрос: http://localhost:100/State/?cycle=195&sjson={"led33":[{"status":"inLOW"}]}
+
 $cycle=prown\getComRequest("cycle");
 if ($cycle==NULL) $cycle=-1;
 //echo "cycle=".$cycle.'<br>';

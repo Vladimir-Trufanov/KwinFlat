@@ -25,7 +25,7 @@ $myDate=$table['myDate'];
 $cycle=$table['cycle']; 
 $sjson=$table['sjson'];
 // Возвращаем сообщение
-$message='{"myTime":'.$myTime.',"myDate":"'.$myDate.'","cycle":'.$cycle.', "sjson":"'.$sjson.'"}';
+$message='{"myTime":'.$myTime.',"myDate":"'.$myDate.'","cycle":'.$cycle.', "sjson":'.$sjson.'}';
 $message=\prown\makeLabel($message,'ghjun5','ghjun5');
 echo $message;
 exit;

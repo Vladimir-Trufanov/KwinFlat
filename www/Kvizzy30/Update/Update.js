@@ -60,11 +60,6 @@ $(document).ready(function()
    //
    let clock = new TClock({template: 'h:m:s'}, tickers);
    clock.start();
-   
-      getLastStateMess();
-
-   
-   
 });
  
 function onShlmp()
@@ -104,6 +99,9 @@ function NewSessionOld(valTimeBeg,timeElement)
 // ****************************************************************************
 function UpdateStatus()
 {
+   getLastStateMess();
+   $('#cycle').html(cycle);
+   //$('#tickers').html(sjson);
 }
 
 // ****************************************************************************
@@ -125,6 +123,7 @@ function getLastStateMess()
       // Обрабатываем ответное сообщение
       success: function(message)
       {
+         DialogWind(message);
          // Вырезаем из запроса чистое сообщение
          let Fresh=FreshLabel(message);
          // Если чистое сообщение не вырезалось, считаем, что это ошибка и
@@ -146,13 +145,17 @@ function getLastStateMess()
                // Если ошибка SQL-запроса (SelectLed33)
                if (parm.cycle<0) 
                {
-                  DialogWind(parm.cycle+': '+parm.sjson)
+                  DialogWind(parm.cycle+': '+parm.sjson);
                }
-               // Выводим результаты выполнения
+               // Выводим результаты выполнения (параметры ответа)
                // (отрабатываем распарсенный ответ)
                else
                {
-                  DialogWind(messa)
+                  DialogWind(messa);
+                  cycle=parm.cycle;
+                  sjson=parm.sjson;
+                  DialogWind(cycle);
+                  DialogWind(sjson);
                }
             } 
             catch (err) 
@@ -160,14 +163,6 @@ function getLastStateMess()
                console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
                DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
             }
-            
-            
-            
-            
-            // Получаем параметры ответа
-            //parm=JSON.parse(messa);
-         /*
-         */
          }
       }
    });
@@ -216,6 +211,7 @@ class TClock
       //$('#tick1').html(output);
       //tickers.render(output);
       this.tickers.render(output);
+      //this.tickers.render(String(sjson);
    }
 
    stop() 

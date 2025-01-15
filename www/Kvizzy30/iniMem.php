@@ -40,6 +40,8 @@ define ("mPassNoDbl",    'Пароль и его подтверждение не
 // Объявляем переменные и константы JavaScript, соответствующие определениям в PHP
 function DefineJS($SiteHost,$urlHome)
 {
+   $cycle=1;                                 // счетчик циклов контроллера
+   $sjson=' '; //{"led33":[{"status":"inLOW"}]}';  // последнее json-сообщение
    // Добавляем к штатным, дополнительные контроли правильности заполнения адреса электронной почты и пароля
    // (по опыту будем их вставлять в обработчик addEventListener нежели в blur)
    $defCtrlInput=
@@ -70,6 +72,8 @@ function DefineJS($SiteHost,$urlHome)
    'nobase="'              .nobase.'";'.
    'SiteHost="'            .$SiteHost.'";'.
    'urlHome="'             .$urlHome.'";'.
+   'cycle="'               .$cycle.'";'.
+   'sjson="'               .$sjson.'";'.
    '</script>';
    echo $define;
 } 
@@ -118,8 +122,6 @@ $oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
 // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
 DefineJS($SiteHost,$urlHome);
 
-// Подключаем прикладные классы TPhpTools
-require_once pathPhpTools."/TNotice/NoticeClass.php";
 // Подключаем внутренние классы
 require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
 // Выбираем данные из браузера - UserAgent
@@ -134,8 +136,6 @@ if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
 
 // Пропускаем пользователя на сайт
 //SiteEntry($c_UserName,$c_PersName,$c_PersMail,$c_PersPass,$c_BrowEntry,$c_PersEntry,$s_Counter);
-// Подключаем объект единообразного вывода сообщений
-$note=new ttools\Notice();
 
 // Определяем данные для работы с базой данных моего хозяйства 
 $basename=$SiteHost.'/Base'.'/kvizzy';          // имя базы без расширения 'db3'
@@ -143,12 +143,12 @@ $email='tve58@inbox.ru';                        // email посетителя
 $username='tve';                                // логин посетителя для авторизации
 $password='23ety17'; 
 // Подключаем объект для работы с базой данных моего хозяйства
-$Kvizzy=new ttools\KvizzyMaker($basename,$username,$password,$note);
+$Kvizzy=new ttools\KvizzyMaker($basename,$username,$password);
 // При необходимости создаем базу данных моего хозяйства
-//if (!file_exists($basename.'.db3')) 
-//{
+if (!file_exists($basename.'.db3')) 
+{
    $Kvizzy->BaseFirstCreate();
-//}
+}
 
 //$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note); 
 // Меняем кукис ориентации устройства 

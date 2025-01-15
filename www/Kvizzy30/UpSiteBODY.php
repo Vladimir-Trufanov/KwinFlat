@@ -60,6 +60,11 @@ echo '
   <p id="currentTime"></p>
   </div>
 ';
+echo '
+  <div>
+  <p id="cycle"></p>
+  </div>
+';
 
 echo '$parm='.$parm.'<br>';
 echo '$Page='.$Page.'<br>';
