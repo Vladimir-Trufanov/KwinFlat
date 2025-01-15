@@ -114,92 +114,63 @@ function getLastStateMess()
    // Выводим в диалог предварительный результат выполнения запроса
    htmlText="Выбрать json-сообщение на State не удалось!";
    // Выполняем запрос
-   pathphp="getLastStateMess1.php";
+   pathphp="getLastStateMess.php";
    // Делаем запрос на определение наименования раздела материалов
    $.ajax({
       url: pathphp,
       type: 'POST',
       data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
       // Выводим ошибки при выполнении запроса в PHP-сценарии
-      //error: DialogWind(SmarttodoError(jqXHR)), //    //DialogWind('htmlText'),//function (jqXHR,exception) {SmarttodoError(jqXHR,exception)},
-      //error: function (jqXHR,exception) {SmarttodoErrori(jqXHR,exception)},
-       error: function (jqXHR, exception) {
-	if (jqXHR.status === 0) {
-		alert('Not connect. Verify Network.');
-	} else if (jqXHR.status == 404) {
-		alert('Requested page not found (404).');
-	} else if (jqXHR.status == 500) {
-		alert('Internal Server Error (500).');
-	} else if (exception === 'parsererror') {
-		alert('Requested JSON parse failed.');
-	} else if (exception === 'timeout') {
-		alert('Time out error.');
-	} else if (exception === 'abort') {
-		alert('Ajax request aborted.');
-	} else {
-		alert('Uncaught Error. ' + jqXHR.responseText);
-	}
-      console.log('здесь ошибка');
-    },
-      
-      
+      error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
       // Обрабатываем ответное сообщение
       success: function(message)
       {
          // Вырезаем из запроса чистое сообщение
-         // messa=FreshLabel(message);
-         messa=message;
+         let Fresh=FreshLabel(message);
+         // Если чистое сообщение не вырезалось, считаем, что это ошибка и
+         // диагностируем её
+         if (Fresh=='NoFresh')
+         {
+            console.log(message);
+            DialogWind(message);
+         }
+         // Иначе считаем, что ответ на запрос пришел и можно
+         // парсить сообщение
+         else 
+         {
+            messa=Fresh;
+            // Строим try catch, чтобы поймать ошибку в JSON-ответе
+            try 
+            {
+               parm=JSON.parse(messa);
+               // Если ошибка SQL-запроса (SelectLed33)
+               if (parm.cycle<0) 
+               {
+                  DialogWind(parm.cycle+': '+parm.sjson)
+               }
+               // Выводим результаты выполнения
+               // (отрабатываем распарсенный ответ)
+               else
+               {
+                  DialogWind(messa)
+               }
+            } 
+            catch (err) 
+            {
+               console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
+               DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
+            }
+            
+            
+            
+            
+            // Получаем параметры ответа
+            //parm=JSON.parse(messa);
          /*
-         // Получаем параметры ответа
-         parm=JSON.parse(messa);
-         // Если ошибка PHP-сценария (SelectLed33)
-         if (parm.cycle<0) 
-         {
-            DialogWind(parm.cycle+': '+parm.sjson)
-         }
-         // Выводим результаты выполнения
-         else
-         {
-            DialogWind(messa)
-         }
          */
-            DialogWind(messa);
+         }
       }
    });
-}
-
-function SmarttodoErrori(jqXHR,exception) 
-{
-   if (jqXHR.status === 0) 
-   {
-      messi='Ошибка/нет соединения.';
-   } 
-   else if (jqXHR.status == 404) 
-   {
-      messi='Требуемая страница не найдена (404).';
-   } 
-   else if (jqXHR.status == 500) 
-   {
-      messi='Внутренняя ошибка сервера (500).';
-   } 
-   else if (exception === 'parsererror') 
-   {
-      messi='Cинтаксический анализ JSON не выполнен.';
-   } 
-   else if (exception === 'timeout')          
-   {
-      messi='Ошибка (time out) времени ожидания ответа.';
-   } 
-   else if (exception === 'abort') 
-   {
-      messi='Ajax-запрос прерван.';
-   } 
-   else 
-   {
-      messi='Неперехваченная ошибка: '+jqXHR.responseText;
-   }
-   DialogWind(messi);
-   return messi;
 }
 
 function DialogWind(htmlText)
@@ -310,7 +281,7 @@ class TTickers
 
 function say(tickers)
 {
-   console.log('this.count');
+   //console.log('this.count');
    tickers.render('this.count');
 }
 

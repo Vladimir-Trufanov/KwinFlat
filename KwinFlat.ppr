@@ -159,7 +159,7 @@ KwinFlat
 				www\Lead\iniMem.php
 				www\Lead\UpSiteBODY.php
 				www\Lead\UpSiteHEAD.php
-			-State
+			+State
 				www\State\CommonStateMaker.php
 				www\State\index.php
 				www\State\iniState.php
@@ -218,20 +218,18 @@ KwinFlat
 5=www\Kvizzy30\UpSiteHEAD.php
 6=www\getLastStateMess.php
 7=www\State\CommonStateMaker.php
-8=www\CommonTools.js
-9=..\TDoorTryer\DoorTryerPage.php
 [Selected Project Files]
 Main=
-Selected=www\Kvizzy30\Update\Update.js
+Selected=www\Kvizzy30\UpSiteHEAD.php
 [www\index.php]
-TopLine=33
+TopLine=53
 Caret=1,92
 [www\Kvizzy30\Update\Update.php]
-TopLine=27
+TopLine=25
 Caret=1,64
 [www\Kvizzy30\Update\Update.js]
-TopLine=115
-Caret=30,117
+TopLine=136
+Caret=1,153
 [www\Kvizzy30\UpSiteBODY.php]
 TopLine=34
 Caret=26,68
@@ -242,14 +240,8 @@ Caret=1,119
 TopLine=6
 Caret=31,33
 [www\getLastStateMess.php]
-TopLine=6
-Caret=1,40
+TopLine=1
+Caret=1,31
 [www\State\CommonStateMaker.php]
-TopLine=84
-Caret=22,89
-[www\CommonTools.js]
-TopLine=34
-Caret=1,58
-[..\TDoorTryer\DoorTryerPage.php]
-TopLine=337
-Caret=1,366
+TopLine=85
+Caret=1,1

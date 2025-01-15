@@ -37,3 +37,11 @@ Stack trace:
 #2 C:\KwinFlat\www\State\index.php(63): require_once('C:\\KwinFlat\\www...')
 #3 {main}
   thrown in C:\KwinFlat\www\State\CommonStateMaker.php on line 66
+[15-Jan-2025 12:58:06 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 table Led33 already exists in C:\KwinFlat\www\State\CommonStateMaker.php:31
+Stack trace:
+#0 C:\KwinFlat\www\State\CommonStateMaker.php(31): PDO->query('CREATE TABLE Le...')
+#1 C:\KwinFlat\www\State\UpStateBODY.php(26): CreateStateTables(Object(PDO))
+#2 C:\KwinFlat\www\State\index.php(63): require_once('C:\\KwinFlat\\www...')
+#3 {main}
+  thrown in C:\KwinFlat\www\State\CommonStateMaker.php on line 31
+[15-Jan-2025 13:19:11 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';', expecting ']' in C:\KwinFlat\www\State\CommonStateMaker.php on line 41

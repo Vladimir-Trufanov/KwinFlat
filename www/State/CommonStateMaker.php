@@ -38,7 +38,7 @@ function CreateStateTables($pdo)
          "myTime" => time(),
          "myDate" => date("y-m-d h:i:s"),
          "cycle"  => -1,
-         "sjson"  => 'sjson'
+         "sjson"  => '{\"led33\":[{\"status\":\"First\"}]}',
       ]);
 
       $pdo->commit();
@@ -86,7 +86,7 @@ function UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson)
 // ****************************************************************************
 // *             Выбрать запись из таблицы базы данных State по Led33         *
 // ****************************************************************************
-function SelectLed331($pdo)
+function SelectLed33($pdo)
 {
    try 
    {

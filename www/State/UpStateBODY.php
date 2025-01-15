@@ -14,7 +14,7 @@ $cycle=prown\getComRequest("cycle");
 if ($cycle==NULL) $cycle=-1;
 //echo "cycle=".$cycle.'<br>';
 $sjson=prown\getComRequest("sjson");
-if ($sjson==NULL) $sjson='NULL';
+if ($sjson==NULL) $sjson='{\"led33\":[{\"status\":\"Noparm\"}]}';
 //echo "sjson=".$sjson.'<br>';
 
 $pdo=StateConnect($SiteHost);
