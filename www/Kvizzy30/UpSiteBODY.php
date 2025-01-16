@@ -60,15 +60,17 @@ echo '
   <p id="currentTime"></p>
   </div>
 ';
-echo '
-  <div>
-  <p id="cycle"></p>
-  </div>
-';
 
 echo '$parm='.$parm.'<br>';
 echo '$Page='.$Page.'<br>';
 echo '<br>';
+
+?>
+   <p id="myTime"></p>
+   <p id="myDate"></p>
+   <p id="cycle"> </p>
+   <p id="sjson"> </p>
+<?php
 
 echo '<div id="DialogWind">';
 echo '</div>';

@@ -12,6 +12,7 @@
 // ------------------------------------------------------------------- BODY ---
 
 // Рабочий запрос: http://localhost:100/State/?cycle=195&sjson={"led33":[{"status":"inLOW"}]}
+// Рабочий запрос: http://localhost:100/State/?cycle=195&sjson={"led33":[{"status":"inHIGH"}]}
 
 $cycle=prown\getComRequest("cycle");
 if ($cycle==NULL) $cycle=-1;

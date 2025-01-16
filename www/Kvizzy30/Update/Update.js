@@ -5,35 +5,8 @@
 
 $(document).ready(function() 
 {
-   // Фиксируем начало запуска сайта
-   var valTimeBeg = new Date();
-   // Выбираем элемент отражения времени с начала сессии
-   var timeElement = document.getElementById('currentTime');
-   // Запускаем вызов ежесекундного (250 мкс) обновления экрана
-   const intervalId = setInterval(
-   function() 
-   {
-      // Выбираем элемент отражения времени с начала сессии
-      // var timeElement = document.getElementById('currentTime');
-      // Трассируем запуск обработки таймера
-      // console.log('Я выполняюсь почти каждую секунду');
-      // Делаем аякс-запрос с выборкой изменений показаний датчиков и
-      // состояний устройств и контроллеров
-      let StatusList=nobase;
-      // Если аякс-запрос успешен, то обновляем данные на странице и
-      // показываем новое время с начала сессии
-      if (StatusList == nobase)
-      {
-         // Пересчитываем время с начала сессии
-         NewSessionOld(valTimeBeg,timeElement);
-         // Обновляем показания и состояния
-         UpdateStatus();
-      }
-   }
-   ,250)
-  
    // Создаём поле демонстрации поступающих json-сообщений для 9 последних 
-   let tickers = new TTickers(9);
+   let tickers = new TTickers(3);
    // Обеспечиваем остановку изменения массива состояний и изменение курсора 
    // при наезде на поле демонстрации поступающих json-сообщений
    var tickCursor=$("#tickers").css('cursor');
@@ -58,6 +31,36 @@ $(document).ready(function()
    tickers.render('Ghb78dtn!');
    say(tickers);
    //
+   
+
+
+   // Фиксируем начало запуска сайта
+   var valTimeBeg = new Date();
+   // Выбираем элемент отражения времени с начала сессии
+   var timeElement = document.getElementById('currentTime');
+   // Запускаем вызов ежесекундного (250 мкс) обновления экрана
+   const intervalId = setInterval(
+   function() 
+   {
+      // Выбираем элемент отражения времени с начала сессии
+      // var timeElement = document.getElementById('currentTime');
+      // Трассируем запуск обработки таймера
+      // console.log('Я выполняюсь почти каждую секунду');
+      // Делаем аякс-запрос с выборкой изменений показаний датчиков и
+      // состояний устройств и контроллеров
+      let StatusList=nobase;
+      // Если аякс-запрос успешен, то обновляем данные на странице и
+      // показываем новое время с начала сессии
+      if (StatusList == nobase)
+      {
+         // Пересчитываем время с начала сессии
+         NewSessionOld(valTimeBeg,timeElement);
+         // Обновляем показания и состояния
+         UpdateStatus(tickers);
+      }
+   }
+   ,250)
+  
    let clock = new TClock({template: 'h:m:s'}, tickers);
    clock.start();
 });
@@ -97,11 +100,10 @@ function NewSessionOld(valTimeBeg,timeElement)
 // ****************************************************************************
 // *    Обновить на странице состояния датчиков, устройств и контроллеров     *
 // ****************************************************************************
-function UpdateStatus()
+function UpdateStatus(tickers)
 {
    getLastStateMess();
-   $('#cycle').html(cycle);
-   //$('#tickers').html(sjson);
+   tickers.render(JSON.stringify(sjson));
 }
 
 // ****************************************************************************
@@ -123,7 +125,8 @@ function getLastStateMess()
       // Обрабатываем ответное сообщение
       success: function(message)
       {
-         DialogWind(message);
+         // Трассируем полный json-ответ
+         // DialogWind(message);
          // Вырезаем из запроса чистое сообщение
          let Fresh=FreshLabel(message);
          // Если чистое сообщение не вырезалось, считаем, что это ошибка и
@@ -151,11 +154,17 @@ function getLastStateMess()
                // (отрабатываем распарсенный ответ)
                else
                {
-                  DialogWind(messa);
+                  // Трассируем чистое сообщение, без метки
+                  // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led33":[{"status":"inLOW"}]}}
+                  // DialogWind(messa);
                   cycle=parm.cycle;
+                  $('#cycle').html(cycle.toString());
                   sjson=parm.sjson;
-                  DialogWind(cycle);
-                  DialogWind(sjson);
+                  $('#sjson').html(JSON.stringify(sjson));
+                  let myTime=parm.myTime;
+                  $('#myTime').html(myTime.toString());
+                  let myDate=parm.myDate;
+                  $('#myDate').html(myDate);
                }
             } 
             catch (err) 
@@ -208,10 +217,7 @@ class TClock
         .replace('s', secs);
        
       //console.log(output);
-      //$('#tick1').html(output);
-      //tickers.render(output);
-      this.tickers.render(output);
-      //this.tickers.render(String(sjson);
+      //this.tickers.render(output);
    }
 
    stop() 
@@ -263,14 +269,18 @@ class TTickers
    
    render(input) 
    {
-      //console.log(this.ARRY.length);
-      //console.log(this.count);
-      if (this.ARRY.length<1) this.create();
-      if (this.isRender=='yes')
+      // Реагируем только на изменённый вход
+      if (input != this.ARRY[0])
       {
-         for (let i=this.count-1; i>0; i--) this.ARRY[i]=this.ARRY[i-1]; 
-         this.ARRY[0]=input;
-         for (let i=0; i<this.count; i++) $('#tick'+i).html(this.ARRY[i]);
+         //console.log(this.ARRY.length);
+         //console.log(this.count);
+         if (this.ARRY.length<1) this.create();
+         if (this.isRender=='yes')
+         {
+            for (let i=this.count-1; i>0; i--) this.ARRY[i]=this.ARRY[i-1]; 
+            this.ARRY[0]=input;
+            for (let i=0; i<this.count; i++) $('#tick'+i).html(this.ARRY[i]);
+         }
       }
    }
 }
