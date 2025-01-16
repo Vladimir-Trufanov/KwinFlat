@@ -158,13 +158,34 @@ function getLastStateMess()
                   // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led33":[{"status":"inLOW"}]}}
                   // DialogWind(messa);
                   cycle=parm.cycle;
-                  $('#cycle').html(cycle.toString());
+                  $('#cycle').html("cycle: "+cycle.toString());
                   sjson=parm.sjson;
-                  $('#sjson').html(JSON.stringify(sjson));
+                  $('#sjson').html ("sjson: "+JSON.stringify(sjson));
                   let myTime=parm.myTime;
-                  $('#myTime').html(myTime.toString());
+                  $('#myTime').html("myTime: "+myTime.toString());
                   let myDate=parm.myDate;
-                  $('#myDate').html(myDate);
+                  $('#myDate').html("myDate: "+myDate);
+                  // Парсим sjson
+                  parm=JSON.stringify(sjson);
+                  //DialogWind(parm);
+                  let parmi=JSON.parse(parm);
+                  let tt=parmi.led33[0];
+                  //console.log(tt);
+                  //DialogWind(JSON.stringify(tt));
+                  //DialogWind(JSON.stringify(parm.led33);
+                  let parme=JSON.parse(JSON.stringify(tt));
+                  let status=parme.status;
+                  $('#status').html(status);
+                  
+                  if (status=="inHIGH")
+                  {
+                     $('#spot').css('background','SandyBrown');
+                  }
+                  else
+                  {
+                     $('#spot').css('background','LightCyan');
+                  }
+                  
                }
             } 
             catch (err) 

@@ -221,7 +221,7 @@ KwinFlat
 8=www\Kvizzy30\Styles\Home.css
 [Selected Project Files]
 Main=
-Selected=www\State\UpStateBODY.php
+Selected=www\Kvizzy30\Update\Update.js
 [www\index.php]
 TopLine=53
 Caret=1,92
@@ -229,17 +229,17 @@ Caret=1,92
 TopLine=41
 Caret=18,44
 [www\Kvizzy30\Update\Update.js]
-TopLine=255
-Caret=10,283
+TopLine=152
+Caret=60,186
 [www\Kvizzy30\Update\Update.php]
-TopLine=17
-Caret=1,57
+TopLine=3
+Caret=62,47
 [www\Kvizzy30\UpSiteBODY.php]
-TopLine=21
-Caret=1,75
+TopLine=20
+Caret=20,69
 [www\State\UpStateBODY.php]
 TopLine=1
-Caret=95,15
+Caret=95,14
 [www\getLastStateMess.php]
 TopLine=1
 Caret=1,1
@@ -247,5 +247,5 @@ Caret=1,1
 TopLine=27
 Caret=1,1
 [www\Kvizzy30\Styles\Home.css]
-TopLine=71
+TopLine=51
 Caret=1,1

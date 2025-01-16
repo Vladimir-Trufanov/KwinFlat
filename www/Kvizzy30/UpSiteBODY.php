@@ -66,10 +66,11 @@ echo '$Page='.$Page.'<br>';
 echo '<br>';
 
 ?>
-   <p id="myTime"></p>
-   <p id="myDate"></p>
-   <p id="cycle"> </p>
-   <p id="sjson"> </p>
+   <p id="myTime"> </p>
+   <p id="myDate"> </p>
+   <p id="cycle">  </p>
+   <p id="sjson">  </p>
+   <p id="status"> </p>
 <?php
 
 echo '<div id="DialogWind">';
