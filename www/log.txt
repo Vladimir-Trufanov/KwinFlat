@@ -107,3 +107,4 @@ Stack trace:
 [09-Jan-2025 21:12:41 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Kvizzy30\UpSiteBODY.php on line 37
 [09-Jan-2025 22:34:57 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<', expecting end of file in C:\KwinFlat\www\Kvizzy30\UpSiteBODY.php on line 35
 [15-Jan-2025 19:24:15 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '.1' (T_DNUMBER) in C:\KwinFlat\www\Kvizzy30\iniMem.php on line 73
+[17-Jan-2025 15:28:04 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '"\n"' (T_CONSTANT_ENCAPSED_STRING) in C:\KwinFlat\www\Kvizzy30\iniMem.php on line 77

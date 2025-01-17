@@ -226,13 +226,15 @@ class ArticlesMaker
    //   // Только в режиме редактирования подключаем удаление старых файлов
    //   if ($this->GalleryMode==mwgEditing)
    //   {
-   //      ?> <script> 
-   //      $(document).ready(function() 
-   //      {
-   //         onbeforeunload=(event) => {EraseFiles();};
-   //      })
-   //      </script> <?php
-   //   }
+         /*
+         ?> <script> 
+         $(document).ready(function() 
+         {
+            onbeforeunload=(event) => {EraseFiles();};
+         })
+         </script> <?php
+         }
+         */
       /*
       // Настраиваем фоны графическими файлами
       $bgnoise_lg=$this->imgdir.'/bgnoise_lg.jpg';

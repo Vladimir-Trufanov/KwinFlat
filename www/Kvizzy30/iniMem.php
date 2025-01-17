@@ -14,7 +14,7 @@ require_once "Common.php";
 // ---------------------------------- Межязыковые (PHP-JScript) определения ---
 define ("RootDir",      $_SERVER['DOCUMENT_ROOT']); 
 define ("RootUrl",      $_SERVER['SCRIPT_NAME']); 
-  
+
 define ("nstNoVyb",     "не выбрано");     
 define ("nstNoNaz",     "не назначено");
 define ("nstErr",       'произошла ошибка');  
@@ -26,6 +26,7 @@ define ("oriPortrait",  'portrait');   // Портретное располож�
 
 
 // -------------- Дополнительные контроли адреса электронной почты и пароля ---
+/*
 define ("mEmneformat",   'Адрес email не соответствует разрешённому формату \r\n (правильно, например: tve@karelia.ru, tve58@inbox.ru)'); //   
 define ("mBolee8",       "Должно быть быть более 8 символов");     
 define ("mMenee21",      "Не должно быть менее 21 символа");  
@@ -36,17 +37,16 @@ define ("mDalatPropisi", "Должна быть хотя бы одна проп�
 define ("mNumbers",      "Должны присутствовать цифры (одна или более)"); 
 define ("mSpecsim",      'Должен присутствовать хотя бы один специальный символ, \r\n например из набора +-*_#@!?%&$~%^'); 
 define ("mPassNoDbl",    'Пароль и его подтверждение не совпадают'); 
-
+*/
 // Объявляем переменные и константы JavaScript, соответствующие определениям в PHP
 function DefineJS($SiteHost,$urlHome)
 {
-   $cycle=1;                                 // счетчик циклов контроллера
-   $sjson=' '; //{"led33":[{"status":"inLOW"}]}';  // последнее json-сообщение
    // Добавляем к штатным, дополнительные контроли правильности заполнения адреса электронной почты и пароля
    // (по опыту будем их вставлять в обработчик addEventListener нежели в blur)
+   /*
    $defCtrlInput=
    '<script>'.
-   'const mEmneformat="'   .mEmneformat.'";'.
+   'const mEmneformat="'   .mEmneformat.'";'."\n".
    'const mBolee8="'       .mBolee8.'";'.
    'const mMenee21="'      .mMenee21.'";'.
    'const mNoSpace="'      .mNoSpace.'";'.
@@ -58,23 +58,27 @@ function DefineJS($SiteHost,$urlHome)
    'const mPassNoDbl="'    .mPassNoDbl.'";'.
    '</script>';
    echo $defCtrlInput;
+   */
 
-   $define=
-   '<script>'.
-   'pathPhpPrown="'        .pathPhpPrown.'";'.
-   'pathPhpTools="'        .pathPhpTools.'";'.
-   'RootDir="'             .RootDir.'";'.
-   'RootUrl="'             .RootUrl.'";'.
+   $cycle=1;   // счетчик циклов контроллера
+   $sjson=' '; // последнее json-сообщение {"led33":[{"status":"inLOW"}]}
+
+   $define=//"\n".
+   '<script>'."\n".
    'nstNoVyb="'            .nstNoVyb.'";'.
    'nstNoNaz="'            .nstNoNaz.'";'.
    'nstErr="'              .nstErr.'";'.
    'nstOk="'               .nstOk.'";'.
-   'nobase="'              .nobase.'";'.
-   'SiteHost="'            .$SiteHost.'";'.
-   'urlHome="'             .$urlHome.'";'.
-   'cycle="'               .$cycle.'";'.
-   'sjson="'               .$sjson.'";'.
-   '</script>';
+   'nobase="'              .nobase.'";'."\n".
+   'pathPhpPrown="'        .pathPhpPrown.'";'."\n".
+   'pathPhpTools="'        .pathPhpTools.'";'."\n".
+   'SiteHost="'            .$SiteHost.'";'."\n".
+   'urlHome="'             .$urlHome.'";'."\n".
+   'cycle="'               .$cycle.'";'."\n".
+   'sjson="'               .$sjson.'";'."\n".
+   'RootDir="'             .RootDir.'";'."\n".
+   'RootUrl="'             .RootUrl.'";'."\n".
+   '</script>'."\n";
    echo $define;
 } 
 
@@ -119,8 +123,6 @@ require_once pathPhpPrown."/ViewGlobal.php";
 // Выполняем запуск сессии и работу с лог-файлом
 require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
 $oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
-// Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
-DefineJS($SiteHost,$urlHome);
 
 // Подключаем внутренние классы
 require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";

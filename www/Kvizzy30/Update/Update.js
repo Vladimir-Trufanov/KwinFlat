@@ -1,16 +1,20 @@
-/**
- * State.js v1.0.0, 2025.01.07
- * Copyright © 2025 tve; Licensed MIT 
-**/
+// JS/HTML5, EDGE/CHROME/YANDEX                               *** Update.js ***
+
+// ****************************************************************************
+// * KwinFlat                 Обновить значения датчиков, состояния устройств *
+// *                                         и контроллеров на странице сайта *
+// ****************************************************************************
+
+// v1.0.2, 17.01.2025                                 Автор:      Труфанов В.Е.
+// Copyright © 2024 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
 {
-   // Создаём поле демонстрации поступающих json-сообщений для 9 последних 
+   // Создаём поле демонстрации поступающих json-сообщений для 3 последних 
    let tickers = new TTickers(3);
    // Обеспечиваем остановку изменения массива состояний и изменение курсора 
    // при наезде на поле демонстрации поступающих json-сообщений
-   var tickCursor=$("#tickers").css('cursor');
-   //console.log("tickCursor=",tickCursor);
+   this.tickCursor=$("#tickers").css('cursor');
    $('#tickers').hover(
       function () 
       {
@@ -23,17 +27,6 @@ $(document).ready(function()
          $('#tickers').css('cursor',this.tickCursor);      
       }
    );
-   //
-   tickers.render('Ghbdtn!');
-   tickers.render('Ghb3dtn!');
-   tickers.render('Ghb4dtn!');
-   tickers.render('Ghb56dtn!');
-   tickers.render('Ghb78dtn!');
-   say(tickers);
-   //
-   
-
-
    // Фиксируем начало запуска сайта
    var valTimeBeg = new Date();
    // Выбираем элемент отражения времени с начала сессии
@@ -252,26 +245,30 @@ class TClock
       this.timer = setInterval(() => this.render(), 1000);
    }
 }
-
+// ****************************************************************************
+// *  Класс трассировки последних поступивших json-сообщений от контроллера   *
+// ****************************************************************************
 class TTickers 
 {
+   // Создать объект трассировки
    constructor(count) 
    {
-      this.count = count;
-      this.ARRY = new Array();
-      this.HTML = '';
-      this.isRender='yes';
+      this.count = count;        // количество ячеек трассировки сообщений
+      this.ARRY = new Array();   // массив трассируемых сообщений
+      this.HTML = '';            // выводимый html-текст
+      this.isRender='yes';       // "разрешено движение сообщений в трассировке"
    }
-   
+   // Запретить движение сообщений в трассировке при наезде курсора на ячейки трассировки
    noRender()
    {
       this.isRender='no';
    }
+   // Разрешитьо движение сообщений в трассировке при съезде курсора с ячеек трассировки
    yesRender()
    {
       this.isRender='yes';
    }
-
+   // Создать ячейки трассировки и выполнить начальное заполнение ячеек
    create()
    {
       for (let i=0; i<this.count; i++) 
@@ -284,17 +281,14 @@ class TTickers
             this.HTML=this.HTML+
             '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
       }
-      //console.log(this.HTML);
       $('#tickers').html(this.HTML);
    }
-   
+   // Принять очередное сообщение и обновить ячейки трассировки
    render(input) 
    {
       // Реагируем только на изменённый вход
       if (input != this.ARRY[0])
       {
-         //console.log(this.ARRY.length);
-         //console.log(this.count);
          if (this.ARRY.length<1) this.create();
          if (this.isRender=='yes')
          {
@@ -306,26 +300,4 @@ class TTickers
    }
 }
 
-function say(tickers)
-{
-   //console.log('this.count');
-   tickers.render('this.count');
-}
-
-/*
-$(document).ready(function() 
-{
-   onProba();
-});
- 
-function onProba()
-{
-   console.log("onProba");
-   const params = new URLSearchParams(window.location.search);
-   params.forEach((value, key) => 
-   {
-      console.log(key, value);  // Выводит ключи и соответствующие им значения каждого параметра
-   });
-} 
-*/
-
+// ************************************************************** Update.js ***

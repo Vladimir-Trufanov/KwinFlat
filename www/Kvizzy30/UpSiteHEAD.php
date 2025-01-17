@@ -29,6 +29,8 @@ echo '
     <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
     <script src="/jQuery/jquery-ui.min.js"></script>
 ';
+// Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
+DefineJS($SiteHost,$urlHome);
 // Подключаем js и CSS
 echo '<script src="CommonTools.js"></script>';
 echo '<script src="/'.APP.'/Update/Update.js"></script>';
