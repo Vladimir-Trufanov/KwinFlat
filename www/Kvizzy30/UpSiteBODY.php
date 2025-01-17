@@ -42,15 +42,13 @@ echo '<div id="Left">';
 echo '</div>';          // id="Left"
 
 echo '<div id="Right">';
-// Отражаем время с начала сессии
+// Показываем текущее время и время с начала сессии
 echo '
-  <div id="sessiontime">
+  <div id="anytime">
   <p id="currentTime"></p>
+  <p id="sessiontime"></p>
   </div>
 ';
-
-echo '$parm='.$parm.'<br>';
-echo '$Page='.$Page.'<br>';
 echo '<br>';
 
 // Показываем последнее поступившее сообщение от контроллера

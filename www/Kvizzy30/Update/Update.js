@@ -5,15 +5,16 @@
 // *                                         и контроллеров на странице сайта *
 // ****************************************************************************
 
-// v1.0.2, 17.01.2025                                 Автор:      Труфанов В.Е.
+// v1.0.3, 17.01.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
 {
    // Создаём поле демонстрации поступающих json-сообщений для 3 последних 
-   let tickers = new TTickers(3);
+   let tickers = new TTickers(4);
    // Обеспечиваем остановку изменения массива состояний и изменение курсора 
    // при наезде на поле демонстрации поступающих json-сообщений
+   // (другие события на странице не останавливаются)
    this.tickCursor=$("#tickers").css('cursor');
    $('#tickers').hover(
       function () 
@@ -30,31 +31,19 @@ $(document).ready(function()
    // Фиксируем начало запуска сайта
    var valTimeBeg = new Date();
    // Выбираем элемент отражения времени с начала сессии
-   var timeElement = document.getElementById('currentTime');
+   var timeElement = document.getElementById('sessiontime');
    // Запускаем вызов ежесекундного (250 мкс) обновления экрана
    const intervalId = setInterval(
    function() 
    {
-      // Выбираем элемент отражения времени с начала сессии
-      // var timeElement = document.getElementById('currentTime');
-      // Трассируем запуск обработки таймера
-      // console.log('Я выполняюсь почти каждую секунду');
-      // Делаем аякс-запрос с выборкой изменений показаний датчиков и
-      // состояний устройств и контроллеров
-      let StatusList=nobase;
-      // Если аякс-запрос успешен, то обновляем данные на странице и
-      // показываем новое время с начала сессии
-      if (StatusList == nobase)
-      {
-         // Пересчитываем время с начала сессии
-         NewSessionOld(valTimeBeg,timeElement);
-         // Обновляем показания и состояния
-         UpdateStatus(tickers);
-      }
+      // Пересчитываем время с начала сессии
+      NewSessionOld(valTimeBeg,timeElement);
+      // Обновляем показания и состояния
+      UpdateStatus(tickers);
    }
    ,250)
-  
-   let clock = new TClock({template: 'h:m:s'}, tickers);
+   // Запускаем объект показа текущего времени
+   let clock = new TClock({template: 'h:m:s'});
    clock.start();
 });
  
@@ -74,7 +63,6 @@ function onShtime()
 {
    console.log("onShtime");
 } 
-
 // ****************************************************************************
 // *                     Показать новое время с начала сессии                 *
 // ****************************************************************************
@@ -89,7 +77,6 @@ function NewSessionOld(valTimeBeg,timeElement)
   timeElement.textContent = valTimeEnd.toLocaleTimeString();
   timeElement.textContent = timeElement.textContent.slice(3); 
 }
-
 // ****************************************************************************
 // *    Обновить на странице состояния датчиков, устройств и контроллеров     *
 // ****************************************************************************
@@ -98,7 +85,6 @@ function UpdateStatus(tickers)
    getLastStateMess();
    tickers.render(JSON.stringify(sjson));
 }
-
 // ****************************************************************************
 // *                   Получить последнее json-сообщение на State             *
 // ****************************************************************************
@@ -159,28 +145,20 @@ function getLastStateMess()
                   let myDate=parm.myDate;
                   $('#myDate').html("myDate: "+myDate);
                   // Парсим sjson
-                  parm=JSON.stringify(sjson);
-                  //DialogWind(parm);
-                  let parmi=JSON.parse(parm);
-                  let tt=parmi.led33[0];
-                  //console.log(tt);
-                  //DialogWind(JSON.stringify(tt));
-                  //DialogWind(JSON.stringify(parm.led33);
-                  let parme=JSON.parse(JSON.stringify(tt));
-                  let status=parme.status;
+                  parm=JSON.parse(JSON.stringify(sjson));
+                  // Выделяем json-подстроку по led33
+                  let led33=parm.led33[0];
+                  // Парсим led33
+                  parm=JSON.parse(JSON.stringify(led33));
+                  // Выделяем состояние led33 (горит - не горит)
+                  let status=parm.status;
+                  // Высвечиваем led33 в соответствии с состоянием
                   $('#status').html(status);
-                  
-                  if (status=="inHIGH")
-                  {
-                     $('#spot').css('background','SandyBrown');
-                  }
-                  else
-                  {
-                     $('#spot').css('background','LightCyan');
-                  }
-                  
+                  if (status=="inHIGH") $('#spot').css('background','SandyBrown');
+                  else $('#spot').css('background','LightCyan');
                }
-            } 
+            }
+            // Обрабатываем ошибку в JSON-ответе 
             catch (err) 
             {
                console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
@@ -190,7 +168,9 @@ function getLastStateMess()
       }
    });
 }
-
+// ****************************************************************************
+// *                 Вывести диалоговое сообщение от ошибке                   *
+// ****************************************************************************
 function DialogWind(htmlText)
 {
    $('#DialogWind').html(htmlText);
@@ -202,43 +182,39 @@ function DialogWind(htmlText)
       title: "Запрос json-сообщения на State",
    });
 }
-
-
+// ****************************************************************************
+// *                           Класс показа текущего времени                  *
+// ****************************************************************************
 class TClock 
 {
-   constructor({ template },tickers) 
+   // Создать объект показа текущего времени
+   constructor({template}) 
    {
       this.template = template;
-      this.tickers = tickers;
    }
-
+   // Обновить время на странице
    render() 
    {
       let date = new Date();
-
       let hours = date.getHours();
       if (hours < 10) hours = '0' + hours;
-
       let mins = date.getMinutes();
       if (mins < 10) mins = '0' + mins;
-
       let secs = date.getSeconds();
       if (secs < 10) secs = '0' + secs;
-
       let output = this.template
         .replace('h', hours)
         .replace('m', mins)
         .replace('s', secs);
-       
-      //console.log(output);
-      //this.tickers.render(output);
+      // Внести на страницу новое значение времени 
+      $('#currentTime').html (output);
    }
-
+   // Остановить отсчет времени
    stop() 
    {
       clearInterval(this.timer);
    }
-
+   // Начать отсчет времени
    start() 
    {
       this.render();
@@ -286,10 +262,11 @@ class TTickers
    // Принять очередное сообщение и обновить ячейки трассировки
    render(input) 
    {
+      // Если ещё ячеек трассировки нет, создаем их
+      if (this.ARRY.length<1) this.create();
       // Реагируем только на изменённый вход
       if (input != this.ARRY[0])
       {
-         if (this.ARRY.length<1) this.create();
          if (this.isRender=='yes')
          {
             for (let i=this.count-1; i>0; i--) this.ARRY[i]=this.ARRY[i-1]; 
