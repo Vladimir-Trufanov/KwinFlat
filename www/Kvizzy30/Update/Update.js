@@ -61,7 +61,32 @@ function onShnolight()
 } 
 function onShtime()
 {
-   console.log("onShtime");
+   let value=$('#pitime').text();
+   $('#time').html('<input id="inpvalue" class="Inp" type="number" step="1" min="100" max="100000" value="'+value.toString()+'">'+
+   '<button class="Btn" onclick="onInput()">Ok</button>');
+} 
+function onInput()
+{
+   let value=$('#inpvalue').val();
+   console.log(value.toString());
+   $('#time').html('<p id="pitime" class="cp33">'+value.toString()+'</p>');
+}
+var diez,bemol;
+function onLed33(diezi,bemoli)
+{
+   diez=diezi; bemol=bemoli;
+   let value=$('#'+diez).text();
+   $('#'+bemol).html('<input id="inpvalue" class="Inp" type="number" step="1" min="100" max="100000" value="'+value.toString()+'">'+
+   '<button class="Btn" onclick="onbLed33()">Ok</button>');
+} 
+function onbLed33()
+{
+   console.log(diez+'='+bemol);
+   let value=$('#inpvalue').val();
+   console.log(value.toString());
+   //$('#time').html('<p id="pitime" class="cp33">'+value.toString()+'</p>');
+   //$('#'+bemol).html('<p id="pitime" class="cp33">'+value.toString()+'</p>');
+   $('#'+bemol).html('<p id="'+diez+'" class="cp33">'+value.toString()+'</p>');
 } 
 // ****************************************************************************
 // *                     Показать новое время с начала сессии                 *
@@ -93,7 +118,7 @@ function getLastStateMess()
    // Выводим в диалог предварительный результат выполнения запроса
    htmlText="Выбрать json-сообщение на State не удалось!";
    // Выполняем запрос
-   pathphp="getLastStateMess.php";
+   pathphp="j_getLastStateMess.php";
    // Делаем запрос на определение наименования раздела материалов
    $.ajax({
       url: pathphp,

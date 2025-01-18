@@ -24,7 +24,8 @@ require_once 'State/CommonStateMaker.php';
    <div id="shnolight" class="shled33" onclick="onShnolight()">
       <p class="pshled33">НЕТ</p>
    </div>
-   <div id="shtime" class="shled33" onclick="onShtime()">
+   <!-- <div id="shtime" class="shled33" onclick="onShtime()"> -->
+   <div id="shtime" class="shled33" onclick="onLed33('pitime','time')">
       <p class="pshled33">ПЕРИОД (мсек)</p>
    </div>
    <div id="shspot" class="shled33">
@@ -41,15 +42,21 @@ require_once 'State/CommonStateMaker.php';
    <div id="nolight" class="cled33">
       <p class="cp33">90</p>
    </div>
+
+   <?php
+   $time=1007;   // длительность цикла "горит - не горит" (мсек) 
+   echo'
    <div id="time" class="cled33">
-      <p class="cp33">1007</p>
+      <p id="pitime" class="cp33">'.$time.'</p>
    </div>
+   ';
+   ?>
+   
    <div id="spot" class="cled33" style="background:SandyBrown">
    </div>
    </div>
 
 </div>
-
 <?php
 
 echo '<div id="led4">';

@@ -23,7 +23,7 @@ if ($sjson==NULL) $sjson='{\"led33\":[{\"status\":\"Noparm\"}]}';
 
 $pdo=StateConnect($SiteHost);
 $myTime = time();
-$myDate = date("y-m-d h:i:s");
+$myDate = date("y-m-d H:i:s");
 //echo $myTime.' '; 
 //echo $myDate; 
 

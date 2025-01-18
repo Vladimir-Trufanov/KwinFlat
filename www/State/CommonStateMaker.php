@@ -22,7 +22,7 @@ function CreateStateTables($pdo)
       $sql='PRAGMA foreign_keys=on;';
       $st = $pdo->query($sql);
       
-      // Создаём таблицу по Led33
+      // Создаём таблицу состояния Led33
       $sql='CREATE TABLE Led33 ('.
          'myTime    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // абсолютное время в секундах с начала эпохи UNIX
          'myDate    VARCHAR NOT NULL UNIQUE,'.              // date("y-m-d h:i:s");

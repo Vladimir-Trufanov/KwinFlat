@@ -83,12 +83,29 @@
 {
    color:red;
 }
+/* Определяем окно ошибок и предупреждений */
 #DialogWind
 {
    display:flex;
    align-items:center;
    color:red;
-   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 36 - 12 ) + 12px );
+   font-size:calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 36 - 12 ) + 12px );
 }
+/* Определяем поля ввода параметров управления светодиодом */
+.Inp, .Btn
+{
+   font-size:calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 20 - 8 ) + 8px );
+   font-weight:900;
+}
+.Inp
+{
+   width:calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 160 - 8 ) + 8px );
+   border:0;
+}
+.Btn
+{
+   border-radius:20%;
+}
+
 
 /************************************************************** Update.css ***/
