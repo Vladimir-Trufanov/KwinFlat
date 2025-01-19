@@ -125,7 +125,7 @@ require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
 $oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
 
 // Подключаем внутренние классы
-require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
+
 // Выбираем данные из браузера - UserAgent
 $browseri = get_browser(null, true);
 $platform = $browseri['platform'];
@@ -140,17 +140,12 @@ if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
 //SiteEntry($c_UserName,$c_PersName,$c_PersMail,$c_PersPass,$c_BrowEntry,$c_PersEntry,$s_Counter);
 
 // Определяем данные для работы с базой данных моего хозяйства 
-$basename=$SiteHost.'/Base'.'/kvizzy';          // имя базы без расширения 'db3'
-$email='tve58@inbox.ru';                        // email посетителя
-$username='tve';                                // логин посетителя для авторизации
-$password='23ety17'; 
+
 // Подключаем объект для работы с базой данных моего хозяйства
-$Kvizzy=new ttools\KvizzyMaker($basename,$username,$password);
-// При необходимости создаем базу данных моего хозяйства
-if (!file_exists($basename.'.db3')) 
-{
-   $Kvizzy->BaseFirstCreate();
-}
+require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
+$Kvizzy=new ttools\KvizzyMaker($SiteHost);
+// Подключаемся к базе данных
+$pdo=$Kvizzy->BaseConnect();
 
 //$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note); 
 // Меняем кукис ориентации устройства 

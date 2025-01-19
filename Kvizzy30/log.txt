@@ -1,0 +1,20 @@
+[19-Jan-2025 14:46:30 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'State/CommonStateMaker.php' (include_path='.;C:\php\pear') in C:\KwinFlat\Kvizzy30\Update\Update.php on line 12
+[19-Jan-2025 14:56:05 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'State/CommonStateMaker.php' (include_path='.;C:\php\pear') in C:\KwinFlat\Kvizzy30\Update\Update.php on line 12
+[19-Jan-2025 14:57:59 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'State/CommonStateMaker.php' (include_path='.;C:\php\pear') in C:\KwinFlat\Kvizzy30\Update\Update.php on line 12
+[19-Jan-2025 15:03:26 Asia/Kuwait] PHP Fatal error:  Uncaught Exception: Не удалось удалить файл C:/Base/kvizzy.db3! in C:\KwinFlat\Kvizzy30\Common.php:30
+Stack trace:
+#0 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php(272): UnlinkFile('C:/Base/kvizzy....')
+#1 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php(47): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17')
+#2 C:\KwinFlat\Kvizzy30\iniMem.php(151): ttools\KvizzyMaker->BaseFirstCreate()
+#3 C:\KwinFlat\Kvizzy30\index.php(49): require_once('C:\\KwinFlat\\Kvi...')
+#4 {main}
+  thrown in C:\KwinFlat\Kvizzy30\Common.php on line 30
+[19-Jan-2025 15:48:08 Asia/Kuwait] PHP Fatal error:  Uncaught Exception: Не удалось удалить файл C:/Base/kvizzy.db3! in C:\KwinFlat\Kvizzy30\Common.php:30
+Stack trace:
+#0 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php(274): UnlinkFile('C:/Base/kvizzy....')
+#1 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php(48): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', '23ety17')
+#2 C:\KwinFlat\Kvizzy30\iniMem.php(151): ttools\KvizzyMaker->BaseFirstCreate()
+#3 C:\KwinFlat\Kvizzy30\index.php(49): require_once('C:\\KwinFlat\\Kvi...')
+#4 {main}
+  thrown in C:\KwinFlat\Kvizzy30\Common.php on line 30
+[19-Jan-2025 15:55:11 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'State/CommonStateMaker.php' (include_path='.;C:\php\pear') in C:\KwinFlat\Kvizzy30\Update\Update.php on line 12

@@ -7,8 +7,8 @@
 // *                    стили для настольных и мобильных версий страниц сайта *
 // ****************************************************************************
 
-// v2.0, 05.10.2024                                   Автор:      Труфанов В.Е.
-// Copyright © 2023 tve                               Дата создания: 08.10.2023
+// v2.0.1, 19.01.2025                                 Автор:      Труфанов В.Е.
+// Copyright © 2024 tve                               Дата создания: 08.10.2024
 
 // ---------------------------------------------------------- HEAD and LAST ---
 // Выводим данные о favicon
@@ -32,9 +32,9 @@ echo '
 DefineJS($SiteHost,$urlHome);
 // Подключаем js и CSS
 echo '<script src="CommonTools.js"></script>';
-echo '<script src="/'.APP.'/Update/Update.js"></script>';
-echo '<link href="'.APP.'/Styles/Home.css" rel="stylesheet">';
-echo '<link href="'.APP.'/Styles/Update.css" rel="stylesheet">';
+//echo '<script src="/Update/Update.js"></script>';
+echo '<link href="/Styles/Home.css" rel="stylesheet">';
+echo '<link href="/Styles/Update.css" rel="stylesheet">';
 // Обобщаем мобильную версию сайта
 if ($SiteDevice==Mobile)
 {
