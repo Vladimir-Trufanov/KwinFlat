@@ -18,7 +18,7 @@ require_once pathPhpPrown."/CommonPrown.php";
 // Подключаем объект для работы с базой данных моего хозяйства
 require_once "Common.php";  
 require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
-$Kvizzy=new ttools\KvizzyMaker($SiteHost);
+$Kvizzy=new ttools\KvizzyMaker(SiteHost);
 // Подключаемся к базе данных
 $pdo=$Kvizzy->BaseConnect();
 // Выбираем параметры ответа

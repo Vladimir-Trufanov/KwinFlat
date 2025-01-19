@@ -23,16 +23,17 @@ echo '
 <meta name="msapplication-config" content="/favicon260x260/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 ';
-// Подключаем jQuery 
+// Подключаем jQuery
+echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
 echo '
-<script src="/jQuery/jquery-1.12.4.min.js"></script> 
-<script src="/jQuery/jquery-ui.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
+    <script src="/jQuery/jquery-ui.min.js"></script>
 ';
 // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
 DefineJS($SiteHost,$urlHome);
 // Подключаем js и CSS
 echo '<script src="CommonTools.js"></script>';
-//echo '<script src="/Update/Update.js"></script>';
+echo '<script src="/Update/Update.js"></script>';
 echo '<link href="/Styles/Home.css" rel="stylesheet">';
 echo '<link href="/Styles/Update.css" rel="stylesheet">';
 // Обобщаем мобильную версию сайта

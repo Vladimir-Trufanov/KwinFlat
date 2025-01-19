@@ -129,7 +129,7 @@ function getLastStateMess()
       success: function(message)
       {
          // Трассируем полный json-ответ
-         // DialogWind(message);
+         //DialogWind(message);
          // Вырезаем из запроса чистое сообщение
          let Fresh=FreshLabel(message);
          // Если чистое сообщение не вырезалось, считаем, что это ошибка и
