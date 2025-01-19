@@ -18,14 +18,13 @@ require_once 'State/CommonStateMaker.php';
    <div id="shlmp" class="shled33" onclick="onShlmp()">
       <p class="pshled33">ВКЛЮЧИТЬ РЕЖИМ</p>
    </div>
-   <div id="shlight" class="shled33" onclick="onShlight()">
+   <div id="shlight" class="shled33" onclick="onLed33('pilight','light',0,100)" title="От 0% до 100%">
       <p class="pshled33">ГОРИТ (%)</p>
    </div>
-   <div id="shnolight" class="shled33" onclick="onShnolight()">
+   <div id="shnolight" class="shled33" onclick="onLed33('pinolight','nolight',0,100)" title="От 0% до 100%">
       <p class="pshled33">НЕТ</p>
    </div>
-   <!-- <div id="shtime" class="shled33" onclick="onShtime()"> -->
-   <div id="shtime" class="shled33" onclick="onLed33('pitime','time')">
+   <div id="shtime" class="shled33" onclick="onLed33('pitime','time',100,100000)" title="От 100 до 100 тысяч мсек">
       <p class="pshled33">ПЕРИОД (мсек)</p>
    </div>
    <div id="shspot" class="shled33">
@@ -37,21 +36,14 @@ require_once 'State/CommonStateMaker.php';
       <p class="cp33">Led33</p>
    </div>
    <div id="light" class="cled33">
-      <p class="cp33">10</p>
+      <p id="pilight" class="cp33">10</p>
    </div>
    <div id="nolight" class="cled33">
-      <p class="cp33">90</p>
+      <p id="pinolight" class="cp33">90</p>
    </div>
-
-   <?php
-   $time=1007;   // длительность цикла "горит - не горит" (мсек) 
-   echo'
    <div id="time" class="cled33">
-      <p id="pitime" class="cp33">'.$time.'</p>
+      <p id="pitime" class="cp33">1007</p>
    </div>
-   ';
-   ?>
-   
    <div id="spot" class="cled33" style="background:SandyBrown">
    </div>
    </div>

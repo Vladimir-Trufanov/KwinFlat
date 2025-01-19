@@ -46,47 +46,46 @@ $(document).ready(function()
    let clock = new TClock({template: 'h:m:s'});
    clock.start();
 });
- 
+// 
 function onShlmp()
 {
    console.log("onShlmp");
 } 
-function onShlight()
+// ****************************************************************************
+// *      Сформировать тег для ввода числа с границами, 1 шаг ввода числа     *
+// ****************************************************************************
+var diez,bemol,value,min,max;
+var bemol2,diez2,val2
+function onLed33(diezi,bemoli,mini,maxi)
 {
-   console.log("onShlight");
+   diez=diezi; bemol=bemoli; min=mini; max=maxi;
+   let valuex=$('#'+diez).text();
+   $('#'+bemol).html('<input id="inpvalue" class="Inp" type="number" step="1" '+
+      'min="'+min.toString()+'" max="'+max.toString()+'" value="'+valuex.toString()+'">'+
+      '<button class="Btn" onclick="onbLed33()">Ok</button>');
+   $('#'+bemol).css('background','white');
 } 
-function onShnolight()
-{
-   console.log("onShnolight");
-} 
-function onShtime()
-{
-   let value=$('#pitime').text();
-   $('#time').html('<input id="inpvalue" class="Inp" type="number" step="1" min="100" max="100000" value="'+value.toString()+'">'+
-   '<button class="Btn" onclick="onInput()">Ok</button>');
-} 
-function onInput()
-{
-   let value=$('#inpvalue').val();
-   console.log(value.toString());
-   $('#time').html('<p id="pitime" class="cp33">'+value.toString()+'</p>');
-}
-var diez,bemol;
-function onLed33(diezi,bemoli)
-{
-   diez=diezi; bemol=bemoli;
-   let value=$('#'+diez).text();
-   $('#'+bemol).html('<input id="inpvalue" class="Inp" type="number" step="1" min="100" max="100000" value="'+value.toString()+'">'+
-   '<button class="Btn" onclick="onbLed33()">Ok</button>');
-} 
+// ****************************************************************************
+// *    Принять число, проверить границы, записать в базу через аякс, 2 шаг   *
+// ****************************************************************************
 function onbLed33()
 {
-   console.log(diez+'='+bemol);
-   let value=$('#inpvalue').val();
-   console.log(value.toString());
-   //$('#time').html('<p id="pitime" class="cp33">'+value.toString()+'</p>');
-   //$('#'+bemol).html('<p id="pitime" class="cp33">'+value.toString()+'</p>');
+   //console.log(diez+'='+bemol);
+   value=$('#inpvalue').val();
+   // Контроллируем границы
+   if (value<min) value=min
+   else if (value>max) value=max;
+   //console.log(value.toString());
    $('#'+bemol).html('<p id="'+diez+'" class="cp33">'+value.toString()+'</p>');
+   $('#'+bemol).css('background','Silver');
+   // Выполняем контроль процентов
+   if ((bemol=='light')||(bemol=='nolight')) 
+   {
+      if (bemol=='light') bemol2='nolight'; else bemol2='light'; 
+      if (diez=='pilight') diez2='pinolight'; else diez2='pilight';
+      val2=100-value; 
+      $('#'+bemol2).html('<p id="'+diez2+'" class="cp33">'+val2.toString()+'</p>');
+   }
 } 
 // ****************************************************************************
 // *                     Показать новое время с начала сессии                 *

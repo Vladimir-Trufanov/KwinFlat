@@ -100,7 +100,7 @@
 .Inp
 {
    width:calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 160 - 8 ) + 8px );
-   border:0;
+   /*border:0;*/
 }
 .Btn
 {

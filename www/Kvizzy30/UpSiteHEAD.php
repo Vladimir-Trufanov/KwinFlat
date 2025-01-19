@@ -24,10 +24,9 @@ echo '
 <meta name="theme-color" content="#ffffff">
 ';
 // Подключаем jQuery 
-echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
 echo '
-    <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
-    <script src="/jQuery/jquery-ui.min.js"></script>
+<script src="/jQuery/jquery-1.12.4.min.js"></script> 
+<script src="/jQuery/jquery-ui.min.js"></script> 
 ';
 // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
 DefineJS($SiteHost,$urlHome);
@@ -36,8 +35,6 @@ echo '<script src="CommonTools.js"></script>';
 echo '<script src="/'.APP.'/Update/Update.js"></script>';
 echo '<link href="'.APP.'/Styles/Home.css" rel="stylesheet">';
 echo '<link href="'.APP.'/Styles/Update.css" rel="stylesheet">';
-
-
 // Обобщаем мобильную версию сайта
 if ($SiteDevice==Mobile)
 {
