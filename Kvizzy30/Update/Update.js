@@ -5,7 +5,7 @@
 // *                                         и контроллеров на странице сайта *
 // ****************************************************************************
 
-// v1.0.3, 17.01.2025                                 Автор:      Труфанов В.Е.
+// v1.0.4, 20.01.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
@@ -46,11 +46,36 @@ $(document).ready(function()
    let clock = new TClock({template: 'h:m:s'});
    clock.start();
 });
-// 
+// ****************************************************************************
+// *                 Выполнить команду "включить/выключить режим"             *
+// ****************************************************************************
 function onShlmp()
 {
+
+/*
+var LmpEvent;       // 1 - произошла смена режима, 0 - пришло подтверждение от контроллера 
+var LmpMode;        // команда: 1 - включить режим, 0 - выключить
+var LmpSendTime;    // время в секундах (c начала эпохи) отправки сообщения
+var LmpReceivTime;  // время получения ответа в секундах
+var LmpSjson;       // {"led33":[{"regim":0}]} - выключить режим; {"led33":[{"regim":1}]} - включить
+var LmpRegim;       // включение=1 / выключение=0 режима работы контрольного светодиода Led33
+*/
    console.log("onShlmp");
+   // Определяем текущий режим
+   let parm=getRegimLed33();
+   //
+   $('#lmp').css('color','red');
 } 
+
+
+
+function setRegimLed33(LmpEvent,LmpMode,LmpSendTime,LmpReceivTime,LmpRegim)
+{
+   console.log(LmpReceivTime);
+   $('#led4').html('LmpRegim '+LmpRegim.toString());
+}
+
+
 // ****************************************************************************
 // *      Сформировать тег для ввода числа с границами, 1 шаг ввода числа     *
 // ****************************************************************************
@@ -118,7 +143,7 @@ function getLastStateMess()
    htmlText="Выбрать json-сообщение на State не удалось!";
    // Выполняем запрос
    pathphp="j_getLastStateMess.php";
-   // Делаем запрос на определение наименования раздела материалов
+   // Делаем запрос последнего json-сообщения на State 
    $.ajax({
       url: pathphp,
       type: 'POST',
@@ -129,7 +154,7 @@ function getLastStateMess()
       success: function(message)
       {
          // Трассируем полный json-ответ
-         //DialogWind(message);
+         // DialogWind(message);
          // Вырезаем из запроса чистое сообщение
          let Fresh=FreshLabel(message);
          // Если чистое сообщение не вырезалось, считаем, что это ошибка и
@@ -144,6 +169,8 @@ function getLastStateMess()
          else 
          {
             messa=Fresh;
+            // DialogWind(messa);
+
             // Строим try catch, чтобы поймать ошибку в JSON-ответе
             try 
             {
@@ -151,7 +178,12 @@ function getLastStateMess()
                // Если ошибка SQL-запроса (SelectLed33)
                if (parm.cycle<0) 
                {
-                  DialogWind(parm.cycle+': '+parm.sjson);
+                  if (parm.cycle==-1) 
+                     DialogWind(
+                     'Создана таблица базы данных State.\n'+
+                     'Сообщений от контроллера ещё не поступало!');
+                  else
+                     DialogWind(parm.cycle+': '+parm.sjson);
                }
                // Выводим результаты выполнения (параметры ответа)
                // (отрабатываем распарсенный ответ)
@@ -180,6 +212,105 @@ function getLastStateMess()
                   $('#status').html(status);
                   if (status=="inHIGH") $('#spot').css('background','SandyBrown');
                   else $('#spot').css('background','LightCyan');
+               }
+            }
+            // Обрабатываем ошибку в JSON-ответе 
+            catch (err) 
+            {
+               console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
+               DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
+            }
+
+         }
+      }
+   });
+}
+// ****************************************************************************
+// *                 Выбрать режим работы контрольного светодиода,            *
+// *                       изменить в базе значение режима                    *
+// ****************************************************************************
+
+// Выбираем из базы режим работы контрольного светодиода 
+function getRegimLed33()
+{
+   // Выводим в диалог предварительный результат выполнения запроса
+   htmlText="Выбрать режима работы контрольного светодиода не удалось!";
+   // Выполняем запрос
+   pathphp="j_getRegimLed33.php";
+   // Делаем запрос последнего json-сообщения на State 
+   $.ajax({
+      url: pathphp,
+      type: 'POST',
+      data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
+      // Выводим ошибки при выполнении запроса в PHP-сценарии
+      error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
+      // Обрабатываем ответное сообщение
+      success: function(message)
+      {
+         // Трассируем полный json-ответ
+         // DialogWind(message);
+         // Вырезаем из запроса чистое сообщение
+         let Fresh=FreshLabel(message);
+         // Если чистое сообщение не вырезалось, считаем, что это ошибка и
+         // диагностируем её
+         if (Fresh=='NoFresh')
+         {
+            console.log(message);
+            DialogWind(message);
+         }
+         // Иначе считаем, что ответ на запрос пришел и можно
+         // парсить сообщение
+         else 
+         {
+            messa=Fresh;
+            // DialogWind(messa);
+            // Строим try catch, чтобы поймать ошибку в JSON-ответе
+            try 
+            {
+               parm=JSON.parse(messa);
+               // Если ошибка SQL-запроса (SelectLed33)
+               if (parm.cycle<0) 
+               {
+                  if (parm.cycle==-1) 
+                     DialogWind(
+                     'Создана таблица базы данных State.\n'+
+                     'Сообщений от контроллера ещё не поступало!');
+                  else
+                     DialogWind(parm.cycle+': '+parm.sjson);
+               }
+               // Выводим результаты выполнения (параметры ответа)
+               // (отрабатываем распарсенный ответ)
+               else
+               {
+                  // Трассируем чистое сообщение, без метки
+                  // {"isEvent":0,"Mode":"1","SendTime":1737365180,"ReceivTime":1737365180,"sjson":{"led33":[{"regim":1}]}}
+                  LmpEvent=parm.isEvent;         // 1 - произошла смена режима, 0 - пришло подтверждение от контроллера
+                  LmpMode=parm.Mode;             // команда: 1 - включить режим, 0 - выключить
+                  LmpSendTime=parm.SendTime;     // время в секундах (c начала эпохи) отправки сообщения
+                  LmpReceivTime=parm.ReceivTime; // время получения ответа в секундах
+                  LmpSjson=parm.sjson;           // {"led33":[{"regim":0}]} - выключить режим; {"led33":[{"regim":1}]} - включить
+                  // Парсим sjson
+                  let parmi=JSON.parse(JSON.stringify(LmpSjson));
+                  // Выделяем json-подстроку по led33
+                  let led33=parmi.led33[0];
+                  // Парсим led33
+                  parmi=JSON.parse(JSON.stringify(led33));
+                  LmpRegim=parmi.regim;           // включение=1 / выключение=0 режима работы контрольного светодиода Led33
+                  
+
+
+                  DialogWind(LmpEvent.toString()+'-'+LmpMode.toString()+'-'+LmpSendTime.toString()+
+                         '-'+LmpReceivTime.toString()+'-'+LmpRegim.toString());
+                  
+                  setRegimLed33(LmpEvent,LmpMode,LmpSendTime,LmpReceivTime,LmpRegim);
+                  /*
+                  // Высвечиваем led33 в соответствии с состоянием
+                  //$('#status').html(status);
+                  //if (status=="inHIGH") $('#spot').css('background','SandyBrown');
+                  //else $('#spot').css('background','LightCyan');
+                  DialogWind(LmpEvent.toString()+'-'+LmpMode.toString()+'-'+LmpSendTime.toString()+
+                      '-'+LmpReceivTime.toString()+'-'+LmpRegim.toString());
+                  */
                }
             }
             // Обрабатываем ошибку в JSON-ответе 

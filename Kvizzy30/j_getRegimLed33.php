@@ -1,12 +1,11 @@
 <?php
-
-// PHP7/HTML5, EDGE/CHROME                       *** j_getLastStateMess.php ***
+// PHP7/HTML5, EDGE/CHROME                          *** j_getRegimLed33.php ***
 
 // ****************************************************************************
-// * KwinFlat                     Получить последнее json-сообщение на State  *
+// * KwinFlat                   Выбрать режима работы контрольного светодиода *
 // *                                                                          *
-// * v1.0.2, 20.01.2025                            Автор:       Труфанов В.Е. *
-// * Copyright © 2024 tve                          Дата создания:  13.11.2024 *
+// * v1.0.1, 20.01.2025                            Автор:       Труфанов В.Е. *
+// * Copyright © 2025 tve                          Дата создания:  20.01.2025 *
 // ****************************************************************************
 // Извлекаем пути к библиотекам прикладных функций и классов
 define ("pathPhpPrown",$_POST['pathPrown']);
@@ -21,15 +20,16 @@ $Kvizzy=new ttools\KvizzyMaker(SiteHost);
 // Подключаемся к базе данных
 $pdo=$Kvizzy->BaseConnect();
 // Выбираем параметры ответа
-$table=$Kvizzy->SelectLed33($pdo);
-$myTime=$table['myTime']; 
-$myDate=$table['myDate']; 
-$cycle=$table['cycle']; 
+$table=$Kvizzy->SelectLMP33($pdo);
+$isEvent=$table['isEvent']; 
+$Mode=$table['Mode']; 
+$SendTime=$table['SendTime']; 
+$ReceivTime=$table['ReceivTime']; 
 $sjson=$table['sjson'];
 // Возвращаем сообщение
-$message='{"myTime":'.$myTime.',"myDate":"'.$myDate.'","cycle":'.$cycle.', "sjson":'.$sjson.'}';
+$message='{"isEvent":'.$isEvent.',"Mode":"'.$Mode.'","SendTime":'.$SendTime.',"ReceivTime":'.$ReceivTime.',"sjson":'.$sjson.'}';
 $message=\prown\makeLabel($message,'ghjun5','ghjun5');
 echo $message;
 exit;
 
-// ************************************************* j_getLastStateMess.php ***
+// **************************************************** j_getRegimLed33.php ***

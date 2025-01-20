@@ -32,9 +32,9 @@ function _CreateStateTables($pdo)
       "(:myTime, :myDate, :cycle, :sjson);");
    $statement->execute([
       "myTime" => time(),
-      "myDate" => date("y-m-d h:i:s"),
+      "myDate" => date("y-m-d H:i:s"),
       "cycle"  => -1,
-      "sjson"  => '{\"led33\":[{\"status\":\"First\"}]}',
+      "sjson"  => '{"led33":[{"status":"First"}]}',
    ]);
 }
 // ****************************************************************************

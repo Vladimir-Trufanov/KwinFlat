@@ -209,6 +209,7 @@ function _CreateTables($pdo)
       
       // Создаём таблицы базы данных State
       _CreateStateTables($pdo);
+      _CreateLeadTables($pdo);
       $pdo->commit();
    } 
    catch (Exception $e) 
