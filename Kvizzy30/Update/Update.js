@@ -10,12 +10,15 @@
 
 $(document).ready(function() 
 {
+   // Защищаем от мелькания UpdateLmp33()
+   $('.cled33').css('background','White');
+   $('.cled33').css('color','White'); 
    // Создаём объект для работы с localStorage
    ram = new TStorage; 
    // Обновляем параметры хранилища по показаниям режима работы 
    // контрольного светодиода в таблице Lead и
    // изображения управляющих элементов контрольного светодиода      
-   UpdateLmp33();
+   getRegimLed33();
    // Создаём поле демонстрации поступающих json-сообщений для 3 последних 
    let tickers = new TTickers(4);
    // Обеспечиваем остановку изменения массива состояний и изменение курсора 
@@ -60,7 +63,7 @@ function ViewLed33()
 { 
    // По текущему состоянию режима окрашиваем фон элементов управления Led33 
    // и текст на них 
-   console.log("LmpMode",ram.get("LmpMode"));               
+   // console.log("LmpMode",ram.get("LmpMode"));               
    if (ram.get("LmpMode")==1) 
    {
       $('.cled33').css('background','Silver');
@@ -79,7 +82,7 @@ function ViewLed33()
 // *              режима работы контрольного светодиода в таблице Lead,       *
 // *                   а также изображения управляющих элементов              *
 // ****************************************************************************
-function UpdateLmp33()
+function getRegimLed33()
 {
    // Инициируем параметры хранилища
    // {"led33":[{"regim":0}]} - выключить режим; {"led33":[{"regim":1}]} - включить
@@ -87,7 +90,7 @@ function UpdateLmp33()
    ram.set("LmpMode",1);       // 1 - включен режим, 0 - выключен режим (состояние в момент запроса)
    ram.set("LmpSendTime",0);   // время в секундах (c начала эпохи) отправки сообщения
    ram.set("LmpReceivTime",0); // время получения ответа в секундах
-   ram.set("LmpRegim",1);      // указание по режиму в последней команде
+   ram.set("LmpRegim",1);      // указание по режиму в последней команде (1 - включить режим, 0 - выключить)
    // Выводим в диалог предварительный результат выполнения запроса
    htmlText="Выбрать режим работы контрольного светодиода не удалось!";
    // Выполняем запрос
@@ -149,13 +152,14 @@ function UpdateLmp33()
                   let led33=parmi.led33[0];
                   // Парсим led33
                   parmi=JSON.parse(JSON.stringify(led33));
-                  ram.set("LmpRegim",      parmi.regim);     // указание по режиму в последней команде
-                  
+                  ram.set("LmpRegim",      parmi.regim);     // указание по режиму в последней команде (1 - включить режим, 0 - выключить)
+                  /*
                   console.log("LmpEvent =",     ram.get("LmpEvent"),':',     typeof ram.get("LmpEvent"));
                   console.log("LmpMode =",      ram.get("LmpMode"),':',      typeof ram.get("LmpMode"));
                   console.log("LmpSendTime =",  ram.get("LmpSendTime"),':',  typeof ram.get("LmpSendTime"));
                   console.log("LmpReceivTime =",ram.get("LmpReceivTime"),':',typeof ram.get("LmpReceivTime"));
                   console.log("LmpRegim =",     ram.get("LmpRegim"),':',     typeof ram.get("LmpRegim"));
+                  */
                }
                // Обновляем изображения управляющих элементов контрольного светодиода 
                // по данным хранилища      
@@ -171,42 +175,114 @@ function UpdateLmp33()
       }
    });
 }
-
-
-
-
-
-
-
+// ****************************************************************************
+// * Задать изменение режима работы контрольного светодиода в таблице Lead:   *
+// *    1 ситуация: 
+// ****************************************************************************
+function setRegimLed33()
+{
+   // Выводим в диалог предварительный результат выполнения запроса
+   htmlText="Задать изменение режима работы контрольного светодиода не удалось!";
+   // Выбираем из хранилища текущее состояние режима работы
+   let LmpMode=ram.get("LmpMode");
+   if (LmpMode==1) LmpMode=0; else LmpMode=1;
+   // Выполняем запрос
+   pathphp="j_setRegimLed33.php";
+   // Делаем запрос последнего json-сообщения на State 
+   $.ajax({
+      url: pathphp,
+      type: 'POST',
+      data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost,LmpRegim:LmpMode},
+      // Выводим ошибки при выполнении запроса в PHP-сценарии
+      error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
+      // Обрабатываем ответное сообщение
+      success: function(message)
+      {
+         // Трассируем полный json-ответ
+         DialogWind(message);
+         /*
+         // Вырезаем из запроса чистое сообщение
+         let Fresh=FreshLabel(message);
+         // Если чистое сообщение не вырезалось, считаем, что это ошибка и
+         // диагностируем её
+         if (Fresh=='NoFresh')
+         {
+            console.log(message);
+            DialogWind(message);
+         }
+         // Иначе считаем, что ответ на запрос пришел и можно
+         // парсить сообщение
+         else 
+         {
+            messa=Fresh;
+            // DialogWind(messa);
+            // Строим try catch, чтобы поймать ошибку в JSON-ответе
+            try 
+            {
+               parm=JSON.parse(messa);
+               // Если ошибка SQL-запроса (SelectLed33)
+               if (parm.cycle<0) 
+               {
+                  if (parm.cycle==-1) 
+                     DialogWind(
+                     'Создана таблица базы данных State.\n'+
+                     'Сообщений от контроллера ещё не поступало!');
+                  else
+                     DialogWind(parm.cycle+': '+parm.sjson);
+               }
+               // Выводим результаты выполнения (параметры ответа)
+               // (отрабатываем распарсенный ответ)
+               else
+               {
+                  // Обновляем параметры хранилища
+                  // {"isEvent":0,"Mode":"1","SendTime":1737365180,"ReceivTime":1737365180,"sjson":{"led33":[{"regim":1}]}}
+                  ram.set("LmpEvent",      parm.isEvent);    // 1 - прошла команда смены режима, 0 - пришло подтверждение от контроллера
+                  ram.set("LmpMode",       parm.Mode);       // 1 - включен режим, 0 - выключен режим (состояние в момент запроса)
+                  ram.set("LmpSendTime",   parm.SendTime);   // время в секундах (c начала эпохи) отправки сообщения
+                  ram.set("LmpReceivTime", parm.ReceivTime); // время получения ответа в секундах
+                  // Парсим sjson
+                  let parmi=JSON.parse(JSON.stringify(parm.sjson));
+                  // Выделяем json-подстроку по led33
+                  let led33=parmi.led33[0];
+                  // Парсим led33
+                  parmi=JSON.parse(JSON.stringify(led33));
+                  ram.set("LmpRegim",      parmi.regim);     // указание по режиму в последней команде (1 - включить режим, 0 - выключить)
+                  / *
+                  console.log("LmpEvent =",     ram.get("LmpEvent"),':',     typeof ram.get("LmpEvent"));
+                  console.log("LmpMode =",      ram.get("LmpMode"),':',      typeof ram.get("LmpMode"));
+                  console.log("LmpSendTime =",  ram.get("LmpSendTime"),':',  typeof ram.get("LmpSendTime"));
+                  console.log("LmpReceivTime =",ram.get("LmpReceivTime"),':',typeof ram.get("LmpReceivTime"));
+                  console.log("LmpRegim =",     ram.get("LmpRegim"),':',     typeof ram.get("LmpRegim"));
+                  * /
+               }
+               // Обновляем изображения управляющих элементов контрольного светодиода 
+               // по данным хранилища      
+               ViewLed33();
+            }
+            // Обрабатываем ошибку в JSON-ответе 
+            catch (err) 
+            {
+               console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
+               DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
+            }
+         }
+         */
+      }
+   });
+}
 // ****************************************************************************
 // *                 Выполнить команду "включить/выключить режим"             *
 // ****************************************************************************
 function onShlmp()
 {
 
-/*
-var LmpEvent;       // 1 - произошла смена режима, 0 - пришло подтверждение от контроллера 
-var LmpMode;        // команда: 1 - включить режим, 0 - выключить
-var LmpSendTime;    // время в секундах (c начала эпохи) отправки сообщения
-var LmpReceivTime;  // время получения ответа в секундах
-var LmpSjson;       // {"led33":[{"regim":0}]} - выключить режим; {"led33":[{"regim":1}]} - включить
-var LmpRegim;       // включение=1 / выключение=0 режима работы контрольного светодиода Led33
-*/
    console.log("onShlmp");
+   setRegimLed33();
    // Определяем текущий режим
    //let parm=getRegimLed33();
    //
    //$('#lmp').css('color','red');
 } 
-
-
-
-function setRegimLed33(LmpEvent,LmpMode,LmpSendTime,LmpReceivTime,LmpRegim)
-{
-   console.log(LmpReceivTime);
-   $('#led4').html('LmpRegim '+LmpRegim.toString());
-}
-
 
 // ****************************************************************************
 // *      Сформировать тег для ввода числа с границами, 1 шаг ввода числа     *

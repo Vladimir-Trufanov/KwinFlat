@@ -144,7 +144,7 @@ KwinFlat
 				Kvizzy30\State\log.txt
 				Kvizzy30\State\ParseXMLfile-LeadLEDs.xml
 				Kvizzy30\State\UpStateBODY.php
-			+Styles
+			-Styles
 				Kvizzy30\Styles\Home.css
 				Kvizzy30\Styles\Update.css
 			-TTools
@@ -153,7 +153,7 @@ KwinFlat
 					Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
-			+Update
+			-Update
 				Kvizzy30\Update\Update.js
 				Kvizzy30\Update\Update.php
 			-View
@@ -167,8 +167,8 @@ KwinFlat
 			Kvizzy30\iniWorkSpace.php
 			Kvizzy30\j_getLastStateMess.php
 			Kvizzy30\j_getRegimLed33.php
+			Kvizzy30\j_setRegimLed33.php
 			Kvizzy30\kwinflat-log.txt
-			Kvizzy30\log.txt
 			Kvizzy30\manifest.json
 			Kvizzy30\photo-8i.jpg
 			Kvizzy30\server.log
@@ -210,13 +210,15 @@ KwinFlat
 0=Kvizzy30\index.php
 1=Kvizzy30\iniMem.php
 2=Kvizzy30\Update\Update.js
-3=Kvizzy30\j_getRegimLed33.php
+3=Kvizzy30\j_setRegimLed33.php
 4=Kvizzy30\UpSiteHEAD.php
 5=Kvizzy30\State\UpStateBODY.php
 6=Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
 7=Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php
 8=Kvizzy30\Update\Update.php
 9=Kvizzy30\Styles\Update.css
+10=Kvizzy30\Styles\Home.css
+11=Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php
 [Selected Project Files]
 Main=
 Selected=Kvizzy30\Update\Update.js
@@ -224,14 +226,14 @@ Selected=Kvizzy30\Update\Update.js
 TopLine=1
 Caret=1,1
 [Kvizzy30\iniMem.php]
-TopLine=23
-Caret=1,33
+TopLine=9
+Caret=44,21
 [Kvizzy30\Update\Update.js]
-TopLine=1
-Caret=14,8
-[Kvizzy30\j_getRegimLed33.php]
-TopLine=1
-Caret=82,20
+TopLine=79
+Caret=21,89
+[Kvizzy30\j_setRegimLed33.php]
+TopLine=3
+Caret=12,27
 [Kvizzy30\UpSiteHEAD.php]
 TopLine=7
 Caret=1,1
@@ -239,14 +241,20 @@ Caret=1,1
 TopLine=1
 Caret=96,15
 [Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=19
-Caret=31,60
+TopLine=39
+Caret=1,31
 [Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php]
-TopLine=16
-Caret=102,23
+TopLine=98
+Caret=1,115
 [Kvizzy30\Update\Update.php]
-TopLine=17
-Caret=16,33
+TopLine=5
+Caret=15,13
 [Kvizzy30\Styles\Update.css]
-TopLine=48
+TopLine=4
 Caret=1,68
+[Kvizzy30\Styles\Home.css]
+TopLine=88
+Caret=1,1
+[Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php]
+TopLine=17
+Caret=100,78

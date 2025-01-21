@@ -6,11 +6,13 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                             для базы данных json-сообщений страницы Lead *
 // *                                                                          *
-// * v1.0.0, 20.01.2025                            Автор:       Труфанов В.Е. *
+// * v1.0.1, 21.01.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  20.01.2025 *
 // ****************************************************************************
 
 // _CreateLeadTables($pdo);                  - Создать таблицу базы данных Lead
+// _SelectLMP33($pdo);                       - Выбрать запись режима работы контрольного светодиода Led33
+// _UpdateModeLMP33($pdo,$isEvent,$sjson);   - Обновить запись в таблице базы данных State по Led33  
  
 // ****************************************************************************
 // *                       Создать таблицу базы данных Lead                   *
@@ -105,6 +107,30 @@ function _SelectLMP33($pdo)
       if ($pdo->inTransaction()) $pdo->rollback();
    }
    return $table;
+}
+// ****************************************************************************
+// *               Обновить запись в таблице базы данных State по Led33       *
+// ****************************************************************************
+function _UpdateModeLMP33($pdo,$isEvent,$sjson)
+{
+   try 
+   {
+      $pdo->beginTransaction();
+      $statement = $pdo->prepare("UPDATE [Lmp33] ".
+         "SET [isEvent]=:isEvent, [sjson]=:sjson;");
+      $statement->execute([
+         "isEvent" => $isEvent,
+         "sjson"  => $sjson
+      ]);
+      $pdo->commit();
+      $messa=nstOk; 
+   } 
+   catch (Exception $e) 
+   {
+      $messa=$e->getMessage();
+      if ($pdo->inTransaction()) $pdo->rollback();
+   }
+   return $messa;
 }
 
 // *************************************************** CommonLeadMaker.php ***

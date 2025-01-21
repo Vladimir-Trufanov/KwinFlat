@@ -22,11 +22,12 @@ class KvizzyMaker
    protected $password;    // пароль
    protected $email;       // email посетителя
    // ------------------------------------------------------- МЕТОДЫ КЛАССА ---
-   // BaseConnect()                                    Открыть соединение с базой данных
-   // BaseFirstCreate()                                Создать резервную копию и заново построить новую базу данных
-   // SelectLed33($pdo)                                Выбрать запись из таблицы базы данных State по Led33 
-   // SelectLMP33($pdo)                                Выбрать запись режима работы контрольного светодиода Led33   
-   // UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson)  Обновить запись в таблице базы данных State по Led33 
+   // BaseConnect();                                    - Открыть соединение с базой данных
+   // BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
+   // SelectLed33($pdo);                                - Выбрать запись из таблицы базы данных State по Led33 
+   // SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led33   
+   // UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led33 
+   // UpdateModeLMP33($pdo,$isEvent,$sjson);            - Обновить запись в таблице базы данных State по Led33 
    // -------------------------------------------------------------------------
 
    public function __construct($SiteHost) 
@@ -66,6 +67,11 @@ class KvizzyMaker
    public function UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson)
    {
       _UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);
+   }
+   // Обновить запись в таблице базы данных State по Led33 
+   public function UpdateModeLMP33($pdo,$isEvent,$sjson)
+   {
+      _UpdateModeLMP33($pdo,$isEvent,$sjson);
    }
 }
 
