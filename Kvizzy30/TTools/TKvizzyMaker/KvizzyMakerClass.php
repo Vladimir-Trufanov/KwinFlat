@@ -24,6 +24,7 @@ class KvizzyMaker
    // ------------------------------------------------------- МЕТОДЫ КЛАССА ---
    // BaseConnect();                                    - Открыть соединение с базой данных
    // BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
+   // SelChange($pdo);                                  - Выбрать изменения состояний     
    // SelectLed33($pdo);                                - Выбрать запись из таблицы базы данных State по Led33 
    // SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led33   
    // UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led33 
@@ -50,6 +51,12 @@ class KvizzyMaker
    public function BaseFirstCreate() 
    {
       _BaseFirstCreate($this->basename,$this->username,$this->password);
+   }
+   // Выбрать изменения состояний     
+   public function SelChange($pdo)
+   {
+      $table=_SelChange($pdo);
+      return $table;
    }
    // Выбрать запись из таблицы базы данных State по Led33  
    public function SelectLed33($pdo)

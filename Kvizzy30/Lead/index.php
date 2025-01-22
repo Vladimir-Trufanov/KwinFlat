@@ -34,40 +34,10 @@ $HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с 
 require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
 try 
 {
-   /*
    define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
    define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
    require_once pathPhpPrown."/CommonPrown.php";
-
-   $parm=prown\getComRequest();
-   if ($parm==NULL) $parm='NULL';
-   */
-   // ---------------------------------------------------------------- INIT ---
-   // Выполняем начальную инициализацию переменных, определяем константы,
-   // создаем классы для начального заполнения разметки
-   require_once 'iniMem.php'; 
-   // Начинаем разметку страниц сайта c кодировкой UTF8
-   /*
-   echo '<!DOCTYPE html>'; // определили разметку HTML5
-   echo '<html lang="ru">'; // назначили русский язык для сайта
-   echo '<meta http-equiv="content-type" content="text/html; charset=utf-8">';
-   echo '<title> Обеспечить управление устройствами и датчиками моего хозяйства </title>';
-   */
-   // ------------------------------------------------------- HEAD and LAST ---
-   // Указываем индивидуальные данные страниц сайта для поисковых систем 
-   // и пользователей, подключаем персональные стили для настольных и мобильных 
-   // версий страниц сайта
-   //echo "<head>";
-   //require_once 'UpSiteHEAD.php';
-   //echo "</head>";
-   // ---------------------------------------------------------------- BODY ---
-   // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
-   //echo '<body>'; 
-   require_once 'UpSiteBODY.php';
-   //echo '</body>'; 
-   // Завершаем разметку
-   //echo '</html>';
-   
+   require_once 'UpLeadBODY.php';
 }
 catch (E_EXCEPTION $e) 
 {

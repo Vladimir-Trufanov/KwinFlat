@@ -1,4 +1,0 @@
-[22-Jan-2025 10:18:43 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '}' in C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php on line 125
-[22-Jan-2025 10:20:31 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '}' in C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php on line 125
-[22-Jan-2025 10:21:19 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php on line 126
-[22-Jan-2025 10:22:00 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php on line 127

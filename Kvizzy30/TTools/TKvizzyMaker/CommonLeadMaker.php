@@ -9,8 +9,8 @@
 // * v1.0.2, 22.01.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  20.01.2025 *
 // ****************************************************************************
-
 // _CreateLeadTables($pdo);                  - Создать таблицу базы данных Lead
+// _SelChange($pdo);                         - Выбрать изменения состояний     
 // _SelectLMP33($pdo);                       - Выбрать запись режима работы контрольного светодиода Led33
 // _UpdateModeLMP33($pdo,$action);           - Обновить установку по режиму работы контрольного светодиода  
  
@@ -147,6 +147,38 @@ function _UpdateModeLMP33($pdo,$action)
       if ($pdo->inTransaction()) $pdo->rollback();
    }
    return $messa;
+}
+
+// ****************************************************************************
+// *                         Выбрать изменения состояний                      *
+// ****************************************************************************
+function _SelChange($pdo)
+{
+   try 
+   {
+      $pdo->beginTransaction();
+      $cSQL='SELECT isEvent,Mode,SendTime,ReceivTime,sjson FROM Lmp33 WHERE isEvent=1';
+      $stmt = $pdo->query($cSQL);
+      $table = $stmt->fetchAll();
+      if (count($table)>0) $table=[
+         "isEvent"=>$table[0]['isEvent'],"Mode"=>$table[0]['Mode'],
+         "SendTime" =>$table[0]['SendTime'], "ReceivTime" =>$table[0]['ReceivTime'], "sjson" =>$table[0]['sjson']];
+      else $table=[
+         "isEvent"=>-2, "Mode"=> -2,
+         "SendTime"=>time(), "ReceivTime"=> time(),
+         "sjson" => 'sjson3'];
+      $pdo->commit();
+   } 
+   catch (Exception $e) 
+   {
+      $messa=$e->getMessage();
+      $table=[
+         "isEvent"=>-3, "Mode"=> -3,
+         "SendTime"=>time(), "ReceivTime"=> time(),
+         "sjson" => $messa];
+      if ($pdo->inTransaction()) $pdo->rollback();
+   }
+   return $table;
 }
 
 // *************************************************** CommonLeadMaker.php ***

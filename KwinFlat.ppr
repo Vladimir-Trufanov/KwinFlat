@@ -132,12 +132,9 @@ KwinFlat
 				Kvizzy30\jQuery\jquery-1.11.1.min.map
 				Kvizzy30\jQuery\jquery-ui.min.css
 				Kvizzy30\jQuery\jquery-ui.min.js
-			-Lead
+			+Lead
 				Kvizzy30\Lead\index.php
-				Kvizzy30\Lead\indexLead.php
-				Kvizzy30\Lead\iniMem.php
-				Kvizzy30\Lead\UpSiteBODY.php
-				Kvizzy30\Lead\UpSiteHEAD.php
+				Kvizzy30\Lead\UpLeadBODY.php
 			-Meet
 			-State
 				Kvizzy30\State\index.php
@@ -147,8 +144,8 @@ KwinFlat
 			-Styles
 				Kvizzy30\Styles\Home.css
 				Kvizzy30\Styles\Update.css
-			-TTools
-				-TKvizzyMaker
+			+TTools
+				+TKvizzyMaker
 					Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php
@@ -169,6 +166,7 @@ KwinFlat
 			Kvizzy30\j_getRegimLed33.php
 			Kvizzy30\j_setRegimLed33.php
 			Kvizzy30\kwinflat-log.txt
+			Kvizzy30\log.txt
 			Kvizzy30\manifest.json
 			Kvizzy30\photo-8i.jpg
 			Kvizzy30\server.log
@@ -209,52 +207,44 @@ KwinFlat
 [Open project files]
 0=Kvizzy30\index.php
 1=Kvizzy30\iniMem.php
-2=Kvizzy30\Update\Update.js
-3=Kvizzy30\j_setRegimLed33.php
-4=Kvizzy30\UpSiteHEAD.php
-5=Kvizzy30\State\UpStateBODY.php
-6=Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
-7=Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php
-8=Kvizzy30\Update\Update.php
-9=Kvizzy30\Styles\Update.css
-10=Kvizzy30\Styles\Home.css
-11=Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php
+2=Kvizzy30\Lead\UpLeadBODY.php
+3=Kvizzy30\Update\Update.js
+4=Kvizzy30\Lead\index.php
+5=Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php
+6=Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php
+7=Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
+8=..\IttveMe\www\ttools\TArticlesMaker\ArticlesMakerClass.php
+9=Kvizzy30\j_getRegimLed33.php
 [Selected Project Files]
 Main=
-Selected=Kvizzy30\Update\Update.js
+Selected=Kvizzy30\Lead\UpLeadBODY.php
 [Kvizzy30\index.php]
 TopLine=1
 Caret=1,1
 [Kvizzy30\iniMem.php]
 TopLine=17
 Caret=15,21
+[Kvizzy30\Lead\UpLeadBODY.php]
+TopLine=1
+Caret=6,32
 [Kvizzy30\Update\Update.js]
-TopLine=179
-Caret=1,190
-[Kvizzy30\j_setRegimLed33.php]
-TopLine=1
-Caret=1,29
-[Kvizzy30\UpSiteHEAD.php]
-TopLine=7
+TopLine=103
 Caret=1,1
-[Kvizzy30\State\UpStateBODY.php]
-TopLine=1
-Caret=96,15
-[Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=40
-Caret=17,12
-[Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php]
-TopLine=108
-Caret=16,9
-[Kvizzy30\Update\Update.php]
+[Kvizzy30\Lead\index.php]
 TopLine=9
-Caret=60,16
-[Kvizzy30\Styles\Update.css]
-TopLine=29
-Caret=1,68
-[Kvizzy30\Styles\Home.css]
-TopLine=88
-Caret=1,1
+Caret=1,41
 [Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php]
-TopLine=39
-Caret=100,78
+TopLine=1
+Caret=1,1
+[Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php]
+TopLine=124
+Caret=1,161
+[Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php]
+TopLine=41
+Caret=1,56
+[..\IttveMe\www\ttools\TArticlesMaker\ArticlesMakerClass.php]
+TopLine=257
+Caret=1,288
+[Kvizzy30\j_getRegimLed33.php]
+TopLine=1
+Caret=1,1
