@@ -5,7 +5,7 @@
 // ****************************************************************************
 // * KwinFlat/TTools                  Построитель базы данных моего хозяйства *
 // *                                                                          *
-// * v2.0.2, 20.01.2025                            Автор:       Труфанов В.Е. *
+// * v2.0.3, 22.01.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2024 tve                          Дата создания:  03.11.2024 *
 // ****************************************************************************
 
@@ -27,7 +27,7 @@ class KvizzyMaker
    // SelectLed33($pdo);                                - Выбрать запись из таблицы базы данных State по Led33 
    // SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led33   
    // UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led33 
-   // UpdateModeLMP33($pdo,$isEvent,$sjson);            - Обновить запись в таблице базы данных State по Led33 
+   // UpdateModeLMP33($pdo,$action);                    - Обновить установку по режиму работы контрольного светодиода  
    // -------------------------------------------------------------------------
 
    public function __construct($SiteHost) 
@@ -68,10 +68,11 @@ class KvizzyMaker
    {
       _UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);
    }
-   // Обновить запись в таблице базы данных State по Led33 
-   public function UpdateModeLMP33($pdo,$isEvent,$sjson)
+   // Обновить установку по режиму работы контрольного светодиода  
+   public function UpdateModeLMP33($pdo,$action)
    {
-      _UpdateModeLMP33($pdo,$isEvent,$sjson);
+      $messa=_UpdateModeLMP33($pdo,$action);
+      return $messa;
    }
 }
 

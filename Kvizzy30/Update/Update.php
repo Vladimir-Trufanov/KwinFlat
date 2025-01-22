@@ -13,7 +13,7 @@
 <div id="led33">
    
    <div id=shsh>
-   <div id="shlmp" class="shled33" onclick="onShlmp()">
+   <div id="shlmp" class="shled33" onclick="setRegimLed33()">
       <p class="pshled33">ВКЛЮЧИТЬ РЕЖИМ</p>
    </div>
    <div id="shlight" class="shled33" onclick="onLed33('pilight','light',0,100)" title="От 0% до 100%">
