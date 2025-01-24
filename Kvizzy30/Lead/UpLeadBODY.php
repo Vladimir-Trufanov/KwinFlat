@@ -27,8 +27,8 @@ function MakeAnswer($SiteHost)
    $table=$Kvizzy->SelChange($pdo);
    $isEvent=$table['isEvent']; 
    $sjson=$table['sjson'];
-   if ($isEvent<0) echo '{}';
-   else echo $sjson;
+   if ($isEvent<0) echo '<p>{}</p>';
+   else echo '<p>'.$sjson.'</p>';
    //echo 'Привет из Lead';
 }
 

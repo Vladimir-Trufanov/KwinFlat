@@ -60,8 +60,8 @@ function iniWorkSpace()
       wsHttpReferer   => $Refer,
    );                              
    // Сбрасываем в лог-файл значения массива $ _SERVER для разных клиентов 
-   _UnlinkFile(__DIR__ . '/server.log');
-   file_put_contents(__DIR__ . '/server.log', print_r($_SERVER, true) . PHP_EOL, FILE_APPEND);
+   //_UnlinkFile(__DIR__ . '/server.log');
+   //file_put_contents(__DIR__ . '/server.log', print_r($_SERVER, true) . PHP_EOL, FILE_APPEND);
    return $_WORKSPACE;
 }   
 // ****************************************************************************
