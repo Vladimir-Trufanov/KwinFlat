@@ -63,7 +63,7 @@ function ViewLed33()
 { 
    // По текущему состоянию режима окрашиваем фон элементов управления Led33 
    // и текст на них 
-   // console.log("LmpMode",ram.get("LmpMode"));               
+   console.log("LmpMode",ram.get("LmpMode"));               
    if (ram.get("LmpMode")==1) 
    {
       $('.cled33').css('background','Silver');
@@ -151,7 +151,7 @@ function getRegimLed33()
                   let led33=parmi.led33[0];
                   // Парсим led33
                   parmi=JSON.parse(JSON.stringify(led33));
-                  ram.set("LmpRegim",      parmi.regim);     // указание по режиму в последней команде (1 - включить режим, 0 - выключить)
+                  ram.set("LmpRegim",parmi.regim); // указание по режиму в последней команде (1 - включить режим, 0 - выключить)
                   /*
                   console.log("LmpEvent =",     ram.get("LmpEvent"),':',     typeof ram.get("LmpEvent"));
                   console.log("LmpMode =",      ram.get("LmpMode"),':',      typeof ram.get("LmpMode"));
@@ -214,7 +214,7 @@ function setRegimLed33()
          else 
          {
             messa=Fresh;
-            console.log(messa);
+            // console.log(messa);
             if (messa!=nstOk) DialogWind(messa);
          }
       }
@@ -363,6 +363,7 @@ function getLastStateMess()
                   else if (JSON.stringify(sjson)==s33_MODE0)
                   {
                      console.log('s33_MODE0: '+s33_MODE0);
+                     //ram.set("LmpMode",0);  // 0 - выключен режим 
                   }
                   else
                   {

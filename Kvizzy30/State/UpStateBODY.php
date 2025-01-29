@@ -35,27 +35,22 @@ $myTime = time();
 $myDate = date("y-m-d H:i:s");
 
 $Kvizzy->UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);
-
+// Если сообщение "контрольный светодиод включен"
 if ($sjson==stripslashes(s33_HIGH))
 {
    echo s33_HIGH;
 }
+// Если сообщение "контрольный светодиод ВЫКЛЮЧЕН"
 else if ($sjson==stripslashes(s33_LOW))
 {
    echo s33_LOW;
 }
+// Если сообщение "режим контрольного светодиода выключен"
 else if ($sjson==stripslashes(s33_MODE0))
 {
    echo s33_MODE0;
+   //$action=0;   // пришло подтверждение от контроллера, выключить режим   
+   //$messa=$Kvizzy->UpdateModeLMP33($pdo,$action);
 }
-
-
-/*
-$table=SelectLed33($pdo);
-echo 'myTime: '.$table['myTime'].'<br>'; 
-echo 'myDate: '.$table['myDate'].'<br>'; 
-echo 'cycle: ' .$table['cycle']. '<br>'; 
-echo 'sjson: ' .$table['sjson']. '<br>'; 
-*/
 
 // <!-- --> *********************************************** UpStateBODY.php ***
