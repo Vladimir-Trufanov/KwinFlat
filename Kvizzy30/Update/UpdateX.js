@@ -372,6 +372,29 @@ function getLastStateMess()
       }
    });
 }
+
+
+led33: {"status":"inHIGH"}
+2Update.js:352 led33: {"regim":0}
+2Update.js:352 led33: {"status":"inLOW"}
+Update.js:352 led33: {"regim":0}
+4Update.js:352 led33: {"status":"inHIGH"}
+2Update.js:352 led33: {"status":"inLOW"}
+2Update.js:352 led33: {"regim":0}
+2Update.js:352 led33: {"status":"inHIGH"}
+3Update.js:352 led33: {"status":"inLOW"}
+4Update.js:352 led33: {"regim":0}
+2Update.js:352 led33: {"status":"inHIGH"}
+2Update.js:352 led33: {"status":"inLOW"}
+2Update.js:352 led33: {"regim":0}
+
+
+
+
+
+
+
+
 // ****************************************************************************
 // *                 Вывести диалоговое сообщение от ошибке                   *
 // ****************************************************************************
