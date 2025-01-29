@@ -1,0 +1,20 @@
+===kwinflatru===Wed, 29 Jan 2025 14:11:56 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 
+===kwinflatru===Wed, 29 Jan 2025 14:19:50 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 
+===kwinflatru===Wed, 29 Jan 2025 14:19:57 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 
+===kwinflatru===Wed, 29 Jan 2025 14:21:13 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 
+===kwinflatru===Wed, 29 Jan 2025 14:21:17 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 
+===kwinflatru===Wed, 29 Jan 2025 14:23:43 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 
+===kwinflatru===Wed, 29 Jan 2025 14:26:46 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 
+===kwinflatru===Wed, 29 Jan 2025 14:27:43 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 
+===kwinflatru===Wed, 29 Jan 2025 14:29:03 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 
+===kwinflatru===Wed, 29 Jan 2025 14:47:22 +0300 IP: ::1 URL: /State/?cycle=195&sjson={%22led33%22:[{%22status%22:%22inHIGH%22}]} 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 

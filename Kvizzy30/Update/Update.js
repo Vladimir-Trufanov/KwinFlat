@@ -5,7 +5,7 @@
 // *                                         и контроллеров на странице сайта *
 // ****************************************************************************
 
-// v1.0.6, 22.01.2025                                 Автор:      Труфанов В.Е.
+// v1.0.7, 29.01.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
@@ -344,21 +344,30 @@ function getLastStateMess()
                   $('#myTime').html("myTime: "+myTime.toString());
                   let myDate=parm.myDate;
                   $('#myDate').html("myDate: "+myDate);
-                  // Парсим sjson
-                  parm=JSON.parse(JSON.stringify(sjson));
-                  // Выделяем json-подстроку по led33
-                  let led33=parm.led33[0];
-            
-                  //console.log('led33: '+JSON.stringify(led33));
                   
-                  // Парсим led33
-                  parm=JSON.parse(JSON.stringify(led33));
-                  // Выделяем состояние led33 (горит - не горит)
-                  let status=parm.status;
-                  // Высвечиваем led33 в соответствии с состоянием
-                  $('#status').html(status);
-                  if (status=="inHIGH") $('#spot').css('background','SandyBrown');
-                  else $('#spot').css('background','LightCyan');
+                  // Парсим и обрабатываем sjson
+                  if ((JSON.stringify(sjson)==s33_LOW)||(JSON.stringify(sjson)==s33_HIGH))
+                  {
+                     parm=JSON.parse(JSON.stringify(sjson));
+                     // Выделяем json-подстроку по led33
+                     let led33=parm.led33[0];
+                     // Парсим led33
+                     parm=JSON.parse(JSON.stringify(led33));
+                     // Выделяем состояние led33 (горит - не горит)
+                     let status=parm.status;
+                     // Высвечиваем led33 в соответствии с состоянием
+                     $('#status').html(status);
+                     if (status=="inHIGH") $('#spot').css('background','SandyBrown');
+                     else $('#spot').css('background','LightCyan');
+                  }
+                  else if (JSON.stringify(sjson)==s33_MODE0)
+                  {
+                     console.log('s33_MODE0: '+s33_MODE0);
+                  }
+                  else
+                  {
+                     console.log('sjson: '+JSON.stringify(sjson));
+                  }
                }
             }
             // Обрабатываем ошибку в JSON-ответе 

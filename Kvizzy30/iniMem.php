@@ -24,6 +24,10 @@ define ('nobase',       'Нет базы');   // Аякс-запрос базы 
 define ("oriLandscape", 'landscape');  // Ландшафтное расположение устройства
 define ("oriPortrait",  'portrait');   // Портретное расположение устройства
 
+// Реестр json-сообщений на страницу State
+define ('s33_HIGH',  '{\"led33\":[{\"status\":\"inHIGH\"}]}');  // "контрольный светодиод включен"
+define ('s33_LOW',   '{\"led33\":[{\"status\":\"inLOW\"}]}');   // "контрольный светодиод ВЫКЛЮЧЕН"
+define ('s33_MODE0', '{\"led33\":[{\"regim\":0}]}');            // "режим контрольного светодиода выключен"
 
 // -------------- Дополнительные контроли адреса электронной почты и пароля ---
 /*
@@ -78,6 +82,10 @@ function DefineJS($SiteHost,$urlHome)
    'sjson="'               .$sjson.'";'."\n".
    'RootDir="'             .RootDir.'";'."\n".
    'RootUrl="'             .RootUrl.'";'."\n".
+
+   's33_HIGH="'            .s33_HIGH.'";'."\n".
+   's33_LOW="'             .s33_LOW.'";'."\n".
+   's33_MODE0="'           .s33_MODE0.'";'."\n".
    '</script>'."\n";
    echo $define;
 } 
