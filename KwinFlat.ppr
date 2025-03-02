@@ -57,7 +57,7 @@ KwinFlat
 				Kvizzy\Allcss\Section.css
 				Kvizzy\Allcss\TinyMCE.css
 				Kvizzy\Allcss\ViewLaws.css
-		+Kvizzy30
+		-Kvizzy30
 			-.well-known
 				-pki-validation
 					Kvizzy30\.well-known\pki-validation\gsdv.txt
@@ -175,6 +175,49 @@ KwinFlat
 			Kvizzy30\photo-8i.jpg
 			Kvizzy30\UpSiteBODY.php
 			Kvizzy30\UpSiteHEAD.php
+		+node
+			-Distrib
+				node\Distrib\multipart-x-mixed-replace-example-master.zip
+				node\Distrib\node-v22.14.0-x64.msi
+			-imgs
+				node\imgs\run1.png
+				node\imgs\run10.png
+				node\imgs\run11.png
+				node\imgs\run12.png
+				node\imgs\run13.png
+				node\imgs\run14.png
+				node\imgs\run15.png
+				node\imgs\run16.png
+				node\imgs\run17.png
+				node\imgs\run18.png
+				node\imgs\run19.png
+				node\imgs\run2.png
+				node\imgs\run20.png
+				node\imgs\run3.png
+				node\imgs\run4.png
+				node\imgs\run5.png
+				node\imgs\run6.png
+				node\imgs\run7.png
+				node\imgs\run8.png
+				node\imgs\run9.png
+			-txts
+				node\txts\txt1.txt
+				node\txts\txt2.txt
+			node\app.js
+			node\flash.js
+			node\node.md
+			node\node.ppr
+			node\test.html
+		+php
+			-example1
+				php\example1\index.html
+				php\example1\multipart.php
+			-Обработка видеопотока на PHP
+				php\Обработка видеопотока на PHP\Обработка видеопотока на PHP.md
+			php\cat.png
+			php\favicon.ico
+			php\index.html
+			php\multipart.php
 		-Private
 			Private\Еncrypted.fil
 		-RobotsMap
@@ -184,9 +227,6 @@ KwinFlat
 			-v2018-06-01
 				RobotsMap\v2018-06-01\robots.txt
 				RobotsMap\v2018-06-01\sitemap.xml
-		+turl
-			turl\cookie.txt
-			turl\index.php
 		-Авторизация в ВК
 			Авторизация в ВК\Авторизация в ВК.md
 		-Крошки опыта
@@ -194,36 +234,6 @@ KwinFlat
 				Крошки опыта\About\about.pdf
 				Крошки опыта\About\О программе.doc
 				Крошки опыта\About\О программе.html
-			-Обработка видеопотока на PHP
-				-multipart-x-mixed-replace-example-master
-					-multipart-x-mixed-replace-example-master
-						-imgs
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run1.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run10.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run11.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run12.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run13.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run14.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run15.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run16.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run17.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run18.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run19.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run2.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run20.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run3.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run4.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run5.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run6.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run7.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run8.png
-							Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\imgs\run9.png
-						Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\README.md
-						Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\server.js
-						Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\test.html
-				Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master.zip
-				Крошки опыта\Обработка видеопотока на PHP\Обработка видеопотока на PHP.md
-				Крошки опыта\Обработка видеопотока на PHP\Обработка видеопотока на PHP.md.backup
 			Крошки опыта\Как не потерять посетителя при 404 ошибке.doc
 			Крошки опыта\Как установить счетчик посещаемости на сайт.doc
 			Крошки опыта\Крошки опыта.doc
@@ -239,24 +249,19 @@ KwinFlat
 			Управление\Параметры и кукисы KwinFlat.xls
 		KwinFlat.ppr
 		README.md
-		Новый1.txt
 [Open project files]
-0=turl\index.php
-1=Kvizzy30\UpSiteHEAD.php
-2=Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\server.js
-3=Kvizzy30\UpSiteBODY.php
+0=node\app.js
+1=node\flash.js
+2=node\test.html
 [Selected Project Files]
 Main=
-Selected=turl\index.php
-[turl\index.php]
-TopLine=9
-Caret=27,14
-[Kvizzy30\UpSiteHEAD.php]
-TopLine=6
-Caret=1,35
-[Крошки опыта\Обработка видеопотока на PHP\multipart-x-mixed-replace-example-master\multipart-x-mixed-replace-example-master\server.js]
+Selected=node\app.js
+[node\app.js]
 TopLine=1
 Caret=1,1
-[Kvizzy30\UpSiteBODY.php]
-TopLine=29
-Caret=1,61
+[node\flash.js]
+TopLine=1
+Caret=1,36
+[node\test.html]
+TopLine=1
+Caret=1,1

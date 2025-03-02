@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+        function runMultipart() 
+        {
+           console.log('Ehf');
+           // не кросс-браузерно, все равно способ Firefox only!
+           var req = new XMLHttpRequest();
+           req.multipart = true;
+           // асинхронный запрос
+           req.open("GET","multipart.php?r="+Math.random(), true);
+           req.onload = function(event) 
+           {
+              var result = event.target.responseText
+              var d = document.createElement("div")
+              d.innerHTML = "onload:"+result;
+              document.getElementById('xhr_multipart_dump1').appendChild(d)
+           }
+           req.onreadystatechange = function() 
+           {
+              if (req.readyState!=4) return
+              var d = document.createElement("div")
+              d.innerHTML = "State:"+req.readyState+' Status:'+req.status
+              document.getElementById('xhr_multipart_dump1').appendChild(d)
+           }
+           req.send(null);
+        }
+        </script>
+    </head>
+    <body>
+    <p><input onclick="runMultipart()" value="Запустить miltipart-запрос" type="button" /></p>
+    <div id="xhr_multipart_dump1" style="font-style:italic">Тут будут сообщения</div>
+    </body>
+</html>

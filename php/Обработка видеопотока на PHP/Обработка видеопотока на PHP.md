@@ -4,9 +4,57 @@
 
 ---
 
+#### [Multipart XMLHTTPRequest](https://javascript.ru/ajax/comet/multipart-xmlhttprequest)
+
 #### [Тема: трансляция потока mJPEG](https://forum.php-myadmin.ru/viewtopic.php?id=2041)
 
 #### [multipart-x-mixed-replace-example](https://github.com/yscoder/multipart-x-mixed-replace-example)
+
+#### [Код Эрика. Тип содержимого multipart/x-mixed-replace](https://blog.dubbelboer.com/2012/01/08/x-mixed-replace.html)
+
+Дата: 8 января 2012 г. Автор: Эрик Даббелбоер
+
+Глядя на новый вид Google Analytics в реальном времени, я заметил, что они используют тип контента multipart/x-mixed-replace для отправки обновлений в реальном времени в веб-браузер.
+
+Используя этот специальный тип контента, вы можете заменить содержимое страницы. Этот пример вы можете найти здесь:
+
+```
+<?
+
+// Make sure PHP isn't buffereing anything.
+ob_end_clean();
+
+// Sending this header will prevent nginx from buffering the output.
+header('X-Accel-Buffering: no');
+
+header('Content-type: multipart/x-mixed-replace; boundary=endofsection');
+
+// Keep in mind that the empty line is important to separate the headers
+// from the content.
+echo 'Content-type: text/plain
+
+After 5 seconds this will go away and a cat will appear...
+--endofsection
+';
+flush(); // Don't forget to flush the content to the browser.
+
+
+sleep(5);
+
+
+echo 'Content-type: image/jpg
+
+';
+
+$stream = fopen('cat.jpg', 'rb');
+fpassthru($stream);
+fclose($stream);
+
+echo '
+--endofsection
+';
+```
+
 
 
 
