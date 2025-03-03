@@ -237,7 +237,33 @@ KwinFlat
 			-example2
 				php\example2\index.html
 				php\example2\tortoise.png
-			+imgs
+			-example3-1
+				-imgs
+					php\example3-1\imgs\run1.png
+					php\example3-1\imgs\run10.png
+					php\example3-1\imgs\run11.png
+					php\example3-1\imgs\run12.png
+					php\example3-1\imgs\run13.png
+					php\example3-1\imgs\run14.png
+					php\example3-1\imgs\run15.png
+					php\example3-1\imgs\run16.png
+					php\example3-1\imgs\run17.png
+					php\example3-1\imgs\run18.png
+					php\example3-1\imgs\run19.png
+					php\example3-1\imgs\run2.png
+					php\example3-1\imgs\run20.png
+					php\example3-1\imgs\run3.png
+					php\example3-1\imgs\run4.png
+					php\example3-1\imgs\run5.png
+					php\example3-1\imgs\run6.png
+					php\example3-1\imgs\run7.png
+					php\example3-1\imgs\run8.png
+					php\example3-1\imgs\run9.png
+				php\example3-1\index.html
+			-example3-2
+				php\example3-2\index.html
+				php\example3-2\multipart.php
+			-imgs
 				php\imgs\run1.png
 				php\imgs\run10.png
 				php\imgs\run11.png
@@ -260,12 +286,11 @@ KwinFlat
 				php\imgs\run9.png
 			-Обработка видеопотока на PHP
 				php\Обработка видеопотока на PHP\Обработка видеопотока на PHP.md
-			php\cat.png
 			php\favicon.ico
-			php\image1.jpg
-			php\image2.jpg
-			php\image3.jpg
 			php\index.html
+			php\multipart3.php
+			php\test.jpg
+			php\Новый1.txt
 		-Private
 			Private\Еncrypted.fil
 		-RobotsMap
@@ -297,11 +322,20 @@ KwinFlat
 			Управление\Параметры и кукисы KwinFlat.xls
 		KwinFlat.ppr
 		README.md
+		Новый1.php
 [Open project files]
 0=php\index.html
+1=php\multipart3.php
+2=Kvizzy30\iniWorkSpace.php
 [Selected Project Files]
 Main=
 Selected=php\index.html
 [php\index.html]
-TopLine=11
-Caret=41,44
+TopLine=69
+Caret=38,61
+[php\multipart3.php]
+TopLine=1
+Caret=70,13
+[Kvizzy30\iniWorkSpace.php]
+TopLine=39
+Caret=1,71
