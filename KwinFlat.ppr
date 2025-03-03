@@ -263,6 +263,11 @@ KwinFlat
 			-example3-2
 				php\example3-2\index.html
 				php\example3-2\multipart.php
+			-example3-3
+				php\example3-3\favicon.ico
+				php\example3-3\index.html
+				php\example3-3\multipart3.php
+				php\example3-3\test.jpg
 			-imgs
 				php\imgs\run1.png
 				php\imgs\run10.png
@@ -287,10 +292,9 @@ KwinFlat
 			-Обработка видеопотока на PHP
 				php\Обработка видеопотока на PHP\Обработка видеопотока на PHP.md
 			php\favicon.ico
-			php\index.html
-			php\multipart3.php
+			php\index.php
+			php\multipart4.php
 			php\test.jpg
-			php\Новый1.txt
 		-Private
 			Private\Еncrypted.fil
 		-RobotsMap
@@ -322,20 +326,15 @@ KwinFlat
 			Управление\Параметры и кукисы KwinFlat.xls
 		KwinFlat.ppr
 		README.md
-		Новый1.php
 [Open project files]
-0=php\index.html
-1=php\multipart3.php
-2=Kvizzy30\iniWorkSpace.php
+0=php\index.php
+1=php\multipart4.php
 [Selected Project Files]
 Main=
-Selected=php\index.html
-[php\index.html]
-TopLine=69
-Caret=38,61
-[php\multipart3.php]
-TopLine=1
-Caret=70,13
-[Kvizzy30\iniWorkSpace.php]
-TopLine=39
-Caret=1,71
+Selected=php\multipart4.php
+[php\index.php]
+TopLine=35
+Caret=35,58
+[php\multipart4.php]
+TopLine=7
+Caret=24,20

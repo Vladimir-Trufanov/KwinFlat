@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<!-- 
+<?php
+// PHP7/HTML5, EDGE/CHROME                                    *** index.php ***
+
 // ****************************************************************************
 // *                     По XMLHttpRequest заменить одно изображение (клиент) *
 // ****************************************************************************
 
-// v1.0.0, 03.03.2025                                 Автор:      Труфанов В.Е.
+// v1.0.1, 03.03.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2016 tve                               Дата создания: 03.03.2025
 
+?>
+
+<!DOCTYPE html>
+<!-- 
 Яндекс запрос "как на js менять изображение через пол секунды"
 -->
 <html>
@@ -54,11 +59,9 @@
           
       function runMultipart() 
       {
-           // не кросс-браузерно, все равно способ Firefox only!
            var req = new XMLHttpRequest();
-           //req.multipart = true;
            // асинхронный запрос
-           req.open("GET","multipart3.php?r="+Math.random(), true);
+           req.open("GET","multipart4.php?r="+Math.random(), true);
            req.onload = function(event) 
            {
               console.log('Запрос загружен!');
@@ -67,8 +70,24 @@
               //var elem = document.getElementById("Place");
               //elem.innerText=result;
               
+              
+              //let json = JSON.stringify(result);
+              //alert(json);
+              
+              user = JSON.parse(result);
+              //alert(user.img[0]); 
+              //alert(user.img[1]); 
+              let num = document.getElementById('Place');
+              num.innerText=user.img[0];
+
+
+
+
               let elem = document.getElementById('img2');
-              elem.setAttribute('src', result);
+              //elem.setAttribute('src', result);
+              elem.setAttribute('src',user.img[1]);
+              
+              
               /*
               var result = event.target.responseText
               var d = document.createElement("div")
@@ -103,5 +122,43 @@
       <p id="Place">Место ответа</p>
       <p><input onclick="runMultipart()" value="Запустить miltipart-запрос" type="button" /></p>
       <p><img src="test.jpg"></p>
+
+<?php
+
+/*
+$json = json_encode(
+    array(
+        1 => array(
+            'English' => array(
+                'One',
+                'January'
+            ),
+            'French' => array(
+                'Une',
+                'Janvier'
+            )
+        )
+    )
+);
+*/
+
+/*
+$num=8; $src="data:image/jpeg;base64,Janvier";
+$json = json_encode(array(
+   'img' => array
+   (
+     8,
+     'data:image/jpeg;base64,Janvier'
+   )
+));
+echo  $json;
+*/
+
+?>
+      
    </body>
 </html>
+<?php
+
+// <!-- --> ***************************************************** index.php ***
+
