@@ -175,10 +175,36 @@ KwinFlat
 			Kvizzy30\photo-8i.jpg
 			Kvizzy30\UpSiteBODY.php
 			Kvizzy30\UpSiteHEAD.php
-		+node
+		-node
 			-Distrib
 				node\Distrib\multipart-x-mixed-replace-example-master.zip
 				node\Distrib\node-v22.14.0-x64.msi
+			-example1
+				node\example1\app.js
+			-example2
+				-imgs
+					node\example2\imgs\run1.png
+					node\example2\imgs\run10.png
+					node\example2\imgs\run11.png
+					node\example2\imgs\run12.png
+					node\example2\imgs\run13.png
+					node\example2\imgs\run14.png
+					node\example2\imgs\run15.png
+					node\example2\imgs\run16.png
+					node\example2\imgs\run17.png
+					node\example2\imgs\run18.png
+					node\example2\imgs\run19.png
+					node\example2\imgs\run2.png
+					node\example2\imgs\run20.png
+					node\example2\imgs\run3.png
+					node\example2\imgs\run4.png
+					node\example2\imgs\run5.png
+					node\example2\imgs\run6.png
+					node\example2\imgs\run7.png
+					node\example2\imgs\run8.png
+					node\example2\imgs\run9.png
+				node\example2\flash.js
+				node\example2\test.html
 			-imgs
 				node\imgs\run1.png
 				node\imgs\run10.png
@@ -200,10 +226,6 @@ KwinFlat
 				node\imgs\run7.png
 				node\imgs\run8.png
 				node\imgs\run9.png
-			-txts
-				node\txts\txt1.txt
-				node\txts\txt2.txt
-			node\app.js
 			node\flash.js
 			node\node.md
 			node\node.ppr
@@ -212,12 +234,38 @@ KwinFlat
 			-example1
 				php\example1\index.html
 				php\example1\multipart.php
+			-example2
+				php\example2\index.html
+				php\example2\tortoise.png
+			+imgs
+				php\imgs\run1.png
+				php\imgs\run10.png
+				php\imgs\run11.png
+				php\imgs\run12.png
+				php\imgs\run13.png
+				php\imgs\run14.png
+				php\imgs\run15.png
+				php\imgs\run16.png
+				php\imgs\run17.png
+				php\imgs\run18.png
+				php\imgs\run19.png
+				php\imgs\run2.png
+				php\imgs\run20.png
+				php\imgs\run3.png
+				php\imgs\run4.png
+				php\imgs\run5.png
+				php\imgs\run6.png
+				php\imgs\run7.png
+				php\imgs\run8.png
+				php\imgs\run9.png
 			-Обработка видеопотока на PHP
 				php\Обработка видеопотока на PHP\Обработка видеопотока на PHP.md
 			php\cat.png
 			php\favicon.ico
+			php\image1.jpg
+			php\image2.jpg
+			php\image3.jpg
 			php\index.html
-			php\multipart.php
 		-Private
 			Private\Еncrypted.fil
 		-RobotsMap
@@ -250,18 +298,10 @@ KwinFlat
 		KwinFlat.ppr
 		README.md
 [Open project files]
-0=node\app.js
-1=node\flash.js
-2=node\test.html
+0=php\index.html
 [Selected Project Files]
 Main=
-Selected=node\app.js
-[node\app.js]
-TopLine=1
-Caret=1,1
-[node\flash.js]
-TopLine=1
-Caret=1,36
-[node\test.html]
-TopLine=1
-Caret=1,1
+Selected=php\index.html
+[php\index.html]
+TopLine=11
+Caret=41,44

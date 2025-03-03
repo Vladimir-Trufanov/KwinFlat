@@ -4,6 +4,10 @@
 
 ---
 
+#### [dom-examples/streams/README.md](https://github.com/mdn/dom-examples/blob/main/streams/README.md)
+
+#### [Fetch](https://learn.javascript.ru/fetch)
+
 #### [Multipart XMLHTTPRequest](https://javascript.ru/ajax/comet/multipart-xmlhttprequest)
 
 #### [Тема: трансляция потока mJPEG](https://forum.php-myadmin.ru/viewtopic.php?id=2041)
