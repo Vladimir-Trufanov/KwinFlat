@@ -1,0 +1,5 @@
+[09-Mar-2025 17:20:29 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function MakeStream() in C:\KwinFlat\Kvizzy30\Stream\UpStreamBODY.php:14
+Stack trace:
+#0 C:\KwinFlat\Kvizzy30\Stream\index.php(39): require_once()
+#1 {main}
+  thrown in C:\KwinFlat\Kvizzy30\Stream\UpStreamBODY.php on line 14

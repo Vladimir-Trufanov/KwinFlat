@@ -57,7 +57,7 @@ KwinFlat
 				Kvizzy\Allcss\Section.css
 				Kvizzy\Allcss\TinyMCE.css
 				Kvizzy\Allcss\ViewLaws.css
-		-Kvizzy30
+		+Kvizzy30
 			-.well-known
 				-pki-validation
 					Kvizzy30\.well-known\pki-validation\gsdv.txt
@@ -146,6 +146,10 @@ KwinFlat
 				Kvizzy30\State\log.txt
 				Kvizzy30\State\ParseXMLfile-LeadLEDs.xml
 				Kvizzy30\State\UpStateBODY.php
+			+Stream
+				Kvizzy30\Stream\index.php
+				Kvizzy30\Stream\log.txt
+				Kvizzy30\Stream\UpStreamBODY.php
 			-Styles
 				Kvizzy30\Styles\Home.css
 				Kvizzy30\Styles\Update.css
@@ -230,7 +234,7 @@ KwinFlat
 			node\node.md
 			node\node.ppr
 			node\test.html
-		+php
+		-php
 			-example1
 				php\example1\index.html
 				php\example1\multipart.php
@@ -268,6 +272,27 @@ KwinFlat
 				php\example3-3\index.html
 				php\example3-3\multipart3.php
 				php\example3-3\test.jpg
+			-example3-4
+				php\example3-4\index.php
+				php\example3-4\multipart4.php
+				php\example3-4\test.jpg
+			-img2
+				php\img2\picture40.jpg
+				php\img2\picture41.jpg
+				php\img2\picture42.jpg
+				php\img2\picture43.jpg
+				php\img2\picture44.jpg
+				php\img2\picture45.jpg
+				php\img2\picture46.jpg
+				php\img2\picture47.jpg
+				php\img2\picture48.jpg
+				php\img2\picture49.jpg
+				php\img2\picture50.jpg
+				php\img2\picture51.jpg
+				php\img2\picture52.jpg
+				php\img2\picture53.jpg
+				php\img2\picture54.jpg
+				php\img2\picture55.jpg
 			-imgs
 				php\imgs\run1.png
 				php\imgs\run10.png
@@ -291,6 +316,7 @@ KwinFlat
 				php\imgs\run9.png
 			-Обработка видеопотока на PHP
 				php\Обработка видеопотока на PHP\Обработка видеопотока на PHP.md
+			php\counts.txt
 			php\favicon.ico
 			php\index.php
 			php\multipart4.php
@@ -327,14 +353,18 @@ KwinFlat
 		KwinFlat.ppr
 		README.md
 [Open project files]
-0=php\index.php
-1=php\multipart4.php
+0=Kvizzy30\Controller\Controller.php
+1=Kvizzy30\Stream\index.php
+2=Kvizzy30\Stream\UpStreamBODY.php
 [Selected Project Files]
 Main=
-Selected=php\multipart4.php
-[php\index.php]
-TopLine=35
-Caret=35,58
-[php\multipart4.php]
-TopLine=7
-Caret=24,20
+Selected=Kvizzy30\Stream\UpStreamBODY.php
+[Kvizzy30\Controller\Controller.php]
+TopLine=18
+Caret=1,1
+[Kvizzy30\Stream\index.php]
+TopLine=8
+Caret=1,1
+[Kvizzy30\Stream\UpStreamBODY.php]
+TopLine=1
+Caret=20,17
