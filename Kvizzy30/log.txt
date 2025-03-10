@@ -1,0 +1,20 @@
+[10-Mar-2025 15:13:22 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: There is already an active transaction in C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php:22
+Stack trace:
+#0 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php(22): PDO->beginTransaction()
+#1 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php(213): _CreateStreamTables(Object(PDO))
+#2 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php(282): ttools\_CreateTables(Object(PDO))
+#3 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php(44): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', 'A358-ty19')
+#4 C:\KwinFlat\Kvizzy30\iniMem.php(156): ttools\KvizzyMaker->__construct('C:')
+#5 C:\KwinFlat\Kvizzy30\index.php(49): require_once('C:\\KwinFlat\\Kvi...')
+#6 {main}
+  thrown in C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php on line 22
+[10-Mar-2025 15:14:53 Asia/Kuwait] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 near ")": syntax error in C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php:45
+Stack trace:
+#0 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php(45): PDO->prepare('INSERT INTO [St...')
+#1 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php(213): _CreateStreamTables(Object(PDO))
+#2 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php(282): ttools\_CreateTables(Object(PDO))
+#3 C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php(44): ttools\_BaseFirstCreate('C:/Base/kvizzy', 'tve', 'A358-ty19')
+#4 C:\KwinFlat\Kvizzy30\iniMem.php(156): ttools\KvizzyMaker->__construct('C:')
+#5 C:\KwinFlat\Kvizzy30\index.php(49): require_once('C:\\KwinFlat\\Kvi...')
+#6 {main}
+  thrown in C:\KwinFlat\Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php on line 45

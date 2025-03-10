@@ -13,6 +13,7 @@
 require_once("CommonKvizzyMaker.php"); 
 require_once("CommonStateMaker.php"); 
 require_once("CommonLeadMaker.php"); 
+require_once("CommonStreamMaker.php"); 
 
 class KvizzyMaker
 {

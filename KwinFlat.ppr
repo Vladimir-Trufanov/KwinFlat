@@ -78,7 +78,7 @@ KwinFlat
 				Kvizzy30\Background\Razlom16x9.gif
 				Kvizzy30\Background\VnizuVoda_kv.gif
 				Kvizzy30\Background\Vodopadik_kv.gif
-			+Controller
+			-Controller
 				Kvizzy30\Controller\Controller.js
 				Kvizzy30\Controller\Controller.php
 			-Dacha
@@ -146,18 +146,19 @@ KwinFlat
 				Kvizzy30\State\log.txt
 				Kvizzy30\State\ParseXMLfile-LeadLEDs.xml
 				Kvizzy30\State\UpStateBODY.php
-			-Stream
+			+Stream
 				Kvizzy30\Stream\index.php
 				Kvizzy30\Stream\log.txt
 				Kvizzy30\Stream\UpStreamBODY.php
 			-Styles
 				Kvizzy30\Styles\Home.css
 				Kvizzy30\Styles\Update.css
-			-TTools
-				-TKvizzyMaker
+			+TTools
+				+TKvizzyMaker
 					Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php
+					Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
 			+Update
 				Kvizzy30\Update\Update.js
@@ -353,38 +354,42 @@ KwinFlat
 		KwinFlat.ppr
 		README.md
 [Open project files]
-0=Kvizzy30\Controller\Controller.php
-1=Kvizzy30\Stream\UpStreamBODY.php
-2=Kvizzy30\index.php
+0=Kvizzy30\index.php
+1=Kvizzy30\UpSiteBODY.php
+2=Kvizzy30\Update\Update.php
 3=Kvizzy30\UpSiteHEAD.php
-4=Kvizzy30\UpSiteBODY.php
-5=Kvizzy30\Update\Update.js
-6=Kvizzy30\Controller\Controller.js
-7=Kvizzy30\Update\Update.php
+4=Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
+5=Kvizzy30\j_getLastStateMess.php
+6=Kvizzy30\Stream\UpStreamBODY.php
+7=Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php
+8=Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php
 [Selected Project Files]
 Main=
-Selected=Kvizzy30\Controller\Controller.js
-[Kvizzy30\Controller\Controller.php]
-TopLine=9
-Caret=13,14
-[Kvizzy30\Stream\UpStreamBODY.php]
-TopLine=1
-Caret=20,17
+Selected=Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php
 [Kvizzy30\index.php]
-TopLine=35
+TopLine=36
+Caret=1,1
+[Kvizzy30\UpSiteBODY.php]
+TopLine=19
+Caret=1,1
+[Kvizzy30\Update\Update.php]
+TopLine=11
 Caret=1,1
 [Kvizzy30\UpSiteHEAD.php]
 TopLine=8
-Caret=1,37
-[Kvizzy30\UpSiteBODY.php]
-TopLine=13
 Caret=1,1
-[Kvizzy30\Update\Update.js]
-TopLine=61
-Caret=1,84
-[Kvizzy30\Controller\Controller.js]
-TopLine=31
-Caret=1,48
-[Kvizzy30\Update\Update.php]
-TopLine=33
-Caret=26,54
+[Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php]
+TopLine=3
+Caret=72,3
+[Kvizzy30\j_getLastStateMess.php]
+TopLine=1
+Caret=35,19
+[Kvizzy30\Stream\UpStreamBODY.php]
+TopLine=1
+Caret=1,1
+[Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php]
+TopLine=201
+Caret=33,213
+[Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php]
+TopLine=13
+Caret=14,45
