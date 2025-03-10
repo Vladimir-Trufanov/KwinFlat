@@ -130,6 +130,7 @@ function UpdateCalcImg()
 // ****************************************************************************
 function sendImage()
 {
+  let ImgOnStream="Изображение=Stream";
   // Выводим в диалог предварительный результат выполнения запроса
   htmlText="Отправить Base64-изображение на страницу Stream не удалось!";
   // Выполняем запрос
@@ -138,7 +139,7 @@ function sendImage()
   $.ajax({
     url: pathphp,
     type: 'POST',
-    data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
+    data: {src:ImgOnStream},
     // Выводим ошибки при выполнении запроса в PHP-сценарии
     error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
     // Обрабатываем ответное сообщение

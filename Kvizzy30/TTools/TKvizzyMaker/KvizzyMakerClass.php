@@ -18,18 +18,21 @@ require_once("CommonStreamMaker.php");
 class KvizzyMaker
 {
    // ----------------------------------------------------- СВОЙСТВА КЛАССА ---
-   protected $basename;    // база данных моего хозяйства 
-   protected $username;    // логин для доступа к базе данных
-   protected $password;    // пароль
-   protected $email;       // email посетителя
+   protected $basename;        // база данных моего хозяйства 
+   protected $username;        // логин для доступа к базе данных
+   protected $password;        // пароль
+   protected $email;           // email посетителя
+   protected $oldtime;         // время приема прежнего изображения в потоке (секунда с начала эпохи)
+   protected $frame;           // номер фрейма за текущую секунду
    // ------------------------------------------------------- МЕТОДЫ КЛАССА ---
-   // BaseConnect();                                    - Открыть соединение с базой данных
-   // BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
-   // SelChange($pdo);                                  - Выбрать изменения состояний     
-   // SelectLed33($pdo);                                - Выбрать запись из таблицы базы данных State по Led33 
-   // SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led33   
-   // UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led33 
-   // UpdateModeLMP33($pdo,$action);                    - Обновить установку по режиму работы контрольного светодиода  
+   // --BaseConnect();                                    - Открыть соединение с базой данных
+   // --BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
+   // --SelChange($pdo);                                  - Выбрать изменения состояний     
+   // --SelectLed33($pdo);                                - Выбрать запись из таблицы базы данных State по Led33 
+   // --SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led33   
+   // --UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led33 
+   // --UpdateModeLMP33($pdo,$action);                    - Обновить установку по режиму работы контрольного светодиода  
+   // InsertImgStream($pdo,$src);                         - Вставить текущее изображение
    // -------------------------------------------------------------------------
 
    public function __construct($SiteHost) 
@@ -39,6 +42,8 @@ class KvizzyMaker
       $this->username='tve';                        // логин посетителя для авторизации
       $this->password='A358-ty19';                  // пароль
       $this->email='tve58@inbox.ru';                // email посетителя
+      $this->oldtime=time();                        // время приема прежнего изображения в потоке (секунда с начала эпохи)
+      $this->frame=0;                               // номер фрейма за текущую секунду
       // При необходимости создаем базу данных моего хозяйства
       if (!file_exists($this->basename.'.db3')) 
          _BaseFirstCreate($this->basename,$this->username,$this->password);
@@ -80,6 +85,25 @@ class KvizzyMaker
    public function UpdateModeLMP33($pdo,$action)
    {
       $messa=_UpdateModeLMP33($pdo,$action);
+      return $messa;
+   }
+   // Вставить текущее изображение 
+   public function InsertImgStream($pdo,$src)
+   {
+      // Настраиваем параметры фрэйма
+      $time=time();
+      if ($time==$this->oldtime) 
+      {
+        \prown\ConsoleLog('Равны: '.$time.'--'.$this->oldtime);  
+         $this->frame=$this->frame+1;
+      }
+      else
+      {
+        \prown\ConsoleLog('НЕ РАВНЫ: '.$time);  
+         $this->oldtime=$time; $this->frame=0;
+      }
+      // Записываем изображение
+      $messa=_InsertImgStream($pdo,$src,$this->oldtime,$this->frame);
       return $messa;
    }
 }

@@ -47,5 +47,34 @@ function _CreateStreamTables($pdo)
       "isid"    => 1,
    ]);
 }
+// ****************************************************************************
+// *                         Вставить текущее изображение                     *
+// ****************************************************************************
+function _InsertImgStream($pdo,$src,$time,$frame)
+{
+   try 
+   {
+      // Записываем фрэйм в базу данных 
+      $pdo->beginTransaction();
+      $st = $pdo->prepare("INSERT INTO [Stream] ".
+         "([time],[frame],[image]) VALUES ".
+         "(:time, :frame, :image);");
+      $st->execute([
+         "time"  => $time,
+         "frame" => $frame,
+         "image" => $src,
+      ]);
+      $pdo->commit();
+      $messa='Ok';
+   } 
+   catch (Exception $e) 
+   {
+      $messa=$e->getMessage();
+      // Если в транзакции, то делаем откат изменений
+      if ($pdo->inTransaction()) $pdo->rollback();
+   }
+   return $messa;
+}
+
 // ************************************************** CommonStreamMaker.php ***
 

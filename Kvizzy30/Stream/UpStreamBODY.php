@@ -11,10 +11,13 @@
 // ------------------------------------------------------------------- BODY ---
 
 echo "<body>";
-   MakeStream($SiteHost);
+if(!empty($_POST['src']))
+{
+   MakeStream($SiteHost,$_POST['src']);
+} 
 echo "</body>";
 
-function MakeStream($SiteHost)
+function MakeStream($SiteHost,$src)
 {
    // Подключаем объект для работы с базой данных моего хозяйства
    require_once "../Common.php";  
@@ -22,13 +25,9 @@ function MakeStream($SiteHost)
    $Kvizzy=new ttools\KvizzyMaker($SiteHost);
    // Подключаемся к базе данных
    $pdo=$Kvizzy->BaseConnect();
-   // Выбираем параметры ответа
-   //$table=$Kvizzy->SelChange($pdo);
-   //$isEvent=$table['isEvent']; 
-   //$sjson=$table['sjson'];
-   //if ($isEvent<0) echo '<p>{}</p>';
-   //else echo '<p>'.$sjson.'</p>';
-   echo 'Привет из Stream';
+   // Записываем изображение в базу данных
+   $mess=$Kvizzy->InsertImgStream($pdo,$src);
+   echo $mess;
 }
 
 // <!-- --> ********************************************** UpStreamBODY.php ***
