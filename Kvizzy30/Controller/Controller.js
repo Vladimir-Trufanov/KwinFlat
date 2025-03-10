@@ -10,20 +10,22 @@
 
 $(document).ready(function() 
 {
-   console.log("Controller");    
-   
-   $('#tabContainer').tabs({
-  	   beforeActivate : function(evt) 
-      {
-  		   location.hash=$(evt.currentTarget).attr('href');
-  	   },
+  // **************************************************************************
+  // *                    Подготовить работу контроллера                      *
+  // **************************************************************************
+  console.log("Controller");    
+  $('#tabContainer').tabs({
+    beforeActivate : function(evt) 
+    {
+     location.hash=$(evt.currentTarget).attr('href');
+    },
 		show: 'fadeIn',
-  	   hide: 'fadeOut'
-   });
-   var hash = location.hash; 
+    hide: 'fadeOut'
+  });
+  var hash = location.hash; 
 	if (hash) 
-   { 
-		$('#tabContainer').tabs("load", hash) 
+  { 
+		$('#tabContainer').tabs("load", hash);
 	} 
 });
 // ****************************************************************************
@@ -32,18 +34,20 @@ $(document).ready(function()
 var intervalTest1;    // id функции передачи сообщения о смене состояния led33
 function ControllerClick()
 { 
-   // По текущему состоянию режима окрашиваем фон элементов управления Led33 
-   // и текст на них 
-   console.log("ControllerClick");               
-   $('#dial').dialog({
-  	   autoOpen: true,
-      beforeClose: function(event,ui) 
-      {
-         // Останавливаем передачю сообщения о смене состояния led33
-         clearInterval(intervalTest1);
-      },
-  	   width: 1000
-   });
+  // По текущему состоянию режима окрашиваем фон элементов управления Led33 
+  // и текст на них 
+  console.log("ControllerClick");               
+  $('#dial').dialog({
+    autoOpen: true,
+    beforeClose: function(event,ui) 
+    {
+      // Останавливаем передачу сообщения о смене состояния led33
+      clearInterval(intervalTest1);
+      // Блокируем отправку изображений
+      Lock3();
+    },
+  	width: 1000,
+  });
 }
 // ****************************************************************************
 // *            Передавать сообщения о смене состояния led33 через 1 сек.     *
@@ -90,12 +94,34 @@ function Test2()
    console.log("Test2");               
 }
 // ****************************************************************************
-// *               Test3            *
+// *               Отправлять в базу данных 2 изображения в секунду           *
 // ****************************************************************************
+var CalcImg=0; CalcImgOld=0;
+// Выполняем начальную блокировку отправки контрольных изображений
+var CtrlImg=false;  
+// Запускаем отправку изображений             
 function Test3()
 { 
-   // По текущему состоянию режима окрашиваем фон элементов управления Led33 
-   // и текст на них 
-   console.log("Test3");               
+  console.log("Запускаем отправку контрольных изображений");
+  CtrlImg=true; 
 }
+// Блокируем отправку изображений
+function Lock3()
+{ 
+  CtrlImg=false; 
+}
+// Отправляем изображения
+function UpdateCalcImg()
+{
+  if (CtrlImg) 
+  {
+    CalcImg++;
+    if (CalcImg-CalcImgOld>1)
+    {
+      console.log("CalcImg: "+CalcImg);
+      CalcImgOld=CalcImg;
+    }
+  }
+}
+
 // ********************************************************** Controller.js ***
