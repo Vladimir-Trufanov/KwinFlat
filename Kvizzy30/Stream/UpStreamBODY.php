@@ -13,11 +13,11 @@
 echo "<body>";
 if(!empty($_POST['src']))
 {
-   MakeStream($SiteHost,$_POST['src']);
+   MakeStream($SiteHost,$_POST['src'],$_POST['time'],$_POST['frame']);
 } 
 echo "</body>";
 
-function MakeStream($SiteHost,$src)
+function MakeStream($SiteHost,$src,$time,$frame)
 {
    // Подключаем объект для работы с базой данных моего хозяйства
    require_once "../Common.php";  
@@ -26,7 +26,7 @@ function MakeStream($SiteHost,$src)
    // Подключаемся к базе данных
    $pdo=$Kvizzy->BaseConnect();
    // Записываем изображение в базу данных
-   $mess=$Kvizzy->InsertImgStream($pdo,$src);
+   $mess=$Kvizzy->InsertImgStream($pdo,$src,$time,$frame);
    echo $mess;
 }
 

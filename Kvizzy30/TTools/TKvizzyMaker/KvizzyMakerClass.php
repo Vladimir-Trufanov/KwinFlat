@@ -22,8 +22,6 @@ class KvizzyMaker
    protected $username;        // логин для доступа к базе данных
    protected $password;        // пароль
    protected $email;           // email посетителя
-   protected $oldtime;         // время приема прежнего изображения в потоке (секунда с начала эпохи)
-   protected $frame;           // номер фрейма за текущую секунду
    // ------------------------------------------------------- МЕТОДЫ КЛАССА ---
    // --BaseConnect();                                    - Открыть соединение с базой данных
    // --BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
@@ -42,8 +40,6 @@ class KvizzyMaker
       $this->username='tve';                        // логин посетителя для авторизации
       $this->password='A358-ty19';                  // пароль
       $this->email='tve58@inbox.ru';                // email посетителя
-      $this->oldtime=time();                        // время приема прежнего изображения в потоке (секунда с начала эпохи)
-      $this->frame=0;                               // номер фрейма за текущую секунду
       // При необходимости создаем базу данных моего хозяйства
       if (!file_exists($this->basename.'.db3')) 
          _BaseFirstCreate($this->basename,$this->username,$this->password);
@@ -88,22 +84,9 @@ class KvizzyMaker
       return $messa;
    }
    // Вставить текущее изображение 
-   public function InsertImgStream($pdo,$src)
+   public function InsertImgStream($pdo,$src,$time,$frame)
    {
-      // Настраиваем параметры фрэйма
-      $time=time();
-      if ($time==$this->oldtime) 
-      {
-        \prown\ConsoleLog('Равны: '.$time.'--'.$this->oldtime);  
-         $this->frame=$this->frame+1;
-      }
-      else
-      {
-        \prown\ConsoleLog('НЕ РАВНЫ: '.$time);  
-         $this->oldtime=$time; $this->frame=0;
-      }
-      // Записываем изображение
-      $messa=_InsertImgStream($pdo,$src,$this->oldtime,$this->frame);
+      $messa=_InsertImgStream($pdo,$src,$time,$frame);
       return $messa;
    }
 }

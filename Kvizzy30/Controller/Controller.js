@@ -128,9 +128,49 @@ function UpdateCalcImg()
 // ****************************************************************************
 // * Отправить Base64-изображение на страницу Stream для загрузки в базу данных            
 // ****************************************************************************
+var nTime=0; var nTimeOld=0; var nFrame=0; var today = new Date();
+
+function readFile(input) 
+{
+  console.log('Зкщмуе!');
+  /*
+  let file = input.files[0];
+  let reader = new FileReader();
+  reader.readAsText(file);
+
+  reader.onload = function() 
+  {
+    console.log(reader.result);
+  };
+
+  reader.onerror = function() 
+  {
+    console.log(reader.error);
+  };
+  */
+}
+
+
+
 function sendImage()
 {
-  let ImgOnStream="Изображение=Stream";
+  // Настраиваем параметры фрэйма
+  today = new Date();
+  nTime=Math.floor(today.getTime()/1000); // время с начала эпохи
+  console.log("nTime: "+nTime);
+  if (nTime==nTimeOld) 
+  {
+    nFrame=nFrame+1;
+  }
+  else
+  {
+    nTimeOld=nTime; nFrame=0;
+  }
+  // Выбираем изображение
+  //let ImgOnStream=utf8_to_b64("Изображение=Stream");
+  //let ImgOnStream=btoa("Изображение=Stream");
+  let ImgOnStream=btoa("StreamByStream");
+  console.log(atob(ImgOnStream));
   // Выводим в диалог предварительный результат выполнения запроса
   htmlText="Отправить Base64-изображение на страницу Stream не удалось!";
   // Выполняем запрос
@@ -139,7 +179,7 @@ function sendImage()
   $.ajax({
     url: pathphp,
     type: 'POST',
-    data: {src:ImgOnStream},
+    data: {src:ImgOnStream,time:nTime,frame:nFrame},
     // Выводим ошибки при выполнении запроса в PHP-сценарии
     error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
     // Обрабатываем ответное сообщение

@@ -25,6 +25,7 @@ echo '<div id="Left">';
    echo '</div>';
 
    echo '<div id="Footer">';
+      echo '<input type="file" value="test.txt" onchange="readFile(this)">';
       echo '<div id="FooterTop">';
       echo '<pre>';
       echo '$browser='.$browser.'<BR>';
