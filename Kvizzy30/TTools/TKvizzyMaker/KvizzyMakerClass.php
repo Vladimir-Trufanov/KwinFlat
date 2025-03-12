@@ -89,6 +89,13 @@ class KvizzyMaker
       $messa=_InsertImgStream($pdo,$src,$time,$frame);
       return $messa;
    }
+   // Выбрать запись из таблицы базы данных State по Led33 
+   public function SelImgStream($pdo)
+   {
+      $messa=_SelImgStream($pdo);
+      return $messa;
+   }
+
 }
 
 // *************************************************** KvizzyMakerClass.php ***

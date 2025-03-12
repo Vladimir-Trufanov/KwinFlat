@@ -190,7 +190,7 @@ KwinFlat
 					Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
-			-Update
+			+Update
 				Kvizzy30\Update\Update.js
 				Kvizzy30\Update\Update.php
 			-View
@@ -266,7 +266,7 @@ KwinFlat
 			node\node.md
 			node\node.ppr
 			node\test.html
-		-php
+		+php
 			-example1
 				php\example1\index.html
 				php\example1\multipart.php
@@ -372,12 +372,17 @@ KwinFlat
 0=Kvizzy30\index.php
 1=Kvizzy30\Controller\multipartDigits.php
 2=Kvizzy30\Controller\Controller.js
-3=Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php
-4=Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php
-5=Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php
+3=php\index.php
+4=Kvizzy30\Update\Update.php
+5=Kvizzy30\Update\Update.js
+6=Kvizzy30\UpSiteBODY.php
+7=Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php
+8=Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
+9=Kvizzy30\Stream\UpStreamBODY.php
+10=Kvizzy30\j_getLastStateMess.php
 [Selected Project Files]
 Main=
-Selected=Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php
+Selected=Kvizzy30\j_getLastStateMess.php
 [Kvizzy30\index.php]
 TopLine=34
 Caret=128,59
@@ -387,12 +392,27 @@ Caret=1,20
 [Kvizzy30\Controller\Controller.js]
 TopLine=233
 Caret=13,259
-[Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php]
-TopLine=55
-Caret=1,79
-[Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php]
-TopLine=241
+[php\index.php]
+TopLine=13
+Caret=1,29
+[Kvizzy30\Update\Update.php]
+TopLine=1
 Caret=1,1
-[Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php]
-TopLine=111
-Caret=1,141
+[Kvizzy30\Update\Update.js]
+TopLine=1
+Caret=7,20
+[Kvizzy30\UpSiteBODY.php]
+TopLine=31
+Caret=61,53
+[Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php]
+TopLine=90
+Caret=1,98
+[Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php]
+TopLine=60
+Caret=20,93
+[Kvizzy30\Stream\UpStreamBODY.php]
+TopLine=1
+Caret=1,1
+[Kvizzy30\j_getLastStateMess.php]
+TopLine=1
+Caret=1,1

@@ -10,6 +10,19 @@
 
 $(document).ready(function() 
 {
+
+  var x=-1;
+  function displayNextImage() 
+  {
+    x = (x > 8) ? 0 : x + 1;
+    //console.log("x="+x);
+    //xsrc=_SelImgStream($pdo);
+    //console.log=xsrc;
+    document.getElementById("img").src = "/Controller/imgDigits/png"+x+".png";
+  }
+
+  setInterval(displayNextImage, 1050);
+
    // Защищаем от мелькания UpdateLmp33()
    $('.cled33').css('background','White');
    $('.cled33').css('color','White'); 
@@ -66,6 +79,10 @@ $(document).ready(function()
    // Обновляем на странице состояния датчиков, устройств и контроллеров 
    UpdateStatus(tickers)
 });
+
+
+
+
 // ****************************************************************************
 // *    Обновить на странице состояния датчиков, устройств и контроллеров     *
 // ****************************************************************************
