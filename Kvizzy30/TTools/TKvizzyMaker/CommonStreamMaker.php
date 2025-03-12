@@ -26,7 +26,7 @@ function _CreateStreamTables($pdo)
       'frame      INTEGER,'.    // номер кадра (изображения) в секунде
       'image      BLOB)';       // изображение
    $st = $pdo->query($sql);
-   // Добавляем первую и единственную запись Lmp33
+   // Добавляем первую и единственную запись Stream
    $st = $pdo->prepare("INSERT INTO [Stream] ".
       "([time],[frame],[image]) VALUES ".
       "(:time, :frame, :image);");
@@ -37,14 +37,16 @@ function _CreateStreamTables($pdo)
    ]);
    // Создаём таблицу c указателет на последнее загруженное изображение
    $sql='CREATE TABLE StreamPoint ('.
-      'isid       INTEGER)';    // указатель на последнюю загруженную запись
+      'time       INTEGER,'.    // абсолютное время в секундах с начала эпохи
+      'frame      INTEGER)';    // номер кадра (изображения) в секунде
    $st = $pdo->query($sql);
-   // Добавляем первую и единственную запись Time33
+   // Добавляем первую и единственную запись StreamPoint
    $st = $pdo->prepare("INSERT INTO [StreamPoint] ".
-      "([isid]) VALUES ".
-      "(:isid);");
+      "([time],[frame]) VALUES ".
+      "(:time, :frame);");
    $st->execute([
-      "isid"    => 1,
+      "time"    => time(),
+      "frame"   => 1,
    ]);
 }
 // ****************************************************************************
@@ -66,6 +68,13 @@ function _InsertImgStream($pdo,$src,$time,$frame)
          "time"  => $time,
          "frame" => $frame,
          "image" => $src,
+      ]);
+      // Отмечаем запись последнего фрэйма
+      $st = $pdo->prepare("UPDATE [StreamPoint] ".
+         "SET [time]=:time, [frame]=:frame;");
+      $st->execute([
+         "time"  => $time,
+         "frame" => $frame
       ]);
       $pdo->commit();
       $messa='Ok';
