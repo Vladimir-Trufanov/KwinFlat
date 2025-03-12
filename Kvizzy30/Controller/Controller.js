@@ -121,7 +121,9 @@ function UpdateCalcImg()
     {
       console.log("CalcImg: "+CalcImg);
       CalcImgOld=CalcImg;
-      sendImage();
+      // Запускаем выборку и отправку изображения
+      getFileForStream();
+      //sendImage();
     }
   }
 }
@@ -130,29 +132,7 @@ function UpdateCalcImg()
 // ****************************************************************************
 var nTime=0; var nTimeOld=0; var nFrame=0; var today = new Date();
 
-function readFile(input) 
-{
-  console.log('Зкщмуе!');
-  /*
-  let file = input.files[0];
-  let reader = new FileReader();
-  reader.readAsText(file);
-
-  reader.onload = function() 
-  {
-    console.log(reader.result);
-  };
-
-  reader.onerror = function() 
-  {
-    console.log(reader.error);
-  };
-  */
-}
-
-
-
-function sendImage()
+function sendImage(ImgOnStream)
 {
   // Настраиваем параметры фрэйма
   today = new Date();
@@ -167,10 +147,11 @@ function sendImage()
     nTimeOld=nTime; nFrame=0;
   }
   // Выбираем изображение
-  //let ImgOnStream=utf8_to_b64("Изображение=Stream");
-  //let ImgOnStream=btoa("Изображение=Stream");
-  let ImgOnStream=btoa("StreamByStream");
-  console.log(atob(ImgOnStream));
+  //let ImgOnStream=getFileForStream();
+  
+  
+  //let ImgOnStream=btoa("StreamByStream");
+  //console.log(atob(ImgOnStream));
   // Выводим в диалог предварительный результат выполнения запроса
   htmlText="Отправить Base64-изображение на страницу Stream не удалось!";
   // Выполняем запрос
@@ -258,5 +239,34 @@ function sendImage()
     }
   });
 }
+// Выбираем изображение
+function getFileForStream()
+{
+  return runMultipartDigits();
+}
+
+function runMultipartDigits() 
+{
+  var req = new XMLHttpRequest();
+  // асинхронный запрос
+  req.open("GET","Controller/multipartDigits.php?r="+Math.random(), true);
+  req.onload = function(event) 
+  {
+    console.log('Запрос загружен!');
+    var result = event.target.responseText;
+    user = JSON.parse(result);
+    let num=user.img[0];
+    let src=user.img[1];
+    // 
+    sendImage(src);
+  }
+  req.onreadystatechange = function() 
+  {
+    //console.log('Состояние изменилось!');
+  }
+  req.send(null);
+  console.log('Всем привет!');
+}
+
 
 // ********************************************************** Controller.js ***

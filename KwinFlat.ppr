@@ -78,9 +78,21 @@ KwinFlat
 				Kvizzy30\Background\Razlom16x9.gif
 				Kvizzy30\Background\VnizuVoda_kv.gif
 				Kvizzy30\Background\Vodopadik_kv.gif
-			-Controller
+			+Controller
+				+imgDigits
+					Kvizzy30\Controller\imgDigits\png0.png
+					Kvizzy30\Controller\imgDigits\png1.png
+					Kvizzy30\Controller\imgDigits\png2.png
+					Kvizzy30\Controller\imgDigits\png3.png
+					Kvizzy30\Controller\imgDigits\png4.png
+					Kvizzy30\Controller\imgDigits\png5.png
+					Kvizzy30\Controller\imgDigits\png6.png
+					Kvizzy30\Controller\imgDigits\png7.png
+					Kvizzy30\Controller\imgDigits\png8.png
+					Kvizzy30\Controller\imgDigits\png9.png
 				Kvizzy30\Controller\Controller.js
 				Kvizzy30\Controller\Controller.php
+				Kvizzy30\Controller\multipartDigits.php
 			-Dacha
 				Kvizzy30\Dacha\Dacha.css
 				Kvizzy30\Dacha\index.php
@@ -123,6 +135,23 @@ KwinFlat
 				Kvizzy30\Images\tick20.png
 				Kvizzy30\Images\underline.png
 				Kvizzy30\Images\valid.png
+			-img2
+				Kvizzy30\img2\picture40.jpg
+				Kvizzy30\img2\picture41.jpg
+				Kvizzy30\img2\picture42.jpg
+				Kvizzy30\img2\picture43.jpg
+				Kvizzy30\img2\picture44.jpg
+				Kvizzy30\img2\picture45.jpg
+				Kvizzy30\img2\picture46.jpg
+				Kvizzy30\img2\picture47.jpg
+				Kvizzy30\img2\picture48.jpg
+				Kvizzy30\img2\picture49.jpg
+				Kvizzy30\img2\picture50.jpg
+				Kvizzy30\img2\picture51.jpg
+				Kvizzy30\img2\picture52.jpg
+				Kvizzy30\img2\picture53.jpg
+				Kvizzy30\img2\picture54.jpg
+				Kvizzy30\img2\picture55.jpg
 			-jQuery
 				-images
 					Kvizzy30\jQuery\images\ui-icons_444444_256x240.png
@@ -146,15 +175,15 @@ KwinFlat
 				Kvizzy30\State\log.txt
 				Kvizzy30\State\ParseXMLfile-LeadLEDs.xml
 				Kvizzy30\State\UpStateBODY.php
-			+Stream
+			-Stream
 				Kvizzy30\Stream\index.php
 				Kvizzy30\Stream\log.txt
 				Kvizzy30\Stream\UpStreamBODY.php
 			-Styles
 				Kvizzy30\Styles\Home.css
 				Kvizzy30\Styles\Update.css
-			+TTools
-				+TKvizzyMaker
+			-TTools
+				-TKvizzyMaker
 					Kvizzy30\TTools\TKvizzyMaker\CommonKvizzyMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\CommonLeadMaker.php
 					Kvizzy30\TTools\TKvizzyMaker\CommonStateMaker.php
@@ -176,6 +205,7 @@ KwinFlat
 			Kvizzy30\j_getRegimLed33.php
 			Kvizzy30\j_setRegimLed33.php
 			Kvizzy30\kwinflat-log.txt
+			Kvizzy30\log.txt
 			Kvizzy30\manifest.json
 			Kvizzy30\photo-8i.jpg
 			Kvizzy30\UpSiteBODY.php
@@ -235,7 +265,7 @@ KwinFlat
 			node\node.md
 			node\node.ppr
 			node\test.html
-		-php
+		+php
 			-example1
 				php\example1\index.html
 				php\example1\multipart.php
@@ -277,23 +307,6 @@ KwinFlat
 				php\example3-4\index.php
 				php\example3-4\multipart4.php
 				php\example3-4\test.jpg
-			-img2
-				php\img2\picture40.jpg
-				php\img2\picture41.jpg
-				php\img2\picture42.jpg
-				php\img2\picture43.jpg
-				php\img2\picture44.jpg
-				php\img2\picture45.jpg
-				php\img2\picture46.jpg
-				php\img2\picture47.jpg
-				php\img2\picture48.jpg
-				php\img2\picture49.jpg
-				php\img2\picture50.jpg
-				php\img2\picture51.jpg
-				php\img2\picture52.jpg
-				php\img2\picture53.jpg
-				php\img2\picture54.jpg
-				php\img2\picture55.jpg
 			-imgs
 				php\imgs\run1.png
 				php\imgs\run10.png
@@ -353,39 +366,32 @@ KwinFlat
 			Управление\Параметры и кукисы KwinFlat.xls
 		KwinFlat.ppr
 		README.md
+		Новый1.js
 [Open project files]
 0=Kvizzy30\index.php
-1=Kvizzy30\Update\Update.js
-2=Kvizzy30\Controller\Controller.js
-3=Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
-4=Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php
-5=Kvizzy30\Stream\UpStreamBODY.php
-6=Новый1.js
-7=Kvizzy30\UpSiteBODY.php
+1=Kvizzy30\Controller\Controller.php
+2=Kvizzy30\Controller\multipartDigits.php
+3=php\index.php
+4=Kvizzy30\Controller\Controller.js
+5=Kvizzy30\Update\Update.js
 [Selected Project Files]
 Main=
-Selected=Kvizzy30\UpSiteBODY.php
+Selected=Kvizzy30\Controller\multipartDigits.php
 [Kvizzy30\index.php]
-TopLine=38
+TopLine=34
 Caret=128,59
-[Kvizzy30\Update\Update.js]
-TopLine=71
-Caret=3,83
+[Kvizzy30\Controller\Controller.php]
+TopLine=13
+Caret=1,1
+[Kvizzy30\Controller\multipartDigits.php]
+TopLine=31
+Caret=1,20
+[php\index.php]
+TopLine=56
+Caret=1,111
 [Kvizzy30\Controller\Controller.js]
-TopLine=129
-Caret=23,135
-[Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=39
-Caret=1,43
-[Kvizzy30\TTools\TKvizzyMaker\CommonStreamMaker.php]
-TopLine=45
-Caret=7,36
-[Kvizzy30\Stream\UpStreamBODY.php]
-TopLine=1
-Caret=57,29
-[Новый1.js]
-TopLine=1
-Caret=135,4
-[Kvizzy30\UpSiteBODY.php]
-TopLine=15
-Caret=49,28
+TopLine=233
+Caret=13,259
+[Kvizzy30\Update\Update.js]
+TopLine=503
+Caret=1,539
