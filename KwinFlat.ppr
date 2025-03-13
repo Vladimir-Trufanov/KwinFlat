@@ -90,6 +90,44 @@ KwinFlat
 					Kvizzy30\Controller\imgDigits\png7.png
 					Kvizzy30\Controller\imgDigits\png8.png
 					Kvizzy30\Controller\imgDigits\png9.png
+				+imgESP32CAM
+					Kvizzy30\Controller\imgESP32CAM\picture40.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture41.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture42.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture43.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture44.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture45.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture46.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture47.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture48.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture49.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture50.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture51.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture52.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture53.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture54.jpg
+					Kvizzy30\Controller\imgESP32CAM\picture55.jpg
+				+imgMulti
+					Kvizzy30\Controller\imgMulti\run1.png
+					Kvizzy30\Controller\imgMulti\run10.png
+					Kvizzy30\Controller\imgMulti\run11.png
+					Kvizzy30\Controller\imgMulti\run12.png
+					Kvizzy30\Controller\imgMulti\run13.png
+					Kvizzy30\Controller\imgMulti\run14.png
+					Kvizzy30\Controller\imgMulti\run15.png
+					Kvizzy30\Controller\imgMulti\run16.png
+					Kvizzy30\Controller\imgMulti\run17.png
+					Kvizzy30\Controller\imgMulti\run18.png
+					Kvizzy30\Controller\imgMulti\run19.png
+					Kvizzy30\Controller\imgMulti\run2.png
+					Kvizzy30\Controller\imgMulti\run20.png
+					Kvizzy30\Controller\imgMulti\run3.png
+					Kvizzy30\Controller\imgMulti\run4.png
+					Kvizzy30\Controller\imgMulti\run5.png
+					Kvizzy30\Controller\imgMulti\run6.png
+					Kvizzy30\Controller\imgMulti\run7.png
+					Kvizzy30\Controller\imgMulti\run8.png
+					Kvizzy30\Controller\imgMulti\run9.png
 				Kvizzy30\Controller\Controller.js
 				Kvizzy30\Controller\Controller.php
 				Kvizzy30\Controller\counts.txt
@@ -137,23 +175,6 @@ KwinFlat
 				Kvizzy30\Images\tick20.png
 				Kvizzy30\Images\underline.png
 				Kvizzy30\Images\valid.png
-			-img2
-				Kvizzy30\img2\picture40.jpg
-				Kvizzy30\img2\picture41.jpg
-				Kvizzy30\img2\picture42.jpg
-				Kvizzy30\img2\picture43.jpg
-				Kvizzy30\img2\picture44.jpg
-				Kvizzy30\img2\picture45.jpg
-				Kvizzy30\img2\picture46.jpg
-				Kvizzy30\img2\picture47.jpg
-				Kvizzy30\img2\picture48.jpg
-				Kvizzy30\img2\picture49.jpg
-				Kvizzy30\img2\picture50.jpg
-				Kvizzy30\img2\picture51.jpg
-				Kvizzy30\img2\picture52.jpg
-				Kvizzy30\img2\picture53.jpg
-				Kvizzy30\img2\picture54.jpg
-				Kvizzy30\img2\picture55.jpg
 			-jQuery
 				-images
 					Kvizzy30\jQuery\images\ui-icons_444444_256x240.png
@@ -177,7 +198,7 @@ KwinFlat
 				Kvizzy30\State\log.txt
 				Kvizzy30\State\ParseXMLfile-LeadLEDs.xml
 				Kvizzy30\State\UpStateBODY.php
-			-Stream
+			+Stream
 				Kvizzy30\Stream\index.php
 				Kvizzy30\Stream\UpStreamBODY.php
 			-Styles
@@ -211,131 +232,6 @@ KwinFlat
 			Kvizzy30\photo-8i.jpg
 			Kvizzy30\UpSiteBODY.php
 			Kvizzy30\UpSiteHEAD.php
-		-node
-			-Distrib
-				node\Distrib\multipart-x-mixed-replace-example-master.zip
-				node\Distrib\node-v22.14.0-x64.msi
-			-example1
-				node\example1\app.js
-			-example2
-				-imgs
-					node\example2\imgs\run1.png
-					node\example2\imgs\run10.png
-					node\example2\imgs\run11.png
-					node\example2\imgs\run12.png
-					node\example2\imgs\run13.png
-					node\example2\imgs\run14.png
-					node\example2\imgs\run15.png
-					node\example2\imgs\run16.png
-					node\example2\imgs\run17.png
-					node\example2\imgs\run18.png
-					node\example2\imgs\run19.png
-					node\example2\imgs\run2.png
-					node\example2\imgs\run20.png
-					node\example2\imgs\run3.png
-					node\example2\imgs\run4.png
-					node\example2\imgs\run5.png
-					node\example2\imgs\run6.png
-					node\example2\imgs\run7.png
-					node\example2\imgs\run8.png
-					node\example2\imgs\run9.png
-				node\example2\flash.js
-				node\example2\test.html
-			-imgs
-				node\imgs\run1.png
-				node\imgs\run10.png
-				node\imgs\run11.png
-				node\imgs\run12.png
-				node\imgs\run13.png
-				node\imgs\run14.png
-				node\imgs\run15.png
-				node\imgs\run16.png
-				node\imgs\run17.png
-				node\imgs\run18.png
-				node\imgs\run19.png
-				node\imgs\run2.png
-				node\imgs\run20.png
-				node\imgs\run3.png
-				node\imgs\run4.png
-				node\imgs\run5.png
-				node\imgs\run6.png
-				node\imgs\run7.png
-				node\imgs\run8.png
-				node\imgs\run9.png
-			node\flash.js
-			node\node.md
-			node\node.ppr
-			node\test.html
-		-php
-			-example1
-				php\example1\index.html
-				php\example1\multipart.php
-			-example2
-				php\example2\index.html
-				php\example2\tortoise.png
-			-example3-1
-				-imgs
-					php\example3-1\imgs\run1.png
-					php\example3-1\imgs\run10.png
-					php\example3-1\imgs\run11.png
-					php\example3-1\imgs\run12.png
-					php\example3-1\imgs\run13.png
-					php\example3-1\imgs\run14.png
-					php\example3-1\imgs\run15.png
-					php\example3-1\imgs\run16.png
-					php\example3-1\imgs\run17.png
-					php\example3-1\imgs\run18.png
-					php\example3-1\imgs\run19.png
-					php\example3-1\imgs\run2.png
-					php\example3-1\imgs\run20.png
-					php\example3-1\imgs\run3.png
-					php\example3-1\imgs\run4.png
-					php\example3-1\imgs\run5.png
-					php\example3-1\imgs\run6.png
-					php\example3-1\imgs\run7.png
-					php\example3-1\imgs\run8.png
-					php\example3-1\imgs\run9.png
-				php\example3-1\index.html
-			-example3-2
-				php\example3-2\index.html
-				php\example3-2\multipart.php
-			-example3-3
-				php\example3-3\favicon.ico
-				php\example3-3\index.html
-				php\example3-3\multipart3.php
-				php\example3-3\test.jpg
-			-example3-4
-				php\example3-4\index.php
-				php\example3-4\multipart4.php
-				php\example3-4\test.jpg
-			-imgs
-				php\imgs\run1.png
-				php\imgs\run10.png
-				php\imgs\run11.png
-				php\imgs\run12.png
-				php\imgs\run13.png
-				php\imgs\run14.png
-				php\imgs\run15.png
-				php\imgs\run16.png
-				php\imgs\run17.png
-				php\imgs\run18.png
-				php\imgs\run19.png
-				php\imgs\run2.png
-				php\imgs\run20.png
-				php\imgs\run3.png
-				php\imgs\run4.png
-				php\imgs\run5.png
-				php\imgs\run6.png
-				php\imgs\run7.png
-				php\imgs\run8.png
-				php\imgs\run9.png
-			-Обработка видеопотока на PHP
-				php\Обработка видеопотока на PHP\Обработка видеопотока на PHP.md
-			php\counts.txt
-			php\favicon.ico
-			php\index.php
-			php\multipart4.php
-			php\test.jpg
 		-Private
 			Private\Еncrypted.fil
 		-RobotsMap
@@ -371,32 +267,16 @@ KwinFlat
 [Open project files]
 0=Kvizzy30\index.php
 1=Kvizzy30\Controller\multipartDigits.php
-2=Kvizzy30\Controller\Controller.js
-3=Kvizzy30\Update\Update.js
-4=Kvizzy30\UpSiteBODY.php
-5=Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php
-6=Kvizzy30\Controller\j_SelImgStream.php
+2=Kvizzy30\Stream\UpStreamBODY.php
 [Selected Project Files]
 Main=
-Selected=Kvizzy30\Update\Update.js
+Selected=Kvizzy30\Stream\UpStreamBODY.php
 [Kvizzy30\index.php]
-TopLine=34
-Caret=128,59
+TopLine=32
+Caret=1,37
 [Kvizzy30\Controller\multipartDigits.php]
-TopLine=20
-Caret=1,20
-[Kvizzy30\Controller\Controller.js]
-TopLine=135
-Caret=1,173
-[Kvizzy30\Update\Update.js]
 TopLine=9
-Caret=53,42
-[Kvizzy30\UpSiteBODY.php]
-TopLine=31
-Caret=61,53
-[Kvizzy30\TTools\TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=60
-Caret=38,93
-[Kvizzy30\Controller\j_SelImgStream.php]
+Caret=60,24
+[Kvizzy30\Stream\UpStreamBODY.php]
 TopLine=1
-Caret=1,15
+Caret=1,1

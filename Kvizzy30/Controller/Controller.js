@@ -95,9 +95,9 @@ function Test2()
 }
 // ****************************************************************************
 // *              Обновить счетчик тиков для отправки изображений             *
-// *              в базу данных с частотой 2 изображения в секунду            *
+// *         в базу данных с частотой 4 изображения в секунду, так как        *
+// *  в Update.js запускается вызов ежесекундного (250 мкс) обновления экрана *
 // ****************************************************************************
-var CalcImg=0; CalcImgOld=0;
 // Выполняем начальную блокировку отправки контрольных изображений
 var CtrlImg=false;  
 // Запускаем отправку изображений             
@@ -114,18 +114,7 @@ function Lock3()
 // Отправляем изображения
 function UpdateCalcImg()
 {
-  if (CtrlImg) 
-  {
-    CalcImg++;
-    if (CalcImg-CalcImgOld>1)
-    {
-      console.log("CalcImg: "+CalcImg);
-      CalcImgOld=CalcImg;
-      // Запускаем выборку и отправку изображения
-      getFileForStream();
-      //sendImage();
-    }
-  }
+  if (CtrlImg) getFileForStream();
 }
 // ****************************************************************************
 // * Отправить Base64-изображение на страницу Stream для загрузки в базу данных            
@@ -137,7 +126,7 @@ function sendImage(ImgOnStream)
   // Настраиваем параметры фрэйма
   today = new Date();
   nTime=Math.floor(today.getTime()/1000); // время с начала эпохи
-  console.log("nTime: "+nTime);
+  //console.log("nTime: "+nTime);
   if (nTime==nTimeOld) 
   {
     nFrame=nFrame+1;
@@ -146,12 +135,6 @@ function sendImage(ImgOnStream)
   {
     nTimeOld=nTime; nFrame=0;
   }
-  // Выбираем изображение
-  //let ImgOnStream=getFileForStream();
-  
-  
-  //let ImgOnStream=btoa("StreamByStream");
-  //console.log(atob(ImgOnStream));
   // Выводим в диалог предварительный результат выполнения запроса
   htmlText="Отправить Base64-изображение на страницу Stream не удалось!";
   // Выполняем запрос
@@ -166,28 +149,25 @@ function sendImage(ImgOnStream)
     // Обрабатываем ответное сообщение
     success: function(message)
     {
-      console.log(message);
+      //console.log(message);
     }
   });
 }
 // Выбираем изображение
-function getFileForStream()
-{
-  return runMultipartDigits();
-}
-
-function runMultipartDigits() 
+function getFileForStream() 
 {
   var req = new XMLHttpRequest();
   // асинхронный запрос
   req.open("GET","Controller/multipartDigits.php?r="+Math.random(), true);
   req.onload = function(event) 
   {
-    console.log('Запрос загружен!');
     var result = event.target.responseText;
+    //console.log('Запрос загружен: '+result);
     user = JSON.parse(result);
     let num=user.img[0];
     let src=user.img[1];
+    //console.log('num = '+num);
+    //console.log('src = '+src);
     // 
     sendImage(src);
   }
@@ -196,7 +176,7 @@ function runMultipartDigits()
     //console.log('Состояние изменилось!');
   }
   req.send(null);
-  console.log('Всем привет!');
+  // console.log('Всем привет!');
 }
 
 

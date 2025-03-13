@@ -50,8 +50,8 @@ echo '
   </div>
 ';
 echo '<br>';
-echo '<p><img id="img" src="/Controller/imgDigits/png9.png"/></p>';
-
+//echo '<p><img id="img" src="/Controller/imgDigits/png9.png"/></p>';
+echo '<p><img id="img" src="/Controller/imgMulti/run20.png"/></p>';
 
 // Показываем последнее поступившее сообщение от контроллера
 ?>

@@ -12,19 +12,12 @@ $(document).ready(function()
 {
 
   var x=-1;
-  function displayNextImage() 
-  {
-    x = (x > 8) ? 0 : x + 1;
-    //console.log("x="+x);
-    //xsrc=_SelImgStream($pdo);
-    //console.log=xsrc;
-    SelImgStream();
-  }
-
-  setInterval(displayNextImage, 1050);
+  // Выбираем последнее изображение 25 раз в секунду
+  setInterval(SelImgStream, 40);
 
   function SelImgStream()
   {
+    x = (x > 8) ? 0 : x + 1;
     // Выполняем запрос
     pathphp="Controller/j_SelImgStream.php";
     // Делаем запрос на отправку изображения 
