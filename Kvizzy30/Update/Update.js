@@ -5,7 +5,7 @@
 // *                                         и контроллеров на странице сайта *
 // ****************************************************************************
 
-// v1.0.7, 29.01.2025                                 Автор:      Труфанов В.Е.
+// v1.1.0, 13.03.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
@@ -18,10 +18,31 @@ $(document).ready(function()
     //console.log("x="+x);
     //xsrc=_SelImgStream($pdo);
     //console.log=xsrc;
-    document.getElementById("img").src = "/Controller/imgDigits/png"+x+".png";
+    SelImgStream();
   }
 
   setInterval(displayNextImage, 1050);
+
+  function SelImgStream()
+  {
+    // Выполняем запрос
+    pathphp="Controller/j_SelImgStream.php";
+    // Делаем запрос на отправку изображения 
+    $.ajax({
+      url: pathphp,
+      type: 'POST',
+      //data: {src:ImgOnStream,time:nTime,frame:nFrame},
+      // Выводим ошибки при выполнении запроса в PHP-сценарии
+      error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
+      // Обрабатываем ответное сообщение
+      success: function(message)
+      {
+        //console.log('src: '+message);
+        //document.getElementById("img").src = "/Controller/imgDigits/png"+x+".png";
+        document.getElementById("img").src = message;
+      }
+    });
+  }
 
    // Защищаем от мелькания UpdateLmp33()
    $('.cled33').css('background','White');
