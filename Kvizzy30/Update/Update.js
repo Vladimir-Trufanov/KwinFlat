@@ -12,8 +12,8 @@ $(document).ready(function()
 {
 
   var x=-1;
-  // Выбираем последнее изображение 25 раз в секунду
-  setInterval(SelImgStream, 40);
+  // Выбираем последнее изображение 24 раза в секунду
+  setInterval(SelImgStream, 1042);
 
   function SelImgStream()
   {
@@ -30,9 +30,9 @@ $(document).ready(function()
       // Обрабатываем ответное сообщение
       success: function(message)
       {
-        //console.log('src: '+message);
+        console.log('src: '+message);
         //document.getElementById("img").src = "/Controller/imgDigits/png"+x+".png";
-        document.getElementById("img").src = message;
+        //document.getElementById("img").src = message;
       }
     });
   }
