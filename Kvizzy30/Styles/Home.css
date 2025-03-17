@@ -88,14 +88,14 @@ body
 {
    /*background:LemonChiffon;*/
    background:transparent; 
-   height:60%;
+   height:50%;
    z-index:2;
 }
 #Footer 
 {
    /*background:Lavender;*/
    background:transparent; 
-   height:20%;
+   height:30%;
    z-index:2;
    /*overflow:auto;*/
 }

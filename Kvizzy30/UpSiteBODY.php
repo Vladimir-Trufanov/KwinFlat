@@ -26,12 +26,34 @@ echo '<div id="Left">';
 
    echo '<div id="Footer">';
       echo '<div id="FooterTop">';
+      ?>
+      <p><button onclick="isSocket()">Загрузить Websocket Server</button></p>
+      <div>
+        <span>Сервер</span>
+        <input id="server" type="text" value="ws://127.0.0.1:7777" />
+      </div>
+      <div>
+        <input id="connect" type="button" value="Установить соединение" />
+        <input id="disconnect" type="button" value="Разорвать соединение" />
+      </div>
+      <div>
+        <span>Сообщение</span>
+        <input id="message" type="text" value="" />
+        <input id="send-msg" type="button" value="Отправить сообщение" />
+      </div>
+      <div>
+        <span>Информация</span>
+        <div id="socket-info"></div>
+      </div>
+      <?php
+      /*
       echo '<pre>';
       echo '$browser='.$browser.'<BR>';
       echo '$version='.$version.'<BR>';
       echo '$platform='.$platform.'<BR>';
       echo '$device_type='.$device_type.'<BR>';
       echo '</pre>';
+      */
       echo '</div>';    // id="FooterTop"
       
       // Определяем поле демонстрации поступающих json-сообщений

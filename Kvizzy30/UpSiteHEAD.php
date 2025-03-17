@@ -34,6 +34,7 @@ DefineJS($SiteHost,$urlHome);
 // Подключаем js и CSS
 echo '<script src="CommonTools.js"></script>';
 echo '<script src="/Update/Update.js"></script>';
+echo '<script src="/Update/socket.js"></script>';
 echo '<script src="/Controller/Controller.js"></script>';
 echo '<link href="/Styles/Home.css" rel="stylesheet">';
 echo '<link href="/Styles/Update.css" rel="stylesheet">';

@@ -62,6 +62,7 @@ try
    // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
    echo '<body>'; 
    require_once 'UpSiteBODY.php';
+   //phpinfo();
    echo '</body>'; 
    // Завершаем разметку
    echo '</html>';

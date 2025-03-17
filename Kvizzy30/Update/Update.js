@@ -13,7 +13,7 @@ $(document).ready(function()
 
   var x=-1;
   // Выбираем последнее изображение 24 раза в секунду
-  setInterval(SelImgStream, 1042);
+  // setInterval(SelImgStream, 1042);
 
   function SelImgStream()
   {
