@@ -204,6 +204,11 @@ KwinFlat
 				Kvizzy30\Lead\log.txt
 				Kvizzy30\Lead\UpLeadBODY.php
 			-Meet
+			+Rusakov
+				Kvizzy30\Rusakov\index.php
+				Kvizzy30\Rusakov\RusakovJs.js
+				Kvizzy30\Rusakov\RusakovLead.php
+				Kvizzy30\Rusakov\RusakovServer.php
 			-State
 				Kvizzy30\State\index.php
 				Kvizzy30\State\kwinflat-log.txt
@@ -247,7 +252,6 @@ KwinFlat
 			Kvizzy30\UpSiteBODY.php
 			Kvizzy30\UpSiteHEAD.php
 			Kvizzy30\WebSocketServer_class.php
-			Kvizzy30\ws_mess.txt
 		-Private
 			Private\Åncrypted.fil
 		-RobotsMap
@@ -282,28 +286,35 @@ KwinFlat
 		KwinFlat.ppr
 		README.md
 		style.css
-		ws_mess.txt
 [Open project files]
-0=Kvizzy30\echo-server.php
-1=Kvizzy30\socket.js
-2=Kvizzy30\WebSocketServer_class.php
-3=index.php
-4=Kvizzy30\LeadSocket.php
+0=Kvizzy30\UpSiteBODY.php
+1=Kvizzy30\UpSiteHEAD.php
+2=Kvizzy30\Rusakov\index.php
+3=Kvizzy30\Rusakov\RusakovJs.js
+4=Kvizzy30\Rusakov\RusakovLead.php
+5=Kvizzy30\LeadSocket.php
+6=Kvizzy30\Rusakov\RusakovServer.php
 [Selected Project Files]
 Main=
-Selected=Kvizzy30\WebSocketServer_class.php
-[Kvizzy30\echo-server.php]
-TopLine=1
-Caret=1,15
-[Kvizzy30\socket.js]
-TopLine=84
-Caret=1,121
-[Kvizzy30\WebSocketServer_class.php]
-TopLine=151
-Caret=20,165
-[index.php]
-TopLine=1
-Caret=24,29
-[Kvizzy30\LeadSocket.php]
-TopLine=4
+Selected=Kvizzy30\Rusakov\RusakovServer.php
+[Kvizzy30\UpSiteBODY.php]
+TopLine=21
+Caret=1,31
+[Kvizzy30\UpSiteHEAD.php]
+TopLine=22
+Caret=41,38
+[Kvizzy30\Rusakov\index.php]
+TopLine=8
 Caret=1,1
+[Kvizzy30\Rusakov\RusakovJs.js]
+TopLine=1
+Caret=20,16
+[Kvizzy30\Rusakov\RusakovLead.php]
+TopLine=1
+Caret=76,2
+[Kvizzy30\LeadSocket.php]
+TopLine=1
+Caret=59,21
+[Kvizzy30\Rusakov\RusakovServer.php]
+TopLine=48
+Caret=1,86
