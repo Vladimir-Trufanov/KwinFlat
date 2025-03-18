@@ -88,14 +88,12 @@ class WebSocketServer
     private $resource;
 
 
-    public function __construct($ip = '127.0.0.1', $port = 7776) 
+    public function __construct($ip = '127.0.0.1', $port = 7777) 
     {
         $this->ip = $ip;
         $this->port = $port;
         
-        put('Создали сокет!');
-        put((string)$this->port);
-
+        put('Создали сокет '.$this->ip.':'.(string)$this->port);
 
         // эта функция вызывается, когда получено сообщение от клиента;
         // при создании экземпляра класса должна быть переопределена
@@ -141,6 +139,7 @@ class WebSocketServer
         {
             $this->resource = fopen($this->logFile, 'a');
         }
+        put('Приняли настройки. timeLimit='.(string)$this->timeLimit);
     }
 
     /**
@@ -169,7 +168,8 @@ class WebSocketServer
     /**
      * Запускает сервер в работу
      */
-    public function startServer() {
+    public function startServer() 
+    {
 
         $this->debug('Try start server...');
 
