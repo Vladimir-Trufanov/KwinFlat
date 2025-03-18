@@ -12,7 +12,6 @@ ob_implicit_flush();
 require 'WebSocketServer_class.php';
 echo "112\n";
 
-//$server = new WebSocketServer('127.0.0.1', 7776);
 $server = new WebSocketServer('127.0.0.1', $iip);
 // максимальное время работы 100 секунд, выводить сообщения в консоль
 $server->settings(100, true);

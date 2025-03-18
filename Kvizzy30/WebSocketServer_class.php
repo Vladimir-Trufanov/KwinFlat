@@ -31,7 +31,7 @@ function put($errstr)
    {
       Alert('Не удалось сбросить ошибку в лог-файл: \r\n'.$Result);
    }
- }
+}
 
 
 /**

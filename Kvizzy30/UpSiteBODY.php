@@ -26,26 +26,12 @@ echo '<div id="Left">';
 
    echo '<div id="Footer">';
       echo '<div id="FooterTop">';
-      ?>
-      <p><button onclick="isSocket()">Загрузить Websocket Server</button></p>
-      <div>
-        <span>Сервер</span>
-        <input id="server" type="text" value="ws://127.0.0.1:7777" />
-      </div>
-      <div>
-        <input id="connect" type="button" value="Установить соединение" />
-        <input id="disconnect" type="button" value="Разорвать соединение" />
-      </div>
-      <div>
-        <span>Сообщение</span>
-        <input id="message" type="text" value="" />
-        <input id="send-msg" type="button" value="Отправить сообщение" />
-      </div>
-      <div>
-        <span>Информация</span>
-        <div id="socket-info"></div>
-      </div>
-      <?php
+      
+      $ip='127.0.0.1';
+      $port=7775;
+      $echoserver='echo-server.php';
+      require_once 'LeadSocket.php';
+      
       /*
       echo '<pre>';
       echo '$browser='.$browser.'<BR>';
