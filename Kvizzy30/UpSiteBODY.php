@@ -26,7 +26,6 @@ echo '<div id="Left">';
 
    echo '<div id="Footer">';
       echo '<div id="FooterTop">';
-
       require_once 'Rusakov/RusakovLead.php';
       
       /* до 2025-03-18
