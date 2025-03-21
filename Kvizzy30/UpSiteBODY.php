@@ -26,14 +26,15 @@ echo '<div id="Left">';
 
    echo '<div id="Footer">';
       echo '<div id="FooterTop">';
-      require_once 'Rusakov/RusakovLead.php';
+      //echo gethostbyname('www.probatv.ru');
+      //require_once 'Rusakov/RusakovLead.php';
       
-      /* до 2025-03-18
+      //* до 2025-03-18
       $ip='127.0.0.1';
-      $port=7775;
+      $port=7776;
       $echoserver='echo-server.php';
       require_once 'LeadSocket.php';
-      */
+      //*/
       
       /* до 2025-03-15
       echo '<pre>';
