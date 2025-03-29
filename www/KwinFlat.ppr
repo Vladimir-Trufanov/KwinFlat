@@ -1,0 +1,47 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.CompileOnBackground=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
+Compilator.LogType=0
+Compilator.LogEncoding=0
+DefaultDir=C:\KwinFlat\www
+DefaultCP=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+HTServer=localhost
+Extensions=*.*
+[Project tree]
+KwinFlat
+	+www
+		-favicon260x260
+			favicon260x260\android-chrome-192x192.png
+			favicon260x260\android-chrome-256x256.png
+			favicon260x260\apple-touch-icon.png
+			favicon260x260\browserconfig.xml
+			favicon260x260\favicon.ico
+			favicon260x260\favicon-16x16.png
+			favicon260x260\favicon-32x32.png
+			favicon260x260\mstile-150x150.png
+			favicon260x260\safari-pinned-tab.svg
+		+Meet40
+			Meet40\Meet40.html
+		index.php
+		iniWorkSpace.php
+		KwinFlat.ppr
+[Open project files]
+0=Новый1.txt
+1=index.php
+[Selected Project Files]
+Main=
+Selected=index.php
+[Новый1.txt]
+TopLine=1
+Caret=1,1
+[index.php]
+TopLine=38
+Caret=36,65
