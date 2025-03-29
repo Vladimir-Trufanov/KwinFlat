@@ -18,6 +18,11 @@ Extensions=*.*
 [Project tree]
 KwinFlat
 	+www
+		-BP1
+			BP1\Kvizzy30.bp1
+			BP1\kwf0.png
+			BP1\KwinFlat.bp1
+			BP1\Разметка Kwinflat.xls
 		-favicon260x260
 			favicon260x260\android-chrome-192x192.png
 			favicon260x260\android-chrome-256x256.png
@@ -28,20 +33,64 @@ KwinFlat
 			favicon260x260\favicon-32x32.png
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
+		-jQuery
+			-images
+				jQuery\images\ui-icons_444444_256x240.png
+				jQuery\images\ui-icons_555555_256x240.png
+				jQuery\images\ui-icons_777620_256x240.png
+				jQuery\images\ui-icons_777777_256x240.png
+				jQuery\images\ui-icons_cc0000_256x240.png
+				jQuery\images\ui-icons_ffffff_256x240.png
+			jQuery\jquery-1.11.1.min.js
+			jQuery\jquery-1.11.1.min.map
+			jQuery\jquery-ui.min.css
+			jQuery\jquery-ui.min.js
 		+Meet40
-			Meet40\Meet40.html
+			Meet40\Meet40.css
+			Meet40\Meet40.js
+			Meet40\Meet40BODY.php
+			Meet40\Meet40HEAD.php
+		+Update40
+			Update40\Update40.css
+			Update40\Update40.js
+			Update40\Update40BODY.php
+			Update40\Update40HEAD.php
+		Home.css
 		index.php
+		iniMem.php
 		iniWorkSpace.php
+		KwinFlat.md
 		KwinFlat.ppr
+		Meet40.html
 [Open project files]
-0=Новый1.txt
-1=index.php
+0=index.php
+1=Update40\Update40BODY.php
+2=Meet40\Meet40BODY.php
+3=Update40\Update40HEAD.php
+4=Update40\Update40.js
+5=iniMem.php
+6=Meet40\Meet40HEAD.php
 [Selected Project Files]
 Main=
 Selected=index.php
-[Новый1.txt]
+[index.php]
+TopLine=34
+Caret=6,51
+[Update40\Update40BODY.php]
+TopLine=1
+Caret=78,5
+[Meet40\Meet40BODY.php]
+TopLine=1
+Caret=6,17
+[Update40\Update40HEAD.php]
+TopLine=1
+Caret=27,17
+[Update40\Update40.js]
 TopLine=1
 Caret=1,1
-[index.php]
-TopLine=38
-Caret=36,65
+[iniMem.php]
+TopLine=7
+Caret=19,14
+[Meet40\Meet40HEAD.php]
+TopLine=1
+Caret=19,17

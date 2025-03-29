@@ -2,11 +2,14 @@
 // PHP7/HTML5, EDGE/CHROME                                    *** index.php ***
 
 // ****************************************************************************
-// *  KwinFlat30                                       KwinFlat-близкий всем! *
+// *  KwinFlat                                         KwinFlat-близкий всем! *
 // ****************************************************************************
 
 // v4.0.1, 29.03.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2016 tve                               Дата создания: 14.08.2016
+
+// task=NULL     - ознакомление гостя с умным хозяйством [Meet40]
+// task=update40 - главная страница администратора
 
 // Инициализируем рабочее пространство: корневой каталог сайта и т.д.
 require_once 'iniWorkSpace.php';
@@ -35,18 +38,23 @@ try
 {
    define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
    define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
-   //require_once pathPhpPrown."/CommonPrown.php";
+   require_once pathPhpPrown."/CommonPrown.php";
    // Подключаем прикладные классы TPhpTools
    // require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
    // require_once pathPhpTools."/TNotice/NoticeClass.php";
 
-   //$parm=prown\getComRequest();
-   //if ($parm==NULL) $parm='NULL';
+   // Определяем страницу сайта
+   $task=prown\getComRequest('task');
+   //if      ($task==NULL)       $task='Meet40';
+   //else if ($task=='update40') 
+   $task='Update40';
+   //else $task='Meet40';
 
    // ---------------------------------------------------------------- INIT ---
    // Выполняем начальную инициализацию переменных, определяем константы,
    // создаем классы для начального заполнения разметки
-   //require_once 'iniMem.php'; 
+   require_once 'iniMem.php'; 
+   
    // Начинаем разметку страниц сайта c кодировкой UTF8
    echo '<!DOCTYPE html>'; // определили разметку HTML5
    echo '<html lang="ru">'; // назначили русский язык для сайта
@@ -55,14 +63,41 @@ try
    // Указываем индивидуальные данные страниц сайта для поисковых систем 
    // и пользователей, подключаем персональные стили для настольных и мобильных 
    // версий страниц сайта
-   //echo "<head>";
-   //require_once 'UpSiteHEAD.php';
-   //echo "</head>";
+   echo "<head>";
+   // Выводим данные о favicon
+   echo '
+   <link rel="manifest" href="manifest.json">
+   <link rel="apple-touch-icon" sizes="180x180" href="/favicon260x260/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon260x260/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="/favicon260x260/favicon-16x16.png">
+   <link rel="mask-icon" href="/favicon260x260/safari-pinned-tab.svg" color="#5bbad5">
+   <link rel="shortcut icon" href="/favicon260x260/favicon.ico">
+   <meta name="msapplication-TileColor" content="#da532c">
+   <meta name="msapplication-config" content="/favicon260x260/browserconfig.xml">
+   <meta name="theme-color" content="#ffffff">
+   ';
+   // Подключаем jQuery
+   echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
+   echo '
+      <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
+      <script src="/jQuery/jquery-ui.min.js"></script>
+   ';
+   // Определяем общие стили
+   echo '<link href="/Home.css" rel="stylesheet">';
+   // Обобщаем мобильную версию сайта
+   if ($SiteDevice=='Mobile')
+   {
+      echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+   }
+   //
+   if ($task=='Update40') require_once 'Update40/Update40HEAD.php';
+   else require_once 'Meet40/Meet40HEAD.php';
+   echo "</head>";
    // ---------------------------------------------------------------- BODY ---
    // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
    echo '<body>'; 
-   //require_once 'UpSiteBODY.php';
-   require_once 'Meet40/Meet40.html';
+   if ($task=='Update40') require_once 'Update40/Update40BODY.php';
+   else require_once 'Meet40/Meet40BODY.php';
    //phpinfo();
    echo '</body>'; 
    // Завершаем разметку
