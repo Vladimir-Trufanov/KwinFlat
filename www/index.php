@@ -47,7 +47,7 @@ try
    $task=prown\getComRequest('task');
    //if      ($task==NULL)       $task='Meet40';
    //else if ($task=='update40') 
-   $task='Update40';
+     $task='Update40';
    //else $task='Meet40';
 
    // ---------------------------------------------------------------- INIT ---

@@ -46,7 +46,107 @@ define ("mNumbers",      "Должны присутствовать цифры (
 define ("mSpecsim",      'Должен присутствовать хотя бы один специальный символ, \r\n например из набора +-*_#@!?%&$~%^'); 
 define ("mPassNoDbl",    'Пароль и его подтверждение не совпадают'); 
 */
-// Объявляем переменные и константы JavaScript, соответствующие определениям в PHP
+
+/*
+// Инициализируем общесайтовые константы (здесь стараемся не назначать константу = 0, так как 
+// проверка значению "==" может не отличить 0 от NULL)
+define("articleSite",  'IttveMe');                        // тип базы данных для управления классом ArticlesMaker 
+define("editdir",      'ittveEdit');                      // каталог файлов, связанных c материалом
+define("stylesdir",    'Styles');                         // каталог стилей элементов разметки и фонтов
+define("imgdir",       'Images');                         // каталог служебных изображений
+define("jsxdir",       'Jsx');                            // каталог файлов на javascript
+define("ChangeSize",   "chs");                            // "Изменить размер базового шрифта"  
+define('nym',          'ittve');                          // префикс имен файлов для фотографий галереи и материалов
+define('moditap',      'Изменить настройки');             // активатор тапок
+*/
+
+/*
+// ---------------------- Регулятор кукисов (порядок использования кукисов) ---
+define ("rciCookiNo", 1);        // кукисов нет, выдать сообщение
+define ("rciCookiNoMes", 2);     // кукисов нет, выдано сообщение
+define ("rciCookiUserNo", 3);    // есть, пользователем запрещено использование
+define ("rciCookiUserYes", 4);   // пользователем разрешено использование кукисов
+// ---------------------------------------- Сообщения по регулятору кукисов ---
+define ("mesCookiNo", 1);        // Сообщение не выводить
+define ("mesCookiNoMes", 2);     // "Кукисы в Вашем браузере отключены, выполняется упрощенная версия сайта!"
+define ("mesCookiUserNo", 3);    // "Разрешить использование кукисов для Вашего удобства?" 
+define ("mesCookiUserYes", 4);   // Сообщение не выводить
+*/
+
+// Подключаем прикладные функции TPhpPrown
+/*
+require_once pathPhpPrown."/getTranslit.php";
+require_once pathPhpPrown."/iniConstMem.php";
+*/
+//require_once pathPhpPrown."/MakeCookie.php";
+/*
+require_once pathPhpPrown."/MakeSession.php";
+require_once pathPhpPrown."/ViewGlobal.php";
+*/
+
+/*
+// Выполняем запуск сессии и работу с лог-файлом
+require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
+$oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
+
+// Подключаем внутренние классы
+
+// Пропускаем пользователя на сайт
+//SiteEntry($c_UserName,$c_PersName,$c_PersMail,$c_PersPass,$c_BrowEntry,$c_PersEntry,$s_Counter);
+
+// Определяем данные для работы с базой данных моего хозяйства 
+
+// Подключаем объект для работы с базой данных моего хозяйства
+require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
+$Kvizzy=new ttools\KvizzyMaker($SiteHost);
+// Подключаемся к базе данных
+$pdo=$Kvizzy->BaseConnect();
+
+//$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note); 
+// Меняем кукис ориентации устройства 
+$c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr,true);             // ориентация устройства
+if (IsSet($_GET["orient"]))
+{
+   if ($_GET["orient"]==oriLandscape) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
+   if ($_GET["orient"]==oriPortrait)  $c_Orient=prown\MakeCookie('Orient',oriPortrait,tStr); 
+   if ($SiteDevice==Computer) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
+}
+//Moditap(moditap,$c_UserName,$c_PersName);
+// Инициализируем настройки, далее они могут быть изменены
+//$c_PresMode=prown\MakeCookie('PresMode',rpmOneRight,tStr,true);         // режим представления материалов
+*/
+
+/*
+//$c_isJScript=prown\MakeCookie('isJScript',7,tInt,false);               // JavaScript не включен
+//$s_isJScript=prown\MakeSession('isJScript','no',tInt,false);           // JavaScript не включен
+*/
+
+/*
+if ($SiteDevice==Mobile) 
+{   
+   $p_NewsForm=prown\MakeParm('NewsForm',frnWithImg);            // форма представления новостей
+}
+else
+{
+   $p_NewsForm=prown\MakeParm('NewsForm',frnSimple);             // форма представления новостей
+}
+$p_NewsAmt=prown\MakeParm('NewsAmt',8);                          // количество новостей в форме
+$p_NewsView=prown\MakeParm('NewsView',true,tBool,true);          // true - разворачивать новости при загрузке
+*/
+
+// Выбираем данные из браузера - UserAgent
+$browseri = get_browser(null, true);
+$platform = $browseri['platform'];
+$browser = $browseri['browser'];
+$version = $browseri['version'];
+$device_type = $browseri['device_type'];
+// При запросе через $UserAgent=ESP32HTTPClient
+if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
+
+// ****************************************************************************
+// *               Объявить переменные и константы JavaScript,                *
+// *                   соответствующие определениям в PHP                     *
+// ****************************************************************************
 function DefineJS($SiteHost,$urlHome)
 {
    // Добавляем к штатным, дополнительные контроли правильности заполнения адреса электронной почты и пароля
@@ -96,102 +196,7 @@ function DefineJS($SiteHost,$urlHome)
    */
 } 
 
-/*
-// Инициализируем общесайтовые константы (здесь стараемся не назначать константу = 0, так как 
-// проверка значению "==" может не отличить 0 от NULL)
-define("articleSite",  'IttveMe');                        // тип базы данных для управления классом ArticlesMaker 
-define("editdir",      'ittveEdit');                      // каталог файлов, связанных c материалом
-define("stylesdir",    'Styles');                         // каталог стилей элементов разметки и фонтов
-define("imgdir",       'Images');                         // каталог служебных изображений
-define("jsxdir",       'Jsx');                            // каталог файлов на javascript
-define("ChangeSize",   "chs");                            // "Изменить размер базового шрифта"  
-define('nym',          'ittve');                          // префикс имен файлов для фотографий галереи и материалов
-define('moditap',      'Изменить настройки');             // активатор тапок
-*/
 
-/*
-// ---------------------- Регулятор кукисов (порядок использования кукисов) ---
-define ("rciCookiNo", 1);        // кукисов нет, выдать сообщение
-define ("rciCookiNoMes", 2);     // кукисов нет, выдано сообщение
-define ("rciCookiUserNo", 3);    // есть, пользователем запрещено использование
-define ("rciCookiUserYes", 4);   // пользователем разрешено использование кукисов
-// ---------------------------------------- Сообщения по регулятору кукисов ---
-define ("mesCookiNo", 1);        // Сообщение не выводить
-define ("mesCookiNoMes", 2);     // "Кукисы в Вашем браузере отключены, выполняется упрощенная версия сайта!"
-define ("mesCookiUserNo", 3);    // "Разрешить использование кукисов для Вашего удобства?" 
-define ("mesCookiUserYes", 4);   // Сообщение не выводить
-*/
-
-// Подключаем прикладные функции TPhpPrown
-/*
-require_once pathPhpPrown."/getTranslit.php";
-require_once pathPhpPrown."/iniConstMem.php";
-*/
-//require_once pathPhpPrown."/MakeCookie.php";
-/*
-require_once pathPhpPrown."/MakeSession.php";
-require_once pathPhpPrown."/ViewGlobal.php";
-*/
-
-/*
-// Выполняем запуск сессии и работу с лог-файлом
-require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
-$oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
-
-// Подключаем внутренние классы
-
-// Выбираем данные из браузера - UserAgent
-$browseri = get_browser(null, true);
-$platform = $browseri['platform'];
-$browser = $browseri['browser'];
-$version = $browseri['version'];
-$device_type = $browseri['device_type'];
-
-// При запросе через $UserAgent=ESP32HTTPClient
-if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
-
-// Пропускаем пользователя на сайт
-//SiteEntry($c_UserName,$c_PersName,$c_PersMail,$c_PersPass,$c_BrowEntry,$c_PersEntry,$s_Counter);
-
-// Определяем данные для работы с базой данных моего хозяйства 
-
-// Подключаем объект для работы с базой данных моего хозяйства
-require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
-$Kvizzy=new ttools\KvizzyMaker($SiteHost);
-// Подключаемся к базе данных
-$pdo=$Kvizzy->BaseConnect();
-
-//$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note); 
-// Меняем кукис ориентации устройства 
-$c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr,true);             // ориентация устройства
-if (IsSet($_GET["orient"]))
-{
-   if ($_GET["orient"]==oriLandscape) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
-   if ($_GET["orient"]==oriPortrait)  $c_Orient=prown\MakeCookie('Orient',oriPortrait,tStr); 
-   if ($SiteDevice==Computer) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
-}
-//Moditap(moditap,$c_UserName,$c_PersName);
-// Инициализируем настройки, далее они могут быть изменены
-//$c_PresMode=prown\MakeCookie('PresMode',rpmOneRight,tStr,true);         // режим представления материалов
-*/
-
-/*
-//$c_isJScript=prown\MakeCookie('isJScript',7,tInt,false);               // JavaScript не включен
-//$s_isJScript=prown\MakeSession('isJScript','no',tInt,false);           // JavaScript не включен
-*/
-
-/*
-if ($SiteDevice==Mobile) 
-{   
-   $p_NewsForm=prown\MakeParm('NewsForm',frnWithImg);            // форма представления новостей
-}
-else
-{
-   $p_NewsForm=prown\MakeParm('NewsForm',frnSimple);             // форма представления новостей
-}
-$p_NewsAmt=prown\MakeParm('NewsAmt',8);                          // количество новостей в форме
-$p_NewsView=prown\MakeParm('NewsView',true,tBool,true);          // true - разворачивать новости при загрузке
-*/
 
 /*
 // ****************************************************************************

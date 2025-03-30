@@ -1,19 +1,18 @@
 /** HTML5/CSS3, EDGE/CHROME                                *** Update40.css ***
  *
  ******************************************************************************
- * KwinFlat              C            Обновить показания счетчиков, состояния *
+ * KwinFlat                           Обновить показания счетчиков, состояния *
  *                                                   устройств и контроллеров *
  ******************************************************************************
  *
- * v4.0.0, 29.03.2025                                 Автор:      Труфанов В.Е.
+ * v4.0.1, 30.03.2025                                 Автор:      Труфанов В.Е.
  * Copyright © 2024 tve                               Дата создания: 22.12.2024
  * 
 **/
 
-/*
 #Left
 {
-   / *background:NavajoWhite;* / 
+   /*background:NavajoWhite;*/ 
    background:transparent; 
    z-index:1;
    height:100%;
@@ -46,14 +45,14 @@
 }
 #Article 
 {
-   / *background:LemonChiffon;* /
+   /*background:LemonChiffon;*/
    background:transparent; 
    height:50%;
    z-index:2;
 }
 #Footer 
 {
-   / *background:Lavender;* /
+   /*background:Lavender;*/
    background:transparent; 
    height:30%;
    z-index:2;
@@ -62,7 +61,7 @@
 #FooterTop
 {
    display:block;
-   / *background:red;* /
+   /*background:red;*/
    background:transparent; 
    width:100%;
    height:74%;
@@ -71,10 +70,12 @@
 #tickers 
 {
    display:flex;
-   / *background:GhostWhite;* /
+   /*background:GhostWhite;*/
    background:transparent; 
    margin-top:.6%;
 }
+
+/*
 .ticker 
 {
    border:solid .1rem Gray;
@@ -84,6 +85,9 @@
    padding-left:.5%;
    padding-right:.5%;
 }
+*/
+
+/*
 / * Выделяем площадки управления светодиодами * /
 #led33
 {
