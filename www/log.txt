@@ -1,3 +1,5 @@
 [29-Mar-2025 21:35:01 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'Meet40HEAD.php' (include_path='.;C:\php\pear') in C:\KwinFlat\www\index.php on line 93
 [29-Mar-2025 21:36:22 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'Meet40HEAD.php' (include_path='.;C:\php\pear') in C:\KwinFlat\www\index.php on line 93
 [30-Mar-2025 08:33:32 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '.' in C:\KwinFlat\www\Update40\Update40BODY.php on line 28
+[30-Mar-2025 17:41:42 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';' in C:\KwinFlat\www\Update40\Update40BODY.php on line 12
+[30-Mar-2025 17:42:33 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';' in C:\KwinFlat\www\Update40\Update40BODY.php on line 76

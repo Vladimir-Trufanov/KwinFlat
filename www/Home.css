@@ -45,8 +45,9 @@ body
 {
    /* Отзывчивый шрифт (width): 1920px -> 20px; 480px -> 12px */
    font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 20 - 12 ) + 12px );
-   /*background:#CCC;*/
+   background:#CCC;
    display:flex;
+   flex-direction:column;
    height:100%;
    width:100%;
    overflow:hidden;

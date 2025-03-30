@@ -9,6 +9,7 @@
 // Copyright © 2024 tve                               Дата создания: 08.10.2024
 
 // ------------------------------------------------------------------- BODY ---
+echo '<div id="LeftAndRight">';
 echo '<div id="Left">';
    echo '<div id="Header">';
    ?>
@@ -32,10 +33,6 @@ echo '<div id="Left">';
       echo '$device_type   = '.$device_type.'<BR>';
       echo '</pre>';
       echo '</div>';    // id="FooterTop"
-      
-      // Определяем поле демонстрации поступающих json-сообщений
-      echo '<div id="tickers">';
-      echo '</div>';    // id="tickers"
   
    echo '</div>';       // id="Footer"
 echo '</div>';          // id="Left"
@@ -70,6 +67,12 @@ echo '<div id="Right">';
    echo '</div>'; // id="lastmess" 
 
 echo '</div>'; // id="Right"
+echo '</div>'; // id="LeftAndRight"
+
+// Определяем поле демонстрации поступающих json-сообщений
+echo '<div id="tickers">';
+echo 'id="tickers"';
+echo '</div>';    // id="tickers"
 
 // Размещаем див сообщений от аякс-запросов
 echo '<div id="DialogWind">';

@@ -65,16 +65,24 @@ KwinFlat
 [Open project files]
 0=index.php
 1=Update40\Update40BODY.php
-2=Update40\Update40.css
+2=Update40\Update40.js
+3=Home.css
+4=Update40\Update40.css
 [Selected Project Files]
 Main=
 Selected=Update40\Update40BODY.php
 [index.php]
-TopLine=35
+TopLine=69
 Caret=6,51
 [Update40\Update40BODY.php]
-TopLine=1
-Caret=6,69
+TopLine=44
+Caret=1,79
+[Update40\Update40.js]
+TopLine=502
+Caret=1,1
+[Home.css]
+TopLine=17
+Caret=20,48
 [Update40\Update40.css]
-TopLine=152
-Caret=3,90
+TopLine=25
+Caret=13,17
