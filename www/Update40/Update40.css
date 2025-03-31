@@ -26,7 +26,7 @@
 }
 #Right
 {
-   background:red; /*LightCyan;*/
+   background:LightCyan;
    width:33%;
    height:100%;
    z-index:1;
@@ -43,27 +43,25 @@
 #Header 
 {
    background:White;
-   height:20%;
+   height:14%;
    z-index:2;
-
-   display:flex;
-   align-items:center;
-   justify-content:center
 }
 
 #kwf
 {
-   width:80%;
+   width:68%;
    height:80%;
    border:solid .3rem DarkGoldenRod;
    border-radius:20%;
    padding-bottom:.6rem;
+   margin-top:1%;
+   margin-left:1%;
 }
 #Article 
 {
    /*background:LemonChiffon;*/
    background:transparent; 
-   height:50%;
+   height:56%;
    z-index:2;
 }
 #Footer 

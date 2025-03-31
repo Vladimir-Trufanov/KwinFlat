@@ -96,6 +96,10 @@ $(document).ready(function()
    */
 });
 
+function isEmail()
+{
+  console.log("isEmail()");               
+} 
 
 
 /*

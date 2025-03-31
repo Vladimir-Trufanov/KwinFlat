@@ -33,6 +33,9 @@ KwinFlat
 			favicon260x260\favicon-32x32.png
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
+		-Images
+			-Drugie-img-v-Kvizzy30-Images
+			Images\Kwinflat.jpg
 		-jQuery
 			-images
 				jQuery\images\ui-icons_444444_256x240.png
@@ -45,12 +48,15 @@ KwinFlat
 			jQuery\jquery-1.11.1.min.map
 			jQuery\jquery-ui.min.css
 			jQuery\jquery-ui.min.js
-		+Meet40
+		-Meet40
 			Meet40\Meet40.css
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
 		+Update40
+			+FlipOnHover
+				Update40\FlipOnHover\FlipOnHover.css
+				Update40\FlipOnHover\FlipOnHover.html
 			Update40\Update40.css
 			Update40\Update40.js
 			Update40\Update40BODY.php
@@ -61,28 +67,22 @@ KwinFlat
 		iniWorkSpace.php
 		KwinFlat.md
 		KwinFlat.ppr
+		log.txt
+		manifest.json
 		Meet40.html
 [Open project files]
 0=index.php
 1=Update40\Update40BODY.php
-2=Update40\Update40.js
-3=Home.css
-4=Update40\Update40.css
+2=Update40\FlipOnHover\FlipOnHover.css
 [Selected Project Files]
 Main=
-Selected=Update40\Update40BODY.php
+Selected=Update40\FlipOnHover\FlipOnHover.css
 [index.php]
-TopLine=69
-Caret=6,51
+TopLine=75
+Caret=46,100
 [Update40\Update40BODY.php]
-TopLine=44
-Caret=1,79
-[Update40\Update40.js]
-TopLine=502
-Caret=1,1
-[Home.css]
-TopLine=17
-Caret=20,48
-[Update40\Update40.css]
-TopLine=25
-Caret=13,17
+TopLine=15
+Caret=20,12
+[Update40\FlipOnHover\FlipOnHover.css]
+TopLine=1
+Caret=18,23

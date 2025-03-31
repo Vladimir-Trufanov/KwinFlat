@@ -5,16 +5,18 @@
 // * KwinFlat                                 Главная страница администратора *
 // ****************************************************************************
 
-// v4.0.0, 29.03.2025                                 Автор:      Труфанов В.Е.
+// v4.0.1, 31.03.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 08.10.2024
 
 // ------------------------------------------------------------------- BODY ---
 echo '<div id="LeftAndRight">';
 echo '<div id="Left">';
    echo '<div id="Header">';
-   ?>
+   echo '
    <img id="kwf" src="../Images/Kwinflat.jpg" alt="Kwinflat-близкий всем!" />
-   <?php
+   ';
+   // Подключаем кнопку виртуального контроллера
+   require_once 'Update40/FlipOnHover/FlipOnHover.html';
    echo '</div>';
 
    echo '<div id="Article">';
