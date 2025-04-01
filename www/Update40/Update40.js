@@ -4,17 +4,14 @@
 // * KwinFlat                    Обслужить ознакомительную страницу для гостя *
 // ****************************************************************************
 
-// v4.0.0, 29.03.2025                                 Автор:      Труфанов В.Е.
+// v4.0.1, 01.04.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
 {
-  console.log("Update40.js");               
- 
-  /*
   var x=-1;
-  // Выбираем последнее изображение 24 раза в секунду
-  // setInterval(SelImgStream, 1042);
+  // Выбираем последнее изображение 24 (или 1 раз за 1024 микросекунды) раза в секунду
+  setInterval(SelImgStream, 1042);
 
   function SelImgStream()
   {
@@ -31,13 +28,14 @@ $(document).ready(function()
       // Обрабатываем ответное сообщение
       success: function(message)
       {
-        console.log('src: '+message);
+        //console.log('src: '+message);
         //document.getElementById("img").src = "/Controller/imgDigits/png"+x+".png";
-        //document.getElementById("img").src = message;
+        document.getElementById("img").src = message;
       }
     });
   }
 
+  /*
    // Защищаем от мелькания UpdateLmp33()
    $('.cled33').css('background','White');
    $('.cled33').css('color','White'); 
@@ -73,41 +71,36 @@ $(document).ready(function()
    if (ram.get("LmpReceivTime")==null) ram.set("LmpReceivTime",0);
    // Определяем указание по режиму в последней команде (1 - включить режим, 0 - выключить) 
    if (ram.get("LmpRegim")==null)      ram.set("LmpRegim",1);      
+  */
    
-   // Фиксируем начало запуска сайта
-   var valTimeBeg = new Date();
-   // Выбираем элемент отражения времени с начала сессии
-   var timeElement = document.getElementById('sessiontime');
-   // Запускаем вызов ежесекундного (250 мкс) обновления экрана
-   const intervalId = setInterval(
-   function() 
-   {
-      // Пересчитываем время с начала сессии
-      NewSessionOld(valTimeBeg,timeElement);
-      // Обновляем показания и состояния
-      UpdateStatus(tickers);
-   }
-   ,250)
-   // Запускаем объект показа текущего времени
-   let clock = new TClock({template: 'h:m:s'});
-   clock.start();
-   // Обновляем на странице состояния датчиков, устройств и контроллеров 
-   UpdateStatus(tickers)
-   */
+  // Фиксируем начало запуска сайта
+  var valTimeBeg = new Date();
+  // Выбираем элемент отражения времени с начала сессии
+  var timeElement = document.getElementById('sessiontime');
+  // Запускаем вызов четвертьсекундного (250 мкс) обновления экрана
+  const intervalId = setInterval(
+  function() 
+  {
+    // Пересчитываем время с начала сессии
+    NewSessionOld(valTimeBeg,timeElement);
+    // Обновляем показания и состояния
+    UpdateStatus(tickers);
+  }
+  ,250)
+  // Запускаем объект показа текущего времени
+  //let clock = new TClock({template: 'h:m:s'});
+  //clock.start();
+  // Обновляем на странице состояния датчиков, устройств и контроллеров 
+  UpdateStatus(tickers)
 });
 
-function isEmail()
-{
-  console.log("isEmail()");               
-} 
-
-
-/*
 // ****************************************************************************
 // *    Обновить на странице состояния датчиков, устройств и контроллеров     *
 // ****************************************************************************
 function UpdateStatus(tickers)
 {
+  //console.log("UpdateStatus");               
+ 
   // Выбираем последнее json-сообщение, пришедшее на State и
   // если оно отличается от предыдущего вывода, то показываем
   //getLastStateMess(tickers);
@@ -133,6 +126,7 @@ function NewSessionOld(valTimeBeg,timeElement)
   timeElement.textContent = valTimeEnd.toLocaleTimeString();
   timeElement.textContent = timeElement.textContent.slice(3); 
 }
+/*
 // ****************************************************************************
 // *    Обновляем изображения управляющих элементов контрольного светодиода   *
 // *                           по данным хранилища                            *
@@ -449,9 +443,11 @@ function DialogWind(htmlText)
       title: "Запрос json-сообщения на State",
    });
 }
+*/
 // ****************************************************************************
 // *                           Класс показа текущего времени                  *
 // ****************************************************************************
+/*
 class TClock 
 {
    // Создать объект показа текущего времени
@@ -488,60 +484,61 @@ class TClock
       this.timer = setInterval(() => this.render(), 1000);
    }
 }
+*/
 // ****************************************************************************
 // *  Класс трассировки последних поступивших json-сообщений от контроллера   *
 // ****************************************************************************
 class TTickers 
 {
-   // Создать объект трассировки
-   constructor(count) 
-   {
-      this.count = count;        // количество ячеек трассировки сообщений
-      this.ARRY = new Array();   // массив трассируемых сообщений
-      this.HTML = '';            // выводимый html-текст
-      this.isRender='yes';       // "разрешено движение сообщений в трассировке"
-   }
-   // Запретить движение сообщений в трассировке при наезде курсора на ячейки трассировки
-   noRender()
-   {
-      this.isRender='no';
-   }
-   // Разрешитьо движение сообщений в трассировке при съезде курсора с ячеек трассировки
-   yesRender()
-   {
-      this.isRender='yes';
-   }
-   // Создать ячейки трассировки и выполнить начальное заполнение ячеек
-   create()
-   {
-      for (let i=0; i<this.count; i++) 
+  // Создать объект трассировки
+  constructor(count) 
+  {
+    this.count = count;        // количество ячеек трассировки сообщений
+    this.ARRY = new Array();   // массив трассируемых сообщений
+    this.HTML = '';            // выводимый html-текст
+    this.isRender='yes';       // "разрешено движение сообщений в трассировке"
+  }
+  // Запретить движение сообщений в трассировке при наезде курсора на ячейки трассировки
+  noRender()
+  {
+    this.isRender='no';
+  }
+  // Разрешитьо движение сообщений в трассировке при съезде курсора с ячеек трассировки
+  yesRender()
+  {
+    this.isRender='yes';
+  }
+  // Создать ячейки трассировки и выполнить начальное заполнение ячеек
+  create()
+  {
+    for (let i=0; i<this.count; i++) 
+    {
+      this.ARRY[i]='--'+i+'--';
+      if (i==0)
+        this.HTML=this.HTML+
+        '<div id="tick'+i+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[i]+'</div>';
+      else
+        this.HTML=this.HTML+
+        '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
+    }
+    $('#tickers').html(this.HTML);
+  }
+  // Принять очередное сообщение и обновить ячейки трассировки
+  render(input) 
+  {
+    // Если ещё ячеек трассировки нет, создаем их
+    if (this.ARRY.length<1) this.create();
+    // Реагируем только на изменённый вход
+    if (input != this.ARRY[0])
+    {
+      if (this.isRender=='yes')
       {
-         this.ARRY[i]='--'+i+'--';
-         if (i==0)
-            this.HTML=this.HTML+
-            '<div id="tick'+i+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[i]+'</div>';
-         else
-            this.HTML=this.HTML+
-            '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
+        for (let i=this.count-1; i>0; i--) this.ARRY[i]=this.ARRY[i-1]; 
+        this.ARRY[0]=input;
+        for (let i=0; i<this.count; i++) $('#tick'+i).html(this.ARRY[i]);
       }
-      $('#tickers').html(this.HTML);
-   }
-   // Принять очередное сообщение и обновить ячейки трассировки
-   render(input) 
-   {
-      // Если ещё ячеек трассировки нет, создаем их
-      if (this.ARRY.length<1) this.create();
-      // Реагируем только на изменённый вход
-      if (input != this.ARRY[0])
-      {
-         if (this.isRender=='yes')
-         {
-            for (let i=this.count-1; i>0; i--) this.ARRY[i]=this.ARRY[i-1]; 
-            this.ARRY[0]=input;
-            for (let i=0; i<this.count; i++) $('#tick'+i).html(this.ARRY[i]);
-         }
-      }
-   }
+    }
+  }
 }
 // ****************************************************************************
 // *                  Класс работы с хранилищем localStorage                  *
@@ -575,6 +572,5 @@ class TStorage
       return value;
    }
 }
-*/
 
 // ************************************************************ Update40.js ***

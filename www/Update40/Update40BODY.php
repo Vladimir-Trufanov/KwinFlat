@@ -42,19 +42,19 @@ echo '</div>';          // id="Left"
 echo '<div id="Right">';
    // Показываем текущее время и время с начала сессии
    echo '<div id="anytime">';
-   /*
+   
    echo '
      <p id="currentTime"></p>
      <p id="sessiontime"></p>
    ';
-   */
+   
    echo '</div>'; // id="anytime" 
-   //echo '<br>';
-   //echo '<p><img id="img" src="/Controller/imgDigits/png9.png"/></p>';
-   //echo '<p><img id="img" src="/Controller/imgMulti/run20.png"/></p>';
 
    // Показываем текущее изображение
    echo '<div id="Frame">';
+   //echo '<p><img id="img" src="/Controller/imgDigits/png9.png"/></p>';
+   //echo '<p><img id="img" src="/Controller/imgMulti/run20.png"/></p>';
+   echo '<p><img id="img" src="/Controller/imgMulti/run20.png"/></p>';
    echo '</div>'; // id="Frame" 
 
    // Показываем последнее (ие) поступившее сообщение от контроллера
@@ -69,6 +69,8 @@ echo '<div id="Right">';
    echo '</div>'; // id="lastmess" 
 
 echo '</div>'; // id="Right"
+// Загружаем панель виртуального контроллера   
+require_once("Controller/Controller.php"); 
 echo '</div>'; // id="LeftAndRight"
 
 // Определяем поле демонстрации поступающих json-сообщений

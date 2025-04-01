@@ -84,23 +84,24 @@ require_once pathPhpPrown."/MakeSession.php";
 require_once pathPhpPrown."/ViewGlobal.php";
 */
 
-/*
 // Выполняем запуск сессии и работу с лог-файлом
 require_once pathPhpTools."/TPageStarter/PageStarterClass.php";
 $oMainStarter = new PageStarter('kwinflatru','kwinflat-log');
 
+// Подключаем объект для работы с базой данных моего хозяйства
+require_once "TKvizzyMaker/KvizzyMakerClass.php";
+$Kvizzy=new ttools\KvizzyMaker($SiteHost);
+// Подключаемся к базе данных
+$pdo=$Kvizzy->BaseConnect();
+
+
+/*
 // Подключаем внутренние классы
 
 // Пропускаем пользователя на сайт
 //SiteEntry($c_UserName,$c_PersName,$c_PersMail,$c_PersPass,$c_BrowEntry,$c_PersEntry,$s_Counter);
 
 // Определяем данные для работы с базой данных моего хозяйства 
-
-// Подключаем объект для работы с базой данных моего хозяйства
-require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
-$Kvizzy=new ttools\KvizzyMaker($SiteHost);
-// Подключаемся к базе данных
-$pdo=$Kvizzy->BaseConnect();
 
 //$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note); 
 // Меняем кукис ориентации устройства 

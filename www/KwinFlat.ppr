@@ -23,6 +23,61 @@ KwinFlat
 			BP1\kwf0.png
 			BP1\KwinFlat.bp1
 			BP1\Разметка Kwinflat.xls
+		+Controller
+			-imgDigits
+				Controller\imgDigits\png0.png
+				Controller\imgDigits\png1.png
+				Controller\imgDigits\png2.png
+				Controller\imgDigits\png3.png
+				Controller\imgDigits\png4.png
+				Controller\imgDigits\png5.png
+				Controller\imgDigits\png6.png
+				Controller\imgDigits\png7.png
+				Controller\imgDigits\png8.png
+				Controller\imgDigits\png9.png
+			-imgESP32CAM
+				Controller\imgESP32CAM\picture40.jpg
+				Controller\imgESP32CAM\picture41.jpg
+				Controller\imgESP32CAM\picture42.jpg
+				Controller\imgESP32CAM\picture43.jpg
+				Controller\imgESP32CAM\picture44.jpg
+				Controller\imgESP32CAM\picture45.jpg
+				Controller\imgESP32CAM\picture46.jpg
+				Controller\imgESP32CAM\picture47.jpg
+				Controller\imgESP32CAM\picture48.jpg
+				Controller\imgESP32CAM\picture49.jpg
+				Controller\imgESP32CAM\picture50.jpg
+				Controller\imgESP32CAM\picture51.jpg
+				Controller\imgESP32CAM\picture52.jpg
+				Controller\imgESP32CAM\picture53.jpg
+				Controller\imgESP32CAM\picture54.jpg
+				Controller\imgESP32CAM\picture55.jpg
+			-imgMulti
+				Controller\imgMulti\run1.png
+				Controller\imgMulti\run10.png
+				Controller\imgMulti\run11.png
+				Controller\imgMulti\run12.png
+				Controller\imgMulti\run13.png
+				Controller\imgMulti\run14.png
+				Controller\imgMulti\run15.png
+				Controller\imgMulti\run16.png
+				Controller\imgMulti\run17.png
+				Controller\imgMulti\run18.png
+				Controller\imgMulti\run19.png
+				Controller\imgMulti\run2.png
+				Controller\imgMulti\run20.png
+				Controller\imgMulti\run3.png
+				Controller\imgMulti\run4.png
+				Controller\imgMulti\run5.png
+				Controller\imgMulti\run6.png
+				Controller\imgMulti\run7.png
+				Controller\imgMulti\run8.png
+				Controller\imgMulti\run9.png
+			Controller\Controller.js
+			Controller\Controller.php
+			Controller\counts.txt
+			Controller\j_SelImgStream.php
+			Controller\multipartDigits.php
 		-favicon260x260
 			favicon260x260\android-chrome-192x192.png
 			favicon260x260\android-chrome-256x256.png
@@ -53,36 +108,39 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
+		+Stream
+			Stream\index.php
+			Stream\UpStreamBODY.php
+		+TKvizzyMaker
+			TKvizzyMaker\CommonKvizzyMaker.php
+			TKvizzyMaker\CommonLeadMaker.php
+			TKvizzyMaker\CommonStateMaker.php
+			TKvizzyMaker\CommonStreamMaker.php
+			TKvizzyMaker\KvizzyMakerClass.php
 		+Update40
-			+FlipOnHover
+			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
 			Update40\Update40.css
 			Update40\Update40.js
 			Update40\Update40BODY.php
 			Update40\Update40HEAD.php
+		Common.php
 		Home.css
 		index.php
 		iniMem.php
 		iniWorkSpace.php
 		KwinFlat.md
 		KwinFlat.ppr
+		kwinflat-log.txt
 		log.txt
 		manifest.json
 		Meet40.html
 [Open project files]
 0=index.php
-1=Update40\Update40BODY.php
-2=Update40\FlipOnHover\FlipOnHover.css
 [Selected Project Files]
 Main=
-Selected=Update40\FlipOnHover\FlipOnHover.css
+Selected=index.php
 [index.php]
-TopLine=75
+TopLine=73
 Caret=46,100
-[Update40\Update40BODY.php]
-TopLine=15
-Caret=20,12
-[Update40\FlipOnHover\FlipOnHover.css]
-TopLine=1
-Caret=18,23
