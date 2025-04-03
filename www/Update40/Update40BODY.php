@@ -46,6 +46,8 @@ echo '<div id="Right">';
    echo '
      <p id="currentTime"></p>
      <p id="sessiontime"></p>
+     <p id="pptime"></p>
+     <p id="ppframe"></p>
    ';
    
    echo '</div>'; // id="anytime" 

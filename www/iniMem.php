@@ -14,10 +14,14 @@ define ("nstErr", 'произошла ошибка');
 define ("nstOk",  'все в порядке'); 
 $iniMem=nstOk;
 
-/*
+// Подключаем блок общесайтовых функций
 require_once "Common.php";  
 
 // ---------------------------------- Межязыковые (PHP-JScript) определения ---
+
+define ("IntStream",    1024);   // Интервал подачи и выборки изображений в потоке
+
+/*
 define ("RootDir",      $_SERVER['DOCUMENT_ROOT']); 
 define ("RootUrl",      $_SERVER['SCRIPT_NAME']); 
 
@@ -150,6 +154,14 @@ if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
 // ****************************************************************************
 function DefineJS($SiteHost,$urlHome)
 {
+   $define="\n".
+   '<script>'."\n".
+   'SiteHost="'            .$SiteHost.'";'."\n".
+   'urlHome="'             .$urlHome.'";'."\n".
+   'IntStream="'           .IntStream.'";'."\n".
+   '</script>'."\n";
+   echo $define;
+} 
    // Добавляем к штатным, дополнительные контроли правильности заполнения адреса электронной почты и пароля
    // (по опыту будем их вставлять в обработчик addEventListener нежели в blur)
    /*
@@ -182,8 +194,6 @@ function DefineJS($SiteHost,$urlHome)
    'nobase="'              .nobase.'";'."\n".
    'pathPhpPrown="'        .pathPhpPrown.'";'."\n".
    'pathPhpTools="'        .pathPhpTools.'";'."\n".
-   'SiteHost="'            .$SiteHost.'";'."\n".
-   'urlHome="'             .$urlHome.'";'."\n".
    'cycle="'               .$cycle.'";'."\n".
    'sjson="'               .$sjson.'";'."\n".
    'RootDir="'             .RootDir.'";'."\n".
@@ -195,9 +205,6 @@ function DefineJS($SiteHost,$urlHome)
    '</script>'."\n";
    echo $define;
    */
-} 
-
-
 
 /*
 // ****************************************************************************

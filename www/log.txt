@@ -4,3 +4,7 @@
 [30-Mar-2025 17:41:42 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';' in C:\KwinFlat\www\Update40\Update40BODY.php on line 12
 [30-Mar-2025 17:42:33 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';' in C:\KwinFlat\www\Update40\Update40BODY.php on line 76
 [01-Apr-2025 11:36:47 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'TTools/TKvizzyMaker/KvizzyMakerClass.php' (include_path='.;C:\php\pear') in C:\KwinFlat\www\iniMem.php on line 92
+[02-Apr-2025 19:26:00 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';', expecting ')' in C:\KwinFlat\www\iniMem.php on line 22
+[02-Apr-2025 19:26:52 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in C:\KwinFlat\www\iniMem.php on line 162
+[02-Apr-2025 19:28:22 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '}', expecting end of file in C:\KwinFlat\www\iniMem.php on line 207
+[03-Apr-2025 17:58:04 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in C:\KwinFlat\www\TKvizzyMaker\CommonStreamMaker.php on line 132

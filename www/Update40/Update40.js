@@ -9,10 +9,22 @@
 
 $(document).ready(function() 
 {
-  var x=-1;
-  // Выбираем последнее изображение 24 (или 1 раз за 1024 микросекунды) раза в секунду
-  setInterval(SelImgStream, 1042);
+  /*
+  console.log('SiteHost:  '+SiteHost);
+  console.log('urlHome:   '+urlHome);
+  console.log('IntStream: '+IntStream);
+  */
+  
+  //$('#pptime').html('1234');
+  //$('#ppframe').html('7');
 
+  // Создаём объект для работы с localStorage
+  ram = new TStorage; 
+  // Выбираем последнее изображение 24 (или 1 раз за 1024 миллисекунды) раза в секунду
+  // console.log('IntStream: '+IntStream);
+  setInterval(SelImgStream, IntStream);
+
+  /*
   function SelImgStream()
   {
     x = (x > 8) ? 0 : x + 1;
@@ -22,25 +34,79 @@ $(document).ready(function()
     $.ajax({
       url: pathphp,
       type: 'POST',
+      data: {sh:SiteHost},
       //data: {src:ImgOnStream,time:nTime,frame:nFrame},
       // Выводим ошибки при выполнении запроса в PHP-сценарии
       error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
       // Обрабатываем ответное сообщение
       success: function(message)
       {
-        //console.log('src: '+message);
         //document.getElementById("img").src = "/Controller/imgDigits/png"+x+".png";
-        document.getElementById("img").src = message;
+        //message="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAPAAA/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAGABkAwERAAIRAQMRAf/EAIgAAAICAwEBAAAAAAAAAAAAAAUGAwQAAgcBCAEAAgMBAAAAAAAAAAAAAAAAAgMAAQQFEAACAQMDBAEDBAMBAAAAAAABAgMRBAUAIRIxQRMGFFEiB2FxMkKxUjNDEQABAwIEBQIGAwAAAAAAAAABABECEgMhMUEEUSIyExRh0fBxgZHBBaHhI//aAAwDAQACEQMRAD8A+mczm7DDWD3t65EakKqgVZnPRFH1Ol3bsbcapIoQMiwSnL+UvNLPHisNdXfx4+csz0SMbVO45bD66wy/Ygh4RJWgbZuosih98x8eHtby4t5lv7qNXGJhUzXQZ+i8F6V+rU21o8uIAfqOmqV2S/pxTFaTSTW8cskLQO6qzwvQshIqVJG1R+mtMS4SypjTVqlg6aiizp+uoolLPfk313EvJCBNezxP43S2QMA4NCvJiBt+msdzfW4mnMp8dvIh0In/ACrkI54qevXK2clALiQso5N0WvDjU9t9Il+wkA9BZGNuHZ063GZx8F7aWM0nG8vP+UAHJqAFiWp0G1KnW6V6IkInqKziBIJ0Cu8VJ3FfppqFYwQfcwH7nUUXtRSvb6aiiGZn1/GZlLdL+NpYraTzLEHKqzUK0YDqKHSrtmNxqtEcJmOS5/kvZEvs7devllx/q9q5t3e0jq0kkdCwZxsqg9eINO+uZfvxq7cuW36LVbtlqhjJOtlF6zgMLPkbNY47NUMst0h8jyU7lySzEnsTroQFu3CqPSs0qpSY5oFbe9Zpi0s9pGpyDKmCx24nepIaSU1I8fTegr21lG9kztjLpH5KcbAfPLNEYffLVhlp3gPwsYywi4Uk+a4NQ6IpHQHv9N9MO+iKiRhH+TwCHxyWGpQ2T2eTBRJkshFNLl88/K3xLy0SCGLvyK0RQpqSV701Qu0CsvVLR8lKKsBkNVawnvFx7FnLuxsbY2+HtozFLkZCVk+RIB4/GDt32B3PXbTLe57kmA5eKGVqkOc1pa4z070O2DzzSSzv93lmHmmNT1HFRx30s9nbnHqP3Riu7lkgd/7tBnPY4Hit5zhsNby38qulBJcKKRczUgKK7dyTpMt1G4amNMMfqiFoxDalTesPPjrW49y9sYxyScmtoyhM7NJtULuRVaJEg/rueumWgI/6zz9/jBVMvyRRmD3PO3Gax1muLFtBevVknLGdYaV5lV/h+zakd5M3BGln+/z9FRsRESXQLJn3X23OZfE2t1bRYGylSN3XlTlSvEuAC7Dqy9AdtDcFy9IgEUgq4mMA5GK6V4D8T4/M8vHw8tBWvGnKnSuuksqhytndXeNntbS5NnPMvBbkLzZAdiQKjenTQ3ImUSAWKKJAOKr471rE2OEhwyQiSzhXjSTdmY/ydj/sxJJOgFiFFBDhX3C76pVuPxaY5p7bHZOWHCX4Zb+wkZnI25I0THuHA69u+s3gs4iWidE3yNSMVLJ+NphPaXseWuDk4SwuL1hV2jZOASMV4pxWtNQ7IuDUatT8ZKd/RsFcu/QMclmFwh+BepKkouXLy/ctKkqzUqf86u5sYkCnlILupHcHXEKKT8ZY65y9rlMhe3F9PEpFysrfbM1QVqAQFRf9AKHR+ICQZF/yh7xZgGUvqfoKYYtJfXjZCQTvcwIQViSR/wD04EtWSm3I9O2rs7WguS6k7r5BlpmZr/P5K4wmOt/BaQEQ5LKyoQwDDk0duWG7UPXtoLtVydIDAZy9lcGiHJx4e6LXPq2Pf1iXAWg+NbPF40YbkHryberEkb6dPbxNugYBALhEqkKl9HvLm1s2u8xNNk7GRHtrrgviThtQQn7Saf2aprpXikgPI1DI/wBI+8NBgth6OoyTzR3s0VpPEIrlUZvkTEmr+SYmv3Hrxoe3TQjZNcqEsGx4n5lWb7xZsVX9W/H9xioJbS/vvkY4XLXENlCDGjMSCpmNeT04j7a8f31dnamOBPLwVTvA5DFOX9q79dbUhf/Z";
+        //document.getElementById("img").src = message;
+        //console.log('src: '+message);
+
+        // Строим try catch, чтобы поймать ошибку в JSON-ответе
+        try 
+        {
+          parm=JSON.parse(message);
+          // Если JSON-сообщение разобрано, то обрабатываем параметры ответа
+          // (отрабатываем распарсенный ответ)
+          if (parm.fate==1) 
+          {
+            $('#pptime').html(parm.time);
+            $('#ppframe').html(parm.frame);
+            document.getElementById("img").src = parm.src;
+          }
+          // Иначе показываем ошибку SQL-запроса SelImgStream
+          else
+          {
+            console.log(parm.src);
+            DialogWind(parm.src);
+            / *
+                              // Обновляем параметры хранилища
+                  // {"isEvent":0,"Mode":"1","SendTime":1737365180,"ReceivTime":1737365180,"sjson":{"led33":[{"regim":1}]}}
+                  ram.set("LmpEvent",      parm.isEvent);    // 1 - прошла команда смены режима, 0 - пришло подтверждение от контроллера
+                  ram.set("LmpMode",       parm.Mode);       // 1 - включен режим, 0 - выключен режим (состояние в момент запроса)
+                  ram.set("LmpSendTime",   parm.SendTime);   // время в секундах (c начала эпохи) отправки сообщения
+                  ram.set("LmpReceivTime", parm.ReceivTime); // время получения ответа в секундах
+                  // Парсим sjson
+                  let parmi=JSON.parse(JSON.stringify(parm.sjson));
+                  // Выделяем json-подстроку по led33
+                  let led33=parmi.led33[0];
+                  // Парсим led33
+                  parmi=JSON.parse(JSON.stringify(led33));
+                  ram.set("LmpRegim",parmi.regim); // указание по режиму в последней команде (1 - включить режим, 0 - выключить)
+                  / *
+                  console.log("LmpEvent =",     ram.get("LmpEvent"),':',     typeof ram.get("LmpEvent"));
+                  console.log("LmpMode =",      ram.get("LmpMode"),':',      typeof ram.get("LmpMode"));
+                  console.log("LmpSendTime =",  ram.get("LmpSendTime"),':',  typeof ram.get("LmpSendTime"));
+                  console.log("LmpReceivTime =",ram.get("LmpReceivTime"),':',typeof ram.get("LmpReceivTime"));
+                  console.log("LmpRegim =",     ram.get("LmpRegim"),':',     typeof ram.get("LmpRegim"));
+                  * /
+               }
+               // Обновляем изображения управляющих элементов контрольного светодиода 
+               // по данным хранилища      
+               ViewLed33();
+            * /
+          }
+        }
+        // Обрабатываем ошибку в JSON-ответе 
+        catch (err) 
+        {
+          //console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+message);
+          console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n");
+            //    DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
+        }
       }
     });
   }
-
+  */
+  
   /*
    // Защищаем от мелькания UpdateLmp33()
    $('.cled33').css('background','White');
    $('.cled33').css('color','White'); 
-   // Создаём объект для работы с localStorage
-   ram = new TStorage; 
    // Создаём поле демонстрации поступающих json-сообщений для 4 последних 
    let tickers = new TTickers(4);
    // Обеспечиваем остановку изменения массива состояний и изменение курсора 
@@ -93,6 +159,61 @@ $(document).ready(function()
   // Обновляем на странице состояния датчиков, устройств и контроллеров 
   UpdateStatus(tickers)
 });
+
+  // 
+
+// ****************************************************************************
+// *     Выбрать и показать последнее изображение с опрежеденной частотой     *
+// ****************************************************************************
+  function SelImgStream()
+  {
+    // Выполняем запрос
+    pathphp="Controller/j_SelImgStream.php";
+    // Делаем запрос на отправку изображения 
+    $.ajax({
+      url: pathphp,
+      type: 'POST',
+      data: {sh:SiteHost},
+      //data: {src:ImgOnStream,time:nTime,frame:nFrame},
+      // Выводим ошибки при выполнении запроса в PHP-сценарии
+      error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
+      // Обрабатываем ответное сообщение
+      success: function(message)
+      {
+        //document.getElementById("img").src = "/Controller/imgDigits/png"+x+".png";
+        //message="data:image/jpeg;base64,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";
+        //document.getElementById("img").src = message;
+        //console.log('src: '+message);
+
+        // Строим try catch, чтобы поймать ошибку в JSON-ответе
+        try 
+        {
+          parm=JSON.parse(message);
+          // Если JSON-сообщение разобрано, то обрабатываем параметры ответа
+          // (отрабатываем распарсенный ответ)
+          if (parm.fate==1) 
+          {
+            ram.set("pptime",parm.time);   
+            $('#pptime').html(ram.get("pptime"));
+            ram.set("ppframe",parm.frame);   
+            $('#ppframe').html(ram.get("ppframe"));
+            document.getElementById("img").src = parm.src;
+          }
+          // Иначе показываем ошибку SQL-запроса SelImgStream
+          else
+          {
+            console.log(parm.src);
+            DialogWind(parm.src);
+          }
+        }
+        // Обрабатываем ошибку в JSON-ответе 
+        catch (err) 
+        {
+          DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+message);
+        }
+      }
+    });
+  }
 
 // ****************************************************************************
 // *    Обновить на странице состояния датчиков, устройств и контроллеров     *
@@ -429,6 +550,7 @@ function getLastStateMess(tickers)
       }
    });
 }
+*/
 // ****************************************************************************
 // *                 Вывести диалоговое сообщение от ошибке                   *
 // ****************************************************************************
@@ -443,7 +565,6 @@ function DialogWind(htmlText)
       title: "Запрос json-сообщения на State",
    });
 }
-*/
 // ****************************************************************************
 // *                           Класс показа текущего времени                  *
 // ****************************************************************************

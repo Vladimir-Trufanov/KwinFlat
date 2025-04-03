@@ -11,7 +11,7 @@
 
 // ---------------------------------------------------------- HEAD and LAST ---
 // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
-//DefineJS($SiteHost,$urlHome);
+DefineJS($SiteHost,$urlHome);
 // Подключаем js и CSS
 echo '<script src="Update40/Update40.js"></script>';
 echo '<link href="Update40/Update40.css" rel="stylesheet">';
