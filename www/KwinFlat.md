@@ -43,6 +43,8 @@
 
 a) #define debugStackSize 0  // 1 - выполнить контроль размера стека
 
+![](BP1/sis0.png)
+
 ### Библиография
 
 #### [Таймеры Html5+JS](https://thecode.media/count-timer/)

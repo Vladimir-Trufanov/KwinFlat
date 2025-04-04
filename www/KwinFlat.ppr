@@ -149,13 +149,13 @@ KwinFlat
 6=TKvizzyMaker\KvizzyMakerClass.php
 [Selected Project Files]
 Main=
-Selected=Update40\Update40.js
+Selected=Controller\j_SelImgStream.php
 [index.php]
 TopLine=61
 Caret=46,100
 [Update40\Update40.js]
-TopLine=63
-Caret=26,91
+TopLine=111
+Caret=40,125
 [iniMem.php]
 TopLine=122
 Caret=49,161
@@ -164,10 +164,10 @@ TopLine=23
 Caret=1,51
 [Controller\j_SelImgStream.php]
 TopLine=1
-Caret=30,19
+Caret=1,31
 [TKvizzyMaker\CommonStreamMaker.php]
-TopLine=95
-Caret=25,117
+TopLine=123
+Caret=75,95
 [TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=73
+TopLine=63
 Caret=45,95

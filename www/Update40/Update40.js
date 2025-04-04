@@ -86,22 +86,22 @@ $(document).ready(function()
   // 
 
 // ****************************************************************************
-// *     Выбрать и показать последнее изображение с опрежеденной частотой     *
+// *     Выбрать и показать последнее изображение с определённой частотой     *
 // ****************************************************************************
   function SelImgStream()
   {
     // Выполняем запрос
     pathphp="Controller/j_SelImgStream.php";
     // Выбираем прежние значения времени кадра и его номера в секунде
-    ram.get("pptime",0);
-    ram.get("ppframe",0);
+    ram.get("oldtime",0);
+    ram.get("oldframe",0);
     //console.log('pptime: '+ram.get("pptime",0));
     //console.log('ppframe: '+ram.get("ppframe",0));
     // Делаем запрос на отправку изображения 
     $.ajax({
       url: pathphp,
       type: 'POST',
-      data: {sh:SiteHost,time:ram.get("pptime"),frame:ram.get("ppframe")},
+      data: {sh:SiteHost,time:ram.get("oldtime"),frame:ram.get("oldframe")},
       // Выводим ошибки при выполнении запроса в PHP-сценарии
       error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
       // Обрабатываем ответное сообщение
@@ -122,10 +122,10 @@ $(document).ready(function()
           // (отрабатываем распарсенный ответ)
           if (parm.fate==1) 
           {
-            ram.set("pptime",parm.time);   
-            $('#pptime').html(ram.get("pptime"));
-            ram.set("ppframe",parm.frame);   
-            $('#ppframe').html(ram.get("ppframe"));
+            ram.set("oldtime",parm.time);   
+            $('#oldtime').html(ram.get("oldtime"));
+            ram.set("oldframe",parm.frame);   
+            $('#oldframe').html(ram.get("oldframe"));
             document.getElementById("img").src = parm.src;
           }
           // Если последнее изображение не изменилось,
@@ -133,8 +133,8 @@ $(document).ready(function()
           else if (parm.fate==-4) 
           {
             //console.log(parm.src); 
-            $('#pptime').html(ram.get("pptime"));
-            $('#ppframe').html(ram.get("ppframe"));
+            $('#oldtime').html(ram.get("oldtime"));
+            $('#oldframe').html(ram.get("oldframe"));
           }          
           // Иначе показываем ошибку SQL-запроса SelImgStream
           else
