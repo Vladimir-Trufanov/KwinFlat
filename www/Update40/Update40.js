@@ -9,6 +9,8 @@
 
 $(document).ready(function() 
 {
+
+
   /*
   console.log('SiteHost:  '+SiteHost);
   console.log('urlHome:   '+urlHome);
@@ -24,85 +26,6 @@ $(document).ready(function()
   // console.log('IntStream: '+IntStream);
   setInterval(SelImgStream, IntStream);
 
-  /*
-  function SelImgStream()
-  {
-    x = (x > 8) ? 0 : x + 1;
-    // Выполняем запрос
-    pathphp="Controller/j_SelImgStream.php";
-    // Делаем запрос на отправку изображения 
-    $.ajax({
-      url: pathphp,
-      type: 'POST',
-      data: {sh:SiteHost},
-      //data: {src:ImgOnStream,time:nTime,frame:nFrame},
-      // Выводим ошибки при выполнении запроса в PHP-сценарии
-      error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
-      // Обрабатываем ответное сообщение
-      success: function(message)
-      {
-        //document.getElementById("img").src = "/Controller/imgDigits/png"+x+".png";
-        //message="data:image/jpeg;base64,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";
-        //document.getElementById("img").src = message;
-        //console.log('src: '+message);
-
-        // Строим try catch, чтобы поймать ошибку в JSON-ответе
-        try 
-        {
-          parm=JSON.parse(message);
-          // Если JSON-сообщение разобрано, то обрабатываем параметры ответа
-          // (отрабатываем распарсенный ответ)
-          if (parm.fate==1) 
-          {
-            $('#pptime').html(parm.time);
-            $('#ppframe').html(parm.frame);
-            document.getElementById("img").src = parm.src;
-          }
-          // Иначе показываем ошибку SQL-запроса SelImgStream
-          else
-          {
-            console.log(parm.src);
-            DialogWind(parm.src);
-            / *
-                              // Обновляем параметры хранилища
-                  // {"isEvent":0,"Mode":"1","SendTime":1737365180,"ReceivTime":1737365180,"sjson":{"led33":[{"regim":1}]}}
-                  ram.set("LmpEvent",      parm.isEvent);    // 1 - прошла команда смены режима, 0 - пришло подтверждение от контроллера
-                  ram.set("LmpMode",       parm.Mode);       // 1 - включен режим, 0 - выключен режим (состояние в момент запроса)
-                  ram.set("LmpSendTime",   parm.SendTime);   // время в секундах (c начала эпохи) отправки сообщения
-                  ram.set("LmpReceivTime", parm.ReceivTime); // время получения ответа в секундах
-                  // Парсим sjson
-                  let parmi=JSON.parse(JSON.stringify(parm.sjson));
-                  // Выделяем json-подстроку по led33
-                  let led33=parmi.led33[0];
-                  // Парсим led33
-                  parmi=JSON.parse(JSON.stringify(led33));
-                  ram.set("LmpRegim",parmi.regim); // указание по режиму в последней команде (1 - включить режим, 0 - выключить)
-                  / *
-                  console.log("LmpEvent =",     ram.get("LmpEvent"),':',     typeof ram.get("LmpEvent"));
-                  console.log("LmpMode =",      ram.get("LmpMode"),':',      typeof ram.get("LmpMode"));
-                  console.log("LmpSendTime =",  ram.get("LmpSendTime"),':',  typeof ram.get("LmpSendTime"));
-                  console.log("LmpReceivTime =",ram.get("LmpReceivTime"),':',typeof ram.get("LmpReceivTime"));
-                  console.log("LmpRegim =",     ram.get("LmpRegim"),':',     typeof ram.get("LmpRegim"));
-                  * /
-               }
-               // Обновляем изображения управляющих элементов контрольного светодиода 
-               // по данным хранилища      
-               ViewLed33();
-            * /
-          }
-        }
-        // Обрабатываем ошибку в JSON-ответе 
-        catch (err) 
-        {
-          //console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+message);
-          console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n");
-            //    DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
-        }
-      }
-    });
-  }
-  */
-  
   /*
    // Защищаем от мелькания UpdateLmp33()
    $('.cled33').css('background','White');
@@ -169,12 +92,16 @@ $(document).ready(function()
   {
     // Выполняем запрос
     pathphp="Controller/j_SelImgStream.php";
+    // Выбираем прежние значения времени кадра и его номера в секунде
+    ram.get("pptime",0);
+    ram.get("ppframe",0);
+    //console.log('pptime: '+ram.get("pptime",0));
+    //console.log('ppframe: '+ram.get("ppframe",0));
     // Делаем запрос на отправку изображения 
     $.ajax({
       url: pathphp,
       type: 'POST',
-      data: {sh:SiteHost},
-      //data: {src:ImgOnStream,time:nTime,frame:nFrame},
+      data: {sh:SiteHost,time:ram.get("pptime"),frame:ram.get("ppframe")},
       // Выводим ошибки при выполнении запроса в PHP-сценарии
       error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
       // Обрабатываем ответное сообщение
@@ -189,6 +116,8 @@ $(document).ready(function()
         try 
         {
           parm=JSON.parse(message);
+          //console.log('parm.time: ' +parm.time);
+          //console.log('parm.frame: '+parm.frame);
           // Если JSON-сообщение разобрано, то обрабатываем параметры ответа
           // (отрабатываем распарсенный ответ)
           if (parm.fate==1) 
@@ -199,6 +128,14 @@ $(document).ready(function()
             $('#ppframe').html(ram.get("ppframe"));
             document.getElementById("img").src = parm.src;
           }
+          // Если последнее изображение не изменилось,
+          // то и не меняем показываемое изображение
+          else if (parm.fate==-4) 
+          {
+            //console.log(parm.src); 
+            $('#pptime').html(ram.get("pptime"));
+            $('#ppframe').html(ram.get("ppframe"));
+          }          
           // Иначе показываем ошибку SQL-запроса SelImgStream
           else
           {
@@ -666,32 +603,39 @@ class TTickers
 // ****************************************************************************
 class TStorage 
 {
-   // Создать параметры хранилища
-   constructor(count) 
-   {
-   }
-   // Записать элемент в хранилище
-   set(name,value)
-   {
-      let tof = typeof value; 
-      if (tof === "string") localStorage.setItem(name,value);  
-      else localStorage.setItem(name,value.toString());
-      localStorage.setItem("tof"+name,tof);
-   }
-   // Выбрать элемент из хранилища
-   get(name)
-   {
-      let value;
-      let svalue = localStorage.getItem(name);
+  // Создать параметры хранилища
+  constructor(count) 
+  {
+    // на 2025-04-04 различаются в хранилище 2 типа переменных: string и number  
+  }
+  // Записать элемент в хранилище
+  set(name,value)
+  {
+    let tof = typeof value; 
+    if (tof === "string") localStorage.setItem(name,value);  
+    else localStorage.setItem(name,value.toString());
+    localStorage.setItem("tof"+name,tof);
+  }
+  // Выбрать элемент из хранилища
+  get(name,invalue=null)
+  {
+    let value;
+    let svalue = localStorage.getItem(name);
+    // При отсутствии элемента в хранилище, возвращаем указанный результат
+    if ((invalue!=null)&&(svalue==null)) value=invalue;
+    // Иначе выбираем значение элемента из хранилища
+    else
+    {
       if (svalue==null) value=null
       else
       {
-         let tof = localStorage.getItem("tof"+name);
-         if (tof==="number") value=Number(svalue);
-         else value=svalue;
+        let tof = localStorage.getItem("tof"+name);
+        if (tof==="number") value=Number(svalue);
+        else value=svalue;
       }
-      return value;
-   }
+    }
+    return value;
+  }
 }
 
 // ************************************************************ Update40.js ***

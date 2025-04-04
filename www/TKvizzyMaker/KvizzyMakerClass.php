@@ -90,9 +90,9 @@ class KvizzyMaker
       return $messa;
    }
    // Выбрать запись из таблицы базы данных State по Led33 
-   public function SelImgStream($pdo)
+   public function SelImgStream($pdo,$time,$frame)
    {
-      $messa=_SelImgStream($pdo);
+      $messa=_SelImgStream($pdo,$time,$frame);
       return $messa;
    }
 

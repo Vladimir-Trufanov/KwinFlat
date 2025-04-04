@@ -146,9 +146,7 @@ KwinFlat
 3=Update40\Update40BODY.php
 4=Controller\j_SelImgStream.php
 5=TKvizzyMaker\CommonStreamMaker.php
-6=..\Kvizzy30\j_getRegimLed33.php
-7=TKvizzyMaker\CommonLeadMaker.php
-8=Controller\Controller.js
+6=TKvizzyMaker\KvizzyMakerClass.php
 [Selected Project Files]
 Main=
 Selected=Update40\Update40.js
@@ -156,8 +154,8 @@ Selected=Update40\Update40.js
 TopLine=61
 Caret=46,100
 [Update40\Update40.js]
-TopLine=159
-Caret=26,168
+TopLine=63
+Caret=26,91
 [iniMem.php]
 TopLine=122
 Caret=49,161
@@ -166,16 +164,10 @@ TopLine=23
 Caret=1,51
 [Controller\j_SelImgStream.php]
 TopLine=1
-Caret=1,22
+Caret=30,19
 [TKvizzyMaker\CommonStreamMaker.php]
-TopLine=112
-Caret=41,113
-[..\Kvizzy30\j_getRegimLed33.php]
-TopLine=1
-Caret=1,34
-[TKvizzyMaker\CommonLeadMaker.php]
-TopLine=71
-Caret=1,1
-[Controller\Controller.js]
-TopLine=37
-Caret=35,119
+TopLine=95
+Caret=25,117
+[TKvizzyMaker\KvizzyMakerClass.php]
+TopLine=73
+Caret=45,95
