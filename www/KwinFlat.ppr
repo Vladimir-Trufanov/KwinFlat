@@ -23,8 +23,9 @@ KwinFlat
 			BP1\kwf0.png
 			BP1\KwinFlat.bp1
 			BP1\SelImgStream.bp1
+			BP1\sis0.png
 			BP1\Разметка Kwinflat.xls
-		-Controller
+		+Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -109,7 +110,7 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
-		-Stream
+		+Stream
 			Stream\index.php
 			Stream\UpStreamBODY.php
 		+TKvizzyMaker
@@ -133,10 +134,7 @@ KwinFlat
 		iniMem.php
 		iniWorkSpace.php
 		KwinFlat.md
-		KwinFlat.md.backup
 		KwinFlat.ppr
-		kwinflat-log.txt
-		log.txt
 		manifest.json
 		Meet40.html
 [Open project files]
@@ -144,30 +142,38 @@ KwinFlat
 1=Update40\Update40.js
 2=iniMem.php
 3=Update40\Update40BODY.php
-4=Controller\j_SelImgStream.php
-5=TKvizzyMaker\CommonStreamMaker.php
-6=TKvizzyMaker\KvizzyMakerClass.php
+4=TKvizzyMaker\CommonStreamMaker.php
+5=TKvizzyMaker\KvizzyMakerClass.php
+6=Controller\Controller.php
+7=Controller\Controller.js
+8=Controller\multipartDigits.php
 [Selected Project Files]
 Main=
-Selected=Controller\j_SelImgStream.php
+Selected=Controller\multipartDigits.php
 [index.php]
 TopLine=61
 Caret=46,100
 [Update40\Update40.js]
-TopLine=111
-Caret=40,125
+TopLine=1
+Caret=71,25
 [iniMem.php]
-TopLine=122
-Caret=49,161
+TopLine=9
+Caret=4,23
 [Update40\Update40BODY.php]
 TopLine=23
 Caret=1,51
-[Controller\j_SelImgStream.php]
-TopLine=1
-Caret=1,31
 [TKvizzyMaker\CommonStreamMaker.php]
-TopLine=123
+TopLine=95
 Caret=75,95
 [TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=63
+TopLine=56
 Caret=45,95
+[Controller\Controller.php]
+TopLine=19
+Caret=1,58
+[Controller\Controller.js]
+TopLine=129
+Caret=72,138
+[Controller\multipartDigits.php]
+TopLine=3
+Caret=26,14

@@ -5,7 +5,7 @@
 // *                                                           из окна jquiry *
 // ****************************************************************************
 
-// v1.0.1, 01.04.2025                                 Автор:      Труфанов В.Е.
+// v2.0.2, 05.04.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 01.02.2025
 
 $(document).ready(function() 
@@ -26,6 +26,18 @@ $(document).ready(function()
   { 
 		$('#tabContainer').tabs("load", hash);
 	} 
+  // Выполняем начальное блокирование отправки изображений
+  Lock3();
+  // Запускаем вызов четвертьсекундной (250 мкс) 
+  // подачи изображения от виртуального контроллера
+  const intervalSrc = setInterval(
+  function() 
+  {
+    // Подаём изображение от виртуального контроллера 
+    // через заданный интервал времени
+    MakeImgStream();
+  }
+  ,250)
 });
 // ****************************************************************************
 // *               Вызвать jquery-окно для иммитации контроллера              *
@@ -96,27 +108,53 @@ function Test2()
    console.log("Test2");               
 }
 // ****************************************************************************
-// *              Обновить счетчик тиков для отправки изображений             *
-// *         в базу данных с частотой 4 изображения в секунду, так как        *
-// *  в Update.js запускается вызов ежесекундного (250 мкс) обновления экрана *
+// *           Подать изображение от виртуального контроллера                 *
+// *                   через заданный интервал времени                        *
 // ****************************************************************************
-// Выполняем начальную блокировку отправки контрольных изображений
+// Выполнить начальную блокировку отправки контрольных изображений
 var CtrlImg=false;  
-// Запускаем отправку изображений             
+// Запустить отправку изображений             
 function Test3()
 { 
   console.log("Запускаем отправку контрольных изображений");
   CtrlImg=true; 
 }
-// Блокируем отправку изображений
+// Блокировать отправку изображений
 function Lock3()
 { 
   CtrlImg=false; 
 }
-// Отправляем изображения
-function UpdateCalcImg()
+// Подать изображение от виртуального контроллера 
+// через заданный интервал времени
+function MakeImgStream()
 {
-  if (CtrlImg) getFileForStream();
+  if (CtrlImg) 
+  {
+    console.log('MakeImgStream');
+    // Формируем асинхронный запрос с защитой от кэширования (т.е. подвешиваем
+    // хвостик к запросу с помощью Math.random)
+    var req = new XMLHttpRequest();
+    req.open("GET","Controller/multipartDigits.php?r="+Math.random(), true);
+    // Выполняем запрос на выборку изображения для подачи в базу данных
+    req.onload = function(event) 
+    {
+      var result = event.target.responseText;
+      //console.log('Запрос загружен: '+result);
+      user = JSON.parse(result);
+      let num=user.img[0];
+      let src=user.img[1];
+      //console.log('num = '+num);
+      //console.log('src = '+src);
+      // 
+      sendImage(src);
+    }
+    req.onreadystatechange = function() 
+    {
+      //console.log('Состояние изменилось!');
+    }
+    req.send(null);
+    // console.log('Всем привет!');
+  }
 }
 // ****************************************************************************
 // * Отправить Base64-изображение на страницу Stream для загрузки в базу данных            
@@ -155,31 +193,5 @@ function sendImage(ImgOnStream)
     }
   });
 }
-// Выбираем изображение
-function getFileForStream() 
-{
-  var req = new XMLHttpRequest();
-  // асинхронный запрос
-  req.open("GET","Controller/multipartDigits.php?r="+Math.random(), true);
-  req.onload = function(event) 
-  {
-    var result = event.target.responseText;
-    //console.log('Запрос загружен: '+result);
-    user = JSON.parse(result);
-    let num=user.img[0];
-    let src=user.img[1];
-    //console.log('num = '+num);
-    //console.log('src = '+src);
-    // 
-    sendImage(src);
-  }
-  req.onreadystatechange = function() 
-  {
-    //console.log('Состояние изменилось!');
-  }
-  req.send(null);
-  // console.log('Всем привет!');
-}
-
 
 // ********************************************************** Controller.js ***
