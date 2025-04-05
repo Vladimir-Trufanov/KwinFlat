@@ -27,10 +27,13 @@ if (imgDir==imgMulti)    $file = 'imgMulti/run'.$num.'.png';
 $src=ImgToBase64($file);
 
 // Сворачиваем ответ в JSON
+//$x=$_GET['r'];
+$x=$_GET['mode'];
 $json = json_encode(array(
    'img' => array
    (
-     $num,
+     //$num,
+     $x,
      $src
    )
 ));

@@ -11,6 +11,7 @@
 // ------------------------------------------------------------------- BODY ---
 
 echo "<body>";
+$SiteHost=$_POST['sh'];
 if(!empty($_POST['src']))
 {
    MakeStream($SiteHost,$_POST['src'],$_POST['time'],$_POST['frame']);

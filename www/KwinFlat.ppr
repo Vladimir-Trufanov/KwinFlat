@@ -22,6 +22,7 @@ KwinFlat
 			BP1\Kvizzy30.bp1
 			BP1\kwf0.png
 			BP1\KwinFlat.bp1
+			BP1\MakeImgStream.bp1
 			BP1\SelImgStream.bp1
 			BP1\sis0.png
 			BP1\Разметка Kwinflat.xls
@@ -110,16 +111,15 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
-		+Stream
-			Stream\index.php
-			Stream\UpStreamBODY.php
+		-Stream40
+			Stream40\Stream40BODY.php
 		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -128,6 +128,7 @@ KwinFlat
 			Update40\Update40.js
 			Update40\Update40BODY.php
 			Update40\Update40HEAD.php
+		android-chrome-192x192.png
 		Common.php
 		Home.css
 		index.php
@@ -135,45 +136,38 @@ KwinFlat
 		iniWorkSpace.php
 		KwinFlat.md
 		KwinFlat.ppr
+		kwinflat-log.txt
 		manifest.json
 		Meet40.html
 [Open project files]
 0=index.php
-1=Update40\Update40.js
-2=iniMem.php
-3=Update40\Update40BODY.php
-4=TKvizzyMaker\CommonStreamMaker.php
-5=TKvizzyMaker\KvizzyMakerClass.php
-6=Controller\Controller.php
-7=Controller\Controller.js
-8=Controller\multipartDigits.php
+1=Controller\j_SelImgStream.php
+2=Stream40\Stream40BODY.php
+3=Controller\Controller.js
+4=Update40\Update40.js
+5=Controller\multipartDigits.php
+6=TKvizzyMaker\CommonStreamMaker.php
 [Selected Project Files]
 Main=
-Selected=Controller\multipartDigits.php
+Selected=Update40\Update40.js
 [index.php]
 TopLine=61
 Caret=46,100
-[Update40\Update40.js]
+[Controller\j_SelImgStream.php]
 TopLine=1
-Caret=71,25
-[iniMem.php]
-TopLine=9
-Caret=4,23
-[Update40\Update40BODY.php]
-TopLine=23
-Caret=1,51
-[TKvizzyMaker\CommonStreamMaker.php]
-TopLine=95
-Caret=75,95
-[TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=56
-Caret=45,95
-[Controller\Controller.php]
-TopLine=19
-Caret=1,58
+Caret=22,14
+[Stream40\Stream40BODY.php]
+TopLine=1
+Caret=4,31
 [Controller\Controller.js]
-TopLine=129
-Caret=72,138
+TopLine=7
+Caret=6,40
+[Update40\Update40.js]
+TopLine=115
+Caret=26,104
 [Controller\multipartDigits.php]
-TopLine=3
-Caret=26,14
+TopLine=9
+Caret=15,31
+[TKvizzyMaker\CommonStreamMaker.php]
+TopLine=59
+Caret=1,1

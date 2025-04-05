@@ -37,7 +37,8 @@ $(document).ready(function()
     // через заданный интервал времени
     MakeImgStream();
   }
-  ,250)
+  ,42)
+//  ,250)
 });
 // ****************************************************************************
 // *               Вызвать jquery-окно для иммитации контроллера              *
@@ -110,6 +111,7 @@ function Test2()
 // ****************************************************************************
 // *           Подать изображение от виртуального контроллера                 *
 // *                   через заданный интервал времени                        *
+// * 24 кадра/сек (*60) => 1440 кадров/мин (*60) => 86400 кадров/час ~ 4Gb    *
 // ****************************************************************************
 // Выполнить начальную блокировку отправки контрольных изображений
 var CtrlImg=false;  
@@ -130,30 +132,28 @@ function MakeImgStream()
 {
   if (CtrlImg) 
   {
-    console.log('MakeImgStream');
+    //console.log('MakeImgStream');
     // Формируем асинхронный запрос с защитой от кэширования (т.е. подвешиваем
     // хвостик к запросу с помощью Math.random)
     var req = new XMLHttpRequest();
-    req.open("GET","Controller/multipartDigits.php?r="+Math.random(), true);
-    // Выполняем запрос на выборку изображения для подачи в базу данных
+    req.open("GET","Controller/multipartDigits.php?mode=1&r="+Math.random(), true);
+    // Определяем обработку ответа на запрос по выборке изображения 
     req.onload = function(event) 
     {
       var result = event.target.responseText;
-      //console.log('Запрос загружен: '+result);
       user = JSON.parse(result);
       let num=user.img[0];
-      let src=user.img[1];
       //console.log('num = '+num);
-      //console.log('src = '+src);
-      // 
+      let src=user.img[1];
       sendImage(src);
     }
     req.onreadystatechange = function() 
     {
       //console.log('Состояние изменилось!');
     }
+    // Отправляем запрос по выборку изображения для подачи в базу данных
     req.send(null);
-    // console.log('Всем привет!');
+    //console.log('Всем привет!');
   }
 }
 // ****************************************************************************
@@ -163,10 +163,9 @@ var nTime=0; var nTimeOld=0; var nFrame=0; var today = new Date();
 
 function sendImage(ImgOnStream)
 {
-  // Настраиваем параметры фрэйма
+  // Настраиваем параметры фрэйма: время с начала эпохи и номер кадра в секунде
   today = new Date();
   nTime=Math.floor(today.getTime()/1000); // время с начала эпохи
-  //console.log("nTime: "+nTime);
   if (nTime==nTimeOld) 
   {
     nFrame=nFrame+1;
@@ -178,18 +177,18 @@ function sendImage(ImgOnStream)
   // Выводим в диалог предварительный результат выполнения запроса
   htmlText="Отправить Base64-изображение на страницу Stream не удалось!";
   // Выполняем запрос
-  pathphp="Stream/index.php";
+  pathphp="Stream40/Stream40BODY.php";
   // Делаем запрос на отправку изображения 
   $.ajax({
     url: pathphp,
     type: 'POST',
-    data: {src:ImgOnStream,time:nTime,frame:nFrame},
+    data: {src:ImgOnStream,sh:SiteHost,time:nTime,frame:nFrame},
     // Выводим ошибки при выполнении запроса в PHP-сценарии
     error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
     // Обрабатываем ответное сообщение
     success: function(message)
     {
-      console.log(message);
+      //console.log(message);
     }
   });
 }
