@@ -90,6 +90,7 @@ $(document).ready(function()
 // ****************************************************************************
   function SelImgStream()
   {
+    // console.log('SelImgStream');
     // Выполняем запрос
     pathphp="Controller/j_SelImgStream.php";
     // Выбираем прежние значения времени кадра и его номера в секунде

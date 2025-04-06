@@ -21,7 +21,7 @@ require_once "Common.php";
 
 // Интервал подачи и выборки изображений в потоке
 // define ("IntStream",    1024);   //  1 раз за 1024 миллисекунды
-define ("IntStream",    42);     //  24 раза в секунду
+define ("IntStream",       42);        //  24 раза в секунду
 
 /*
 define ("RootDir",      $_SERVER['DOCUMENT_ROOT']); 

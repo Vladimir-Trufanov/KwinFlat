@@ -8,6 +8,10 @@
 // v2.0.2, 05.04.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 01.02.2025
 
+// --- Запускаем вызов четвертьсекундной (250 мкс) 
+// подачи изображения от виртуального контроллера
+var taskintr;
+
 $(document).ready(function() 
 {
   // **************************************************************************
@@ -28,6 +32,8 @@ $(document).ready(function()
 	} 
   // Выполняем начальное блокирование отправки изображений
   Lock3();
+  
+  /*
   // Запускаем вызов четвертьсекундной (250 мкс) 
   // подачи изображения от виртуального контроллера
   const intervalSrc = setInterval(
@@ -39,6 +45,7 @@ $(document).ready(function()
   }
   ,42)
 //  ,250)
+*/
 });
 // ****************************************************************************
 // *               Вызвать jquery-окно для иммитации контроллера              *
@@ -57,6 +64,7 @@ function ControllerClick()
       //clearInterval(intervalTest1);
       // Блокируем отправку изображений
       Lock3();
+      clearTimeout(taskintr);
     },
   	width: 1000,
   });
@@ -116,10 +124,25 @@ function Test2()
 // Выполнить начальную блокировку отправки контрольных изображений
 var CtrlImg=false;  
 // Запустить отправку изображений             
-function Test3()
+function Test3(mode)
 { 
-  console.log("Запускаем отправку контрольных изображений");
+  ram.set("mode",mode);   
+  console.log("Запускаем отправку контрольных изображений ["+ram.get("mode")+"]");
   CtrlImg=true; 
+  // Запускаем вызов четвертьсекундной (250 мкс) 
+  // подачи изображения от виртуального контроллера
+  if (ram.get("mode")==1) taskintr=330;
+  else if (ram.get("mode")==2) taskintr=100;
+  else taskintr=500;
+  const intervalSrc = setInterval(
+  function() 
+  {
+    // Подаём изображение от виртуального контроллера 
+    // через заданный интервал времени
+    MakeImgStream();
+  }
+  ,taskintr)
+
 }
 // Блокировать отправку изображений
 function Lock3()
@@ -132,11 +155,11 @@ function MakeImgStream()
 {
   if (CtrlImg) 
   {
-    //console.log('MakeImgStream');
+    // console.log('MakeImgStream: '+ram.get("mode"));
     // Формируем асинхронный запрос с защитой от кэширования (т.е. подвешиваем
     // хвостик к запросу с помощью Math.random)
     var req = new XMLHttpRequest();
-    req.open("GET","Controller/multipartDigits.php?mode=1&r="+Math.random(), true);
+    req.open("GET","Controller/multipartDigits.php?mode="+ram.get("mode")+"&r="+Math.random(), true);
     // Определяем обработку ответа на запрос по выборке изображения 
     req.onload = function(event) 
     {
