@@ -155,6 +155,7 @@ function MakeImgStream()
     {
       var result = event.target.responseText;
       user = JSON.parse(result);
+      //let pref=user.img[0];
       let num=user.img[0];
       //console.log('num = '+num);
       let src=user.img[1];
@@ -166,7 +167,6 @@ function MakeImgStream()
     }
     // Отправляем запрос по выборку изображения для подачи в базу данных
     req.send(null);
-    //console.log('Всем привет!');
   }
 }
 // ****************************************************************************
@@ -201,7 +201,7 @@ function sendImage(ImgOnStream)
     // Обрабатываем ответное сообщение
     success: function(message)
     {
-      //console.log(message);
+      console.log(message);
     }
   });
 }

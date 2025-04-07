@@ -472,7 +472,7 @@ function getLastStateMess(tickers)
                      console.log('sjson: '+JSON.stringify(sjson));
                   }
                   tickers.render(JSON.stringify(sjson));
-               }
+ÿ   Ḱ˱         }
             }
             // Обрабатываем ошибку в JSON-ответе 
             catch (err) 

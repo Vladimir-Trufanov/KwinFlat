@@ -24,12 +24,16 @@ if ($imgDir==imgMulti)    $file = 'imgMulti/run'.$num.'.png';
 
 // Преобразовываем изображение в Base64
 $src=ImgToBase64($file);
-
+//$src=base64_encode(file_get_contents($file));
+// Получаем префикс для 'jpeg', 'jpg', 'gif', 'png', 'webp' файлов
+//$size =getimagesize($file);
+//$pref='data:' . $size['mime'] . ';base64,';
 // Сворачиваем ответ в JSON
 $json = json_encode(array(
    'img' => array
    (
      $num,
+     //$pref,
      $src
    )
 ));
