@@ -113,6 +113,7 @@ var CtrlImg=false;
 // Запустить отправку изображений             
 function Test3(mode)
 { 
+  clearInterval(intervalSrc);
   ram.set("mode",mode);   
   // console.log("Запускаем отправку контрольных изображений ["+ram.get("mode")+"]");
   CtrlImg=true; 
