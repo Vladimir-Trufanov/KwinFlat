@@ -1,5 +1,5 @@
 <?php
-// PHP7/HTML5, EDGE/CHROME/YANDEX                      *** UpStreamBODY.php ***
+// PHP7/HTML5, EDGE/CHROME/YANDEX                      *** Stream40BODY.php ***
 
 // ****************************************************************************
 // * Stream                  Принять и записать в базу видеопоток изображений *
@@ -11,7 +11,6 @@
 // ------------------------------------------------------------------- BODY ---
 
 echo "<body>";
-$SiteHost=$_POST['sh'];
 if(!empty($_POST['src']))
 {
    MakeStream($SiteHost,$_POST['src'],$_POST['time'],$_POST['frame']);
@@ -29,6 +28,7 @@ function MakeStream($SiteHost,$src,$time,$frame)
    // Записываем изображение в базу данных
    $mess=$Kvizzy->InsertImgStream($pdo,$src,$time,$frame);
    echo $mess;
+   echo 'Hello!';
 }
 
-// <!-- --> ********************************************** UpStreamBODY.php ***
+// <!-- --> ********************************************** Stream40BODY.php ***

@@ -176,6 +176,7 @@ var nTime=0; var nTimeOld=0; var nFrame=0; var today = new Date();
 
 function sendImage(ImgOnStream)
 {
+  //console.log('SiteHost='+SiteHost);
   // Настраиваем параметры фрэйма: время с начала эпохи и номер кадра в секунде
   today = new Date();
   nTime=Math.floor(today.getTime()/1000); // время с начала эпохи
@@ -190,18 +191,20 @@ function sendImage(ImgOnStream)
   // Выводим в диалог предварительный результат выполнения запроса
   htmlText="Отправить Base64-изображение на страницу Stream не удалось!";
   // Выполняем запрос
-  pathphp="Stream40/Stream40BODY.php";
+  //pathphp="Stream40/Stream40BODY.php";
+  pathphp="Stream40/index.php";
   // Делаем запрос на отправку изображения 
   $.ajax({
     url: pathphp,
     type: 'POST',
-    data: {src:ImgOnStream,sh:SiteHost,time:nTime,frame:nFrame},
+    //data: {src:ImgOnStream,sh:SiteHost,time:nTime,frame:nFrame},
+    data: {src:ImgOnStream,time:nTime,frame:nFrame},
     // Выводим ошибки при выполнении запроса в PHP-сценарии
     error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
     // Обрабатываем ответное сообщение
     success: function(message)
     {
-      console.log(message);
+      //console.log(message);
     }
   });
 }
