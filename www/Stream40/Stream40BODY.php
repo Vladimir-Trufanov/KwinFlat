@@ -13,18 +13,16 @@
 echo "<body>";
 if(!empty($_POST['src']))
 {
-   //echo 'in';
+   echo 'in';
    //MakeStream($SiteHost,$_POST['src'],$_POST['time'],$_POST['frame']);
    
-   echo '***';
+   //echo '***';
    //echo $_POST['src'];
-   //echo (rawurldecode($_POST['src']));
-   
-   echo str_replace(' ', '+', $_POST['src']);
-   
-   
+   $Frame=str_replace(' ', '+', $_POST['src']);
+   MakeStream($SiteHost,$Frame,$_POST['time'],$_POST['frame']);
+   //echo $Frame;
    //ViewHeaders3();
-   echo '***';
+   //echo '***';
    
 } 
 echo "</body>";
