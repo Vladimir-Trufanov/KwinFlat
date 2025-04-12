@@ -13,7 +13,19 @@
 echo "<body>";
 if(!empty($_POST['src']))
 {
-   MakeStream($SiteHost,$_POST['src'],$_POST['time'],$_POST['frame']);
+   //echo 'in';
+   //MakeStream($SiteHost,$_POST['src'],$_POST['time'],$_POST['frame']);
+   
+   echo '***';
+   //echo $_POST['src'];
+   //echo (rawurldecode($_POST['src']));
+   
+   echo str_replace(' ', '+', $_POST['src']);
+   
+   
+   //ViewHeaders3();
+   echo '***';
+   
 } 
 echo "</body>";
 
@@ -28,7 +40,49 @@ function MakeStream($SiteHost,$src,$time,$frame)
    // Записываем изображение в базу данных
    $mess=$Kvizzy->InsertImgStream($pdo,$src,$time,$frame);
    echo $mess;
-   echo 'Hello!';
+   echo 'out';
 }
+
+function getRequestHeaders()
+{
+   $headers = array();
+   foreach($_SERVER as $key => $value) 
+   {
+      if (substr($key, 0, 5) <> 'HTTP_') 
+      {
+         continue;
+      }
+      $header = str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($key, 5)))));
+      $headers[$header] = $value;
+   }
+   return $headers;
+}
+
+function ViewHeaders1()
+{
+   $headers = getRequestHeaders();
+   foreach ($headers as $header => $value) 
+   {
+      echo "$header: $value <br />\n";
+   }
+}
+
+function ViewHeaders2()
+{
+   $headers = apache_request_headers();
+   foreach ($headers as $header => $value) 
+   {
+      echo "$header: $value <br />\n";
+   } 
+}
+
+function ViewHeaders3()
+{
+   foreach (getallheaders() as $name => $value) 
+   {
+      echo "$name: $value\n";
+   }
+}
+
 
 // <!-- --> ********************************************** Stream40BODY.php ***

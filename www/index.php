@@ -96,9 +96,20 @@ try
    // ---------------------------------------------------------------- BODY ---
    // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
    echo '<body>'; 
+   
+   // 1.
    if ($task=='Update40') require_once 'Update40/Update40BODY.php';
    else require_once 'Meet40/Meet40BODY.php';
+   
+   // 2.
    //phpinfo();
+   
+   // 3.
+   //$file = 'Arduino.txt';
+   //$file = 'fil1.jpg';
+   //$img  = '***'.base64_encode(file_get_contents($file)).'***';
+   //echo $img."<br>\nrttyy\n";
+   
    echo '</body>'; 
    // Завершаем разметку
    echo '</html>';

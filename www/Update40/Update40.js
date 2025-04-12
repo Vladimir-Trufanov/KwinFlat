@@ -91,6 +91,7 @@ $(document).ready(function()
   function SelImgStream()
   {
     //console.log('SelImgStream');
+  
     // Выполняем запрос
     pathphp="Controller/j_SelImgStream.php";
     // Выбираем прежние значения времени кадра и его номера в секунде
@@ -127,8 +128,8 @@ $(document).ready(function()
             $('#oldtime').html(ram.get("oldtime"));
             ram.set("oldframe",parm.frame);   
             $('#oldframe').html(ram.get("oldframe"));
-            //document.getElementById("img").src = parm.src;
-            console.log(parm.src); 
+            document.getElementById("img").src = parm.src;
+            //console.log(parm.src); 
           }
           // Если последнее изображение не изменилось,
           // то и не меняем показываемое изображение
@@ -137,6 +138,7 @@ $(document).ready(function()
             //console.log("Последнее изображение не изменилось"); 
             $('#oldtime').html(ram.get("oldtime"));
             $('#oldframe').html(ram.get("oldframe"));
+            //document.getElementById("img").src = parm.src;
           }          
           // Иначе показываем ошибку SQL-запроса SelImgStream
           else
@@ -159,7 +161,7 @@ $(document).ready(function()
 // ****************************************************************************
 function UpdateStatus(tickers)
 {
-  //console.log("UpdateStatus");               
+  // console.log("UpdateStatus");               
  
   // Выбираем последнее json-сообщение, пришедшее на State и
   // если оно отличается от предыдущего вывода, то показываем

@@ -122,7 +122,7 @@ function Test3(mode)
   // Готовим подачу кадров бегущей девочки 10 раз в секунду
   else if (ram.get("mode")==2) taskintr=100;
   // Готовим подачу фото контроллера 2 раза в секунду
-  else taskintr=500;
+  else taskintr=2500;
   // Запускаем функцию управления частотой подачи изображения
   intervalSrc = setInterval(
   function() 
@@ -142,7 +142,7 @@ function Lock3()
 // через заданный интервал времени
 function MakeImgStream()
 {
-  //console.log(taskintr);
+  console.log("MakeImgStream");
   if (CtrlImg) 
   {
     // console.log('MakeImgStream: '+ram.get("mode"));
@@ -191,7 +191,6 @@ function sendImage(ImgOnStream)
   // Выводим в диалог предварительный результат выполнения запроса
   htmlText="Отправить Base64-изображение на страницу Stream не удалось!";
   // Выполняем запрос
-  //pathphp="Stream40/Stream40BODY.php";
   pathphp="Stream40/index.php";
   // Делаем запрос на отправку изображения 
   $.ajax({
@@ -204,7 +203,7 @@ function sendImage(ImgOnStream)
     // Обрабатываем ответное сообщение
     success: function(message)
     {
-      //console.log(message);
+      console.log(message);
     }
   });
 }
