@@ -92,8 +92,7 @@
    padding-right:.5%;
 }
 
-/*
-/ * Выделяем площадки управления светодиодами * /
+/* Выделяем площадку управления светодиодом */
 #led33
 {
    / *background:LightYellow;* /
@@ -101,13 +100,7 @@
    height:50%;
    width:100%;
 }
-#led4 
-{
-   background:Honeydew; 
-   height:50%;
-   width:100%;
-}
-/ * Создаем площадку для размещения заголовков и элементов LED33 * /
+/* Создаем площадку для размещения заголовков и элементов LED33 */
 #led33{padding-left:2.6%;}
 #shsh
 {
@@ -129,19 +122,19 @@
    align-items:center;
    justify-content:center;
 }
-/ * Размещаем заголовки и элементы управления LED33 * /
-.shled33,.cled33
+/* Размещаем заголовки и элементы управления LED33 */
+.shled4,.cled4
 {
    width: 17.4%;
    margin-right:2.6%;
    text-align:center; 
 }
-.shled33
+.shled4
 {
    font-weight: 900;
    font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 16 - 8 ) + 8px );
 }
-.cled33
+.cled4
 {  
    display:flex;
    align-items:center;
@@ -153,22 +146,22 @@
    height:80%;
    border-radius:5%;
 }
-/ * Иммитируем лампочку * /
+/* Иммитируем лампочку */
 #spot
 {
    border-radius:34%;
    height: 120%;
 }
-/ * Высвечиваем события * /
-.shled33:hover
+/* Высвечиваем события */
+.shled4:hover
 {
    color:#F4A460;
 }
-.shled33:active
+.shled4:active
 {
    color:red;
 }
-/ * Определяем окно ошибок и предупреждений * /
+/* Определяем окно ошибок и предупреждений */
 #DialogWind
 {
    display:flex;
@@ -176,7 +169,7 @@
    color:red;
    font-size:calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 36 - 12 ) + 12px );
 }
-/ * Определяем поля ввода параметров управления светодиодом * /
+/* Определяем поля ввода параметров управления светодиодом */
 .Inp, .Btn
 {
    font-size:calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 20 - 8 ) + 8px );
@@ -191,6 +184,5 @@
 {
    border-radius:20%;
 }
-*/
 
 /************************************************************ Update40.css ***/

@@ -13,36 +13,36 @@
 <div id="led33">
    
    <div id=shsh>
-   <div id="shlmp" class="shled33" onclick="setRegimLed33()">
-      <p class="pshled33">ВКЛЮЧИТЬ РЕЖИМ</p>
+   <div id="shlmp" class="shled4" onclick="setRegimLed4()">
+      <p class="pshled4">ВКЛЮЧИТЬ РЕЖИМ</p>
    </div>
-   <div id="shlight" class="shled33" onclick="onLed33('pilight','light',0,100)" title="От 0% до 100%">
-      <p class="pshled33">ГОРИТ (%)</p>
+   <div id="shlight" class="shled4" onclick="onLed4('pilight','light',0,100)" title="От 0% до 100%">
+      <p class="pshled4">ГОРИТ (%)</p>
    </div>
-   <div id="shnolight" class="shled33" onclick="onLed33('pinolight','nolight',0,100)" title="От 0% до 100%">
-      <p class="pshled33">НЕТ</p>
+   <div id="shnolight" class="shled4" onclick="onLed4('pinolight','nolight',0,100)" title="От 0% до 100%">
+      <p class="pshled4">НЕТ</p>
    </div>
-   <div id="shtime" class="shled33" onclick="onLed33('pitime','time',100,100000)" title="От 100 до 100 тысяч мсек">
-      <p class="pshled33">ПЕРИОД (мсек)</p>
+   <div id="shtime" class="shled4" onclick="onLed4('pitime','time',100,100000)" title="От 100 до 100 тысяч мсек">
+      <p class="pshled4">ПЕРИОД (мсек)</p>
    </div>
-   <div id="shspot" class="shled33">
+   <div id="shspot" class="shled4">
    </div>
    </div>
 
    <div id=lplp>
-   <div id="lmp" class="cled33">
-      <p class="cp33">Led33</p>
+   <div id="lmp" class="cled4">
+      <p class="cp4">Led4</p>
    </div>
-   <div id="light" class="cled33">
-      <p id="pilight" class="cp33">10</p>
+   <div id="light" class="cled4">
+      <p id="pilight" class="cp4">10</p>
    </div>
-   <div id="nolight" class="cled33">
-      <p id="pinolight" class="cp33">90</p>
+   <div id="nolight" class="cled4">
+      <p id="pinolight" class="cp4">90</p>
    </div>
-   <div id="time" class="cled33">
-      <p id="pitime" class="cp33">1007</p>
+   <div id="time" class="cled4">
+      <p id="pitime" class="cp4">1007</p>
    </div>
-   <div id="spot" class="cled33" style="background:SandyBrown">
+   <div id="spot" class="cled4" style="background:SandyBrown">
    </div>
    </div>
 

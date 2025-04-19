@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 KwinFlat
-	+www
+	-www
 		-BP1
 			BP1\Kvizzy30.bp1
 			BP1\kwf0.png
@@ -119,7 +119,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -154,25 +154,25 @@ KwinFlat
 6=Update40\j_getLastStateMess.php
 [Selected Project Files]
 Main=
-Selected=Update40\Update40.js
+Selected=iniMem.php
 [index.php]
-TopLine=76
+TopLine=8
 Caret=17,8
 [Update40\Update40BODY.php]
-TopLine=15
-Caret=26,25
+TopLine=76
+Caret=1,89
 [Update40\Update40.js]
-TopLine=409
-Caret=8,484
+TopLine=359
+Caret=50,371
 [iniMem.php]
-TopLine=128
-Caret=1,167
+TopLine=13
+Caret=26,39
 [Update40\Update.php]
-TopLine=12
-Caret=1,51
+TopLine=1
+Caret=15,13
 [Update40\Update40.css]
-TopLine=94
-Caret=1,94
+TopLine=124
+Caret=7,137
 [Update40\j_getLastStateMess.php]
 TopLine=1
 Caret=1,1

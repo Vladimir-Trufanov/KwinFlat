@@ -22,8 +22,8 @@ $(document).ready(function()
 
   /*
    // Защищаем от мелькания UpdateLmp33()
-   $('.cled33').css('background','White');
-   $('.cled33').css('color','White'); 
+   $('.cled4').css('background','White');
+   $('.cled4').css('color','White'); 
   */
   // Создаём поле демонстрации поступающих json-сообщений для 4 последних 
   let tickers = new TTickers(4);
@@ -194,13 +194,13 @@ function ViewLed33()
    
    if (ram.get("LmpMode")==1) 
    {
-      $('.cled33').css('background','Silver');
-      $('.cled33').css('color','Black'); 
+      $('.cled4').css('background','Silver');
+      $('.cled4').css('color','Black'); 
    }
    else 
    {
-      $('.cled33').css('background','FloralWhite');
-      $('.cled33').css('color','LightSlateGray'); 
+      $('.cled4').css('background','FloralWhite');
+      $('.cled4').css('color','LightSlateGray'); 
    }
    // Окрашиваем элемент управления режимом
    if (ram.get("LmpEvent")==1) $('#lmp').css('color','red');
@@ -300,7 +300,7 @@ function getRegimLed33()
 // ****************************************************************************
 // * Задать изменение режима работы контрольного светодиода в таблице Lead:   *
 // ****************************************************************************
-function setRegimLed33()
+function setRegimLed4()
 {
    // Action=3 - прошла команда смены режима, включить режим  
    // Action=2 - прошла команда смены режима, выключить режим 
@@ -348,7 +348,7 @@ function setRegimLed33()
 // ****************************************************************************
 var diez,bemol,value,min,max;
 var bemol2,diez2,val2
-function onLed33(diezi,bemoli,mini,maxi)
+function onLed4(diezi,bemoli,mini,maxi)
 {
    diez=diezi; bemol=bemoli; min=mini; max=maxi;
    let valuex=$('#'+diez).text();
@@ -368,7 +368,7 @@ function onbLed33()
    if (value<min) value=min
    else if (value>max) value=max;
    //console.log(value.toString());
-   $('#'+bemol).html('<p id="'+diez+'" class="cp33">'+value.toString()+'</p>');
+   $('#'+bemol).html('<p id="'+diez+'" class="cp4">'+value.toString()+'</p>');
    $('#'+bemol).css('background','Silver');
    // Выполняем контроль процентов
    if ((bemol=='light')||(bemol=='nolight')) 
@@ -376,7 +376,7 @@ function onbLed33()
       if (bemol=='light') bemol2='nolight'; else bemol2='light'; 
       if (diez=='pilight') diez2='pinolight'; else diez2='pilight';
       val2=100-value; 
-      $('#'+bemol2).html('<p id="'+diez2+'" class="cp33">'+val2.toString()+'</p>');
+      $('#'+bemol2).html('<p id="'+diez2+'" class="cp4">'+val2.toString()+'</p>');
    }
 }
 */ 
