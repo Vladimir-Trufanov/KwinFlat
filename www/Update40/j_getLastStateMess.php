@@ -15,8 +15,8 @@ define ("SiteHost",    $_POST['sh']);
 // Подгружаем нужные модули библиотек
 require_once pathPhpPrown."/CommonPrown.php";
 // Подключаем объект для работы с базой данных моего хозяйства
-require_once "Common.php";  
-require_once "TTools/TKvizzyMaker/KvizzyMakerClass.php";
+require_once "../Common.php";  
+require_once "../TKvizzyMaker/KvizzyMakerClass.php";
 $Kvizzy=new ttools\KvizzyMaker(SiteHost);
 // Подключаемся к базе данных
 $pdo=$Kvizzy->BaseConnect();

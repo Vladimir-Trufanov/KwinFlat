@@ -162,6 +162,8 @@ function DefineJS($SiteHost,$urlHome)
    'SiteHost="'            .$SiteHost.'";'."\n".
    'urlHome="'             .$urlHome.'";'."\n".
    'IntStream="'           .IntStream.'";'."\n".
+   'pathPhpPrown="'        .pathPhpPrown.'";'."\n".
+   'pathPhpTools="'        .pathPhpTools.'";'."\n".
    '</script>'."\n";
    echo $define;
 } 

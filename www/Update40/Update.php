@@ -49,10 +49,4 @@
 </div>
 <?php
 
-echo '<div id="led4" onclick="ControllerClick()">';
-echo 'led4 <br>';
-require_once("Controller/Controller.php"); 
-echo '<br>';
-echo '</div>';
-
 // <!-- --> **************************************************** Update.php ***

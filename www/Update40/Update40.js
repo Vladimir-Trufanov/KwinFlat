@@ -24,24 +24,27 @@ $(document).ready(function()
    // Защищаем от мелькания UpdateLmp33()
    $('.cled33').css('background','White');
    $('.cled33').css('color','White'); 
-   // Создаём поле демонстрации поступающих json-сообщений для 4 последних 
-   let tickers = new TTickers(4);
-   // Обеспечиваем остановку изменения массива состояний и изменение курсора 
-   // при наезде на поле демонстрации поступающих json-сообщений
-   // (другие события на странице не останавливаются)
-   this.tickCursor=$("#tickers").css('cursor');
-   $('#tickers').hover(
-      function () 
-      {
-         tickers.noRender();
-         $('#tickers').css('cursor','wait');      
-      },
-      function () 
-      {
-         tickers.yesRender();
-         $('#tickers').css('cursor',this.tickCursor);      
-      }
-   );
+  */
+  // Создаём поле демонстрации поступающих json-сообщений для 4 последних 
+  let tickers = new TTickers(4);
+  // Обеспечиваем остановку изменения массива состояний и изменение курсора 
+  // при наезде на поле демонстрации поступающих json-сообщений
+  // (другие события на странице не останавливаются)
+  this.tickCursor=$("#tickers").css('cursor');
+  $('#tickers').hover(
+    function () 
+    {
+      tickers.noRender();
+      $('#tickers').css('cursor','wait');      
+    },
+    function () 
+    {
+      tickers.yesRender();
+      $('#tickers').css('cursor',this.tickCursor);      
+    }
+  );
+  
+  /*
    // Инициируем параметры хранилища при первом запуске в браузере:
    
    // Задаем событие по режиму (1 - прошла команда смены режима, 0 - пришло подтверждение от контроллера)
@@ -86,7 +89,7 @@ $(document).ready(function()
   {
     //console.log('SelImgStream');
     // Выполняем запрос
-    pathphp="Controller/j_SelImgStream.php";
+    pathphp="Update40/j_SelImgStream.php";
     // Выбираем прежние значения времени кадра и его номера в секунде
     ram.get("oldtime",0);
     ram.get("oldframe",0);
@@ -158,7 +161,7 @@ function UpdateStatus(tickers)
  
   // Выбираем последнее json-сообщение, пришедшее на State и
   // если оно отличается от предыдущего вывода, то показываем
-  //getLastStateMess(tickers);
+  getLastStateMess(tickers);
   // Обновляем параметры хранилища по показаниям режима работы 
   // контрольного светодиода в таблице Lead и
   // изображения управляющих элементов контрольного светодиода      
@@ -375,65 +378,65 @@ function onbLed33()
       val2=100-value; 
       $('#'+bemol2).html('<p id="'+diez2+'" class="cp33">'+val2.toString()+'</p>');
    }
-} 
+}
+*/ 
 // ****************************************************************************
 // *                   Получить последнее json-сообщение на State             *
 // ****************************************************************************
 function getLastStateMess(tickers)
 {
-   // Выводим в диалог предварительный результат выполнения запроса
-   htmlText="Выбрать json-сообщение на State не удалось!";
-   // Выполняем запрос
-   pathphp="j_getLastStateMess.php";
-   // Делаем запрос последнего json-сообщения на State 
-   $.ajax({
-      url: pathphp,
-      type: 'POST',
-      data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
-      // Выводим ошибки при выполнении запроса в PHP-сценарии
-      error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
-      // Обрабатываем ответное сообщение
-      success: function(message)
+  // Выводим в диалог предварительный результат выполнения запроса
+  htmlText="Выбрать json-сообщение на State не удалось!";
+  // Выполняем запрос
+  pathphp="Update40/j_getLastStateMess.php";
+  // Делаем запрос последнего json-сообщения на State 
+  $.ajax({
+    url: pathphp,
+    type: 'POST',
+    data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
+    // Выводим ошибки при выполнении запроса в PHP-сценарии
+    error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
+    // Обрабатываем ответное сообщение
+    success: function(message)
+    {
+      //console.log(message);
+      // Вырезаем из запроса чистое сообщение
+      let Fresh=FreshLabel(message);
+      // Если чистое сообщение не вырезалось, считаем, что это ошибка и
+      // диагностируем её
+      if (Fresh=='NoFresh')
       {
-         // Трассируем полный json-ответ
-         // DialogWind(message);
-         // Вырезаем из запроса чистое сообщение
-         let Fresh=FreshLabel(message);
-         // Если чистое сообщение не вырезалось, считаем, что это ошибка и
-         // диагностируем её
-         if (Fresh=='NoFresh')
-         {
-            console.log(message);
-            DialogWind(message);
-         }
-         // Иначе считаем, что ответ на запрос пришел и можно
-         // парсить сообщение
-         else 
-         {
-            messa=Fresh;
-            // DialogWind(messa);
-
-            // Строим try catch, чтобы поймать ошибку в JSON-ответе
-            try 
-            {
-               parm=JSON.parse(messa);
-               // Если ошибка SQL-запроса (SelectLed33)
-               if (parm.cycle<0) 
-               {
-                  if (parm.cycle==-1) 
-                     DialogWind(
-                     'Создана таблица базы данных State.\n'+
-                     'Сообщений от контроллера ещё не поступало!');
-                  else
-                     DialogWind(parm.cycle+': '+parm.sjson);
-               }
-               // Выводим результаты выполнения (параметры ответа)
-               // (отрабатываем распарсенный ответ)
-               else
-               {
-                  // Трассируем чистое сообщение, без метки
-                  // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led33":[{"status":"inLOW"}]}}
-                  // DialogWind(messa);
+        console.log(message);
+        DialogWind(message);
+      }
+      // Иначе считаем, что ответ на запрос пришел и можно
+      // парсить сообщение
+      else 
+      {
+        messa=Fresh;
+        console.log(messa);
+        /*
+        // Строим try catch, чтобы поймать ошибку в JSON-ответе
+        try 
+        {
+          parm=JSON.parse(messa);
+          // Если ошибка SQL-запроса
+          if (parm.cycle<0) 
+          {
+            if (parm.cycle==-1) DialogWind(
+              'Создана таблица базы данных State.\n'+
+              'Сообщений от контроллера ещё не поступало!');
+            else DialogWind(parm.cycle+': '+parm.sjson);
+          }
+          // Выводим результаты выполнения (параметры ответа)
+          // (отрабатываем распарсенный ответ)
+          else
+          {
+            // Трассируем чистое сообщение, без метки
+            // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led33":[{"status":"inLOW"}]}}
+            console.log(messa);
+            / *
+            
                   cycle=parm.cycle;
                   $('#cycle').html("cycle: "+cycle.toString());
                   sjson=parm.sjson;
@@ -468,20 +471,20 @@ function getLastStateMess(tickers)
                      console.log('sjson: '+JSON.stringify(sjson));
                   }
                   tickers.render(JSON.stringify(sjson));
-       }
-            }
-            // Обрабатываем ошибку в JSON-ответе 
-            catch (err) 
-            {
-               console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
-               DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
-            }
-
-         }
+            * /
+          }
+        }
+        // Обрабатываем ошибку в JSON-ответе 
+        catch (err) 
+        {
+          console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
+          DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
+        }
+        */
       }
-   });
+    }
+  });
 }
-*/
 // ****************************************************************************
 // *                 Вывести диалоговое сообщение от ошибке                   *
 // ****************************************************************************

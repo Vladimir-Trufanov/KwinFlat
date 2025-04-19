@@ -22,7 +22,7 @@ echo '<div id="Left">';
    echo '<div id="Article">';
    // Размещаем поле контроля значений датчиков, состояний устройств и 
    // контроллеров, а также управления ими
-   //require_once("Update/Update.php"); 
+   require_once("Update40/Update.php"); 
    echo '</div>';
 
    echo '<div id="Footer">';
