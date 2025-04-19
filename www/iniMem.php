@@ -20,8 +20,9 @@ require_once "Common.php";
 // ---------------------------------- Межязыковые (PHP-JScript) определения ---
 
 // Интервал подачи и выборки изображений в потоке
-define ("IntStream",    2048);   //  1 раз за 1024 миллисекунды
-//define ("IntStream",       42);        //  24 раза в секунду
+// define ("IntStream", 2048);   //  1 раз за 1024 миллисекунды
+// define ("IntStream", 42);     //  24 раза в секунду
+define ("IntStream", 84);        //  12 раз в секунду
 
 /*
 define ("RootDir",      $_SERVER['DOCUMENT_ROOT']); 

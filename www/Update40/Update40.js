@@ -9,17 +9,11 @@
 
 $(document).ready(function() 
 {
-
-
   /*
   console.log('SiteHost:  '+SiteHost);
   console.log('urlHome:   '+urlHome);
   console.log('IntStream: '+IntStream);
   */
-  
-  //$('#pptime').html('1234');
-  //$('#ppframe').html('7');
-
   // Создаём объект для работы с localStorage
   ram = new TStorage; 
   // Выбираем последнее изображение 24 (или 1 раз за 1024 миллисекунды) раза в секунду
@@ -91,7 +85,6 @@ $(document).ready(function()
   function SelImgStream()
   {
     //console.log('SelImgStream');
-  
     // Выполняем запрос
     pathphp="Controller/j_SelImgStream.php";
     // Выбираем прежние значения времени кадра и его номера в секунде

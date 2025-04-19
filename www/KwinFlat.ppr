@@ -114,7 +114,7 @@ KwinFlat
 		+Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -142,41 +142,29 @@ KwinFlat
 		Meet40.html
 [Open project files]
 0=index.php
-1=Controller\Controller.js
-2=Controller\Controller.php
-3=Controller\multipartDigits.php
-4=Update40\Update40BODY.php
-5=Update40\Update40.js
-6=fon.txt
-7=Stream40\Stream40BODY.php
-8=TKvizzyMaker\CommonStreamMaker.php
+1=Update40\Update40BODY.php
+2=Update40\Update40.js
+3=iniMem.php
+4=Stream40\Stream40BODY.php
+5=Controller\Controller.js
 [Selected Project Files]
 Main=
-Selected=Stream40\Stream40BODY.php
+Selected=Controller\Controller.js
 [index.php]
-TopLine=78
-Caret=4,102
-[Controller\Controller.js]
-TopLine=171
-Caret=7,206
-[Controller\Controller.php]
-TopLine=29
-Caret=1,1
-[Controller\multipartDigits.php]
 TopLine=1
-Caret=1,32
+Caret=17,8
 [Update40\Update40BODY.php]
-TopLine=51
+TopLine=27
 Caret=3,65
 [Update40\Update40.js]
-TopLine=107
-Caret=15,132
-[fon.txt]
+TopLine=177
+Caret=1,88
+[iniMem.php]
 TopLine=1
-Caret=1,3
+Caret=44,25
 [Stream40\Stream40BODY.php]
 TopLine=9
-Caret=48,21
-[TKvizzyMaker\CommonStreamMaker.php]
-TopLine=61
-Caret=1,1
+Caret=6,37
+[Controller\Controller.js]
+TopLine=169
+Caret=9,202

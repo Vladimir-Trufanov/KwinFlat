@@ -5,7 +5,7 @@
 // *                                                           из окна jquiry *
 // ****************************************************************************
 
-// v2.0.3, 07.04.2025                                 Автор:      Труфанов В.Е.
+// v2.0.4, 19.04.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 01.02.2025
 
 // Готовим переменные обслуживания
@@ -118,11 +118,11 @@ function Test3(mode)
   // console.log("Запускаем отправку контрольных изображений ["+ram.get("mode")+"]");
   CtrlImg=true; 
   // Готовим подачу цифр 3 раза в секунду
-  if (ram.get("mode")==1) taskintr=330;
-  // Готовим подачу кадров бегущей девочки 10 раз в секунду
-  else if (ram.get("mode")==2) taskintr=100;
+  if (ram.get("mode")==1) taskintr=333;
+  // Готовим подачу кадров бегущей девочки 12 раз в секунду
+  else if (ram.get("mode")==2) taskintr=84;
   // Готовим подачу фото контроллера 2 раза в секунду
-  else taskintr=2500;
+  else taskintr=500;
   // Запускаем функцию управления частотой подачи изображения
   intervalSrc = setInterval(
   function() 
@@ -142,7 +142,7 @@ function Lock3()
 // через заданный интервал времени
 function MakeImgStream()
 {
-  console.log("MakeImgStream");
+  //console.log("MakeImgStream");
   if (CtrlImg) 
   {
     // console.log('MakeImgStream: '+ram.get("mode"));
@@ -155,9 +155,7 @@ function MakeImgStream()
     {
       var result = event.target.responseText;
       user = JSON.parse(result);
-      //let pref=user.img[0];
       let num=user.img[0];
-      //console.log('num = '+num);
       let src=user.img[1];
       sendImage(src);
     }
@@ -176,7 +174,6 @@ var nTime=0; var nTimeOld=0; var nFrame=0; var today = new Date();
 
 function sendImage(ImgOnStream)
 {
-  //console.log('SiteHost='+SiteHost);
   // Настраиваем параметры фрэйма: время с начала эпохи и номер кадра в секунде
   today = new Date();
   nTime=Math.floor(today.getTime()/1000); // время с начала эпохи
@@ -196,14 +193,13 @@ function sendImage(ImgOnStream)
   $.ajax({
     url: pathphp,
     type: 'POST',
-    //data: {src:ImgOnStream,sh:SiteHost,time:nTime,frame:nFrame},
     data: {src:ImgOnStream,time:nTime,frame:nFrame},
     // Выводим ошибки при выполнении запроса в PHP-сценарии
     error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
     // Обрабатываем ответное сообщение
     success: function(message)
     {
-      console.log(message);
+      //console.log(message);
     }
   });
 }
