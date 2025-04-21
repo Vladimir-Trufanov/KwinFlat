@@ -15,6 +15,17 @@ require_once("CommonStateMaker.php");
 require_once("CommonLeadMaker.php"); 
 require_once("CommonStreamMaker.php"); 
 
+// ---------------------------------------------------------- МЕТОДЫ КЛАССА ---
+// SelectLed4($pdo);                                - Выбрать запись из таблицы базы данных State по Led4
+// UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led4 
+// --BaseConnect();                                    - Открыть соединение с базой данных
+// --BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
+// --SelChange($pdo);                                  - Выбрать изменения состояний     
+// --SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led33   
+// --UpdateModeLMP33($pdo,$action);                    - Обновить установку по режиму работы контрольного светодиода  
+// InsertImgStream($pdo,$src);                         - Вставить текущее изображение
+// ----------------------------------------------------------------------------
+
 class KvizzyMaker
 {
    // ----------------------------------------------------- СВОЙСТВА КЛАССА ---
@@ -22,16 +33,6 @@ class KvizzyMaker
    protected $username;        // логин для доступа к базе данных
    protected $password;        // пароль
    protected $email;           // email посетителя
-   // ------------------------------------------------------- МЕТОДЫ КЛАССА ---
-   // --BaseConnect();                                    - Открыть соединение с базой данных
-   // --BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
-   // --SelChange($pdo);                                  - Выбрать изменения состояний     
-   // --SelectLed33($pdo);                                - Выбрать запись из таблицы базы данных State по Led33 
-   // --SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led33   
-   // --UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led33 
-   // --UpdateModeLMP33($pdo,$action);                    - Обновить установку по режиму работы контрольного светодиода  
-   // InsertImgStream($pdo,$src);                         - Вставить текущее изображение
-   // -------------------------------------------------------------------------
 
    public function __construct($SiteHost) 
    {
@@ -60,22 +61,22 @@ class KvizzyMaker
       $table=_SelChange($pdo);
       return $table;
    }
-   // Выбрать запись из таблицы базы данных State по Led33  
-   public function SelectLed33($pdo)
+   // Выбрать запись из таблицы базы данных State по Led4  
+   public function SelectLed4($pdo)
    {
-      $table=_SelectLed33($pdo);
+      $table=_SelectLed4($pdo);
       return $table;
+   }
+   // Обновить запись в таблице базы данных State по Led4 
+   public function UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson)
+   {
+      _UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);
    }
    // Выбрать запись режима работы контрольного светодиода Led33   
    public function SelectLMP33($pdo)
    {
       $table=_SelectLMP33($pdo);
       return $table;
-   }
-   // Обновить запись в таблице базы данных State по Led33 
-   public function UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson)
-   {
-      _UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);
    }
    // Обновить установку по режиму работы контрольного светодиода  
    public function UpdateModeLMP33($pdo,$action)

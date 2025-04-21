@@ -414,7 +414,7 @@ function getLastStateMess(tickers)
       else 
       {
         messa=Fresh;
-        console.log(messa);
+        //console.log(messa);
         /*
         // Строим try catch, чтобы поймать ошибку в JSON-ответе
         try 

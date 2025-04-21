@@ -4,15 +4,15 @@
 
 // ****************************************************************************
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
-// *                            для базы данных json-сообщений страницы State *
+// *                          для базы данных json-сообщений страницы State40 *
 // *                                                                          *
-// * v1.0.2, 29.01.2025                            Автор:       Труфанов В.Е. *
+// * v2.0.0, 21.04.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  07.01.2025 *
 // ****************************************************************************
 
-// _CreateStateTables($pdo);                         - Создать таблицу базы данных State
-// _SelectLed33($pdo);                               - Выбрать запись из таблицы базы данных State по Led33
-// _UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson); - Обновить запись в таблице базы данных State по Led33 
+// _CreateStateTables($pdo);                         - Создать таблицы базы данных State
+// _SelectLed4($pdo);                                - Выбрать запись из таблицы базы данных State по Led4
+// _UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led4 
  
 // ****************************************************************************
 // *                       Создать таблицы базы данных State                  *
@@ -20,32 +20,32 @@
 function _CreateStateTables($pdo)
 {
    // Создаём таблицу последнего полученного состояния Led33
-   $sql='CREATE TABLE Led33 ('.
+   $sql='CREATE TABLE Led4 ('.
       'myTime    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // абсолютное время в секундах с начала эпохи UNIX
       'myDate    VARCHAR NOT NULL UNIQUE,'.              // date("y-m-d h:i:s");
       'cycle     INTEGER NOT NULL,'.                     // цикл выдачи контроллером json-сообщения
       'sjson     VARCHAR NOT NULL)';                     // json-сообщение
    $st = $pdo->query($sql);
    // Добавляем первую и единственную запись по Led33
-   $statement = $pdo->prepare("INSERT INTO [Led33] ".
+   $statement = $pdo->prepare("INSERT INTO [Led4] ".
       "([myTime],[myDate],[cycle],[sjson]) VALUES ".
       "(:myTime, :myDate, :cycle, :sjson);");
    $statement->execute([
       "myTime" => time(),
       "myDate" => date("y-m-d H:i:s"),
       "cycle"  => -1,
-      "sjson"  => '{"led33":[{"status":"First"}]}',
+      "sjson"  => '{"led4":[{"status":"First"}]}',
    ]);
 }
 // ****************************************************************************
-// *             Выбрать запись из таблицы базы данных State по Led33         *
+// *             Выбрать запись из таблицы базы данных State по Led4          *
 // ****************************************************************************
-function _SelectLed33($pdo)
+function _SelectLed4($pdo)
 {
    try 
    {
       $pdo->beginTransaction();
-      $cSQL='SELECT myTime,myDate,cycle,sjson FROM Led33';
+      $cSQL='SELECT myTime,myDate,cycle,sjson FROM Led4';
       $stmt = $pdo->query($cSQL);
       $table = $stmt->fetchAll();
       if (count($table)>0) $table=[
@@ -67,14 +67,14 @@ function _SelectLed33($pdo)
    return $table;
 }
 // ****************************************************************************
-// *               Обновить запись в таблице базы данных State по Led33       *
+// *               Обновить запись в таблице базы данных State по Led4        *
 // ****************************************************************************
-function _UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson)
+function _UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson)
 {
    try 
    {
       $pdo->beginTransaction();
-      $statement = $pdo->prepare("UPDATE [Led33] ".
+      $statement = $pdo->prepare("UPDATE [Led4] ".
          "SET [myTime]=:myTime, [myDate]=:myDate, [cycle]=:cycle, [sjson]=:sjson;");
       $statement->execute([
          "myTime" => $myTime,
