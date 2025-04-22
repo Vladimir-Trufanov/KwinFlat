@@ -17,11 +17,6 @@ browscap=/home/kwinflatht/browscap.ini
 browscap=/home/u542632/browscap.ini
 */
 
-// Реестр json-сообщений на страницу State
-define ('s4_HIGH',  '{\"led4\":[{\"status\":\"shimHIGH\"}]}');  // "вспышка включена"
-define ('s4_LOW',   '{\"led4\":[{\"status\":\"shimLOW\"}]}');   // "вспышка ВЫКЛЮЧЕНА"
-define ('s4_MODE0', '{\"led4\":[{\"regim\":0}]}');              // "режим работы вспышки отключен"
-
 // Рабочий запрос: http://localhost:100/State40/?cycle=1095&sjson={"led4":[{"status":"shimLOW"}]}
 // Рабочий запрос: http://localhost:100/State40/?cycle=1095&sjson={"led4":[{"status":"shimHIGH"}]}
 

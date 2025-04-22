@@ -26,6 +26,34 @@ require_once "Common.php";
 // define ("IntStream", 42);     //  24 раза в секунду
 define ("IntStream", 84);        //  12 раз в секунду
 
+// Реестр json-сообщений на страницу State
+define ('s4_HIGH',  '{\"led4\":[{\"status\":\"shimHIGH\"}]}');  // "вспышка включена"
+define ('s4_LOW',   '{\"led4\":[{\"status\":\"shimLOW\"}]}');   // "вспышка ВЫКЛЮЧЕНА"
+define ('s4_MODE0', '{\"led4\":[{\"regim\":0}]}');              // "режим работы вспышки отключен"
+
+// ****************************************************************************
+// *               Объявить переменные и константы JavaScript,                *
+// *                   соответствующие определениям в PHP                     *
+// ****************************************************************************
+function DefineJS($SiteHost,$urlHome)
+{
+   $define="\n".
+   '<script>'."\n".
+   'SiteHost="'            .$SiteHost.'";'."\n".
+   'urlHome="'             .$urlHome.'";'."\n".
+   'IntStream="'           .IntStream.'";'."\n".
+   'pathPhpPrown="'        .pathPhpPrown.'";'."\n".
+   'pathPhpTools="'        .pathPhpTools.'";'."\n".
+   'nstYes="'              .nstYes.'";'."\n".
+   'nstNo="'               .nstNo.'";'."\n".
+   'vController="'         .vController.'";'."\n".
+   's4_HIGH="'             .s4_HIGH.'";'."\n".
+   's4_LOW="'              .s4_LOW.'";'."\n".
+   's4_MODE0="'            .s4_MODE0.'";'."\n".
+   '</script>'."\n";
+   echo $define;
+} 
+
 /*
 define ("RootDir",      $_SERVER['DOCUMENT_ROOT']); 
 define ("RootUrl",      $_SERVER['SCRIPT_NAME']); 
@@ -148,25 +176,6 @@ $device_type = $browseri['device_type'];
 // При запросе через $UserAgent=ESP32HTTPClient
 if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
 
-// ****************************************************************************
-// *               Объявить переменные и константы JavaScript,                *
-// *                   соответствующие определениям в PHP                     *
-// ****************************************************************************
-function DefineJS($SiteHost,$urlHome)
-{
-   $define="\n".
-   '<script>'."\n".
-   'SiteHost="'            .$SiteHost.'";'."\n".
-   'urlHome="'             .$urlHome.'";'."\n".
-   'IntStream="'           .IntStream.'";'."\n".
-   'pathPhpPrown="'        .pathPhpPrown.'";'."\n".
-   'pathPhpTools="'        .pathPhpTools.'";'."\n".
-   'nstYes="'              .nstYes.'";'."\n".
-   'nstNo="'               .nstNo.'";'."\n".
-   'vController="'         .vController.'";'."\n".
-   '</script>'."\n";
-   echo $define;
-} 
    // Добавляем к штатным, дополнительные контроли правильности заполнения адреса электронной почты и пароля
    // (по опыту будем их вставлять в обработчик addEventListener нежели в blur)
    /*
