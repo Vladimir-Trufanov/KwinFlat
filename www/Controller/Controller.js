@@ -87,12 +87,14 @@ function Test1()
     // Поочередно посылаем сообщение, зажигая или гася лампочку 
     if (modeTest1)
     {
-      SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
+      //SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
+      SendRequest(urlHome+'/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
       modeTest1=false;
     }
     else
     {
-      SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimLOW"}]}');
+      //SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimLOW"}]}');
+      SendRequest(urlHome+'/State40/?cycle=1195&sjson={"led4":[{"status":"shimLOW"}]}');
       modeTest1=true;
     }
   }
