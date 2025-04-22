@@ -10,8 +10,9 @@
 
 // Готовим переменные обслуживания
 // подачи изображений от виртуального контроллера в базу данных
-var taskintr;     // текущий интервал подачи изображений
-var intervalSrc;  // идентификатор функции управления частотой подачи изображений
+var taskintr;       // текущий интервал подачи изображений
+var intervalSrc;    // id функции управления частотой подачи изображений
+var intervalTest1;  // id функции передачи сообщения о смене состояния led4
 
 $(document).ready(function() 
 {
@@ -37,7 +38,6 @@ $(document).ready(function()
 // ****************************************************************************
 // *               Вызвать jquery-окно для иммитации контроллера              *
 // ****************************************************************************
-//var intervalTest1;    // id функции передачи сообщения о смене состояния led4
 function ControllerClick()
 { 
   // По текущему состоянию режима окрашиваем фон элементов управления Led4 
@@ -48,7 +48,7 @@ function ControllerClick()
     beforeClose: function(event,ui) 
     {
       // Останавливаем передачу сообщения о смене состояния led4
-      //clearInterval(intervalTest1);
+      clearInterval(intervalTest1);
       // Останавливаем отправку изображений
       Lock3();
       clearInterval(intervalSrc);
@@ -61,38 +61,42 @@ function ControllerClick()
 // ****************************************************************************
 function SendRequest(url)
 { 
-   const Http = new XMLHttpRequest();
-   Http.open("GET",url);
-   Http.send();
-   /*
-   Http.onreadystatechange = (e) => 
-   {
-      console.log(Http.responseText); 
-   }
-   */
+  const Http = new XMLHttpRequest();
+  Http.open("GET",url);
+  // Определяем обработку ответа на запрос по выборке изображения 
+  Http.onload = function(event) 
+  {
+    var result = event.target.responseText;
+    //console.log(result); 
+  }
+  Http.send();
+  /*
+  Http.onreadystatechange = (e) => 
+  {
+    console.log(Http.responseText); 
+  }
+  */
 }
 function Test1()
 {
   console.log("Test1()");               
-  /*
-   let modeTest1=true;
-   intervalTest1=setInterval(function() 
-   {
-      // console.log("Test1"); 
-      // Поочередно посылаем сообщение, зажигая или гася лампочку 
-      if (modeTest1)
-      {
-         SendRequest('http://localhost:100/State/?cycle=195&sjson={"led4":[{"status":"inHIGH"}]}');
-         modeTest1=false;
-      }
-      else
-      {
-         SendRequest('http://localhost:100/State/?cycle=195&sjson={"led4":[{"status":"inLOW"}]}');
-         modeTest1=true;
-      }
-   }
-   ,1000)
-  */
+  let modeTest1=true;
+  intervalTest1=setInterval(function() 
+  {
+    // console.log("Test1"); 
+    // Поочередно посылаем сообщение, зажигая или гася лампочку 
+    if (modeTest1)
+    {
+      SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
+      modeTest1=false;
+    }
+    else
+    {
+      SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimLOW"}]}');
+      modeTest1=true;
+    }
+  }
+  ,3000)
 }
 // ****************************************************************************
 // *               Test2            *
