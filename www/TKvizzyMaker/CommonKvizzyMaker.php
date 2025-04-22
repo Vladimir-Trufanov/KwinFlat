@@ -149,7 +149,7 @@ function _CreateTables($pdo)
       // Заполняем таблицу устройств
       $aDevices=[
          [ 1,201,1,'Led04 на ESP32-CAM'],         
-         [ 2,201,1,'Led33 на ESP32-CAM'],                       
+         [ 2,201,1,'Led4 на ESP32-CAM'],                       
       ];
       $statement = $pdo->prepare("INSERT INTO [Devices] ".
          "([iddev],[idctrl],[tiddev],[namedev]) VALUES ".

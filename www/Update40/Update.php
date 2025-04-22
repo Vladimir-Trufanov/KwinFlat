@@ -10,7 +10,7 @@
 // Copyright © 2024 tve                               Дата создания: 05.10.2024
 
 ?>
-<div id="led33">
+<div id="led4">
    
    <div id=shsh>
    <div id="shlmp" class="shled4" onclick="setRegimLed4()">

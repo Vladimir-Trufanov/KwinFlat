@@ -26,7 +26,7 @@ KwinFlat
 			BP1\SelImgStream.bp1
 			BP1\sis0.png
 			BP1\Разметка Kwinflat.xls
-		-Controller
+		+Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -126,7 +126,7 @@ KwinFlat
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
 		+Update40
-			-FlipOnHover
+			+FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
 			Update40\j_getLastStateMess.php
@@ -152,29 +152,57 @@ KwinFlat
 		Meet40.html
 [Open project files]
 0=index.php
-1=State40\index.php
-2=State40\State40BODY.php
-3=TKvizzyMaker\KvizzyMakerClass.php
-4=Update40\j_getLastStateMess.php
+1=State40\State40BODY.php
+2=Controller\Controller.js
+3=Controller\Controller.php
+4=TKvizzyMaker\CommonStateMaker.php
 5=Update40\Update40.js
+6=Update40\Update.php
+7=TKvizzyMaker\CommonKvizzyMaker.php
+8=TKvizzyMaker\CommonLeadMaker.php
+9=TKvizzyMaker\CommonStreamMaker.php
+10=TKvizzyMaker\KvizzyMakerClass.php
+11=Update40\Update40.css
+12=iniMem.php
 [Selected Project Files]
 Main=
-Selected=State40\State40BODY.php
+Selected=iniMem.php
 [index.php]
 TopLine=8
 Caret=17,8
-[State40\index.php]
-TopLine=1
-Caret=1,17
 [State40\State40BODY.php]
-TopLine=1
+TopLine=11
 Caret=76,2
-[TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=13
-Caret=37,27
-[Update40\j_getLastStateMess.php]
-TopLine=1
-Caret=27,24
+[Controller\Controller.js]
+TopLine=89
+Caret=3,115
+[Controller\Controller.php]
+TopLine=22
+Caret=80,34
+[TKvizzyMaker\CommonStateMaker.php]
+TopLine=17
+Caret=53,29
 [Update40\Update40.js]
-TopLine=386
-Caret=11,417
+TopLine=448
+Caret=41,459
+[Update40\Update.php]
+TopLine=3
+Caret=15,13
+[TKvizzyMaker\CommonKvizzyMaker.php]
+TopLine=140
+Caret=25,152
+[TKvizzyMaker\CommonLeadMaker.php]
+TopLine=118
+Caret=36,130
+[TKvizzyMaker\CommonStreamMaker.php]
+TopLine=3
+Caret=110,14
+[TKvizzyMaker\KvizzyMakerClass.php]
+TopLine=80
+Caret=58,93
+[Update40\Update40.css]
+TopLine=113
+Caret=50,125
+[iniMem.php]
+TopLine=180
+Caret=50,191

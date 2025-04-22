@@ -93,15 +93,15 @@
 }
 
 /* Выделяем площадку управления светодиодом */
-#led33
+#led4
 {
    / *background:LightYellow;* /
    background:transparent; 
    height:50%;
    width:100%;
 }
-/* Создаем площадку для размещения заголовков и элементов LED33 */
-#led33{padding-left:2.6%;}
+/* Создаем площадку для размещения заголовков и элементов LED4 */
+#led4{padding-left:2.6%;}
 #shsh
 {
    display:flex;
@@ -122,7 +122,7 @@
    align-items:center;
    justify-content:center;
 }
-/* Размещаем заголовки и элементы управления LED33 */
+/* Размещаем заголовки и элементы управления LED4 */
 .shled4,.cled4
 {
    width: 17.4%;

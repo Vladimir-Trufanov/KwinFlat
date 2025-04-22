@@ -188,7 +188,7 @@ function NewSessionOld(valTimeBeg,timeElement)
 // ****************************************************************************
 function ViewLed33()
 { 
-   // По текущему состоянию режима окрашиваем фон элементов управления Led33 
+   // По текущему состоянию режима окрашиваем фон элементов управления Led4 
    // и текст на них 
    //console.log("LmpMode",ram.get("LmpMode"));               
    
@@ -263,17 +263,17 @@ function getRegimLed33()
                else
                {
                   // Обновляем параметры хранилища
-                  // {"isEvent":0,"Mode":"1","SendTime":1737365180,"ReceivTime":1737365180,"sjson":{"led33":[{"regim":1}]}}
+                  // {"isEvent":0,"Mode":"1","SendTime":1737365180,"ReceivTime":1737365180,"sjson":{"led4":[{"regim":1}]}}
                   ram.set("LmpEvent",      parm.isEvent);    // 1 - прошла команда смены режима, 0 - пришло подтверждение от контроллера
                   ram.set("LmpMode",       parm.Mode);       // 1 - включен режим, 0 - выключен режим (состояние в момент запроса)
                   ram.set("LmpSendTime",   parm.SendTime);   // время в секундах (c начала эпохи) отправки сообщения
                   ram.set("LmpReceivTime", parm.ReceivTime); // время получения ответа в секундах
                   // Парсим sjson
                   let parmi=JSON.parse(JSON.stringify(parm.sjson));
-                  // Выделяем json-подстроку по led33
-                  let led33=parmi.led33[0];
-                  // Парсим led33
-                  parmi=JSON.parse(JSON.stringify(led33));
+                  // Выделяем json-подстроку по led4
+                  let led4=parmi.led4[0];
+                  // Парсим led4
+                  parmi=JSON.parse(JSON.stringify(led4));
                   ram.set("LmpRegim",parmi.regim); // указание по режиму в последней команде (1 - включить режим, 0 - выключить)
                   / *
                   console.log("LmpEvent =",     ram.get("LmpEvent"),':',     typeof ram.get("LmpEvent"));
@@ -433,7 +433,7 @@ function getLastStateMess(tickers)
           else
           {
             // Трассируем чистое сообщение, без метки
-            // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led33":[{"status":"inLOW"}]}}
+            // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led4":[{"status":"inLOW"}]}}
             console.log(messa);
             / *
             
@@ -450,13 +450,13 @@ function getLastStateMess(tickers)
                   if ((JSON.stringify(sjson)==s33_LOW)||(JSON.stringify(sjson)==s33_HIGH))
                   {
                      parm=JSON.parse(JSON.stringify(sjson));
-                     // Выделяем json-подстроку по led33
-                     let led33=parm.led33[0];
-                     // Парсим led33
-                     parm=JSON.parse(JSON.stringify(led33));
-                     // Выделяем состояние led33 (горит - не горит)
+                     // Выделяем json-подстроку по led4
+                     let led4=parm.led4[0];
+                     // Парсим led4
+                     parm=JSON.parse(JSON.stringify(led4));
+                     // Выделяем состояние led4 (горит - не горит)
                      let status=parm.status;
-                     // Высвечиваем led33 в соответствии с состоянием
+                     // Высвечиваем led4 в соответствии с состоянием
                      //$('#status').html(status);
                      //if (status=="inHIGH") $('#spot').css('background','SandyBrown');
                      //else $('#spot').css('background','LightCyan');

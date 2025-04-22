@@ -19,14 +19,14 @@
 // ****************************************************************************
 function _CreateStateTables($pdo)
 {
-   // Создаём таблицу последнего полученного состояния Led33
+   // Создаём таблицу последнего полученного состояния Led4
    $sql='CREATE TABLE Led4 ('.
       'myTime    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // абсолютное время в секундах с начала эпохи UNIX
       'myDate    VARCHAR NOT NULL UNIQUE,'.              // date("y-m-d h:i:s");
       'cycle     INTEGER NOT NULL,'.                     // цикл выдачи контроллером json-сообщения
       'sjson     VARCHAR NOT NULL)';                     // json-сообщение
    $st = $pdo->query($sql);
-   // Добавляем первую и единственную запись по Led33
+   // Добавляем первую и единственную запись по Led4
    $statement = $pdo->prepare("INSERT INTO [Led4] ".
       "([myTime],[myDate],[cycle],[sjson]) VALUES ".
       "(:myTime, :myDate, :cycle, :sjson);");

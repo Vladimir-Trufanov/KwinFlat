@@ -21,7 +21,7 @@ require_once("CommonStreamMaker.php");
 // --BaseConnect();                                    - Открыть соединение с базой данных
 // --BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
 // --SelChange($pdo);                                  - Выбрать изменения состояний     
-// --SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led33   
+// --SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led4   
 // --UpdateModeLMP33($pdo,$action);                    - Обновить установку по режиму работы контрольного светодиода  
 // InsertImgStream($pdo,$src);                         - Вставить текущее изображение
 // ----------------------------------------------------------------------------
@@ -72,7 +72,7 @@ class KvizzyMaker
    {
       _UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);
    }
-   // Выбрать запись режима работы контрольного светодиода Led33   
+   // Выбрать запись режима работы контрольного светодиода Led4   
    public function SelectLMP33($pdo)
    {
       $table=_SelectLMP33($pdo);
@@ -90,7 +90,7 @@ class KvizzyMaker
       $messa=_InsertImgStream($pdo,$src,$time,$frame);
       return $messa;
    }
-   // Выбрать запись из таблицы базы данных State по Led33 
+   // Выбрать запись из таблицы базы данных State по Led4
    public function SelImgStream($pdo,$time,$frame)
    {
       $messa=_SelImgStream($pdo,$time,$frame);
