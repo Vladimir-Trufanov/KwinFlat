@@ -6,22 +6,108 @@
 // *                                           устройств и показаний датчиков *
 // ****************************************************************************
 
-// v3.0.0, 21.04.2025                                 Автор:      Труфанов В.Е.
+// v3.0.1, 24.04.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 08.10.2024
 
-// Инициализируем рабочее пространство: корневой каталог сайта и т.д.
-require_once '../iniWorkSpace.php';
-$_WORKSPACE=iniWorkSpace();
-$SiteHost     = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
+// ****************************************************************************
+// *        По абсолютному пути каталога выделить вышестоящий каталог         *
+// ****************************************************************************
+function Above($SiteRoot)
+{
+   $Result=$SiteRoot;
+   $Point=strrpos($Result,'\\');
+   if ($Point==0) 
+	{
+      $Point=strrpos($Result,'/');
+      if ($Point>0) {$Result=substr($SiteRoot,0,$Point);}
+   }
+   else 
+	{
+      $Result=substr($SiteRoot,0,$Point);
+   }
+   return $Result;
+}
+// ****************************************************************************
+// *          Получить значение указанного параметра из запроса к сайту       *
+// *                        (получить команду через параметр)                 *
+// ****************************************************************************
+function getComRequest($Com='Com')
+{
+   $Result=NULL;
+   if (IsSet($_REQUEST[$Com]))
+   { 
+      $Result=$_REQUEST[$Com];
+   }
+   return $Result;
+}
+// ****************************************************************************
+// *          Проверить существование и удалить файл из файловой системы      *
+// *         (используется в случаях, когда необходимо перезаполнить файл)    *
+// ****************************************************************************
+function UnlinkFile($filename)
+{
+   if (file_exists($filename)) 
+   {
+      if (!unlink($filename))
+      {
+         // Для файла базы данных выводится сообщение о неудачном удалении 
+         // в случаях:
+         //    а) база данных подключена к стороннему приложению;
+         //    б) база данных еще привязана к другому объекту класса;
+         //    в) прочее
+         throw new Exception("Не удалось удалить файл $filename!");
+      } 
+   } 
+}
 
-define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
-define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
-require_once pathPhpPrown."/CommonPrown.php";
+$SiteRoot=$_SERVER['DOCUMENT_ROOT'];  // Корневой каталог сайта
+$SiteAbove=Above($SiteRoot);          // Надсайтовый каталог
+$SiteHost=Above($SiteAbove);          // Каталог хостинга
 
-// ---------------------------------------------------------------- BODY ---
+// Подключаем реестр json-сообщений на страницу State40
+require_once "jsonState40.php";  
+// Подключаем объект для работы с базой данных моего хозяйства
+require_once "../TKvizzyMaker/KvizzyMakerClass.php";
+
 // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
 echo '<body>'; 
-require_once 'State40BODY.php';
+
+// Рабочий запрос: http://localhost:100/State40/?cycle=1095&sjson={"led4":[{"status":"shimLOW"}]}
+// Рабочий запрос: http://localhost:100/State40/?cycle=1095&sjson={"led4":[{"status":"shimHIGH"}]}
+
+// Рабочий запрос: https://probatv.ru/State40/?cycle=1095&sjson={"led4":[{"status":"shimLOW"}]}
+// Рабочий запрос: https://probatv.ru/State40/?cycle=1095&sjson={"led4":[{"status":"shimHIGH"}]}
+
+$cycle=getComRequest("cycle");
+if ($cycle==NULL) $cycle=-1;
+$sjson=getComRequest("sjson");
+if ($sjson==NULL) $sjson='{\"led4\":[{\"status\":\"Noparm\"}]}';
+$Kvizzy=new ttools\KvizzyMaker($SiteHost);
+// Подключаемся к базе данных
+$pdo=$Kvizzy->BaseConnect();
+
+$myTime = time();
+$myDate = date("y-m-d H:i:s");
+
+$Kvizzy->UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);
+
+// Если сообщение "вспышка включена"
+if ($sjson==stripslashes(s4_HIGH))
+{
+   echo s4_HIGH;
+}
+// Если сообщение "вспышка ВЫКЛЮЧЕНА"
+else if ($sjson==stripslashes(s4_LOW))
+{
+   echo s4_LOW;
+}
+// Иначе "режим работы вспышки отключен"
+else 
+{
+   echo s4_MODE0;
+   //$action=0;   // пришло подтверждение от контроллера, выключить режим   
+   //$messa=$Kvizzy->UpdateModeLMP33($pdo,$action);
+}
 echo '</body>'; 
 
 // <!-- --> ***************************************************** index.php ***

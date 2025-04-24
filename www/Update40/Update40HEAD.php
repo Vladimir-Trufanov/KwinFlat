@@ -11,7 +11,8 @@
 
 // ---------------------------------------------------------- HEAD and LAST ---
 // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
-DefineJS($SiteHost,$urlHome);
+require_once "iniPhpJS.php";  
+
 // Подключаем js и CSS
 echo '<script src="CommonTools.js"></script>';
 echo '<script src="Update40/Update40.js"></script>';
