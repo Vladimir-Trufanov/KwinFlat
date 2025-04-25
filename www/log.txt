@@ -1,4 +1,0 @@
-[19-Apr-2025 14:43:39 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'Update/Update.php' (include_path='.;C:\php\pear') in C:\KwinFlat\www\Update40\Update40BODY.php on line 25
-[21-Apr-2025 07:25:15 Asia/Kuwait] PHP Parse error:  syntax error, unexpected 'SelectLed4' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in C:\KwinFlat\www\TKvizzyMaker\KvizzyMakerClass.php on line 26
-[24-Apr-2025 07:50:26 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '../iniPhpJS.php' (include_path='.;C:\php\pear') in C:\KwinFlat\www\Update40\Update40HEAD.php on line 14
-[24-Apr-2025 07:53:17 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required '../iniPhpJS.php' (include_path='.;C:\php\pear') in C:\KwinFlat\www\Update40\Update40HEAD.php on line 14

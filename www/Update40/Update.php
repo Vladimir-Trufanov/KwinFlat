@@ -40,13 +40,16 @@
       <p id="pinolight" class="cp4">90</p>
    </div>
    <div id="time" class="cled4">
-      <p id="pitime" class="cp4">1007</p>
+      <p id="pitime" class="cp4">2000</p>
    </div>
-   <div id="spot" class="cled4" style="background:SandyBrown">
+   <div id="spot" class="cled4">
+   &#128161; 
    </div>
    </div>
 
 </div>
 <?php
-
+/*
+ style="background:red"
+ style="background:SandyBrown">*/
 // <!-- --> **************************************************** Update.php ***

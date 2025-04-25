@@ -116,16 +116,16 @@ KwinFlat
 		+State40
 			State40\index.php
 			State40\jsonState40.php
-		-Stream40
+		+Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		-TKvizzyMaker
+		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		-Update40
+		+Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -153,29 +153,17 @@ KwinFlat
 		Meet40.html
 [Open project files]
 0=index.php
-1=Controller\Controller.js
-2=Controller\multipartDigits.php
-3=Update40\Update40.js
-4=State40\jsonState40.php
-5=State40\index.php
+1=Update40\Update.php
+2=iniMem.php
 [Selected Project Files]
 Main=
-Selected=State40\index.php
+Selected=iniMem.php
 [index.php]
-TopLine=8
+TopLine=25
 Caret=1,41
-[Controller\Controller.js]
-TopLine=59
-Caret=1,71
-[Controller\multipartDigits.php]
-TopLine=3
-Caret=16,5
-[Update40\Update40.js]
-TopLine=412
-Caret=74,447
-[State40\jsonState40.php]
+[Update40\Update.php]
+TopLine=11
+Caret=13,46
+[iniMem.php]
 TopLine=1
-Caret=78,5
-[State40\index.php]
-TopLine=75
-Caret=1,96
+Caret=30,9

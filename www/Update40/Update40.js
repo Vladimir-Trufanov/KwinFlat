@@ -443,9 +443,12 @@ function getLastStateMess(tickers)
             let myDate=parm.myDate;
             $('#myDate').html("myDate: "+myDate);
                   
-            // Парсим и обрабатываем sjson
+            // ------------------------------------ Парсим и обрабатываем sjson
+            
+            // Если это sjson по горению 4 светодиода
             if ((JSON.stringify(sjson)==s4_LOW)||(JSON.stringify(sjson)==s4_HIGH))
             {
+              /*
               parm=JSON.parse(JSON.stringify(sjson));
               // Выделяем json-подстроку по led4
               let led4=parm.led4[0];
@@ -457,14 +460,16 @@ function getLastStateMess(tickers)
               $('#status').html(status);
               if (status=="shimHIGH") $('#spot').css('background','SandyBrown');
               else $('#spot').css('background','LightCyan');
+              */
             }
-            /*
-                  else if (JSON.stringify(sjson)==s33_MODE0)
-                  {
-                     console.log('s33_MODE0: '+s33_MODE0);
-                     //ram.set("LmpMode",0);  // 0 - выключен режим 
-                  }
-            */
+            // Если это sjson по режиму 4 светодиода
+            else if (JSON.stringify(sjson)==s33_MODE0)
+            {
+              /*
+              console.log('s33_MODE0: '+s33_MODE0);
+              //ram.set("LmpMode",0);  // 0 - выключен режим 
+              */
+            }
             else
             {
               console.log('sjson: '+JSON.stringify(sjson));
