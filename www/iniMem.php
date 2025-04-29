@@ -168,10 +168,6 @@ if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
    'sjson="'               .$sjson.'";'."\n".
    'RootDir="'             .RootDir.'";'."\n".
    'RootUrl="'             .RootUrl.'";'."\n".
-
-   's33_HIGH="'            .s33_HIGH.'";'."\n".
-   's33_LOW="'             .s33_LOW.'";'."\n".
-   's33_MODE0="'           .s33_MODE0.'";'."\n".
    '</script>'."\n";
    echo $define;
    */

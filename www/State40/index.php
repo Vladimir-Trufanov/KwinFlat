@@ -90,7 +90,8 @@ $myTime = time();
 $myDate = date("y-m-d H:i:s");
 
 $Kvizzy->UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);
-
+echo $sjson;
+/*
 // Если сообщение "вспышка включена"
 if ($sjson==stripslashes(s4_HIGH))
 {
@@ -108,6 +109,7 @@ else
    //$action=0;   // пришло подтверждение от контроллера, выключить режим   
    //$messa=$Kvizzy->UpdateModeLMP33($pdo,$action);
 }
+*/
 echo '</body>'; 
 
 // <!-- --> ***************************************************** index.php ***

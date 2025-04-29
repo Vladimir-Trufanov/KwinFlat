@@ -80,8 +80,6 @@ $(document).ready(function()
   UpdateStatus(tickers)
 });
 
-  // 
-
 // ****************************************************************************
 // *     Выбрать и показать последнее изображение с определённой частотой     *
 // ****************************************************************************
@@ -414,12 +412,12 @@ function getLastStateMess(tickers)
       else 
       {
         messa=Fresh;
-        //console.log(messa);
+        // console.log(messa);
         // Строим try catch, чтобы поймать ошибку в JSON-ответе
         try 
         {
           parm=JSON.parse(messa);
-          // Если ошибка SQL-запроса
+          // ---Если ошибка SQL-запроса
           if (parm.cycle<0) 
           {
             if (parm.cycle==-1) DialogWind(
@@ -433,7 +431,7 @@ function getLastStateMess(tickers)
           {
             // Трассируем чистое сообщение, без метки
             // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led4":[{"status":"inLOW"}]}}
-            // console.log(messa);
+            console.log(messa);
             cycle=parm.cycle;
             $('#cycle').html("cycle: "+cycle.toString());
             sjson=parm.sjson;
@@ -448,7 +446,6 @@ function getLastStateMess(tickers)
             // Если это sjson по горению 4 светодиода
             if ((JSON.stringify(sjson)==s4_LOW)||(JSON.stringify(sjson)==s4_HIGH))
             {
-              /*
               parm=JSON.parse(JSON.stringify(sjson));
               // Выделяем json-подстроку по led4
               let led4=parm.led4[0];
@@ -457,24 +454,23 @@ function getLastStateMess(tickers)
               // Выделяем состояние led4 (горит - не горит)
               let status=parm.status;
               // Высвечиваем led4 в соответствии с состоянием
-              $('#status').html(status);
-              if (status=="shimHIGH") $('#spot').css('background','SandyBrown');
-              else $('#spot').css('background','LightCyan');
-              */
+              // $('#status').html(status);
+              if (status=="shimHIGH") $('#spot').css('background','White');
+              else $('#spot').css('background','Silver');
             }
+            /*
             // Если это sjson по режиму 4 светодиода
             else if (JSON.stringify(sjson)==s33_MODE0)
             {
-              /*
-              console.log('s33_MODE0: '+s33_MODE0);
+              //console.log('s33_MODE0: '+s33_MODE0);
               //ram.set("LmpMode",0);  // 0 - выключен режим 
-              */
             }
             else
             {
               console.log('sjson: '+JSON.stringify(sjson));
             }
             //      tickers.render(JSON.stringify(sjson));
+            */
           }
         }
         // Обрабатываем ошибку в JSON-ответе 

@@ -68,7 +68,7 @@ function SendRequest(url)
   {
     var result = event.target.responseText;
     // Смотрим ответ от страницы urlHome+'/State40/'
-    console.log(result); 
+    // console.log(result); 
   }
   Http.send();
   /*
