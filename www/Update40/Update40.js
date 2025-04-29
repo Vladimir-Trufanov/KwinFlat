@@ -446,6 +446,7 @@ function getLastStateMess(tickers)
             // Если это sjson по горению 4 светодиода
             if ((JSON.stringify(sjson)==s4_LOW)||(JSON.stringify(sjson)==s4_HIGH))
             {
+              /*
               parm=JSON.parse(JSON.stringify(sjson));
               // Выделяем json-подстроку по led4
               let led4=parm.led4[0];
@@ -457,6 +458,7 @@ function getLastStateMess(tickers)
               // $('#status').html(status);
               if (status=="shimHIGH") $('#spot').css('background','White');
               else $('#spot').css('background','Silver');
+              */
             }
             /*
             // Если это sjson по режиму 4 светодиода

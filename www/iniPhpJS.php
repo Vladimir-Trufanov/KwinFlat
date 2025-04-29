@@ -22,11 +22,15 @@ define ("nstYes",  'объект включён');
 define ("nstNo",   'объект выключен'); 
 define("vController", nstNo);   // nstNo - вирт.контроллер выключен, nstYes - вирт.контроллер включён
 
+// Назначаем действующий режим работы вспышки
+$jlight=10;   // процент времени свечения в цикле 
+$jtime=2000;  // длительность цикла "горит - не горит" (мсек)      
+
 // ****************************************************************************
 // *               Объявить переменные и константы JavaScript,                *
 // *                   соответствующие определениям в PHP                     *
 // ****************************************************************************
-function DefineJS($SiteHost,$urlHome)
+function DefineJS($SiteHost,$urlHome,$jlight,$jtime)
 {
    $define="\n".
    '<script>'."\n".
@@ -42,11 +46,13 @@ function DefineJS($SiteHost,$urlHome)
    's4_HIGH="'             .s4_HIGH.'";'."\n".
    's4_LOW="'              .s4_LOW.'";'."\n".
    's4_MODE0="'            .s4_MODE0.'";'."\n".
+   'jlight="'              .$jlight.'";'."\n".
+   'jtime="'               .$jtime.'";'."\n".
    '</script>'."\n";
    echo $define;
 } 
 
 //  Создаем переменные и константы JavaScript, соответствующие определениям в PHP   
-DefineJS($SiteHost,$urlHome);
+DefineJS($SiteHost,$urlHome,$jlight,$jtime);
 
 // *********************************************************** iniPhpJS.php *** 
