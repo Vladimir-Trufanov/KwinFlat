@@ -33,14 +33,14 @@ function vLed4()
   
   if (Led4Status=="shimHIGH")
   {
-    console.log('nLight='+nLight); 
+    //console.log('nLight='+nLight); 
     $('#spot').css('background','White');
     Led4Intrv=nLight;
     Led4Status="shimLOW";
   } 
   else 
   {
-    console.log('nNoLight='+nNoLight); 
+    //console.log('nNoLight='+nNoLight); 
     $('#spot').css('background','Silver');
     Led4Intrv=nNoLight;
     Led4Status="shimHIGH"

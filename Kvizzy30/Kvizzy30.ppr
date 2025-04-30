@@ -6,26 +6,37 @@ Compilator.ProgSaveAll=0
 Compilator.ProgRunSelection=0
 Compilator.LogType=0
 Compilator.LogEncoding=0
-DefaultDir=C:\KwinFlat\www
+DefaultDir=C:\KwinFlat\Kvizzy30
 DefaultCP=0
 LogtoEnd=1
 DontOpen=0
 AbsolutePath=0
 FileFormat=0
 ProjectFilesOnly=0
-HTServer=localhost
 Extensions=*.*
 [Project tree]
-KwinFlat
-	+www
-		-BP1
-			BP1\Kvizzy30.bp1
-			BP1\kwf0.png
-			BP1\KwinFlat.bp1
-			BP1\MakeImgStream.bp1
-			BP1\SelImgStream.bp1
-			BP1\sis0.png
-			BP1\Разметка Kwinflat.xls
+Kvizzy30
+	+Kvizzy30
+		-.well-known
+			-pki-validation
+				.well-known\pki-validation\gsdv.txt
+		-404
+			404\404.jpg
+			404\error.css
+			404\error.php
+		-Background
+			Background\Bereg16x9.gif
+			Background\Doroga_kv.gif
+			Background\Etomjata16x9.gif
+			Background\Kaktusy_kv.gif
+			Background\Kudri_kv.gif
+			Background\Kupola_kv.gif
+			Background\Kwinflat.gif
+			Background\Ladoga_kv.gif
+			Background\Malep16x9.gif
+			Background\Razlom16x9.gif
+			Background\VnizuVoda_kv.gif
+			Background\Vodopadik_kv.gif
 		-Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
@@ -79,7 +90,24 @@ KwinFlat
 			Controller\Controller.js
 			Controller\Controller.php
 			Controller\counts.txt
+			Controller\j_SelImgStream.php
 			Controller\multipartDigits.php
+		-Dacha
+			Dacha\Dacha.css
+			Dacha\index.php
+			Dacha\iniWorkSpace.php
+			Dacha\Positions.xml
+			Dacha\Proba.xml
+			Dacha\simple_html_dom.php
+		-Entrys
+			Entrys\AddUsl.php
+			Entrys\AddZhkvar.php
+			Entrys\Authentich.php
+			Entrys\CheckPassword.php
+			Entrys\ContactUs.php
+			Entrys\Indoor.php
+			Entrys\Register.php
+			Entrys\Register_user_text.php
 		-favicon260x260
 			favicon260x260\android-chrome-192x192.png
 			favicon260x260\android-chrome-256x256.png
@@ -91,8 +119,21 @@ KwinFlat
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
 		-Images
-			-Drugie-img-v-Kvizzy30-Images
+			Images\bg_page.png
+			Images\delusl.png
+			Images\ecskursii.jpg
+			Images\Home.png
+			Images\index.html
+			Images\invalid.png
 			Images\Kwinflat.jpg
+			Images\majskij-vecher-v-karelii_2416x503.jpg
+			Images\red_asterisk.png
+			Images\star.png
+			Images\submi.png
+			Images\tick.png
+			Images\tick20.png
+			Images\underline.png
+			Images\valid.png
 		-jQuery
 			-images
 				jQuery\images\ui-icons_444444_256x240.png
@@ -105,62 +146,58 @@ KwinFlat
 			jQuery\jquery-1.11.1.min.map
 			jQuery\jquery-ui.min.css
 			jQuery\jquery-ui.min.js
-		-Lead40
-			Lead40\index.php
-			Lead40\Lead40BODY.php
-		-Meet40
-			Meet40\Meet40.css
-			Meet40\Meet40.js
-			Meet40\Meet40BODY.php
-			Meet40\Meet40HEAD.php
-		-State40
-			State40\index.php
-			State40\jsonState40.php
-		-Stream40
-			Stream40\index.php
-			Stream40\Stream40BODY.php
-		-TKvizzyMaker
-			TKvizzyMaker\CommonKvizzyMaker.php
-			TKvizzyMaker\CommonLeadMaker.php
-			TKvizzyMaker\CommonStateMaker.php
-			TKvizzyMaker\CommonStreamMaker.php
-			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
-			-FlipOnHover
-				Update40\FlipOnHover\FlipOnHover.css
-				Update40\FlipOnHover\FlipOnHover.html
-			Update40\j_getLastStateMess.php
-			Update40\j_getRegimLed33.php
-			Update40\j_SelImgStream.php
-			Update40\j_setRegimLed33.php
-			Update40\Update.php
-			Update40\Update40.css
-			Update40\Update40.js
-			Update40\Update40BODY.php
-			Update40\Update40HEAD.php
-			Update40\Update40led4.js
-		android-chrome-192x192.png
+		-Lead
+			Lead\index.php
+			Lead\log.txt
+			Lead\UpLeadBODY.php
+		-Meet
+		-Rusakov
+			Rusakov\RusakovClient.php
+			Rusakov\RusakovJs.js
+			Rusakov\RusakovLead.php
+			Rusakov\RusakovServer.php
+		-State
+			State\index.php
+			State\kwinflat-log.txt
+			State\log.txt
+			State\ParseXMLfile-LeadLEDs.xml
+			State\UpStateBODY.php
+		-Styles
+			Styles\Home.css
+			Styles\Update.css
+		+TTools
+			+TKvizzyMaker
+				TTools\TKvizzyMaker\CommonKvizzyMaker.php
+				TTools\TKvizzyMaker\CommonLeadMaker.php
+				TTools\TKvizzyMaker\CommonStateMaker.php
+				TTools\TKvizzyMaker\CommonStreamMaker.php
+				TTools\TKvizzyMaker\KvizzyMakerClass.php
+		-View
+		.htaccess
+		.user.ini
 		Common.php
 		CommonTools.js
-		Home.css
+		e404.php
+		echo-server.php
 		index.php
 		iniMem.php
-		iniPhpJS.php
 		iniWorkSpace.php
-		KwinFlat.md
-		KwinFlat.ppr
+		j_getRegimLed33.php
+		j_setRegimLed33.php
 		kwinflat-log.txt
+		LeadSocket.php
 		manifest.json
-		Meet40.html
+		photo-8i.jpg
+		socket.js
+		UpSiteBODY.php
+		UpSiteHEAD.php
+		WebSocketServer_class.php
+		ws_mess.txt
 [Open project files]
-0=TKvizzyMaker\KvizzyMakerClass.php
-1=Update40\Update.php
+0=TTools\TKvizzyMaker\CommonLeadMaker.php
 [Selected Project Files]
 Main=
-Selected=Update40\Update.php
-[TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=62
-Caret=20,82
-[Update40\Update.php]
-TopLine=1
+Selected=TTools\TKvizzyMaker\CommonLeadMaker.php
+[TTools\TKvizzyMaker\CommonLeadMaker.php]
+TopLine=113
 Caret=1,1

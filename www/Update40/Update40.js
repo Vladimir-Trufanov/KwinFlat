@@ -295,11 +295,13 @@ function getRegimLed33()
       }
    });
 }
+*/
 // ****************************************************************************
 // * Задать изменение режима работы контрольного светодиода в таблице Lead:   *
 // ****************************************************************************
 function setRegimLed4()
 {
+  /*
    // Action=3 - прошла команда смены режима, включить режим  
    // Action=2 - прошла команда смены режима, выключить режим 
    let Action; 
@@ -340,6 +342,7 @@ function setRegimLed4()
          }
       }
    });
+  */
 }
 // ****************************************************************************
 // *      Сформировать тег для ввода числа с границами, 1 шаг ввода числа     *
@@ -352,13 +355,13 @@ function onLed4(diezi,bemoli,mini,maxi)
    let valuex=$('#'+diez).text();
    $('#'+bemol).html('<input id="inpvalue" class="Inp" type="number" step="1" '+
       'min="'+min.toString()+'" max="'+max.toString()+'" value="'+valuex.toString()+'">'+
-      '<button class="Btn" onclick="onbLed33()">Ok</button>');
+      '<button class="Btn" onclick="onbLed4()">Ok</button>');
    $('#'+bemol).css('background','white');
 } 
 // ****************************************************************************
 // *    Принять число, проверить границы, записать в базу через аякс, 2 шаг   *
 // ****************************************************************************
-function onbLed33()
+function onbLed4()
 {
    //console.log(diez+'='+bemol);
    value=$('#inpvalue').val();
@@ -377,7 +380,6 @@ function onbLed33()
       $('#'+bemol2).html('<p id="'+diez2+'" class="cp4">'+val2.toString()+'</p>');
    }
 }
-*/ 
 // ****************************************************************************
 // *                   Получить последнее json-сообщение на State             *
 // ****************************************************************************
@@ -431,7 +433,7 @@ function getLastStateMess(tickers)
           {
             // Трассируем чистое сообщение, без метки
             // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led4":[{"status":"inLOW"}]}}
-            console.log(messa);
+            //console.log(messa);
             cycle=parm.cycle;
             $('#cycle').html("cycle: "+cycle.toString());
             sjson=parm.sjson;
