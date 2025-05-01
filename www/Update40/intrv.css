@@ -1,0 +1,130 @@
+/* -----------------------------------------------------------------------
+ Стилизация таблицы управления интервалами сообщений
+ Design by Graham Bill.
+ http://www.freshdesignweb.com
+ ----------------------------------------------------------------------- */
+
+#intrv
+{
+	font-size:1.1rem;
+	font-weight:bold;
+  margin-top:1rem;
+  margin-bottom:.6rem;
+}
+.clearfix
+{
+	/*width:940px !important;*/
+  display:table;
+	/*margin-left:auto;
+	margin-right:auto;*/
+	*text-align:center;
+}
+
+/*
+#plans
+{
+	display:table;
+	margin:24px auto 0;
+	height:350px;
+}
+*/
+
+#plans .plan
+{
+  font-size:1rem;
+	font-weight:bold;
+  float:left;
+	height:8rem;
+  /*width:8.8rem;*/
+  width:19.4%;
+	/*line-height:36px;*/
+  line-height:1.6rem;
+	border-right:1px dotted #97d947;
+	border-top:1px dotted #97d947;
+	border-bottom:1px dotted #97d947;
+	padding:24px;
+	margin-top:12px;
+	margin-bottom:12px;
+	text-align:center;
+}
+
+#plans #border-left
+{
+	border-left:1px dotted #97d947;
+}
+
+#plans .plan div
+{
+	display:table;
+	margin-left:auto;
+	margin-right:auto;
+	*text-align:center;
+	width:100%;
+	text-align:center;
+}
+
+#plans .name
+{
+  /*
+	font-size:24px;
+	font-weight:bold;
+  */
+}
+
+#plans .price
+{
+	color:#81b836;
+	font-weight:bold;
+	border-bottom:1px solid #ccc
+}
+
+#plans .plan:hover
+{
+	font-size:1.1rem;
+	font-weight:bold;
+	color:#333;
+	border:3px solid #97d947;
+	height:9rem;
+  /*width:14rem;*/
+  width:20%;
+	margin-top:0;
+	margin-bottom:0;
+  -webkit-box-shadow: 1px 1px 25px 7px rgba(122, 122, 22, .6);
+  -moz-box-shadow: 1px 1px 25px 7px rgba(122, 122, 22, .6);
+  box-shadow: 1px 1px 25px 7px rgba(122, 122, 22, .6); 
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+   border-radius: 10px; 
+}
+
+#plans #border-left:hover
+{
+	border-left:3px solid #97d947;
+}
+
+#plans .plan:hover .name
+{
+	/*font-size:2.0rem;*/
+}
+
+#plans .plan:hover .price
+{
+	/*font-size:1.8rem;*/
+}
+
+/*
+#plans .plan:hover .sprite-button-signup
+{
+	background:url(img/new_site.png) 0 -270px;
+	width:160px;
+	height:40px;
+	display:block;text-indent:-9999px;
+}
+*/
+
+/*
+#plans .plan:hover .sprite-button-signup:hover
+{
+	background:url(img/new_site.png) 0 -310px;
+}
+*/

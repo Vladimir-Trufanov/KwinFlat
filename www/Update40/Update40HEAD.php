@@ -18,6 +18,7 @@ echo '<script src="CommonTools.js"></script>';
 echo '<script src="Update40/Update40.js"></script>';
 echo '<script src="Update40/Update40led4.js"></script>';
 echo '<link href="Update40/Update40.css" rel="stylesheet">';
+echo '<link href="Update40/intrv.css" rel="stylesheet">';
 echo '<script src="Controller/Controller.js"></script>';
 echo '<link href="Update40/FlipOnHover/FlipOnHover.css" rel="stylesheet">';
 

@@ -13,9 +13,11 @@
 <div id="led4">
    
    <div id=shsh>
+     
    <div id="shlmp" class="shled4" onclick="setRegimLed4()">
-      <p class="pshled4">ВКЛЮЧИТЬ РЕЖИМ</p>
+      <p class="pshled4"></p>
    </div>
+   
    <div id="shlight" class="shled4" onclick="onLed4('pilight','light',0,100)" title="От 0% до 100%">
       <p class="pshled4">ГОРИТ (%)</p>
    </div>
@@ -29,7 +31,7 @@
    </div>
    </div>
 
-   <div id=lplp>
+   <div id="lplp">
    <div id="lmp" class="cled4">
       <p class="cp4">Led4</p>
    </div>
@@ -46,10 +48,14 @@
    &#128161; 
    </div>
    </div>
+   
+   <?php
+   //<div id="intrv">
+   //</div>
+   require_once 'intrv.php';
+   ?>
 
 </div>
 <?php
-/*
- style="background:red"
- style="background:SandyBrown">*/
+
 // <!-- --> **************************************************** Update.php ***
