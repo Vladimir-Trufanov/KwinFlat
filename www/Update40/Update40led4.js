@@ -48,4 +48,33 @@ function vLed4()
   setTimeout(vLed4,Led4Intrv);
 }
 
+// ****************************************************************************
+// *   Сформировать тег для ввода числа с границами, первый шаг ввода числа   *
+// ****************************************************************************
+var pvalue,pmin,pmax;
+var namefield;
+function onIntrv(pfield,imin,imax)
+{
+  // console.log('pfield='+pfield);
+  pmin=imin; pmax=imax; namefield=pfield;
+  pvalue=$('#'+pfield).text();
+  $('#'+pfield).html('<input id="idpfield" class="Inp" type="number" step="100" '+
+    'min="'+imin.toString()+'" max="'+imax.toString()+'" value="'+pvalue.toString()+'"/>'+
+    '<button class="Btn" onclick="onIntrv1()">Ok</button>');
+  $('#'+pfield).css('background','white');
+} 
+// ****************************************************************************
+// *    Принять число, проверить границы, записать в базу через аякс, 2 шаг   *
+// ****************************************************************************
+function onIntrv1()
+{
+  let value=$('#idpfield').val();
+  // Контроллируем границы
+  if (value<pmin) value=pmin
+  else if (value>pmax) value=pmax;
+  // console.log('value='+value);
+  // <p id="ptempvl" class="price">3003</p>
+  $('#'+namefield).html('<p id="'+namefield+'" class="price">'+value.toString()+'</p>');
+  $('#'+namefield).css('background','transparent');
+}
 // ******************************************************** Update40led4.js ***

@@ -109,7 +109,12 @@
 
 #plans .plan:hover .price
 {
-	/*font-size:1.8rem;*/
+	/*color:red;*/
+}
+
+#plans .plan .name:hover
+{
+	color:red;
 }
 
 /*
