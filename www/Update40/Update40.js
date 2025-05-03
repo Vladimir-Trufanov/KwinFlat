@@ -414,8 +414,9 @@ function getLastStateMess(tickers)
       else 
       {
         messa=Fresh;
-        // console.log(messa);
+        console.log(messa);
         // Строим try catch, чтобы поймать ошибку в JSON-ответе
+        /*
         try 
         {
           parm=JSON.parse(messa);
@@ -448,7 +449,7 @@ function getLastStateMess(tickers)
             // Если это sjson по горению 4 светодиода
             if ((JSON.stringify(sjson)==s4_LOW)||(JSON.stringify(sjson)==s4_HIGH))
             {
-              /*
+              / *
               parm=JSON.parse(JSON.stringify(sjson));
               // Выделяем json-подстроку по led4
               let led4=parm.led4[0];
@@ -460,9 +461,9 @@ function getLastStateMess(tickers)
               // $('#status').html(status);
               if (status=="shimHIGH") $('#spot').css('background','White');
               else $('#spot').css('background','Silver');
-              */
+              * /
             }
-            /*
+            / *
             // Если это sjson по режиму 4 светодиода
             else if (JSON.stringify(sjson)==s33_MODE0)
             {
@@ -474,7 +475,7 @@ function getLastStateMess(tickers)
               console.log('sjson: '+JSON.stringify(sjson));
             }
             //      tickers.render(JSON.stringify(sjson));
-            */
+            * /
           }
         }
         // Обрабатываем ошибку в JSON-ответе 
@@ -483,6 +484,7 @@ function getLastStateMess(tickers)
           console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
           DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
         }
+        */
       }
     }
   });

@@ -6,7 +6,7 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                             для базы данных json-сообщений страницы Lead *
 // *                                                                          *
-// * v1.0.2, 22.01.2025                            Автор:       Труфанов В.Е. *
+// * v2.0.1, 03.05.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  20.01.2025 *
 // ****************************************************************************
 // _CreateLeadTables($pdo);                  - Создать таблицу базы данных Lead
@@ -17,64 +17,42 @@
 // ****************************************************************************
 // *                       Создать таблицу базы данных Lead                   *
 // ****************************************************************************
+
+// Реестр образцов управляющих json-команд
+// 1-s4_MODE, '{\"led4\":[{\"light\":10,\"time\":2000}]}'                                                // режим работы вспышки
+// 2-s_INTRV, '{\"intrv\":[{\"mode4\":7007,\"img\":1001,\"tempvl\":3003,\"lumin\":2002,\"bar\":5005}]}'  // интервалы подачи сообщений от контроллера
+
 function _CreateLeadTables($pdo)
 {
-   // Создаём таблицу включения/выключения режима работы контрольного светодиода Led4
-   $sql='CREATE TABLE Lmp33 ('.
-      'isEvent    INTEGER,'.    // 1 - прошла команда смены режима, 0 - пришло подтверждение от контроллера
-      'Mode       INTEGER,'.    // 1 - включен режим, 0 - выключен режим (состояние в момент запроса)
-      'SendTime   INTEGER,'.    // время в секундах (c начала эпохи) отправки сообщения
-      'ReceivTime INTEGER,'.    // время получения ответа в секундах
-      'sjson      VARCHAR)';    // {"led4":[{"regim":0}]} - выключить режим; {"led4":[{"regim":1}]} - включить
+   // Создаём таблицу состояния управляющих json-команд
+   $sql='CREATE TABLE Lead ('.
+      'num        INTEGER,'.    // номер управляющей json-команды
+      'isEvent    INTEGER,'.    // 1 - изменилось состояние json-команды, 0 - пришло подтверждение от контроллера
+      'SendTime   INTEGER,'.    // время в секундах (c начала эпохи) изменения состояния
+      'ReceivTime INTEGER,'.    // время получения подтверждения в секундах
+      'sjson      VARCHAR)';    // текущее состояние управляющей json-команды
    $st = $pdo->query($sql);
-   // Добавляем первую и единственную запись Lmp33
-   $statement = $pdo->prepare("INSERT INTO [Lmp33] ".
-      "([isEvent],[Mode],[SendTime],[ReceivTime],[sjson]) VALUES ".
-      "(:isEvent, :Mode, :SendTime, :ReceivTime, :sjson);");
+   // Добавляем начальную запись режима работы вспышки
+   $statement = $pdo->prepare("INSERT INTO [Lead] ".
+      "([num],[isEvent],[SendTime],[ReceivTime],[sjson]) VALUES ".
+      "(:num, :isEvent, :SendTime, :ReceivTime, :sjson);");
    $statement->execute([
+      "num"        => 1,
       "isEvent"    => 0,
-      "Mode"       => 1,
       "SendTime"   => time(),
       "ReceivTime" => time(),
-      "sjson"      => '{"led4":[{"regim":1}]}',
+      "sjson"      => '{\"led4\":[{\"light\":10,\"time\":2000}]}',
    ]);
-   // Создаём таблицу длительность цикла "горит - не горит" (мсек) светодиода Led4
-   $sql='CREATE TABLE Time33 ('.
-      'isEvent    INTEGER,'.    // 1 - отправлена команда смены длительности, 0 - пришло подтверждение от контроллера
-      'Time       INTEGER,'.    // новая длительность цикла "горит - не горит" (мсек)
-      'SendTime   INTEGER,'.    // время в секундах (c начала эпохи) отправки сообщения
-      'ReceivTime INTEGER,'.    // время получения ответа в секундах
-      'sjson      VARCHAR)';    // {"led4":[{"time":1007}]}
-   $st = $pdo->query($sql);
-   // Добавляем первую и единственную запись Time33
-   $statement = $pdo->prepare("INSERT INTO [Time33] ".
-      "([isEvent],[Time],[SendTime],[ReceivTime],[sjson]) VALUES ".
-      "(:isEvent, :Time, :SendTime, :ReceivTime, :sjson);");
+   // Добавляем начальную запись интервалов подачи сообщений от контроллера
+   $statement = $pdo->prepare("INSERT INTO [Lead] ".
+      "([num],[isEvent],[SendTime],[ReceivTime],[sjson]) VALUES ".
+      "(:num, :isEvent, :SendTime, :ReceivTime, :sjson);");
    $statement->execute([
+      "num"        => 2,
       "isEvent"    => 0,
-      "Time"       => 1007,
       "SendTime"   => time(),
       "ReceivTime" => time(),
-      "sjson"      => '{"led4":[{"time":1007}]}',
-   ]);
-   // Создаём таблицу процента времени свечения в цикле светодиода Led4
-   $sql='CREATE TABLE Light33 ('.
-      'isEvent    INTEGER,'.    // 1 - отправлена команда по времени свечения в цикле, 0 - пришло подтверждение от контроллера
-      'Light      INTEGER,'.    // новая длительность цикла "горит - не горит" (мсек)
-      'SendTime   INTEGER,'.    // время в секундах (c начала эпохи) отправки сообщения
-      'ReceivTime INTEGER,'.    // время получения ответа в секундах
-      'sjson      VARCHAR)';    // {"led4":[{"light":10}]}
-   $st = $pdo->query($sql);
-   // Добавляем первую и единственную запись Light33
-   $statement = $pdo->prepare("INSERT INTO [Light33] ".
-      "([isEvent],[Light],[SendTime],[ReceivTime],[sjson]) VALUES ".
-      "(:isEvent, :Light, :SendTime, :ReceivTime, :sjson);");
-   $statement->execute([
-      "isEvent"    => 0,
-      "Light"      => 10,
-      "SendTime"   => time(),
-      "ReceivTime" => time(),
-      "sjson"      => '{"led4":[{"light":10}]}',
+      "sjson"      => '{\"intrv\":[{\"mode4\":7007,\"img\":1001,\"tempvl\":3003,\"lumin\":2002,\"bar\":5005}]}',
    ]);
 }
 // ****************************************************************************

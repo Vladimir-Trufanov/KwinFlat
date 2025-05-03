@@ -51,14 +51,13 @@ function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jmode4,$jimg,$jtempvl,$jlum
    'vController="'         .vController.'";'."\n".
    's4_HIGH="'             .s4_HIGH.'";'."\n".
    's4_LOW="'              .s4_LOW.'";'."\n".
-   's4_MODE0="'            .s4_MODE0.'";'."\n".
-   'var jlight="'              .$jlight.'";'."\n".
-   'var jtime="'               .$jtime.'";'."\n".
-   'var jmode4="'              .$jmode4.'";'."\n".
-   'var jimg="'                .$jimg.'";'."\n".
-   'var jtempvl="'             .$jtempvl.'";'."\n".
-   'var jlumin="'              .$jlumin.'";'."\n".
-   'var jbar="'                .$jbar.'";'."\n".
+   'var jlight="'          .$jlight.'";'."\n".
+   'var jtime="'           .$jtime.'";'."\n".
+   'var jmode4="'          .$jmode4.'";'."\n".
+   'var jimg="'            .$jimg.'";'."\n".
+   'var jtempvl="'         .$jtempvl.'";'."\n".
+   'var jlumin="'          .$jlumin.'";'."\n".
+   'var jbar="'            .$jbar.'";'."\n".
    '</script>'."\n";
    echo $define;
 } 
