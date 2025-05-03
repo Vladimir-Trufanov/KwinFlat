@@ -20,13 +20,13 @@
    </div>
 
    <div class="plan">
-      <div class="name" onclick="onIntrv('plight',100,100000)" title="От 100 до 100 тысяч мсек">Освещённость камеры</div>
-      <p id="plight" class="price">4004</p>
+      <div class="name" onclick="onIntrv('plumin',100,100000)" title="От 100 до 100 тысяч мсек">Освещённость камеры</div>
+      <p id="plumin" class="price">2002</p>
    </div>
 
    <div class="plan">
       <div class="name" onclick="onIntrv('pbar',100,100000)" title="От 100 до 100 тысяч мсек"">Атмосферное давление</div>
-      <p id="pbar" class="price">4004</p>
+      <p id="pbar" class="price">5005</p>
    </div>
 </div>
 <?php

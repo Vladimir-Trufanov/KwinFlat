@@ -76,5 +76,20 @@ function onIntrv1()
   // <p id="ptempvl" class="price">3003</p>
   $('#'+namefield).html('<p id="'+namefield+'" class="price">'+value.toString()+'</p>');
   $('#'+namefield).css('background','transparent');
+  // Запоминаем глобальные переменные
+  if      (namefield=='pmode4')  jmode4=value 
+  else if (namefield=='pimg')    jimg=value 
+  else if (namefield=='ptempvl') jtempvl=value 
+  else if (namefield=='plumin')  jlumin=value 
+  else                           jbar=value; 
+  // Формируем json действующих интервалов подачи сообщений от контроллера (мсек) 
+  var s_INTRV = '{\"intrv\":[{'+
+      '\"mode4\":'+  jmode4.toString()+  ','+
+      '\"img\":'+    jimg.toString()+    ','+
+      '\"tempvl\":'+ jtempvl.toString()+ ','+ 
+      '\"lumin\":'+  jlumin.toString()+  ','+ 
+      '\"bar\":'+    jbar.toString()+    
+  '}]}'; 
+  console.log('s_INTRV='+s_INTRV);
 }
 // ******************************************************** Update40led4.js ***
