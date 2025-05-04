@@ -105,7 +105,7 @@ KwinFlat
 			jQuery\jquery-1.11.1.min.map
 			jQuery\jquery-ui.min.css
 			jQuery\jquery-ui.min.js
-		-Lead40
+		+Lead40
 			Lead40\index.php
 			Lead40\Lead40BODY.php
 		-Meet40
@@ -119,7 +119,7 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -152,15 +152,29 @@ KwinFlat
 		iniWorkSpace.php
 		KwinFlat.md
 		KwinFlat.ppr
-		kwinflat-log.txt
-		log.txt
 		manifest.json
 		Meet40.html
 [Open project files]
 0=TKvizzyMaker\KvizzyMakerClass.php
+1=Update40\Update40led4.js
+2=Lead40\index.php
+3=Lead40\Lead40BODY.php
+4=iniMem.php
 [Selected Project Files]
 Main=
-Selected=TKvizzyMaker\KvizzyMakerClass.php
+Selected=iniMem.php
 [TKvizzyMaker\KvizzyMakerClass.php]
 TopLine=11
 Caret=1,19
+[Update40\Update40led4.js]
+TopLine=1
+Caret=11,130
+[Lead40\index.php]
+TopLine=1
+Caret=24,40
+[Lead40\Lead40BODY.php]
+TopLine=1
+Caret=4,34
+[iniMem.php]
+TopLine=1
+Caret=30,9

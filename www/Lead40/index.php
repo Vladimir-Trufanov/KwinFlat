@@ -37,7 +37,7 @@ try
    define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
    define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
    require_once pathPhpPrown."/CommonPrown.php";
-   require_once 'UpLeadBODY.php';
+   require_once 'Lead40BODY.php';
 }
 catch (E_EXCEPTION $e) 
 {

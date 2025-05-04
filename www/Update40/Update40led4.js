@@ -127,7 +127,7 @@ function setMessForLead(num,sjson)
       else 
       {
         messa=Fresh;
-        console.log('Fresh='+messa);
+        //console.log('Fresh='+messa);
         if (messa!=nstOk) DialogWind(message);
       }
     }
