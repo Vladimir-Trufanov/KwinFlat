@@ -2,47 +2,43 @@
 // PHP7/HTML5, EDGE/CHROME/YANDEX                             *** index.php ***
 
 // ****************************************************************************
-// * Lead                                Обеспечить управление контроллерами, *
-// *                                 устройствами и датчиками моего хозяйства *
+// * State40                             Зарегистрировать изменения состояний *
+// *                                           устройств и показаний датчиков *
 // ****************************************************************************
 
-// v2.0.1, 26.12.2024                                 Автор:      Труфанов В.Е.
-// Copyright © 2023 tve                               Дата создания: 08.10.2023
+// v3.0.1, 24.04.2025                                 Автор:      Труфанов В.Е.
+// Copyright © 2024 tve                               Дата создания: 08.10.2024
 
-// Инициализируем рабочее пространство: корневой каталог сайта и т.д.
-require_once '../iniWorkSpace.php';
-$_WORKSPACE=iniWorkSpace();
+// Подключаем реестр json-сообщений на страницу State40
+require_once "../iniWorkSpace.php";  
+// Подключаем объект для работы с базой данных моего хозяйства
+require_once "../TKvizzyMaker/KvizzyMakerClass.php";
 
-$SiteRoot     = $_WORKSPACE[wsSiteRoot];     // Корневой каталог сайта
-$SiteAbove    = $_WORKSPACE[wsSiteAbove];    // Надсайтовый каталог
-$SiteHost     = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
-$SiteDevice   = $_WORKSPACE[wsSiteDevice];   // 'Computer' | 'Mobile' | 'Tablet'
-$UserAgent    = $_WORKSPACE[wsUserAgent];    // HTTP_USER_AGENT
-$TimeRequest  = $_WORKSPACE[wsTimeRequest];  // Время запроса сайта
-$RemoteAddr   = $_WORKSPACE[wsRemoteAddr];   // IP-адрес запроса сайта
-$SiteName     = $_WORKSPACE[wsSiteName];     // Доменное имя сайта
-$PhpVersion   = $_WORKSPACE[wsPhpVersion];   // Версия PHP
-$SiteProtocol = $_WORKSPACE[wsSiteProtocol]; // HTTP или HTTPS
-$urlHome      = $_WORKSPACE[wsUrlHome];      // Начальная страница сайта 
-$RootDir      = $_WORKSPACE[wsRootDir];      // Каталог корня сайта, в котором выполняется текущий скрипт
-$RootUrl      = $_WORKSPACE[wsRootUrl];      // Путь и имя выполняемого скрипта
-$RemoteHost   = $_WORKSPACE[wsRemoteHost];   // Удаленный хост, с которого пользователь просматривает текущую страницу
-$HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с которой браузер пользователя перешёл на текущую страницу
+$SiteRoot=$_SERVER['DOCUMENT_ROOT'];  // Корневой каталог сайта
+$SiteAbove=Above($SiteRoot);          // Надсайтовый каталог
+$SiteHost=Above($SiteAbove);          // Каталог хостинга
 
-// Подключаем сайт сбора сообщений об ошибках/исключениях и формирования 
-// страницы с выводом сообщений, а также комментариев для PHP5-PHP7
-require_once $SiteHost."/TDoorTryer/DoorTryerPage.php";
-try 
+// Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
+
+echo "<Lead>";
+   MakeAnswer($SiteHost);
+echo "</Lead>";
+
+function MakeAnswer($SiteHost)
 {
-   define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
-   define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
-   require_once pathPhpPrown."/CommonPrown.php";
-   require_once 'Lead40BODY.php';
-}
-catch (E_EXCEPTION $e) 
-{
-   // Подключаем обработку исключений верхнего уровня
-   DoorTryPage($e);
+   // Подключаем объект для работы с базой данных моего хозяйства
+   /*
+   $Kvizzy=new ttools\KvizzyMaker($SiteHost);
+   // Подключаемся к базе данных
+   $pdo=$Kvizzy->BaseConnect();
+   // Выбираем параметры ответа
+   $table=$Kvizzy->SelChange($pdo);
+   $isEvent=$table['isEvent']; 
+   $sjson=$table['sjson'];
+   if ($isEvent<0) echo '<p>{}</p>';
+   else echo '<p>'.$sjson.'</p>';
+   */
+   echo 'Привет из Lead';
 }
 
 // <!-- --> ***************************************************** index.php ***
