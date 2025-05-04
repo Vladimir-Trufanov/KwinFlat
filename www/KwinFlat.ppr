@@ -113,21 +113,13 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
-		-Proba1
-			Proba1\index.php
-			Proba1\style.css
-		-Proba3
-			-img
-				Proba3\img\new_site.png
-			Proba3\index.html
-			Proba3\style.css
-		+State40
+		-State40
 			State40\index.php
 			State40\jsonState40.php
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -142,6 +134,7 @@ KwinFlat
 			Update40\j_getLastStateMess.php
 			Update40\j_getRegimLed33.php
 			Update40\j_SelImgStream.php
+			Update40\j_setMessForLead.php
 			Update40\j_setRegimLed33.php
 			Update40\Update.php
 			Update40\Update40.css
@@ -160,21 +153,34 @@ KwinFlat
 		KwinFlat.md
 		KwinFlat.ppr
 		kwinflat-log.txt
+		log.txt
 		manifest.json
 		Meet40.html
 [Open project files]
 0=TKvizzyMaker\KvizzyMakerClass.php
 1=Update40\j_getLastStateMess.php
-2=TKvizzyMaker\CommonStateMaker.php
+2=Update40\Update40.js
+3=Update40\Update40led4.js
+4=Update40\j_setMessForLead.php
+5=TKvizzyMaker\CommonLeadMaker.php
 [Selected Project Files]
 Main=
-Selected=TKvizzyMaker\CommonStateMaker.php
+Selected=Update40\j_setMessForLead.php
 [TKvizzyMaker\KvizzyMakerClass.php]
 TopLine=62
 Caret=20,82
 [Update40\j_getLastStateMess.php]
 TopLine=1
 Caret=1,1
-[TKvizzyMaker\CommonStateMaker.php]
+[Update40\Update40.js]
+TopLine=464
+Caret=1,492
+[Update40\Update40led4.js]
+TopLine=85
+Caret=1,96
+[Update40\j_setMessForLead.php]
 TopLine=1
-Caret=1,1
+Caret=18,21
+[TKvizzyMaker\CommonLeadMaker.php]
+TopLine=21
+Caret=13,33

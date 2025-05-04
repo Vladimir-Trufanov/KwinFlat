@@ -1,9 +1,0 @@
-[03-May-2025 06:50:46 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ')' in C:\KwinFlat\www\State40\jsonState40.php on line 23
-[03-May-2025 06:51:40 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ')' in C:\KwinFlat\www\State40\jsonState40.php on line 23
-[03-May-2025 07:09:01 Asia/Kuwait] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function DefineJS(), 4 passed in C:\KwinFlat\www\iniPhpJS.php on line 67 and exactly 9 expected in C:\KwinFlat\www\iniPhpJS.php:39
-Stack trace:
-#0 C:\KwinFlat\www\iniPhpJS.php(67): DefineJS('C:', 'http://localhos...', 10, 2000)
-#1 C:\KwinFlat\www\Update40\Update40HEAD.php(14): require_once('C:\\KwinFlat\\www...')
-#2 C:\KwinFlat\www\index.php(93): require_once('C:\\KwinFlat\\www...')
-#3 {main}
-  thrown in C:\KwinFlat\www\iniPhpJS.php on line 39

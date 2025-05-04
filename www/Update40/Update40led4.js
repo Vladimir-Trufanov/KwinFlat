@@ -90,6 +90,118 @@ function onIntrv1()
       '\"lumin\":'+  jlumin.toString()+  ','+ 
       '\"bar\":'+    jbar.toString()+    
   '}]}'; 
+  // Записываем в базу данных изменения интервалов подачи сообщений контроллера
+  setMessForLead(2,s_INTRV)
   console.log('s_INTRV='+s_INTRV);
 }
+// ****************************************************************************
+// * Записать в базу данных изменения интервалов подачи сообщений контроллера *
+// ****************************************************************************
+function setMessForLead(num,sjson)
+{
+  // Выводим в диалог предварительный результат выполнения запроса
+  htmlText="Записать изменения интервалов подачи сообщений не удалось!";
+  // Выполняем запрос
+  pathphp="Update40/j_setMessForLead.php";
+  // Делаем запрос последнего json-сообщения на State 
+  $.ajax({
+    url: pathphp,
+    type: 'POST',
+    data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost,postNum:num,postJson:sjson},
+    // Выводим ошибки при выполнении запроса в PHP-сценарии
+    error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
+    // Обрабатываем ответное сообщение
+    success: function(message)
+    {
+      //console.log(message);
+      // Вырезаем из запроса чистое сообщение
+      let Fresh=FreshLabel(message);
+      // Если чистое сообщение не вырезалось, считаем, что это ошибка и
+      // диагностируем её
+      if (Fresh=='NoFresh')
+      {
+        console.log(message);
+        DialogWind(message);
+      }
+      // Иначе считаем, что ответ на запрос пришел и можно
+      // парсить сообщение
+      else 
+      {
+        messa=Fresh;
+        console.log('Fresh='+messa);
+        // Строим try catch, чтобы поймать ошибку в JSON-ответе
+        /*
+        try 
+        {
+          parm=JSON.parse(messa);
+          // ---Если ошибка SQL-запроса
+          if (parm.cycle<0) 
+          {
+            if (parm.cycle==-1) DialogWind(
+              'Создана таблица базы данных State.\n'+
+              'Сообщений от контроллера ещё не поступало!');
+            else DialogWind(parm.cycle+': '+parm.sjson);
+          }
+          // Выводим результаты выполнения (параметры ответа)
+          // (отрабатываем распарсенный ответ)
+          else
+          {
+            // Трассируем чистое сообщение, без метки
+            // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led4":[{"status":"inLOW"}]}}
+            //console.log(messa);
+            cycle=parm.cycle;
+            $('#cycle').html("cycle: "+cycle.toString());
+            sjson=parm.sjson;
+            $('#sjson').html("sjson: "+JSON.stringify(sjson));
+            let myTime=parm.myTime;
+            $('#myTime').html("myTime: "+myTime.toString());
+            let myDate=parm.myDate;
+            $('#myDate').html("myDate: "+myDate);
+                  
+            // ------------------------------------ Парсим и обрабатываем sjson
+            
+            // Если это sjson по горению 4 светодиода
+            if ((JSON.stringify(sjson)==s4_LOW)||(JSON.stringify(sjson)==s4_HIGH))
+            {
+              / *
+              parm=JSON.parse(JSON.stringify(sjson));
+              // Выделяем json-подстроку по led4
+              let led4=parm.led4[0];
+              // Парсим led4
+              parm=JSON.parse(JSON.stringify(led4));
+              // Выделяем состояние led4 (горит - не горит)
+              let status=parm.status;
+              // Высвечиваем led4 в соответствии с состоянием
+              // $('#status').html(status);
+              if (status=="shimHIGH") $('#spot').css('background','White');
+              else $('#spot').css('background','Silver');
+              * /
+            }
+            / *
+            // Если это sjson по режиму 4 светодиода
+            else if (JSON.stringify(sjson)==s33_MODE0)
+            {
+              //console.log('s33_MODE0: '+s33_MODE0);
+              //ram.set("LmpMode",0);  // 0 - выключен режим 
+            }
+            else
+            {
+              console.log('sjson: '+JSON.stringify(sjson));
+            }
+            //      tickers.render(JSON.stringify(sjson));
+            * /
+          }
+        }
+        // Обрабатываем ошибку в JSON-ответе 
+        catch (err) 
+        {
+          console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
+          DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
+        }
+        */
+      }
+    }
+  });
+}
+
 // ******************************************************** Update40led4.js ***
