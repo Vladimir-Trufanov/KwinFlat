@@ -119,7 +119,7 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		-TKvizzyMaker
+		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -158,29 +158,9 @@ KwinFlat
 		Meet40.html
 [Open project files]
 0=TKvizzyMaker\KvizzyMakerClass.php
-1=Update40\j_getLastStateMess.php
-2=Update40\Update40.js
-3=Update40\Update40led4.js
-4=Update40\j_setMessForLead.php
-5=TKvizzyMaker\CommonLeadMaker.php
 [Selected Project Files]
 Main=
-Selected=Update40\j_setMessForLead.php
+Selected=TKvizzyMaker\KvizzyMakerClass.php
 [TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=62
-Caret=20,82
-[Update40\j_getLastStateMess.php]
-TopLine=1
-Caret=1,1
-[Update40\Update40.js]
-TopLine=464
-Caret=1,492
-[Update40\Update40led4.js]
-TopLine=85
-Caret=1,96
-[Update40\j_setMessForLead.php]
-TopLine=1
-Caret=18,21
-[TKvizzyMaker\CommonLeadMaker.php]
-TopLine=21
-Caret=13,33
+TopLine=11
+Caret=1,19

@@ -5,7 +5,7 @@
 // * kwinflat.ru           Организовать межязыковые (PHP-JScript) определения *
 // ****************************************************************************
 
-// v4.0.4, 03.05.2025                                Автор:       Труфанов В.Е. 
+// v4.0.5, 04.05.2025                                Автор:       Труфанов В.Е. 
 // Copyright © 2025 tve      sla6en9edged            Дата создания:  13.01.2025 
 
 // Подключаем реестр json-сообщений на страницу State40
@@ -18,9 +18,11 @@ define ("IntStream", 84);        //  12 раз в секунду
 
 // Инициализируем общесайтовые константы (здесь стараемся не назначать константу = 0, так как 
 // проверка значению "==" может не отличить 0 от NULL)
+define ("nstOk",   'все в порядке'); 
+define ("nstErr",  'произошла ошибка');  
 define ("nstYes",  'объект включён'); 
 define ("nstNo",   'объект выключен'); 
-define("vController", nstNo);   // nstNo - вирт.контроллер выключен, nstYes - вирт.контроллер включён
+define ("vController", nstNo);   // nstNo - вирт.контроллер выключен, nstYes - вирт.контроллер включён
 
 // Назначаем действующий режим работы вспышки
 $jlight=10;     // процент времени свечения в цикле 
@@ -46,6 +48,8 @@ function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jmode4,$jimg,$jtempvl,$jlum
    'pathPhpTools="'        .pathPhpTools.'";'."\n".
 
    'IntStream="'           .IntStream.'";'."\n".
+   'nstOk="'               .nstOk.'";'."\n".
+   'nstErr="'              .nstErr.'";'."\n".
    'nstYes="'              .nstYes.'";'."\n".
    'nstNo="'               .nstNo.'";'."\n".
    'vController="'         .vController.'";'."\n".

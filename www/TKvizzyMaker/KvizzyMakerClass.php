@@ -16,14 +16,15 @@ require_once("CommonLeadMaker.php");
 require_once("CommonStreamMaker.php"); 
 
 // ---------------------------------------------------------- МЕТОДЫ КЛАССА ---
-// SelectLed4($pdo);                                - Выбрать запись из таблицы базы данных State по Led4
-// UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led4 
+// public function setMessForLead($pdo,$num,$sjson)   - Записать в базу данных изменения состояния управляющих json-команд 
+// --SelectLed4($pdo);                                - Выбрать запись из таблицы базы данных State по Led4
+// --UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led4 
 // --BaseConnect();                                    - Открыть соединение с базой данных
 // --BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
 // --SelChange($pdo);                                  - Выбрать изменения состояний     
 // --SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led4   
 // --UpdateModeLMP33($pdo,$action);                    - Обновить установку по режиму работы контрольного светодиода  
-// InsertImgStream($pdo,$src);                         - Вставить текущее изображение
+// --InsertImgStream($pdo,$src);                         - Вставить текущее изображение
 // ----------------------------------------------------------------------------
 
 class KvizzyMaker
@@ -54,6 +55,11 @@ class KvizzyMaker
    public function BaseFirstCreate() 
    {
       _BaseFirstCreate($this->basename,$this->username,$this->password);
+   }
+   // Записать в базу данных изменения состояния управляющих json-команд 
+   public function setMessForLead($pdo,$num,$sjson) 
+   {
+      return _setMessForLead($pdo,$num,$sjson);
    }
    // Выбрать изменения состояний     
    public function SelChange($pdo)
