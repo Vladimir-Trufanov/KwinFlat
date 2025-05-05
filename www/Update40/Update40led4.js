@@ -47,9 +47,8 @@ function vLed4()
   }
   setTimeout(vLed4,Led4Intrv);
 }
-
 // ****************************************************************************
-// *   Сформировать тег для ввода числа с границами, первый шаг ввода числа   *
+// *       Сформировать input-теги для редактирования интервалов сообщений    *
 // ****************************************************************************
 var pvalue,pmin,pmax;
 var namefield;
@@ -64,7 +63,21 @@ function onIntrv(pfield,imin,imax)
   $('#'+pfield).css('background','white');
 } 
 // ****************************************************************************
-// *    Принять число, проверить границы, записать в базу через аякс, 2 шаг   *
+// *     Сформировать input-теги для редактирования режимов работы вспышки    *
+// ****************************************************************************
+var diez,bemol,value,min,max;
+var bemol2,diez2,val2
+function onLed4(diezi,bemoli,mini,maxi)
+{
+  diez=diezi; bemol=bemoli; min=mini; max=maxi;
+  let valuex=$('#'+diez).text();
+  $('#'+bemol).html('<input id="inpvalue" class="Inp" type="number" step="1" '+
+    'min="'+min.toString()+'" max="'+max.toString()+'" value="'+valuex.toString()+'">'+
+    '<button class="Btn" onclick="onbLed4()">Ok</button>');
+  $('#'+bemol).css('background','white');
+} 
+// ****************************************************************************
+// * Принять значение интервала, проверить границы, записать в базу через аякс 
 // ****************************************************************************
 function onIntrv1()
 {
@@ -83,16 +96,56 @@ function onIntrv1()
   else if (namefield=='plumin')  jlumin=value 
   else                           jbar=value; 
   // Формируем json действующих интервалов подачи сообщений от контроллера (мсек) 
+  // s_INTRV={\"intrv\":[{\"mode4\":7007,\"img\":1001,\"tempvl\":3003,\"lumin\":2002,\"bar\":5005}]} 
   var s_INTRV = '{\"intrv\":[{'+
-      '\"mode4\":'+  jmode4.toString()+  ','+
-      '\"img\":'+    jimg.toString()+    ','+
-      '\"tempvl\":'+ jtempvl.toString()+ ','+ 
-      '\"lumin\":'+  jlumin.toString()+  ','+ 
-      '\"bar\":'+    jbar.toString()+    
+    '\"mode4\":'+  jmode4.toString()+  ','+
+    '\"img\":'+    jimg.toString()+    ','+
+    '\"tempvl\":'+ jtempvl.toString()+ ','+ 
+    '\"lumin\":'+  jlumin.toString()+  ','+ 
+    '\"bar\":'+    jbar.toString()+    
   '}]}'; 
   // Записываем в базу данных изменения интервалов подачи сообщений контроллера
   setMessForLead(2,s_INTRV)
   //console.log('s_INTRV='+s_INTRV);
+}
+// ****************************************************************************
+// * Принять значение параметра режима led4, проверить границы, записать в базу  
+// ****************************************************************************
+function onbLed4()
+{
+  //console.log(diez+'='+bemol);
+  value=$('#inpvalue').val();
+  // Контроллируем границы
+  if (value<min) value=min
+  else if (value>max) value=max;
+  //console.log(value.toString());
+  $('#'+bemol).html('<p id="'+diez+'" class="cp4">'+value.toString()+'</p>');
+  $('#'+bemol).css('background','Silver');
+  // Выполняем контроль процентов
+  if ((bemol=='light')||(bemol=='nolight')) 
+  {
+    if (bemol=='light') bemol2='nolight'; else bemol2='light'; 
+    if (diez=='pilight') diez2='pinolight'; else diez2='pilight';
+    val2=100-value; 
+    $('#'+bemol2).html('<p id="'+diez2+'" class="cp4">'+val2.toString()+'</p>');
+  }
+  console.log('bemol ='+bemol+'  value='+value);
+  console.log('bemol2='+bemol2+' val2 ='+val2);
+  // Запоминаем глобальные переменные
+  if      (bemol=='light')   jlight=value 
+  else if (bemol=='nolight') jlight=val2 
+  else if (bemol=='time')    jtime=value 
+  else                           jlight=value; 
+  console.log('jlight='+jlight+' jtime ='+jtime);
+  // Формируем json действующего режима работы вспышки
+  // s_MODE4 = '{\"led4\":[{\"light\":10,\"time\":2000}]}'   
+  var s_MODE4 = '{\"led4\":[{'+
+    '\"light\":'+jlight.toString()+','+
+    '\"time\":'+ jtime.toString()+    
+  '}]}'; 
+  // Записываем в базу данных изменения интервалов подачи сообщений контроллера
+  setMessForLead(1,s_MODE4)
+  console.log('s_MODE4='+s_MODE4);
 }
 // ****************************************************************************
 // *     Записать в базу данных изменения состояния управляющих json-команд   *

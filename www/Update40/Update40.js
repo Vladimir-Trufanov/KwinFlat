@@ -345,42 +345,6 @@ function setRegimLed4()
   */
 }
 // ****************************************************************************
-// *      Сформировать тег для ввода числа с границами, 1 шаг ввода числа     *
-// ****************************************************************************
-var diez,bemol,value,min,max;
-var bemol2,diez2,val2
-function onLed4(diezi,bemoli,mini,maxi)
-{
-   diez=diezi; bemol=bemoli; min=mini; max=maxi;
-   let valuex=$('#'+diez).text();
-   $('#'+bemol).html('<input id="inpvalue" class="Inp" type="number" step="1" '+
-      'min="'+min.toString()+'" max="'+max.toString()+'" value="'+valuex.toString()+'">'+
-      '<button class="Btn" onclick="onbLed4()">Ok</button>');
-   $('#'+bemol).css('background','white');
-} 
-// ****************************************************************************
-// *    Принять число, проверить границы, записать в базу через аякс, 2 шаг   *
-// ****************************************************************************
-function onbLed4()
-{
-   //console.log(diez+'='+bemol);
-   value=$('#inpvalue').val();
-   // Контроллируем границы
-   if (value<min) value=min
-   else if (value>max) value=max;
-   //console.log(value.toString());
-   $('#'+bemol).html('<p id="'+diez+'" class="cp4">'+value.toString()+'</p>');
-   $('#'+bemol).css('background','Silver');
-   // Выполняем контроль процентов
-   if ((bemol=='light')||(bemol=='nolight')) 
-   {
-      if (bemol=='light') bemol2='nolight'; else bemol2='light'; 
-      if (diez=='pilight') diez2='pinolight'; else diez2='pilight';
-      val2=100-value; 
-      $('#'+bemol2).html('<p id="'+diez2+'" class="cp4">'+val2.toString()+'</p>');
-   }
-}
-// ****************************************************************************
 // *                   Получить последнее json-сообщение на State             *
 // ****************************************************************************
 function getLastStateMess(tickers)
