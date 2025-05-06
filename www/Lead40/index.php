@@ -32,18 +32,23 @@ echo "</Lead>";
 function MakeAnswer($SiteHost)
 {
    // Подключаем объект для работы с базой данных моего хозяйства
-   /*
    $Kvizzy=new ttools\KvizzyMaker($SiteHost);
    // Подключаемся к базе данных
    $pdo=$Kvizzy->BaseConnect();
    // Выбираем параметры ответа
    $table=$Kvizzy->SelChange($pdo);
-   $isEvent=$table['isEvent']; 
-   $sjson=$table['sjson'];
-   if ($isEvent<0) echo '<p>{}</p>';
-   else echo '<p>'.$sjson.'</p>';
-   */
-   echo 'Привет из Lead';
+   
+   // Если возможно, определяем cтроку запроса, по которому была открыта страница
+   if (IsSet($_SERVER['QUERY_STRING'])) $QueryString=$_SERVER['QUERY_STRING'];
+   else $QueryString='QueryStringNoExist';
+
+   echo $QueryString."<br>";
+   echo 'Количество выбранных записей: '.count($table);
+
+   //$isEvent=$table['isEvent']; 
+   //$sjson=$table['sjson'];
+   //if ($isEvent<0) echo '<p>{}</p>';
+   //else echo '<p>'.$sjson.'</p>';
 }
 
 // <!-- --> ***************************************************** index.php ***

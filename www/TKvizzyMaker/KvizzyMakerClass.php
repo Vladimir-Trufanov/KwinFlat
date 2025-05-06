@@ -16,7 +16,9 @@ require_once("CommonLeadMaker.php");
 require_once("CommonStreamMaker.php"); 
 
 // ---------------------------------------------------------- МЕТОДЫ КЛАССА ---
-// public function setMessForLead($pdo,$num,$sjson)   - Записать в базу данных изменения состояния управляющих json-команд 
+// SelChange($pdo)                                    - Выбрать изменения состояний управляющих команд  
+// setMessForLead($pdo,$num,$sjson)                   - Записать в базу данных изменения состояния управляющих json-команд 
+
 // --SelectLed4($pdo);                                - Выбрать запись из таблицы базы данных State по Led4
 // --UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led4 
 // --BaseConnect();                                    - Открыть соединение с базой данных
@@ -61,7 +63,7 @@ class KvizzyMaker
    {
       return _setMessForLead($pdo,$num,$sjson);
    }
-   // Выбрать изменения состояний     
+   // Выбрать изменения состояний управляющих json-команд  
    public function SelChange($pdo)
    {
       $table=_SelChange($pdo);

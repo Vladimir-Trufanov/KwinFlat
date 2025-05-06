@@ -9,7 +9,9 @@
 // * v2.0.2, 04.05.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  20.01.2025 *
 // ****************************************************************************
+
 // _CreateLeadTables($pdo);                  - Создать таблицу базы данных Lead
+// _SelChange($pdo)                          - Выбрать изменения состояний управляющих команд  
 // _setMessForLead($pdo,$num,$sjson);        - Записать в базу данных изменения состояния управляющих json-команд   
  
 // ****************************************************************************
@@ -157,30 +159,28 @@ function _UpdateModeLMP33($pdo,$action)
 */
 
 // ****************************************************************************
-// *                         Выбрать изменения состояний                      *
+// *             Выбрать изменения состояний управляющих команд               *
 // ****************************************************************************
 function _SelChange($pdo)
 {
    try 
    {
       $pdo->beginTransaction();
-      $cSQL='SELECT isEvent,Mode,SendTime,ReceivTime,sjson FROM Lmp33 WHERE isEvent=1';
+      $cSQL='SELECT num,isEvent,SendTime,ReceivTime,sjson FROM Lead WHERE isEvent=1';
       $stmt = $pdo->query($cSQL);
       $table = $stmt->fetchAll();
-      if (count($table)>0) $table=[
-         "isEvent"=>$table[0]['isEvent'],"Mode"=>$table[0]['Mode'],
-         "SendTime" =>$table[0]['SendTime'], "ReceivTime" =>$table[0]['ReceivTime'], "sjson" =>$table[0]['sjson']];
-      else $table=[
-         "isEvent"=>-2, "Mode"=> -2,
+      if (count($table)<1) 
+      $table=[
+         "isEvent"=>-2, "num"=> -2,
          "SendTime"=>time(), "ReceivTime"=> time(),
-         "sjson" => 'sjson3'];
+         "sjson" => ' '];
       $pdo->commit();
    } 
    catch (Exception $e) 
    {
       $messa=$e->getMessage();
       $table=[
-         "isEvent"=>-3, "Mode"=> -3,
+         "isEvent"=>-3, "num"=> -3,
          "SendTime"=>time(), "ReceivTime"=> time(),
          "sjson" => $messa];
       if ($pdo->inTransaction()) $pdo->rollback();
