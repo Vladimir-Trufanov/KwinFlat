@@ -2,12 +2,13 @@
 // PHP7/HTML5, EDGE/CHROME/YANDEX                             *** index.php ***
 
 // ****************************************************************************
-// * State40                             Зарегистрировать изменения состояний *
-// *                                           устройств и показаний датчиков *
+// * Lead40                      Обработать изменения управляющих json-команд *
 // ****************************************************************************
 
-// v3.1.0, 04.05.2025                                 Автор:      Труфанов В.Е.
+// v3.1.1, 07.05.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 08.10.2024
+
+// https://probatv.ru/Lead40/?cycle=3&sjson={"common":0}
 
 // Реестр образцов управляющих json-команд
 // 0-s_COMMON, '{\"common\":0}'                                                                           // запрос изменений
@@ -31,19 +32,51 @@ echo "</Lead>";
 
 function MakeAnswer($SiteHost)
 {
-   // Подключаем объект для работы с базой данных моего хозяйства
-   $Kvizzy=new ttools\KvizzyMaker($SiteHost);
-   // Подключаемся к базе данных
-   $pdo=$Kvizzy->BaseConnect();
-   // Выбираем параметры ответа
-   $table=$Kvizzy->SelChange($pdo);
-   
-   // Если возможно, определяем cтроку запроса, по которому была открыта страница
-   if (IsSet($_SERVER['QUERY_STRING'])) $QueryString=$_SERVER['QUERY_STRING'];
-   else $QueryString='QueryStringNoExist';
-
-   echo $QueryString."<br>";
-   echo 'Количество выбранных записей: '.count($table);
+   // Если поступил запрос по наличию изменений управляющих json-команд
+   if (getComRequest('sjson')=='{"common":0}')
+   {
+      // Подключаем объект для работы с базой данных моего хозяйства
+      $Kvizzy=new ttools\KvizzyMaker($SiteHost);
+      // Подключаемся к базе данных
+      $pdo=$Kvizzy->BaseConnect();
+      // Запрашиваем изменения и формируем json-ответ контроллеру
+      $table=$Kvizzy->SelChange($pdo);
+      // Трассируем, при необходимости, таблицу
+      // echo '<pre>'; print_r($table); echo '</pre>';
+      $sjson=''; $first=true;
+      // Вначале склеиваем все управляющие json-команды
+      foreach ($table as $row) 
+      {
+         if ($row['num']>0) 
+         {
+            if ($first) 
+            {
+               $sjson=$sjson.$row['sjson'];
+               $first=false;
+            }
+            else
+            {
+               $sjson=$sjson.','.$row['sjson'];
+            }
+         }
+      } 
+      // Далее, если были команды формируем json-ответ контроллеру
+      if (strlen($sjson)>0)
+      {
+         $sjson='{"lead":['.$sjson.']}';
+      }
+      // Иначе пустой ответ
+      else $sjson='{}';
+      // Возвращаем результат
+      // {"lead":[{"led4":[{"light":25,"time":1996}]},{"intrv":[{"mode4":6900,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}]}]}
+      echo $sjson;
+   }
+   else
+   {
+      echo 'НЕ ЗАПРОС изменений управляющих json-команд'."\n";
+      echo 'cycle='.getComRequest('cycle')."\n";   
+      echo 'sjson='.getComRequest('sjson')."\n";   
+   }
 
    //$isEvent=$table['isEvent']; 
    //$sjson=$table['sjson'];

@@ -170,19 +170,19 @@ function _SelChange($pdo)
       $stmt = $pdo->query($cSQL);
       $table = $stmt->fetchAll();
       if (count($table)<1) 
-      $table=[
+      $table=array([
          "isEvent"=>-2, "num"=> -2,
          "SendTime"=>time(), "ReceivTime"=> time(),
-         "sjson" => ' '];
+         "sjson" => ' ']);
       $pdo->commit();
    } 
    catch (Exception $e) 
    {
       $messa=$e->getMessage();
-      $table=[
+      $table=array([
          "isEvent"=>-3, "num"=> -3,
          "SendTime"=>time(), "ReceivTime"=> time(),
-         "sjson" => $messa];
+         "sjson" => $messa]);
       if ($pdo->inTransaction()) $pdo->rollback();
    }
    return $table;
