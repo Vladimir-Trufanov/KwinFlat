@@ -19,8 +19,8 @@
 // ****************************************************************************
 
 // Реестр образцов управляющих json-команд
-// 1-s_MODE4, '{\"led4\":[{\"light\":10,\"time\":2000}]}'                                                // режим работы вспышки
-// 2-s_INTRV, '{\"intrv\":[{\"mode4\":7007,\"img\":1001,\"tempvl\":3003,\"lumin\":2002,\"bar\":5005}]}'  // интервалы подачи сообщений от контроллера
+// 1-s_MODE4, '"led4":{"light":10,"time":2000}'                                          // режим работы вспышки
+// 2-s_INTRV, '"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}'  // интервалы подачи сообщений от контроллера
 
 function _CreateLeadTables($pdo)
 {
@@ -41,7 +41,7 @@ function _CreateLeadTables($pdo)
       "isEvent"    => 0,
       "SendTime"   => time(),
       "ReceivTime" => time(),
-      "sjson"      => '{\"led4\":[{\"light\":10,\"time\":2000}]}',
+      "sjson"      => '"led4":{"light":10,"time":2000}',
    ]);
    // Добавляем начальную запись интервалов подачи сообщений от контроллера
    $statement = $pdo->prepare("INSERT INTO [Lead] ".
@@ -52,7 +52,7 @@ function _CreateLeadTables($pdo)
       "isEvent"    => 0,
       "SendTime"   => time(),
       "ReceivTime" => time(),
-      "sjson"      => '{\"intrv\":[{\"mode4\":7007,\"img\":1001,\"tempvl\":3003,\"lumin\":2002,\"bar\":5005}]}',
+      "sjson"      => '"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}',
    ]);
 }
 // ****************************************************************************

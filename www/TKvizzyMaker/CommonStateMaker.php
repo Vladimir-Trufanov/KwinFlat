@@ -34,7 +34,7 @@ function _CreateStateTables($pdo)
       "myTime" => time(),
       "myDate" => date("y-m-d H:i:s"),
       "cycle"  => -1,
-      "sjson"  => '{"led4":[{"status":"First"}]}',
+      "sjson"  => '{"led4":{"status":"First"}}',
    ]);
 }
 // ****************************************************************************

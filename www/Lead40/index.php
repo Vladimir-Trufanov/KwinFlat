@@ -11,9 +11,9 @@
 // https://probatv.ru/Lead40/?cycle=3&sjson={"common":0}
 
 // Реестр образцов управляющих json-команд
-// 0-s_COMMON, '{\"common\":0}'                                                                           // запрос изменений
-// 1-s_MODE4,  '{\"led4\":[{\"light\":10,\"time\":2000}]}'                                                // режим работы вспышки
-// 2-s_INTRV,  '{\"intrv\":[{\"mode4\":7007,\"img\":1001,\"tempvl\":3003,\"lumin\":2002,\"bar\":5005}]}'  // интервалы подачи сообщений от контроллера
+// 0-s_COMMON, '"common":0'                                                               // запрос изменений
+// 1-s_MODE4,  '"led4":{"light":10,"time":2000}'                                          // режим работы вспышки
+// 2-s_INTRV,  '"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}'  // интервалы подачи сообщений от контроллера
 
 // Подключаем реестр json-сообщений на страницу State40
 require_once "../iniWorkSpace.php";  
@@ -63,12 +63,12 @@ function MakeAnswer($SiteHost)
       // Далее, если были команды формируем json-ответ контроллеру
       if (strlen($sjson)>0)
       {
-         $sjson='{"lead":['.$sjson.']}';
+         $sjson='{'.$sjson.'}';
       }
       // Иначе пустой ответ
       else $sjson='{}';
       // Возвращаем результат
-      // {"lead":[{"led4":[{"light":25,"time":1996}]},{"intrv":[{"mode4":6900,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}]}]}
+      // {"led4":{"light":25,"time":1996},"intrv":{"mode4":6900,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}}
       echo $sjson;
    }
    else

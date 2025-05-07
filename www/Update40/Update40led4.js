@@ -96,14 +96,14 @@ function onIntrv1()
   else if (namefield=='plumin')  jlumin=value 
   else                           jbar=value; 
   // Формируем json действующих интервалов подачи сообщений от контроллера (мсек) 
-  // s_INTRV={\"intrv\":[{\"mode4\":7007,\"img\":1001,\"tempvl\":3003,\"lumin\":2002,\"bar\":5005}]} 
-  var s_INTRV = '{\"intrv\":[{'+
-    '\"mode4\":'+  jmode4.toString()+  ','+
-    '\"img\":'+    jimg.toString()+    ','+
-    '\"tempvl\":'+ jtempvl.toString()+ ','+ 
-    '\"lumin\":'+  jlumin.toString()+  ','+ 
-    '\"bar\":'+    jbar.toString()+    
-  '}]}'; 
+  // s_INTRV="intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005} 
+  var s_INTRV = '"intrv":{'+
+    '"mode4":'+  jmode4.toString()+  ','+
+    '"img":'+    jimg.toString()+    ','+
+    '"tempvl":'+ jtempvl.toString()+ ','+ 
+    '"lumin":'+  jlumin.toString()+  ','+ 
+    '"bar":'+    jbar.toString()+    
+  '}'; 
   // Записываем в базу данных изменения интервалов подачи сообщений контроллера
   setMessForLead(2,s_INTRV)
   //console.log('s_INTRV='+s_INTRV);
@@ -138,11 +138,11 @@ function onbLed4()
   else                           jlight=value; 
   console.log('jlight='+jlight+' jtime ='+jtime);
   // Формируем json действующего режима работы вспышки
-  // s_MODE4 = '{\"led4\":[{\"light\":10,\"time\":2000}]}'   
-  var s_MODE4 = '{\"led4\":[{'+
-    '\"light\":'+jlight.toString()+','+
-    '\"time\":'+ jtime.toString()+    
-  '}]}'; 
+  // s_MODE4 = '"led4":{"light":10,"time":2000}'   
+  var s_MODE4 = '"led4":{'+
+    '"light":'+jlight.toString()+','+
+    '"time":'+ jtime.toString()+    
+  '}'; 
   // Записываем в базу данных изменения интервалов подачи сообщений контроллера
   setMessForLead(1,s_MODE4)
   console.log('s_MODE4='+s_MODE4);
