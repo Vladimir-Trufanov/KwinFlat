@@ -28,7 +28,7 @@ function _CreateLeadTables($pdo)
 {
    // Создаём таблицу состояния управляющих json-команд
    $sql='CREATE TABLE Lead ('.
-      'num        INTEGER,'.    // номер управляющей json-команды (1-s4_MODE,2-s_INTRV)
+      'num        INTEGER,'.    // номер управляющей json-команды (-1-s4_MODE,-2-s_INTRV)
       'isEvent    INTEGER,'.    // 1 - изменилось состояние json-команды, 0 - пришло подтверждение от контроллера
       'SendTime   INTEGER,'.    // время в секундах (c начала эпохи) изменения состояния
       'ReceivTime INTEGER,'.    // время получения подтверждения в секундах
@@ -39,7 +39,7 @@ function _CreateLeadTables($pdo)
       "([num],[isEvent],[SendTime],[ReceivTime],[sjson]) VALUES ".
       "(:num, :isEvent, :SendTime, :ReceivTime, :sjson);");
    $statement->execute([
-      "num"        => 1,
+      "num"        => -1,
       "isEvent"    => 0,
       "SendTime"   => time(),
       "ReceivTime" => time(),
@@ -50,7 +50,7 @@ function _CreateLeadTables($pdo)
       "([num],[isEvent],[SendTime],[ReceivTime],[sjson]) VALUES ".
       "(:num, :isEvent, :SendTime, :ReceivTime, :sjson);");
    $statement->execute([
-      "num"        => 2,
+      "num"        => -2,
       "isEvent"    => 0,
       "SendTime"   => time(),
       "ReceivTime" => time(),

@@ -32,6 +32,9 @@ echo "</Lead>";
 
 function MakeAnswer($SiteHost)
 {
+   // Трассируем поступающий json
+   echo('sjson='.getComRequest('sjson'));
+   
    // Если поступил запрос по наличию изменений управляющих json-команд
    if (getComRequest('sjson')=='{"common":0}')
    {
@@ -42,7 +45,7 @@ function MakeAnswer($SiteHost)
       // Запрашиваем изменения и формируем json-ответ контроллеру
       $table=$Kvizzy->SelChange($pdo);
       // Трассируем, при необходимости, таблицу
-      // echo '<pre>'; print_r($table); echo '</pre>';
+      echo '<pre>'; print_r($table); echo '</pre>';
       $sjson=''; $first=true;
       // Вначале склеиваем все управляющие json-команды
       foreach ($table as $row) 
@@ -71,11 +74,17 @@ function MakeAnswer($SiteHost)
       // {"led4":{"light":25,"time":1996},"intrv":{"mode4":6900,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}}
       echo $sjson;
    }
+   else if (getComRequest('cycle')==-1)   
+   {
+      echo '-1: '.getComRequest('sjson');   
+   }
+   else if (getComRequest('cycle')==-2)   
+   {
+      echo '-2: '.getComRequest('sjson');   
+   }
    else
    {
-      echo 'НЕ ЗАПРОС изменений управляющих json-команд'."\n";
-      echo 'cycle='.getComRequest('cycle')."\n";   
-      echo 'sjson='.getComRequest('sjson')."\n";   
+      echo '-3: '.getComRequest('sjson');   
    }
 
    //$isEvent=$table['isEvent']; 
