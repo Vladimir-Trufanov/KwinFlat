@@ -105,7 +105,7 @@ function onIntrv1()
     '"bar":'+    jbar.toString()+    
   '}'; 
   // Записываем в базу данных изменения интервалов подачи сообщений контроллера
-  setMessForLead(2,s_INTRV)
+  setMessForLead(-2,s_INTRV)
   //console.log('s_INTRV='+s_INTRV);
 }
 // ****************************************************************************
@@ -144,7 +144,7 @@ function onbLed4()
     '"time":'+ jtime.toString()+    
   '}'; 
   // Записываем в базу данных изменения интервалов подачи сообщений контроллера
-  setMessForLead(1,s_MODE4)
+  setMessForLead(-1,s_MODE4)
   console.log('s_MODE4='+s_MODE4);
 }
 // ****************************************************************************

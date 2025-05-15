@@ -33,7 +33,8 @@ echo "</Lead>";
 function MakeAnswer($SiteHost)
 {
    // Трассируем поступающий json
-   echo('sjson='.getComRequest('sjson'));
+   // echo('sjsonX='.getComRequest('sjson'));
+   // echo('cycleX='.getComRequest('cycle'));
    
    // Если поступил запрос по наличию изменений управляющих json-команд
    if (getComRequest('sjson')=='{"common":0}')
@@ -45,12 +46,13 @@ function MakeAnswer($SiteHost)
       // Запрашиваем изменения и формируем json-ответ контроллеру
       $table=$Kvizzy->SelChange($pdo);
       // Трассируем, при необходимости, таблицу
-      echo '<pre>'; print_r($table); echo '</pre>';
+      // echo '<pre>'; print_r($table); echo '</pre>';
       $sjson=''; $first=true;
       // Вначале склеиваем все управляющие json-команды
       foreach ($table as $row) 
       {
-         if ($row['num']>0) 
+         // 'num' - номер управляющей json-команды (-1 -> s4_MODE,-2 -> s_INTRV)
+         if ($row['num']<0) 
          {
             if ($first) 
             {
