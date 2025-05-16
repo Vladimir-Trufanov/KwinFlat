@@ -76,9 +76,10 @@ function MakeAnswer($SiteHost)
       // {"led4":{"light":25,"time":1996},"intrv":{"mode4":6900,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}}
       echo $sjson;
    }
+   // Подтверждаем изменение и отмечаем текущий режим работы вспышки
    else if (getComRequest('cycle')==-1)   
    {
-      echo '-1: '.getComRequest('sjson');   
+      echo '-1='.$Kvizzy->TestSet($pdo,getComRequest('sjson'),-1); 
    }
    else if (getComRequest('cycle')==-2)   
    {

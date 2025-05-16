@@ -6,18 +6,18 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                             для базы данных json-сообщений страницы Lead *
 // *                                                                          *
-// * v2.0.2, 04.05.2025                            Автор:       Труфанов В.Е. *
+// * v2.0.3, 16.05.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  20.01.2025 *
 // ****************************************************************************
 
-// _CreateLeadTables($pdo);                  - Создать таблицу базы данных Lead
-// _SelChange($pdo)                          - Выбрать изменения состояний управляющих команд  
-// _setMessForLead($pdo,$num,$sjson);        - Записать в базу данных изменения состояния управляющих json-команд   
- 
+// _CreateLeadTables($pdo);             - Создать таблицу базы данных Lead
+// _SelChange($pdo)                     - Выбрать изменения состояний управляющих команд  
+// _setMessForLead($pdo,$num,$sjson)    - Записать в базу данных изменения состояния управляющих json-команд   
+// _TestSet($pdo,$INsjson,$action)      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+
 // ****************************************************************************
 // *                       Создать таблицу базы данных Lead                   *
 // ****************************************************************************
-
 
 // Реестр образцов управляющих json-команд
 //  0 -> s_COMMON, '"common":0'                                                               // запрос изменений
@@ -62,7 +62,6 @@ function _CreateLeadTables($pdo)
 // ****************************************************************************
 function _setMessForLead($pdo,$num,$sjson)
 {
-   define ("nstOk", 'все в порядке'); 
    $messa="UPDATE [Lead] SET [isEvent]=:isEvent, [SendTime]=:SendTime, [ReceivTime]=:ReceivTime, [sjson]=:sjson WHERE [num]=:num";
    try 
    {
@@ -86,45 +85,58 @@ function _setMessForLead($pdo,$num,$sjson)
    }
    return $messa;
 }
-/*
 // ****************************************************************************
-// *         Выбрать запись режима работы светодиода Led4      *
+// *            Подтвердить и отметить изменение состояний:                   *
+// *            $action=-1, текущего режима работы вспышки;                   *
+// *            $action=-2, интервалов подачи сообщений от контроллера        *
 // ****************************************************************************
-function _SelectLMP33($pdo)
+function _TestSet($pdo,$INsjson,$action)
 {
+   $sjson=$INsjson;
+   $Result=-1;  // "все сработало правильно"
    try 
    {
       $pdo->beginTransaction();
-      $cSQL='SELECT isEvent,Mode,SendTime,ReceivTime,sjson FROM Lmp33';
+      // Выбираем сформированный по изменению sjson
+      $cSQL='SELECT sjson FROM Lead WHERE isEvent=1 AND num='.$action;
       $stmt = $pdo->query($cSQL);
       $table = $stmt->fetchAll();
-      if (count($table)>0) $table=[
-         "isEvent"=>$table[0]['isEvent'],"Mode"=>$table[0]['Mode'],
-         "SendTime" =>$table[0]['SendTime'], "ReceivTime" =>$table[0]['ReceivTime'], "sjson" =>$table[0]['sjson']];
-      else $table=[
-         "isEvent"=>-2, "Mode"=> -2,
-         "SendTime"=>time(), "ReceivTime"=> time(),
-         "sjson" => 'sjson3'];
+      if (count($table)>0) $sjson=$table[0]['sjson'];
+      else 
+      {
+         $Result=-2; // "sjson не выбрался"
+         return $Result; 
+      }
+      // Если переданный от контроллера $INsjson не совпадает с
+      // $sjson, сформированным по изменению, отмечаем, как ошибка
+      if ($INsjson!=$sjson) 
+      {
+         $Result=-3; // "INsjson не совпадает с sjson"
+         return $Result; 
+      }
+      // Иначе, подтверждаем изменение и отмечаем текущий режим работы вспышки
+      $messa="UPDATE [Lead] SET [isEvent]=:isEvent, [ReceivTime]=:ReceivTime WHERE [num]=".$action;
+      $statement = $pdo->prepare($messa);
+      $statement->execute([
+         "isEvent"    => 0,
+         "ReceivTime" => time()
+      ]);
       $pdo->commit();
    } 
    catch (Exception $e) 
    {
       $messa=$e->getMessage();
-      $table=[
-         "isEvent"=>-3, "Mode"=> -3,
-         "SendTime"=>time(), "ReceivTime"=> time(),
-         "sjson" => $messa];
+      $Result=-4; // "исключение по ошибке"
       if ($pdo->inTransaction()) $pdo->rollback();
    }
-   return $table;
+   return $Result; 
 }
+/*
 // ****************************************************************************
 // *        Обновить установку по режиму работы контрольного светодиода       *
 // ****************************************************************************
 function _UpdateModeLMP33($pdo,$action)
 {
-   define ("nstOk",        'все в порядке'); 
-
    // $action=3 - прошла команда смены режима, включить режим
    // $action=2 - прошла команда смены режима, выключить режим
    // $action=1 - пришло подтверждение от контроллера, включить режим
@@ -159,7 +171,6 @@ function _UpdateModeLMP33($pdo,$action)
    return $messa;
 }
 */
-
 // ****************************************************************************
 // *             Выбрать изменения состояний управляющих команд               *
 // ****************************************************************************
