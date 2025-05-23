@@ -1,5 +1,5 @@
 <?php 
-// PHP7/HTML5, YANDEX|EDGE/CHROME                          *** iniPhpJS.php ***
+// PHP7/HTML5, YANDEX/EDGE/CHROME                          *** iniPhpJS.php ***
 
 // ****************************************************************************
 // * kwinflat.ru           Организовать межязыковые (PHP-JScript) определения *

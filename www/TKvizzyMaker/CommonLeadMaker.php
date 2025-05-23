@@ -6,7 +6,7 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                             для базы данных json-сообщений страницы Lead *
 // *                                                                          *
-// * v2.0.3, 16.05.2025                            Автор:       Труфанов В.Е. *
+// * v2.0.4, 23.05.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  20.01.2025 *
 // ****************************************************************************
 
@@ -101,7 +101,7 @@ function _TestSet($pdo,$INsjson,$action)
       $cSQL='SELECT sjson FROM Lead WHERE isEvent=1 AND num='.$action;
       $stmt = $pdo->query($cSQL);
       $table = $stmt->fetchAll();
-      if (count($table)>0) $sjson=$table[0]['sjson'];
+      if (count($table)>0) $sjson='{'.$table[0]['sjson'].'}';
       else 
       {
          $Result=-2; // "sjson не выбрался"
@@ -111,7 +111,8 @@ function _TestSet($pdo,$INsjson,$action)
       // $sjson, сформированным по изменению, отмечаем, как ошибка
       if ($INsjson!=$sjson) 
       {
-         $Result=-3; // "INsjson не совпадает с sjson"
+         // "INsjson не равен sjson"
+         $Result='-3 INsjson: '.$INsjson.' не равен '.$sjson;
          return $Result; 
       }
       // Иначе, подтверждаем изменение и отмечаем текущий режим работы вспышки

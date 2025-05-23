@@ -5,7 +5,7 @@
 // * Lead40                      Обработать изменения управляющих json-команд *
 // ****************************************************************************
 
-// v3.1.1, 07.05.2025                                 Автор:      Труфанов В.Е.
+// v3.1.2, 23.05.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 08.10.2024
 
 // https://probatv.ru/Lead40/?cycle=3&sjson={"common":0}
@@ -35,14 +35,15 @@ function MakeAnswer($SiteHost)
    // Трассируем поступающий json
    // echo('sjsonX='.getComRequest('sjson'));
    // echo('cycleX='.getComRequest('cycle'));
+
+   // Подключаем объект для работы с базой данных моего хозяйства
+   $Kvizzy=new ttools\KvizzyMaker($SiteHost);
+   // Подключаемся к базе данных
+   $pdo=$Kvizzy->BaseConnect();
    
    // Если поступил запрос по наличию изменений управляющих json-команд
    if (getComRequest('sjson')=='{"common":0}')
    {
-      // Подключаем объект для работы с базой данных моего хозяйства
-      $Kvizzy=new ttools\KvizzyMaker($SiteHost);
-      // Подключаемся к базе данных
-      $pdo=$Kvizzy->BaseConnect();
       // Запрашиваем изменения и формируем json-ответ контроллеру
       $table=$Kvizzy->SelChange($pdo);
       // Трассируем, при необходимости, таблицу
@@ -77,6 +78,8 @@ function MakeAnswer($SiteHost)
       echo $sjson;
    }
    // Подтверждаем изменение и отмечаем текущий режим работы вспышки
+   // https://probatv.ru/Lead40/?cycle=-1&sjson={"led4":{"light":10,"time":2000}}
+   // http://localhost:100/Lead40/?cycle=-1&sjson={"led4":{"light":10,"time":2000}}
    else if (getComRequest('cycle')==-1)   
    {
       echo '-1='.$Kvizzy->TestSet($pdo,getComRequest('sjson'),-1); 
