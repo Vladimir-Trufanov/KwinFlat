@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Untitled</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h2 id="kwinflat---близкий-всем-сайт-умного-хозяйства-на-контроллере-esp32-cam">KwinFlat - близкий всем, сайт умного хозяйства на контроллере ESP32-CAM</h2>
+<h3 id="kwinflat.ru---сайт-умного-хозяйства-на-контроллере-esp32-cam-для-управления-светодиодом-снятия-показаний-температуры-влажности-и-формирования-потока-изображений-наблюдаемого-объекта">Kwinflat.ru - сайт умного хозяйства на контроллере ESP32-CAM для управления светодиодом, снятия показаний температуры, влажности и формирования потока изображений наблюдаемого объекта</h3>
+<h3 id="kvizzy40---исполнительное-приложение-умного-хозяйства-на-контроллере-esp32-cam-для-управления-светодиодом-снятия-показаний-температуры-влажности-и-формирования-потока-изображений-наблюдаемого-объекта">Kvizzy40 - исполнительное приложение умного хозяйства на контроллере ESP32-CAM для управления светодиодом, снятия показаний температуры, влажности и формирования потока изображений наблюдаемого объекта</h3>
+<p><img src="BP1/kwf0.png" /></p>
+<h3 id="осенние-тезисы-2024-09-30">Осенние тезисы 2024-09-30</h3>
+<ul>
+<li><p>Страница мониторинга “<strong><em>View</em></strong>” и два сервера: “<strong><em>Lead</em></strong>” - управления, “<strong><em>State</em></strong>” - регистрации изменений состояния умного хозяйства и значений датчиков. Ознакомительная (домашняя) страница - “<strong><em>Meet</em></strong>”.</p></li>
+<li><p><strong><em>View</em></strong> - cтраница мониторинга запускается после регистрацию в обществе “VK”. Сессии пользователей регистрируются в SQLite3-базе данных <strong><em>kwiflath.db3</em></strong>.</p></li>
+<li><p><strong><em>State</em></strong> - сервер регистрации изменений состояния доступен лишь контроллерам умного хозяйства. Все изменения регистрируются в SQLite3-базе данных <strong><em>kvizzy.db3</em></strong>.</p></li>
+</ul>
+<h3 id="тезисы-v4.x.x-2025-03-29">Тезисы v4.x.x 2025-03-29</h3>
+<ul>
+<li>Корневая страница <strong><em>kwinflat.ru</em></strong> - <strong><em>C:/KwinFlat/www</em></strong>:</li>
+</ul>
+<pre><code>Структура каталогов:
+  /         - корневая страница с index.php и iniWorkSpace.php  (диспетчер страниц);
+  /Meet40   - домашняя страница v4.x.x;
+  /Update40 - главная страница администратора;
+  /View40   - гостевая страница сайта;
+  /State40  - страница приема и передачи данных в базу;
+  /Lead40   - страница выявления команд управления умным хозяйством
+  /Stream40 - страница регистрации потока изображений</code></pre>
+<ul>
+<li><strong>Порядок взаимодействия</strong>:</li>
+</ul>
+<p>а) для подключения к системе хозяйства контроллер выполняет пинг сервера и отправляет сообщение серверу <strong><em>State</em></strong> о своем включении в систему, а также передает сведения о текущем состоянии своих устройств и показания датчиков в JSON-формате;</p>
+<p>б) <strong><em>State40</em></strong> принимает от контроллера изменения состояния умного хозяйства, значений датчиков и заносит данные в базу kvizzy40.db3;</p>
+<p>в) контроллер регулярно запрашивает команды управления через страницу Lead;</p>
+<ul>
+<li><strong>Отладка скетчей контроллеров</strong>. Вводятся определения для отладки скетчей контроллеров, по типу:</li>
+</ul>
+<ol type="a">
+<li>#define debugStackSize 0 // 1 - выполнить контроль размера стека</li>
+</ol>
+<h3 id="библиография">Библиография</h3>
+<h4 id="таймеры-html5js"><a href="https://thecode.media/count-timer/">Таймеры Html5+JS</a></h4>
+<h4 id="timers"><a href="https://dev.w3.org/html5/spec-LC/timers.html">Timers</a></h4>
+<h4 id="простой-таймер"><a href="https://sky.pro/wiki/html/sozdaem-taymer-obratnogo-otscheta-na-js-i-html-bez-css/">Простой таймер</a></h4>
+</body>
+</html>

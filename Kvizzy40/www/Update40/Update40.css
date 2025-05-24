@@ -1,0 +1,188 @@
+/** HTML5/CSS3, EDGE/CHROME                                *** Update40.css ***
+ *
+ ******************************************************************************
+ * KwinFlat                           Обновить показания счетчиков, состояния *
+ *                                                   устройств и контроллеров *
+ ******************************************************************************
+ *
+ * v4.0.1, 30.03.2025                                 Автор:      Труфанов В.Е.
+ * Copyright © 2024 tve                               Дата создания: 22.12.2024
+ * 
+**/
+
+#LeftAndRight
+{
+   display:flex;
+   flex-direction:row;
+   height:97%;
+}
+#Left
+{
+   background:LightYellow;
+   width:67%;
+   height:100%;
+   /*background:transparent;*/ 
+   z-index:1;
+}
+#Right
+{
+   background:LightCyan;
+   width:33%;
+   height:100%;
+   z-index:1;
+}
+#tickers 
+{
+   /*display:flex;*/
+   height:3%;
+   background:GhostWhite;
+   z-index:1;
+   width:100%;
+   /*background:transparent;*/ 
+}
+#Header 
+{
+   background:White;
+   height:14%;
+   z-index:2;
+}
+
+#kwf
+{
+   width:68%;
+   height:80%;
+   border:solid .3rem DarkGoldenRod;
+   border-radius:20%;
+   padding-bottom:.6rem;
+   margin-top:1%;
+   margin-left:1%;
+}
+#Article 
+{
+   /*background:LemonChiffon;*/
+   background:transparent; 
+   height:56%;
+   z-index:2;
+}
+#Footer 
+{
+   /*background:Lavender;*/
+   background:transparent; 
+   height:30%;
+   z-index:2;
+   / *overflow:auto;* /
+}
+#FooterTop
+{
+   display:block;
+   /*background:red;*/
+   background:transparent; 
+   width:100%;
+   height:74%;
+   overflow:hidden;
+}
+
+.ticker 
+{
+   border:solid .1rem Gray;
+   text-align:left;
+   overflow: hidden;
+   margin-left:.4%;
+   padding-left:.5%;
+   padding-right:.5%;
+}
+
+/* Выделяем площадку управления светодиодом */
+#led4
+{
+   / *background:LightYellow;* /
+   background:transparent; 
+   height:50%;
+   width:100%;
+}
+/* Создаем площадку для размещения заголовков и элементов LED4 */
+#led4{padding-left:2.6%;}
+#shsh
+{
+   display:flex;
+   / *background:Tomato;* / 
+   background:transparent; 
+   height:20%;
+   width:100%;
+   align-items:end;
+   justify-content:center;
+}
+#lplp
+{
+   display:flex;
+   / *background:yellow;* / 
+   background:transparent; 
+   height:50%;
+   width:100%;
+   align-items:center;
+   justify-content:center;
+}
+/* Размещаем заголовки и элементы управления LED4 */
+.shled4,.cled4
+{
+   width: 17.4%;
+   margin-right:2.6%;
+   text-align:center; 
+}
+.shled4
+{
+   font-weight: 900;
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 16 - 8 ) + 8px );
+}
+.cled4
+{  
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   font-weight: 900;
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 48 - 16 ) + 16px );
+   color:Black;
+   background:Silver;
+   height:80%;
+   border-radius:5%;
+}
+/* Иммитируем лампочку */
+#spot
+{
+   border-radius:34%;
+   height: 120%;
+}
+/* Высвечиваем события */
+.shled4:hover
+{
+   color:#F4A460;
+}
+.shled4:active
+{
+   color:red;
+}
+/* Определяем окно ошибок и предупреждений */
+#DialogWind
+{
+   display:flex;
+   align-items:center;
+   color:red;
+   font-size:calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 36 - 12 ) + 12px );
+}
+/* Определяем поля ввода параметров управления светодиодом */
+.Inp, .Btn
+{
+   font-size:calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 20 - 8 ) + 8px );
+   font-weight:900;
+}
+.Inp
+{
+   width:calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 160 - 8 ) + 8px );
+   / *border:0;* /
+}
+.Btn
+{
+   border-radius:20%;
+}
+
+/************************************************************ Update40.css ***/

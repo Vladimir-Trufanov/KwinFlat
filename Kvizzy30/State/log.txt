@@ -1,4 +1,0 @@
-[19-Jan-2025 16:55:22 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'TTools/TKvizzyMaker/KvizzyMakerClass.php' (include_path='.;C:\php\pear') in C:\KwinFlat\Kvizzy30\State\UpStateBODY.php on line 25
-[19-Jan-2025 17:01:15 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'TTools/TKvizzyMaker/KvizzyMakerClass.php' (include_path='.;C:\php\pear') in C:\KwinFlat\Kvizzy30\State\UpStateBODY.php on line 22
-[19-Jan-2025 17:05:08 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'Common.php' (include_path='.;C:\php\pear') in C:\KwinFlat\Kvizzy30\State\UpStateBODY.php on line 22
-[19-Jan-2025 17:07:01 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'TTools/TKvizzyMaker/KvizzyMakerClass.php' (include_path='.;C:\php\pear') in C:\KwinFlat\Kvizzy30\State\UpStateBODY.php on line 23
