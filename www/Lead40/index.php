@@ -5,10 +5,8 @@
 // * Lead40                      Обработать изменения управляющих json-команд *
 // ****************************************************************************
 
-// v3.1.2, 23.05.2025                                 Автор:      Труфанов В.Е.
+// v4.4.0, 25.05.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 08.10.2024
-
-// https://probatv.ru/Lead40/?cycle=3&sjson={"common":0}
 
 // Реестр образцов управляющих json-команд
 // 0-s_COMMON, '"common":0'                                                               // запрос изменений
@@ -41,7 +39,9 @@ function MakeAnswer($SiteHost)
    // Подключаемся к базе данных
    $pdo=$Kvizzy->BaseConnect();
    
-   // Если поступил запрос по наличию изменений управляющих json-команд
+   // Если поступил запрос по наличию изменений управляющих json-команд:
+   // https://probatv.ru/Lead40/?cycle=3&sjson={"common":0}
+   // http://localhost:100/Lead40/?cycle=3&sjson={"common":0}
    if (getComRequest('sjson')=='{"common":0}')
    {
       // Запрашиваем изменения и формируем json-ответ контроллеру
@@ -72,11 +72,14 @@ function MakeAnswer($SiteHost)
          $sjson='{'.$sjson.'}';
       }
       // Иначе пустой ответ
-      else $sjson='{}';
+      else $sjson='{"exit":1}';
       // Возвращаем результат
       // {"led4":{"light":25,"time":1996},"intrv":{"mode4":6900,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}}
       echo $sjson;
    }
+   else echo '{"exit":2}';
+   
+   /*
    // Подтверждаем изменение и отмечаем текущий режим работы вспышки
    // https://probatv.ru/Lead40/?cycle=-1&sjson={"led4":{"light":10,"time":2000}}
    // http://localhost:100/Lead40/?cycle=-1&sjson={"led4":{"light":10,"time":2000}}
@@ -97,6 +100,7 @@ function MakeAnswer($SiteHost)
    //$sjson=$table['sjson'];
    //if ($isEvent<0) echo '<p>{}</p>';
    //else echo '<p>'.$sjson.'</p>';
+   */
 }
 
 // <!-- --> ***************************************************** index.php ***
