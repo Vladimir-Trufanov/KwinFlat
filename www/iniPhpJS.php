@@ -8,9 +8,6 @@
 // v4.0.5, 04.05.2025                                Автор:       Труфанов В.Е. 
 // Copyright © 2025 tve      sla6en9edged            Дата создания:  13.01.2025 
 
-// Подключаем реестр json-сообщений на страницу State40
-require_once "State40/jsonState40.php";  
-
 // Интервал подачи и выборки изображений в потоке
 // define ("IntStream", 2048);   //  1 раз за 1024 миллисекунды
 // define ("IntStream", 42);     //  24 раза в секунду
@@ -53,8 +50,6 @@ function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jmode4,$jimg,$jtempvl,$jlum
    'nstYes="'              .nstYes.'";'."\n".
    'nstNo="'               .nstNo.'";'."\n".
    'vController="'         .vController.'";'."\n".
-   's4_HIGH="'             .s4_HIGH.'";'."\n".
-   's4_LOW="'              .s4_LOW.'";'."\n".
    'var jlight="'          .$jlight.'";'."\n".
    'var jtime="'           .$jtime.'";'."\n".
    'var jmode4="'          .$jmode4.'";'."\n".

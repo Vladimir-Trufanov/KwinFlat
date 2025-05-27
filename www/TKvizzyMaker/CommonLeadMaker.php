@@ -6,9 +6,11 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                             для базы данных json-сообщений страницы Lead *
 // *                                                                          *
-// * v2.0.4, 23.05.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.0, 27.05.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  20.01.2025 *
 // ****************************************************************************
+
+// define ("nstOk",'все в порядке'); 
 
 // _CreateLeadTables($pdo);             - Создать таблицу базы данных Lead
 // _SelChange($pdo)                     - Выбрать изменения состояний управляющих команд  
@@ -76,7 +78,7 @@ function _setMessForLead($pdo,$num,$sjson)
          "sjson"      => $sjson
       ]);
       $pdo->commit();
-      $messa=nstOk; 
+      $messa='все в порядке'; 
    } 
    catch (Exception $e) 
    {
@@ -93,7 +95,7 @@ function _setMessForLead($pdo,$num,$sjson)
 function _TestSet($pdo,$INsjson,$action)
 {
    $sjson=$INsjson;
-   $Result=-1;  // "все сработало правильно"
+   $Result='{"exit":"-1"}'; // "все сработало правильно"
    try 
    {
       $pdo->beginTransaction();
@@ -101,34 +103,44 @@ function _TestSet($pdo,$INsjson,$action)
       $cSQL='SELECT sjson FROM Lead WHERE isEvent=1 AND num='.$action;
       $stmt = $pdo->query($cSQL);
       $table = $stmt->fetchAll();
-      if (count($table)>0) $sjson='{'.$table[0]['sjson'].'}';
+      if (count($table)>0) 
+      {
+         $sjson='{'.$table[0]['sjson'].'}';
+      }
       else 
       {
-         $Result=-2; // "sjson не выбрался"
+         $Result=='{"exit":"-2"}'; // "sjson не выбрался"
          return $Result; 
       }
+      //return '***'.$INsjson.'***'.$sjson.'***'; 
+
       // Если переданный от контроллера $INsjson не совпадает с
       // $sjson, сформированным по изменению, отмечаем, как ошибка
       if ($INsjson!=$sjson) 
       {
-         // "INsjson не равен sjson"
-         $Result='-3 INsjson: '.$INsjson.' не равен '.$sjson;
+         $Result=$INsjson.' не равен '.$sjson; 
          return $Result; 
       }
-      // Иначе, подтверждаем изменение и отмечаем текущий режим работы вспышки
-      $messa="UPDATE [Lead] SET [isEvent]=:isEvent, [ReceivTime]=:ReceivTime WHERE [num]=".$action;
-      $statement = $pdo->prepare($messa);
-      $statement->execute([
-         "isEvent"    => 0,
-         "ReceivTime" => time()
-      ]);
+      else
+      {
+         // Иначе, подтверждаем изменение и отмечаем текущий режим работы вспышки
+         $messa="UPDATE [Lead] SET [isEvent]=:isEvent, [ReceivTime]=:ReceivTime WHERE [num]=:num";
+         $statement = $pdo->prepare($messa);
+         $statement->execute([
+            "num"        => $action,
+            "isEvent"    => 0,
+            "ReceivTime" => time()
+         ]);
+      }
       $pdo->commit();
+      //return '**-*'.$INsjson.'***'.$sjson.'***'; 
    } 
    catch (Exception $e) 
    {
       $messa=$e->getMessage();
-      $Result=-4; // "исключение по ошибке"
+      $Result=='{"exit":"'.$messa.'"}'; // "sjson не выбрался"
       if ($pdo->inTransaction()) $pdo->rollback();
+      return $Result; 
    }
    return $Result; 
 }
