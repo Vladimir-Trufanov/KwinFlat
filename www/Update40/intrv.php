@@ -10,7 +10,7 @@
 
 ?>
 <div id="intrv" style="text-align:center;">
-Интервалы подачи сообщений от контроллера
+Интервалы подачи сообщений от контроллера (мсек)
 </div>
 <div id="plans" class="clearfix">
    <div class="plan" id="border-left">

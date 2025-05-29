@@ -6,16 +6,17 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                             для базы данных json-сообщений страницы Lead *
 // *                                                                          *
-// * v4.4.0, 27.05.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.1, 29.05.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  20.01.2025 *
 // ****************************************************************************
 
 // define ("nstOk",'все в порядке'); 
 
-// _CreateLeadTables($pdo);             - Создать таблицу базы данных Lead
-// _SelChange($pdo)                     - Выбрать изменения состояний управляющих команд  
-// _setMessForLead($pdo,$num,$sjson)    - Записать в базу данных изменения состояния управляющих json-команд   
-// _TestSet($pdo,$INsjson,$action)      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+// _CreateLeadTables($pdo);           - Создать таблицу базы данных Lead
+// _SelChange($pdo);                  - Выбрать изменения состояний управляющих команд  
+// _SelLead($pdo,$action);            - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+// _setMessForLead($pdo,$num,$sjson); - Записать в базу данных изменения состояния управляющих json-команд   
+// _TestSet($pdo,$INsjson,$action);   - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
 
 // ****************************************************************************
 // *                       Создать таблицу базы данных Lead                   *
@@ -207,6 +208,37 @@ function _SelChange($pdo)
       $messa=$e->getMessage();
       $table=array([
          "isEvent"=>-3, "num"=> -3,
+         "SendTime"=>time(), "ReceivTime"=> time(),
+         "sjson" => $messa]);
+      if ($pdo->inTransaction()) $pdo->rollback();
+   }
+   return $table;
+}
+// ****************************************************************************
+// *            Выбрать управляющее выражение:                                *
+// *            $action=-1, текущего режима работы вспышки;                   *
+// *            $action=-2, интервалов подачи сообщений от контроллера        *
+// ****************************************************************************
+function _SelLead($pdo,$action)
+{
+   try 
+   {
+      $pdo->beginTransaction();
+      $cSQL='SELECT isEvent,SendTime,ReceivTime,sjson FROM Lead WHERE num='.$action;
+      $stmt = $pdo->query($cSQL);
+      $table = $stmt->fetchAll();
+      if (count($table)<1) 
+      $table=array([
+         "isEvent"=>-2, 
+         "SendTime"=>time(), "ReceivTime"=> time(),
+         "sjson" => 'Не выбралось управляющее выражение!']);
+      $pdo->commit();
+   } 
+   catch (Exception $e) 
+   {
+      $messa=$e->getMessage();
+      $table=array([
+         "isEvent"=>-3, 
          "SendTime"=>time(), "ReceivTime"=> time(),
          "sjson" => $messa]);
       if ($pdo->inTransaction()) $pdo->rollback();

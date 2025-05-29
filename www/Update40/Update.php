@@ -35,15 +35,20 @@
    <div id="lmp" class="cled4">
       <p class="cp4">Led4</p>
    </div>
+   
+   <?php
+   echo '
    <div id="light" class="cled4">
-      <p id="pilight" class="cp4">10</p>
+      <p id="pilight" class="cp4">'.$jlight.'</p>'.'
    </div>
    <div id="nolight" class="cled4">
-      <p id="pinolight" class="cp4">90</p>
+      <p id="pinolight" class="cp4">'.(100-$jlight).'</p>'.'
    </div>
    <div id="time" class="cled4">
-      <p id="pitime" class="cp4">2000</p>
+      <p id="pitime" class="cp4">'.$jtime.'</p>'.'
    </div>
+   ';
+   ?>
    <div id="spot" class="cled4">
    &#128161; 
    </div>
