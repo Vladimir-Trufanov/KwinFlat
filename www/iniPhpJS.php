@@ -33,6 +33,7 @@ if ($isEvent<0)
    echo $sjson.'<br>';
    $jlight=10;
    $jtime=2000;
+   $jevent=0; // пришло подтверждение от контроллера
 }
 // Иначе парсим json и назначаем действующий режим работы вспышки
 else
@@ -41,6 +42,7 @@ else
    // echo '<pre>'; print_r($data);  echo '</pre>';   
    $jlight=$data['led4']['light'];
    $jtime=$data['led4']['time'];
+   $jevent=$isEvent; // 1 - изменилось состояние json-команды, 0 - пришло подтверждение от контроллера
 }
 // Назначаем действующие интервалы подачи сообщений от контроллера (мсек) 
 $jmode4=7007;   // режим работы Led4 
@@ -53,7 +55,7 @@ $jbar=5005;     // атмосферное давление
 // *               Объявить переменные и константы JavaScript,                *
 // *                   соответствующие определениям в PHP                     *
 // ****************************************************************************
-function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jmode4,$jimg,$jtempvl,$jlumin,$jbar)
+function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jevent,$jmode4,$jimg,$jtempvl,$jlumin,$jbar)
 {
    $define="\n".
    '<script>'."\n".
@@ -70,6 +72,7 @@ function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jmode4,$jimg,$jtempvl,$jlum
    'vController="'         .vController.'";'."\n".
    'var jlight="'          .$jlight.'";'."\n".
    'var jtime="'           .$jtime.'";'."\n".
+   'var jevent="'          .$jevent.'";'."\n".
    'var jmode4="'          .$jmode4.'";'."\n".
    'var jimg="'            .$jimg.'";'."\n".
    'var jtempvl="'         .$jtempvl.'";'."\n".
@@ -80,6 +83,6 @@ function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jmode4,$jimg,$jtempvl,$jlum
 } 
 
 //  Создаем переменные и константы JavaScript, соответствующие определениям в PHP   
-DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jmode4,$jimg,$jtempvl,$jlumin,$jbar);
+DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jevent,$jmode4,$jimg,$jtempvl,$jlumin,$jbar);
 
 // *********************************************************** iniPhpJS.php *** 

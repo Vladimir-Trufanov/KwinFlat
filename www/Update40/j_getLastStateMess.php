@@ -21,7 +21,7 @@ $Kvizzy=new ttools\KvizzyMaker(SiteHost);
 // Подключаемся к базе данных
 $pdo=$Kvizzy->BaseConnect();
 // Выбираем параметры ответа
-$table=$Kvizzy->SelectLed4($pdo);
+$table=$Kvizzy->SelectLastMess($pdo);
 $myTime=$table['myTime']; 
 $myDate=$table['myDate']; 
 $cycle=$table['cycle']; 

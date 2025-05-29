@@ -21,8 +21,8 @@ require_once("CommonStreamMaker.php");
 // setMessForLead($pdo,$num,$sjson)    - Записать в базу данных изменения состояния управляющих json-команд 
 // TestSetLed4($pdo,$INsjson)          - Подтвердить изменение и отметить текущий режим работы вспышки
 // TestSet($pdo,$INsjson,$action)      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+// SelectLastMess($pdo);               - Выбрать запись из таблицы последнего полученного json-сообщения  
 
-// --SelectLed4($pdo);                                - Выбрать запись из таблицы базы данных State по Led4
 // --UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led4 
 // --BaseConnect();                                    - Открыть соединение с базой данных
 // --BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
@@ -78,10 +78,11 @@ class KvizzyMaker
       $table=_SelLead($pdo,$action);
       return $table;
    }
-   // Выбрать запись из таблицы базы данных State по Led4  
-   public function SelectLed4($pdo)
+   // Выбрать запись из таблицы последнего полученного json-сообщения  
+   // SelectLastMess($pdo);               - 
+   public function SelectLastMess($pdo)
    {
-      $table=_SelectLed4($pdo);
+      $table=_SelectLastMess($pdo);
       return $table;
    }
    // Обновить запись в таблице базы данных State по Led4 
