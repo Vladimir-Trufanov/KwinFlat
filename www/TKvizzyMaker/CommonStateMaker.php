@@ -6,13 +6,14 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                          для базы данных json-сообщений страницы State40 *
 // *                                                                          *
-// * v2.0.0, 21.04.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.0, 30.05.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  07.01.2025 *
 // ****************************************************************************
 
-// _CreateStateTables($pdo);                         - Создать таблицы базы данных State
-// _SelectLastMess($pdo);                            - Выбрать запись из таблицы последнего полученного json-сообщения  
-// _UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led4 
+// _CreateStateTables($pdo);                             - Создать таблицы базы данных State
+// _SelectLastMess($pdo);                                - Выбрать запись из таблицы последнего полученного json-сообщения  
+// _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице последнего полученного json-сообщения  
+
  
 // ****************************************************************************
 // *                       Создать таблицы базы данных State                  *
@@ -34,7 +35,7 @@ function _CreateStateTables($pdo)
       "myTime" => time(),
       "myDate" => date("y-m-d H:i:s"),
       "cycle"  => -1,
-      "sjson"  => '"led4":{"light":10,"time":2000}',
+      "sjson"  => '{"led4":{"light":10,"time":2000}}',
    ]);
 }
 // ****************************************************************************
@@ -67,14 +68,14 @@ function _SelectLastMess($pdo)
    return $table;
 }
 // ****************************************************************************
-// *               Обновить запись в таблице базы данных State по Led4        *
+// *      Обновить запись в таблице последнего полученного json-сообщения     *
 // ****************************************************************************
-function _UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson)
+function _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson)
 {
    try 
    {
       $pdo->beginTransaction();
-      $statement = $pdo->prepare("UPDATE [Led4] ".
+      $statement = $pdo->prepare("UPDATE [LastMess] ".
          "SET [myTime]=:myTime, [myDate]=:myDate, [cycle]=:cycle, [sjson]=:sjson;");
       $statement->execute([
          "myTime" => $myTime,

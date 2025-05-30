@@ -5,27 +5,29 @@
 // ****************************************************************************
 // * KwinFlat/TTools                  Построитель базы данных моего хозяйства *
 // *                                                                          *
-// * v4.0.0, 29.05.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.1, 30.05.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2024 tve                          Дата создания:  03.11.2024 *
 // ****************************************************************************
 
-// Подгружаем модули функций класса
+// ---------------------------------------------------------- МЕТОДЫ КЛАССА ---
 require_once("CommonKvizzyMaker.php"); 
-require_once("CommonStateMaker.php"); 
+// BaseConnect();                                    - Открыть соединение с базой данных
+// BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
 require_once("CommonLeadMaker.php"); 
+
+
+
+require_once("CommonStateMaker.php"); 
 require_once("CommonStreamMaker.php"); 
 
-// ---------------------------------------------------------- МЕТОДЫ КЛАССА ---
-// SelChange($pdo)                     - Выбрать изменения состояний управляющих команд  
-// SelLead($pdo,$action);              - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
-// setMessForLead($pdo,$num,$sjson)    - Записать в базу данных изменения состояния управляющих json-команд 
-// TestSetLed4($pdo,$INsjson)          - Подтвердить изменение и отметить текущий режим работы вспышки
-// TestSet($pdo,$INsjson,$action)      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
-// SelectLastMess($pdo);               - Выбрать запись из таблицы последнего полученного json-сообщения  
+// SelChange($pdo)                                     - Выбрать изменения состояний управляющих команд  
+// SelLead($pdo,$action);                              - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+// setMessForLead($pdo,$num,$sjson)                    - Записать в базу данных изменения состояния управляющих json-команд 
+// TestSetLed4($pdo,$INsjson)                          - Подтвердить изменение и отметить текущий режим работы вспышки
+// TestSet($pdo,$INsjson,$action)                      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+// SelectLastMess($pdo);                               - Выбрать запись из таблицы последнего полученного json-сообщения  
+// UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson); - Обновить запись в таблице последнего полученного json-сообщения
 
-// --UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице базы данных State по Led4 
-// --BaseConnect();                                    - Открыть соединение с базой данных
-// --BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
 // --SelChange($pdo);                                  - Выбрать изменения состояний     
 // --SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led4   
 // --UpdateModeLMP33($pdo,$action);                    - Обновить установку по режиму работы контрольного светодиода  
@@ -51,6 +53,7 @@ class KvizzyMaker
       if (!file_exists($this->basename.'.db3')) 
          _BaseFirstCreate($this->basename,$this->username,$this->password);
    }
+   // ----------------------------------------------- CommonKvizzyMaker.php ---
    // Открыть соединение с базой данных                 
    public function BaseConnect()
    {
@@ -61,6 +64,11 @@ class KvizzyMaker
    {
       _BaseFirstCreate($this->basename,$this->username,$this->password);
    }
+   // ------------------------------------------------- CommonLeadMaker.php ---
+   
+   
+   
+   
    // Записать в базу данных изменения состояния управляющих json-команд 
    public function setMessForLead($pdo,$num,$sjson) 
    {
@@ -85,10 +93,10 @@ class KvizzyMaker
       $table=_SelectLastMess($pdo);
       return $table;
    }
-   // Обновить запись в таблице базы данных State по Led4 
-   public function UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson)
+   // Обновить запись в таблице последнего полученного json-сообщения
+   public function UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson)
    {
-      _UpdateLed4($pdo,$myTime,$myDate,$cycle,$sjson);
+      _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);
    }
    // Выбрать запись режима работы контрольного светодиода Led4   
    public function SelectLMP33($pdo)
