@@ -96,38 +96,6 @@ function _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson)
      throw $e;
    }
 }
-// ****************************************************************************
-// *                  Добавить запись в таблицу базы данных State             *
-// ****************************************************************************
-/*
-function _AddRecState($pdo,$myTime,$myDate,$cycle,$sjson)
-{
-   try 
-   {
-      $pdo->beginTransaction();
-      $statement = $pdo->prepare("INSERT INTO [JsonState] ".
-         "([myTime],[myDate],[cycle],[sjson]) VALUES ".
-         "(:myTime, :myDate, :cycle, :sjson);");
-      $statement->execute([
-         "myTime" => $myTime,
-         "myDate" => $myDate,
-         "cycle"  => $cycle,
-         "sjson"  => $sjson
-      ]);
-      $pdo->commit();
-   } 
-   catch (Exception $e) 
-   {
-      // Если в транзакции, то делаем откат изменений
-      if ($pdo->inTransaction()) 
-      {
-         $pdo->rollback();
-      }
-      // Продолжаем исключение
-     throw $e;
-   }
-}
-*/
 
 // *************************************************** CommonStateMaker.php ***
 

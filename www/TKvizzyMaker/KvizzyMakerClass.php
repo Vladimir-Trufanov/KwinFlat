@@ -11,27 +11,19 @@
 
 // ---------------------------------------------------------- МЕТОДЫ КЛАССА ---
 require_once("CommonKvizzyMaker.php"); 
-// BaseConnect();                                    - Открыть соединение с базой данных
-// BaseFirstCreate();                                - Создать резервную копию и заново построить новую базу данных
+// BaseConnect();                                      - Открыть соединение с базой данных
+// BaseFirstCreate();                                  - Создать резервную копию и заново построить новую базу данных
 require_once("CommonLeadMaker.php"); 
-
-
-
-require_once("CommonStateMaker.php"); 
-require_once("CommonStreamMaker.php"); 
-
+// setMessLead($pdo,$num,$sjson)                       - Записать в базу данных изменения состояния управляющих json-команд 
+// TestSet($pdo,$INsjson,$action)                      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
 // SelChange($pdo)                                     - Выбрать изменения состояний управляющих команд  
 // SelLead($pdo,$action);                              - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
-// setMessForLead($pdo,$num,$sjson)                    - Записать в базу данных изменения состояния управляющих json-команд 
-// TestSetLed4($pdo,$INsjson)                          - Подтвердить изменение и отметить текущий режим работы вспышки
-// TestSet($pdo,$INsjson,$action)                      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+require_once("CommonStateMaker.php"); 
 // SelectLastMess($pdo);                               - Выбрать запись из таблицы последнего полученного json-сообщения  
 // UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson); - Обновить запись в таблице последнего полученного json-сообщения
-
-// --SelChange($pdo);                                  - Выбрать изменения состояний     
-// --SelectLMP33($pdo);                                - Выбрать запись режима работы контрольного светодиода Led4   
-// --UpdateModeLMP33($pdo,$action);                    - Обновить установку по режиму работы контрольного светодиода  
-// --InsertImgStream($pdo,$src);                         - Вставить текущее изображение
+require_once("CommonStreamMaker.php"); 
+// InsertImgStream($pdo,$src,$time,$frame);            - Вставить текущее изображение  
+// SelImgStream($pdo,$intime,$inframe);                - Выбрать данные последнего записанного изображения из базы данных
 // ----------------------------------------------------------------------------
 
 class KvizzyMaker
@@ -65,14 +57,15 @@ class KvizzyMaker
       _BaseFirstCreate($this->basename,$this->username,$this->password);
    }
    // ------------------------------------------------- CommonLeadMaker.php ---
-   
-   
-   
-   
    // Записать в базу данных изменения состояния управляющих json-команд 
-   public function setMessForLead($pdo,$num,$sjson) 
+   public function setMessLead($pdo,$num,$sjson) 
    {
-      return _setMessForLead($pdo,$num,$sjson);
+      return _setMessLead($pdo,$num,$sjson);
+   }
+   // Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+   public function TestSet($pdo,$INsjson,$action)
+   {
+      return _TestSet($pdo,$INsjson,$action);
    }
    // Выбрать изменения состояний управляющих json-команд  
    public function SelChange($pdo)
@@ -86,8 +79,8 @@ class KvizzyMaker
       $table=_SelLead($pdo,$action);
       return $table;
    }
+   // ------------------------------------------------ CommonStateMaker.php ---
    // Выбрать запись из таблицы последнего полученного json-сообщения  
-   // SelectLastMess($pdo);               - 
    public function SelectLastMess($pdo)
    {
       $table=_SelectLastMess($pdo);
@@ -98,36 +91,19 @@ class KvizzyMaker
    {
       _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);
    }
-   // Выбрать запись режима работы контрольного светодиода Led4   
-   public function SelectLMP33($pdo)
-   {
-      $table=_SelectLMP33($pdo);
-      return $table;
-   }
-   // Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
-   public function TestSet($pdo,$INsjson,$action)
-   {
-      return _TestSet($pdo,$INsjson,$action);
-   }
-   // Обновить установку по режиму работы контрольного светодиода  
-   public function UpdateModeLMP33($pdo,$action)
-   {
-      $messa=_UpdateModeLMP33($pdo,$action);
-      return $messa;
-   }
+   // ----------------------------------------------- CommonStreamMaker.php ---
    // Вставить текущее изображение 
    public function InsertImgStream($pdo,$src,$time,$frame)
    {
       $messa=_InsertImgStream($pdo,$src,$time,$frame);
       return $messa;
    }
-   // Выбрать запись из таблицы базы данных State по Led4
+   // Выбрать данные последнего записанного изображения из базы данных
    public function SelImgStream($pdo,$time,$frame)
    {
       $messa=_SelImgStream($pdo,$time,$frame);
       return $messa;
    }
-
 }
 
 // *************************************************** KvizzyMakerClass.php ***

@@ -1,2 +1,0 @@
-[27-May-2025 18:30:27 Asia/Kuwait] PHP Fatal error:  require_once(): Failed opening required 'State40/jsonState40.php' (include_path='.;C:\php\pear') in C:\KwinFlat\www\iniPhpJS.php on line 12
-[29-May-2025 10:51:41 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '.100' (T_DNUMBER), expecting ',' or ';' in C:\KwinFlat\www\Update40\Update.php on line 45

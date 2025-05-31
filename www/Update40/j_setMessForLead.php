@@ -27,7 +27,7 @@ $Kvizzy=new ttools\KvizzyMaker(SiteHost);
 // Подключаемся к базе данных
 $pdo=$Kvizzy->BaseConnect();
 // Выбираем параметры ответа
-$messa=$Kvizzy->setMessForLead($pdo,num,sjson);
+$messa=$Kvizzy->setMessLead($pdo,num,sjson);
 // Возвращаем сообщение
 $message=\prown\makeLabel($messa,'ghjun5','ghjun5');
 echo $message;

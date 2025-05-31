@@ -208,8 +208,8 @@ function _CreateTables($pdo)
       */
       
       // Создаём таблицы базы данных State
-      _CreateStateTables($pdo);
       _CreateLeadTables($pdo);
+      _CreateStateTables($pdo);
       _CreateStreamTables($pdo);
       $pdo->commit();
    } 
