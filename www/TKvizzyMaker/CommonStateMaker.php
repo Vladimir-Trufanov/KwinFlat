@@ -6,7 +6,7 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                          для базы данных json-сообщений страницы State40 *
 // *                                                                          *
-// * v4.4.0, 30.05.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.1, 01.06.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  07.01.2025 *
 // ****************************************************************************
 
@@ -20,6 +20,7 @@
 // ****************************************************************************
 function _CreateStateTables($pdo)
 {
+
    // Создаём таблицу последнего полученного json-сообщения на State
    $sql='CREATE TABLE LastMess ('.
       'myTime    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // абсолютное время в секундах с начала эпохи UNIX
@@ -27,7 +28,7 @@ function _CreateStateTables($pdo)
       'cycle     INTEGER NOT NULL,'.                     // цикл выдачи контроллером json-сообщения
       'sjson     VARCHAR NOT NULL)';                     // json-сообщение
    $st = $pdo->query($sql);
-   // Добавляем первую и единственную запись по Led4
+   // Добавляем первую и единственную запись
    $statement = $pdo->prepare("INSERT INTO [LastMess] ".
       "([myTime],[myDate],[cycle],[sjson]) VALUES ".
       "(:myTime, :myDate, :cycle, :sjson);");
@@ -36,6 +37,34 @@ function _CreateStateTables($pdo)
       "myDate" => date("y-m-d H:i:s"),
       "cycle"  => -1,
       "sjson"  => '{"led4":{"light":10,"time":2000}}',
+   ]);
+   
+   // Создаём таблицу значений элементов
+   $sql='CREATE TABLE State ('.
+      'jlight    INTEGER NOT NULL,'.                    // процент времени свечения в цикле 
+      'jtime     INTEGER NOT NULL,'.                    // длительность цикла "горит - не горит" (мсек)    
+      'jevent    INTEGER NOT NULL,'.                    // 1 - изменилось состояние json-команды, 0 - пришло подтверждение от контроллера  
+      'jmode4    INTEGER NOT NULL,'.                    // интервал сообщений по режиму работы Led4 
+      'jimg      INTEGER NOT NULL,'.                    // интервал подачи изображения
+      'jtempvl   INTEGER NOT NULL,'.                    // интервал сообщений о температуре и влажности
+      'jlumin    INTEGER NOT NULL,'.                    // интервал сообщений об освещённости камеры
+      'jbar      INTEGER NOT NULL,'.                    // интервал сообщений по атмосферному давлению
+      'myTime    INTEGER NOT NULL UNIQUE)';             // абсолютное время в секундах с начала эпохи UNIX
+   $st = $pdo->query($sql);
+   // Добавляем первую и единственную запись
+   $statement = $pdo->prepare("INSERT INTO [State] ".
+      "([jlight],[jtime],[jevent],[jmode4],[jimg],[jtempvl],[jlumin],[jbar],[myTime]) VALUES ".
+      "(:jlight, :jtime, :jevent, :jmode4, :jimg, :jtempvl, :jlumin, :jbar, :myTime);");
+   $statement->execute([
+      "jlight"  => 10,
+      "jtime"   => 2000,
+      "jevent"  => 0,
+      "jmode4"  => 7007,
+      "jimg"    => 1001,
+      "jtempvl" => 3003,
+      "jlumin"  => 2002,
+      "jbar"    => 5005,
+      "myTime"  => time(),
    ]);
 }
 // ****************************************************************************

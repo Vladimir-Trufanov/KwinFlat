@@ -117,7 +117,7 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		-TKvizzyMaker
+		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -160,12 +160,14 @@ KwinFlat
 2=Update40\Update40.js
 3=Lead40\index.php
 4=State40\index.php
+5=TKvizzyMaker\CommonStateMaker.php
+6=TKvizzyMaker\CommonStreamMaker.php
 [Selected Project Files]
 Main=
-Selected=State40\index.php
+Selected=iniPhpJS.php
 [iniPhpJS.php]
-TopLine=47
-Caret=51,86
+TopLine=1
+Caret=42,9
 [Update40\Update.php]
 TopLine=18
 Caret=52,45
@@ -178,3 +180,9 @@ Caret=23,48
 [State40\index.php]
 TopLine=68
 Caret=23,68
+[TKvizzyMaker\CommonStateMaker.php]
+TopLine=15
+Caret=50,52
+[TKvizzyMaker\CommonStreamMaker.php]
+TopLine=29
+Caret=28,48
