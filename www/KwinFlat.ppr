@@ -17,15 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 KwinFlat
-	+www
-		-BP1
-			BP1\Kvizzy30.bp1
-			BP1\kwf0.png
-			BP1\KwinFlat.bp1
-			BP1\MakeImgStream.bp1
-			BP1\SelImgStream.bp1
-			BP1\sis0.png
-			BP1\Разметка Kwinflat.xls
+	-www
 		-Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
@@ -123,7 +115,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -147,12 +139,9 @@ KwinFlat
 		iniMem.php
 		iniPhpJS.php
 		iniWorkSpace.php
-		KwinFlat.md
 		KwinFlat.ppr
-		kwinflat-log.txt
 		manifest.json
 		Meet40.html
-		server.log
 [Open project files]
 0=iniPhpJS.php
 1=Update40\Update.php
@@ -168,10 +157,10 @@ Selected=TKvizzyMaker\CommonStateMaker.php
 TopLine=67
 Caret=35,78
 [Update40\Update.php]
-TopLine=1
+TopLine=6
 Caret=52,45
 [Update40\Update40.js]
-TopLine=189
+TopLine=427
 Caret=14,465
 [TKvizzyMaker\CommonStateMaker.php]
 TopLine=59
@@ -180,7 +169,7 @@ Caret=71,71
 TopLine=69
 Caret=72,92
 [Controller\Controller.js]
-TopLine=11
+TopLine=85
 Caret=3,124
 [Update40\j_SelState.php]
 TopLine=6
