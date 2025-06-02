@@ -70,10 +70,9 @@ $(document).ready(function()
     // Пересчитываем время с начала сессии
     NewSessionOld(valTimeBeg,timeElement);
     // Обновляем изображения управляющих элементов вспышки по данным хранилища
-    ViewLed4();
+    //ViewLed4();
     // Обновляем показания и состояния
     UpdateStatus(tickers);
-    
   }
   ,250)
   // Запускаем объект показа текущего времени
@@ -177,15 +176,126 @@ function ViewLed4()
   }
 
 // ****************************************************************************
-// *    Обновить на странице состояния датчиков, устройств и контроллеров     *
+// *          Выбрать управляющие значения экрана и показания датчиков        *
+// *                            и обновить их на экране                       *
 // ****************************************************************************
 function UpdateStatus(tickers)
 {
-  // console.log("UpdateStatus");               
+  // console.log("UpdateStatus");   
+  
+  // Выводим в диалог предварительный результат выполнения запроса
+  htmlText="Выбрать управляющие значения экрана и показания датчиков не удалось!";
+  // Выполняем запрос
+  pathphp="Update40/j_SelState.php";
+  // Делаем запрос последнего json-сообщения на State 
+  $.ajax({
+    url: pathphp,
+    type: 'POST',
+    data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
+    // Выводим ошибки при выполнении запроса в PHP-сценарии
+    error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
+    // Обрабатываем ответное сообщение
+    success: function(message)
+    {
+      // console.log(message);
+      
+      // Вырезаем из запроса чистое сообщение
+      let Fresh=FreshLabel(message);
+      // Если чистое сообщение не вырезалось, считаем, что это ошибка и
+      // диагностируем её
+      if (Fresh=='NoFresh')
+      {
+        console.log(message);
+        DialogWind(message);
+      }
+      // Иначе считаем, что ответ на запрос пришел и можно
+      // парсить сообщение
+      else 
+      {
+        messa=Fresh;
+        // console.log(messa);
+        // Строим try catch, чтобы поймать ошибку в JSON-ответе
+        try 
+        {
+          parm=JSON.parse(messa);
+          // Если ошибка SQL-запроса
+          if (parm.jlight<0) 
+          {
+            console.log('Если ошибка SQL-запроса');
+            /*
+            if (parm.cycle==-1) DialogWind(
+              'Создана таблица базы данных State.\n'+
+              'Сообщений от контроллера ещё не поступало!');
+            else DialogWind(parm.cycle+': '+parm.sjson);
+            */
+          }
+          // Выводим результаты выполнения (параметры ответа)
+          // (отрабатываем распарсенный ответ)
+          else
+          {
+            // Трассируем чистое сообщение, без метки
+            // {"jlight":10,"jtime":"2010","jevent":0,"jmode4":7000,"jimg":1001,"jtempvl":3003,"jlumin":2002,"jbar":5005}
+            console.log(messa);
+            /*
+            console.log(messa);
+            cycle=parm.cycle;
+            $('#cycle').html("cycle: "+cycle.toString());
+            sjson=parm.sjson;
+            $('#sjson').html("sjson: "+JSON.stringify(sjson));
+            let myTime=parm.myTime;
+            $('#myTime').html("myTime: "+myTime.toString());
+            let myDate=parm.myDate;
+            $('#myDate').html("myDate: "+myDate);
+                  
+            // ------------------------------------ Парсим и обрабатываем sjson
+            
+            // Если это sjson по горению 4 светодиода
+            if ((JSON.stringify(sjson)==s4_LOW)||(JSON.stringify(sjson)==s4_HIGH))
+            {
+              / *
+              parm=JSON.parse(JSON.stringify(sjson));
+              // Выделяем json-подстроку по led4
+              let led4=parm.led4[0];
+              // Парсим led4
+              parm=JSON.parse(JSON.stringify(led4));
+              // Выделяем состояние led4 (горит - не горит)
+              let status=parm.status;
+              // Высвечиваем led4 в соответствии с состоянием
+              // $('#status').html(status);
+              if (status=="shimHIGH") $('#spot').css('background','White');
+              else $('#spot').css('background','Silver');
+              * /
+            }
+            / *
+            // Если это sjson по режиму 4 светодиода
+            else if (JSON.stringify(sjson)==s33_MODE0)
+            {
+              //console.log('s33_MODE0: '+s33_MODE0);
+              //ram.set("LmpMode",0);  // 0 - выключен режим 
+            }
+            else
+            {
+              console.log('sjson: '+JSON.stringify(sjson));
+            }
+            //      tickers.render(JSON.stringify(sjson));
+            */
+          }
+        }
+        // Обрабатываем ошибку в JSON-ответе 
+        catch (err) 
+        {
+          console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
+          DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
+        }
+      } 
+    } 
+  });
+
+              
  
   // Выбираем последнее json-сообщение, пришедшее на State и
   // если оно отличается от предыдущего вывода, то показываем
-  getLastStateMess(tickers);
+  //getLastStateMess(tickers);
   // Обновляем параметры хранилища по показаниям режима работы 
   // контрольного светодиода в таблице Lead и
   // изображения управляющих элементов контрольного светодиода      
@@ -344,115 +454,6 @@ function setRegimLed4()
   */
 }
 // ****************************************************************************
-// *                   Получить последнее json-сообщение на State             *
-// ****************************************************************************
-function getLastStateMess(tickers)
-{
-  // Выводим в диалог предварительный результат выполнения запроса
-  htmlText="Выбрать json-сообщение на State не удалось!";
-  // Выполняем запрос
-  pathphp="Update40/j_getLastStateMess.php";
-  // Делаем запрос последнего json-сообщения на State 
-  $.ajax({
-    url: pathphp,
-    type: 'POST',
-    data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
-    // Выводим ошибки при выполнении запроса в PHP-сценарии
-    error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
-    // Обрабатываем ответное сообщение
-    success: function(message)
-    {
-      //console.log(message);
-      // Вырезаем из запроса чистое сообщение
-      let Fresh=FreshLabel(message);
-      // Если чистое сообщение не вырезалось, считаем, что это ошибка и
-      // диагностируем её
-      if (Fresh=='NoFresh')
-      {
-        console.log(message);
-        DialogWind(message);
-      }
-      // Иначе считаем, что ответ на запрос пришел и можно
-      // парсить сообщение
-      else 
-      {
-        messa=Fresh;
-        console.log(messa);
-        // Строим try catch, чтобы поймать ошибку в JSON-ответе
-        /*
-        try 
-        {
-          parm=JSON.parse(messa);
-          // ---Если ошибка SQL-запроса
-          if (parm.cycle<0) 
-          {
-            if (parm.cycle==-1) DialogWind(
-              'Создана таблица базы данных State.\n'+
-              'Сообщений от контроллера ещё не поступало!');
-            else DialogWind(parm.cycle+': '+parm.sjson);
-          }
-          // Выводим результаты выполнения (параметры ответа)
-          // (отрабатываем распарсенный ответ)
-          else
-          {
-            // Трассируем чистое сообщение, без метки
-            // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led4":[{"status":"inLOW"}]}}
-            //console.log(messa);
-            cycle=parm.cycle;
-            $('#cycle').html("cycle: "+cycle.toString());
-            sjson=parm.sjson;
-            $('#sjson').html("sjson: "+JSON.stringify(sjson));
-            let myTime=parm.myTime;
-            $('#myTime').html("myTime: "+myTime.toString());
-            let myDate=parm.myDate;
-            $('#myDate').html("myDate: "+myDate);
-                  
-            // ------------------------------------ Парсим и обрабатываем sjson
-            
-            // Если это sjson по горению 4 светодиода
-            if ((JSON.stringify(sjson)==s4_LOW)||(JSON.stringify(sjson)==s4_HIGH))
-            {
-              / *
-              parm=JSON.parse(JSON.stringify(sjson));
-              // Выделяем json-подстроку по led4
-              let led4=parm.led4[0];
-              // Парсим led4
-              parm=JSON.parse(JSON.stringify(led4));
-              // Выделяем состояние led4 (горит - не горит)
-              let status=parm.status;
-              // Высвечиваем led4 в соответствии с состоянием
-              // $('#status').html(status);
-              if (status=="shimHIGH") $('#spot').css('background','White');
-              else $('#spot').css('background','Silver');
-              * /
-            }
-            / *
-            // Если это sjson по режиму 4 светодиода
-            else if (JSON.stringify(sjson)==s33_MODE0)
-            {
-              //console.log('s33_MODE0: '+s33_MODE0);
-              //ram.set("LmpMode",0);  // 0 - выключен режим 
-            }
-            else
-            {
-              console.log('sjson: '+JSON.stringify(sjson));
-            }
-            //      tickers.render(JSON.stringify(sjson));
-            * /
-          }
-        }
-        // Обрабатываем ошибку в JSON-ответе 
-        catch (err) 
-        {
-          console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
-          DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
-        }
-        */
-      }
-    }
-  });
-}
-// ****************************************************************************
 // *                 Вывести диалоговое сообщение от ошибке                   *
 // ****************************************************************************
 function DialogWind(htmlText)
@@ -461,9 +462,9 @@ function DialogWind(htmlText)
    delayClose=100;
    $('#DialogWind').dialog
    ({
-      width:600,
+      width:800,
       hide:{effect:"explode",delay:delayClose,duration:1000,easing:'swing'},
-      title: "Запрос json-сообщения на State",
+      title: "Запрос управляющих значений экрана и показаний датчиков на State",
    });
 }
 // ****************************************************************************
@@ -565,7 +566,9 @@ class TTickers
 // ****************************************************************************
 // *                  Класс работы с хранилищем localStorage                  *
 // ****************************************************************************
-class TStorage 
+class TStorage
+
+// 
 {
   // Создать параметры хранилища
   constructor(count) 

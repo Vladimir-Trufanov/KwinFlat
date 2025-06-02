@@ -17,10 +17,11 @@ require_once("CommonLeadMaker.php");
 // setMessLead($pdo,$num,$sjson)                       - Записать в базу данных изменения состояния управляющих json-команд 
 // TestSet($pdo,$INsjson,$action)                      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
 // SelChange($pdo)                                     - Выбрать изменения состояний управляющих команд  
-// SelLead($pdo,$action);                              - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+// - SelLead($pdo,$action);                              - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
 require_once("CommonStateMaker.php"); 
 // SelectLastMess($pdo);                               - Выбрать запись из таблицы последнего полученного json-сообщения  
 // UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson); - Обновить запись в таблице последнего полученного json-сообщения
+// SelState($pdo);                                     - Выбрать управляющие значения экрана и показания датчиков
 require_once("CommonStreamMaker.php"); 
 // InsertImgStream($pdo,$src,$time,$frame);            - Вставить текущее изображение  
 // SelImgStream($pdo,$intime,$inframe);                - Выбрать данные последнего записанного изображения из базы данных
@@ -73,13 +74,21 @@ class KvizzyMaker
       $table=_SelChange($pdo);
       return $table;
    }
+   /*
    // Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
    public function SelLead($pdo,$action)
    {
       $table=_SelLead($pdo,$action);
       return $table;
    }
+   */
    // ------------------------------------------------ CommonStateMaker.php ---
+   // Выбрать управляющие значения экрана и показания датчиков
+   public function SelState($pdo)
+   {
+      $table=_SelState($pdo);
+      return $table;
+   }
    // Выбрать запись из таблицы последнего полученного json-сообщения  
    public function SelectLastMess($pdo)
    {
