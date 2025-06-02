@@ -4,7 +4,7 @@
 // * KwinFlat                    Обслужить ознакомительную страницу для гостя *
 // ****************************************************************************
 
-// v4.0.1, 01.04.2025                                 Автор:      Труфанов В.Е.
+// v4.4.1, 02.06.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
@@ -69,8 +69,6 @@ $(document).ready(function()
   {
     // Пересчитываем время с начала сессии
     NewSessionOld(valTimeBeg,timeElement);
-    // Обновляем изображения управляющих элементов вспышки по данным хранилища
-    //ViewLed4();
     // Обновляем показания и состояния
     UpdateStatus(tickers);
   }
@@ -81,30 +79,6 @@ $(document).ready(function()
   // Обновляем на странице состояния датчиков, устройств и контроллеров 
   UpdateStatus(tickers)
 });
-// ****************************************************************************
-// *  Обновить изображения управляющих элементов вспышки по данным хранилища  *
-// ****************************************************************************
-function ViewLed4()
-{ 
-   // По текущему состоянию режима окрашиваем фон элементов управления Led4 
-   // и текст на них 
-   //console.log("LmpMode",ram.get("LmpMode"));               
-   
-   //if (ram.get("LmpMode")==1) 
-   //{
-   //   $('.cled4').css('background','Silver');
-   //   $('.cled4').css('color','Black'); 
-   //}
-   //else 
-   //{
-  //    $('.cled4').css('background','FloralWhite');
-  //    $('.cled4').css('color','LightSlateGray'); 
-   //}
-  // Окрашиваем элемент управления режимом
-  //if (ram.get("LmpEvent")==1) 
-  $('#lmp').css('color','red');
-}
-
 // ****************************************************************************
 // *     Выбрать и показать последнее изображение с определённой частотой     *
 // ****************************************************************************
@@ -221,13 +195,8 @@ function UpdateStatus(tickers)
           // Если ошибка SQL-запроса
           if (parm.jlight<0) 
           {
-            console.log('Если ошибка SQL-запроса');
-            /*
-            if (parm.cycle==-1) DialogWind(
-              'Создана таблица базы данных State.\n'+
-              'Сообщений от контроллера ещё не поступало!');
-            else DialogWind(parm.cycle+': '+parm.sjson);
-            */
+            console.log(parm.jmode4);
+            DialogWind(parm.jmode4);
           }
           // Выводим результаты выполнения (параметры ответа)
           // (отрабатываем распарсенный ответ)
@@ -236,6 +205,37 @@ function UpdateStatus(tickers)
             // Трассируем чистое сообщение, без метки
             // {"jlight":10,"jtime":"2010","jevent":0,"jmode4":7000,"jimg":1001,"jtempvl":3003,"jlumin":2002,"jbar":5005}
             console.log(messa);
+            jlight=parm.jlight; $('#pilight').html(jlight.toString());        // процент времени свечения в цикле
+            $('#nolight').html((100-jlight).toString());                      // процент времени НЕсвечения в цикле
+            jtime=parm.jtime; $('#pitime').html(jtime.toString());            // длительность цикла "горит - не горит" (мсек)   
+
+            jmode4=parm.jmode4; $('#pmode4').html(jmode4.toString());         // интервал сообщений по режиму работы Led4    
+            jimg=parm.jimg; $('#pimg').html(jimg.toString());                 // интервал подачи изображения (мсек)   
+            jtempvl=parm.jtempvl; $('#ptempvl').html(jtempvl.toString());     // интервал сообщений о температуре и влажности (мсек)   
+            jlumin=parm.jlumin; $('#plumin').html(jlumin.toString());         // интервал сообщений об освещённости камеры (мсек)   
+            jbar=parm.jbar; $('#pbar').html(jbar.toString());                 // интервал сообщений по атмосферному давлению (мсек)   
+
+            // Перерашиваем неподтвержденные изменения по led4
+            if (jevent==0) 
+            {
+              $('#lmp').css('color','Black');
+            }
+            else 
+            {
+              $('#lmp').css('color','Red');
+            }
+
+   //if (ram.get("LmpMode")==1) 
+   //{
+   //   $('.cled4').css('background','Silver');
+   //   $('.cled4').css('color','Black'); 
+   //}
+   //else 
+   //{
+  //    $('.cled4').css('background','FloralWhite');
+  //    $('.cled4').css('color','LightSlateGray'); 
+   //}
+
             /*
             console.log(messa);
             cycle=parm.cycle;

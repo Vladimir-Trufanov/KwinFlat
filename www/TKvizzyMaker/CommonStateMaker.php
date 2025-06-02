@@ -43,7 +43,7 @@ function _CreateStateTables($pdo)
    $sql='CREATE TABLE State ('.
       'jlight    INTEGER NOT NULL,'.                    // процент времени свечения в цикле 
       'jtime     INTEGER NOT NULL,'.                    // длительность цикла "горит - не горит" (мсек)    
-      'jevent    INTEGER NOT NULL,'.                    // 1 - изменилось состояние json-команды, 0 - пришло подтверждение от контроллера  
+      'jevent    INTEGER NOT NULL,'.                    // 1 - изменилось состояние по Led4, 0 - пришло подтверждение от контроллера  
       'jmode4    INTEGER NOT NULL,'.                    // интервал сообщений по режиму работы Led4 
       'jimg      INTEGER NOT NULL,'.                    // интервал подачи изображения
       'jtempvl   INTEGER NOT NULL,'.                    // интервал сообщений о температуре и влажности
