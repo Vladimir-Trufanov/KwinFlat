@@ -140,8 +140,10 @@ KwinFlat
 		iniPhpJS.php
 		iniWorkSpace.php
 		KwinFlat.ppr
+		kwinflat-log.txt
 		manifest.json
 		Meet40.html
+		server.log
 [Open project files]
 0=iniPhpJS.php
 1=Update40\Update.php
@@ -155,16 +157,16 @@ KwinFlat
 Main=
 Selected=Update40\Update40.js
 [iniPhpJS.php]
-TopLine=53
-Caret=1,68
+TopLine=31
+Caret=1,35
 [Update40\Update.php]
-TopLine=19
-Caret=20,48
+TopLine=11
+Caret=14,13
 [Update40\Update40.js]
-TopLine=200
-Caret=13,207
+TopLine=235
+Caret=5,246
 [TKvizzyMaker\CommonStateMaker.php]
-TopLine=37
+TopLine=65
 Caret=92,46
 [TKvizzyMaker\KvizzyMakerClass.php]
 TopLine=69
@@ -176,5 +178,5 @@ Caret=3,124
 TopLine=16
 Caret=31,37
 [Update40\Update40.css]
-TopLine=108
-Caret=15,144
+TopLine=1
+Caret=17,8

@@ -63,7 +63,7 @@ $(document).ready(function()
   var valTimeBeg = new Date();
   // Выбираем элемент отражения времени с начала сессии
   var timeElement = document.getElementById('sessiontime');
-  // Запускаем вызов четвертьсекундного (250 мсек) обновления экрана
+  // Запускаем вызов четвертьсекундного (250 мсек) обновления дива #lead на экране
   const intervalId = setInterval(
   function() 
   {
@@ -76,8 +76,15 @@ $(document).ready(function()
   // Запускаем объект показа текущего времени
   //let clock = new TClock({template: 'h:m:s'});
   //clock.start();
-  // Обновляем на странице состояния датчиков, устройств и контроллеров 
-  UpdateStatus(tickers)
+  // Открываем управляющий див через задержку в 300 мсек 
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+  (async () => 
+  {
+    // Задержка в 300 мсек перед выводом сообщения и открытием дива
+    await sleep(300);
+    console.log('Ожидание открытия #lead завершено!');
+    $('#lead').css('display','block');
+  })();  
 });
 // ****************************************************************************
 // *     Выбрать и показать последнее изображение с определённой частотой     *
@@ -215,70 +222,10 @@ function UpdateStatus(tickers)
             jlumin=parm.jlumin; $('#plumin').html(jlumin.toString());         // интервал сообщений об освещённости камеры (мсек)   
             jbar=parm.jbar; $('#pbar').html(jbar.toString());                 // интервал сообщений по атмосферному давлению (мсек)   
 
-            // Перерашиваем неподтвержденные изменения по led4
-            if (jevent==0) 
-            {
-              $('#lmp').css('color','Black');
-            }
-            else 
-            {
-              $('#lmp').css('color','Red');
-            }
-
-   //if (ram.get("LmpMode")==1) 
-   //{
-   //   $('.cled4').css('background','Silver');
-   //   $('.cled4').css('color','Black'); 
-   //}
-   //else 
-   //{
-  //    $('.cled4').css('background','FloralWhite');
-  //    $('.cled4').css('color','LightSlateGray'); 
-   //}
-
-            /*
-            console.log(messa);
-            cycle=parm.cycle;
-            $('#cycle').html("cycle: "+cycle.toString());
-            sjson=parm.sjson;
-            $('#sjson').html("sjson: "+JSON.stringify(sjson));
-            let myTime=parm.myTime;
-            $('#myTime').html("myTime: "+myTime.toString());
-            let myDate=parm.myDate;
-            $('#myDate').html("myDate: "+myDate);
-                  
-            // ------------------------------------ Парсим и обрабатываем sjson
-            
-            // Если это sjson по горению 4 светодиода
-            if ((JSON.stringify(sjson)==s4_LOW)||(JSON.stringify(sjson)==s4_HIGH))
-            {
-              / *
-              parm=JSON.parse(JSON.stringify(sjson));
-              // Выделяем json-подстроку по led4
-              let led4=parm.led4[0];
-              // Парсим led4
-              parm=JSON.parse(JSON.stringify(led4));
-              // Выделяем состояние led4 (горит - не горит)
-              let status=parm.status;
-              // Высвечиваем led4 в соответствии с состоянием
-              // $('#status').html(status);
-              if (status=="shimHIGH") $('#spot').css('background','White');
-              else $('#spot').css('background','Silver');
-              * /
-            }
-            / *
-            // Если это sjson по режиму 4 светодиода
-            else if (JSON.stringify(sjson)==s33_MODE0)
-            {
-              //console.log('s33_MODE0: '+s33_MODE0);
-              //ram.set("LmpMode",0);  // 0 - выключен режим 
-            }
-            else
-            {
-              console.log('sjson: '+JSON.stringify(sjson));
-            }
-            //      tickers.render(JSON.stringify(sjson));
-            */
+            // Перекрашиваем неподтвержденные изменения по led4
+            jevent=parm.jevent;
+            if (jevent==0) $('.cled4').css('color','Black'); 
+            else $('.cled4').css('color','Tomato'); 
           }
         }
         // Обрабатываем ошибку в JSON-ответе 
@@ -290,16 +237,9 @@ function UpdateStatus(tickers)
       } 
     } 
   });
-
-              
- 
   // Выбираем последнее json-сообщение, пришедшее на State и
   // если оно отличается от предыдущего вывода, то показываем
   //getLastStateMess(tickers);
-  // Обновляем параметры хранилища по показаниям режима работы 
-  // контрольного светодиода в таблице Lead и
-  // изображения управляющих элементов контрольного светодиода      
-  //getRegimLed33();
 }
 // ****************************************************************************
 // *                     Показать новое время с начала сессии                 *
@@ -315,96 +255,6 @@ function NewSessionOld(valTimeBeg,timeElement)
   timeElement.textContent = valTimeEnd.toLocaleTimeString();
   timeElement.textContent = timeElement.textContent.slice(3); 
 }
-/*
-// ****************************************************************************
-// *                   Обновить параметры хранилища по показаниям             *
-// *                     режима работы контрольного светодиода,               *
-// *                   а также изображения управляющих элементов              *
-// ****************************************************************************
-function getRegimLed33()
-{
-   // Выводим в диалог предварительный результат выполнения запроса
-   htmlText="Выбрать режим работы контрольного светодиода не удалось!";
-   // Выполняем запрос
-   pathphp="j_getRegimLed33.php";
-   // Делаем запрос последнего json-сообщения на State 
-   $.ajax({
-      url: pathphp,
-      type: 'POST',
-      data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
-      // Выводим ошибки при выполнении запроса в PHP-сценарии
-      error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
-      // Обрабатываем ответное сообщение
-      success: function(message)
-      {
-         // Трассируем полный json-ответ
-         // DialogWind(message);
-         // Вырезаем из запроса чистое сообщение
-         let Fresh=FreshLabel(message);
-         // Если чистое сообщение не вырезалось, считаем, что это ошибка и
-         // диагностируем её
-         if (Fresh=='NoFresh')
-         {
-            console.log(message);
-            DialogWind(message);
-         }
-         // Иначе считаем, что ответ на запрос пришел и можно
-         // парсить сообщение
-         else 
-         {
-            messa=Fresh;
-            // DialogWind(messa);
-            // Строим try catch, чтобы поймать ошибку в JSON-ответе
-            try 
-            {
-               parm=JSON.parse(messa);
-               // Если ошибка SQL-запроса (SelectLed33)
-               if (parm.cycle<0) 
-               {
-                  if (parm.cycle==-1) 
-                     DialogWind(
-                     'Создана таблица базы данных State.\n'+
-                     'Сообщений от контроллера ещё не поступало!');
-                  else
-                     DialogWind(parm.cycle+': '+parm.sjson);
-               }
-               // Выводим результаты выполнения (параметры ответа)
-               // (отрабатываем распарсенный ответ)
-               else
-               {
-                  // Обновляем параметры хранилища
-                  // {"isEvent":0,"Mode":"1","SendTime":1737365180,"ReceivTime":1737365180,"sjson":{"led4":[{"regim":1}]}}
-                  ram.set("LmpEvent",      parm.isEvent);    // 1 - прошла команда смены режима, 0 - пришло подтверждение от контроллера
-                  ram.set("LmpMode",       parm.Mode);       // 1 - включен режим, 0 - выключен режим (состояние в момент запроса)
-                  ram.set("LmpSendTime",   parm.SendTime);   // время в секундах (c начала эпохи) отправки сообщения
-                  ram.set("LmpReceivTime", parm.ReceivTime); // время получения ответа в секундах
-                  // Парсим sjson
-                  let parmi=JSON.parse(JSON.stringify(parm.sjson));
-                  // Выделяем json-подстроку по led4
-                  let led4=parmi.led4[0];
-                  // Парсим led4
-                  parmi=JSON.parse(JSON.stringify(led4));
-                  ram.set("LmpRegim",parmi.regim); // указание по режиму в последней команде (1 - включить режим, 0 - выключить)
-                  / *
-                  console.log("LmpEvent =",     ram.get("LmpEvent"),':',     typeof ram.get("LmpEvent"));
-                  console.log("LmpMode =",      ram.get("LmpMode"),':',      typeof ram.get("LmpMode"));
-                  console.log("LmpSendTime =",  ram.get("LmpSendTime"),':',  typeof ram.get("LmpSendTime"));
-                  console.log("LmpReceivTime =",ram.get("LmpReceivTime"),':',typeof ram.get("LmpReceivTime"));
-                  console.log("LmpRegim =",     ram.get("LmpRegim"),':',     typeof ram.get("LmpRegim"));
-                  * /
-               }
-            }
-            // Обрабатываем ошибку в JSON-ответе 
-            catch (err) 
-            {
-               console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
-               DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
-            }
-         }
-      }
-   });
-}
-*/
 // ****************************************************************************
 // * Задать изменение режима работы контрольного светодиода в таблице Lead:   *
 // ****************************************************************************
