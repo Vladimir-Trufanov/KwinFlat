@@ -1,0 +1,3 @@
+[04-Jun-2025 19:22:31 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';' in C:\KwinFlat\www\TKvizzyMaker\CommonStateMaker.php on line 106
+[04-Jun-2025 19:28:48 Asia/Kuwait] PHP Parse error:  syntax error, unexpected ';' in C:\KwinFlat\www\TKvizzyMaker\CommonStateMaker.php on line 106
+[04-Jun-2025 19:33:45 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '}' in C:\KwinFlat\www\TKvizzyMaker\KvizzyMakerClass.php on line 107

@@ -96,6 +96,28 @@ function _SelState($pdo)
    }
    return $table;
 }
+// ****************************************************************************
+// *     --------------Записать в базу данных изменения состояния управляющих json-команд   *
+// ****************************************************************************
+function _setStateElem($pdo,$Name,$Value)
+{
+   //$Name="jlight";
+   //$Value=13;
+   try 
+   {
+      $pdo->beginTransaction();
+      $cSQL='UPDATE [State] SET ['.$Name.']='.$Value;
+      $stmt = $pdo->query($cSQL);
+      $pdo->commit();
+      $messa='все в порядке'; 
+   } 
+   catch (Exception $e) 
+   {
+      $messa=$e->getMessage();
+      if ($pdo->inTransaction()) $pdo->rollback();
+   }
+   return $messa;
+}
 
 
 

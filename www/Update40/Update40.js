@@ -213,7 +213,7 @@ function UpdateStatus(tickers)
             // {"jlight":10,"jtime":"2010","jevent":0,"jmode4":7000,"jimg":1001,"jtempvl":3003,"jlumin":2002,"jbar":5005}
             console.log(messa);
             jlight=parm.jlight; $('#pilight').html(jlight.toString());        // процент времени свечения в цикле
-            $('#nolight').html((100-jlight).toString());                      // процент времени НЕсвечения в цикле
+            //let jnolight=100-jlight; $('#nolight').html(jnolight.toString()); // процент времени НЕсвечения в цикле
             jtime=parm.jtime; $('#pitime').html(jtime.toString());            // длительность цикла "горит - не горит" (мсек)   
 
             jmode4=parm.jmode4; $('#pmode4').html(jmode4.toString());         // интервал сообщений по режиму работы Led4    

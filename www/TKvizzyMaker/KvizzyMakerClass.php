@@ -100,6 +100,12 @@ class KvizzyMaker
    {
       _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);
    }
+   
+   public function setStateElem($pdo,$Name,$Value)
+   {
+      _setStateElem($pdo,$Name,$Value);
+   }
+   
    // ----------------------------------------------- CommonStreamMaker.php ---
    // Вставить текущее изображение 
    public function InsertImgStream($pdo,$src,$time,$frame)

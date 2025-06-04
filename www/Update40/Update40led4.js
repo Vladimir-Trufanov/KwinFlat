@@ -132,10 +132,26 @@ function onbLed4()
   console.log('bemol ='+bemol+'  value='+value);
   console.log('bemol2='+bemol2+' val2 ='+val2);
   // Запоминаем глобальные переменные
-  if      (bemol=='light')   jlight=value 
-  else if (bemol=='nolight') jlight=val2 
-  else if (bemol=='time')    jtime=value 
-  else                           jlight=value; 
+  if      (bemol=='light')   
+  {
+    jlight=value;
+    //
+  } 
+  else if (bemol=='nolight') 
+  {
+    jlight=val2;
+    //
+  } 
+  else if (bemol=='time')
+  {
+    jtime=value;
+    //
+  } 
+  else
+  {
+    jlight=value; 
+    //
+  }
   console.log('jlight='+jlight+' jtime ='+jtime);
   // Формируем json действующего режима работы вспышки
   // s_MODE4 = '"led4":{"light":10,"time":2000}'   
@@ -143,7 +159,7 @@ function onbLed4()
     '"light":'+jlight.toString()+','+
     '"time":'+ jtime.toString()+    
   '}'; 
-  // Записываем в базу данных изменения интервалов подачи сообщений контроллера
+  // Записываем в базу данных изменения режима работы led4
   setMessLead(-1,s_MODE4)
   console.log('s_MODE4='+s_MODE4);
 }
