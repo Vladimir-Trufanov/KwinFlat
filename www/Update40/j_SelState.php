@@ -21,7 +21,6 @@ $Kvizzy=new ttools\KvizzyMaker(SiteHost);
 // Подключаемся к базе данных
 $pdo=$Kvizzy->BaseConnect();
 // Выбираем параметры ответа
-$table=$Kvizzy->setStateElem($pdo,"jlight",18);
 $table=$Kvizzy->SelState($pdo);
 
 // При ошибках sql-запроса выдаём сообщение об ошибке с пустыми значениями

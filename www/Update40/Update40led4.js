@@ -135,22 +135,24 @@ function onbLed4()
   if      (bemol=='light')   
   {
     jlight=value;
-    //
+    jnolight=100-value;
+    setStateElem("jlight",value);
   } 
   else if (bemol=='nolight') 
   {
     jlight=val2;
-    //
+    jnolight=100-val2;
+    setStateElem("jlight",val2);
   } 
   else if (bemol=='time')
   {
     jtime=value;
-    //
+    setStateElem("jtime",value);
   } 
   else
   {
     jlight=value; 
-    //
+    setStateElem("jlight",value);
   }
   console.log('jlight='+jlight+' jtime ='+jtime);
   // Формируем json действующего режима работы вспышки
@@ -177,6 +179,45 @@ function setMessLead(num,sjson)
     url: pathphp,
     type: 'POST',
     data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost,postNum:num,postJson:sjson},
+    // Выводим ошибки при выполнении запроса в PHP-сценарии
+    error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
+    // Обрабатываем ответное сообщение
+    success: function(message)
+    {
+      //console.log(message);
+      // Вырезаем из запроса чистое сообщение
+      let Fresh=FreshLabel(message);
+      // Если чистое сообщение не вырезалось, считаем, что это ошибка и
+      // диагностируем её
+      if (Fresh=='NoFresh')
+      {
+        console.log(message);
+        DialogWind(message);
+      }
+      // Иначе считаем, что ответ на запрос пришел, проверяем правильность передачи
+      else 
+      {
+        messa=Fresh;
+        //console.log('Fresh='+messa);
+        if (messa!=nstOk) DialogWind(message);
+      }
+    }
+  });
+}
+// ****************************************************************************
+// *     Записать в базу данных изменение управляющего элемента изображения   *
+// ****************************************************************************
+function setStateElem(Name,Value)
+{
+  // Выводим в диалог предварительный результат выполнения запроса
+  htmlText="Записать изменение в управляющего элемента не удалось!";
+  // Выполняем запрос
+  pathphp="Update40/j_setStateElem.php";
+  // Делаем запрос последнего json-сообщения на State 
+  $.ajax({
+    url: pathphp,
+    type: 'POST',
+    data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost,postName:Name,postValue:Value},
     // Выводим ошибки при выполнении запроса в PHP-сценарии
     error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
     // Обрабатываем ответное сообщение

@@ -23,6 +23,7 @@ define ("vController", nstNo);   // nstNo - вирт.контроллер вык
 
 // Определяем параметры текущего режима работы вспышки
 $jlight=10;     // процент времени свечения в цикле
+$jnolight=100-10;
 $jtime=2000;    // длительность цикла "горит - не горит" (мсек)   
 $jevent=0;      // пришло подтверждение от контроллера
 // Назначаем действующие интервалы подачи сообщений от контроллера (мсек) 
@@ -36,7 +37,7 @@ $jbar=5005;     // атмосферное давление
 // *               Объявить переменные и константы JavaScript,                *
 // *                   соответствующие определениям в PHP                     *
 // ****************************************************************************
-function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jevent,$jmode4,$jimg,$jtempvl,$jlumin,$jbar)
+function DefineJS($SiteHost,$urlHome,$jlight,$jnolight,$jtime,$jevent,$jmode4,$jimg,$jtempvl,$jlumin,$jbar)
 {
    $define="\n".
    '<script>'."\n".
@@ -52,6 +53,7 @@ function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jevent,$jmode4,$jimg,$jtemp
    'nstNo="'               .nstNo.'";'."\n".
    'vController="'         .vController.'";'."\n".
    'var jlight="'          .$jlight.'";'."\n".
+   'var jnolight="'        .$jnolight.'";'."\n".
    'var jtime="'           .$jtime.'";'."\n".
    'var jevent="'          .$jevent.'";'."\n".
    'var jmode4="'          .$jmode4.'";'."\n".
@@ -64,6 +66,6 @@ function DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jevent,$jmode4,$jimg,$jtemp
 } 
 
 //  Создаем переменные и константы JavaScript, соответствующие определениям в PHP   
-DefineJS($SiteHost,$urlHome,$jlight,$jtime,$jevent,$jmode4,$jimg,$jtempvl,$jlumin,$jbar);
+DefineJS($SiteHost,$urlHome,$jlight,$jnolight,$jtime,$jevent,$jmode4,$jimg,$jtempvl,$jlumin,$jbar);
 
 // *********************************************************** iniPhpJS.php *** 

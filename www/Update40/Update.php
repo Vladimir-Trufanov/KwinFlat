@@ -21,7 +21,7 @@
    <div id="shlight" class="shled4" onclick="onLed4('pilight','light',0,100)" title="От 0% до 100%">
       <p class="pshled4">ГОРИТ (%)</p>
    </div>
-   <div id="shnolight" class="shled4" onclick="onLed4('pinolight','nolight',0,100)" title="От 0% до 100%">
+   <div id="shnolight" class="shled4">
       <p class="pshled4">НЕТ</p>
    </div>
    <div id="shtime" class="shled4" onclick="onLed4('pitime','time',100,100000)" title="От 100 до 100 тысяч мсек">
@@ -37,6 +37,12 @@
    </div>
    
    <?php
+   /*
+   <div id="shnolight" class="shled4" onclick="onLed4('pinolight','nolight',0,100)" title="От 0% до 100%">
+      <p class="pshled4">НЕТ</p>
+   </div>
+   */
+   
    echo '
    <div id="light" class="cled4">
       <p id="pilight" class="cp4">'.$jlight.'</p>'.'

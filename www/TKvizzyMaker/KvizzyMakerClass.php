@@ -5,7 +5,7 @@
 // ****************************************************************************
 // * KwinFlat/TTools                  Построитель базы данных моего хозяйства *
 // *                                                                          *
-// * v4.4.1, 30.05.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.2, 05.06.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2024 tve                          Дата создания:  03.11.2024 *
 // ****************************************************************************
 
@@ -17,11 +17,12 @@ require_once("CommonLeadMaker.php");
 // setMessLead($pdo,$num,$sjson)                       - Записать в базу данных изменения состояния управляющих json-команд 
 // TestSet($pdo,$INsjson,$action)                      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
 // SelChange($pdo)                                     - Выбрать изменения состояний управляющих команд  
-// - SelLead($pdo,$action);                              - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+// --- SelLead($pdo,$action);                          - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
 require_once("CommonStateMaker.php"); 
 // SelectLastMess($pdo);                               - Выбрать запись из таблицы последнего полученного json-сообщения  
 // UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson); - Обновить запись в таблице последнего полученного json-сообщения
 // SelState($pdo);                                     - Выбрать управляющие значения экрана и показания датчиков
+// setStateElem($pdo,$Name,$Value);                    - Записать в базу данных изменение управляющего элемента изображения 
 require_once("CommonStreamMaker.php"); 
 // InsertImgStream($pdo,$src,$time,$frame);            - Вставить текущее изображение  
 // SelImgStream($pdo,$intime,$inframe);                - Выбрать данные последнего записанного изображения из базы данных
@@ -82,6 +83,7 @@ class KvizzyMaker
       return $table;
    }
    */
+
    // ------------------------------------------------ CommonStateMaker.php ---
    // Выбрать управляющие значения экрана и показания датчиков
    public function SelState($pdo)
@@ -100,10 +102,10 @@ class KvizzyMaker
    {
       _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);
    }
-   
+   // Записать в базу данных изменение управляющего элемента изображения   
    public function setStateElem($pdo,$Name,$Value)
    {
-      _setStateElem($pdo,$Name,$Value);
+      return _setStateElem($pdo,$Name,$Value);
    }
    
    // ----------------------------------------------- CommonStreamMaker.php ---
