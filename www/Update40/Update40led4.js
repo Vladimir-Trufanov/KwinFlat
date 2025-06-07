@@ -9,7 +9,7 @@
 // Copyright © 2025 tve                               Дата создания: 29.04.2025
 
 // Готовим переменные обслуживания процесса мигания
-var Led4Intrv=3000;        // текущий интервал смены состояния вспышки
+var Led4Intrv=100;         // текущий интервал смены состояния вспышки (100-призапуске сайта)
 var idLed4Intrv;           // id функции управления интервалом смены состояния вспышки
 var Led4Status="shimLOW";  // текущее состояние вспышки
 var nLight=1000;           // интервал свечения вспышки
@@ -25,25 +25,41 @@ $(document).ready(function()
 // ****************************************************************************
 function vLed4() 
 {
-  //console.log('jlight='+jlight); 
-  //console.log('jtime='+jtime); 
-  // Рассчитываем времена свечения и несвечения вспышки
-  nLight=jtime*jlight/100;  // 2000*10/100=200
-  nNoLight=jtime-nLight;    // 2000-200=1800
-  
-  if (Led4Status=="shimHIGH")
+  // Включаем всегда зажженый режим
+  // console.log('jlight='+jlight); 
+  console.log('Led4Intrv='+Led4Intrv); 
+  if (jlight>99)
   {
-    //console.log('nLight='+nLight); 
-    $('#spot').css('background','White');
-    Led4Intrv=nLight;
-    Led4Status="shimLOW";
-  } 
-  else 
+    $('#spot').css('background','red');
+    Led4Intrv=5100;
+  }
+  else if (jlight<1)
   {
-    //console.log('nNoLight='+nNoLight); 
-    $('#spot').css('background','Silver');
-    Led4Intrv=nNoLight;
-    Led4Status="shimHIGH"
+    $('#spot').css('background','blue');
+    Led4Intrv=4900;
+  }
+  else
+  {
+    //console.log('jlight='+jlight); 
+    //console.log('jtime='+jtime); 
+    // Рассчитываем времена свечения и несвечения вспышки
+    nLight=jtime*jlight/100;  // 2000*10/100=200
+    nNoLight=jtime-nLight;    // 2000-200=1800
+    if (Led4Status=="shimHIGH")
+    {
+      //console.log('nLight='+nLight); 
+      $('#spot').css('background','White');
+      Led4Intrv=nLight;
+      Led4Status="shimLOW";
+    } 
+    else 
+    {
+      //console.log('nNoLight='+nNoLight); 
+      $('#spot').css('background','Silver');
+      Led4Intrv=nNoLight;
+      Led4Status="shimHIGH"
+    }
+    //setTimeout(vLed4,Led4Intrv);
   }
   setTimeout(vLed4,Led4Intrv);
 }

@@ -19,12 +19,6 @@ $(document).ready(function()
   // Выбираем последнее изображение 24 (или 1 раз за 1024 миллисекунды) раза в секунду
   // console.log('IntStream: '+IntStream);
   setInterval(SelImgStream, IntStream);
-
-  /*
-   // Защищаем от мелькания UpdateLmp33()
-   $('.cled4').css('background','White');
-   $('.cled4').css('color','White'); 
-  */
   // Создаём поле демонстрации поступающих json-сообщений для 4 последних 
   let tickers = new TTickers(4);
   // Обеспечиваем остановку изменения массива состояний и изменение курсора 
@@ -81,7 +75,7 @@ $(document).ready(function()
   (async () => 
   {
     // Задержка в 300 мсек перед выводом сообщения и открытием дива
-    await sleep(300);
+    await sleep(1000);
     console.log('Ожидание открытия #lead завершено!');
     $('#lead').css('display','block');
   })();  
