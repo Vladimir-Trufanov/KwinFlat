@@ -9,9 +9,9 @@
 // Copyright © 2025 tve                               Дата создания: 29.04.2025
 
 // Готовим переменные обслуживания процесса мигания
-var Led4Intrv=100;         // текущий интервал смены состояния вспышки (100-призапуске сайта)
+var Led4Intrv=100;         // текущий интервал смены состояния вспышки (100-при запуске сайта)
 var idLed4Intrv;           // id функции управления интервалом смены состояния вспышки
-var Led4Status="shimLOW";  // текущее состояние вспышки
+var Led4Status="shimHIGH"; // текущее состояние вспышки
 var nLight=1000;           // интервал свечения вспышки
 var nNoLight=1000;         // интервал НЕ-свечения вспышки
 
@@ -25,17 +25,53 @@ $(document).ready(function()
 // ****************************************************************************
 function vLed4() 
 {
+  console.log('jlight='+jlight); 
+  // Включаем всегда зажженый режим
+  if (jlight>99) 
+  {
+    jlight=100; jnolight=0; nLight=jtime; nNoLight=0;
+  }
+  // Всегда погасшая вспышка
+  else if (jlight<1) 
+  {
+    jlight=0; jnolight=100; nLight=0; nNoLight=jtime;
+  }
+  // Рассчитываем времена свечения и несвечения вспышки
+  else
+  {
+    nLight=jtime*jlight/100;  // 2000*10/100=200
+    nNoLight=jtime-nLight;    // 2000-200=1800
+  }
+  // Если вспышка горела, выключаем и запускаем отсчет
+  if (Led4Status=="shimHIGH")
+  {
+    Led4Status="shimLOW";
+    $('#spot').css('background',conolight); 
+    Led4Intrv=nNoLight;
+  } 
+  // Если вспышка НЕ горела, включаем и запускаем отсчет
+  else 
+  {
+    Led4Status="shimHIGH"
+    $('#spot').css('background',coLight);  
+    Led4Intrv=nLight;
+  }
+  setTimeout(vLed4,Led4Intrv);
+
+  /*
   // Включаем всегда зажженый режим
   // console.log('jlight='+jlight); 
   console.log('Led4Intrv='+Led4Intrv); 
   if (jlight>99)
   {
-    $('#spot').css('background','red');
+    Led4Status="shimHIGH"
+    $('#spot').css('background',coLight);
     Led4Intrv=5100;
   }
   else if (jlight<1)
   {
-    $('#spot').css('background','blue');
+    Led4Status="shimLOW";
+    $('#spot').css('background',conolight);  
     Led4Intrv=4900;
   }
   else
@@ -48,20 +84,21 @@ function vLed4()
     if (Led4Status=="shimHIGH")
     {
       //console.log('nLight='+nLight); 
-      $('#spot').css('background','White');
+      $('#spot').css('background',coLight);
       Led4Intrv=nLight;
       Led4Status="shimLOW";
     } 
     else 
     {
       //console.log('nNoLight='+nNoLight); 
-      $('#spot').css('background','Silver');
+      $('#spot').css('background',conolight);  // 'Silver'
       Led4Intrv=nNoLight;
       Led4Status="shimHIGH"
     }
     //setTimeout(vLed4,Led4Intrv);
   }
   setTimeout(vLed4,Led4Intrv);
+  */
 }
 // ****************************************************************************
 // *       Сформировать input-теги для редактирования интервалов сообщений    *

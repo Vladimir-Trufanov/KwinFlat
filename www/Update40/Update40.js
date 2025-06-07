@@ -75,7 +75,7 @@ $(document).ready(function()
   (async () => 
   {
     // Задержка в 300 мсек перед выводом сообщения и открытием дива
-    await sleep(1000);
+    await sleep(300);
     console.log('Ожидание открытия #lead завершено!');
     $('#lead').css('display','block');
   })();  
@@ -209,7 +209,17 @@ function UpdateStatus(tickers)
             jlight=parm.jlight; $('#pilight').html(jlight.toString());        // процент времени свечения в цикле
             jnolight=100-jlight; $('#nolight').html(jnolight.toString());     // процент времени НЕсвечения в цикле
             jtime=parm.jtime; $('#pitime').html(jtime.toString());            // длительность цикла "горит - не горит" (мсек)   
-
+            /*
+            // Рассчитываем времена свечения и несвечения вспышки
+            nLight=jtime*jlight/100;  // 2000*10/100=200
+            nNoLight=jtime-nLight;    // 2000-200=1800
+            // Зажигаем вспышку и запускаем отсчет
+            Led4Status="shimHIGH";
+            Led4Intrv=nLight;
+            $('#spot').css('background',coLight);
+            setTimeout(vLed4,Led4Intrv);
+            */
+            // Устанавливаем интервалы
             jmode4=parm.jmode4; $('#pmode4').html(jmode4.toString());         // интервал сообщений по режиму работы Led4    
             jimg=parm.jimg; $('#pimg').html(jimg.toString());                 // интервал подачи изображения (мсек)   
             jtempvl=parm.jtempvl; $('#ptempvl').html(jtempvl.toString());     // интервал сообщений о температуре и влажности (мсек)   
