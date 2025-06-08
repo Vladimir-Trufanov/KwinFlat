@@ -18,15 +18,15 @@
     <script src="/jQuery/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
     <script src="/jQuery/jquery-ui.min.js"></script>
-    <script src="/Kvizzy30/socket.js"></script>
+    <script src="socket.js"></script>
 </head>
 <body>
 
 <?php
 $ip='127.0.0.1';
 $port=7776;
-$echoserver='Kvizzy30/echo-server.php';
-require_once 'Kvizzy30/LeadSocket.php';
+$echoserver='echo-server.php';
+require_once 'LeadSocket.php';
 
 ?>
 </body>

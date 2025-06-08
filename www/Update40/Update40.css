@@ -131,7 +131,7 @@
 .shled4
 {
    font-weight: 900;
-   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 16 - 8 ) + 8px );
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 18 - 10 ) + 10px );
 }
 /* Изъяли из активности, но, сделали похожей на кнопки в ряду */
 #shnolight
@@ -140,7 +140,7 @@
    margin-right:2.6%;
    text-align:center; 
    font-weight: 900;
-   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 16 - 8 ) + 8px );
+   font-size: calc( ( 100vw - 480px ) / ( 1920 - 480 ) * ( 18 - 10 ) + 10px );
 }
 .cled4
 {  
