@@ -17,12 +17,15 @@ var nLight;                // интервал свечения вспышки
 var nNoLight;              // интервал НЕ-свечения вспышки
 setValueLight();
 // Выключаем вспышку на % НЕгорения в периоде             
+var idLed4Intrv;           // id функции управления интервалом смены состояния вспышки
 var Led4Status;            // текущее состояние вспышки (выключена)
 var Led4Intrv;             // начальный интервал до смены состояния вспышки
-setNoLight(); 
 
-// var idLed4Intrv;        // id функции управления интервалом смены состояния вспышки
-
+$(document).ready(function() 
+{
+  idLed4Intrv=setNoLight();
+});
+ 
 // ****************************************************************************
 // *              Рассчитать времена свечения и несвечения вспышки            *
 // ****************************************************************************
@@ -40,7 +43,7 @@ function setLight()
   $('#spot').css('background',coLight);  
   Led4Intrv=nLight;
   //console.log('nLight='+nLight);
-  setTimeout(vLed4,Led4Intrv);
+  return setTimeout(vLed4,Led4Intrv);
 }
 // ****************************************************************************
 // *                  Выключить вспышку на % НЕгорения в периоде                 *
@@ -51,78 +54,27 @@ function setNoLight()
   $('#spot').css('background',conolight);  
   Led4Intrv=nNoLight;
   //console.log('nNoLight='+nNoLight);
-  setTimeout(vLed4,Led4Intrv);
+  return setTimeout(vLed4,Led4Intrv);
 }
 // ****************************************************************************
 // *  Мигать вспышкой на странице Update40 в соответствии с заданным режимом  *
 // ****************************************************************************
 function vLed4() 
 {
-  /*
-  // Включаем всегда зажженый режим
-  if (jlight>99) 
-  {
-    jlight=100; jnolight=0; nLight=jtime; nNoLight=0;
-  }
-  // Всегда погасшая вспышка
-  else if (jlight<1) 
-  {
-    jlight=0; jnolight=100; nLight=0; nNoLight=jtime;
-  }
-  */
-  /*
-  // Рассчитываем времена свечения и несвечения вспышки
-  else
-  {
-    nLight=jtime*jlight/100;  // 2000*10/100=200
-    nNoLight=jtime-nLight;    // 2000-200=1800
-  }
-  */
   // Если вспышка горела, выключаем и запускаем отсчет
-  if (Led4Status=="shimHIGH") setNoLight();
+  if (Led4Status=="shimHIGH") 
+  {
+    // Обязательно останавливаем предыдущий setTimeout
+    clearTimeout(idLed4Intrv);
+    // Запускаем новый setTimeout
+    idLed4Intrv=setNoLight();
+  }
   // Если вспышка НЕ горела, включаем и запускаем отсчет
-  else setLight();
-  /*
-  // Включаем всегда зажженый режим
-  // console.log('jlight='+jlight); 
-  console.log('Led4Intrv='+Led4Intrv); 
-  if (jlight>99)
+  else 
   {
-    Led4Status="shimHIGH"
-    $('#spot').css('background',coLight);
-    Led4Intrv=5100;
+    clearTimeout(idLed4Intrv);
+    idLed4Intrv=setLight();
   }
-  else if (jlight<1)
-  {
-    Led4Status="shimLOW";
-    $('#spot').css('background',conolight);  
-    Led4Intrv=4900;
-  }
-  else
-  {
-    //console.log('jlight='+jlight); 
-    //console.log('jtime='+jtime); 
-    // Рассчитываем времена свечения и несвечения вспышки
-    nLight=jtime*jlight/100;  // 2000*10/100=200
-    nNoLight=jtime-nLight;    // 2000-200=1800
-    if (Led4Status=="shimHIGH")
-    {
-      //console.log('nLight='+nLight); 
-      $('#spot').css('background',coLight);
-      Led4Intrv=nLight;
-      Led4Status="shimLOW";
-    } 
-    else 
-    {
-      //console.log('nNoLight='+nNoLight); 
-      $('#spot').css('background',conolight);  // 'Silver'
-      Led4Intrv=nNoLight;
-      Led4Status="shimHIGH"
-    }
-    //setTimeout(vLed4,Led4Intrv);
-  }
-  setTimeout(vLed4,Led4Intrv);
-  */
 }
 // ****************************************************************************
 // *       Сформировать input-теги для редактирования интервалов сообщений    *
@@ -206,8 +158,6 @@ function onbLed4()
     val2=100-value; 
     $('#'+bemol2).html('<p id="'+diez2+'" class="cp4">'+val2.toString()+'</p>');
   }
-  console.log('bemol ='+bemol+'  value='+value);
-  console.log('bemol2='+bemol2+' val2 ='+val2);
   // Запоминаем глобальные переменные
   if      (bemol=='light')   
   {
@@ -231,7 +181,6 @@ function onbLed4()
     jlight=value; 
     setStateElem("jlight",value);
   }
-  console.log('jlight='+jlight+' jtime ='+jtime);
   // Формируем json действующего режима работы вспышки
   // s_MODE4 = '"led4":{"light":10,"time":2000}'   
   var s_MODE4 = '"led4":{'+
@@ -240,7 +189,6 @@ function onbLed4()
   '}'; 
   // Записываем в базу данных изменения режима работы led4
   setMessLead(-1,s_MODE4)
-  console.log('s_MODE4='+s_MODE4);
 }
 // ****************************************************************************
 // *     Записать в базу данных изменения состояния управляющих json-команд   *

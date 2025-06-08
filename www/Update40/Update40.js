@@ -197,12 +197,11 @@ function UpdateStatus(tickers)
             // Трассируем чистое сообщение, без метки
             // {"jlight":10,"jtime":"2010","jevent":0,"jmode4":7000,"jimg":1001,"jtempvl":3003,"jlumin":2002,"jbar":5005}
             //console.log(messa);
-            console.log('parm.jlight='+parm.jlight); 
+            //console.log('parm.jlight='+parm.jlight); 
             // Если изменился процент времени свечения в цикле,
             // то перенастраиваем иммитацию режима работы вспышки
             if (parm.jlight!=oldlight)
             {
-              //$('#lead').slideUp();  
               jlight=parm.jlight; $('#pilight').html(jlight.toString());      // процент времени свечения в цикле
               jnolight=100-jlight; $('#nolight').html(jnolight.toString());   // процент времени НЕсвечения в цикле
               // Устанавливаем прежние значения
@@ -210,21 +209,20 @@ function UpdateStatus(tickers)
               // Пересчитываем начальные интервалы свечения-несвечения вспышки
               setValueLight();
               // Выключаем вспышку на % НЕгорения в периоде             
-              setNoLight(); 
-              //$('#lead').slideDown();
+              clearTimeout(idLed4Intrv);
+              idLed4Intrv=setNoLight(); 
             }
             // Если изменилась длительность периода
             // то перенастраиваем иммитацию режима работы вспышки
             if (parm.jtime!=oldtime)
             {
-              //$('body').slideUp();  
               jtime=parm.jtime; $('#pitime').html(jtime.toString());            // длительность цикла "горит - не горит" (мсек)   
               oldtime=jtime;
               // Пересчитываем начальные интервалы свечения-несвечения вспышки
               setValueLight();
               // Выключаем вспышку на % НЕгорения в периоде             
-              setNoLight(); 
-              //$('body').slideDown();
+              clearTimeout(idLed4Intrv);
+              idLed4Intrv=setNoLight(); 
             }
             // Устанавливаем интервалы
             jmode4=parm.jmode4; $('#pmode4').html(jmode4.toString());         // интервал сообщений по режиму работы Led4    
