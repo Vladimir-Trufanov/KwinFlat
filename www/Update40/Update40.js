@@ -4,7 +4,7 @@
 // * KwinFlat                    Обслужить ознакомительную страницу для гостя *
 // ****************************************************************************
 
-// v4.4.1, 02.06.2025                                 Автор:      Труфанов В.Е.
+// v4.5.0, 08.06.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
@@ -37,26 +37,13 @@ $(document).ready(function()
       $('#tickers').css('cursor',this.tickCursor);      
     }
   );
-  
-  /*
-   // Инициируем параметры хранилища при первом запуске в браузере:
-   
-   // Задаем событие по режиму (1 - прошла команда смены режима, 0 - пришло подтверждение от контроллера)
-   if (ram.get("LmpEvent")==null)      ram.set("LmpEvent",0); 
-   // Определяем состояние режима в момент запроса (1 - включен режим, 0 - выключен режим)     
-   if (ram.get("LmpMode")==null)       ram.set("LmpMode",1);  
-   // Определяем время в секундах (c начала эпохи) отправки сообщения     
-   if (ram.get("LmpSendTime")==null)   ram.set("LmpSendTime",0); 
-   // Определяем время получения ответа в секундах  
-   if (ram.get("LmpReceivTime")==null) ram.set("LmpReceivTime",0);
-   // Определяем указание по режиму в последней команде (1 - включить режим, 0 - выключить) 
-   if (ram.get("LmpRegim")==null)      ram.set("LmpRegim",1);      
-  */
-   
   // Фиксируем начало запуска сайта
   var valTimeBeg = new Date();
   // Выбираем элемент отражения времени с начала сессии
   var timeElement = document.getElementById('sessiontime');
+  // Выбираем управляющие значения экрана и показания датчиков 
+  // и обновляем их на экране                       
+  UpdateStatus(tickers)
   // Запускаем вызов четвертьсекундного (250 мсек) обновления дива #lead на экране
   const intervalId = setInterval(
   function() 
@@ -70,6 +57,8 @@ $(document).ready(function()
   // Запускаем объект показа текущего времени
   //let clock = new TClock({template: 'h:m:s'});
   //clock.start();
+  
+  /*
   // Открываем управляющий див через задержку в 300 мсек 
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
   (async () => 
@@ -78,7 +67,9 @@ $(document).ready(function()
     await sleep(300);
     console.log('Ожидание открытия #lead завершено!');
     $('#lead').css('display','block');
-  })();  
+  })(); 
+  */ 
+  
 });
 // ****************************************************************************
 // *     Выбрать и показать последнее изображение с определённой частотой     *
@@ -206,19 +197,35 @@ function UpdateStatus(tickers)
             // Трассируем чистое сообщение, без метки
             // {"jlight":10,"jtime":"2010","jevent":0,"jmode4":7000,"jimg":1001,"jtempvl":3003,"jlumin":2002,"jbar":5005}
             //console.log(messa);
-            jlight=parm.jlight; $('#pilight').html(jlight.toString());        // процент времени свечения в цикле
-            jnolight=100-jlight; $('#nolight').html(jnolight.toString());     // процент времени НЕсвечения в цикле
-            jtime=parm.jtime; $('#pitime').html(jtime.toString());            // длительность цикла "горит - не горит" (мсек)   
-            /*
-            // Рассчитываем времена свечения и несвечения вспышки
-            nLight=jtime*jlight/100;  // 2000*10/100=200
-            nNoLight=jtime-nLight;    // 2000-200=1800
-            // Зажигаем вспышку и запускаем отсчет
-            Led4Status="shimHIGH";
-            Led4Intrv=nLight;
-            $('#spot').css('background',coLight);
-            setTimeout(vLed4,Led4Intrv);
-            */
+            console.log('parm.jlight='+parm.jlight); 
+            // Если изменился процент времени свечения в цикле,
+            // то перенастраиваем иммитацию режима работы вспышки
+            if (parm.jlight!=oldlight)
+            {
+              //$('#lead').slideUp();  
+              jlight=parm.jlight; $('#pilight').html(jlight.toString());      // процент времени свечения в цикле
+              jnolight=100-jlight; $('#nolight').html(jnolight.toString());   // процент времени НЕсвечения в цикле
+              // Устанавливаем прежние значения
+              oldlight=jlight; oldnolight=jnolight; 
+              // Пересчитываем начальные интервалы свечения-несвечения вспышки
+              setValueLight();
+              // Выключаем вспышку на % НЕгорения в периоде             
+              setNoLight(); 
+              //$('#lead').slideDown();
+            }
+            // Если изменилась длительность периода
+            // то перенастраиваем иммитацию режима работы вспышки
+            if (parm.jtime!=oldtime)
+            {
+              //$('body').slideUp();  
+              jtime=parm.jtime; $('#pitime').html(jtime.toString());            // длительность цикла "горит - не горит" (мсек)   
+              oldtime=jtime;
+              // Пересчитываем начальные интервалы свечения-несвечения вспышки
+              setValueLight();
+              // Выключаем вспышку на % НЕгорения в периоде             
+              setNoLight(); 
+              //$('body').slideDown();
+            }
             // Устанавливаем интервалы
             jmode4=parm.jmode4; $('#pmode4').html(jmode4.toString());         // интервал сообщений по режиму работы Led4    
             jimg=parm.jimg; $('#pimg').html(jimg.toString());                 // интервал подачи изображения (мсек)   
@@ -258,54 +265,6 @@ function NewSessionOld(valTimeBeg,timeElement)
   // отрезаем часы 
   timeElement.textContent = valTimeEnd.toLocaleTimeString();
   timeElement.textContent = timeElement.textContent.slice(3); 
-}
-// ****************************************************************************
-// * Задать изменение режима работы контрольного светодиода в таблице Lead:   *
-// ****************************************************************************
-function setRegimLed4()
-{
-  /*
-   // Action=3 - прошла команда смены режима, включить режим  
-   // Action=2 - прошла команда смены режима, выключить режим 
-   let Action; 
-   // Выводим в диалог предварительный результат выполнения запроса
-   htmlText="Задать изменение режима работы контрольного светодиода не удалось!";
-   // Выбираем из хранилища текущее состояние режима работы
-   let LmpMode=ram.get("LmpMode");
-   if (LmpMode==1) Action=2; else Action=3;
-   // Выполняем запрос
-   pathphp="j_setRegimLed33.php";
-   // Делаем запрос последнего json-сообщения на State 
-   $.ajax({
-      url: pathphp,
-      type: 'POST',
-      data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost,action:Action},
-      // Выводим ошибки при выполнении запроса в PHP-сценарии
-      error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
-      // Обрабатываем ответное сообщение
-      success: function(message)
-      {
-         // Трассируем полный json-ответ
-         // DialogWind(message);
-         // Вырезаем из запроса чистое сообщение
-         let Fresh=FreshLabel(message);
-         // Если чистое сообщение не вырезалось, считаем, что это ошибка и
-         // диагностируем её
-         if (Fresh=='NoFresh')
-         {
-            console.log(message);
-            DialogWind(message);
-         }
-         // Иначе считаем, что ответ на запрос пришел и можно смотреть сообщение
-         else 
-         {
-            messa=Fresh;
-            // console.log(messa);
-            if (messa!=nstOk) DialogWind(messa);
-         }
-      }
-   });
-  */
 }
 // ****************************************************************************
 // *                 Вывести диалоговое сообщение от ошибке                   *

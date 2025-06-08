@@ -99,7 +99,8 @@
    background:transparent; 
    height:50%;
    width:100%;
-   display:none;
+   /*display:none;*/
+   display:block;
 }
 #shsh
 {

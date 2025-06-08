@@ -14,7 +14,7 @@
    
    <div id=shsh>
      
-   <div id="shlmp" class="shled4" onclick="setRegimLed4()">
+   <div id="shlmp" class="shled4">
       <p class="pshled4"></p>
    </div>
    
