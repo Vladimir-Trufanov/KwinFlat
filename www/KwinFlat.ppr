@@ -160,7 +160,7 @@ KwinFlat
 Main=
 Selected=State40\index.php
 [iniPhpJS.php]
-TopLine=26
+TopLine=9
 Caret=42,9
 [Update40\Update.php]
 TopLine=5
@@ -169,7 +169,7 @@ Caret=34,17
 TopLine=200
 Caret=15,200
 [TKvizzyMaker\CommonStateMaker.php]
-TopLine=1
+TopLine=67
 Caret=1,107
 [TKvizzyMaker\KvizzyMakerClass.php]
 TopLine=78
@@ -184,5 +184,5 @@ Caret=17,103
 TopLine=149
 Caret=1,184
 [State40\index.php]
-TopLine=15
-Caret=25,26
+TopLine=5
+Caret=10,9
