@@ -104,18 +104,18 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
-		+State40
+		-State40
 			State40\index.php
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -148,41 +148,13 @@ KwinFlat
 		server.log
 [Open project files]
 0=iniPhpJS.php
-1=Update40\Update.php
-2=Update40\Update40.js
-3=TKvizzyMaker\CommonStateMaker.php
-4=TKvizzyMaker\KvizzyMakerClass.php
-5=Update40\j_SelState.php
-6=Update40\Update40.css
-7=Update40\Update40led4.js
-8=State40\index.php
+1=index.php
 [Selected Project Files]
 Main=
-Selected=State40\index.php
+Selected=iniPhpJS.php
 [iniPhpJS.php]
-TopLine=9
-Caret=42,9
-[Update40\Update.php]
-TopLine=5
-Caret=34,17
-[Update40\Update40.js]
-TopLine=200
-Caret=15,200
-[TKvizzyMaker\CommonStateMaker.php]
-TopLine=67
-Caret=1,107
-[TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=78
-Caret=1,87
-[Update40\j_SelState.php]
-TopLine=14
-Caret=1,24
-[Update40\Update40.css]
-TopLine=77
-Caret=17,103
-[Update40\Update40led4.js]
-TopLine=149
-Caret=1,184
-[State40\index.php]
-TopLine=5
-Caret=10,9
+TopLine=1
+Caret=30,9
+[index.php]
+TopLine=3
+Caret=1,15

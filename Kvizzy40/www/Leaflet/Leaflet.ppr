@@ -1,0 +1,42 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.CompileOnBackground=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
+Compilator.LogType=0
+Compilator.LogEncoding=0
+DefaultDir=C:\KwinFlat\Kvizzy40\www\Leaflet
+DefaultCP=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+HTServer=localhost
+Extensions=*.*
+[Project tree]
+Leaflet
+	+Leaflet
+		+Leaflet194
+			Leaflet194\leaflet.css
+			Leaflet194\leaflet.js
+		index.php
+		Leaflet.md
+		Leaflet.ppr
+[Open project files]
+0=index.php
+1=Leaflet194\leaflet.css
+2=Leaflet194\leaflet.js
+[Selected Project Files]
+Main=
+Selected=index.php
+[index.php]
+TopLine=16
+Caret=26,37
+[Leaflet194\leaflet.css]
+TopLine=324
+Caret=20,353
+[Leaflet194\leaflet.js]
+TopLine=1
+Caret=1,7
