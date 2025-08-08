@@ -2,44 +2,81 @@
 // PHP7/HTML5, EDGE/CHROME/YANDEX                             *** index.php ***
 
 // ****************************************************************************
-// * Leaflet                             --Зарегистрировать изменения состояний *
-// *                                           ---устройств и показаний датчиков *
+// * Leaflet                    Создать интерактивную карту с D3.js и Leaflet *
 // ****************************************************************************
 
+/**
+ * Комбинация библиотек D3.js и Leaflet предоставляет мощный инструментарий для
+ * создания интерактивных географических визуализаций. Leaflet отвечает за отображение 
+ * карт и управление слоями, а D3.js позволяет добавлять кастомные элементы, 
+ * такие как маркеры, линии или сложные графы.
+ * 
+ * Интеграция D3.js с Leaflet основана на наложении SVG-слоя на карту и 
+ * использовании D3.js для управления этим слоем. Ключевые шаги включают:
+ * - Создание карты Leaflet: Инициализация карты с центром в конкретным местом 
+ * (Казани) и добавление базового слоя (например, OpenStreetMap).
+ * - Добавление SVG слоя: D3.js создает SVG-контейнер, который синхронизируется с картой.
+ * - Преобразование координат: Метод latLngToLayerPoint преобразует географические 
+ * координаты (широта, долгота) в пиксельные координаты для SVG.
+ * - Обновление при взаимодействии: Синхронизация SVG-элементов с картой при 
+ * масштабировании или перемещении.
+ * 
+ * Ниже приведен пример кода, который создает карту, центрированную в Казани, и 
+ * отображает граф, состоящий из узлов (городов) и связей между ними. Узлы представляют 
+ * Казань и несколько европейских городов, а связи показывают маршруты между ними.
+ * 
+ * Как работает код
+ * 
+ * 1. Инициализация карты: карта создается с помощью Leaflet и центрируется в Казани
+ * ([55.7963, 49.1064]) с уровнем масштаба 5, чтобы показать регион вокруг города.
+ * Используется тайловый слой OpenStreetMap для базовой карты.
+ * 2. Данные: массив nodes содержит три города: Казань, Москва и Берлин с их 
+ * географическими координатами. Массив links определяет связи между городами 
+ * (Казань–Москва, Москва–Берлин).
+ * 3. SVG-слой: D3.js создает SVG-элементы (линии для связей и круги для узлов) 
+ * на слое, наложенном на карту. Координаты узлов преобразуются из географических 
+ * в пиксельные с помощью map.latLngToLayerPoint.
+ * 4. Интерактивность: Узлы подсвечиваются при наведении (увеличиваются и меняют размер).
+ * Всплывающая подсказка (tooltip) показывает название города при наведении на узел.
+ * Казань выделена зеленым цветом, чтобы подчеркнуть ее центральное положение.
+ * 5. Обновление: Функция update вызывается при загрузке карты и при любом перемещении/масштабировании, 
+ * чтобы синхронизировать позиции SVG-элементов.
+ * 
+ * Производительность: для больших графов используйте Canvas вместо SVG, чтобы 
+ * снизить нагрузку на браузер.
+**/
+ 
 // v1.0.0, 07.08.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 07.08.2025
 
-// Подключаем блок общесайтовых функций
-//require_once "../iniWorkSpace.php";  
-//echo 'Leaflet4015'; 
-
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>D3.js and Leaflet: Graph on Map Centered in Kazan</title>  -->
-    <title>Proba Leaflet</title>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />  -->
-    <link rel="stylesheet" href="leaflet194/leaflet.css" />
-    <style>
-        #map { height: 500px; }
-        .node { cursor: pointer; }
-        .link { stroke: #333; stroke-width: 2px; }
-        .tooltip { position: absolute; background: white; padding: 5px; border: 1px solid #ccc; border-radius: 3px; pointer-events: none; }
-    </style>
-</head>
-<body>
-    <div id="map"></div>
+<html lang="ru">
 
-    <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
-    <script src="d3js790/d3.v7.min.js"></script>
-    <!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> -->
-    <script src="leaflet194/leaflet.js"></script>
-    <script>
-        // Инициализация карты, центрированной на Казани
-        const map = L.map('map').setView([55.7963, 49.1064], 5);
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <title>D3.js and Leaflet: Graph on Map Centered in Kazan</title>  -->
+   <title>Проба Leaflet</title>
+   <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />  -->
+   <link rel="stylesheet" href="leaflet194/leaflet.css" />
+   <style>
+      #map { height: 500px; }
+      .node { cursor: pointer; }
+      .link { stroke: #333; stroke-width: 2px; }
+      .tooltip { position: absolute; background: white; padding: 5px; border: 1px solid #ccc; border-radius: 3px; pointer-events: none; }
+   </style>
+</head>
+
+<body>
+   <div id="map"></div>
+   <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+   <script src="d3js790/d3.v7.min.js"></script>
+   <!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> -->
+   <script src="leaflet194/leaflet.js"></script>
+   <script>
+      // Инициализация карты, центрированной на Казани
+      const map = L.map('map').setView([55.7963, 49.1064], 5);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
