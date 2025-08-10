@@ -13,10 +13,13 @@ DontOpen=0
 AbsolutePath=0
 FileFormat=0
 ProjectFilesOnly=0
+HTServer=localhost
 Extensions=*.*
 [Project tree]
 KwinFlat
 	+www
+		-.well-known
+			-acme-challenge
 		-Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
@@ -97,7 +100,7 @@ KwinFlat
 			jQuery\jquery-ui.min.js
 		-Lead40
 			Lead40\index.php
-		-Leaflet
+		+Leaflet
 			-assets
 				Leaflet\assets\github-icon.png
 				Leaflet\assets\location-data.json
@@ -105,10 +108,9 @@ KwinFlat
 			-css
 				Leaflet\css\styles.css
 			-js
+				Leaflet\js\leaflet.css
+				Leaflet\js\leaflet.js
 				Leaflet\js\script.js
-			-Leaflet171
-				Leaflet\Leaflet171\leaflet.css
-				Leaflet\Leaflet171\leaflet.js
 			Leaflet\index.php
 			Leaflet\Leaflet.ppr
 		-Meet40
@@ -152,13 +154,36 @@ KwinFlat
 		iniMem.php
 		iniPhpJS.php
 		iniWorkSpace.php
+		KwinFlat.ppr
+		kwinflat-log.txt
 		manifest.json
 		Meet40.html
+		server.log
 [Open project files]
 0=index.php
+1=iniMem.php
+2=Leaflet\index.php
+3=Leaflet\js\script.js
+4=Update40\Update40BODY.php
+5=Update40\Update40HEAD.php
 [Selected Project Files]
 Main=
-Selected=index.php
+Selected=iniMem.php
 [index.php]
-TopLine=1
+TopLine=15
 Caret=1,15
+[iniMem.php]
+TopLine=1
+Caret=42,9
+[Leaflet\index.php]
+TopLine=17
+Caret=17,23
+[Leaflet\js\script.js]
+TopLine=1
+Caret=1,1
+[Update40\Update40BODY.php]
+TopLine=33
+Caret=1,1
+[Update40\Update40HEAD.php]
+TopLine=1
+Caret=1,1

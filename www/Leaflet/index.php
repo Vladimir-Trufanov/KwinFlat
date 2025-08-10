@@ -19,8 +19,8 @@
    <title> Мои карты с LeafletJS </title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="leaflet171/leaflet.css" />
-   <script src="leaflet171/leaflet.js"></script>
+   <link rel="stylesheet" href="js/leaflet.css" />
+   <script src="js/leaflet.js"></script>
    <!-- Custom Styles -->
    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
