@@ -25,7 +25,8 @@ $SiteHost=Above($SiteAbove);          // Каталог хостинга
 // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
 
 echo "<Lead>";
-   MakeAnswer($SiteHost);
+   echo '123';
+   //MakeAnswer($SiteHost);
 echo "</Lead>";
 
 function MakeAnswer($SiteHost)

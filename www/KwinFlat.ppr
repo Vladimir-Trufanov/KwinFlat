@@ -98,14 +98,14 @@ KwinFlat
 			jQuery\jquery-1.11.1.min.map
 			jQuery\jquery-ui.min.css
 			jQuery\jquery-ui.min.js
-		-Lead40
+		+Lead40
 			Lead40\index.php
 		+Leaflet
 			-assets
 				Leaflet\assets\github-icon.png
 				Leaflet\assets\location-data.json
 				Leaflet\assets\location-marker.svg
-			-css
+			+css
 				Leaflet\css\styles.css
 			-js
 				Leaflet\js\leaflet.css
@@ -129,7 +129,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		-Update40
+		+Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -162,28 +162,20 @@ KwinFlat
 [Open project files]
 0=index.php
 1=iniMem.php
-2=Leaflet\index.php
-3=Leaflet\js\script.js
-4=Update40\Update40BODY.php
-5=Update40\Update40HEAD.php
+2=..\..\Proba\leaflet-plugins-master\examples\yandex.html
+3=Leaflet\index.php
 [Selected Project Files]
 Main=
-Selected=iniMem.php
+Selected=Leaflet\index.php
 [index.php]
-TopLine=15
-Caret=1,15
+TopLine=58
+Caret=72,70
 [iniMem.php]
 TopLine=1
-Caret=42,9
+Caret=23,8
+[..\..\Proba\leaflet-plugins-master\examples\yandex.html]
+TopLine=1
+Caret=1,12
 [Leaflet\index.php]
-TopLine=17
-Caret=17,23
-[Leaflet\js\script.js]
-TopLine=1
-Caret=1,1
-[Update40\Update40BODY.php]
-TopLine=33
-Caret=1,1
-[Update40\Update40HEAD.php]
-TopLine=1
-Caret=1,1
+TopLine=29
+Caret=1,41

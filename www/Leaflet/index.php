@@ -21,12 +21,24 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="js/leaflet.css" />
    <script src="js/leaflet.js"></script>
-   <!-- Custom Styles -->
    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
    <h2 class="heading"> Путешествия и достопримечательности </h2>
    <div id="mymap"> </div>
+
+<?php
+   echo '<div id="yanmap">'; 
+   //echo '<a href="https://probatv.ru/Lead40/">Посмотрите на мою карту!</a>';
+   //echo '<a href="https://tiles.api-maps.yandex.ru/v1/tiles/?x=9902&y=5137&z=14&lang=ru_RU&l=map&apikey=9f703858-3bcf-46fb-847f-798ac6dc1798">Посмотрите на мою карту!</a>';
+   // Получить всю карту в единственном тайле
+   //echo '<a href="https://tiles.api-maps.yandex.ru/v1/tiles/?x=0&y=0&z=0&lang=ru_RU&l=map&apikey=9f703858-3bcf-46fb-847f-798ac6dc1798">Посмотрите на мою карту!</a>';
+   // Получить нулевой тайл на первом зуме
+   echo '<a href="https://tiles.api-maps.yandex.ru/v1/tiles/?x=0&y=0&z=1&lang=ru_RU&l=map&apikey=9f703858-3bcf-46fb-847f-798ac6dc1798">Посмотрите на мою карту!</a>';
+   //echo '<img src="https://tiles.api-maps.yandex.ru/v1/tiles/?x=0&y=0&z=1&lang=ru_RU&l=map&apikey=9f703858-3bcf-46fb-847f-798ac6dc179" width="256" height="256" alt="моя карта" />';
+   echo '</div>';
+?>
+
    <div class="button-group flex-style">
       <div class="component1">
          <button class="map-zoom-out-btn"> Map Zoom Out </button>

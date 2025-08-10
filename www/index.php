@@ -49,7 +49,7 @@ try
    $task=prown\getComRequest('task');
    //if      ($task==NULL)       $task='Meet40';
    //else if ($task=='update40') 
-     $task='Update40';
+   $task='Update40';
    //else $task='Meet40';
 
    // ---------------------------------------------------------------- INIT ---
@@ -66,6 +66,8 @@ try
    // и пользователей, подключаем персональные стили для настольных и мобильных 
    // версий страниц сайта
    echo "<head>";
+   // Добавляем мета-тег для яндекс-вебмастера
+   echo "<meta name=\"yandex-verification\" content=\"b2eb9e02a692ce99\" />";
    // Выводим данные о favicon
    echo '
    <link rel="manifest" href="manifest.json">

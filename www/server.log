@@ -1,6 +1,6 @@
 Array
 (
-    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-7ac2227f-b0e0-4619-8117-66259b8e3d61
+    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-26efe085-8d6d-4be5-a331-5750b716d863
     [PHP_FCGI_MAX_REQUESTS] => 200
     [PHPRC] => C:\PHP\
     [ALLUSERSPROFILE] => C:\ProgramData
@@ -49,7 +49,7 @@ Array
     [REQUEST_URI] => /
     [REQUEST_METHOD] => GET
     [REMOTE_USER] => 
-    [REMOTE_PORT] => 53702
+    [REMOTE_PORT] => 58902
     [REMOTE_HOST] => ::1
     [REMOTE_ADDR] => ::1
     [QUERY_STRING] => 
@@ -94,10 +94,12 @@ Array
     [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
     [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
     [HTTP_CONTENT_LENGTH] => 0
+    [HTTP_PRAGMA] => no-cache
     [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => no-cache
     [FCGI_ROLE] => RESPONDER
     [PHP_SELF] => /index.php
-    [REQUEST_TIME_FLOAT] => 1754804140.54
-    [REQUEST_TIME] => 1754804140
+    [REQUEST_TIME_FLOAT] => 1754827300.0035
+    [REQUEST_TIME] => 1754827300
 )
 
