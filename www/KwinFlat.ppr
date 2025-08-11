@@ -104,15 +104,16 @@ KwinFlat
 			-js
 				Leaflet\js\leaflet.css
 				Leaflet\js\leaflet.js
+			Leaflet\favicon.ico
 			Leaflet\index.php
-		+Leaflet102
+		-Leaflet102
 			-assets
 				Leaflet102\assets\github-icon.png
 				Leaflet102\assets\location-data.json
 				Leaflet102\assets\location-marker.svg
 			-css
 				Leaflet102\css\styles.css
-			+js
+			-js
 				Leaflet102\js\leaflet.css
 				Leaflet102\js\leaflet.js
 				Leaflet102\js\script.js
@@ -166,13 +167,9 @@ KwinFlat
 		server.log
 [Open project files]
 0=Leaflet\index.php
-1=Leaflet102\js\script.js
 [Selected Project Files]
 Main=
 Selected=Leaflet\index.php
 [Leaflet\index.php]
-TopLine=71
-Caret=61,64
-[Leaflet102\js\script.js]
-TopLine=6
-Caret=36,43
+TopLine=103
+Caret=10,101

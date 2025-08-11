@@ -57,7 +57,7 @@ echo '<div id = "map" style = "width:900px; height:580px;"></div>';
 
 // Традиционный набор тайлов от Openstreetmap
 $tilesmap="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-$lat=61.8021; $long=34.3296; $zoom=11;
+$lat=61.8021; $long=34.3296; $zoom=10;
 
 echo "
 <script>
@@ -70,17 +70,37 @@ echo "
 </script>
 ";
 
+// Добавляем простой маркер (для того, чтобы отметить на карте одно конкретное место,
+// в Leaflet предусмотрены маркеры):
+// - создаём экземпляр класса Marker, передав ему объект latlng, представляющий 
+// местоположение, которое нужно отметить;
+// - привязываем всплывающее окно к маркеру;
+// - добавляем объект маркера на карту с помощью метода addTo() класса Marker.
 
-/*
+// Замечание: внутри каталога с leaflet.js должен находиться каталог с 
+// изначально созданными изображениями для формирования маркера.
+
+// "Егоровы штаны"
+// https://yandex.ru/video/preview/3597308546601073229
 echo "
 <script>
-  var mapOptions = {center:[61.8021,34.3296],zoom:10}
-  var map = new L.map('map',mapOptions);
-  var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-  map.addLayer(layer);
+  var marker1 = new L.Marker([61.802094,34.329613]); // 'Dom'
+  marker1.bindPopup('Наш хороший дом!').openPopup();
+  marker1.addTo(map);
+
+  var marker2 = new L.Marker([61.702048,34.154702]); // 'Dacha'
+  marker2.bindPopup('Наша любимая дача!').openPopup();
+  marker2.addTo(map);
+  
+  var marker3 = new L.Marker([61.844252,34.390658]); // 'BotSad'
+  marker3.bindPopup('Цветущий ботанический сад!').openPopup();
+  marker3.addTo(map);
+  
+  var marker4 = new L.Marker([61.847725,34.405182]); // 'EShtany'
+  marker4.bindPopup('Загадочные Егоровы штаны!').openPopup();
+  marker4.addTo(map);
 </script>
 ";
-*/
 
 ?>
 
