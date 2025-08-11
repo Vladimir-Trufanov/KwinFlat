@@ -6,161 +6,116 @@
 // ****************************************************************************
 
 /**
- * ----
+ * https://www.tutorialspoint.com/leafletjs/leafletjs_quick_guide.htm
+ * 
+ * Библиотека JavaScript Leaflet позволяет использовать такие слои, как слои 
+ * тайлов, WMS, маркеры, всплывающие окна, векторные слои (полилинии, многоугольники, 
+ * окружности и т.д.), наложения изображений и GeoJSON.
+ * 
+ * Вы можете взаимодействовать с картами Leaflet, перетаскивая их, изменяя масштаб 
+ * (двойным щелчком или прокруткой колесика мыши), используя клавиатуру, 
+ * обработку событий и перетаскивание маркеров.
 **/
  
-// v1.0.1, 08.08.2025                                 Автор:      Труфанов В.Е.
+// v1.0.3, 11.08.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 07.08.2025
 
-?>
-<!DOCTYPE html>
-<html>
+
+echo '<!DOCTYPE html>'; // определили разметку HTML5
+echo '<html lang="ru">'; // назначили русский язык для сайта
+echo '<meta http-equiv="content-type" content="text/html; charset=utf-8">';
+
+echo '
 <head>
    <title> Мои карты с LeafletJS </title>
-   <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="js/leaflet.css" />
    <script src="js/leaflet.js"></script>
-   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
    <h2 class="heading"> Путешествия и достопримечательности </h2>
-   <div id="mymap"> </div>
+';
+// Для размещения карты создаем элемент-контейнер (как правило, тег <div>) и задаём его размеры
+echo '<div id = "map" style = "width:900px; height:580px;"></div>';
 
-<?php
-   echo '<div id="yanmap">'; 
-   //echo '<a href="https://probatv.ru/Lead40/">Посмотрите на мою карту!</a>';
-   //echo '<a href="https://tiles.api-maps.yandex.ru/v1/tiles/?x=9902&y=5137&z=14&lang=ru_RU&l=map&apikey=9f703858-3bcf-46fb-847f-798ac6dc1798">Посмотрите на мою карту!</a>';
-   // Получить всю карту в единственном тайле
-   //echo '<a href="https://tiles.api-maps.yandex.ru/v1/tiles/?x=0&y=0&z=0&lang=ru_RU&l=map&apikey=9f703858-3bcf-46fb-847f-798ac6dc1798">Посмотрите на мою карту!</a>';
-   // Получить нулевой тайл на первом зуме
-   echo '<a href="https://tiles.api-maps.yandex.ru/v1/tiles/?x=0&y=0&z=1&lang=ru_RU&l=map&apikey=9f703858-3bcf-46fb-847f-798ac6dc1798">Посмотрите на мою карту!</a>';
-   //echo '<img src="https://tiles.api-maps.yandex.ru/v1/tiles/?x=0&y=0&z=1&lang=ru_RU&l=map&apikey=9f703858-3bcf-46fb-847f-798ac6dc179" width="256" height="256" alt="моя карта" />';
-   echo '</div>';
-?>
+// Далее:
+// - создаём объект mapOptions и определяем начальные параметры карты: center и zoom,
+// где center получает объект LatLng, указывающий местоположение, вокруг которого 
+// мы хотим расположить карту (это значения широты и долготы), а zoom представляет 
+// означает целое число, соответствующее уровню масштабирования карты;
 
-   <div class="button-group flex-style">
-      <div class="component1">
-         <button class="map-zoom-out-btn"> Map Zoom Out </button>
-      </div>
-      <div class="component2">
-         <select class="select-dropdown" name="dropdown">
-            <option> Выбрать известное среди всего </option>
-         </select>
-         <button class="search-btn"> Search </button>
-      </div>
-   </div>
-   <footer class="footer flex-style"> Made Using Leaflet JS | 
-      <a href="" target="_blank"> Source Code</a> 
-      <a href="" target="_blank"> <img src="assets/github-icon.png" /> </a> 
-   </footer>
-   <script type="text/javascript" src="js/script.js"></script>
-</body>
-</html>
+// - cоздаём объект map (карту на странице) с передачей двух параметров: 
+// строковой переменной, представляющей идентификатор DOM или экземпляр элемента <div>
+// и указывающей на HTML-контейнер для хранения карты и необязательный объектный 
+// литерал с параметрами карты;
 
-<?php
+// - cоздаём экземпляр TileLayer класса - набор определенного типа плиток (слой тайлов). 
+// При создании экземпляра необходимо передать шаблон URL-адреса, запрашивающий 
+// нужный слой тайлов (карту) у поставщика услуг (в нашем случае Openstreetmap);
+
+// - добавляем слой на карту.
+
+// Традиционный набор тайлов от Openstreetmap
+$tilesmap="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+$lat=61.8021; $long=34.3296; $zoom=11;
+
+echo "
+<script>
+  var mapOptions = {center:[".$lat.",".$long."],zoom:".$zoom."}
+  var map = new L.map('map',mapOptions);
+  var layer = new L.TileLayer('".
+  $tilesmap.
+  "');
+  map.addLayer(layer);
+</script>
+";
+
 
 /*
+echo "
+<script>
+  var mapOptions = {center:[61.8021,34.3296],zoom:10}
+  var map = new L.map('map',mapOptions);
+  var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+  map.addLayer(layer);
+</script>
+";
+*/
+
+?>
+
+<!-- 
+
 <!DOCTYPE html>
-<html lang="ru">
+<html>
+   <head>
+      <title>Leaflet sample</title>
+      <link rel="stylesheet" href="js/leaflet.css" />
+      <script src="js/leaflet.js"></script>
+   </head>
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Проба Leaflet</title>
-   <link rel="stylesheet" href="leaflet194/leaflet.css" />
-   <style>
-      #map { height: 500px; }
-      .node { cursor: pointer; }
-      .link { stroke: #333; stroke-width: 2px; }
-      .tooltip { position: absolute; background: white; padding: 5px; border: 1px solid #ccc; border-radius: 3px; pointer-events: none; }
-   </style>
-</head>
+   <body>
+      <div id = "map" style = "width: 900px; height: 580px"></div>
+      <script>
+         /*
+         // Creating map options
+         var mapOptions = {  center: [17.385044, 78.486671],  zoom: 10 }
+         
+         // Creating a map object
+         var map = new L.map('map', mapOptions);
+         
+         // Creating a Layer object
+         var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+         
+         // Adding layer to the map  
+         map.addLayer(layer);
+         */
+      </script>
 
-<body>
-   <div id="map"></div>
-   <script src="d3js790/d3.v7.min.js"></script>
-   <script src="leaflet194/leaflet.js"></script>
-   <script>
-      // Инициализируем карту, центрированную на Петрозаводск
-      const map = L.map('map').setView([61.8021, 34.3296],10);
-         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+-->
 
-        // Данные: узлы (города) и связи
-        const nodes = [
-            { id: "Dacha", lat: 61.702048, lng: 34.154702 },
-            { id: "Dom", lat: 61.802094, lng: 34.329613 },
-            { id: "BotSad", lat: 61.844252, lng: 34.390658 }
-        ];
-        const links = [
-            { source: "Dacha", target: "Dom" },
-            { source: "Dom", target: "BotSad" }
-        ];
-
-        // Создаем SVG-слой
-        const svgLayer = L.svg();
-        svgLayer.addTo(map);
-        const svg = d3.select("#map").select("svg");
-        const g = svg.select("g");
-
-        // Создаем элемент для всплывающей подсказки
-        const tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
-
-        // Функция обновления графа
-        function update() {
-            // Отрисовка связей
-            g.selectAll(".link")
-                .data(links)
-                .join("line")
-                .attr("class", "link")
-                .attr("x1", d => {
-                    const sourceNode = nodes.find(n => n.id === d.source);
-                    return map.latLngToLayerPoint([sourceNode.lat, sourceNode.lng]).x;
-                })
-                .attr("y1", d => {
-                    const sourceNode = nodes.find(n => n.id === d.source);
-                    return map.latLngToLayerPoint([sourceNode.lat, sourceNode.lng]).y;
-                })
-                .attr("x2", d => {
-                    const targetNode = nodes.find(n => n.id === d.target);
-                    return map.latLngToLayerPoint([targetNode.lat, targetNode.lng]).x;
-                })
-                .attr("y2", d => {
-                    const targetNode = nodes.find(n => n.id === d.target);
-                    return map.latLngToLayerPoint([targetNode.lat, targetNode.lng]).y;
-                });
-
-            // Отрисовка узлов
-            g.selectAll(".node")
-                .data(nodes)
-                .join("circle")
-                .attr("class", "node")
-                .attr("cx", d => map.latLngToLayerPoint([d.lat, d.lng]).x)
-                .attr("cy", d => map.latLngToLayerPoint([d.lat, d.lng]).y)
-                .attr("r", 6)
-                .attr("fill", d => d.id === "Dacha" ? "green" : "red")
-                .on("mouseover", function (event, d) {
-                    d3.select(this).attr("r", 8);
-                    tooltip.transition().duration(200).style("opacity", 0.9);
-                    tooltip.html(d.id)
-                        .style("left", (event.pageX + 10) + "px")
-                        .style("top", (event.pageY - 28) + "px");
-                })
-                .on("mouseout", function () {
-                    d3.select(this).attr("r", 6);
-                    tooltip.transition().duration(500).style("opacity", 0);
-                });
-        }
-
-        // Обновляем при загрузке и взаимодействии
-        update();
-        map.on("moveend", update);
-    </script>
 </body>
 </html>
 <?php
-*/
 
 ?> <!-- --> <?php // ******************************************** index.php ***

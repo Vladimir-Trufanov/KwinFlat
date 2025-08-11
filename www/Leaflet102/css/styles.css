@@ -10,19 +10,14 @@ body {
     text-align: center;
     margin: 2.5vh 0;
 }
-#mymap {
+#mymap 
+{
     width: 90vw;
-    height: 40vh;
+    height: 70vh;
     margin: 0 5vw 2vh;
     border: 3px solid #888;
 }
 /*рус*/
-#yanmap {
-    width: 90vw;
-    height: 30vh;
-    margin: 0 5vw 2vh;
-    /*border: 3px solid #888;*/
-}
 .button-group {
     justify-content: space-evenly !important;
 }
