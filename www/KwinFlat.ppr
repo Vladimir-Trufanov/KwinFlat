@@ -101,11 +101,27 @@ KwinFlat
 		-Lead40
 			Lead40\index.php
 		+Leaflet
-			-js
+			+js
+				+images
+					Leaflet\js\images\kwinflat32x32.png
+					Leaflet\js\images\kwnflat16x16.png
+					Leaflet\js\images\layers.png
+					Leaflet\js\images\layers.svg
+					Leaflet\js\images\layers-2x.png
+					Leaflet\js\images\logo.svg
+					Leaflet\js\images\marker-icon.png
+					Leaflet\js\images\marker-icon.svg
+					Leaflet\js\images\marker-icon-2x.png
+					Leaflet\js\images\marker-shadow.png
+					Leaflet\js\images\marker-shadow.svg
+				Leaflet\js\kwinflat32x32.png
 				Leaflet\js\leaflet.css
 				Leaflet\js\leaflet.js
 			Leaflet\favicon.ico
 			Leaflet\index.php
+			Leaflet\kwinflat16x16.png
+			Leaflet\kwinflat32x32.png
+			Leaflet\kwinflat48x48.png
 		-Leaflet102
 			-assets
 				Leaflet102\assets\github-icon.png
@@ -171,5 +187,5 @@ KwinFlat
 Main=
 Selected=Leaflet\index.php
 [Leaflet\index.php]
-TopLine=103
-Caret=10,101
+TopLine=85
+Caret=21,110

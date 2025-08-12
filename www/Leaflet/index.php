@@ -102,6 +102,30 @@ echo "
 </script>
 ";
 
+// Создаем собственный маркер
+echo "
+<script>
+  var myiconOptions = {
+    iconUrl: 'js/images/kwinflat16x16.png',
+    iconSize: [16,16]
+  }
+  var myIcon = L.icon(myiconOptions);
+  var mymarkerOptions = {
+    title: 'MyLocation',
+    clickable: true,
+    draggable: true,
+    icon: myIcon
+  }
+  var mymarker = L.marker([61.802094,34.154702], mymarkerOptions);
+  mymarker.bindPopup('Где живет KwinFlat').openPopup();
+  mymarker.addTo(map);
+</script>
+";
+
+
+
+
+
 ?>
 
 <!-- 
