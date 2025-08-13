@@ -122,6 +122,91 @@ echo "
 </script>
 ";
 
+echo "
+<script>
+/*
+  var DirFlagIconOptions = {
+    iconUrl: 'js/images/DirFlag48x48.png',
+    iconSize: [48,48]
+  }
+  var DirFlagIcon = L.icon(DirFlagIconOptions);
+  var DirFlagMarkerOptions = {
+    title: '---MyLocation',
+    clickable: true,
+    draggable: true,
+    icon: DirFlagIcon
+  }
+  var DirFlagMarker = L.marker([61.846308, 33.206584], DirFlagMarkerOptions);
+  DirFlagMarker.bindPopup('---Где живет KwinFlat').openPopup();
+  DirFlagMarker.addTo(map);
+*/
+
+  var LocateArrowIconOptions = {
+    iconUrl: 'js/images/LocateArrow50x50.png',
+    iconSize: [40,40]
+  }
+  var LocateArrowIcon = L.icon(LocateArrowIconOptions);
+  var LocateArrowMarkerOptions = {
+    title: '---MyLocation',
+    clickable: true,
+    draggable: true,
+    icon: LocateArrowIcon
+  }
+  
+  var LocateArrowMarker = L.marker([61.846308, 33.206584], LocateArrowMarkerOptions);
+  LocateArrowMarker.bindPopup('---Где живет KwinFlat').openPopup();
+  LocateArrowMarker.addTo(map);
+  
+  var LocateArrowMarker = L.marker([61.934839, 33.655948], LocateArrowMarkerOptions);
+  LocateArrowMarker.addTo(map);
+  
+  var LocateArrowMarker = L.marker([61.833141, 32.929247], LocateArrowMarkerOptions);
+  LocateArrowMarker.addTo(map);
+
+
+  var PinMapIconOptions = 
+  {
+    iconUrl: 'js/images/PinMap38x38-3.png',
+    iconSize: [38,38]
+  }
+  var PinMapIcon = L.icon(PinMapIconOptions);
+  var PinMapMarkerOptions = {
+    title: '---MyLocation',
+    clickable: true,
+    draggable: true,
+    icon: PinMapIcon
+  }
+  
+  /*
+  var PinMapMarker = L.marker([61.846308, 33.206584], PinMapMarkerOptions);
+  PinMapMarker.bindPopup('---Где живет KwinFlat').openPopup();
+  PinMapMarker.addTo(map);
+
+  var Pin1MapMarker = L.marker([61.934839, 33.655948], PinMapMarkerOptions);
+  Pin1MapMarker.addTo(map);
+
+  var Pin2MapMarker = L.marker([61.833141, 32.929247], PinMapMarkerOptions);
+  Pin2MapMarker.addTo(map);
+  */
+
+
+
+         // Creating latlng object
+         var latlngs = [
+            [61.846308, 33.206584],
+            [61.934839, 33.655948],
+            [61.833141, 32.929247],
+            [61.846308, 33.206584]
+         ];
+         // Creating a poly line
+         var polyline = L.polyline(latlngs, {color: 'red'});
+         
+         // Adding to poly line to map
+         polyline.addTo(map);
+
+</script>
+";
+
 
 
 
