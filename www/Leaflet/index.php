@@ -87,10 +87,12 @@ echo "
   var marker1 = new L.Marker([61.802094,34.329613]); // 'Dom'
   marker1.bindPopup('Наш хороший дом!').openPopup();
   marker1.addTo(map);
-
+  
+  /*
   var marker2 = new L.Marker([61.702048,34.154702]); // 'Dacha'
   marker2.bindPopup('Наша любимая дача!').openPopup();
   marker2.addTo(map);
+  */
   
   var marker3 = new L.Marker([61.844252,34.390658]); // 'BotSad'
   marker3.bindPopup('Цветущий ботанический сад!').openPopup();
@@ -126,105 +128,97 @@ echo "
 // (первую точку дважды, второй раз, как последнюю)
 echo "
 <script>
+  // Готовим маркер 'точка локации'
+  var LocateArrowIconOptions = 
+  {
+    iconUrl: 'js/images/LocateArrow50x50.png',
+    iconSize: [40,40]
+  }
+  var LocateArrowIcon = L.icon(LocateArrowIconOptions);
+  var LocateArrowMarkerOptions = {
+    title: 'Точка локации',
+    clickable: true,
+    draggable: false,
+    icon: LocateArrowIcon
+  }
+  // Устанавливаем и подписываем маркеры
+  var LocateArrowMarker = L.marker([61.846308, 33.206584], LocateArrowMarkerOptions);
+  LocateArrowMarker.bindPopup('Эссойла, ул.Школьная, 3').openPopup();
+  LocateArrowMarker.addTo(map);
+  
+  var LocateArrowMarker = L.marker([61.934839, 33.655948], LocateArrowMarkerOptions);
+  LocateArrowMarker.bindPopup('СНТ Геолог, 98').openPopup();
+  LocateArrowMarker.addTo(map);
+  
+  var LocateArrowMarker = L.marker([61.833141, 32.929247], LocateArrowMarkerOptions);
+  LocateArrowMarker.bindPopup('Новые пески, ул.Центральная, 13').openPopup();
+  LocateArrowMarker.addTo(map);
+  // Готовим маркер 'флаг трека'
   var DirFlagIconOptions = 
   {
     iconUrl: 'js/images/DirFlag47x47.png',
     iconSize: [47,47]
   }
   var DirFlagIcon = L.icon(DirFlagIconOptions);
-  var DirFlagMarkerOptions = {
-    title: '---MyLocation',
+  var DirFlagMarkerOptions = 
+  {
+    title: 'Флаг трека',
     clickable: true,
-    draggable: true,
+    draggable: false,
     icon: DirFlagIcon
   }
-
-
+  // Устанавливаем и подписываем маркер
   var DirFlagMarker = L.marker([61.846308, 33.206584], DirFlagMarkerOptions);
-  DirFlagMarker.bindPopup('---Где живет KwinFlat').openPopup();
+  DirFlagMarker.bindPopup('Эссойла, ул.Школьная, 3').openPopup();
   DirFlagMarker.addTo(map);
-
-/*
-  var DirFlag1Marker = L.marker([61.934839, 33.655948], DirFlagMarkerOptions);
-  DirFlag1Marker.addTo(map);
-
-  var DirFlag2Marker = L.marker([61.833141, 32.929247], DirFlagMarkerOptions);
-  DirFlag2Marker.addTo(map);
-*/
-
-  var LocateArrowIconOptions = {
-    iconUrl: 'js/images/LocateArrow50x50.png',
-    iconSize: [40,40]
-  }
-  var LocateArrowIcon = L.icon(LocateArrowIconOptions);
-  var LocateArrowMarkerOptions = {
-    title: '---MyLocation',
-    clickable: true,
-    draggable: true,
-    icon: LocateArrowIcon
-  }
-  
-  
-  var LocateArrowMarker = L.marker([61.846308, 33.206584], LocateArrowMarkerOptions);
-  LocateArrowMarker.bindPopup('---Где живет KwinFlat').openPopup();
-  LocateArrowMarker.addTo(map);
-  
-  var LocateArrowMarker = L.marker([61.934839, 33.655948], LocateArrowMarkerOptions);
-  LocateArrowMarker.addTo(map);
-  
-  var LocateArrowMarker = L.marker([61.833141, 32.929247], LocateArrowMarkerOptions);
-  LocateArrowMarker.addTo(map);
-  
-
-
-// Точка на карте с регионом
-/*
+  // Создаем полилинию
+  var latlngs = [
+     [61.846308, 33.206584],
+     [61.934839, 33.655948],
+     [61.833141, 32.929247],
+     [61.846308, 33.206584]
+  ];
+  // Creating a poly line
+  var polyline = L.polyline(latlngs, {color: 'red'});
+  // Adding to poly line to map
+  polyline.addTo(map);
+</script>
+";
+// 'Точка на карте с регионом' - создаем наложение в виде круга на карте 
+echo "
+<script>
+  // Готовим маркер 'точка на карте'
   var PinMapIconOptions = 
   {
     iconUrl: 'js/images/PinMap38x38.png',
     iconSize: [38,38]
   }
   var PinMapIcon = L.icon(PinMapIconOptions);
-  var PinMapMarkerOptions = {
-    title: '---MyLocation',
+  var PinMapMarkerOptions = 
+  {
+    title: 'Точка на карте',
     clickable: true,
-    draggable: true,
+    draggable: false,
     icon: PinMapIcon
   }
-  
-  var PinMapMarker = L.marker([61.846308, 33.206584], PinMapMarkerOptions);
-  PinMapMarker.bindPopup('---Где живет KwinFlat').openPopup();
+  // Размещаем маркер на карте
+  var PinMapMarker = L.marker([61.702048,34.154702], PinMapMarkerOptions);
+  PinMapMarker.bindPopup('Наша любимая дача!').openPopup();
   PinMapMarker.addTo(map);
-
-  var Pin1MapMarker = L.marker([61.934839, 33.655948], PinMapMarkerOptions);
-  Pin1MapMarker.addTo(map);
-
-  var Pin2MapMarker = L.marker([61.833141, 32.929247], PinMapMarkerOptions);
-  Pin2MapMarker.addTo(map);
-*/  
-
-
-
-         // Creating latlng object
-         var latlngs = [
-            [61.846308, 33.206584],
-            [61.934839, 33.655948],
-            [61.833141, 32.929247],
-            [61.846308, 33.206584]
-         ];
-         // Creating a poly line
-         var polyline = L.polyline(latlngs, {color: 'red'});
-         
-         // Adding to poly line to map
-         polyline.addTo(map);
-
+  // Cоздаем наложение в виде круга
+  var circleCenter = [61.702048,34.154702];  
+  // Circle options
+  var circleOptions = 
+  {
+     color: 'red',
+     fillColor: '#f03',
+     fillOpacity: 0  // круг без заливки
+  }
+  // Создаем круг радиусом 5 км
+  var circle = L.circle(circleCenter, 5000, circleOptions);
+  circle.addTo(map); 
 </script>
 ";
-
-
-
-
-
 ?>
 
 <!-- 
