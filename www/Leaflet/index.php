@@ -122,12 +122,14 @@ echo "
 </script>
 ";
 
+// Создаем 2 новых маркера и строим ломанную линию (треугольник) из 4 точек
+// (первую точку дважды, второй раз, как последнюю)
 echo "
 <script>
-/*
-  var DirFlagIconOptions = {
-    iconUrl: 'js/images/DirFlag48x48.png',
-    iconSize: [48,48]
+  var DirFlagIconOptions = 
+  {
+    iconUrl: 'js/images/DirFlag47x47.png',
+    iconSize: [47,47]
   }
   var DirFlagIcon = L.icon(DirFlagIconOptions);
   var DirFlagMarkerOptions = {
@@ -136,9 +138,18 @@ echo "
     draggable: true,
     icon: DirFlagIcon
   }
+
+
   var DirFlagMarker = L.marker([61.846308, 33.206584], DirFlagMarkerOptions);
   DirFlagMarker.bindPopup('---Где живет KwinFlat').openPopup();
   DirFlagMarker.addTo(map);
+
+/*
+  var DirFlag1Marker = L.marker([61.934839, 33.655948], DirFlagMarkerOptions);
+  DirFlag1Marker.addTo(map);
+
+  var DirFlag2Marker = L.marker([61.833141, 32.929247], DirFlagMarkerOptions);
+  DirFlag2Marker.addTo(map);
 */
 
   var LocateArrowIconOptions = {
@@ -153,6 +164,7 @@ echo "
     icon: LocateArrowIcon
   }
   
+  
   var LocateArrowMarker = L.marker([61.846308, 33.206584], LocateArrowMarkerOptions);
   LocateArrowMarker.bindPopup('---Где живет KwinFlat').openPopup();
   LocateArrowMarker.addTo(map);
@@ -162,11 +174,14 @@ echo "
   
   var LocateArrowMarker = L.marker([61.833141, 32.929247], LocateArrowMarkerOptions);
   LocateArrowMarker.addTo(map);
+  
 
 
+// Точка на карте с регионом
+/*
   var PinMapIconOptions = 
   {
-    iconUrl: 'js/images/PinMap38x38-3.png',
+    iconUrl: 'js/images/PinMap38x38.png',
     iconSize: [38,38]
   }
   var PinMapIcon = L.icon(PinMapIconOptions);
@@ -177,7 +192,6 @@ echo "
     icon: PinMapIcon
   }
   
-  /*
   var PinMapMarker = L.marker([61.846308, 33.206584], PinMapMarkerOptions);
   PinMapMarker.bindPopup('---Где живет KwinFlat').openPopup();
   PinMapMarker.addTo(map);
@@ -187,7 +201,7 @@ echo "
 
   var Pin2MapMarker = L.marker([61.833141, 32.929247], PinMapMarkerOptions);
   Pin2MapMarker.addTo(map);
-  */
+*/  
 
 
 
