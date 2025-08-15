@@ -11,6 +11,8 @@
  * карт и управление слоями, а D3.js позволяет добавлять кастомные элементы, 
  * такие как маркеры, линии или сложные графы.
  * 
+ * https://habr.com/ru/articles/906414/
+ * 
  * Интеграция D3.js с Leaflet основана на наложении SVG-слоя на карту и 
  * использовании D3.js для управления этим слоем. Ключевые шаги включают:
  * - Создание карты Leaflet: Инициализация карты с центром в конкретным местом 
@@ -56,9 +58,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- <title>D3.js and Leaflet: Graph on Map Centered in Kazan</title>  -->
-   <title>Проба Leaflet</title>
-   <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />  -->
+   <title>Проба Leaflet c D3.js</title>
    <link rel="stylesheet" href="leaflet194/leaflet.css" />
    <style>
       #map { height: 500px; }
@@ -70,9 +70,7 @@
 
 <body>
    <div id="map"></div>
-   <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
    <script src="d3js790/d3.v7.min.js"></script>
-   <!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> -->
    <script src="leaflet194/leaflet.js"></script>
    <script>
       // Инициализация карты, центрированной на Казани

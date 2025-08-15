@@ -1,0 +1,51 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.CompileOnBackground=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
+Compilator.LogType=0
+Compilator.LogEncoding=0
+DefaultDir=C:\KwinFlat\leaflet_examples
+DefaultCP=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+Extensions=*.*
+[Project tree]
+leaflet_examples
+	+leaflet_examples
+		-Ex1
+			-assets
+				Ex1\assets\github-icon.png
+				Ex1\assets\location-data.json
+				Ex1\assets\location-marker.svg
+			-css
+				Ex1\css\styles.css
+			-js
+				Ex1\js\leaflet171.css
+				Ex1\js\leaflet171.js
+				Ex1\js\script.js
+			Ex1\index.php
+			Ex1\Leaflet-JS-Example-Code-master.zip
+		+Ex2
+			-d3js790
+				Ex2\d3js790\98147caa0bf62512153f28c587e0feb5-a7636fa325dfb94d129bb690aa39d708af429006.zip
+				Ex2\d3js790\d3.v7.min.js
+			-Leaflet194
+				Ex2\Leaflet194\leaflet.css
+				Ex2\Leaflet194\leaflet.js
+			Ex2\index.php
+		leaflet_examples.md
+		leaflet_examples.md.backup
+		leaflet_examples.ppr
+[Open project files]
+0=Ex2\index.php
+[Selected Project Files]
+Main=
+Selected=Ex2\index.php
+[Ex2\index.php]
+TopLine=1
+Caret=40,14

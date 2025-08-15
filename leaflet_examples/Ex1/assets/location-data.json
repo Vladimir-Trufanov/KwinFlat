@@ -1,9 +1,23 @@
 [
     {
+        "latitude": 61.791248,
+        "longitude": 34.382173,
+        "title": "Михаил Перхин",
+        "description": "Памятник Михаилу Евлампиевичу Перхину, главному ювелиру-мастеру компании Карла Фаберже, купцу второй гильдии и почетному гражданину, был установлен в Петрозаводске в 2022 году. Скульптор — Павел Юрьевич Колтыгин.",
+        "zoomLevel": 16
+    },
+    {
         "latitude": 27.1751,
         "longitude": 78.0421,
         "title": "Taj Mahal",
         "description": "India’s most famous and widely recognized building, it is situated in the eastern part of the city on the southern (right) bank of the Yamuna River.",
+        "zoomLevel": 18
+    },
+    {
+        "latitude": 27.1751,
+        "longitude": 78.0421,
+        "title": "Тадж-Махал",
+        "description": "Самое известное и широко узнаваемое здание Индии, оно расположено в восточной части города на южном (правом) берегу реки Ямуна.",
         "zoomLevel": 18
     },
     {

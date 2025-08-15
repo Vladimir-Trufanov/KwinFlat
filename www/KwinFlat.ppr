@@ -17,7 +17,7 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 KwinFlat
-	+www
+	-www
 		-.well-known
 			-acme-challenge
 		-Controller
@@ -100,10 +100,11 @@ KwinFlat
 			jQuery\jquery-ui.min.js
 		-Lead40
 			Lead40\index.php
-		+Leaflet
-			+js
-				+images
+		-Leaflet
+			-js
+				-images
 					Leaflet\js\images\DirFlag47x47.png
+					Leaflet\js\images\fil.gpx
 					Leaflet\js\images\kwinflat16x16.png
 					Leaflet\js\images\kwinflat32x32.png
 					Leaflet\js\images\kwinflat48x48.png
@@ -118,23 +119,16 @@ KwinFlat
 					Leaflet\js\images\marker-shadow.png
 					Leaflet\js\images\marker-shadow.svg
 					Leaflet\js\images\PinMap38x38.png
+				Leaflet\js\fil.gpx
+				Leaflet\js\GPX.js
 				Leaflet\js\leaflet.css
 				Leaflet\js\leaflet.js
+			Leaflet\.htaccess
 			Leaflet\favicon.ico
+			Leaflet\fil.gpx
 			Leaflet\index.php
-		-Leaflet102
-			-assets
-				Leaflet102\assets\github-icon.png
-				Leaflet102\assets\location-data.json
-				Leaflet102\assets\location-marker.svg
-			-css
-				Leaflet102\css\styles.css
-			-js
-				Leaflet102\js\leaflet.css
-				Leaflet102\js\leaflet.js
-				Leaflet102\js\script.js
-			Leaflet102\index.php
-			Leaflet102\Leaflet.ppr
+			Leaflet\Leaflet_fog_of_war.md
+			Leaflet\Leaflet_fog_of_war.md.backup
 		-Meet40
 			Meet40\Meet40.css
 			Meet40\Meet40.js
@@ -171,6 +165,7 @@ KwinFlat
 		Common.php
 		CommonTools.js
 		favicon.ico
+		fil.gpx
 		Home.css
 		index.php
 		iniMem.php
@@ -183,9 +178,13 @@ KwinFlat
 		server.log
 [Open project files]
 0=Leaflet\index.php
+1=Leaflet\js\GPX.js
 [Selected Project Files]
 Main=
-Selected=Leaflet\index.php
+Selected=Leaflet\js\GPX.js
 [Leaflet\index.php]
-TopLine=194
-Caret=41,215
+TopLine=223
+Caret=45,245
+[Leaflet\js\GPX.js]
+TopLine=1
+Caret=22,14

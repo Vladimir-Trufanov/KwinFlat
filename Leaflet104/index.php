@@ -11,8 +11,8 @@
  * LeafletJS - Quick Guide
  * https://www.tutorialspoint.com/leafletjs/leafletjs_quick_guide.htm
  * 
- * ---Leaflet fog of war
- * ---https://www.agalera.eu/leaflet-fog-of-war/
+ * Leaflet fog of war
+ * https://www.agalera.eu/leaflet-fog-of-war/
 **/
  
 // v1.0.4, 14.08.2025                                 Автор:      Труфанов В.Е.
@@ -29,7 +29,6 @@ echo '
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="js/leaflet.css" />
    <script src="js/leaflet.js"></script>
-   <script src="js/GPX.js"></script>
 </head>
 <body>
    <h2 class="heading"> Путешествия и достопримечательности </h2>
@@ -225,37 +224,6 @@ echo "
 </script>
 ";
 ?>
-
-<div style="width:100%; height:100%" id="map"></div>
-
-<script type='text/javascript'>
-	//var map = L.map('map', {center: L.latLng(58.4, 43.0), zoom: 11});
-	//L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-	var greenIcon = L.icon({
-		// from https://leafletjs.com/examples/custom-icons.html
-		iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
-		shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-		iconSize: [38, 95],
-		shadowSize: [50, 64],
-		iconAnchor: [22, 94],
-		shadowAnchor: [4, 62],
-		popupAnchor: [-3, -76]
-	});
-	//var track = new L.GPX('http://localhost:98/js/images/fil.gpx', 
-	var track = new L.GPX('http://localhost:98/fil.gpx', 
-  {
-		async: true
-	}).on('loaded', function (e) {
-		map.fitBounds(e.target.getBounds());
-	}).on('addpoint', function (args) {
-		// set greemIcon for all point with 'Gate' in description
-		if (args.attributes.desc.indexOf('Gate') !== -1) {
-			args.point.setIcon(greenIcon);
-		}
-	}).addTo(map);
-	L.control.layers({}, {'GPX': track}, {collapsed: false}).addTo(map);
-</script>
-
 
 <!-- 
 
