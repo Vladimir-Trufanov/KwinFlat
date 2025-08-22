@@ -13,7 +13,7 @@
 **/
  
 // v1.0.2, 11.08.2025                                 Автор:      Труфанов В.Е.
-// Copyright © 2025 tve                               Дата создания: 07.08.2025
+// Copyright © 2025 tve           sla6en9edged        Дата создания: 07.08.2025
 
 ?>
 <!DOCTYPE html>
@@ -22,8 +22,8 @@
    <title> Мои карты с LeafletJS </title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="js/leaflet171.css" />
-   <script src="js/leaflet171.js"></script>
+   <link rel="stylesheet" href="js/leaflet194.css" />
+   <script src="js/leaflet194.js"></script>
    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>

@@ -10,7 +10,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     zoomOffset: -1
 }).addTo(map);
 
-let iconOption = {
+// Формируем пользовательскую иконку
+let iconOption = 
+{
     iconUrl: './assets/location-marker.svg',
     iconSize: [30, 30]
 };
