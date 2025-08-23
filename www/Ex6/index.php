@@ -48,8 +48,8 @@ echo '<meta http-equiv="content-type" content="text/html; charset=utf-8">';
    <title> Мои карты с LeafletJS </title>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <link rel="stylesheet" href="js/leaflet194.css" />
-   <script src="js/leaflet194.js"></script>
+   <link rel="stylesheet" href="js/leaflet171.css" />
+   <script src="js/leaflet171.js"></script>
    <!--
    <script src="js/gpx212.min.js"></script>
    -->

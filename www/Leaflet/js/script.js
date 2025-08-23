@@ -1,16 +1,18 @@
+// СЂСѓСЃ
+
 let map = L.map('mymap').setView([61.8021, 34.3296], 8);
 
 let ourData = [];
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
+    attribution: '&copy; OpenStreetMap',
     maxZoom: 20,
     minZoom: 2,
     tileSize: 512,
     zoomOffset: -1
 }).addTo(map);
 
-// Формируем пользовательскую иконку
+// Р¤РѕСЂРјРёСЂСѓРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєСѓСЋ РёРєРѕРЅРєСѓ
 let iconOption = 
 {
     iconUrl: './assets/location-marker.svg',
