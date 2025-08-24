@@ -5,7 +5,7 @@
 // * KwinFlat/Leaflet         Создать начальную интерактивную карту с Leaflet *
 // ****************************************************************************
 
-// v1.0.3, 23.08.2025                                 Автор:      Труфанов В.Е.
+// v1.0.4, 24.08.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve           sla6en9edged        Дата создания: 07.08.2025
 
 ?>
@@ -15,9 +15,9 @@
    <title> Главная интерактивная карта KwinFlat/Leaflet </title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="js/leaflet171.css" />
-   <script src="js/leaflet171.js"></script>
-   <link rel="stylesheet" type="text/css" href="css/styles.css">
+   <link rel="stylesheet" href="../gpx/js/leaflet171.css" />
+   <script src="../gpx/js/leaflet171.js"></script>
+   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
    <h2 class="heading"> Путешествия и достопримечательности </h2>
@@ -37,7 +37,8 @@
       <a href="" target="_blank"> Source Code</a> 
       <a href="" target="_blank"> <img src="assets/github-icon.png" /> </a> 
    </footer>
-   <script type="text/javascript" src="js/script.js"></script>
+   <script type="text/javascript" src="script.js"></script>
+
 </body>
 </html>
 

@@ -323,7 +323,7 @@ L.GPX = L.FeatureGroup.extend({
 
   _load_xml: function(url, cb, options, async) 
   {
-    // console.log('url='+url);
+    console.log('url='+url);
     if (async == undefined) async = this.options.async;
     if (options == undefined) options = this.options;
 

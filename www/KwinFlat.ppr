@@ -114,80 +114,6 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		-Ex5
-			-icons
-				Ex5\icons\pin-icon-end.png
-				Ex5\icons\pin-icon-start.png
-				Ex5\icons\pin-icon-wpt.png
-				Ex5\icons\pin-shadow.png
-			-js
-				-images
-					Ex5\js\images\DirFlag47x47.png
-					Ex5\js\images\fil.gpx
-					Ex5\js\images\kwinflat16x16.png
-					Ex5\js\images\kwinflat32x32.png
-					Ex5\js\images\kwinflat48x48.png
-					Ex5\js\images\layers.png
-					Ex5\js\images\layers.svg
-					Ex5\js\images\layers-2x.png
-					Ex5\js\images\LocateArrow50x50.png
-					Ex5\js\images\logo.svg
-					Ex5\js\images\marker-icon.png
-					Ex5\js\images\marker-icon.svg
-					Ex5\js\images\marker-icon-2x.png
-					Ex5\js\images\marker-shadow.png
-					Ex5\js\images\marker-shadow.svg
-					Ex5\js\images\PinMap38x38.png
-				Ex5\js\gpx212.min.js
-				Ex5\js\leaflet194.css
-				Ex5\js\leaflet194.js
-			Ex5\demo_mpetazzoni.gpx
-			Ex5\favicon.ico
-			Ex5\index.php
-			Ex5\mp20230923.gpx
-			Ex5\track20250810.gpx
-		-Ex6
-			-gpx
-				Ex6\gpx\demo_mpetazzoni.gpx
-				Ex6\gpx\mp20230923.gpx
-				Ex6\gpx\track20250810.gpx
-			-icons
-				Ex6\icons\pin-icon-end.png
-				Ex6\icons\pin-icon-start.png
-				Ex6\icons\pin-icon-wpt.png
-				Ex6\icons\pin-shadow.png
-			-js
-				-images
-					Ex6\js\images\DirFlag47x47.png
-					Ex6\js\images\fil.gpx
-					Ex6\js\images\kwinflat16x16.png
-					Ex6\js\images\kwinflat32x32.png
-					Ex6\js\images\kwinflat48x48.png
-					Ex6\js\images\layers.png
-					Ex6\js\images\layers.svg
-					Ex6\js\images\layers-2x.png
-					Ex6\js\images\LocateArrow50x50.png
-					Ex6\js\images\logo.svg
-					Ex6\js\images\marker-icon.png
-					Ex6\js\images\marker-icon.svg
-					Ex6\js\images\marker-icon-2x.png
-					Ex6\js\images\marker-shadow.png
-					Ex6\js\images\marker-shadow.svg
-					Ex6\js\images\PinMap38x38.png
-					Ex6\js\images\track20250810.gpx
-				Ex6\js\gpx212.min.js
-				Ex6\js\gpxtve.js
-				Ex6\js\leaflet171.css
-				Ex6\js\leaflet171.js
-				Ex6\js\leaflet194.css
-				Ex6\js\leaflet194.js
-			Ex6\atrubuty.jpg
-			Ex6\favicon.ico
-			Ex6\GPX_file.md
-			Ex6\gpx_view.jpg
-			Ex6\index.php
-			Ex6\leaflet_examples.md
-			Ex6\web.config
 		-favicon260x260
 			favicon260x260\android-chrome-192x192.png
 			favicon260x260\android-chrome-256x256.png
@@ -199,6 +125,31 @@ KwinFlat
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
 		-gpx
+			-js
+				-images
+					gpx\js\images\DirFlag47x47.png
+					gpx\js\images\fil.gpx
+					gpx\js\images\kwinflat16x16.png
+					gpx\js\images\kwinflat32x32.png
+					gpx\js\images\kwinflat48x48.png
+					gpx\js\images\layers.png
+					gpx\js\images\layers.svg
+					gpx\js\images\layers-2x.png
+					gpx\js\images\LocateArrow50x50.png
+					gpx\js\images\logo.svg
+					gpx\js\images\marker-icon.png
+					gpx\js\images\marker-icon.svg
+					gpx\js\images\marker-icon-2x.png
+					gpx\js\images\marker-shadow.png
+					gpx\js\images\marker-shadow.svg
+					gpx\js\images\PinMap38x38.png
+					gpx\js\images\track20250810.gpx
+				gpx\js\gpx212.min.js
+				gpx\js\gpxtve.js
+				gpx\js\leaflet171.css
+				gpx\js\leaflet171.js
+				gpx\js\leaflet194.css
+				gpx\js\leaflet194.js
 			gpx\demo_mpetazzoni.gpx
 			gpx\mp20230923.gpx
 			gpx\track20250810.gpx
@@ -218,79 +169,25 @@ KwinFlat
 			jQuery\jquery-ui.min.js
 		-Lead40
 			Lead40\index.php
-		-Leaflet
+		+Leafgpx
+			-icons
+				Leafgpx\icons\pin-icon-end.png
+				Leafgpx\icons\pin-icon-start.png
+				Leafgpx\icons\pin-icon-wpt.png
+				Leafgpx\icons\pin-shadow.png
+			Leafgpx\atrubuty.jpg
+			Leafgpx\GPX_file.md
+			Leafgpx\gpx_view.jpg
+			Leafgpx\index.php
+		+Leaflet
 			-assets
 				Leaflet\assets\github-icon.png
 				Leaflet\assets\location-data.json
 				Leaflet\assets\location-marker.svg
-			-css
-				Leaflet\css\styles.css
-			-GpxView
-				-gpx
-					Leaflet\GpxView\gpx\demo_mpetazzoni.gpx
-					Leaflet\GpxView\gpx\mp20230923.gpx
-					Leaflet\GpxView\gpx\track20250810.gpx
-				-icons
-					Leaflet\GpxView\icons\pin-icon-end.png
-					Leaflet\GpxView\icons\pin-icon-start.png
-					Leaflet\GpxView\icons\pin-icon-wpt.png
-					Leaflet\GpxView\icons\pin-shadow.png
-				-js
-					-images
-						Leaflet\GpxView\js\images\DirFlag47x47.png
-						Leaflet\GpxView\js\images\fil.gpx
-						Leaflet\GpxView\js\images\kwinflat16x16.png
-						Leaflet\GpxView\js\images\kwinflat32x32.png
-						Leaflet\GpxView\js\images\kwinflat48x48.png
-						Leaflet\GpxView\js\images\layers.png
-						Leaflet\GpxView\js\images\layers.svg
-						Leaflet\GpxView\js\images\layers-2x.png
-						Leaflet\GpxView\js\images\LocateArrow50x50.png
-						Leaflet\GpxView\js\images\logo.svg
-						Leaflet\GpxView\js\images\marker-icon.png
-						Leaflet\GpxView\js\images\marker-icon.svg
-						Leaflet\GpxView\js\images\marker-icon-2x.png
-						Leaflet\GpxView\js\images\marker-shadow.png
-						Leaflet\GpxView\js\images\marker-shadow.svg
-						Leaflet\GpxView\js\images\PinMap38x38.png
-						Leaflet\GpxView\js\images\track20250810.gpx
-					Leaflet\GpxView\js\gpx212.min.js
-					Leaflet\GpxView\js\gpxtve.js
-					Leaflet\GpxView\js\leaflet171.css
-					Leaflet\GpxView\js\leaflet171.js
-					Leaflet\GpxView\js\leaflet194.css
-					Leaflet\GpxView\js\leaflet194.js
-				Leaflet\GpxView\atrubuty.jpg
-				Leaflet\GpxView\favicon.ico
-				Leaflet\GpxView\GPX_file.md
-				Leaflet\GpxView\gpx_view.jpg
-				Leaflet\GpxView\index.php
-			-js
-				-images
-					Leaflet\js\images\DirFlag47x47.png
-					Leaflet\js\images\fil.gpx
-					Leaflet\js\images\kwinflat16x16.png
-					Leaflet\js\images\kwinflat32x32.png
-					Leaflet\js\images\kwinflat48x48.png
-					Leaflet\js\images\layers.png
-					Leaflet\js\images\layers.svg
-					Leaflet\js\images\layers-2x.png
-					Leaflet\js\images\LocateArrow50x50.png
-					Leaflet\js\images\logo.svg
-					Leaflet\js\images\marker-icon.png
-					Leaflet\js\images\marker-icon.svg
-					Leaflet\js\images\marker-icon-2x.png
-					Leaflet\js\images\marker-shadow.png
-					Leaflet\js\images\marker-shadow.svg
-					Leaflet\js\images\PinMap38x38.png
-					Leaflet\js\images\track20250810.gpx
-				Leaflet\js\leaflet171.css
-				Leaflet\js\leaflet171.js
-				Leaflet\js\leaflet194.css
-				Leaflet\js\leaflet194.js
-				Leaflet\js\script.js
 			Leaflet\.htaccess
 			Leaflet\index.php
+			Leaflet\script.js
+			Leaflet\styles.css
 		-Meet40
 			Meet40\Meet40.css
 			Meet40\Meet40.js
@@ -337,23 +234,16 @@ KwinFlat
 		manifest.json
 		Meet40.html
 		server.log
+		web.config
 [Open project files]
-0=index.php
-1=Update40\Update.php
-2=Update40\Update40BODY.php
-3=iniMem.php
+0=Leafgpx\index.php
+1=Leaflet\index.php
 [Selected Project Files]
 Main=
-Selected=iniMem.php
-[index.php]
+Selected=Leafgpx\index.php
+[Leafgpx\index.php]
+TopLine=38
+Caret=1,8
+[Leaflet\index.php]
 TopLine=1
-Caret=1,1
-[Update40\Update.php]
-TopLine=23
-Caret=1,1
-[Update40\Update40BODY.php]
-TopLine=1
-Caret=1,1
-[iniMem.php]
-TopLine=117
-Caret=1,1
+Caret=22,5
