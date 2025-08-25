@@ -118,6 +118,9 @@ $p_NewsAmt=prown\MakeParm('NewsAmt',8);                          // количе
 $p_NewsView=prown\MakeParm('NewsView',true,tBool,true);          // true - разворачивать новости при загрузке
 */
 
+// Инициируем переменные передачи путевых точек трека
+$mes_wpt='{'.'"wpt":{"lat":52518611,"lon":13376111}'.'}';
+
 // Выбираем данные из браузера - UserAgent
 $browseri = get_browser(null, true);
 $platform = $browseri['platform'];

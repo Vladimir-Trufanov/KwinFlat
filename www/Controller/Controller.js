@@ -60,7 +60,7 @@ function ControllerClick()
   });
 }
 // ****************************************************************************
-// *            Передавать сообщения о смене состояния led4 через 1 сек.     *
+// *                        Передавать сообщения по URL                       *
 // ****************************************************************************
 function SendRequest(url)
 { 
@@ -102,7 +102,9 @@ function Test1()
     if (Ctrlwpt) 
     {
       //console.log(urlHome+            '/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');               
-      console.log('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');    
+      console.log('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
+      //SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
+       
     }           
   }
   ,1000)

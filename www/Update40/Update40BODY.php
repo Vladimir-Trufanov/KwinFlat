@@ -33,6 +33,8 @@ echo '<div id="Left">';
       echo '$version       = '.$version.'<BR>';
       echo '$platform      = '.$platform.'<BR>';
       echo '$device_type   = '.$device_type.'<BR>';
+      echo '<BR>';
+      echo '$mes_wpt       = '.$mes_wpt.'<BR>';
       echo '</pre>';
       echo '</div>';    // id="FooterTop"
   
