@@ -5,14 +5,14 @@
 // *                                                           из окна jquiry *
 // ****************************************************************************
 
-// v2.0.4, 19.04.2025                                 Автор:      Труфанов В.Е.
+// v2.0.5, 25.08.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 01.02.2025
 
 // Готовим переменные обслуживания
 // подачи изображений от виртуального контроллера в базу данных
 var taskintr;       // текущий интервал подачи изображений
 var intervalSrc;    // id функции управления частотой подачи изображений
-var intervalTest1;  // id функции передачи сообщения о смене состояния led4
+var intervalTest1;  // id функции передачи координаты туристических точек
 
 $(document).ready(function() 
 {
@@ -32,7 +32,9 @@ $(document).ready(function()
   { 
 		$('#tabContainer').tabs("load", hash);
 	} 
-  // Выполняем начальное блокирование отправки изображений
+  // Выполняем начальное блокирование отправки изображений и
+  // передачи координат туристических точек
+  Lock1();
   Lock3();
 });
 // ****************************************************************************
@@ -48,6 +50,7 @@ function ControllerClick()
     beforeClose: function(event,ui) 
     {
       // Останавливаем передачу сообщения о смене состояния led4
+      Lock1();
       clearInterval(intervalTest1);
       // Останавливаем отправку изображений
       Lock3();
@@ -78,28 +81,31 @@ function SendRequest(url)
   }
   */
 }
+// ****************************************************************************
+// *   Передавать координаты туристических точек Петрозаводска через 1 сек    *
+// ****************************************************************************
+// Выполнить начальную блокировку передачу координат туристических точек
+var Ctrlwpt=false;  
+// Блокировать передачу координат
+function Lock1()
+{ 
+  Ctrlwpt=false; 
+}
+
 function Test1()
 {
+  clearInterval(intervalTest1);
+  Ctrlwpt=true; 
   console.log("Test1()");               
-  let modeTest1=true;
   intervalTest1=setInterval(function() 
   {
-    // console.log("Test1"); 
-    // Поочередно посылаем сообщение, зажигая или гася лампочку 
-    if (modeTest1)
+    if (Ctrlwpt) 
     {
-      //SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
-      SendRequest(urlHome+'/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
-      modeTest1=false;
-    }
-    else
-    {
-      //SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimLOW"}]}');
-      SendRequest(urlHome+'/State40/?cycle=1195&sjson={"led4":[{"status":"shimLOW"}]}');
-      modeTest1=true;
-    }
+      //console.log(urlHome+            '/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');               
+      console.log('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');    
+    }           
   }
-  ,3000)
+  ,1000)
 }
 // ****************************************************************************
 // *               Test2            *
@@ -117,6 +123,11 @@ function Test2()
 // ****************************************************************************
 // Выполнить начальную блокировку отправки контрольных изображений
 var CtrlImg=false;  
+// Блокировать отправку изображений
+function Lock3()
+{ 
+  CtrlImg=false; 
+}
 // Запустить отправку изображений             
 function Test3(mode)
 { 
@@ -139,11 +150,6 @@ function Test3(mode)
     MakeImgStream();
   }
   ,taskintr)
-}
-// Блокировать отправку изображений
-function Lock3()
-{ 
-  CtrlImg=false; 
 }
 // Подать изображение от виртуального контроллера 
 // через заданный интервал времени
