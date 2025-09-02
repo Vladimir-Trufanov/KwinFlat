@@ -9,6 +9,8 @@
 // v1.1.1, 25.08.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 01.02.2025
 
+require_once 'TrackTest.php';
+
 ?>
 <div id="dial" title="Виртуальный контроллер хозяйства" style="display:none;font-size:1rem;font-family:Courier;">
    <div id="tabContainer">

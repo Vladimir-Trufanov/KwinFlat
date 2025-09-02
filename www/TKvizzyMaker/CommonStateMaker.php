@@ -6,7 +6,7 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                          для базы данных json-сообщений страницы State40 *
 // *                                                                          *
-// * v4.4.3, 05.06.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.4, 26.08.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  07.01.2025 *
 // ****************************************************************************
 
@@ -21,7 +21,6 @@
 // ****************************************************************************
 function _CreateStateTables($pdo)
 {
-
    // Создаём таблицу последнего полученного json-сообщения на State
    $sql='CREATE TABLE LastMess ('.
       'myTime    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // абсолютное время в секундах с начала эпохи UNIX
@@ -32,6 +31,28 @@ function _CreateStateTables($pdo)
    // Добавляем первую и единственную запись
    $statement = $pdo->prepare("INSERT INTO [LastMess] ".
       "([myTime],[myDate],[cycle],[sjson]) VALUES ".
+      "(:myTime, :myDate, :cycle, :sjson);");
+   $statement->execute([
+      "myTime" => time(),
+      "myDate" => date("y-m-d H:i:s"),
+      "cycle"  => -1,
+      "sjson"  => '{"led4":{"light":10,"time":2000}}',
+   ]);
+   // Создаём таблицу json-сообщений от зарегистрированных контроллеров на State
+   // (последние сообщения от каждого контроллера) 
+   // Общий вид запроса к State:
+   // https://probatv.ru/State/?cycle=2&num=-4&ctrl=SIM900&place=NIVA&sjson={"wpt":{"lat":52518611,"lon":13376111}}
+
+   $sql='CREATE TABLE JSONMESS ('.
+      'idctrl    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // идентификатор контроллера
+      'myTime    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // абсолютное время в секундах с начала эпохи UNIX
+      'myDate    VARCHAR NOT NULL UNIQUE,'.              // date("y-m-d h:i:s");
+      'cycle     INTEGER NOT NULL,'.                     // цикл выдачи контроллером json-сообщения
+      'sjson     VARCHAR NOT NULL)';                     // json-сообщение
+   $st = $pdo->query($sql);
+   // Добавляем первую и единственную запись
+   $statement = $pdo->prepare("INSERT INTO [LastMess] ".
+   ---   "([myTime],[myDate],[cycle],[sjson]) VALUES ".
       "(:myTime, :myDate, :cycle, :sjson);");
    $statement->execute([
       "myTime" => time(),

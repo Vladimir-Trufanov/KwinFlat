@@ -6,7 +6,7 @@
 // * KwinFlat/TTools                   Блок общих функций класса TKvizzyMaker *
 // *                                          для базы данных моего хозяйства *
 // *                                                                          *
-// * v4.4.0, 30.05.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.1, 26.08.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2024 tve                          Дата создания:  13.11.2024 *
 // ****************************************************************************
 
@@ -25,17 +25,16 @@ function _CreateTables($pdo)
       // Включаем действие внешних ключей
       $sql='PRAGMA foreign_keys=on;';
       $st = $pdo->query($sql);
-      
-      /*
-      // Создаём таблицу подсистем моего хозяйства
+      // ---------------------------- Создаём таблицу подсистем моего хозяйства
       $sql='CREATE TABLE SubSystems ('.
          'idsys     INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // идентификатор подсистемы
          'namesys   VARCHAR NOT NULL UNIQUE)';              // название подсистемы
       $st = $pdo->query($sql);
       // Заполняем таблицу подсистем
       $aSubSystems=[
-         [ 1,'В квартире'],
-         [ 2,'На даче'],
+         [ 1,'Квартира'],
+         [ 2,'Дача'],
+         [ 3,'Нива'],
       ];
       $statement = $pdo->prepare("INSERT INTO [SubSystems] ".
          "([idsys],[namesys]) VALUES ".
@@ -46,29 +45,7 @@ function _CreateTables($pdo)
          "idsys"   => $idsys,
          "namesys" => $namesys
       ]);
-      
-      // Создаём таблицу типов контроллеров
-      $sql='CREATE TABLE ControllersType ('.
-         'tidctrl     INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // идентификатор типа контроллера
-         'typectrl    VARCHAR NOT NULL UNIQUE)';              // тип контроллера
-      $st = $pdo->query($sql);
-      // Заполняем таблицу типов контроллеров
-      $aControllersType=[
-         [ 1,'Esp32-CAM'],
-         [ 2,'Arduino Pro Mini'],
-         [ 3,'Esp01'],
-      ];
-      $statement = $pdo->prepare("INSERT INTO [ControllersType] ".
-         "([tidctrl],[typectrl]) VALUES ".
-         "(:tidctrl, :typectrl);");
-      $i=0;
-      foreach ($aControllersType as [$tidctrl,$typectrl])
-      $statement->execute([
-         "tidctrl"  => $tidctrl,
-         "typectrl" => $typectrl
-      ]);
-      
-      // Создаём таблицу мест размещения контроллеров, оборудования и датчиков
+      // ---------------------------- Создаём таблицу мест размещения устройств
       $sql='CREATE TABLE Places ('.
          'idplace    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.            // идентификатор места размещения
          'idsys      INTEGER NOT NULL REFERENCES SubSystems(idsys),'.  // идентификатор подсистемы
@@ -76,11 +53,12 @@ function _CreateTables($pdo)
       $st = $pdo->query($sql);
       // Заполняем таблицу мест размещения
       $aPlaces=[
-         [ 101,1,'На площадку из гостиной'],
-         [ 102,1,'На дорогу с балкона'],
-         [ 201,2,'Во двор дачи'],
-         [ 202,2,'С дачи на дорогу'],
-         [ 203,2,'На стене веранды'],
+         [ 11,1,'На площадку из гостиной'],
+         [ 12,1,'На дорогу с балкона'],
+         [ 13,2,'Во двор дачи'],
+         [ 14,2,'С дачи на дорогу'],
+         [ 15,2,'На стене веранды'],
+         [ 16,3,'В автомобиле'],
       ];
       $statement = $pdo->prepare("INSERT INTO [Places] ".
          "([idplace],[idsys],[nameplace]) VALUES ".
@@ -95,7 +73,28 @@ function _CreateTables($pdo)
       // Создаем индекс по подсистеме и месту размещения
       $sql='CREATE INDEX IF NOT EXISTS iSysPlace ON Places (idsys,idplace)';
       $st = $pdo->query($sql);
-      // Создаём таблицу контроллеров
+      // ----------------------------------- Создаём таблицу типов контроллеров
+      $sql='CREATE TABLE ControllersType ('.
+         'tidctrl     INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // идентификатор типа контроллера
+         'typectrl    VARCHAR NOT NULL UNIQUE)';              // тип контроллера
+      $st = $pdo->query($sql);
+      // Заполняем таблицу типов контроллеров
+      $aControllersType=[
+         [ 101,'Esp32-CAM'],
+         [ 102,'Arduino Pro Mini'],
+         [ 103,'Esp01'],
+         [ 104,'Sim900'],
+      ];
+      $statement = $pdo->prepare("INSERT INTO [ControllersType] ".
+         "([tidctrl],[typectrl]) VALUES ".
+         "(:tidctrl, :typectrl);");
+      $i=0;
+      foreach ($aControllersType as [$tidctrl,$typectrl])
+      $statement->execute([
+         "tidctrl"  => $tidctrl,
+         "typectrl" => $typectrl
+      ]);
+      // ---------------- Создаём таблицу контроллеров (тип и место размещения)
       $sql='CREATE TABLE Controllers ('.
          'idctrl    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.                   // идентификатор контроллера
          'tidctrl   INTEGER NOT NULL REFERENCES ControllersType(tidctrl),'.  // идентификатор типа контроллера
@@ -104,8 +103,9 @@ function _CreateTables($pdo)
       $st = $pdo->query($sql);
       // Заполняем таблицу контроллеров
       $aControllers=[
-         [ 201,1,201,'Esp32-CAM во двор дачи'],  
-         [ 202,3,203,'Esp01 на стене веранды'],  
+         [ 201,101,13,'Esp32-CAM во двор дачи'],  
+         [ 202,103,15,'Esp01 на стене веранды'],  
+         [ 203,104,16,'Sim900 в автомобиле'],  
        ];
       $statement = $pdo->prepare("INSERT INTO [Controllers] ".
          "([idctrl],[tidctrl],[idplace],[namectrl]) VALUES ".
@@ -118,17 +118,16 @@ function _CreateTables($pdo)
          "idplace"   => $idplace,
          "namectrl"  => $namectrl
       ]);
-            
-      // Создаём таблицу типов устройств
+      // -------------------------------------- Создаём таблицу типов устройств
       $sql='CREATE TABLE DevicesType ('.
          'tiddev     INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // идентификатор типа устройства
          'typedev    VARCHAR NOT NULL UNIQUE)';              // тип устройства
       $st = $pdo->query($sql);
       // Заполняем таблицу типов устройств
       $aDevicesType=[
-         [ 1,'inLed'],       // светодиод c обратной логикой
-         [ 2,'Led'],         // светодиод
-         [ 3,'Core32'],      // ядро Esp32
+         [ 301,'inLed'],       // светодиод c обратной логикой
+         [ 302,'Led'],         // светодиод
+         [ 303,'Core32'],      // ядро Esp32
       ];
       $statement = $pdo->prepare("INSERT INTO [DevicesType] ".
          "([tiddev],[typedev]) VALUES ".
@@ -139,17 +138,17 @@ function _CreateTables($pdo)
          "tiddev"  => $tiddev,
          "typedev" => $typedev
       ]);
-      // Создаём таблицу устройств
+      // -------------------------------------------- Создаём таблицу устройств
       $sql='CREATE TABLE Devices ('.
          'iddev      INTEGER PRIMARY KEY NOT NULL UNIQUE,'.              // идентификатор устройства
          'idctrl     INTEGER NOT NULL REFERENCES Controllers(idctrl),'.  // идентификатор контроллера
          'tiddev     INTEGER NOT NULL REFERENCES DevicesType(tiddev),'.  // идентификатор типа устройства
-         'namedev    VARCHAR NOT NULL UNIQUE)';                          // название устройства и и родительский контроллер
+         'namedev    VARCHAR NOT NULL UNIQUE)';                          // название устройства и родительский контроллер
       $st = $pdo->query($sql);
       // Заполняем таблицу устройств
       $aDevices=[
-         [ 1,201,1,'Led04 на ESP32-CAM'],         
-         [ 2,201,1,'Led4 на ESP32-CAM'],                       
+         [ 401,201,301,'Led4 на ESP32-CAM'],         
+         [ 402,201,302,'Led33 на ESP32-CAM'],                       
       ];
       $statement = $pdo->prepare("INSERT INTO [Devices] ".
          "([iddev],[idctrl],[tiddev],[namedev]) VALUES ".
@@ -162,7 +161,6 @@ function _CreateTables($pdo)
          "tiddev"  => $tiddev,
          "namedev" => $namedev
       ]);
-            
       // Создаём таблицу типов датчиков
       $sql='CREATE TABLE SensorsType ('.
          'tidsens    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // идентификатор типа датчика
@@ -170,8 +168,8 @@ function _CreateTables($pdo)
       $st = $pdo->query($sql);
       // Заполняем таблицу типов датчиков
       $aSensorsType=[
-         [ 1,'DHT11'],         
-         [ 2,'DHT22'],       
+         [ 501,'DHT11'],         
+         [ 502,'DHT22'],       
       ];
       $statement = $pdo->prepare("INSERT INTO [SensorsType] ".
          "([tidsens],[typesens]) VALUES ".
@@ -189,10 +187,10 @@ function _CreateTables($pdo)
          'tidsens    INTEGER NOT NULL REFERENCES SensorsType(tidsens),'.  // идентификатор типа датчика
          'namesens   VARCHAR NOT NULL UNIQUE)';                           // название датчика и и родительский контроллер
       $st = $pdo->query($sql);
-      // Заполняем таблицу устройств
+      // Заполняем таблицу датчиков
       $aDevices=[
-         [ 1,201,1,'DHT11 на ESP32-CAM'],         
-         [ 2,201,2,'DHT22 на ESP32-CAM'],                       
+         [ 601,201,501,'DHT11 на ESP32-CAM'],         
+         [ 602,201,502,'DHT22 на ESP32-CAM'],                       
       ];
       $statement = $pdo->prepare("INSERT INTO [Sensors] ".
          "([idsens],[idctrl],[tidsens],[namesens]) VALUES ".
@@ -205,7 +203,6 @@ function _CreateTables($pdo)
          "tidsens"  => $tidsens,
          "namesens" => $namesens
       ]);
-      */
       
       // Создаём таблицы базы данных State
       _CreateLeadTables($pdo);

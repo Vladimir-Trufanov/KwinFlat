@@ -1,0 +1,7 @@
+[02-Sep-2025 10:57:35 Asia/Kuwait] PHP Fatal error:  Uncaught Error: Call to undefined function arшray() in C:\KwinFlat\www\Controller\TrackTest.php:12
+Stack trace:
+#0 C:\KwinFlat\www\Controller\Controller.php(12): require_once()
+#1 C:\KwinFlat\www\Update40\Update40BODY.php(104): require_once('C:\\KwinFlat\\www...')
+#2 C:\KwinFlat\www\index.php(105): require_once('C:\\KwinFlat\\www...')
+#3 {main}
+  thrown in C:\KwinFlat\www\Controller\TrackTest.php on line 12
