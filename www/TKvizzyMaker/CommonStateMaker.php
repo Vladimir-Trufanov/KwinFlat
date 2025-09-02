@@ -40,28 +40,38 @@ function _CreateStateTables($pdo)
    ]);
    // Создаём таблицу json-сообщений от зарегистрированных контроллеров на State
    // (последние сообщения от каждого контроллера) 
-   // Общий вид запроса к State:
-   // https://probatv.ru/State/?cycle=2&num=-4&ctrl=SIM900&place=NIVA&sjson={"wpt":{"lat":52518611,"lon":13376111}}
-
+   // Общий вид запроса к State от контроллеров:
+   // https://probatv.ru/State/?cycle=2&num=-1&ctrl=201&sjson={"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}}
+   // https://probatv.ru/State/?cycle=2&num=-4&ctrl=203&sjson={"wpt":{"lat":52518611,"lon":13376111}} - 'Sim900 в автомобиле'
    $sql='CREATE TABLE JSONMESS ('.
-      'idctrl    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // идентификатор контроллера
-      'myTime    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // абсолютное время в секундах с начала эпохи UNIX
-      'myDate    VARCHAR NOT NULL UNIQUE,'.              // date("y-m-d h:i:s");
-      'cycle     INTEGER NOT NULL,'.                     // цикл выдачи контроллером json-сообщения
-      'sjson     VARCHAR NOT NULL)';                     // json-сообщение
+      'idctrl    INTEGER NOT NULL REFERENCES Controllers(idctrl),'. // идентификатор контроллера
+      'myTime    INTEGER NOT NULL,'.                                // абсолютное время в секундах с начала эпохи UNIX
+      'myDate    VARCHAR NOT NULL,'.                                // date("y-m-d h:i:s");
+      'cycle     INTEGER NOT NULL,'.                                // цикл выдачи контроллером json-сообщения
+      'sjson     VARCHAR NOT NULL)';                                // json-сообщение
    $st = $pdo->query($sql);
-   // Добавляем первую и единственную запись
-   $statement = $pdo->prepare("INSERT INTO [LastMess] ".
-   ---   "([myTime],[myDate],[cycle],[sjson]) VALUES ".
-      "(:myTime, :myDate, :cycle, :sjson);");
+   // Добавляем первую запись для каждого контроллера
+   $statement = $pdo->prepare("INSERT INTO [JSONMESS] ".
+      "([idctrl],[myTime],[myDate],[cycle],[sjson]) VALUES ".
+      "(:idctrl, :myTime, :myDate, :cycle, :sjson);");
    $statement->execute([
+      "idctrl" => 201,
       "myTime" => time(),
       "myDate" => date("y-m-d H:i:s"),
       "cycle"  => -1,
-      "sjson"  => '{"led4":{"light":10,"time":2000}}',
+      "sjson"  => '{"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}}',
    ]);
-   
-   // Создаём таблицу значений элементов
+   $statement->execute([
+      "idctrl" => 203,
+      "myTime" => time(),
+      "myDate" => date("y-m-d H:i:s"),
+      "cycle"  => -1,
+      "sjson"  => '{"wpt":{"lat":52518611,"lon":13376111}}',
+   ]);
+   // Создаем индекс по подсистеме и месту размещения
+   $sql='CREATE INDEX IF NOT EXISTS iTimeCtrl ON JSONMESS (idctrl,myTime)';
+   $st = $pdo->query($sql);
+   // Создаём таблицу значений элементов для контроллера 'Esp32-CAM во двор дачи'
    $sql='CREATE TABLE State ('.
       'jlight    INTEGER NOT NULL,'.                    // процент времени свечения в цикле 
       'jtime     INTEGER NOT NULL,'.                    // длительность цикла "горит - не горит" (мсек)    
