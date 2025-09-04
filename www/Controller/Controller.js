@@ -62,53 +62,96 @@ function ControllerClick()
 // ****************************************************************************
 // *                        Передавать сообщения по URL                       *
 // ****************************************************************************
-function SendRequest(url)
+function SendRequestState(url)
 { 
+  // Создаём новый XMLHttpRequest-объект
   const Http = new XMLHttpRequest();
+  // Настраиваем GET-запрос по URL
   Http.open("GET",url);
-  // Определяем обработку ответа на запрос по выборке изображения 
-  Http.onload = function(event) 
-  {
-    var result = event.target.responseText;
-    // Смотрим ответ от страницы urlHome+'/State40/'
-    // console.log(result); 
-  }
+  // Отсылаем запрос
   Http.send();
-  /*
-  Http.onreadystatechange = (e) => 
+  // Отрабатываем этот код после того, как получим ответ сервера
+  Http.onload = function() 
   {
-    console.log(Http.responseText); 
-  }
-  */
+    let status=Http.status;
+    let response=Http.response;
+    if (status === 200) 
+    { 
+      let lStateJson=isStateJson(response);
+      if (!lStateJson)
+      {
+        console.error("Неправильный ответ, ошибка в коде станицы State:"); 
+        console.error(response); 
+      }
+    } 
+    else 
+    { 
+      if (status === 404)
+      {
+        console.error("Ошибка загрузки данных 404 - страница не найдена:"); 
+      } 
+      else
+      { 
+        console.error("Ошибка загрузки данных: "+status+":"); 
+      } 
+      console.error(response); 
+    } 
+  };
+  // Выводим ошибку, когда запрос совсем не получилось выполнить
+  Http.onerror = function() 
+  { 
+    console.error('Ошибка, запрос совсем не получилось выполнить');
+  };
 }
+// Убедиться, что State принял json-сообщение           
+function isStateJson(responseText)
+{
+  let lStateJson=true;
+  let len=responseText.length;
+  let bindex = responseText.indexOf("<State>");
+  if (bindex<0) lStateJson=false
+  else
+  {
+    let еindex = responseText.indexOf("</State>");
+    if (еindex<0) lStateJson=false
+  }
+  return lStateJson;
+}
+
 // ****************************************************************************
-// *   Передавать координаты туристических точек Петрозаводска через 1 сек    *
+// *            Передавать координаты путевых точек через 1 сек               *
 // ****************************************************************************
-// Выполнить начальную блокировку передачу координат туристических точек
+var nCycle=0, nLat=52518611, nLon=13376111;  
 var Ctrlwpt=false;  
 // Блокировать передачу координат
 function LockGpx()
 { 
   Ctrlwpt=false; 
 }
-
+// Передавать координаты путевых точек через 1 сек 
 function TestGpx()
 {
   clearInterval(intervalGpx);
   Ctrlwpt=true; 
-  console.log("TestGpx()");               
+  // console.log("TestGpx()");               
   intervalGpx=setInterval(function() 
   {
     if (Ctrlwpt) 
     {
+      nCycle++;
       // https://probatv.ru/State/?cycle=2&num=-4&ctrl=203&sjson={"wpt":{"lat":52518611,"lon":13376111}} - 'Sim900 в автомобиле'
-      console.log(urlHome+            '/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');               
-      //console.log('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
-      //SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
-       
+      GetGpx();
+           console.log(urlHome+'/State/?cycle='+nCycle+'&num=4&ctrl=203&sjson={"wpt":{"lat":'+nLat+',"lon":'+nLon+'}}'); 
+      SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=4&ctrl=203&sjson={"wpt":{"lat":'+nLat+',"lon":'+nLon+'}}');
     }           
   }
   ,1000)
+}
+// Выбрать координаты новой путевой точки            
+function GetGpx()
+{
+  nLat++;
+  nLon++;
 }
 // ****************************************************************************
 // *               Test2            *

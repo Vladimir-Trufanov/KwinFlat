@@ -88,7 +88,7 @@ function StateAnswer($SiteHost,$sjson,$cycle,$num)
   // Обновляем последнее сообщение в базе данных
   $myTime = time();
   $myDate = date("y-m-d H:i:s");
-  // $Kvizzy->UpdateLed33($pdo,$myTime,$myDate,$cycle,$sjson);
+  $Kvizzy->UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);
   return $Result;
 }
 
@@ -108,7 +108,7 @@ function StateAnswer($SiteHost)
    // Иначе пустой ответ
    else echo '{"exit":1}';
    
-   /*
+   / *
    // Если поступил запрос по наличию изменений управляющих json-команд:
    // https://probatv.ru/Lead40/?cycle=3&sjson={"common":0}
    // http://localhost:100/Lead40/?cycle=3&sjson={"common":0}
@@ -148,9 +148,9 @@ function StateAnswer($SiteHost)
       echo $sjson;
    }
    else echo '{"exit":2}';
-   */
+   * /
    
-   /*
+   / *
    // Подтверждаем изменение и отмечаем текущий режим работы вспышки
    // https://probatv.ru/Lead40/?cycle=-1&sjson={"led4":{"light":10,"time":2000}}
    // http://localhost:100/Lead40/?cycle=-1&sjson={"led4":{"light":10,"time":2000}}
@@ -171,7 +171,7 @@ function StateAnswer($SiteHost)
    //$sjson=$table['sjson'];
    //if ($isEvent<0) echo '<p>{}</p>';
    //else echo '<p>'.$sjson.'</p>';
-   */
+   * /
 }
 */
 
