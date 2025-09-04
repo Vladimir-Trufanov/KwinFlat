@@ -12,7 +12,7 @@
 // подачи изображений от виртуального контроллера в базу данных
 var taskintr;       // текущий интервал подачи изображений
 var intervalSrc;    // id функции управления частотой подачи изображений
-var intervalTest1;  // id функции передачи координаты туристических точек
+var intervalGpx;    // id функции передачи координаты туристических точек
 
 $(document).ready(function() 
 {
@@ -34,7 +34,7 @@ $(document).ready(function()
 	} 
   // Выполняем начальное блокирование отправки изображений и
   // передачи координат туристических точек
-  Lock1();
+  LockGpx();
   Lock3();
 });
 // ****************************************************************************
@@ -50,8 +50,8 @@ function ControllerClick()
     beforeClose: function(event,ui) 
     {
       // Останавливаем передачу сообщения о смене состояния led4
-      Lock1();
-      clearInterval(intervalTest1);
+      LockGpx();
+      clearInterval(intervalGpx);
       // Останавливаем отправку изображений
       Lock3();
       clearInterval(intervalSrc);
@@ -87,22 +87,23 @@ function SendRequest(url)
 // Выполнить начальную блокировку передачу координат туристических точек
 var Ctrlwpt=false;  
 // Блокировать передачу координат
-function Lock1()
+function LockGpx()
 { 
   Ctrlwpt=false; 
 }
 
-function Test1()
+function TestGpx()
 {
-  clearInterval(intervalTest1);
+  clearInterval(intervalGpx);
   Ctrlwpt=true; 
-  console.log("Test1()");               
-  intervalTest1=setInterval(function() 
+  console.log("TestGpx()");               
+  intervalGpx=setInterval(function() 
   {
     if (Ctrlwpt) 
     {
-      //console.log(urlHome+            '/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');               
-      console.log('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
+      // https://probatv.ru/State/?cycle=2&num=-4&ctrl=203&sjson={"wpt":{"lat":52518611,"lon":13376111}} - 'Sim900 в автомобиле'
+      console.log(urlHome+            '/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');               
+      //console.log('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
       //SendRequest('http://localhost:100/State40/?cycle=1195&sjson={"led4":[{"status":"shimHIGH"}]}');
        
     }           
