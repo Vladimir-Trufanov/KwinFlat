@@ -10,9 +10,10 @@
 
 // Готовим переменные обслуживания
 // подачи изображений от виртуального контроллера в базу данных
-var taskintr;       // текущий интервал подачи изображений
-var intervalSrc;    // id функции управления частотой подачи изображений
-var intervalGpx;    // id функции передачи координаты туристических точек
+var taskintr;               // текущий интервал подачи изображений
+var intervalSrc;            // id функции управления частотой подачи изображений
+var intervalGpx;            // id функции передачи координаты туристических точек
+var tGpx=performance.now(); // таймер фактических интервалов передачи координат туристических точек
 
 $(document).ready(function() 
 {
@@ -95,7 +96,7 @@ function SendRequestState(url)
         console.error("Ошибка загрузки данных: "+status+":"); 
       } 
       console.error(response); 
-    } 
+    }
   };
   // Выводим ошибку, когда запрос совсем не получилось выполнить
   Http.onerror = function() 
@@ -136,6 +137,9 @@ function TestGpx()
   // console.log("TestGpx()");               
   intervalGpx=setInterval(function() 
   {
+    // Выводим фактический интервал и обновляем начальное значение
+    tGpx=IntEvent('tGpx',tGpx,1,false) 
+    //
     if (Ctrlwpt) 
     {
       nCycle++;
