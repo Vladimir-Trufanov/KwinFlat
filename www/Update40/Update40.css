@@ -5,7 +5,7 @@
  *                                                   устройств и контроллеров *
  ******************************************************************************
  *
- * v4.4.1, 07.06.2025                                 Автор:      Труфанов В.Е.
+ * v4.4.2, 08.09.2025                                 Автор:      Труфанов В.Е.
  * Copyright © 2024 tve                               Дата создания: 22.12.2024
  * 
 **/
@@ -30,15 +30,6 @@
    width:33%;
    height:100%;
    z-index:1;
-}
-#tickers 
-{
-   /*display:flex;*/
-   height:3%;
-   background:GhostWhite;
-   z-index:1;
-   width:100%;
-   /*background:transparent;*/ 
 }
 #Header 
 {
@@ -81,12 +72,21 @@
    height:74%;
    overflow:hidden;
 }
-
+/* Определяем полосу для трассировки json-сообщений */
+#tickers 
+{
+   display:flex; /* определили движение сообщений */ 
+   height:3%;
+   background:GhostWhite;
+   z-index:1;
+   width:100%;
+}
+/* Определяем размещение каждого сообщения */
 .ticker 
 {
    border:solid .1rem Gray;
    text-align:left;
-   overflow: hidden;
+   overflow: auto;
    margin-left:.4%;
    padding-left:.5%;
    padding-right:.5%;

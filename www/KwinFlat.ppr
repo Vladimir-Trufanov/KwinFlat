@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		+Controller
+		-Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -204,13 +204,13 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		-TKvizzyMaker
+		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -235,6 +235,7 @@ KwinFlat
 		iniMem.php
 		iniPhpJS.php
 		iniWorkSpace.php
+		j_getLastStateMess.php
 		KwinFlat.ppr
 		kwinflat-log.txt
 		log.txt
@@ -249,6 +250,9 @@ KwinFlat
 3=CommonTools.js
 4=Update40\Update40BODY.php
 5=Update40\Update40.js
+6=j_getLastStateMess.php
+7=TKvizzyMaker\CommonStateMaker.php
+8=Update40\Update40.css
 [Selected Project Files]
 Main=
 Selected=Update40\Update40.js
@@ -256,7 +260,7 @@ Selected=Update40\Update40.js
 TopLine=56
 Caret=1,95
 [Controller\Controller.js]
-TopLine=113
+TopLine=212
 Caret=38,141
 [iniMem.php]
 TopLine=9
@@ -265,8 +269,17 @@ Caret=42,9
 TopLine=3
 Caret=56,30
 [Update40\Update40BODY.php]
-TopLine=78
-Caret=23,108
+TopLine=547
+Caret=3,109
 [Update40\Update40.js]
-TopLine=319
-Caret=9,358
+TopLine=392
+Caret=19,407
+[j_getLastStateMess.php]
+TopLine=1
+Caret=17,24
+[TKvizzyMaker\CommonStateMaker.php]
+TopLine=125
+Caret=25,156
+[Update40\Update40.css]
+TopLine=71
+Caret=9,76

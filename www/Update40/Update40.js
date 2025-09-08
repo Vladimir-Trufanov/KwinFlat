@@ -248,7 +248,7 @@ function UpdateStatus(tickers)
   });
   // Выбираем последнее json-сообщение, пришедшее на State и
   // если оно отличается от предыдущего вывода, то показываем
-  //getLastStateMess(tickers);
+  getLastStateMess(tickers);
 }
 // ****************************************************************************
 // *                     Показать новое время с начала сессии                 *
@@ -331,6 +331,7 @@ class TTickers
     this.ARRY = new Array();   // массив трассируемых сообщений
     this.HTML = '';            // выводимый html-текст
     this.isRender='yes';       // "разрешено движение сообщений в трассировке"
+    this.Input='*';            // последнее принятое json-сообщение
   }
   // Запретить движение сообщений в трассировке при наезде курсора на ячейки трассировки
   noRender()
@@ -345,6 +346,7 @@ class TTickers
   // Создать ячейки трассировки и выполнить начальное заполнение ячеек
   create()
   {
+    console.log('создаем Create');
     for (let i=0; i<this.count; i++) 
     {
       this.ARRY[i]='--'+i+'--';
@@ -358,27 +360,112 @@ class TTickers
     $('#tickers').html(this.HTML);
   }
   // Принять очередное сообщение и обновить ячейки трассировки
-  render(input) 
+  render(iinput) 
   {
+    if (iinput != this.Input)
+    {
+      console.log('this.Input:',this.Input);
+      console.log('    iinput:',iinput);
+      this.Input=iinput;
+      // Если ещё ячеек трассировки нет, создаем их
+      if (this.ARRY.length<1) this.create();
+      // Обновляем ячейки, когда разрешено
+      if (this.isRender=='yes')
+      {
+        let i;
+        // Перемещаем прежние элементы и заполняем нулевой
+        for (i=this.count-1; i>0; i--) 
+        {
+          this.ARRY[i]=this.ARRY[i-1];
+        } 
+        this.ARRY[0]=iinput;
+        // Определяем размеры #tickers
+        var eTickers = document.getElementById('tickers');
+        var rTickers = eTickers.getBoundingClientRect();  
+        var RightTickers=rTickers.left+rTickers.width;
+        // Выводим элементы        
+        for (i=0; i<this.count; i++)
+        {
+          var eTick = document.getElementById('tick'+i);
+          var rTick = eTick.getBoundingClientRect();  
+          var RightTick=rTick.left+rTick.width;
+          
+          //console.log('RightTickers:',RightTickers);
+          //console.log(i,'RightTick:',RightTick);
+          let ii=RightTickers-RightTick
+          //console.log('ii',ii);
+          //if (RightTick < RightTickers) 
+          if (ii>0) 
+          {
+            $('#tick'+i).html(this.ARRY[i]);
+          }
+          else
+          {
+            $('#tick'+i).html('95');
+          }
+          console.log('шшш:',i);
+          alert(i,this.ARRY[i]);
+        } 
+
+      } 
+    }
+    /*
     // Если ещё ячеек трассировки нет, создаем их
     if (this.ARRY.length<1) this.create();
     // Реагируем только на изменённый вход
-    if (input != this.ARRY[0])
+    //if (iinput != this.ARRY[0])
+    if (iinput != this.Input)
     {
+      console.log('this.Input:',this.Input);
+      console.log('    iinput:',iinput);
+
+      this.Input=iinput;
       if (this.isRender=='yes')
       {
-        for (let i=this.count-1; i>0; i--) this.ARRY[i]=this.ARRY[i-1]; 
-        this.ARRY[0]=input;
-        for (let i=0; i<this.count; i++) $('#tick'+i).html(this.ARRY[i]);
+        // Определяем размеры #tickers
+        var eTickers = document.getElementById('tickers');
+        var rTickers = eTickers.getBoundingClientRect();  
+        var RightTickers=rTickers.left+rTickers.width;
+        
+        let i;
+        for (i=this.count-1; i>0; i--) 
+        {
+          this.ARRY[i]=this.ARRY[i-1];
+        } 
+        this.ARRY[0]=iinput;
+        
+        
+        for (i=0; i<this.count; i++)
+        {
+          var eTick = document.getElementById('tick'+i);
+          var rTick = eTick.getBoundingClientRect();  
+          var RightTick=rTick.left+rTick.width;
+          
+          console.log('RightTickers:',RightTickers);
+          console.log(i,'RightTick:',RightTick);
+          let ii=RightTickers-RightTick
+          console.log('ii',ii);
+          //if (RightTick < RightTickers) 
+          if (ii>0) 
+          {
+            $('#tick'+i).html(this.ARRY[i]);
+          }
+          else
+          {
+            $('#tick'+i).html('95');
+          }
+          alert(i);
+        } 
+        
       }
     }
+    */
   }
 }
 // ****************************************************************************
 // *                  Класс работы с хранилищем localStorage                  *
 // ****************************************************************************
 class TStorage
-
 // 
 {
   // Создать параметры хранилища
@@ -415,5 +502,120 @@ class TStorage
     return value;
   }
 }
+// ****************************************************************************
+// *                   Получить последнее json-сообщение на State             *
+// ****************************************************************************
+function getLastStateMess(tickers)
+{
+  // Выводим в диалог предварительный результат выполнения запроса
+  htmlText="Выбрать json-сообщение на State не удалось!";
+  // Выполняем запрос
+  pathphp="j_getLastStateMess.php";
+  // Делаем запрос последнего json-сообщения на State 
+  $.ajax({
+    url: pathphp,
+    type: 'POST',
+    data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
+    // Выводим ошибки при выполнении запроса в PHP-сценарии
+    error: function (jqXHR,exception) {DialogWind(SmarttodoError(jqXHR,exception))},
+    // Обрабатываем ответное сообщение
+    success: function(message)
+    {
+      // Трассируем полный json-ответ
+      //DialogWind(message);
+      //console.log(message)
+      //tickers.render('JSON.stringify(sjson)');
+      
+      // Вырезаем из запроса чистое сообщение
+      let Fresh=FreshLabel(message);
+      // Если чистое сообщение не вырезалось, считаем, что это ошибка и
+      // диагностируем её
+      if (Fresh=='NoFresh')
+      {
+        console.log(message);
+        DialogWind(message);
+      }
+      // Иначе считаем, что ответ на запрос пришел и можно
+      // парсить сообщение
+      else 
+      {
+        messa=Fresh;
+        // DialogWind(messa);
+        console.log(messa)
+        
+        // Строим try catch, чтобы поймать ошибку в JSON-ответе
+        try 
+        {
+          parm=JSON.parse(messa);
+          // Если ошибка SQL-запроса
+          if (parm.cycle<0) 
+          {
+            console.log('Ошибка SQL-запроса');
+            /*
+            if (parm.cycle==-1) 
+              DialogWind(
+              'Создана таблица базы данных State.\n'+
+              'Сообщений от контроллера ещё не поступало!');
+            else
+              DialogWind(parm.cycle+': '+parm.sjson);
+            */
+          }
+          // Выводим результаты выполнения (параметры ответа)
+          // (отрабатываем распарсенный ответ)
+          else
+          {
+            // Трассируем чистое сообщение, без метки
+            // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led33":[{"status":"inLOW"}]}}
+            // DialogWind(messa);
+            cycle=parm.cycle;
+            $('#cycle').html("cycle: "+cycle.toString());
+            sjson=parm.sjson;
+            $('#sjson').html ("sjson: "+JSON.stringify(sjson));
+            let myTime=parm.myTime;
+            $('#myTime').html("myTime: "+myTime.toString());
+            let myDate=parm.myDate;
+            $('#myDate').html("myDate: "+myDate);
+            /*    
+            // Парсим и обрабатываем sjson
+            if ((JSON.stringify(sjson)==s33_LOW)||(JSON.stringify(sjson)==s33_HIGH))
+            {
+              parm=JSON.parse(JSON.stringify(sjson));
+              // Выделяем json-подстроку по led33
+              let led33=parm.led33[0];
+              // Парсим led33
+              parm=JSON.parse(JSON.stringify(led33));
+              // Выделяем состояние led33 (горит - не горит)
+              let status=parm.status;
+              // Высвечиваем led33 в соответствии с состоянием
+              //$('#status').html(status);
+              //if (status=="inHIGH") $('#spot').css('background','SandyBrown');
+              //else $('#spot').css('background','LightCyan');
+            }
+            else if (JSON.stringify(sjson)==s33_MODE0)
+            {
+              console.log('s33_MODE0: '+s33_MODE0);
+              //ram.set("LmpMode",0);  // 0 - выключен режим 
+            }
+            else
+            {
+              console.log('sjson: '+JSON.stringify(sjson));
+            }
+            */
+            //alert(JSON.stringify(sjson));
+            tickers.render(JSON.stringify(sjson));
+          }
+        }
+        // Обрабатываем ошибку в JSON-ответе 
+        catch (err) 
+        {
+          console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
+          DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
+        }
+        
+      }
+    }
+  });
+}
+
 
 // ************************************************************ Update40.js ***
