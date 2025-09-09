@@ -4,7 +4,7 @@
 // * KwinFlat                    Обслужить ознакомительную страницу для гостя *
 // ****************************************************************************
 
-// v4.5.0, 08.06.2025                                 Автор:      Труфанов В.Е.
+// v4.5.1, 09.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
@@ -347,30 +347,18 @@ class TTickers
   // Создать ячейки трассировки и выполнить начальное заполнение ячеек
   create()
   {
-    //console.log('создаем Create');
     // Выполняем начальное заполнение массивов
     for (let i=0; i<this.count; i++) 
     {
       this.ARRY[i]='--'+i+'--';
       this.SIZE[i]=5;
-      /*
-      if (i==0)
-        this.HTML=this.HTML+
-        '<div id="tick'+i+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[i]+'</div>';
-      else
-        this.HTML=this.HTML+
-        '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
-      */
     }
-    //$('#tickers').html(this.HTML);
   }
   // Принять очередное сообщение и обновить ячейки трассировки
   render(iinput) 
   {
     if (iinput != this.Input)
     {
-      //console.log('this.Input:',this.Input);
-      //console.log('    iinput:',iinput);
       this.Input=iinput;
       // Если ещё ячеек трассировки нет, создаем их
       if (this.ARRY.length<1) this.create();
@@ -393,160 +381,39 @@ class TTickers
         //console.log(0,this.ARRY[0]);
         this.HTML=
         '<div id="tick'+0+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[0]+'</div>';
-        //$('#tick'+0).html(this.ARRY[0]);
         // Выводим полученную полоску с 0 сообщением
         $('#tickers').html(this.HTML);
         // Запоминаем размер нулевого элемента
         let eTick = document.getElementById('tick'+0);
         let rTick = eTick.getBoundingClientRect();  
         this.SIZE[0]=rTick.left+rTick.width;
-
-        //
-        // ----Сколько можно, формируем предыдущие сообщения
+        // Сколько можно, включаем в полоску предыдущие сообщения
         var rSize=this.SIZE[0];
-        //console.log('this.SIZE[0]:',this.SIZE[0]);
         for (i=1; i<this.count; i++)
         {
-          // Если начальный элемент, то его исключаем из расчета
+          // Если в массиве принятый элемент (размер больше инициированного),
+          // то включаем его в расчет
           if (this.SIZE[i]>5)
           {
             rSize=rSize+this.SIZE[i];
             if (rSize<SizeTickers)
             {
-              console.log(i,'this.SIZE['+i+']:',this.SIZE[i]);
-              console.log(i,rSize.toString()+'<'+SizeTickers.toString());
+              // console.log(i,'this.SIZE['+i+']:',this.SIZE[i]);
+              // console.log(i,rSize.toString()+'<'+SizeTickers.toString());
+              
+              // Переопределяем полосу сообщений  #tickers
               this.HTML=this.HTML+
                 '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
             }
           }
-          else
-          {
-            break;
-          }
-        }
-        // Выводим полученную полоску сообщений
-        $('#tickers').html(this.HTML);
-        console.log('this.HTML',this.HTML);
-        
-        
-        
-        
-        
-        
-        /*
-        // Сколько можно, формируем предыдущие сообщения
-        var rSize=this.SIZE[0];
-        //console.log('this.SIZE[0]:',this.SIZE[0]);
-        for (i=1; i<this.count; i++)
-        {
-          rSize=rSize+this.SIZE[i];
-          //console.log('this.SIZE['+i+']:',this.SIZE[i]);
-          //console.log(i,'rSize:',rSize);
-          //console.log('SizeTickers:',SizeTickers);
-          //alert(rSize.toString()+'<'+SizeTickers.toString());
-          if (rSize<SizeTickers)
-          {
-            console.log(i,rSize.toString()+'<'+SizeTickers.toString());
-            this.HTML=this.HTML+
-            '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
-            //'<div id="tick'+i+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[i]+'</div>';
-            // Выводим полученную полоску сообщений
-            //$('#tickers').html(this.HTML);
-            //window.location.reload(true);
-            //console.log(i,this.HTML);
-            //alert(i);
-          }
+          // Если инициированный элемент, то его исключаем из расчета
           else break;
         }
         // Выводим полученную полоску сообщений
         $('#tickers').html(this.HTML);
-        console.log('this.HTML',this.HTML);
-        alert(this.HTML);
-        
-        
-        
-        // 
-        //alert('#tick'+0);
-        
-        // Скрываем полосу 
-        // Формируем и выводим 0 элемент
-        */
-        /*
-        // Выводим элементы        
-        for (i=0; i<this.count; i++)
-        {
-          
-          //console.log('RightTickers:',RightTickers);
-          //console.log(i,'RightTick:',RightTick);
-          let ii=RightTickers-RightTick
-          //console.log('ii',ii);
-          //if (RightTick < RightTickers) 
-          if (ii>0) 
-          {
-            $('#tick'+i).html(this.ARRY[i]);
-          }
-          else
-          {
-            $('#tick'+i).html('95');
-          }
-          console.log('шшш:',i);
-          //alert(i,this.ARRY[i]);
-        } 
-        */
-
+        // console.log('this.HTML',this.HTML);
       } 
     }
-    /*
-    // Если ещё ячеек трассировки нет, создаем их
-    if (this.ARRY.length<1) this.create();
-    // Реагируем только на изменённый вход
-    //if (iinput != this.ARRY[0])
-    if (iinput != this.Input)
-    {
-      console.log('this.Input:',this.Input);
-      console.log('    iinput:',iinput);
-
-      this.Input=iinput;
-      if (this.isRender=='yes')
-      {
-        // Определяем размеры #tickers
-        var eTickers = document.getElementById('tickers');
-        var rTickers = eTickers.getBoundingClientRect();  
-        var RightTickers=rTickers.left+rTickers.width;
-        
-        let i;
-        for (i=this.count-1; i>0; i--) 
-        {
-          this.ARRY[i]=this.ARRY[i-1];
-        } 
-        this.ARRY[0]=iinput;
-        
-        
-        for (i=0; i<this.count; i++)
-        {
-          var eTick = document.getElementById('tick'+i);
-          var rTick = eTick.getBoundingClientRect();  
-          var RightTick=rTick.left+rTick.width;
-          
-          console.log('RightTickers:',RightTickers);
-          console.log(i,'RightTick:',RightTick);
-          let ii=RightTickers-RightTick
-          console.log('ii',ii);
-          //if (RightTick < RightTickers) 
-          if (ii>0) 
-          {
-            $('#tick'+i).html(this.ARRY[i]);
-          }
-          else
-          {
-            $('#tick'+i).html('95');
-          }
-          alert(i);
-        } 
-        
-      }
-    }
-    */
   }
 }
 // ****************************************************************************
