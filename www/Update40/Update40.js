@@ -20,7 +20,7 @@ $(document).ready(function()
   // console.log('IntStream: '+IntStream);
   setInterval(SelImgStream, IntStream);
   // Создаём поле демонстрации поступающих json-сообщений для 4 последних 
-  let tickers = new TTickers(4);
+  let tickers = new TTickers(8);
   // Обеспечиваем остановку изменения массива состояний и изменение курсора 
   // при наезде на поле демонстрации поступающих json-сообщений
   // (другие события на странице не останавливаются)
@@ -329,6 +329,7 @@ class TTickers
   {
     this.count = count;        // количество ячеек трассировки сообщений
     this.ARRY = new Array();   // массив трассируемых сообщений
+    this.SIZE = new Array();   // массив размеров сообщений
     this.HTML = '';            // выводимый html-текст
     this.isRender='yes';       // "разрешено движение сообщений в трассировке"
     this.Input='*';            // последнее принятое json-сообщение
@@ -347,17 +348,21 @@ class TTickers
   create()
   {
     console.log('создаем Create');
+    // Выполняем начальное заполнение массивов
     for (let i=0; i<this.count; i++) 
     {
       this.ARRY[i]='--'+i+'--';
+      this.SIZE[i]=5;
+      /*
       if (i==0)
         this.HTML=this.HTML+
         '<div id="tick'+i+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[i]+'</div>';
       else
         this.HTML=this.HTML+
         '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
+      */
     }
-    $('#tickers').html(this.HTML);
+    //$('#tickers').html(this.HTML);
   }
   // Принять очередное сообщение и обновить ячейки трассировки
   render(iinput) 
@@ -372,23 +377,59 @@ class TTickers
       // Обновляем ячейки, когда разрешено
       if (this.isRender=='yes')
       {
+        // Пересчитываем размер полосы сообщений #tickers
+        let eTickers = document.getElementById('tickers');
+        let rTickers = eTickers.getBoundingClientRect();  
+        var SizeTickers=rTickers.left+rTickers.width;
+        // Перемещаем прежние элементы 
         let i;
-        // Перемещаем прежние элементы и заполняем нулевой
         for (i=this.count-1; i>0; i--) 
         {
           this.ARRY[i]=this.ARRY[i-1];
+          this.SIZE[i]=this.SIZE[i-1];
         } 
+        // Переопределяем и формируем нулевой элемент 
         this.ARRY[0]=iinput;
-        // Определяем размеры #tickers
-        var eTickers = document.getElementById('tickers');
-        var rTickers = eTickers.getBoundingClientRect();  
-        var RightTickers=rTickers.left+rTickers.width;
+        console.log(0,this.ARRY[0]);
+        this.HTML=
+        '<div id="tick'+0+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[0]+'</div>';
+        //$('#tick'+0).html(this.ARRY[0]);
+        // Выводим полученную полоску с 0 сообщением
+        $('#tickers').html(this.HTML);
+        // Запоминаем размер нулевого элемента
+        let eTick = document.getElementById('tick'+0);
+        let rTick = eTick.getBoundingClientRect();  
+        this.SIZE[0]=rTick.left+rTick.width;
+        // Сколько можно, формируем предыдущие сообщения
+        var rSize=this.SIZE[0];
+        for (i=1; i<this.count; i++)
+        {
+          rSize=rSize+this.SIZE[i];
+          if (rSize<SizeTickers)
+          {
+            console.log('SizeTickers:',SizeTickers);
+            console.log(i,'rSize:',rSize);
+            this.HTML=this.HTML+
+            '<div id="tick'+i+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[i]+'</div>';
+            // Выводим полученную полоску сообщений
+            $('#tickers').html(this.HTML);
+            console.log(i,this.HTML);
+          }
+        }
+        
+        
+        
+        
+        // 
+        //alert('#tick'+0);
+        
+        // Скрываем полосу 
+        // Формируем и выводим 0 элемент
+        
+        /*
         // Выводим элементы        
         for (i=0; i<this.count; i++)
         {
-          var eTick = document.getElementById('tick'+i);
-          var rTick = eTick.getBoundingClientRect();  
-          var RightTick=rTick.left+rTick.width;
           
           //console.log('RightTickers:',RightTickers);
           //console.log(i,'RightTick:',RightTick);
@@ -404,8 +445,9 @@ class TTickers
             $('#tick'+i).html('95');
           }
           console.log('шшш:',i);
-          alert(i,this.ARRY[i]);
+          //alert(i,this.ARRY[i]);
         } 
+        */
 
       } 
     }

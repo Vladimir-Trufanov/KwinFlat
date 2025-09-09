@@ -204,13 +204,13 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		-Update40
+		+Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -245,41 +245,17 @@ KwinFlat
 		web.config
 [Open project files]
 0=State\index.php
-1=Controller\Controller.js
-2=iniMem.php
-3=CommonTools.js
-4=Update40\Update40BODY.php
-5=Update40\Update40.js
-6=j_getLastStateMess.php
-7=TKvizzyMaker\CommonStateMaker.php
-8=Update40\Update40.css
+1=Update40\Update40.js
+2=Update40\Update40.css
 [Selected Project Files]
 Main=
 Selected=Update40\Update40.js
 [State\index.php]
 TopLine=56
 Caret=1,95
-[Controller\Controller.js]
-TopLine=212
-Caret=38,141
-[iniMem.php]
-TopLine=9
-Caret=42,9
-[CommonTools.js]
-TopLine=3
-Caret=56,30
-[Update40\Update40BODY.php]
-TopLine=547
-Caret=3,109
 [Update40\Update40.js]
-TopLine=392
-Caret=19,407
-[j_getLastStateMess.php]
-TopLine=1
-Caret=17,24
-[TKvizzyMaker\CommonStateMaker.php]
-TopLine=125
-Caret=25,156
+TopLine=382
+Caret=13,415
 [Update40\Update40.css]
-TopLine=71
-Caret=9,76
+TopLine=75
+Caret=1,1

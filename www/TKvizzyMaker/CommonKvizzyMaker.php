@@ -147,8 +147,8 @@ function _CreateTables($pdo)
       $st = $pdo->query($sql);
       // Заполняем таблицу устройств
       $aDevices=[
-         [ 401,201,301,'Led4 на ESP32-CAM'],         
-         [ 402,201,302,'Led33 на ESP32-CAM'],                       
+         [ 401,201,301,'Led4  на "Esp32-CAM во двор дачи"'],         
+         [ 402,201,302,'Led33 на "Esp32-CAM во двор дачи"'],                       
       ];
       $statement = $pdo->prepare("INSERT INTO [Devices] ".
          "([iddev],[idctrl],[tiddev],[namedev]) VALUES ".
@@ -170,6 +170,7 @@ function _CreateTables($pdo)
       $aSensorsType=[
          [ 501,'DHT11'],         
          [ 502,'DHT22'],       
+         [ 503,'V.KEL TTL'],       
       ];
       $statement = $pdo->prepare("INSERT INTO [SensorsType] ".
          "([tidsens],[typesens]) VALUES ".
@@ -189,8 +190,9 @@ function _CreateTables($pdo)
       $st = $pdo->query($sql);
       // Заполняем таблицу датчиков
       $aDevices=[
-         [ 601,201,501,'DHT11 на ESP32-CAM'],         
-         [ 602,201,502,'DHT22 на ESP32-CAM'],                       
+         [ 601,201,501,'DHT11     на "Esp32-CAM во двор дачи"'],         
+         [ 602,201,502,'DHT22     на "Esp32-CAM во двор дачи"'],                       
+         [ 603,203,503,'V.KEL TTL на "Sim900 в автомобиле"'],                       
       ];
       $statement = $pdo->prepare("INSERT INTO [Sensors] ".
          "([idsens],[idctrl],[tidsens],[namesens]) VALUES ".

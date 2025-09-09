@@ -26,7 +26,7 @@
 // -3 -> s_DHT11,  '"dht11":{"humi":46,"tempC":248}'                                          // Влажность = 46%, Температура = 24.8°C  
 
 // '"wpt":{"lat":52518611,"lon":13376111}'
-// https://probatv.ru/State/?cycle=2&num=-4&ctrl=SIM900&place=NIVA&sjson={"wpt":{"lat":52518611,"lon":13376111}}
+// https://probatv.ru/State/?cycle=2&num=-4&ctrl=203&sjson={"wpt":{"lat":52518611,"lon":13376111}} - 'Sim900 в автомобиле'
 
 
 // Подключаем реестр json-сообщений на страницу State40
