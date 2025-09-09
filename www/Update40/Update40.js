@@ -347,7 +347,7 @@ class TTickers
   // Создать ячейки трассировки и выполнить начальное заполнение ячеек
   create()
   {
-    console.log('создаем Create');
+    //console.log('создаем Create');
     // Выполняем начальное заполнение массивов
     for (let i=0; i<this.count; i++) 
     {
@@ -369,8 +369,8 @@ class TTickers
   {
     if (iinput != this.Input)
     {
-      console.log('this.Input:',this.Input);
-      console.log('    iinput:',iinput);
+      //console.log('this.Input:',this.Input);
+      //console.log('    iinput:',iinput);
       this.Input=iinput;
       // Если ещё ячеек трассировки нет, создаем их
       if (this.ARRY.length<1) this.create();
@@ -390,7 +390,7 @@ class TTickers
         } 
         // Переопределяем и формируем нулевой элемент 
         this.ARRY[0]=iinput;
-        console.log(0,this.ARRY[0]);
+        //console.log(0,this.ARRY[0]);
         this.HTML=
         '<div id="tick'+0+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[0]+'</div>';
         //$('#tick'+0).html(this.ARRY[0]);
@@ -400,23 +400,68 @@ class TTickers
         let eTick = document.getElementById('tick'+0);
         let rTick = eTick.getBoundingClientRect();  
         this.SIZE[0]=rTick.left+rTick.width;
+
+        //
+        // ----Сколько можно, формируем предыдущие сообщения
+        var rSize=this.SIZE[0];
+        //console.log('this.SIZE[0]:',this.SIZE[0]);
+        for (i=1; i<this.count; i++)
+        {
+          // Если начальный элемент, то его исключаем из расчета
+          if (this.SIZE[i]>5)
+          {
+            rSize=rSize+this.SIZE[i];
+            if (rSize<SizeTickers)
+            {
+              console.log(i,'this.SIZE['+i+']:',this.SIZE[i]);
+              console.log(i,rSize.toString()+'<'+SizeTickers.toString());
+              this.HTML=this.HTML+
+                '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
+            }
+          }
+          else
+          {
+            break;
+          }
+        }
+        // Выводим полученную полоску сообщений
+        $('#tickers').html(this.HTML);
+        console.log('this.HTML',this.HTML);
+        
+        
+        
+        
+        
+        
+        /*
         // Сколько можно, формируем предыдущие сообщения
         var rSize=this.SIZE[0];
+        //console.log('this.SIZE[0]:',this.SIZE[0]);
         for (i=1; i<this.count; i++)
         {
           rSize=rSize+this.SIZE[i];
+          //console.log('this.SIZE['+i+']:',this.SIZE[i]);
+          //console.log(i,'rSize:',rSize);
+          //console.log('SizeTickers:',SizeTickers);
+          //alert(rSize.toString()+'<'+SizeTickers.toString());
           if (rSize<SizeTickers)
           {
-            console.log('SizeTickers:',SizeTickers);
-            console.log(i,'rSize:',rSize);
+            console.log(i,rSize.toString()+'<'+SizeTickers.toString());
             this.HTML=this.HTML+
-            '<div id="tick'+i+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[i]+'</div>';
+            '<div id="tick'+i+'" class="ticker">'+this.ARRY[i]+'</div>';
+            //'<div id="tick'+i+'" class="ticker" style="border:solid .1rem DarkGoldenRod">'+this.ARRY[i]+'</div>';
             // Выводим полученную полоску сообщений
-            $('#tickers').html(this.HTML);
-            console.log(i,this.HTML);
+            //$('#tickers').html(this.HTML);
+            //window.location.reload(true);
+            //console.log(i,this.HTML);
+            //alert(i);
           }
+          else break;
         }
-        
+        // Выводим полученную полоску сообщений
+        $('#tickers').html(this.HTML);
+        console.log('this.HTML',this.HTML);
+        alert(this.HTML);
         
         
         
@@ -425,7 +470,7 @@ class TTickers
         
         // Скрываем полосу 
         // Формируем и выводим 0 элемент
-        
+        */
         /*
         // Выводим элементы        
         for (i=0; i<this.count; i++)
