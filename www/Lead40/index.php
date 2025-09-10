@@ -53,7 +53,7 @@ function MakeAnswer($SiteHost)
       // Вначале склеиваем все управляющие json-команды
       foreach ($table as $row) 
       {
-         // 'num' - номер управляющей json-команды (-1 -> s4_MODE,-2 -> s_INTRV)
+         // 'num' - номер управляющей json-команды (тип json-сообщения) (-1 -> s4_MODE,-2 -> s_INTRV)
          if ($row['num']<0) 
          {
             if ($first) 

@@ -143,10 +143,20 @@ function TestGpx()
     if (Ctrlwpt) 
     {
       nCycle++;
-      // https://probatv.ru/State/?cycle=2&num=-4&ctrl=203&sjson={"wpt":{"lat":52518611,"lon":13376111}} - 'Sim900 в автомобиле'
-      GetGpx();
-           console.log(urlHome+'/State/?cycle='+nCycle+'&num=4&ctrl=203&sjson={"wpt":{"lat":'+nLat+',"lon":'+nLon+'}}'); 
-      SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=4&ctrl=203&sjson={"wpt":{"lat":'+nLat+',"lon":'+nLon+'}}');
+      // Для "шума" каждое третье сообщение из 10 заменяем на DHT11
+      let remainder = nCycle % 10;
+      if (remainder==3)
+      {
+        let humi=46; let tempC=248;
+        SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=3&ctrl=204&sjson={"dht11":{"humi":'+humi+',"tempC":'+tempC+'}}');
+      }
+      else
+      {
+        // https://probatv.ru/State/?cycle=2&num=4&ctrl=203&sjson={"wpt":{"lat":52518611,"lon":13376111}} - 'Sim900 в автомобиле'
+        GetGpx();
+             console.log(urlHome+'/State/?cycle='+nCycle+'&num=4&ctrl=204&sjson={"wpt":{"lat":'+nLat+',"lon":'+nLon+'}}'); 
+        SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=4&ctrl=204&sjson={"wpt":{"lat":'+nLat+',"lon":'+nLon+'}}');
+      }
     }           
   }
   ,1000)

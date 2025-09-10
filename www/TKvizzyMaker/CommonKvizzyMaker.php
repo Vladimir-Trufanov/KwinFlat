@@ -35,6 +35,7 @@ function _CreateTables($pdo)
          [ 1,'Квартира'],
          [ 2,'Дача'],
          [ 3,'Нива'],
+         [ 4,'Сайт'],
       ];
       $statement = $pdo->prepare("INSERT INTO [SubSystems] ".
          "([idsys],[namesys]) VALUES ".
@@ -59,6 +60,7 @@ function _CreateTables($pdo)
          [ 14,2,'С дачи на дорогу'],
          [ 15,2,'На стене веранды'],
          [ 16,3,'В автомобиле'],
+         [ 17,4,'На сайте'],
       ];
       $statement = $pdo->prepare("INSERT INTO [Places] ".
          "([idplace],[idsys],[nameplace]) VALUES ".
@@ -84,6 +86,7 @@ function _CreateTables($pdo)
          [ 102,'Arduino Pro Mini'],
          [ 103,'Esp01'],
          [ 104,'Sim900'],
+         [ 105,'Virt'],
       ];
       $statement = $pdo->prepare("INSERT INTO [ControllersType] ".
          "([tidctrl],[typectrl]) VALUES ".
@@ -106,6 +109,7 @@ function _CreateTables($pdo)
          [ 201,101,13,'Esp32-CAM во двор дачи'],  
          [ 202,103,15,'Esp01 на стене веранды'],  
          [ 203,104,16,'Sim900 в автомобиле'],  
+         [ 204,105,17,'Виртуальный контроллер'],  
        ];
       $statement = $pdo->prepare("INSERT INTO [Controllers] ".
          "([idctrl],[tidctrl],[idplace],[namectrl]) VALUES ".

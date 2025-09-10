@@ -86,7 +86,7 @@
 {
    border:solid .1rem Gray;
    text-align:left;
-   overflow: auto;
+   overflow: hidden;
    margin-left:.4%;
    padding-left:.5%;
    padding-right:.5%;
