@@ -216,7 +216,7 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		-TKvizzyMaker
+		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -259,36 +259,24 @@ KwinFlat
 [Open project files]
 0=State\index.php
 1=Update40\Update40.js
-2=iniMenu.php
-3=index.php
-4=Update40\Update40BODY.php
-5=Update40\Update40HEAD.php
-6=Update40\Update40.css
-7=iniMem.php
+2=j_getLastStateMess.php
+3=TKvizzyMaker\CommonStateMaker.php
+4=Update40\Update40.css
 [Selected Project Files]
 Main=
-Selected=iniMem.php
+Selected=Update40\Update40.js
 [State\index.php]
 TopLine=23
 Caret=53,23
 [Update40\Update40.js]
-TopLine=323
-Caret=61,323
-[iniMenu.php]
-TopLine=1
-Caret=65,31
-[index.php]
-TopLine=17
-Caret=9,30
-[Update40\Update40BODY.php]
-TopLine=1
-Caret=6,5
-[Update40\Update40HEAD.php]
+TopLine=257
+Caret=55,279
+[j_getLastStateMess.php]
 TopLine=1
 Caret=1,1
+[TKvizzyMaker\CommonStateMaker.php]
+TopLine=151
+Caret=1,1
 [Update40\Update40.css]
-TopLine=27
-Caret=1,45
-[iniMem.php]
-TopLine=3
-Caret=42,9
+TopLine=162
+Caret=2,174

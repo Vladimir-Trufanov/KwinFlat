@@ -273,9 +273,10 @@ function DialogWind(htmlText)
    delayClose=100;
    $('#DialogWind').dialog
    ({
-      width:800,
+      width:'auto',
+      height:'auto',
       hide:{effect:"explode",delay:delayClose,duration:1000,easing:'swing'},
-      title: "Запрос управляющих значений экрана и показаний датчиков на State",
+      title: "Предупреждение или сообщение об ошибке",
    });
 }
 // ****************************************************************************
@@ -504,15 +505,13 @@ function getLastStateMess(tickers)
           // Если ошибка SQL-запроса
           if (parm.cycle<0) 
           {
-            console.log('Ошибка SQL-запроса');
-            /*
             if (parm.cycle==-1) 
               DialogWind(
-              'Создана таблица базы данных State.\n'+
-              'Сообщений от контроллера ещё не поступало!');
+              "Пересоздана таблица базы данных State.<br>"+
+              "Сообщений от контроллера ещё не поступало!<br>"+
+              "Можно проверить виртуальный контроллер.");
             else
               DialogWind(parm.cycle+': '+parm.sjson);
-            */
           }
           // Выводим результаты выполнения (параметры ответа)
           // (отрабатываем распарсенный ответ)
