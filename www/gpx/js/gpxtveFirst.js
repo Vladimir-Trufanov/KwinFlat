@@ -81,8 +81,7 @@ var _DEFAULT_GPX_OPTS = {
 };
 
 L.GPX = L.FeatureGroup.extend({
-  initialize: function(gpx, options) 
-  {
+  initialize: function(gpx, options) {
     options.max_point_interval = options.max_point_interval || _MAX_POINT_INTERVAL_MS;
     options.markers = this._merge_objs(
       _DEFAULT_MARKERS,
@@ -309,6 +308,19 @@ L.GPX = L.FeatureGroup.extend({
     return markers;
   },
 
+  _init_info: function() {
+    this._info = {
+      name: null,
+      length: 0.0,
+      elevation: {gain: 0.0, loss: 0.0, max: 0.0, min: Infinity, _points: []},
+      speed : {max: 0.0, _points: []},
+      hr: {avg: 0, _total: 0, _points: []},
+      duration: {start: null, end: null, moving: 0, total: 0},
+      atemp: {avg: 0, _total: 0, _points: []},
+      cad: {avg: 0, _total: 0, _points: []}
+    };
+  },
+
   _load_xml: function(url, cb, options, async) 
   {
     console.log('url='+url);
@@ -321,126 +333,74 @@ L.GPX = L.FeatureGroup.extend({
     try {
       req.overrideMimeType('text/xml'); // unsupported by IE
     } catch(e) {}
-    req.onloadend = function() 
-    {
-      if (req.status == 200) 
-      {
+    req.onloadend = function() {
+      if (req.status == 200) {
         cb(req.responseXML, options);
-      } 
-      else 
-      {
+      } else {
         _this.fire('error', { err: 'Error fetching resource: ' + url });
       }
     };
     req.send(null);
   },
 
-  _parse: function(input, options, async) 
-  {
-    console.log('input',input);
+  _parse: function(input, options, async) {
     var _this = this;
-    var cb = function(gpx, options) 
-    {
+    var cb = function(gpx, options) {
       var layers = _this._parse_gpx_data(gpx, options);
-      console.log('layers',layers);
-      if (!layers) 
-      {
+      if (!layers) {
         _this.fire('error', { err: 'No parseable layers of type(s) ' + JSON.stringify(options.gpx_options.parseElements) });
         return;
       }
       _this.addLayer(layers);
       _this.fire('loaded', { layers: layers, element: gpx });
     }
-    if (input.substr(0,1)==='<') 
-    { 
-      console.log('input.substr(0,1)');
-      // direct XML has to start with a <
+    if (input.substr(0,1)==='<') { // direct XML has to start with a <
       var parser = new DOMParser();
-      if (async) 
-      {
-        setTimeout(function() 
-        {
+      if (async) {
+        setTimeout(function() {
           cb(parser.parseFromString(input, "text/xml"), options);
         });
-      } 
-      else 
-      {
+      } else {
         cb(parser.parseFromString(input, "text/xml"), options);
       }
-    } 
-    else 
-    {
-      console.log('this._load_xml');
+    } else {
       this._load_xml(input, cb, options, async);
     }
   },
 
-
-
-
-  _init_info: function() 
-  {
-    this._info = 
-    {
-      name: null,
-      length: 0.0,
-      elevation: {gain: 0.0, loss: 0.0, max: 0.0, min: Infinity, _points: []},
-      speed : {max: 0.0, _points: []},
-      hr: {avg: 0, _total: 0, _points: []},
-      duration: {start: null, end: null, moving: 0, total: 0},
-      atemp: {avg: 0, _total: 0, _points: []},
-      cad: {avg: 0, _total: 0, _points: []}
-    };
-  },
-
-
-
-  _parse_gpx_data: function(xml, options) 
-  {
-
+  _parse_gpx_data: function(xml, options) {
     var i, t, l, el, layers = [];
 
     var name = xml.getElementsByTagName('name');
-    if (name.length > 0) 
-    {
+    if (name.length > 0) {
       this._info.name = name[0].textContent;
     }
     var desc = xml.getElementsByTagName('desc');
-    if (desc.length > 0) 
-    {
+    if (desc.length > 0) {
       this._info.desc = desc[0].textContent;
     }
     var author = xml.getElementsByTagName('author');
-    if (author.length > 0) 
-    {
+    if (author.length > 0) {
       this._info.author = author[0].textContent;
     }
     var copyright = xml.getElementsByTagName('copyright');
-    if (copyright.length > 0) 
-    {
+    if (copyright.length > 0) {
       this._info.copyright = copyright[0].textContent;
     }
 
     var parseElements = options.gpx_options.parseElements;
-    
-    /*
-    if (parseElements.indexOf('route') > -1) 
-    {
+    if (parseElements.indexOf('route') > -1) {
       // routes are <rtept> tags inside <rte> sections
       var routes = xml.getElementsByTagName('rte');
-      for (i = 0; i < routes.length; i++) 
-      {
+      for (i = 0; i < routes.length; i++) {
         var route = routes[i];
         var base_style = this._extract_styling(route);
         var polyline_options = this._get_polyline_options(options.polyline_options, i);
         layers = layers.concat(this._parse_segment(routes[i], options, base_style, polyline_options, 'rtept'));
       }
     }
-    */
 
-    /*
-    if (parseElements.indexOf('track') > -1) 
-    {
+    if (parseElements.indexOf('track') > -1) {
       // tracks are <trkpt> tags in one or more <trkseg> sections in each <trk>
       var tracks = xml.getElementsByTagName('trk');
       for (i = 0; i < tracks.length; i++) {
@@ -458,30 +418,18 @@ L.GPX = L.FeatureGroup.extend({
         }
       }
     }
-    */
-    
+
     this._info.hr.avg = Math.round(this._info.hr._total / this._info.hr._points.length);
     this._info.cad.avg = Math.round(this._info.cad._total / this._info.cad._points.length);
     this._info.atemp.avg = Math.round(this._info.atemp._total / this._info.atemp._points.length);
-  
-    console.log('this._info.hr.avg',this._info.hr.avg);
-    console.log('this._info.cad.avg',this._info.cad.avg);
-    console.log('this._info.atemp.avg',this._info.atemp.avg);
 
     // parse waypoints and add markers for each of them
-    if (parseElements.indexOf('waypoint') > -1) 
-    {
+    if (parseElements.indexOf('waypoint') > -1) {
       el = xml.getElementsByTagName('wpt');
-      console.log('el.length',el.length);
-      //console.log('el',el);
-      for (i = 0; i < el.length; i++) 
-      {
-        /*
+      for (i = 0; i < el.length; i++) {
         var ll = new L.LatLng(
             el[i].getAttribute('lat'),
             el[i].getAttribute('lon'));
-        */
-        var ll = new L.LatLng(61.844910,34.379323);
 
         var nameEl = el[i].getElementsByTagName('name');
         var name = nameEl.length > 0 ? nameEl[0].textContent : '';
@@ -495,46 +443,37 @@ L.GPX = L.FeatureGroup.extend({
         var typeEl = el[i].getElementsByTagName('type');
         var typeKey = typeEl.length > 0 ? typeEl[0].textContent : null;
 
-        /**
-         * Добавляем маркер путевой точки на основе ключа-символа путевой точки:
-         * сначала ещем настроенный значок для этого символического ключа. Если 
-         * он не найден, ищем URL-адрес настроенного значка для этого символического 
-         * ключа и создаём значок на его основе.
-         * 
-         * Если ни один из них не совпадает, просматриваем список совпадений по очкам 
-         * в поисках совпадений в названии путевой точки. В противном случае 
-         * возвращаемся к значку по умолчанию, если он был настроен, или к URL-адресу 
-         * значка по умолчанию, если он был настроен
-        **/
+        /*
+         * Add waypoint marker based on the waypoint symbol key.
+         *
+         * First look for a configured icon for that symKey. If not found, look
+         * for a configured icon URL for that symKey and build an icon from it.
+         * If none of those match, look through the point matchers for a match
+         * on the waypoint's name.
+         *
+         * Otherwise, fall back to the default icon if one was configured, or
+         * finally to the default icon URL, if one was configured.
+         */
         var wptIcons = options.markers.wptIcons;
         var wptTypeIcons = options.markers.wptTypeIcons;
         var ptMatchers = options.markers.pointMatchers || [];
         var symIcon;
-        if (wptIcons && symKey && wptIcons[symKey]) 
-        {
+        if (wptIcons && symKey && wptIcons[symKey]) {
           symIcon = wptIcons[symKey];
-        } 
-        else if (wptTypeIcons && typeKey && wptTypeIcons[typeKey]) 
-        {
+        } else if (wptTypeIcons && typeKey && wptTypeIcons[typeKey]) {
           symIcon = wptTypeIcons[typeKey];
-        } 
-        else if (ptMatchers.length > 0) 
-        {
-          for (var j = 0; j < ptMatchers.length; j++) 
-          {
+        } else if (ptMatchers.length > 0) {
+          for (var j = 0; j < ptMatchers.length; j++) {
             if (ptMatchers[j].regex.test(name)) {
               symIcon = ptMatchers[j].icon;
               break;
             }
           }
-        } 
-        else if (wptIcons && wptIcons['']) 
-        {
+        } else if (wptIcons && wptIcons['']) {
           symIcon = wptIcons[''];
         }
 
-        if (!symIcon) 
-        {
+        if (!symIcon) {
           console.log(
             'No waypoint icon could be matched for symKey=%s,typeKey=%s,name=%s on waypoint %o',
             symKey, typeKey, name, el[i]);
@@ -553,14 +492,11 @@ L.GPX = L.FeatureGroup.extend({
       }
     }
 
-    //if (layers.length > 1) 
-    //{
-    //   return new L.FeatureGroup(layers);
-    //} 
-    //else if (layers.length == 1) 
-    //{
+    if (layers.length > 1) {
+       return new L.FeatureGroup(layers);
+    } else if (layers.length == 1) {
       return layers[0];
-    //}
+    }
   },
 
   _parse_segment: function(line, options, base_style, polyline_options, tag) {

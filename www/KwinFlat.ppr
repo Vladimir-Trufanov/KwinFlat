@@ -125,8 +125,8 @@ KwinFlat
 			favicon260x260\favicon-32x32.png
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
-		-gpx
-			-js
+		+gpx
+			+js
 				-images
 					gpx\js\images\DirFlag47x47.png
 					gpx\js\images\fil.gpx
@@ -172,7 +172,7 @@ KwinFlat
 			jQuery\jquery-ui.min.js
 		-Lead40
 			Lead40\index.php
-		-Leafgpx
+		+Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -259,24 +259,24 @@ KwinFlat
 [Open project files]
 0=State\index.php
 1=Update40\Update40.js
-2=j_getLastStateMess.php
-3=TKvizzyMaker\CommonStateMaker.php
-4=Update40\Update40.css
+2=Leafgpx\index.php
+3=gpx\js\gpxtve.js
+4=gpx\mp20230923.gpx
 [Selected Project Files]
 Main=
-Selected=Update40\Update40.js
+Selected=gpx\js\gpxtve.js
 [State\index.php]
 TopLine=23
 Caret=53,23
 [Update40\Update40.js]
-TopLine=257
-Caret=55,279
-[j_getLastStateMess.php]
+TopLine=235
+Caret=19,273
+[Leafgpx\index.php]
+TopLine=50
+Caret=10,79
+[gpx\js\gpxtve.js]
+TopLine=465
+Caret=50,484
+[gpx\mp20230923.gpx]
 TopLine=1
-Caret=1,1
-[TKvizzyMaker\CommonStateMaker.php]
-TopLine=151
-Caret=1,1
-[Update40\Update40.css]
-TopLine=162
-Caret=2,174
+Caret=36,10
