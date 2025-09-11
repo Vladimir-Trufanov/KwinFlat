@@ -56,6 +56,7 @@ try
    // Выполняем начальную инициализацию переменных, определяем константы,
    // создаем классы для начального заполнения разметки
    require_once 'iniMem.php'; 
+   require_once 'iniMenu.php'; 
    
    // Начинаем разметку страниц сайта c кодировкой UTF8
    echo '<!DOCTYPE html>'; // определили разметку HTML5
@@ -93,6 +94,29 @@ try
    {
       echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
    }
+
+   // Подключаем SmartMenus
+   echo '<script src="SmartMenus/jquery.smartmenus.min.js"></script>';
+   echo '<script src="SmartMenus/MakeSmartMenu.js"></script>';
+   echo '<link rel="stylesheet" href="SmartMenus/sm-core-css.css">';
+   echo '<link rel="stylesheet" href="SmartMenus/sm-doortry-mobi.css">';
+
+   /*
+   // Делаем страницу для смартфона
+   if ($SiteDevice==Mobile) 
+   {   
+     //echo '<script>alert("Mobile");</script>';
+     echo '<link href="Styles/MobiStyles.css" rel="stylesheet">';
+     echo '<link rel="stylesheet" href="SmartMenus/sm-doortry-mobi.css">';
+   }
+   // Делаем страницу для компьютера
+   else 
+   {   
+     echo '<link href="Styles/Styles.css" rel="stylesheet">';
+     echo '<link href="Styles/ApiPogoda.css" rel="stylesheet">';
+     echo '<link rel="stylesheet" href="SmartMenus/sm-doortry.css">';
+   }
+   */
    //
    if ($task=='Update40') require_once 'Update40/Update40HEAD.php';
    else require_once 'Meet40/Meet40HEAD.php';

@@ -12,11 +12,15 @@
 echo '<div id="LeftAndRight">';
 echo '<div id="Left">';
    echo '<div id="Header">';
-   echo '
-   <img id="kwf" src="../Images/Kwinflat.jpg" alt="Kwinflat-близкий всем!" />
-   ';
-   // Подключаем кнопку виртуального контроллера
-   require_once 'Update40/FlipOnHover/FlipOnHover.html';
+     // Размещаем гамбургер-меню
+     echo '<div id="gamburg">';
+        TopMenu($urlHome); 
+     echo '</div>';
+     echo '
+     <img id="kwf" src="../Images/Kwinflat.jpg" alt="Kwinflat-близкий всем!" />
+     ';
+     // Подключаем кнопку виртуального контроллера
+     require_once 'Update40/FlipOnHover/FlipOnHover.html';
    echo '</div>';
 
    echo '<div id="Article">';
