@@ -50,7 +50,8 @@ echo '<div id = "map" style = "width:900px; height:580px;"></div>';
 
 // - добавляем слой на карту (традиционный набор тайлов от Openstreetmap).
 
-$lat=61.8021; $long=34.3296; $zoom=10;
+$lat=61.8021;   $long=34.3296;   $zoom=10;  // Центр в Петрозаводске
+$lat=61.846308; $long=33.206584; $zoom=10;  // Центр в Эссойле
 echo "
 <script>
 var mapOptions = {center:[".$lat.",".$long."],zoom:".$zoom."}
@@ -93,6 +94,7 @@ echo "
 // https://yandex.ru/video/preview/3597308546601073229
 echo "
 <script>
+  /*
   var marker1 = new L.Marker([61.802094,34.329613]); // 'Dom'
   marker1.bindPopup('Наш хороший дом!').openPopup();
   marker1.addTo(map);
@@ -104,12 +106,14 @@ echo "
   var marker4 = new L.Marker([61.847725,34.405182]); // 'EShtany'
   marker4.bindPopup('Загадочные Егоровы штаны!').openPopup();
   marker4.addTo(map);
+  */
 </script>
 ";
 
 // Создаем собственный маркер
 echo "
 <script>
+  /*
   var myiconOptions = {
     iconUrl: 'js/images/kwinflat16x16.png',
     iconSize: [16,16]
@@ -124,6 +128,7 @@ echo "
   var mymarker = L.marker([61.802094,34.154702], mymarkerOptions);
   mymarker.bindPopup('Где живет KwinFlat').openPopup();
   mymarker.addTo(map);
+  */
 </script>
 ";
 
@@ -131,6 +136,7 @@ echo "
 // (первую точку дважды, второй раз, как последнюю)
 echo "
 <script>
+  /*
   // Готовим маркер 'точка локации'
   var LocateArrowIconOptions = 
   {
@@ -174,6 +180,8 @@ echo "
   var DirFlagMarker = L.marker([61.846308, 33.206584], DirFlagMarkerOptions);
   DirFlagMarker.bindPopup('Эссойла, ул.Школьная, 3').openPopup();
   DirFlagMarker.addTo(map);
+  */
+  
   // Создаем полилинию
   var latlngs = [
      [61.846308, 33.206584],
@@ -185,11 +193,20 @@ echo "
   var polyline = L.polyline(latlngs, {color: 'red'});
   // Adding to poly line to map
   polyline.addTo(map);
+
+  latlngs = [
+     [61.846308, 33.206584],
+     [61.856308, 33.216584]
+  ];
+  polyline = L.polyline(latlngs, {color: 'blue'});
+  polyline.addTo(map);
+
 </script>
 ";
 // 'Точка на карте с регионом' - создаем наложение в виде круга на карте 
 echo "
 <script>
+  /*
   // Готовим маркер 'точка на карте'
   var PinMapIconOptions = 
   {
@@ -219,7 +236,8 @@ echo "
   }
   // Создаем круг радиусом 5 км
   var circle = L.circle(circleCenter, 5000, circleOptions);
-  circle.addTo(map); 
+  circle.addTo(map);
+  */ 
 </script>
 ";
 // Загружаем файл GPX

@@ -67,7 +67,8 @@ $HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с 
 // !!! Для подключения файлов gpx в IIS следует установить MIME-тип "gpx", как text/xml
 // const url = 'https://mpetazzoni.github.io/leaflet-gpx/demo.gpx';
 // echo "const url = '"."http://localhost:100"."/gpx/mp20230923.gpx';";
-echo "const url = '".$urlHome."/gpx/mp20230923.gpx';";
+//echo "const url = '".$urlHome."/gpx/mp20230923.gpx';";
+echo "const url = '".$urlHome."/gpx/track20250810.gpx';";
 
 ?>
    const options = 
@@ -79,6 +80,27 @@ echo "const url = '".$urlHome."/gpx/mp20230923.gpx';";
    const gpx = new L.GPX(url, options).on('loaded', (e) => {
       map.fitBounds(e.target.getBounds());
    }).addTo(map);
+   
+   // Создаем полилинию
+   var latlngs = [
+     [61.846308, 33.206584],
+     [61.934839, 33.655948],
+     [61.833141, 32.929247],
+     [61.846308, 33.206584]
+   ];
+   
+   //var polyline = L.polyline(latlngs, {color: 'red'});
+   //polyline.addTo(map);
+
+   /*
+   
+   latlngs = [
+     [61.846308, 33.206584],
+     [61.856308, 33.216584]
+   ];
+   polyline = L.polyline(latlngs, {color: 'blue'});
+   polyline.addTo(map);
+   */
 
    </script>
 </body>

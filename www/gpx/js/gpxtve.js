@@ -1,4 +1,5 @@
 /**
+ * рус
  * Copyright (C) 2011-2012 Pavel Shramov
  * Copyright (C) 2013-2017 Maxime Petazzoni <maxime.petazzoni@bulix.org>
  * All Rights Reserved.
@@ -311,7 +312,7 @@ L.GPX = L.FeatureGroup.extend({
 
   _load_xml: function(url, cb, options, async) 
   {
-    console.log('url='+url);
+    //console.log('url='+url);
     if (async == undefined) async = this.options.async;
     if (options == undefined) options = this.options;
 
@@ -337,12 +338,12 @@ L.GPX = L.FeatureGroup.extend({
 
   _parse: function(input, options, async) 
   {
-    console.log('input',input);
+    //console.log('input',input);
     var _this = this;
     var cb = function(gpx, options) 
     {
       var layers = _this._parse_gpx_data(gpx, options);
-      console.log('layers',layers);
+      //console.log('layers',layers);
       if (!layers) 
       {
         _this.fire('error', { err: 'No parseable layers of type(s) ' + JSON.stringify(options.gpx_options.parseElements) });
@@ -353,7 +354,7 @@ L.GPX = L.FeatureGroup.extend({
     }
     if (input.substr(0,1)==='<') 
     { 
-      console.log('input.substr(0,1)');
+      //console.log('input.substr(0,1)');
       // direct XML has to start with a <
       var parser = new DOMParser();
       if (async) 
@@ -370,7 +371,7 @@ L.GPX = L.FeatureGroup.extend({
     } 
     else 
     {
-      console.log('this._load_xml');
+      //console.log('this._load_xml');
       this._load_xml(input, cb, options, async);
     }
   },
@@ -423,7 +424,6 @@ L.GPX = L.FeatureGroup.extend({
 
     var parseElements = options.gpx_options.parseElements;
     
-    /*
     if (parseElements.indexOf('route') > -1) 
     {
       // routes are <rtept> tags inside <rte> sections
@@ -436,9 +436,7 @@ L.GPX = L.FeatureGroup.extend({
         layers = layers.concat(this._parse_segment(routes[i], options, base_style, polyline_options, 'rtept'));
       }
     }
-    */
 
-    /*
     if (parseElements.indexOf('track') > -1) 
     {
       // tracks are <trkpt> tags in one or more <trkseg> sections in each <trk>
@@ -458,31 +456,27 @@ L.GPX = L.FeatureGroup.extend({
         }
       }
     }
-    */
     
     this._info.hr.avg = Math.round(this._info.hr._total / this._info.hr._points.length);
     this._info.cad.avg = Math.round(this._info.cad._total / this._info.cad._points.length);
     this._info.atemp.avg = Math.round(this._info.atemp._total / this._info.atemp._points.length);
   
-    console.log('this._info.hr.avg',this._info.hr.avg);
-    console.log('this._info.cad.avg',this._info.cad.avg);
-    console.log('this._info.atemp.avg',this._info.atemp.avg);
+    //console.log('this._info.hr.avg',this._info.hr.avg);
+    //console.log('this._info.cad.avg',this._info.cad.avg);
+    //console.log('this._info.atemp.avg',this._info.atemp.avg);
 
     // parse waypoints and add markers for each of them
     if (parseElements.indexOf('waypoint') > -1) 
     {
       el = xml.getElementsByTagName('wpt');
-      console.log('el.length',el.length);
+      //console.log('el.length',el.length);
       //console.log('el',el);
       for (i = 0; i < el.length; i++) 
       {
-        /*
         var ll = new L.LatLng(
             el[i].getAttribute('lat'),
             el[i].getAttribute('lon'));
-        */
-        var ll = new L.LatLng(61.844910,34.379323);
-
+        //var ll = new L.LatLng(61.844910,34.379323);
         var nameEl = el[i].getElementsByTagName('name');
         var name = nameEl.length > 0 ? nameEl[0].textContent : '';
 
@@ -506,6 +500,7 @@ L.GPX = L.FeatureGroup.extend({
          * возвращаемся к значку по умолчанию, если он был настроен, или к URL-адресу 
          * значка по умолчанию, если он был настроен
         **/
+
         var wptIcons = options.markers.wptIcons;
         var wptTypeIcons = options.markers.wptTypeIcons;
         var ptMatchers = options.markers.pointMatchers || [];
@@ -553,14 +548,14 @@ L.GPX = L.FeatureGroup.extend({
       }
     }
 
-    //if (layers.length > 1) 
-    //{
-    //   return new L.FeatureGroup(layers);
-    //} 
-    //else if (layers.length == 1) 
-    //{
+    if (layers.length > 1) 
+    {
+       return new L.FeatureGroup(layers);
+    } 
+    else if (layers.length == 1) 
+    {
       return layers[0];
-    //}
+    }
   },
 
   _parse_segment: function(line, options, base_style, polyline_options, tag) {

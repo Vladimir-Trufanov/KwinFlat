@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		-Controller
+		+Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -75,7 +75,7 @@ KwinFlat
 			Controller\counts.txt
 			Controller\multipartDigits.php
 			Controller\TrackTest.php
-		-Ex2
+		+Ex2
 			-d3js790
 				Ex2\d3js790\98147caa0bf62512153f28c587e0feb5-a7636fa325dfb94d129bb690aa39d708af429006.zip
 				Ex2\d3js790\d3.v7.min.js
@@ -115,6 +115,28 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
+		+Ex6
+			-js
+				-images
+					Ex6\js\images\DirFlag47x47.png
+					Ex6\js\images\kwinflat16x16.png
+					Ex6\js\images\kwinflat32x32.png
+					Ex6\js\images\kwinflat48x48.png
+					Ex6\js\images\layers.png
+					Ex6\js\images\layers.svg
+					Ex6\js\images\layers-2x.png
+					Ex6\js\images\LocateArrow50x50.png
+					Ex6\js\images\logo.svg
+					Ex6\js\images\marker-icon.png
+					Ex6\js\images\marker-icon.svg
+					Ex6\js\images\marker-icon-2x.png
+					Ex6\js\images\marker-shadow.png
+					Ex6\js\images\marker-shadow.svg
+					Ex6\js\images\PinMap38x38.png
+				Ex6\js\leaflet.css
+				Ex6\js\leaflet.js
+			Ex6\favicon.ico
+			Ex6\index.php
 		-favicon260x260
 			favicon260x260\android-chrome-192x192.png
 			favicon260x260\android-chrome-256x256.png
@@ -147,13 +169,16 @@ KwinFlat
 					gpx\js\images\track20250810.gpx
 				gpx\js\gpx212.min.js
 				gpx\js\gpxtve.js
+				gpx\js\gpxtveFirst.js
 				gpx\js\leaflet171.css
 				gpx\js\leaflet171.js
 				gpx\js\leaflet194.css
 				gpx\js\leaflet194.js
 			gpx\demo_mpetazzoni.gpx
 			gpx\mp20230923.gpx
+			gpx\mp20230923First.gpx
 			gpx\track20250810.gpx
+			gpx\track20250810First.gpx
 		-htaccess
 			htaccess\.htaccess
 		-Images
@@ -172,7 +197,7 @@ KwinFlat
 			jQuery\jquery-ui.min.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -197,8 +222,9 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
-		+SmartMenus
+		-SmartMenus
 			SmartMenus\AjaxBase.db3
+			SmartMenus\ColabLig-webfont.ttf
 			SmartMenus\ColabLig-webfont.woff
 			SmartMenus\jquery.smartmenus.min.js
 			SmartMenus\leaguegothic-regular-webfont.ttf
@@ -208,22 +234,21 @@ KwinFlat
 			SmartMenus\sm-core-css.css
 			SmartMenus\sm-doortry.css
 			SmartMenus\sm-doortry-mobi.css
-			SmartMenus\ColabLig-webfont.ttf
 		-State
 			State\index.php
-		-State40
+		+State40
 			State40\index.php
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
 		+Update40
-			+FlipOnHover
+			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
 			Update40\intrv.css
@@ -259,24 +284,24 @@ KwinFlat
 [Open project files]
 0=State\index.php
 1=Update40\Update40.js
-2=Leafgpx\index.php
-3=gpx\js\gpxtve.js
-4=gpx\mp20230923.gpx
+2=iniMenu.php
+3=Ex6\index.php
+4=Controller\Controller.js
 [Selected Project Files]
 Main=
-Selected=gpx\js\gpxtve.js
+Selected=Ex6\index.php
 [State\index.php]
 TopLine=23
 Caret=53,23
 [Update40\Update40.js]
-TopLine=235
-Caret=19,273
-[Leafgpx\index.php]
-TopLine=50
-Caret=10,79
-[gpx\js\gpxtve.js]
-TopLine=465
-Caret=50,484
-[gpx\mp20230923.gpx]
+TopLine=79
+Caret=1,79
+[iniMenu.php]
+TopLine=2
+Caret=83,35
+[Ex6\index.php]
 TopLine=1
-Caret=36,10
+Caret=43,9
+[Controller\Controller.js]
+TopLine=139
+Caret=1,150
