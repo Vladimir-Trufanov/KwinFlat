@@ -137,7 +137,7 @@ KwinFlat
 				Ex6\js\leaflet.js
 			Ex6\favicon.ico
 			Ex6\index.php
-		+Ex7
+		-Ex7
 			-js
 				-images
 					Ex7\js\images\DirFlag47x47.png
@@ -159,6 +159,8 @@ KwinFlat
 				Ex7\js\leaflet.js
 			Ex7\index.php
 			Ex7\Как подключиться к тайловой карте яндекса.md
+		+Ex8
+			Ex8\index.php
 		-favicon260x260
 			favicon260x260\android-chrome-192x192.png
 			favicon260x260\android-chrome-256x256.png
@@ -306,33 +308,21 @@ KwinFlat
 		web.config
 [Open project files]
 0=State\index.php
-1=Update40\Update40.js
+1=Ex8\index.php
 2=iniMenu.php
-3=Ex6\index.php
-4=Controller\Controller.js
-5=Ex7\index.php
-6=Ex4\index.php
+3=iniMem.php
 [Selected Project Files]
 Main=
-Selected=Ex7\index.php
+Selected=iniMem.php
 [State\index.php]
-TopLine=23
+TopLine=1
 Caret=53,23
-[Update40\Update40.js]
-TopLine=79
-Caret=1,79
+[Ex8\index.php]
+TopLine=1
+Caret=1,9
 [iniMenu.php]
-TopLine=2
-Caret=87,35
-[Ex6\index.php]
-TopLine=7
-Caret=1,30
-[Controller\Controller.js]
-TopLine=139
-Caret=1,150
-[Ex7\index.php]
-TopLine=27
-Caret=60,56
-[Ex4\index.php]
-TopLine=137
-Caret=1,167
+TopLine=10
+Caret=44,47
+[iniMem.php]
+TopLine=1
+Caret=42,9

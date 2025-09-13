@@ -40,7 +40,11 @@ function TopMenu($urlHome)
    echo '</li>';
 
    echo '<li>';
-   echo '<a href="'.$urlHome.'/Ex7/">'."Показать карту с вашим местоположением".'</a>';
+   echo '<a href="'.$urlHome.'/Ex7/">'."7. Показать карту с вашим местоположением".'</a>';
+   echo '</li>';
+
+   echo '<li>';
+   echo '<a href="'.$urlHome.'/Ex8/">'."8. Показать карту с вашим местоположением".'</a>';
    echo '</li>';
    
    echo '</ul>';
