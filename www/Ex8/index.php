@@ -32,8 +32,11 @@
         }
 
         function showMap() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
+            if (navigator.geolocation) 
+            {
+                navigator.geolocation.getCurrentPosition(function (position) 
+                //navigator.geolocation.watchPosition(function (position)
+                {
                     const latitude = position.coords.latitude;
                     const longitude = position.coords.longitude;
                     const accuracy = position.coords.accuracy; // Погрешность в метрах

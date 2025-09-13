@@ -75,7 +75,7 @@ KwinFlat
 			Controller\counts.txt
 			Controller\multipartDigits.php
 			Controller\TrackTest.php
-		-Ex2
+		+Ex2
 			-d3js790
 				Ex2\d3js790\98147caa0bf62512153f28c587e0feb5-a7636fa325dfb94d129bb690aa39d708af429006.zip
 				Ex2\d3js790\d3.v7.min.js
@@ -137,7 +137,7 @@ KwinFlat
 				Ex6\js\leaflet.js
 			Ex6\favicon.ico
 			Ex6\index.php
-		-Ex7
+		+Ex7
 			-js
 				-images
 					Ex7\js\images\DirFlag47x47.png
@@ -159,8 +159,10 @@ KwinFlat
 				Ex7\js\leaflet.js
 			Ex7\index.php
 			Ex7\Как подключиться к тайловой карте яндекса.md
-		+Ex8
+		-Ex8
 			Ex8\index.php
+		+Ex9
+			Ex9\index.php
 		-favicon260x260
 			favicon260x260\android-chrome-192x192.png
 			favicon260x260\android-chrome-256x256.png
@@ -310,19 +312,23 @@ KwinFlat
 0=State\index.php
 1=Ex8\index.php
 2=iniMenu.php
-3=iniMem.php
+3=Ex9\index.php
+4=Ex2\index.php
 [Selected Project Files]
 Main=
-Selected=iniMem.php
+Selected=Ex2\index.php
 [State\index.php]
 TopLine=1
 Caret=53,23
 [Ex8\index.php]
-TopLine=1
-Caret=1,9
+TopLine=19
+Caret=17,37
 [iniMenu.php]
-TopLine=10
-Caret=44,47
-[iniMem.php]
-TopLine=1
-Caret=42,9
+TopLine=19
+Caret=83,51
+[Ex9\index.php]
+TopLine=37
+Caret=28,70
+[Ex2\index.php]
+TopLine=3
+Caret=30,9

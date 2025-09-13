@@ -46,6 +46,10 @@ function TopMenu($urlHome)
    echo '<li>';
    echo '<a href="'.$urlHome.'/Ex8/">'."8. Показать карту с вашим местоположением".'</a>';
    echo '</li>';
+
+   echo '<li>';
+   echo '<a href="'.$urlHome.'/Ex9/">'."Изучить работу с тайловыми картами яндекса".'</a>';
+   echo '</li>';
    
    echo '</ul>';
    return $Result;
