@@ -2,15 +2,21 @@
 // PHP7/HTML5, EDGE/CHROME/YANDEX                             *** index.php ***
 
 // ****************************************************************************
-// * KwinFlat/Leaflet                Создать карту с Leaflet для загрузки GPX *
+// * KwinFlat/Leaflet                Создать карту с Leaflet для отслеживания *
+//*                                                     треков и загрузки GPX *
 // ****************************************************************************
 
 // v1.0.9, 15.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 07.08.2025
 
-echo '<!DOCTYPE html>'; // определили разметку HTML5
+echo '<!DOCTYPE html>';  // определили разметку HTML5
 echo '<html lang="ru">'; // назначили русский язык для сайта
 echo '<meta http-equiv="content-type" content="text/html; charset=utf-8">';
+
+// Реестр образцов запросов на Leafgpx
+// https://probatv.ru/Leafgpx                    - общий запрос трассировки всех треков
+// https://probatv.ru/Leafgpx/?ctrl=203          - запрос трассировки трека 203 контроллера 'Sim900 в автомобиле' 
+// https://probatv.ru/Leafgpx/?gpx=204           - запрос загрузки файла gpx 'Виртуального контроллера'
 
 // Инициализируем рабочее пространство: корневой каталог сайта и т.д.
 require_once '../iniWorkSpace.php';
@@ -40,7 +46,7 @@ require_once '../iniMenu.php';
 
 ?>
 <head>
-   <title> Мои карты с LeafletJS </title>
+   <title> Карта отслеживания треков и загрузки GPX </title>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <link rel="stylesheet" href="../gpx/js/leaflet171.css" />
@@ -58,22 +64,89 @@ require_once '../iniMenu.php';
    echo '<script src="/SmartMenus/MakeSmartMenu.js"></script>';
    echo '<link rel="stylesheet" href="/SmartMenus/sm-core-css.css">';
    echo '<link rel="stylesheet" href="/SmartMenus/sm-doortry-mobi.css">';
+   // Разворачиваем смартменю
+   echo '<script> MakeSmartMenu(); </script>';
    ?>
    <style>
-      #map { height: 500px; }
+     /*  #map { height: 500px; } */
    </style>
 </head>
 
 <body>
-   <?php
-   // Размещаем гамбургер-меню
-   echo '<div id="gamburg">';
-     GpxMenu($urlHome); 
-   echo '</div>';
-   ?>
+<?php
+  // Размещаем гамбургер-меню
+  echo '<div id="gamburg">';
+    GpxMenu($urlHome); 
+  echo '</div>';
+  // Для размещения карты создаем элемент-контейнер (как правило, тег <div>) и задаём его размеры
+  echo '<div id = "map" style = "width:900px; height:580px;"></div>';
+ 
+  // Определяем контекст нужной страницы
+  $taskgpx=prown\getComRequest('gpx');
+  // Центруем (по умолчанию-Петрозаводск) и выводим карту для трассировки трека
+  if ($taskgpx==NULL) SimpleTrackMap();
+  // Создаем карту для загрузки файла gps и загружаем файл          
+  else LoadGpsFile($urlHome);
+?>
+</body>
+</html>
+<?php
 
-   <div id="map"></div>
-   <!-- ... -->
+// ****************************************************************************
+// *      Отцентрировать (по умолчанию - Петрозаводск) и вывести карту для    *
+// *                              трассировки трека                           *
+// ****************************************************************************
+function SimpleTrackMap()
+{
+   // Cоздаём объект mapOptions и определяем начальные параметры карты: center и zoom,
+   // где center получает объект LatLng, указывающий местоположение, вокруг которого 
+   // мы хотим расположить карту (это значения широты и долготы), а zoom представляет 
+   // означает целое число, соответствующее уровню масштабирования карты;
+
+   // Cоздаём объект map (карту на странице) с передачей двух параметров: 
+   // строковой переменной, представляющей идентификатор DOM или экземпляр элемента <div>
+   // и указывающей на HTML-контейнер для хранения карты и необязательный объектный 
+   // литерал с параметрами карты;
+
+   // Cоздаём экземпляр TileLayer класса - набор определенного типа плиток (слой тайлов). 
+   // При создании экземпляра необходимо передать шаблон URL-адреса, запрашивающий 
+   // нужный слой тайлов (карту) у поставщика услуг (в нашем случае Openstreetmap);
+
+   // Добавляем слой на карту (традиционный набор тайлов от Openstreetmap).
+   // $lat=61.783270; $long=33.808963;  $zoom=10;  // Центр в Матросах
+   $lat=61.8021;   $long=34.3296;    $zoom=11;      // Центр в Петрозаводске
+   // $lat=61.846308; $long=33.206584; $zoom=10;   // Центр в Эссойле
+   echo "
+   <script>
+   var mapOptions = {center:[".$lat.",".$long."],zoom:".$zoom."}
+   ";
+   echo "
+   var map = new L.map('map',mapOptions);
+   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+   attribution: 'Map data © OpenStreetMap contributors',
+   maxZoom: 19,
+   }).addTo(map);
+   ";
+   echo "
+   </script>
+   ";
+}
+// ****************************************************************************
+// *         Создать карту для загрузки файла gps и загрузить файл            *
+// ****************************************************************************
+function LoadGpsFile($urlHome)
+{
+   // !!! Для подключения файлов gpx в IIS следует установить MIME-тип "gpx", как text/xml
+   // const url = 'https://mpetazzoni.github.io/leaflet-gpx/demo.gpx';
+   // echo "const url = '"."http://localhost:100"."/gpx/mp20230923.gpx';";
+   // echo "const url = '".$urlHome."/gpx/mp20230923.gpx';";
+   echo "
+   <script>
+   const url = '".$urlHome."/gpx/track20250810.gpx';
+   </script>
+   ";
+   
+   ?>
    <script type="module">
    const map = L.map('map');
    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -83,15 +156,7 @@ require_once '../iniMenu.php';
       tileSize: 512,
       zoomOffset: -1
    }).addTo(map);
-<?php
 
-// !!! Для подключения файлов gpx в IIS следует установить MIME-тип "gpx", как text/xml
-// const url = 'https://mpetazzoni.github.io/leaflet-gpx/demo.gpx';
-// echo "const url = '"."http://localhost:100"."/gpx/mp20230923.gpx';";
-// echo "const url = '".$urlHome."/gpx/mp20230923.gpx';";
-echo "const url = '".$urlHome."/gpx/track20250810.gpx';";
-
-?>
    // Определяем цвет трека
    const options = 
    {
@@ -103,8 +168,7 @@ echo "const url = '".$urlHome."/gpx/track20250810.gpx';";
       map.fitBounds(e.target.getBounds());
    }).addTo(map);
    </script>
-</body>
-</html>
-<?php
+   <?php
+}
 
 ?> <!-- --> <?php // ******************************************** index.php ***

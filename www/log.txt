@@ -26,3 +26,4 @@ Stack trace:
 #5 C:\KwinFlat\www\index.php(58): require_once('C:\\KwinFlat\\www...')
 #6 {main}
   thrown in C:\KwinFlat\www\TKvizzyMaker\CommonStateMaker.php on line 69
+[15-Sep-2025 14:23:19 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<' in C:\KwinFlat\www\iniMenu.php on line 100

@@ -163,7 +163,7 @@ KwinFlat
 				Ex2\leaflet194\leaflet.css
 				Ex2\leaflet194\leaflet.js
 			Ex2\index.php
-		-Ex3
+		+Ex3
 			-leaflet194
 				-images
 					Ex3\leaflet194\images\kwinflat32x32.png
@@ -173,7 +173,7 @@ KwinFlat
 				Ex3\leaflet194\leaflet.css
 				Ex3\leaflet194\leaflet.js
 			Ex3\index.php
-		-Ex4
+		+Ex4
 			-js
 				-images
 					Ex4\js\images\DirFlag47x47.png
@@ -330,7 +330,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -380,7 +380,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		-Update40
+		+Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -421,25 +421,21 @@ KwinFlat
 2=TKvizzyMaker\CommonKvizzyMaker.php
 3=Controller\Controller.js
 4=Leafgpx\index.php
-5=iniMenu.php
 [Selected Project Files]
 Main=
 Selected=Leafgpx\index.php
 [State\index.php]
-TopLine=65
-Caret=43,19
+TopLine=13
+Caret=1,20
 [gpx\track20250810.gpx]
 TopLine=1
 Caret=11,10
 [TKvizzyMaker\CommonKvizzyMaker.php]
-TopLine=81
-Caret=1,1
+TopLine=2
+Caret=1,22
 [Controller\Controller.js]
 TopLine=145
 Caret=65,158
 [Leafgpx\index.php]
-TopLine=72
-Caret=58,92
-[iniMenu.php]
-TopLine=5
-Caret=1,88
+TopLine=68
+Caret=1,90
