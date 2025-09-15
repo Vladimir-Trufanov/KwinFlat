@@ -5,7 +5,7 @@
 // * KwinFlat/Leaflet                Создать карту с Leaflet для загрузки GPX *
 // ****************************************************************************
 
-// v1.0.8, 24.08.2025                                 Автор:      Труфанов В.Е.
+// v1.0.9, 15.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 07.08.2025
 
 echo '<!DOCTYPE html>'; // определили разметку HTML5
@@ -36,6 +36,8 @@ $RemoteHost   = $_WORKSPACE[wsRemoteHost];   // Удаленный хост, с 
 $HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с которой браузер пользователя перешёл на текущую страницу
 */
 
+require_once '../iniMenu.php'; 
+
 ?>
 <head>
    <title> Мои карты с LeafletJS </title>
@@ -44,13 +46,32 @@ $HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с 
    <link rel="stylesheet" href="../gpx/js/leaflet171.css" />
    <script src="../gpx/js/leaflet171.js"></script>
    <script src="../gpx/js/gpxtve.js"></script>
-
+   <?php   
+   // Подключаем jQuery
+   echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
+   echo '
+      <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
+      <script src="/jQuery/jquery-ui.min.js"></script>
+   ';
+   // Подключаем SmartMenus
+   echo '<script src="/SmartMenus/jquery.smartmenus.min.js"></script>';
+   echo '<script src="/SmartMenus/MakeSmartMenu.js"></script>';
+   echo '<link rel="stylesheet" href="/SmartMenus/sm-core-css.css">';
+   echo '<link rel="stylesheet" href="/SmartMenus/sm-doortry-mobi.css">';
+   ?>
    <style>
       #map { height: 500px; }
    </style>
 </head>
 
 <body>
+   <?php
+   // Размещаем гамбургер-меню
+   echo '<div id="gamburg">';
+     GpxMenu($urlHome); 
+   echo '</div>';
+   ?>
+
    <div id="map"></div>
    <!-- ... -->
    <script type="module">
@@ -67,41 +88,20 @@ $HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с 
 // !!! Для подключения файлов gpx в IIS следует установить MIME-тип "gpx", как text/xml
 // const url = 'https://mpetazzoni.github.io/leaflet-gpx/demo.gpx';
 // echo "const url = '"."http://localhost:100"."/gpx/mp20230923.gpx';";
-//echo "const url = '".$urlHome."/gpx/mp20230923.gpx';";
+// echo "const url = '".$urlHome."/gpx/mp20230923.gpx';";
 echo "const url = '".$urlHome."/gpx/track20250810.gpx';";
 
 ?>
+   // Определяем цвет трека
    const options = 
    {
       async: true,
       polyline_options: { color: 'red' },
    };
-
+   // Загружаем gpx-файл
    const gpx = new L.GPX(url, options).on('loaded', (e) => {
       map.fitBounds(e.target.getBounds());
    }).addTo(map);
-   
-   // Создаем полилинию
-   var latlngs = [
-     [61.846308, 33.206584],
-     [61.934839, 33.655948],
-     [61.833141, 32.929247],
-     [61.846308, 33.206584]
-   ];
-   
-   //var polyline = L.polyline(latlngs, {color: 'red'});
-   //polyline.addTo(map);
-
-   /*
-   
-   latlngs = [
-     [61.846308, 33.206584],
-     [61.856308, 33.216584]
-   ];
-   polyline = L.polyline(latlngs, {color: 'blue'});
-   polyline.addTo(map);
-   */
-
    </script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+<?php
+// PHP7/HTML5, EDGE/CHROME/YANDEX                             *** index.php ***
+
+// ****************************************************************************
+// * Ex1Osm                   ----Изучить работу с тайловыми картами яндекса            *
+// ****************************************************************************
+
+// v1.0.0, 13.09.2025                                 Автор:      Труфанов В.Е.
+// Copyright © 2025 tve       sla6en9edged            Дата создания: 13.09.2025
+
+?>
+<html>
+<head>
+	<title>Leaflet</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+	<script src="../layer/vector/OSM.js"></script>
+</head>
+<body>
+
+<div style="width:100%; height:100%" id="map"></div>
+
+<script type='text/javascript'>
+	var map = L.map('map', { center: L.latLng(55.7, 37.6), zoom: 9, zoomAnimation: false});
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+	var layer = new L.OSM('test.osm').on('loaded', function (e) {
+		map.fitBounds(e.target.getBounds());
+	}).addTo(map);
+	L.control.layers({}, {'OSM': layer}, {collapsed: false}).addTo(map);
+</script>
+
+</body>
+</html>
+<?php
+
+?> <!-- --> <?php // ******************************************** index.php ***

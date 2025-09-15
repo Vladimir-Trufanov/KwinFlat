@@ -23,7 +23,7 @@
             });
 
             var placemark = new ymaps.Placemark([latitude, longitude], {
-                balloonContent: `Вы здесь!<br>Широта: ${latitude}<br>Долгота: ${longitude}<br>Погрешность: ±${accuracy} м`
+                balloonContent: 'Вы здесь!<br>Широта: ${latitude}<br>Долгота: ${longitude}<br>Погрешность: ±${accuracy} м'
             }, {
                 preset: 'islands#redDotIcon'
             });
@@ -40,7 +40,9 @@
                     const latitude = position.coords.latitude;
                     const longitude = position.coords.longitude;
                     const accuracy = position.coords.accuracy; // Погрешность в метрах
-                    initMap(latitude, longitude, accuracy);
+                    //initMap(65, longitude, accuracy);
+                    initMap(67.6755,33.936,accuracy);
+                    //initMap(latitude, longitude, accuracy);
                 }, function () {
                     alert("Не удалось получить ваше местоположение.");
                 });
