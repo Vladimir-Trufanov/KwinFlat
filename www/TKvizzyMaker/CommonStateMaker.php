@@ -4,15 +4,16 @@
 
 // ****************************************************************************
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
-// *                          для базы данных json-сообщений страницы State40 *
+// *                            для базы данных json-сообщений страницы State *
 // *                                                                          *
-// * v4.4.4, 26.08.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.5, 16.09.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  07.01.2025 *
 // ****************************************************************************
 
 // _CreateStateTables($pdo);                             - Создать таблицы базы данных State
 // _SelectLastMess($pdo);                                - Выбрать запись из таблицы последнего полученного json-сообщения  
 // _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице последнего полученного json-сообщения  
+// _UpdateNumCtrl($pdo,$idctrl,$num,$sjson);             - Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера                      *
 // _SelState($pdo);                                      - Выбрать управляющие значения экрана и показания датчиков
 // _setStateElem($pdo,$Name,$Value);                     - Записать в базу данных изменение управляющего элемента изображения 
  
@@ -38,11 +39,12 @@ function _CreateStateTables($pdo)
       "cycle"  => -1,
       "sjson"  => '{"led4":{"light":10,"time":2000}}',
    ]);
+
    // Создаём таблицу json-сообщений от зарегистрированных контроллеров на State
-   // (последние сообщения каждого типа от каждого контроллера) 
+   // (последние сообщения каждого типа, то есть по номеру, от каждого контроллера) 
    // Общий вид запроса к State от контроллеров:
    // https://probatv.ru/State/?cycle=2&num=-1&ctrl=201&sjson={"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}}
-   // https://probatv.ru/State/?cycle=2&num=4&ctrl=203&sjson={"wpt":{"lat":52518611,"lon":13376111}} - 'Sim900 в автомобиле'
+   // https://probatv.ru/State/?cycle=2&num=5&ctrl=203&sjson={"trkpt":{"lat":52518611,"lon":13376111}} - 'Sim900 в автомобиле'
    $sql='CREATE TABLE JSONMESS ('.
       'idctrl    INTEGER NOT NULL REFERENCES Controllers(idctrl),'. // идентификатор контроллера
       'myTime    INTEGER NOT NULL,'.                                // абсолютное время в секундах с начала эпохи UNIX
@@ -75,11 +77,14 @@ function _CreateStateTables($pdo)
       "num"    => 3,
       "sjson"  => '{"dht11":{"humi":46,"tempC":248}}',
    ]);
+   
    // Создаем индекс по контроллеру и времени сообщения
-   $sql='CREATE INDEX IF NOT EXISTS iCtrlTime ON JSONMESS (idctrl,myTime)';
-   $st = $pdo->query($sql);
-   // Создаем индекс по контроллеру и номеру сообщения
-   $sql='CREATE INDEX IF NOT EXISTS iCtrlNum ON JSONMESS (idctrl,num)';
+   // $sql='CREATE INDEX IF NOT EXISTS iCtrlTime ON JSONMESS (idctrl,myTime)'; - пока не используется
+   // $st = $pdo->query($sql);
+   
+   // Создаем индекс по номеру сообщения и контроллеру для использования:
+   // - при трассировке трека контроллера
+   $sql='CREATE INDEX IF NOT EXISTS iNumCtrl ON JSONMESS (num,idctrl)';
    $st = $pdo->query($sql);
    // Создаём таблицу значений элементов для контроллера 'Esp32-CAM во двор дачи'
    $sql='CREATE TABLE State ('.
@@ -218,6 +223,58 @@ function _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson)
       // Продолжаем исключение
      throw $e;
    }
+}
+// ****************************************************************************
+// *        Обновить последние сообщения каждого типа, то есть по номеру,     * 
+// *                     от каждого контроллера на State                      *
+// ****************************************************************************
+function _UpdateNumCtrl($pdo,$idctrl,$num,$sjson)
+{
+   $isrec=false;    // "запись с контроллером и номером отсутствует"
+   $myTime=time();
+   $myDate=date("y-m-d h:i:s");
+   try 
+   {
+      $pdo->beginTransaction();
+      // Вначале проверяем, есть ли уже запись по номеру и контроллеру
+      $cSQL='SELECT sjson FROM JSONMESS WHERE idctrl='.$idctrl.' AND num='.$num;
+      $stmt = $pdo->query($cSQL);
+      $table = $stmt->fetchAll();
+      if (count($table)>0) $isrec=true;  
+      // Если запись с контроллером и номером есть, то обновляем её
+      if ($isrec)
+      {
+        $cSQL='UPDATE [JSONMESS] SET [myTime]=:myTime, [myDate]=:myDate, [sjson]=:sjson WHERE idctrl='.$idctrl.' AND num='.$num;
+        $statement = $pdo->prepare($cSQL);
+        $statement->execute([
+          "myTime"  => $myTime,
+          "myDate"  => $myDate,
+          "sjson"   => $sjson
+       ]);
+      }
+      // Если записи с контроллером и номером нет, то вставляем её
+      else
+      {
+        $statement = $pdo->prepare("INSERT INTO [JSONMESS] ".
+        "([idctrl],[myTime],[myDate],[num],[sjson]) VALUES ".
+        "(:idctrl, :myTime, :myDate, :num, :sjson);");
+        $statement->execute([
+        "idctrl" => $idctrl,
+        "myTime" => $myTime,
+        "myDate" => $myDate,
+        "num"    => $num,
+        "sjson"  => $sjson,
+        ]);
+      }
+      $pdo->commit();
+      $messa='Ok';     // "все сработало без ошибок"
+   } 
+   catch (Exception $e) 
+   {
+      $messa=$e->getMessage();
+      if ($pdo->inTransaction()) $pdo->rollback();
+   }
+   return $messa;
 }
 
 // *************************************************** CommonStateMaker.php ***

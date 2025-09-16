@@ -21,6 +21,7 @@ require_once("CommonLeadMaker.php");
 require_once("CommonStateMaker.php"); 
 // SelectLastMess($pdo);                               - Выбрать запись из таблицы последнего полученного json-сообщения  
 // UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson); - Обновить запись в таблице последнего полученного json-сообщения
+// UpdateNumCtrl($pdo,$idctrl,$num,$sjson);            - Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера                      *
 // SelState($pdo);                                     - Выбрать управляющие значения экрана и показания датчиков
 // setStateElem($pdo,$Name,$Value);                    - Записать в базу данных изменение управляющего элемента изображения 
 require_once("CommonStreamMaker.php"); 
@@ -101,6 +102,11 @@ class KvizzyMaker
    public function UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson)
    {
       _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);
+   }
+   // Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера 
+   public function UpdateNumCtrl($pdo,$idctrl,$num,$sjson)           
+   {
+      $messa=_UpdateNumCtrl($pdo,$idctrl,$num,$sjson); 
    }
    // Записать в базу данных изменение управляющего элемента изображения   
    public function setStateElem($pdo,$Name,$Value)

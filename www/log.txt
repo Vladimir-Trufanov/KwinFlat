@@ -27,3 +27,4 @@ Stack trace:
 #6 {main}
   thrown in C:\KwinFlat\www\TKvizzyMaker\CommonStateMaker.php on line 69
 [15-Sep-2025 14:23:19 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '<' in C:\KwinFlat\www\iniMenu.php on line 100
+[16-Sep-2025 20:49:49 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '{', expecting function (T_FUNCTION) or const (T_CONST) in C:\KwinFlat\www\TKvizzyMaker\KvizzyMakerClass.php on line 108

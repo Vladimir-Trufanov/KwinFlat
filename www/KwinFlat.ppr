@@ -367,14 +367,14 @@ KwinFlat
 			SmartMenus\sm-core-css.css
 			SmartMenus\sm-doortry.css
 			SmartMenus\sm-doortry-mobi.css
-		-State
+		+State
 			State\index.php
 		-State40
 			State40\index.php
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		-TKvizzyMaker
+		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -418,24 +418,28 @@ KwinFlat
 [Open project files]
 0=State\index.php
 1=gpx\track20250810.gpx
-2=TKvizzyMaker\CommonKvizzyMaker.php
-3=Controller\Controller.js
-4=Leafgpx\index.php
+2=Controller\Controller.js
+3=Leafgpx\index.php
+4=TKvizzyMaker\CommonStateMaker.php
+5=TKvizzyMaker\KvizzyMakerClass.php
 [Selected Project Files]
 Main=
 Selected=Leafgpx\index.php
 [State\index.php]
-TopLine=13
-Caret=1,20
+TopLine=1
+Caret=2,93
 [gpx\track20250810.gpx]
 TopLine=1
 Caret=11,10
-[TKvizzyMaker\CommonKvizzyMaker.php]
-TopLine=2
-Caret=1,22
 [Controller\Controller.js]
 TopLine=145
-Caret=65,158
+Caret=88,158
 [Leafgpx\index.php]
-TopLine=68
-Caret=1,90
+TopLine=1
+Caret=43,10
+[TKvizzyMaker\CommonStateMaker.php]
+TopLine=239
+Caret=18,270
+[TKvizzyMaker\KvizzyMakerClass.php]
+TopLine=92
+Caret=59,107
