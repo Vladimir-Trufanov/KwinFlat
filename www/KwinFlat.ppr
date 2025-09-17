@@ -195,7 +195,7 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		-Ex6
+		+Ex6
 			-js
 				-images
 					Ex6\js\images\DirFlag47x47.png
@@ -330,7 +330,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		-Leafgpx
+		+Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -341,7 +341,7 @@ KwinFlat
 			Leafgpx\GPX_file.md
 			Leafgpx\gpx_view.jpg
 			Leafgpx\index.php
-		-Leaflet
+		+Leaflet
 			-assets
 				Leaflet\assets\github-icon.png
 				Leaflet\assets\location-data.json
@@ -419,14 +419,15 @@ KwinFlat
 0=State\index.php
 1=gpx\track20250810.gpx
 2=Controller\Controller.js
-3=Leafgpx\index.php
-4=TKvizzyMaker\CommonStateMaker.php
-5=TKvizzyMaker\KvizzyMakerClass.php
+3=TKvizzyMaker\CommonStateMaker.php
+4=TKvizzyMaker\KvizzyMakerClass.php
+5=Ex6\index.php
+6=Leafgpx\index.php
 [Selected Project Files]
 Main=
 Selected=Leafgpx\index.php
 [State\index.php]
-TopLine=1
+TopLine=54
 Caret=2,93
 [gpx\track20250810.gpx]
 TopLine=1
@@ -434,12 +435,15 @@ Caret=11,10
 [Controller\Controller.js]
 TopLine=145
 Caret=88,158
-[Leafgpx\index.php]
-TopLine=1
-Caret=43,10
 [TKvizzyMaker\CommonStateMaker.php]
-TopLine=239
+TopLine=161
 Caret=18,270
 [TKvizzyMaker\KvizzyMakerClass.php]
 TopLine=92
 Caret=59,107
+[Ex6\index.php]
+TopLine=87
+Caret=1,107
+[Leafgpx\index.php]
+TopLine=140
+Caret=28,169

@@ -79,8 +79,10 @@ require_once '../iniMenu.php';
     GpxMenu($urlHome); 
   echo '</div>';
   // Для размещения карты создаем элемент-контейнер (как правило, тег <div>) и задаём его размеры
-  echo '<div id = "map" style = "width:900px; height:580px;"></div>';
- 
+  echo '
+    <div id = "map" style = "width:900px; height:580px;"></div>
+    <button class="search-btn"> Поиск </button>
+  ';
   // Определяем контекст нужной страницы
   $taskgpx=prown\getComRequest('gpx');
   // Центруем (по умолчанию-Петрозаводск) и выводим карту для трассировки трека
@@ -126,8 +128,47 @@ function SimpleTrackMap()
    attribution: 'Map data © OpenStreetMap contributors',
    maxZoom: 19,
    }).addTo(map);
-   ";
-   echo "
+   
+   // Строим ломанную линию (треугольник) из 4 точек
+   // (первую точку дважды, второй раз, как последнюю)
+   
+   // Формируем координаты полилинии
+   var latlngs = [
+     [61.846308, 33.206584],
+     [61.934839, 33.655948],
+     [61.833141, 32.929247],
+     [61.846308, 33.206584]
+   ];
+   // Создаем полилинию
+   var polyline = L.polyline(latlngs, {color: 'red'});
+   // Добавляем полилинию на карту
+   polyline.addTo(map);
+   map.flyTo([61.846308, 33.206584], 10);
+   
+   var itrkwpt=0;
+   intervalTrkWpt=setInterval(function() 
+   {
+     itrkwpt++;
+     //if (itrk>25) clearInterval(intervalTrk);
+     //else 
+     SayPoint(itrkwpt);
+  }
+  ,1000)
+
+   
+  // latlngs = [[61.846308, 33.206584],[61.856308, 33.216584]];
+  // polyline = L.polyline(latlngs, {color: 'blue'});
+  // polyline.addTo(map);
+   
+  //document.querySelector('.search-btn').addEventListener('click', () => {
+  //  map.flyTo([61.8021, 34.3296], 8);
+  //});
+   
+  function SayPoint(itrkwpt)
+  {
+    console.log('itrkwpt='+itrkwpt);
+  }
+   
    </script>
    ";
 }
@@ -148,14 +189,14 @@ function LoadGpsFile($urlHome)
    
    ?>
    <script type="module">
-   const map = L.map('map');
+   const mapgpx = L.map('map');
    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap',
       maxZoom: 20,
       minZoom: 2,
       tileSize: 512,
       zoomOffset: -1
-   }).addTo(map);
+   }).addTo(mapgpx);
 
    // Определяем цвет трека
    const options = 
@@ -165,8 +206,8 @@ function LoadGpsFile($urlHome)
    };
    // Загружаем gpx-файл
    const gpx = new L.GPX(url, options).on('loaded', (e) => {
-      map.fitBounds(e.target.getBounds());
-   }).addTo(map);
+      mapgpx.fitBounds(e.target.getBounds());
+   }).addTo(mapgpx);
    </script>
    <?php
 }
