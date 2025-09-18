@@ -14,7 +14,7 @@
 	<title>L.Yandex example</title>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-	<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=9f703858-3bcf-46fb-847f-798ac6dc1798" type="text/javascript"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=4e879c33-becb-4f85-8a6e-8f468e8dedeb" type="text/javascript"></script>
   <!--
   <script src="https://tiles.api-maps.yandex.ru/v1/tiles/?x=0&y=0&z=0&lang=ru_RU&l=map&apikey=9f703858-3bcf-46fb-847f-798ac6dc1798"></script>
   -->
@@ -66,7 +66,7 @@
 
 	L.control.layers(baseLayers, overlays, {collapsed: false}).addTo(map);
 	var marker = L.marker(center, { draggable: true }).addTo(map);
-	map.locate({ setView: true, maxZoom: 14 })
+	map.locate({ setView: true, maxZoom: 19 })
 		.on('locationfound',function (e) {
 			marker.setLatLng(e.latlng);
 		});

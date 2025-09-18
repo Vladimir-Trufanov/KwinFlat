@@ -3,7 +3,7 @@
 
 // ****************************************************************************
 // * KwinFlat/Leaflet                Создать карту с Leaflet для отслеживания *
-//*                                                     треков и загрузки GPX *
+// *                                                     треков и загрузки GPX *
 // ****************************************************************************
 
 // v1.0.9, 15.09.2025                                 Автор:      Труфанов В.Е.
@@ -64,6 +64,8 @@ require_once '../iniMenu.php';
    echo '<script src="/SmartMenus/MakeSmartMenu.js"></script>';
    echo '<link rel="stylesheet" href="/SmartMenus/sm-core-css.css">';
    echo '<link rel="stylesheet" href="/SmartMenus/sm-doortry-mobi.css">';
+   // Подключаем обработку страницы
+   echo '<script src="Leafgpx.js"></script>';
    // Разворачиваем смартменю
    echo '<script> MakeSmartMenu(); </script>';
    ?>
@@ -100,77 +102,14 @@ require_once '../iniMenu.php';
 // ****************************************************************************
 function SimpleTrackMap()
 {
-   // Cоздаём объект mapOptions и определяем начальные параметры карты: center и zoom,
-   // где center получает объект LatLng, указывающий местоположение, вокруг которого 
-   // мы хотим расположить карту (это значения широты и долготы), а zoom представляет 
-   // означает целое число, соответствующее уровню масштабирования карты;
-
-   // Cоздаём объект map (карту на странице) с передачей двух параметров: 
-   // строковой переменной, представляющей идентификатор DOM или экземпляр элемента <div>
-   // и указывающей на HTML-контейнер для хранения карты и необязательный объектный 
-   // литерал с параметрами карты;
-
-   // Cоздаём экземпляр TileLayer класса - набор определенного типа плиток (слой тайлов). 
-   // При создании экземпляра необходимо передать шаблон URL-адреса, запрашивающий 
-   // нужный слой тайлов (карту) у поставщика услуг (в нашем случае Openstreetmap);
-
-   // Добавляем слой на карту (традиционный набор тайлов от Openstreetmap).
-   // $lat=61.783270; $long=33.808963;  $zoom=10;  // Центр в Матросах
-   $lat=61.8021;   $long=34.3296;    $zoom=11;      // Центр в Петрозаводске
-   // $lat=61.846308; $long=33.206584; $zoom=10;   // Центр в Эссойле
-   echo "
-   <script>
-   var mapOptions = {center:[".$lat.",".$long."],zoom:".$zoom."}
-   ";
-   echo "
-   var map = new L.map('map',mapOptions);
-   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-   attribution: 'Map data © OpenStreetMap contributors',
-   maxZoom: 19,
-   }).addTo(map);
-   
-   // Строим ломанную линию (треугольник) из 4 точек
-   // (первую точку дважды, второй раз, как последнюю)
-   
-   // Формируем координаты полилинии
-   var latlngs = [
-     [61.846308, 33.206584],
-     [61.934839, 33.655948],
-     [61.833141, 32.929247],
-     [61.846308, 33.206584]
-   ];
-   // Создаем полилинию
-   var polyline = L.polyline(latlngs, {color: 'red'});
-   // Добавляем полилинию на карту
-   polyline.addTo(map);
-   map.flyTo([61.846308, 33.206584], 10);
-   
-   var itrkwpt=0;
-   intervalTrkWpt=setInterval(function() 
-   {
-     itrkwpt++;
-     //if (itrk>25) clearInterval(intervalTrk);
-     //else 
-     SayPoint(itrkwpt);
-  }
-  ,1000)
-
-   
-  // latlngs = [[61.846308, 33.206584],[61.856308, 33.216584]];
-  // polyline = L.polyline(latlngs, {color: 'blue'});
-  // polyline.addTo(map);
-   
-  //document.querySelector('.search-btn').addEventListener('click', () => {
-  //  map.flyTo([61.8021, 34.3296], 8);
-  //});
-   
-  function SayPoint(itrkwpt)
-  {
-    console.log('itrkwpt='+itrkwpt);
-  }
-   
-   </script>
-   ";
+  // $lat=61.783270; $long=33.808963;  $zoom=10;  // Центр в Матросах
+  $lat=61.8021;   $long=34.3296;    $zoom=11;     // Центр в Петрозаводске
+  // $lat=61.846308; $long=33.206584; $zoom=10;   // Центр в Эссойле
+  echo "
+  <script>
+  SimpleTrackMap(".$lat.",".$long.",".$zoom.");
+  </script>
+  ";
 }
 // ****************************************************************************
 // *         Создать карту для загрузки файла gps и загрузить файл            *

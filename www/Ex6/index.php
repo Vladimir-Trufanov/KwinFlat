@@ -79,12 +79,6 @@ $(document).ready(function()
     else SayPoint(itrk);
   }
   ,1000)
-
-
-});
-</script>
-
-<script>
   // Формируем координаты полилинии
   var latlngs = [
      [61.846308, 33.206584],
@@ -152,6 +146,7 @@ function SayPoint(itrk)
  }
 }
 
+});
 </script>
 ";
 ?>
