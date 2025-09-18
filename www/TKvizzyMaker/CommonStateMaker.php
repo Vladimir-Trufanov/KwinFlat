@@ -194,6 +194,35 @@ function _SelectLastMess($pdo)
    }
    return $table;
 }
+// ****************************************************************************
+// *    Выбрать последнее сообщение заданного типа от указанного контроллера  * 
+// ****************************************************************************
+function _SelectNumCtrl($pdo,$idctrl,$num)
+{
+   try 
+   {
+      $pdo->beginTransaction();
+      $cSQL='SELECT myTime,myDate,cycle,sjson FROM LastMess';
+      $stmt = $pdo->query($cSQL);
+      $table = $stmt->fetchAll();
+      if (count($table)>0) $table=[
+         "myTime"=>$table[0]['myTime'],"myDate"=>$table[0]['myDate'],
+         "cycle" =>$table[0]['cycle'], "sjson" =>$table[0]['sjson']];
+      else $table=[
+         "myTime"=>time(), "myDate"=> date("y-m-d h:i:s"),
+         "cycle" =>-2,     "sjson" => 'sjson2'];
+      $pdo->commit();
+   } 
+   catch (Exception $e) 
+   {
+      $messa=$e->getMessage();
+      $table=[
+         "myTime"=>time(), "myDate"=> date("y-m-d h:i:s"),
+         "cycle" =>-3,     "sjson" => $messa];
+      if ($pdo->inTransaction()) $pdo->rollback();
+   }
+   return $table;
+}
 
 // ****************************************************************************
 // *      Обновить запись в таблице последнего полученного json-сообщения     *

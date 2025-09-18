@@ -8,11 +8,16 @@
 // v1.0.1, 18.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 17.09.2025
 
-function SimpleTrackMap(nlat,nlong,nzoom)   
+function SimpleTrackMap(nlat,nlong,nzoom,idctrl)   
 {
   //console.log('nlat='+nlat);
   //console.log('nlong='+nlong);
   //console.log('nzoom='+nzoom);
+  console.log('idctrl='+idctrl);
+  
+  // 
+  var tfirst = new Date();
+  timerBeg.textContent = `${fulldec(tfirst.getHours())}:${fulldec(tfirst.getMinutes())}:${fulldec(tfirst.getSeconds())}`;
   
   // Cоздаём объект mapOptions и определяем начальные параметры карты: center и zoom,
   // где center получает объект LatLng, указывающий местоположение, вокруг которого 
@@ -75,8 +80,22 @@ function SimpleTrackMap(nlat,nlong,nzoom)
    
   function SayPoint(itrkwpt)
   {
-    console.log('itrkwpt='+itrkwpt);
+    var now = new Date();
+    timerEnd.textContent = `${fulldec(now.getHours())}:${fulldec(now.getMinutes())}:${fulldec(now.getSeconds())}`;
+    var tdelta=now-tfirst;
+    $('#delta').html(Math.round(tdelta/1000)); 
+    //console.log('itrkwpt='+itrkwpt);
   }
+  
+  // **************************************************************************
+  // *                 Дополнить однозначные числа ноликом слева              *
+  // **************************************************************************
+  function fulldec(val)
+  {
+    if (val<10) return '0'+val
+    else return val;
+  }
+
 }
 
 // ************************************************************* Leafgpx.js ***

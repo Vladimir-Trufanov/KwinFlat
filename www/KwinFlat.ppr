@@ -75,7 +75,7 @@ KwinFlat
 			Controller\counts.txt
 			Controller\multipartDigits.php
 			Controller\TrackTest.php
-		+Ex1Osm
+		-Ex1Osm
 			-leaflet-plugins-master
 				-leaflet-plugins-master
 					-build
@@ -153,7 +153,7 @@ KwinFlat
 			Ex1Osm\index.php
 			Ex1Osm\leaflet-plugins-master.zip
 			Ex1Osm\test.osm
-		+Ex1Yandex
+		-Ex1Yandex
 			Ex1Yandex\index.php
 		-Ex2
 			-d3js790
@@ -163,7 +163,7 @@ KwinFlat
 				Ex2\leaflet194\leaflet.css
 				Ex2\leaflet194\leaflet.js
 			Ex2\index.php
-		+Ex3
+		-Ex3
 			-leaflet194
 				-images
 					Ex3\leaflet194\images\kwinflat32x32.png
@@ -173,7 +173,7 @@ KwinFlat
 				Ex3\leaflet194\leaflet.css
 				Ex3\leaflet194\leaflet.js
 			Ex3\index.php
-		+Ex4
+		-Ex4
 			-js
 				-images
 					Ex4\js\images\DirFlag47x47.png
@@ -195,7 +195,7 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		+Ex6
+		-Ex6
 			-js
 				-images
 					Ex6\js\images\DirFlag47x47.png
@@ -240,7 +240,7 @@ KwinFlat
 			Ex7\index.php
 		-Ex8
 			Ex8\index.php
-		+Ex9
+		-Ex9
 			Ex9\index.php
 			Ex9\map512x512.png
 			Ex9\yandex_logo.zip
@@ -259,8 +259,8 @@ KwinFlat
 			favicon260x260\favicon-32x32.png
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
-		+gpx
-			+js
+		-gpx
+			-js
 				-images
 					gpx\js\images\DirFlag47x47.png
 					gpx\js\images\fil.gpx
@@ -330,7 +330,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -341,7 +341,8 @@ KwinFlat
 			Leafgpx\GPX_file.md
 			Leafgpx\gpx_view.jpg
 			Leafgpx\index.php
-		+Leaflet
+			Leafgpx\Leafgpx.js
+		-Leaflet
 			-assets
 				Leaflet\assets\github-icon.png
 				Leaflet\assets\location-data.json
@@ -367,14 +368,14 @@ KwinFlat
 			SmartMenus\sm-core-css.css
 			SmartMenus\sm-doortry.css
 			SmartMenus\sm-doortry-mobi.css
-		+State
+		-State
 			State\index.php
 		-State40
 			State40\index.php
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -395,7 +396,7 @@ KwinFlat
 			Update40\Update40.js
 			Update40\Update40BODY.php
 			Update40\Update40HEAD.php
-			Leafgpx\Leafgpx.js
+			Update40\Update40led4.js
 		android-chrome-192x192.png
 		Common.php
 		CommonTools.js
@@ -422,10 +423,9 @@ KwinFlat
 3=TKvizzyMaker\KvizzyMakerClass.php
 4=Leafgpx\index.php
 5=Leafgpx\Leafgpx.js
-6=iniMenu.php
 [Selected Project Files]
 Main=
-Selected=iniMenu.php
+Selected=Leafgpx\index.php
 [State\index.php]
 TopLine=13
 Caret=119,25
@@ -433,17 +433,14 @@ Caret=119,25
 TopLine=145
 Caret=88,158
 [TKvizzyMaker\CommonStateMaker.php]
-TopLine=82
-Caret=18,270
+TopLine=206
+Caret=30,200
 [TKvizzyMaker\KvizzyMakerClass.php]
 TopLine=92
 Caret=59,107
 [Leafgpx\index.php]
-TopLine=61
-Caret=1,113
+TopLine=1
+Caret=43,10
 [Leafgpx\Leafgpx.js]
 TopLine=1
-Caret=1,33
-[iniMenu.php]
-TopLine=23
-Caret=45,33
+Caret=46,86

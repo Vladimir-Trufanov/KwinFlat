@@ -6,7 +6,7 @@
 // *                                                     треков и загрузки GPX *
 // ****************************************************************************
 
-// v1.0.9, 15.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.10, 18.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 07.08.2025
 
 echo '<!DOCTYPE html>';  // определили разметку HTML5
@@ -70,6 +70,8 @@ require_once '../iniMenu.php';
    echo '<script> MakeSmartMenu(); </script>';
    ?>
    <style>
+     #ozhid {display:flex;}
+     .vtimer {color: blue; margin-top:0;}
      /*  #map { height: 500px; } */
    </style>
 </head>
@@ -83,14 +85,17 @@ require_once '../iniMenu.php';
   // Для размещения карты создаем элемент-контейнер (как правило, тег <div>) и задаём его размеры
   echo '
     <div id = "map" style = "width:900px; height:580px;"></div>
-    <button class="search-btn"> Поиск </button>
+    <div id="ozhid">
+      <p id="timerEnd" class="vtimer"></p>-<p id="timerBeg" class="vtimer"></p>[<p id="delta" class="vtimer">0</p>]
+    </div>
   ';
   // Определяем контекст нужной страницы
-  $taskgpx=prown\getComRequest('gpx');
+  $gpx=prown\getComRequest('gpx');
+  $ctrl=prown\getComRequest('ctrl');
   // Центруем (по умолчанию-Петрозаводск) и выводим карту для трассировки трека
-  if ($taskgpx==NULL) SimpleTrackMap();
+  if ($gpx==NULL) SimpleTrackMap($ctrl);
   // Создаем карту для загрузки файла gps и загружаем файл          
-  else LoadGpsFile($urlHome);
+  else LoadGpsFile($urlHome,$gpx);
 ?>
 </body>
 </html>
@@ -100,21 +105,22 @@ require_once '../iniMenu.php';
 // *      Отцентрировать (по умолчанию - Петрозаводск) и вывести карту для    *
 // *                              трассировки трека                           *
 // ****************************************************************************
-function SimpleTrackMap()
+function SimpleTrackMap($ctrl)
 {
+  if ($ctrl==NULL) $ctrl=204;
   // $lat=61.783270; $long=33.808963;  $zoom=10;  // Центр в Матросах
   $lat=61.8021;   $long=34.3296;    $zoom=11;     // Центр в Петрозаводске
   // $lat=61.846308; $long=33.206584; $zoom=10;   // Центр в Эссойле
   echo "
   <script>
-  SimpleTrackMap(".$lat.",".$long.",".$zoom.");
+  SimpleTrackMap(".$lat.",".$long.",".$zoom.",".$ctrl.");
   </script>
   ";
 }
 // ****************************************************************************
 // *         Создать карту для загрузки файла gps и загрузить файл            *
 // ****************************************************************************
-function LoadGpsFile($urlHome)
+function LoadGpsFile($urlHome,$gpx)
 {
    // !!! Для подключения файлов gpx в IIS следует установить MIME-тип "gpx", как text/xml
    // const url = 'https://mpetazzoni.github.io/leaflet-gpx/demo.gpx';
