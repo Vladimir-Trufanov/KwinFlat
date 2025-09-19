@@ -72,10 +72,12 @@ function SimpleTrackMap(nlat,nlong,nzoom,idctrl)
     ViewTrackNumCtrl(itrkwpt,ramTrack,idctrl);
   }
   ,998)
-   
-  // latlngs = [[61.846308, 33.206584],[61.856308, 33.216584]];
-  // polyline = L.polyline(latlngs, {color: 'blue'});
-  // polyline.addTo(map);
+  
+  /* 
+  latlngs = [[61.846308, 33.206584],[61.856308, 33.216584]];
+  polyline = L.polyline(latlngs, {color: 'blue'});
+  polyline.addTo(map);
+  */
    
   //document.querySelector('.search-btn').addEventListener('click', () => {
   //  map.flyTo([61.8021, 34.3296], 8);
@@ -188,17 +190,53 @@ function SimpleTrackMap(nlat,nlong,nzoom,idctrl)
             //console.log(trkpt);
             parm=JSON.parse(JSON.stringify(trkpt));
             
-            // Выбираем текущие значения широты и долготы
-            var latcur=parm.lat;
-            var loncur=parm.lon;
+            //latcur=latcur+0.01;
+            //var loncur=33.216584;
             // Выбираем прежние значения широты и долготы
             var latold=ramTrack.get("latold",0);
             var lonold=ramTrack.get("lonold",0);
+            //latold=61.846308;
+            //lonold=33.206584;
+            // Выбираем текущие значения широты и долготы
+            var latcur=parm.lat/1000000;
+            var loncur=parm.lon/1000000;
+            //latcur=latold+0.01;
+            //loncur=33.216584;
             // Выполняем трассирову трека
+            console.log('itrkwpt='+itrkwpt);
             console.log('latold='+latold);
             console.log('lonold='+lonold);
             console.log('latcur='+latcur);
             console.log('loncur='+loncur);
+            
+            /*
+            if (itrkwpt==5)
+            {
+              latlngs = [[61.846308, 33.206584],[61.856308, 33.216584]];
+              //latlngs = [[latold,lonold],[latcur,loncur]];
+              polyline = L.polyline(latlngs, {color: 'blue'});
+              polyline.addTo(map);
+            }
+            if (itrkwpt==10)
+            {
+              latlngs = [[61.856308, 33.216584],[61.866308, 33.216584]];
+              //latlngs = [[latold,lonold],[latcur,loncur]];
+              polyline = L.polyline(latlngs, {color: 'blue'});
+              polyline.addTo(map);
+            }
+            if (itrkwpt==15)
+            {
+              latlngs = [[61.866308, 33.216584],[61.866308, 33.226584]];
+              //latlngs = [[latold,lonold],[latcur,loncur]];
+              polyline = L.polyline(latlngs, {color: 'blue'});
+              polyline.addTo(map);
+            }
+            */
+
+              latlngs = [[latold,lonold],[latcur,loncur]];
+              polyline = L.polyline(latlngs, {color: 'blue'});
+              polyline.addTo(map);
+            
             // Сохраняем измененные значения
             ramTrack.set("latold",latcur);   
             ramTrack.set("lonold",loncur);  

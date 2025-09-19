@@ -195,7 +195,7 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		-Ex6
+		+Ex6
 			-js
 				-images
 					Ex6\js\images\DirFlag47x47.png
@@ -381,7 +381,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -425,6 +425,7 @@ KwinFlat
 4=Leafgpx\index.php
 5=Leafgpx\Leafgpx.js
 6=j_getLastNumCtrl.php
+7=Ex6\index.php
 [Selected Project Files]
 Main=
 Selected=Leafgpx\Leafgpx.js
@@ -432,8 +433,8 @@ Selected=Leafgpx\Leafgpx.js
 TopLine=73
 Caret=1,80
 [Controller\Controller.js]
-TopLine=183
-Caret=1,196
+TopLine=136
+Caret=43,126
 [TKvizzyMaker\CommonStateMaker.php]
 TopLine=200
 Caret=50,213
@@ -441,11 +442,14 @@ Caret=50,213
 TopLine=79
 Caret=52,103
 [Leafgpx\index.php]
-TopLine=79
+TopLine=48
 Caret=1,48
 [Leafgpx\Leafgpx.js]
-TopLine=178
-Caret=13,204
+TopLine=204
+Caret=15,236
 [j_getLastNumCtrl.php]
 TopLine=1
 Caret=78,6
+[Ex6\index.php]
+TopLine=83
+Caret=1,1
