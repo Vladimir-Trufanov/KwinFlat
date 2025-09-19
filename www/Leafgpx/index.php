@@ -25,7 +25,9 @@ $_WORKSPACE=iniWorkSpace();
 /*
 $SiteRoot     = $_WORKSPACE[wsSiteRoot];     // Корневой каталог сайта
 $SiteAbove    = $_WORKSPACE[wsSiteAbove];    // Надсайтовый каталог
+*/
 $SiteHost     = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
+/*
 $SiteDevice   = $_WORKSPACE[wsSiteDevice];   // 'Computer' | 'Mobile' | 'Tablet'
 $UserAgent    = $_WORKSPACE[wsUserAgent];    // HTTP_USER_AGENT
 $TimeRequest  = $_WORKSPACE[wsTimeRequest];  // Время запроса сайта
@@ -42,7 +44,16 @@ $RemoteHost   = $_WORKSPACE[wsRemoteHost];   // Удаленный хост, с 
 $HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с которой браузер пользователя перешёл на текущую страницу
 */
 
+define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
+define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
+
+//
 require_once '../iniMenu.php'; 
+// Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
+require_once "../iniPhpJS.php";  
+
+// Подключаем объект для работы с базой данных моего хозяйства
+require_once "../TKvizzyMaker/KvizzyMakerClass.php";
 
 ?>
 <head>
@@ -65,6 +76,7 @@ require_once '../iniMenu.php';
    echo '<link rel="stylesheet" href="/SmartMenus/sm-core-css.css">';
    echo '<link rel="stylesheet" href="/SmartMenus/sm-doortry-mobi.css">';
    // Подключаем обработку страницы
+   echo '<script src="/CommonTools.js"></script>';
    echo '<script src="Leafgpx.js"></script>';
    // Разворачиваем смартменю
    echo '<script> MakeSmartMenu(); </script>';
@@ -91,9 +103,17 @@ require_once '../iniMenu.php';
   ';
   // Определяем контекст нужной страницы
   $gpx=prown\getComRequest('gpx');
-  $ctrl=prown\getComRequest('ctrl');
+  $idctrl=prown\getComRequest('ctrl');
+  $num=5; // последние данные трека
+  
+  // Подключаем объект для работы с базой данных моего хозяйства
+  $Kvizzy=new ttools\KvizzyMaker($SiteHost);
+  // Подключаемся к базе данных
+  $pdo=$Kvizzy->BaseConnect();
+  $Kvizzy->SelectNumCtrl($pdo,$idctrl,$num);
+
   // Центруем (по умолчанию-Петрозаводск) и выводим карту для трассировки трека
-  if ($gpx==NULL) SimpleTrackMap($ctrl);
+  if ($gpx==NULL) SimpleTrackMap($idctrl);
   // Создаем карту для загрузки файла gps и загружаем файл          
   else LoadGpsFile($urlHome,$gpx);
 ?>

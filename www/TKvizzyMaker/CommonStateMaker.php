@@ -6,7 +6,7 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                            для базы данных json-сообщений страницы State *
 // *                                                                          *
-// * v4.4.5, 16.09.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.6, 19.09.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  07.01.2025 *
 // ****************************************************************************
 
@@ -86,6 +86,7 @@ function _CreateStateTables($pdo)
    // - при трассировке трека контроллера
    $sql='CREATE INDEX IF NOT EXISTS iNumCtrl ON JSONMESS (num,idctrl)';
    $st = $pdo->query($sql);
+   
    // Создаём таблицу значений элементов для контроллера 'Esp32-CAM во двор дачи'
    $sql='CREATE TABLE State ('.
       'jlight    INTEGER NOT NULL,'.                    // процент времени свечения в цикле 
@@ -199,29 +200,31 @@ function _SelectLastMess($pdo)
 // ****************************************************************************
 function _SelectNumCtrl($pdo,$idctrl,$num)
 {
+   /*
+   'idctrl    INTEGER NOT NULL REFERENCES Controllers(idctrl),'. // идентификатор контроллера
+   'myTime    INTEGER NOT NULL,'.                                // абсолютное время в секундах с начала эпохи UNIX
+   'myDate    VARCHAR NOT NULL,'.                                // date("y-m-d h:i:s");
+   'num       INTEGER NOT NULL,'.                                // номер управляющей json-команды (тип json-сообщения) 
+   'sjson     VARCHAR NOT NULL)';                                // json-сообщение
+   */
    try 
    {
       $pdo->beginTransaction();
-      $cSQL='SELECT myTime,myDate,cycle,sjson FROM LastMess';
+      $cSQL='SELECT myTime,myDate,num,sjson FROM JSONMESS WHERE idctrl='.$idctrl.' AND num='.$num;
       $stmt = $pdo->query($cSQL);
       $table = $stmt->fetchAll();
-      if (count($table)>0) $table=[
-         "myTime"=>$table[0]['myTime'],"myDate"=>$table[0]['myDate'],
-         "cycle" =>$table[0]['cycle'], "sjson" =>$table[0]['sjson']];
-      else $table=[
-         "myTime"=>time(), "myDate"=> date("y-m-d h:i:s"),
-         "cycle" =>-2,     "sjson" => 'sjson2'];
+      if (count($table)>0) $tableRet=["myTime"=>$table[0]['myTime'],"myDate"=>$table[0]['myDate'],"sjson"=>$table[0]['sjson']];
+      else $tableRet=["myTime"=>time(),"myDate"=>date("y-m-d h:i:s"),"sjson"=>'-1'];
+      //else $tableRet=["myTime"=>time(),"myDate"=>date("y-m-d h:i:s"),"sjson"=>$cSQL];
       $pdo->commit();
    } 
    catch (Exception $e) 
    {
       $messa=$e->getMessage();
-      $table=[
-         "myTime"=>time(), "myDate"=> date("y-m-d h:i:s"),
-         "cycle" =>-3,     "sjson" => $messa];
+      $tableRet=["myTime"=>time(),"myDate"=>date("y-m-d h:i:s"),"sjson"=>'-2'];
       if ($pdo->inTransaction()) $pdo->rollback();
    }
-   return $table;
+   return $tableRet;
 }
 
 // ****************************************************************************

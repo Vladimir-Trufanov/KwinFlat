@@ -30,7 +30,7 @@ function TopMenu($urlHome)
 
    echo '<li>';
    //echo '<a href="'.$urlHome.'/Leafgpx/">'."Карта отслеживания треков и загрузки GPX".'</a>';
-   echo '<a href="'.$urlHome.'/Leafgpx/?ctrl=203">'."Карта отслеживания треков и загрузки GPX".'</a>';
+   echo '<a href="'.$urlHome.'/Leafgpx/?ctrl=204">'."Карта отслеживания треков и загрузки GPX".'</a>';
    echo '</li>';
 
    echo '<li>';

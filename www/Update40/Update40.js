@@ -4,7 +4,7 @@
 // * KwinFlat                    Обслужить ознакомительную страницу для гостя *
 // ****************************************************************************
 
-// v4.5.1, 09.09.2025                                 Автор:      Труфанов В.Е.
+// v4.5.2, 19.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
@@ -415,46 +415,6 @@ class TTickers
         // console.log('this.HTML',this.HTML);
       } 
     }
-  }
-}
-// ****************************************************************************
-// *                  Класс работы с хранилищем localStorage                  *
-// ****************************************************************************
-class TStorage
-// 
-{
-  // Создать параметры хранилища
-  constructor(count) 
-  {
-    // на 2025-04-04 различаются в хранилище 2 типа переменных: string и number  
-  }
-  // Записать элемент в хранилище
-  set(name,value)
-  {
-    let tof = typeof value; 
-    if (tof === "string") localStorage.setItem(name,value);  
-    else localStorage.setItem(name,value.toString());
-    localStorage.setItem("tof"+name,tof);
-  }
-  // Выбрать элемент из хранилища
-  get(name,invalue=null)
-  {
-    let value;
-    let svalue = localStorage.getItem(name);
-    // При отсутствии элемента в хранилище, возвращаем указанный результат
-    if ((invalue!=null)&&(svalue==null)) value=invalue;
-    // Иначе выбираем значение элемента из хранилища
-    else
-    {
-      if (svalue==null) value=null
-      else
-      {
-        let tof = localStorage.getItem("tof"+name);
-        if (tof==="number") value=Number(svalue);
-        else value=svalue;
-      }
-    }
-    return value;
   }
 }
 // ****************************************************************************
