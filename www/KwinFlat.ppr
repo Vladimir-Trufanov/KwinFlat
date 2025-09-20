@@ -330,7 +330,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		-Leafgpx
+		+Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -420,36 +420,20 @@ KwinFlat
 [Open project files]
 0=State\index.php
 1=Controller\Controller.js
-2=TKvizzyMaker\CommonStateMaker.php
-3=TKvizzyMaker\KvizzyMakerClass.php
-4=Leafgpx\index.php
-5=Leafgpx\Leafgpx.js
-6=j_getLastNumCtrl.php
-7=Ex6\index.php
+2=Ex6\index.php
+3=Leafgpx\Leafgpx.js
 [Selected Project Files]
 Main=
-Selected=Leafgpx\Leafgpx.js
+Selected=Ex6\index.php
 [State\index.php]
 TopLine=73
 Caret=1,80
 [Controller\Controller.js]
-TopLine=136
+TopLine=126
 Caret=43,126
-[TKvizzyMaker\CommonStateMaker.php]
-TopLine=200
-Caret=50,213
-[TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=79
-Caret=52,103
-[Leafgpx\index.php]
-TopLine=48
-Caret=1,48
-[Leafgpx\Leafgpx.js]
-TopLine=204
-Caret=15,236
-[j_getLastNumCtrl.php]
-TopLine=1
-Caret=78,6
 [Ex6\index.php]
-TopLine=83
-Caret=1,1
+TopLine=1
+Caret=29,111
+[Leafgpx\Leafgpx.js]
+TopLine=205
+Caret=1,237

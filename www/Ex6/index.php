@@ -5,7 +5,7 @@
 // * Leaflet                       Показывать трек по загружаемым координатам *
 // ****************************************************************************
 
-// v2.0.0, 12.09.2025                                 Автор:      Труфанов В.Е.
+// v2.0.1, 20.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 07.08.2025
 
 echo '<!DOCTYPE html>';  // определили разметку HTML5
@@ -71,81 +71,93 @@ echo "
 <script>
 $(document).ready(function() 
 {
-  var itrk=0;
-  intervalTrk=setInterval(function() 
-  {
-    itrk++;
-    if (itrk>25) clearInterval(intervalTrk);
-    else SayPoint(itrk);
-  }
-  ,1000)
-  // Формируем координаты полилинии
-  var latlngs = [
+
+  var itrk;    // счетчик цикла
+  var latlngs; // линия с координатами предыдущей точки и текущей
+  var latold;  // широта предыдущей точки
+  var lonold;  // долгота предыдущей точки
+  var latcur;  // широта текущей точки
+  var loncur;  // долгота текущей точки
+  var ccolor;  // цвет линии
+
+  // Формируем координаты и строим начальный треугольник
+  latlngs = [
      [61.846308, 33.206584],
      [61.934839, 33.655948],
      [61.833141, 32.929247],
      [61.846308, 33.206584]
   ];
-  // Creating a poly line
   var polyline = L.polyline(latlngs, {color: 'red'});
-  // Adding to poly line to map
-  polyline.addTo(map);
-
-  latlngs = [[61.846308, 33.206584],[61.856308, 33.216584]];
-  polyline = L.polyline(latlngs, {color: 'blue'});
   polyline.addTo(map);
   
+  // Строим отрезок
+  latold=61.846308;
+  lonold=33.206584;
+  latcur=61.856308;
+  loncur=33.216584;
+  latlngs = [[latold,lonold],[latcur,loncur]];
+  polyline = L.polyline(latlngs, {color: 'white'});
+  polyline.addTo(map);
+  // Запускаем вычерчивание полилинии
+  itrk=0;
+  intervalTrk=setInterval(function() 
+  {
+    itrk++;
+    // Переносим координаты текущей точки в предыдущую
+    latold=latcur;
+    lonold=loncur;
+    // Генерируем новую точку
+    genPoint(itrk);
+    // Добавляем новую линию
+    latlngs = [[latold,lonold],[latcur,loncur]];
+    polyline = L.polyline(latlngs,{color:ccolor});
+    polyline.addTo(map);
+  }
+  ,1000)
 
-function SayPoint(itrk)
+function genPoint(itrk)
 {
   console.log(itrk); 
-  let delta=0.03000;
-  //console.log('latlngs[0][0]=61.846308',latlngs[0][0]);
-  let remainder = itrk % 5;
-  if (remainder==1)
+  if (itrk<25)
   {
-    latlngs[0][0]=latlngs[1][0];
-    latlngs[0][1]=latlngs[1][1];
-    latlngs[1][0]=latlngs[1][0]+delta;
-    latlngs[1][1]=latlngs[1][1]+delta;
-    polyline = L.polyline(latlngs, {color: 'green'});
-    polyline.addTo(map);
+    let delta=0.03000;
+    let remainder = itrk % 5;
+    if (remainder==1)
+    {
+      latcur=latcur+delta;
+      loncur=loncur+delta;
+      ccolor='green';
+    }
+    else if (remainder==2)
+    {
+      latcur=latcur+delta;
+      ccolor='yellow';
+    }
+    else if (remainder==3)
+    {
+      latcur=latcur-delta;
+      loncur=loncur-delta;
+      ccolor='black';
+    }
+    else if (remainder==4)
+    {
+      latcur=latcur-delta;
+      ccolor='red';
+    }
+    else if (remainder==0)
+    {
+      loncur=loncur+delta*2;
+      ccolor='white';
+    }
   }
-  else if (remainder==2)
+  else if (itrk==25)
   {
-    latlngs[0][0]=latlngs[1][0];
-    latlngs[0][1]=latlngs[1][1];
-    latlngs[1][0]=latlngs[1][0]+delta;
-    polyline = L.polyline(latlngs, {color: 'yellow'});
-    polyline.addTo(map);
+    latcur=61.846308;
+    loncur=33.206584;
+    ccolor='white';
   }
-  else if (remainder==3)
-  {
-    latlngs[0][0]=latlngs[1][0];
-    latlngs[0][1]=latlngs[1][1];
-    latlngs[1][0]=latlngs[1][0]-delta;
-    latlngs[1][1]=latlngs[1][1]-delta;
-    polyline = L.polyline(latlngs, {color: 'black'});
-    polyline.addTo(map);
-  }
-  else if (remainder==4)
-  {
-    latlngs[0][0]=latlngs[1][0];
-    latlngs[0][1]=latlngs[1][1];
-    latlngs[1][0]=latlngs[1][0]-delta;
-    polyline = L.polyline(latlngs, {color: 'red'});
-    polyline.addTo(map);
-  }
-  else if (remainder==0)
-  {
-    latlngs[0][0]=latlngs[1][0];
-    latlngs[0][1]=latlngs[1][1];
-    latlngs[1][1]=latlngs[1][1]+delta*2;
-    polyline = L.polyline(latlngs, {color: 'blue'});
-    polyline.addTo(map);
- }
 }
-
+  
 });
 </script>
 ";
