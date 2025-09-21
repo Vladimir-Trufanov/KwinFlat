@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		-Controller
+		+Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -173,7 +173,7 @@ KwinFlat
 				Ex3\leaflet194\leaflet.css
 				Ex3\leaflet194\leaflet.js
 			Ex3\index.php
-		+Ex4
+		-Ex4
 			-js
 				-images
 					Ex4\js\images\DirFlag47x47.png
@@ -195,28 +195,6 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		+Ex6
-			-js
-				-images
-					Ex6\js\images\DirFlag47x47.png
-					Ex6\js\images\kwinflat16x16.png
-					Ex6\js\images\kwinflat32x32.png
-					Ex6\js\images\kwinflat48x48.png
-					Ex6\js\images\layers.png
-					Ex6\js\images\layers.svg
-					Ex6\js\images\layers-2x.png
-					Ex6\js\images\LocateArrow50x50.png
-					Ex6\js\images\logo.svg
-					Ex6\js\images\marker-icon.png
-					Ex6\js\images\marker-icon.svg
-					Ex6\js\images\marker-icon-2x.png
-					Ex6\js\images\marker-shadow.png
-					Ex6\js\images\marker-shadow.svg
-					Ex6\js\images\PinMap38x38.png
-				Ex6\js\leaflet.css
-				Ex6\js\leaflet.js
-			Ex6\favicon.ico
-			Ex6\index.php
 		-Ex7
 			-js
 				-images
@@ -330,7 +308,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -341,7 +319,7 @@ KwinFlat
 			Leafgpx\GPX_file.md
 			Leafgpx\gpx_view.jpg
 			Leafgpx\index.php
-			Ex6\gpoint.js
+			Leafgpx\Leafgpx.js
 		-Leaflet
 			-assets
 				Leaflet\assets\github-icon.png
@@ -381,7 +359,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		-Update40
+		+Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -412,7 +390,6 @@ KwinFlat
 		KwinFlat.ppr
 		kwinflat-log.txt
 		leaflet_examples.md
-		log.txt
 		manifest.json
 		Meet40.html
 		server.log
@@ -420,20 +397,20 @@ KwinFlat
 [Open project files]
 0=State\index.php
 1=Controller\Controller.js
-2=Ex6\index.php
-3=Ex6\gpoint.js
+2=Leafgpx\Leafgpx.js
+3=CommonTools.js
 [Selected Project Files]
 Main=
-Selected=Ex6\index.php
+Selected=Leafgpx\Leafgpx.js
 [State\index.php]
 TopLine=73
 Caret=1,80
 [Controller\Controller.js]
-TopLine=134
-Caret=18,166
-[Ex6\index.php]
-TopLine=74
-Caret=48,95
-[Ex6\gpoint.js]
-TopLine=73
-Caret=1,100
+TopLine=158
+Caret=11,183
+[Leafgpx\Leafgpx.js]
+TopLine=146
+Caret=1,164
+[CommonTools.js]
+TopLine=15
+Caret=22,30

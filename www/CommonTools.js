@@ -27,7 +27,7 @@ function IntEvent(Name,tTimer,ndigit=3,iConsoleLog=false)
   let t1=performance.now();
   if (iConsoleLog)
   {
-    console.log(Name,'=',(t1-tTimer).toFixed(ndigit)+' мс');
+    console.log(Name,(t1-tTimer).toFixed(ndigit)+' мс');
   }
   return t1;
 }

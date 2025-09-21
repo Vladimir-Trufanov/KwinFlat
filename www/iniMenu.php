@@ -46,10 +46,6 @@ function TopMenu($urlHome)
    echo '</li>';
 
    echo '<li>';
-   echo '<a href="'.$urlHome.'/Ex6/">'."Показывать трек по загружаемым координатам".'</a>';
-   echo '</li>';
-
-   echo '<li>';
    echo '<a href="'.$urlHome.'/Ex7/">'."7. Показать карту с вашим местоположением".'</a>';
    echo '</li>';
 

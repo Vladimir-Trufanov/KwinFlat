@@ -5,7 +5,7 @@
 // *                                                     треков и загрузки GPX *
 // ****************************************************************************
 
-// v1.0.1, 18.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.2, 21.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 17.09.2025
 
 function SimpleTrackMap(nlat,nlong,nzoom,idctrl)   
@@ -45,21 +45,7 @@ function SimpleTrackMap(nlat,nlong,nzoom,idctrl)
     maxZoom: 19,
   }).addTo(map);
 
-  // Строим ломанную линию (треугольник) из 4 точек
-  // (первую точку дважды, второй раз, как последнюю)
-   
-  // Формируем координаты полилинии
-  var latlngs = [
-    [61.846308, 33.206584],
-    [61.934839, 33.655948],
-    [61.833141, 32.929247],
-    [61.846308, 33.206584]
-  ];
-  // Создаем полилинию
-  var polyline = L.polyline(latlngs, {color: 'red'});
-  // Добавляем полилинию на карту
-  polyline.addTo(map);
-  // Центрируем полилинию, перемещаем и масштабируем карту 
+  // Перемещаем и масштабируем карту (по умолчанию в Эссойлу)
   map.flyTo([61.846308, 33.206584], 10);
    
   // Запускаем трассировку поступающих координат
@@ -67,22 +53,10 @@ function SimpleTrackMap(nlat,nlong,nzoom,idctrl)
   intervalTrkWpt=setInterval(function() 
   {
     itrkwpt++;
-    //if (itrk>25) clearInterval(intervalTrk);
-    //else 
     ViewTrackNumCtrl(itrkwpt,ramTrack,idctrl);
   }
   ,998)
   
-  /* 
-  latlngs = [[61.846308, 33.206584],[61.856308, 33.216584]];
-  polyline = L.polyline(latlngs, {color: 'blue'});
-  polyline.addTo(map);
-  */
-   
-  //document.querySelector('.search-btn').addEventListener('click', () => {
-  //  map.flyTo([61.8021, 34.3296], 8);
-  //});
-   
   // **************************************************************************
   // *                 Дополнить однозначные числа ноликом слева              *
   // **************************************************************************
@@ -101,24 +75,6 @@ function SimpleTrackMap(nlat,nlong,nzoom,idctrl)
     timerEnd.textContent = `${fulldec(now.getHours())}:${fulldec(now.getMinutes())}:${fulldec(now.getSeconds())}`;
     var tdelta=now-tfirst;
     $('#delta').html(Math.round(tdelta/1000)); 
-    //console.log('itrkwpt='+itrkwpt);
-    
-    /*
-    // Выбираем прежние значения широты и долготы
-    var latold=ramTrack.get("latold",0);
-    var lonold=ramTrack.get("lonold",0);
-    // Выбираем из базы и парсим текущие значения широты и долготы
-    var latcur=latold+1;
-    var loncur=lonold+2;
-    // Выполняем трассирову трека
-    console.log('latold='+latold);
-    console.log('lonold='+lonold);
-    console.log('latcur='+latcur);
-    console.log('loncur='+loncur);
-    // Сохраняем измененные значения
-    ramTrack.set("latold",latcur);   
-    ramTrack.set("lonold",loncur);  
-    */
      
     // Выводим в диалог предварительный результат выполнения запроса
     htmlText="Выбрать сообщение заданного типа от контроллера не удалось!";
@@ -190,52 +146,23 @@ function SimpleTrackMap(nlat,nlong,nzoom,idctrl)
             //console.log(trkpt);
             parm=JSON.parse(JSON.stringify(trkpt));
             
-            //latcur=latcur+0.01;
-            //var loncur=33.216584;
             // Выбираем прежние значения широты и долготы
             var latold=ramTrack.get("latold",0);
             var lonold=ramTrack.get("lonold",0);
-            //latold=61.846308;
-            //lonold=33.206584;
-            // Выбираем текущие значения широты и долготы
+            // Выбираем текущие значения широты и долготы и цвет отрезка
             var latcur=parm.lat/1000000;
             var loncur=parm.lon/1000000;
-            //latcur=latold+0.01;
-            //loncur=33.216584;
+            var ccolor=parm.color;
             // Выполняем трассирову трека
-            console.log('itrkwpt='+itrkwpt);
-            console.log('latold='+latold);
-            console.log('lonold='+lonold);
-            console.log('latcur='+latcur);
-            console.log('loncur='+loncur);
+            //console.log('itrkwpt='+itrkwpt);
+            //console.log('latold='+latold);
+            //console.log('lonold='+lonold);
+            //console.log('latcur='+latcur);
+            //console.log('loncur='+loncur);
             
-            /*
-            if (itrkwpt==5)
-            {
-              latlngs = [[61.846308, 33.206584],[61.856308, 33.216584]];
-              //latlngs = [[latold,lonold],[latcur,loncur]];
-              polyline = L.polyline(latlngs, {color: 'blue'});
-              polyline.addTo(map);
-            }
-            if (itrkwpt==10)
-            {
-              latlngs = [[61.856308, 33.216584],[61.866308, 33.216584]];
-              //latlngs = [[latold,lonold],[latcur,loncur]];
-              polyline = L.polyline(latlngs, {color: 'blue'});
-              polyline.addTo(map);
-            }
-            if (itrkwpt==15)
-            {
-              latlngs = [[61.866308, 33.216584],[61.866308, 33.226584]];
-              //latlngs = [[latold,lonold],[latcur,loncur]];
-              polyline = L.polyline(latlngs, {color: 'blue'});
-              polyline.addTo(map);
-            }
-            */
-
-              latlngs = [[latold,lonold],[latcur,loncur]];
-              polyline = L.polyline(latlngs, {color: 'blue'});
-              polyline.addTo(map);
+            latlngs = [[latold,lonold],[latcur,loncur]];
+            polyline = L.polyline(latlngs,{color:ccolor});
+            polyline.addTo(map);
             
             // Сохраняем измененные значения
             ramTrack.set("latold",latcur);   
