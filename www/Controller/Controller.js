@@ -154,7 +154,7 @@ function TestGpx()
       else
       {
         // https://probatv.ru/State/?cycle=2&num=4&ctrl=203&sjson={"wpt":{"lat":52518611,"lon":13376111}} - 'Sim900 в автомобиле'
-        GetGpx();
+        GenTrkpt();
              console.log(urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+'}}'); 
         SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+'}}');
       }
@@ -163,7 +163,7 @@ function TestGpx()
   ,1000)
 }
 // Выбрать координаты новой путевой точки            
-function GetGpx()
+function GenTrkpt()
 {
   //nLat++;
   //nLon++;

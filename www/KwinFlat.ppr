@@ -173,7 +173,7 @@ KwinFlat
 				Ex3\leaflet194\leaflet.css
 				Ex3\leaflet194\leaflet.js
 			Ex3\index.php
-		-Ex4
+		+Ex4
 			-js
 				-images
 					Ex4\js\images\DirFlag47x47.png
@@ -424,16 +424,16 @@ KwinFlat
 3=Ex6\gpoint.js
 [Selected Project Files]
 Main=
-Selected=Ex6\gpoint.js
+Selected=Ex6\index.php
 [State\index.php]
 TopLine=73
 Caret=1,80
 [Controller\Controller.js]
-TopLine=126
-Caret=43,126
+TopLine=134
+Caret=18,166
 [Ex6\index.php]
-TopLine=70
-Caret=1,100
+TopLine=74
+Caret=48,95
 [Ex6\gpoint.js]
-TopLine=33
-Caret=1,39
+TopLine=73
+Caret=1,100

@@ -78,23 +78,29 @@ var latcur;  // широта текущей точки
 var loncur;  // долгота текущей точки
 var ccolor;  // цвет линии
 
-// Строим начальный треугольник и отрезок
-MakeTriangleAndLine();
-  
+// Определяем начальные координаты точки и счетчик точек трека
+var latcur=61.846308;
+var loncur=33.206584;
+// Инициируем индикатор позиций выделения алгоритма формирования точек трека  
+itrk=-5;
 // Запускаем вычерчивание полилинии
-itrk=0;
-intervalTrk=setInterval(function() 
+intervalGpx=setInterval(function() 
 {
   itrk++;
   // Переносим координаты текущей точки в предыдущую
   latold=latcur;
   lonold=loncur;
   // Генерируем новую точку
-  genPoint(itrk);
+  GenTrkpt(itrk);
+  console.log('latcur='+latcur,'loncur='+loncur); 
   // Добавляем новую линию
   latlngs = [[latold,lonold],[latcur,loncur]];
   polyline = L.polyline(latlngs,{color:ccolor});
   polyline.addTo(map);
+  // 'Отправляем координаты на сайт' - это на будущее подключение
+  var nLat=Math.round(latcur*1000000);
+  var nLon=Math.round(loncur*1000000);
+  console.log('nLat='+nLat,'nLon='+nLon); 
 }
 ,1000)
 </script>
