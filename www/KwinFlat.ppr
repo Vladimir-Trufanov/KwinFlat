@@ -341,7 +341,7 @@ KwinFlat
 			Leafgpx\GPX_file.md
 			Leafgpx\gpx_view.jpg
 			Leafgpx\index.php
-			Leafgpx\Leafgpx.js
+			Ex6\gpoint.js
 		-Leaflet
 			-assets
 				Leaflet\assets\github-icon.png
@@ -421,10 +421,10 @@ KwinFlat
 0=State\index.php
 1=Controller\Controller.js
 2=Ex6\index.php
-3=Leafgpx\Leafgpx.js
+3=Ex6\gpoint.js
 [Selected Project Files]
 Main=
-Selected=Ex6\index.php
+Selected=Ex6\gpoint.js
 [State\index.php]
 TopLine=73
 Caret=1,80
@@ -432,8 +432,8 @@ Caret=1,80
 TopLine=126
 Caret=43,126
 [Ex6\index.php]
-TopLine=1
-Caret=29,111
-[Leafgpx\Leafgpx.js]
-TopLine=205
-Caret=1,237
+TopLine=61
+Caret=1,100
+[Ex6\gpoint.js]
+TopLine=20
+Caret=18,41
