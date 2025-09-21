@@ -36,12 +36,11 @@ function MakeTriangleAndLine()
 // ****************************************************************************
 function genPoint(itrk)
 {
-  //console.log(itrk); 
   let delta=0.03000;
-  let ddelta=0.01;
+  let latdelta=0.01;
+  let londelta=0.02;
   if (itrk<25)
   {
-    //let delta=0.03000;
     let remainder = itrk % 5;
     if (remainder==1)
     {
@@ -83,39 +82,31 @@ function genPoint(itrk)
     ccolor='blue';
     inew=itrk-26;
     // Определяем длину линии по номеру "витка спирали"
-    nVitoc=(Math.floor(inew/4)+1)*ddelta;
+    lonVitoc=(Math.floor(inew/4)+1)*londelta;
+    latVitoc=(Math.floor(inew/4)+1)*latdelta;
     // Определяем шаг в витке спирали
     nStep=(inew % 4);
     // Выводим шаги витков спирали
-    console.log('nVitoc='+nVitoc); 
-    console.log('nStep='+nStep); 
-    console.log(' '); 
+    console.log('itrk='+itrk,'latVitoc='+latVitoc,'lonVitoc='+lonVitoc,'nStep='+nStep); 
     if (nStep==0)
     {
-      loncur=loncur-nVitoc;
-      latcur=latcur-nVitoc;
-      //latcur=latcur-nVitoc;
-      //loncur=loncur-nVitoc;
+      loncur=loncur-lonVitoc;
+      latcur=latcur-latVitoc;
     }
     else if (nStep==1)
     {
-      loncur=loncur-nVitoc;
-      latcur=latcur+nVitoc;
-      //latcur=latcur+nVitoc+nVitoc;       
-      //loncur=loncur-nVitoc-nVitoc;
+      loncur=loncur-lonVitoc;
+      latcur=latcur+latVitoc;
     }
     else if (nStep==2)
     {
-      loncur=loncur+nVitoc+ddelta;
-      latcur=latcur+nVitoc;
-      //loncur=loncur+nVitoc+nVitoc;
+      loncur=loncur+lonVitoc+londelta;
+      latcur=latcur+latVitoc;
     }
     else if (nStep==3)
     {
-      loncur=loncur+nVitoc;
-      latcur=latcur-nVitoc;
-      //latcur=latcur-nVitoc;
-      //loncur=loncur+nVitoc;
+      loncur=loncur+lonVitoc;
+      latcur=latcur-latVitoc;
     }
   }
 }

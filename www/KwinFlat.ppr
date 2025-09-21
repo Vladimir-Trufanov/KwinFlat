@@ -432,8 +432,8 @@ Caret=1,80
 TopLine=126
 Caret=43,126
 [Ex6\index.php]
-TopLine=61
+TopLine=70
 Caret=1,100
 [Ex6\gpoint.js]
-TopLine=20
-Caret=18,41
+TopLine=33
+Caret=1,39
