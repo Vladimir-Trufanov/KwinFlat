@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		+Controller
+		-Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -195,38 +195,10 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		-Ex7
-			-js
-				-images
-					Ex7\js\images\DirFlag47x47.png
-					Ex7\js\images\kwinflat16x16.png
-					Ex7\js\images\kwinflat32x32.png
-					Ex7\js\images\kwinflat48x48.png
-					Ex7\js\images\layers.png
-					Ex7\js\images\layers.svg
-					Ex7\js\images\layers-2x.png
-					Ex7\js\images\LocateArrow50x50.png
-					Ex7\js\images\logo.svg
-					Ex7\js\images\marker-icon.png
-					Ex7\js\images\marker-icon.svg
-					Ex7\js\images\marker-icon-2x.png
-					Ex7\js\images\marker-shadow.png
-					Ex7\js\images\marker-shadow.svg
-					Ex7\js\images\PinMap38x38.png
-				Ex7\js\leaflet.css
-				Ex7\js\leaflet.js
+		+Ex7
 			Ex7\index.php
 		-Ex8
 			Ex8\index.php
-		-Ex9
-			Ex9\index.php
-			Ex9\map512x512.png
-			Ex9\yandex_logo.zip
-			Ex9\yndex_logo_ru132x72.png
-			Ex9\yndex_logo_ru176x96.png
-			Ex9\yndex_logo_ru264x144.png
-			Ex9\yndex_logo_ru352x192.png
-			Ex9\Как подключиться к тайловой карте яндекса.md
 		-favicon260x260
 			favicon260x260\android-chrome-192x192.png
 			favicon260x260\android-chrome-256x256.png
@@ -308,7 +280,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		-Leafgpx
+		+Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -359,7 +331,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -397,20 +369,20 @@ KwinFlat
 [Open project files]
 0=State\index.php
 1=Controller\Controller.js
-2=Leafgpx\Leafgpx.js
-3=CommonTools.js
+2=iniMenu.php
+3=Ex8\index.php
 [Selected Project Files]
 Main=
-Selected=Leafgpx\Leafgpx.js
+Selected=Ex8\index.php
 [State\index.php]
 TopLine=73
 Caret=1,80
 [Controller\Controller.js]
 TopLine=158
 Caret=11,183
-[Leafgpx\Leafgpx.js]
-TopLine=146
-Caret=1,164
-[CommonTools.js]
-TopLine=15
-Caret=22,30
+[iniMenu.php]
+TopLine=29
+Caret=43,49
+[Ex8\index.php]
+TopLine=1
+Caret=62,5

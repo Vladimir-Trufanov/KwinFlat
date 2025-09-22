@@ -2,10 +2,10 @@
 // PHP7/HTML5, EDGE/CHROME/YANDEX                             *** index.php ***
 
 // ****************************************************************************
-// * Ex1Yandex                  ----Изучить работу с тайловыми картами яндекса            *
+// *               Ex8. Переключение между картами Osm-Яндекс                 *
 // ****************************************************************************
 
-// v1.0.0, 13.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.1, 22.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 13.09.2025
 
 ?>
@@ -65,7 +65,8 @@
         };
 
 	L.control.layers(baseLayers, overlays, {collapsed: false}).addTo(map);
-	var marker = L.marker(center, { draggable: true }).addTo(map);
+	
+  var marker = L.marker(center, { draggable: true }).addTo(map);
 	map.locate({ setView: true, maxZoom: 19 })
 		.on('locationfound',function (e) {
 			marker.setLatLng(e.latlng);
@@ -75,5 +76,6 @@
 </body>
 </html>
 <?php
+
 
 ?> <!-- --> <?php // ******************************************** index.php ***

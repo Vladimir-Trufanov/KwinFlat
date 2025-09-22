@@ -2,61 +2,78 @@
 // PHP7/HTML5, EDGE/CHROME/YANDEX                             *** index.php ***
 
 // ****************************************************************************
-// * Как отобразить своё местоположение на карте с помощью JavaScript         *
-// * https://myrusakov.ru/javascript-map-location-display.html                *
+// *               Ex8. Переключение между картами Osm-Яндекс                 *
 // ****************************************************************************
 
+// v1.0.1, 22.09.2025                                 Автор:      Труфанов В.Е.
+// Copyright © 2025 tve       sla6en9edged            Дата создания: 13.09.2025
+
 ?>
-<!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Карта с вашим местоположением</title>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    <script type="text/javascript">
-        function initMap(latitude, longitude, accuracy) {
-            var map = new ymaps.Map("YMapsID", {
-                center: [latitude, longitude],
-                zoom: 10,
-                controls: ['zoomControl', 'geolocationControl']
-            });
-
-            var placemark = new ymaps.Placemark([latitude, longitude], {
-                balloonContent: 'Вы здесь!<br>Широта: ${latitude}<br>Долгота: ${longitude}<br>Погрешность: ±${accuracy} м'
-            }, {
-                preset: 'islands#redDotIcon'
-            });
-
-            map.geoObjects.add(placemark);
-        }
-
-        function showMap() {
-            if (navigator.geolocation) 
-            {
-                navigator.geolocation.getCurrentPosition(function (position) 
-                //navigator.geolocation.watchPosition(function (position)
-                {
-                    const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
-                    const accuracy = position.coords.accuracy; // Погрешность в метрах
-                    //initMap(65, longitude, accuracy);
-                    initMap(67.6755,33.936,accuracy);
-                    //initMap(latitude, longitude, accuracy);
-                }, function () {
-                    alert("Не удалось получить ваше местоположение.");
-                });
-            } else {
-                alert("Ваш браузер не поддерживает геолокацию.");
-            }
-        }
-    </script>
+	<title>Ex8. Переключение между картами Osm-Яндекс</title>
+  <link rel="stylesheet" href="../gpx/js/leaflet171.css" />
+  <script src="../gpx/js/leaflet171.js"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=4e879c33-becb-4f85-8a6e-8f468e8dedeb" type="text/javascript"></script>
+	<script src="../layer/tile/Yandex.js"></script>
+	<style>
+		.leaflet-bottom { bottom: 20px }
+		.leaflet-control-attribution { margin-bottom: -10px !important }
+	</style>
 </head>
 <body>
-    <h1>Карта с вашим местоположением</h1>
-    <input type="button" value="Показать карту" onclick="showMap()">
-    <div id="YMapsID" style="width:600px;height:400px; margin-top: 20px;"></div>
+
+<div style="width:100%; height:100%" id="map"></div>
+
+<script>
+	var center = [67.6755, 33.936];
+
+	var map = L.map('map', 
+  {
+		center: center,
+		zoom: 10,
+		zoomAnimation: true
+	});
+
+	map.attributionControl
+		.setPosition('bottomleft')
+		.setPrefix('');
+
+	function traffic () 
+  {
+		// https://tech.yandex.ru/maps/jsbox/2.1/traffic_provider
+		var actualProvider = new ymaps.traffic.provider.Actual({}, { infoLayerShown: true });
+		actualProvider.setMap(this._yandex);
+	}
+
+	var baseLayers = 
+  {
+		'Yandex map':        L.yandex().addTo(map),            // 'map' по умолчанию
+		'Yandex satellite':  L.yandex({ type: 'satellite' }),  // тип может быть указан опционально
+		'Yandex hybrid':     L.yandex('hybrid'),
+		'OSM':               L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+    {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		})
+	};
+
+	var overlays = 
+  {
+		'Traffic':L.yandex('overlay').on('load', traffic)
+  };
+
+	L.control.layers(baseLayers, overlays, {collapsed: false}).addTo(map);
+	var marker = L.marker(center, { draggable: true }).addTo(map);
+	map.locate({ setView: true, maxZoom: 19 })
+		.on('locationfound',function (e) 
+    {
+			marker.setLatLng(e.latlng);
+		});
+</script>
+ 
 </body>
-</html><?php
+</html>
+<?php
+
 
 ?> <!-- --> <?php // ******************************************** index.php ***

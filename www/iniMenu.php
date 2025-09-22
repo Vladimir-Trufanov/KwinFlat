@@ -46,15 +46,11 @@ function TopMenu($urlHome)
    echo '</li>';
 
    echo '<li>';
-   echo '<a href="'.$urlHome.'/Ex7/">'."7. Показать карту с вашим местоположением".'</a>';
+   echo '<a href="'.$urlHome.'/Ex7/">'."Ex7. Показать карту с вашим местоположением".'</a>';
    echo '</li>';
 
    echo '<li>';
-   echo '<a href="'.$urlHome.'/Ex8/">'."8. Показать карту с вашим местоположением".'</a>';
-   echo '</li>';
-
-   echo '<li>';
-   echo '<a href="'.$urlHome.'/Ex9/">'."Изучить работу с тайловыми картами яндекса".'</a>';
+   echo '<a href="'.$urlHome.'/Ex8/">'."Ex8. Переключение между картами Osm-Яндекс".'</a>';
    echo '</li>';
    
    echo '</ul>';
