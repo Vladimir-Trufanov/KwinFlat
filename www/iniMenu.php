@@ -29,12 +29,11 @@ function TopMenu($urlHome)
    echo '</li>';
 
    echo '<li>';
-   //echo '<a href="'.$urlHome.'/Leafgpx/">'."Карта отслеживания треков и загрузки GPX".'</a>';
    echo '<a href="'.$urlHome.'/Leafgpx/?ctrl=204">'."Карта отслеживания треков и загрузки GPX".'</a>';
    echo '</li>';
 
    echo '<li>';
-   echo '<a href="'.$urlHome.'/Ex4/">'."Пример тайловой карты OpenStreetMap на Leaflet".'</a>';
+   echo '<a href="'.$urlHome.'/Ex4/">'."Ex4. Пример тайловой карты OpenStreetMap на Leaflet".'</a>';
    echo '</li>';
 
    echo '<li>';

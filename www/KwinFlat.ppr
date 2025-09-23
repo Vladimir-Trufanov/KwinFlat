@@ -93,7 +93,7 @@ KwinFlat
 				Ex3\leaflet194\leaflet.css
 				Ex3\leaflet194\leaflet.js
 			Ex3\index.php
-		-Ex4
+		+Ex4
 			-js
 				-images
 					Ex4\js\images\DirFlag47x47.png
@@ -115,7 +115,7 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		-Ex7
+		+Ex7
 			Ex7\index.php
 		-Ex8
 			Ex8\index.php
@@ -197,7 +197,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		-Leafgpx
+		+Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -288,18 +288,22 @@ KwinFlat
 1=Controller\Controller.js
 2=iniMenu.php
 3=Ex8\index.php
+4=Ex7\index.php
 [Selected Project Files]
 Main=
 Selected=Ex8\index.php
 [State\index.php]
-TopLine=73
+TopLine=13
 Caret=1,80
 [Controller\Controller.js]
 TopLine=158
 Caret=11,183
 [iniMenu.php]
-TopLine=1
-Caret=1,35
+TopLine=19
+Caret=44,36
 [Ex8\index.php]
-TopLine=13
-Caret=80,79
+TopLine=37
+Caret=2,44
+[Ex7\index.php]
+TopLine=47
+Caret=1,81
