@@ -11,7 +11,7 @@
 define ("tve",    "tve"); 
 define ("guest",  "гость"); 
 define ("nearby", "близкие"); 
-define ("permit", guest); 
+define ("permit", tve); 
 
 ?>
 <html>
@@ -30,11 +30,91 @@ define ("permit", guest);
 
 <div style="width:100%; height:100%" id="map"></div>
 
+<script>
+	function MakeMapTVE(nlat,nlon,nzoom) 
+  {
+	  let center=[nlat,nlon];
+	  let map = L.map('map', 
+    {
+	    center:center,
+	    zoom:nzoom,
+	    zoomAnimation:true
+    });
+    map.attributionControl.setPosition('bottomleft').setPrefix('');
+    let baseLayers = 
+    {
+	    'OSM':             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+      {
+	      attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'
+      }).addTo(map),
+      'Yandex map':      L.yandex(),           
+      'Yandex satellite':L.yandex({type:'satellite'}),  // тип может быть указан опционально
+      'Yandex hybrid':   L.yandex('hybrid')
+    };
+
+    let overlays = 
+    {
+      'Traffic':L.yandex('overlay').on('load',traffic)
+    };
+
+    L.control.layers(baseLayers,overlays,{collapsed:true}).addTo(map);
+    let marker = L.marker(center, {draggable:false}).addTo(map);
+ 	  map.locate({setView:true, maxZoom:19}).on('locationfound',function (e) 
+    {
+		  marker.setLatLng(e.latlng);
+    });
+  
+	  function traffic() 
+    {
+		  // https://tech.yandex.ru/maps/jsbox/2.1/traffic_provider
+		  let actualProvider = new ymaps.traffic.provider.Actual({}, { infoLayerShown: true });
+		  actualProvider.setMap(this._yandex);
+	  }
+  }
+  </script>
+
 <?php
-
-
 echo "
 <script>
+  var nlat,nlon,nzoom; 
+  nlat=67.6755; nlon=33.936; nzoom=10;
+  MakeMapTVE(nlat,nlon,nzoom);
+</script>
+";
+
+
+
+/*
+echo "
+<script>
+  / *
+     var nlatin,nlonin,incenter;
+     if (navigator.geolocation) 
+     {
+        navigator.geolocation.getCurrentPosition(
+        function (position) 
+        {
+           nlatin = position.coords.latitude;
+           nlonin = position.coords.longitude;
+           accuracy = position.coords.accuracy; // Погрешность в метрах
+           console.log('1. nlat='+nlatin,'nlon='+nlonin);
+	         incenter=[nlatin,nlonin];
+           return incenter;
+        }, 
+        function () 
+        {
+           alert(\"Не удалось получить ваше местоположение.\");
+        });
+     } 
+     else 
+     {
+        alert(\"Ваш браузер не поддерживает геолокацию.\");
+     }
+
+
+
+
+
   var nlat,nlon,nzoom,accuracy; 
   nlat=67.6755;
   nlon=33.936;
@@ -67,8 +147,9 @@ echo "
   // Устанавливаем и подписываем маркер
   var DirFlagMarker = L.marker(center,DirFlagMarkerOptions);
   DirFlagMarker.addTo(map);
+  * /
   
-  /*
+  / *
   function getlocation() 
   {
      var nlatin,nlonin,incenter;
@@ -97,9 +178,7 @@ echo "
 	   incenter=[nlatin,nlonin];
      return incenter;
   }
-  */
-  
-  
+  * /
 </script>
 ";
 
@@ -107,7 +186,44 @@ if (permit==tve)
 {
 echo "
 <script>
-	map.attributionControl.setPosition('bottomleft').setPrefix('');
+  MakeMapTVE();
+	function MakeMapTVE() 
+  {
+  
+    var baseLayers = 
+    {
+		  'OSM':               L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+      {
+			  attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'
+		  }).addTo(map),
+		  'Yandex map':        L.yandex(),           
+		  'Yandex satellite':  L.yandex({type:'satellite'}),  // тип может быть указан опционально
+		  'Yandex hybrid':     L.yandex('hybrid')
+	  };
+
+	  var overlays = 
+    {
+	  	'Traffic':L.yandex('overlay').on('load', traffic)
+    };
+
+	  var center=[67.6755,33.936];
+    console.log('3. nlat='+nlat,'nlon='+nlon);
+	  var map = L.map('map', 
+    {
+		  center:center,
+		  zoom:nzoom,
+		  zoomAnimation:true
+	  });
+	  map.attributionControl.setPosition('bottomleft').setPrefix('');
+
+	  L.control.layers(baseLayers, overlays, {collapsed:true}).addTo(map);
+	  var marker = L.marker(center, {draggable:false}).addTo(map);
+  	map.locate({setView:true, maxZoom:19})
+		.on('locationfound',function (e) 
+    {
+			marker.setLatLng(e.latlng);
+		});
+  }
 
 	function traffic () 
   {
@@ -115,36 +231,14 @@ echo "
 		var actualProvider = new ymaps.traffic.provider.Actual({}, { infoLayerShown: true });
 		actualProvider.setMap(this._yandex);
 	}
-
-	var baseLayers = 
-  {
-		'OSM':               L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
-    {
-			attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'
-		}).addTo(map),
-		'Yandex map':        L.yandex(),           
-		'Yandex satellite':  L.yandex({type:'satellite'}),  // тип может быть указан опционально
-		'Yandex hybrid':     L.yandex('hybrid')
-	};
-
-	var overlays = 
-  {
-		'Traffic':L.yandex('overlay').on('load', traffic)
-  };
-
-	L.control.layers(baseLayers, overlays, {collapsed:true}).addTo(map);
-	var marker = L.marker(center, {draggable:false}).addTo(map);
-	map.locate({setView:true, maxZoom:19})
-		.on('locationfound',function (e) 
-    {
-			marker.setLatLng(e.latlng);
-		});
 </script>
 ";
 }
 
+
 else
 {
+/ *
 echo "
 <script>
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
@@ -154,8 +248,9 @@ echo "
   }).addTo(map);
 </script>
 ";
+* /
 }
-
+*/
 
 ?>
 </body>

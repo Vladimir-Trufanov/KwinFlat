@@ -293,7 +293,7 @@ KwinFlat
 Main=
 Selected=Ex8\index.php
 [State\index.php]
-TopLine=13
+TopLine=41
 Caret=1,80
 [Controller\Controller.js]
 TopLine=158
@@ -302,8 +302,8 @@ Caret=11,183
 TopLine=19
 Caret=44,36
 [Ex8\index.php]
-TopLine=37
-Caret=2,44
+TopLine=64
+Caret=1,76
 [Ex7\index.php]
-TopLine=47
+TopLine=45
 Caret=1,81
