@@ -34,14 +34,6 @@ function TopMenu($urlHome)
    echo '</li>';
 
    echo '<li>';
-   echo '<a href="'.$urlHome.'/Ex1Osm/">'."Ex1Osm".'</a>';
-   echo '</li>';
-
-   echo '<li>';
-   echo '<a href="'.$urlHome.'/Ex1Yandex/">'."Ex1Yandex".'</a>';
-   echo '</li>';
-
-   echo '<li>';
    echo '<a href="'.$urlHome.'/Ex4/">'."Пример тайловой карты OpenStreetMap на Leaflet".'</a>';
    echo '</li>';
 

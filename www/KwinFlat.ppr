@@ -75,87 +75,7 @@ KwinFlat
 			Controller\counts.txt
 			Controller\multipartDigits.php
 			Controller\TrackTest.php
-		-Ex1Osm
-			-leaflet-plugins-master
-				-leaflet-plugins-master
-					-build
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\build\deps.py
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\build\Makefile
-					-control
-						-test
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\control\test\PermalinkTest.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\control\Layers.Load.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\control\Permalink.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\control\Permalink.Layer.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\control\Permalink.Line.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\control\Permalink.Marker.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\control\Permalink.Overlay.js
-					-css
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\css\cross.png
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\css\distance.css
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\css\measure.png
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\css\osb.css
-					-examples
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\bing.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\country.min.topojson
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\deferred.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\distance.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\fells_loop.gpx
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\google.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\gpx.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\gpx-no-wpt.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\gpx-speed.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\kml.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\KML_Samples.kml
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\marker-canvas.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\marker-rotate.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\marker-text.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\osm.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\permalink.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\speed.gpx
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\test.osm
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\topojson.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\yandex.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\yandex-addon-controls.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\yandex-addon-fullscreen.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\yandex-addon-loadapi-deferred.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\yandex-addon-loadapi-dynamic.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\yandex-addon-loadapi-promise.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\yandex-addon-panorama.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\yandex-controls.html
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\examples\yandex-kml-gpx.html
-					-layer
-						-tile
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\tile\Bing.addon.applyMaxNativeZoom.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\tile\Bing.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\tile\Bing.md
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\tile\Yandex.addon.Controls.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\tile\Yandex.addon.Fullscreen.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\tile\Yandex.addon.LoadApi.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\tile\Yandex.addon.Panorama.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\tile\Yandex.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\tile\Yandex.md
-						-vector
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\vector\GPX.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\vector\GPX.Speed.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\vector\KML.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\vector\OSM.js
-							Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\vector\TOPOJSON.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\Icon.Canvas.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\Layer.Deferred.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\Marker.Rotate.js
-						Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\layer\Marker.Text.js
-					Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\.eslintrc
-					Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\.mversionrc
-					Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\LICENSE
-					Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\package.json
-					Ex1Osm\leaflet-plugins-master\leaflet-plugins-master\README.md
-			Ex1Osm\index.php
-			Ex1Osm\leaflet-plugins-master.zip
-			Ex1Osm\test.osm
-		-Ex1Yandex
-			Ex1Yandex\index.php
-		-Ex2
+		+Ex2
 			-d3js790
 				Ex2\d3js790\98147caa0bf62512153f28c587e0feb5-a7636fa325dfb94d129bb690aa39d708af429006.zip
 				Ex2\d3js790\d3.v7.min.js
@@ -195,7 +115,7 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		+Ex7
+		-Ex7
 			Ex7\index.php
 		-Ex8
 			Ex8\index.php
@@ -259,9 +179,6 @@ KwinFlat
 			jQuery\jquery-ui.min.js
 		-layer
 			-tile
-				layer\tile\Bing.addon.applyMaxNativeZoom.js
-				layer\tile\Bing.js
-				layer\tile\Bing.md
 				layer\tile\Yandex.addon.Controls.js
 				layer\tile\Yandex.addon.Fullscreen.js
 				layer\tile\Yandex.addon.LoadApi.js
@@ -280,7 +197,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -381,8 +298,8 @@ Caret=1,80
 TopLine=158
 Caret=11,183
 [iniMenu.php]
-TopLine=29
-Caret=43,49
-[Ex8\index.php]
 TopLine=1
-Caret=62,5
+Caret=1,35
+[Ex8\index.php]
+TopLine=13
+Caret=80,79
