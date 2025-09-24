@@ -75,7 +75,7 @@ KwinFlat
 			Controller\counts.txt
 			Controller\multipartDigits.php
 			Controller\TrackTest.php
-		+Ex2
+		-Ex2
 			-d3js790
 				Ex2\d3js790\98147caa0bf62512153f28c587e0feb5-a7636fa325dfb94d129bb690aa39d708af429006.zip
 				Ex2\d3js790\d3.v7.min.js
@@ -93,7 +93,7 @@ KwinFlat
 				Ex3\leaflet194\leaflet.css
 				Ex3\leaflet194\leaflet.js
 			Ex3\index.php
-		+Ex4
+		-Ex4
 			-js
 				-images
 					Ex4\js\images\DirFlag47x47.png
@@ -115,7 +115,7 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		+Ex7
+		-Ex7
 			Ex7\index.php
 		-Ex8
 			Ex8\index.php
@@ -133,7 +133,9 @@ KwinFlat
 			-js
 				-images
 					gpx\js\images\DirFlag47x47.png
-					gpx\js\images\fil.gpx
+					gpx\js\images\Imhere48x48.png
+					gpx\js\images\Imhere49x49.png
+					gpx\js\images\Imhere99x99.png
 					gpx\js\images\kwinflat16x16.png
 					gpx\js\images\kwinflat32x32.png
 					gpx\js\images\kwinflat48x48.png
@@ -148,7 +150,6 @@ KwinFlat
 					gpx\js\images\marker-shadow.png
 					gpx\js\images\marker-shadow.svg
 					gpx\js\images\PinMap38x38.png
-					gpx\js\images\track20250810.gpx
 				gpx\js\gpx212.min.js
 				gpx\js\gpxtve.js
 				gpx\js\gpxtveFirst.js
@@ -197,7 +198,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -281,20 +282,18 @@ KwinFlat
 		leaflet_examples.md
 		manifest.json
 		Meet40.html
-		server.log
 		web.config
 [Open project files]
 0=State\index.php
 1=Controller\Controller.js
 2=iniMenu.php
 3=Ex8\index.php
-4=Ex7\index.php
 [Selected Project Files]
 Main=
 Selected=Ex8\index.php
 [State\index.php]
 TopLine=41
-Caret=1,80
+Caret=41,55
 [Controller\Controller.js]
 TopLine=158
 Caret=11,183
@@ -302,8 +301,5 @@ Caret=11,183
 TopLine=19
 Caret=44,36
 [Ex8\index.php]
-TopLine=64
-Caret=1,76
-[Ex7\index.php]
-TopLine=45
-Caret=1,81
+TopLine=1
+Caret=45,20
