@@ -291,10 +291,9 @@ KwinFlat
 2=Leafgpx\Leafgpx.js
 3=Leafgpx\index.php
 4=Leafgpx\Leafgpx.php
-5=iniMem.php
 [Selected Project Files]
 Main=
-Selected=iniMem.php
+Selected=Leafgpx\Leafgpx.js
 [State\index.php]
 TopLine=41
 Caret=41,55
@@ -302,14 +301,11 @@ Caret=41,55
 TopLine=158
 Caret=11,183
 [Leafgpx\Leafgpx.js]
-TopLine=1
-Caret=5,62
+TopLine=121
+Caret=15,134
 [Leafgpx\index.php]
-TopLine=115
-Caret=5,127
+TopLine=111
+Caret=3,123
 [Leafgpx\Leafgpx.php]
-TopLine=5
-Caret=25,14
-[iniMem.php]
-TopLine=1
-Caret=42,9
+TopLine=132
+Caret=1,145

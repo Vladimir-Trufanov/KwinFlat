@@ -18,7 +18,7 @@ $lat=61.846308; $lon=33.206584; $zoom=10;  // Центр в Эссойле
 // Строим Яндекс и OSM карты 
 if (permit==tve) MakeMapTVE($zoom,$lat,$lon,$gpxfile); 
 // Строим только OSM карту 
-else MakeMapOther($zoom,$lat,$lon,$gpxfile); 
+else MakeMapOther($zoom,$lat,$lon,$idctrl,$gpxfile); 
 
 // ****************************************************************************
 // *        Построить Яндекс и OSM-карты с возможностью переключения          *
@@ -92,9 +92,9 @@ function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296,$gpxfile='')
 // *   с центром в текущей точке геолокации (если геолокация разрешена) или   *
 // *             в заданной точке (по умолчанию - Петрозаводск)               *
 // ****************************************************************************
-function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296,$gpxfile='') 
+function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296,$idctrl=204,$gpxfile='') 
 {
-  echo "<script> var map, nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom.",gpxfile='".$gpxfile."'; </script>"; 
+  echo "<script> var map, nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom.",gpxfile='".$gpxfile."',ctrl=".$idctrl."; </script>"; 
   ?>
   <script>
   
@@ -142,7 +142,7 @@ function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296,$gpxfile='')
     // Загружаем OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     {
-      attribution: 'Map data © OpenStreetMap contributors',
+      attribution: ' © OpenStreetMap contributors',
       maxZoom: 19,
       minZoom: 2,
       tileSize: 512,
@@ -177,6 +177,11 @@ function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296,$gpxfile='')
         map.fitBounds(e.target.getBounds());
       }).addTo(map);
     }
+    
+    //
+    МакеTrackMap(nlat,nlon,nzoom,ctrl,map);   
+
+    
   }
   </script>
   <?php

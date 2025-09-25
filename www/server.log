@@ -1,6 +1,6 @@
 Array
 (
-    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-b260839c-59f9-4e28-8732-c43437b84713
+    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-cc59dcb5-06d1-4c84-8b31-92453b0d30d7
     [PHP_FCGI_MAX_REQUESTS] => 200
     [PHPRC] => C:\PHP\
     [ALLUSERSPROFILE] => C:\ProgramData
@@ -37,23 +37,23 @@ Array
     [USERPROFILE] => C:\WINDOWS\system32\config\systemprofile
     [windir] => C:\WINDOWS
     [ZES_ENABLE_SYSMAN] => 1
-    [ORIG_PATH_INFO] => /Leafgpx/index.php
-    [URL] => /Leafgpx/index.php
+    [ORIG_PATH_INFO] => /index.php
+    [URL] => /index.php
     [SERVER_SOFTWARE] => Microsoft-IIS/10.0
     [SERVER_PROTOCOL] => HTTP/1.1
     [SERVER_PORT_SECURE] => 0
     [SERVER_PORT] => 100
     [SERVER_NAME] => localhost
-    [SCRIPT_NAME] => /Leafgpx/index.php
-    [SCRIPT_FILENAME] => C:\KwinFlat\www\Leafgpx\index.php
-    [REQUEST_URI] => /Leafgpx/?ctrl=204
+    [SCRIPT_NAME] => /index.php
+    [SCRIPT_FILENAME] => C:\KwinFlat\www\index.php
+    [REQUEST_URI] => /
     [REQUEST_METHOD] => GET
     [REMOTE_USER] => 
-    [REMOTE_PORT] => 51576
+    [REMOTE_PORT] => 54637
     [REMOTE_HOST] => ::1
     [REMOTE_ADDR] => ::1
-    [QUERY_STRING] => ctrl=204
-    [PATH_TRANSLATED] => C:\KwinFlat\www\Leafgpx\index.php
+    [QUERY_STRING] => 
+    [PATH_TRANSLATED] => C:\KwinFlat\www\index.php
     [LOGON_USER] => 
     [LOCAL_ADDR] => ::1
     [INSTANCE_META_PATH] => /LM/W3SVC/10
@@ -96,8 +96,8 @@ Array
     [HTTP_CONTENT_LENGTH] => 0
     [HTTP_CONNECTION] => keep-alive
     [FCGI_ROLE] => RESPONDER
-    [PHP_SELF] => /Leafgpx/index.php
-    [REQUEST_TIME_FLOAT] => 1758804125.3652
-    [REQUEST_TIME] => 1758804125
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1758815908.2011
+    [REQUEST_TIME] => 1758815908
 )
 
