@@ -16,7 +16,7 @@ define ("permit", nearby);
 $lat=61.846308; $lon=33.206584; $zoom=10;  // Центр в Эссойле
 
 // Строим Яндекс и OSM карты 
-if (permit==tve) MakeMapTVE($zoom,$lat,$lon); 
+if (permit==tve) MakeMapTVE($zoom,$lat,$lon,$gpxfile); 
 // Строим только OSM карту 
 else MakeMapOther($zoom,$lat,$lon,$gpxfile); 
 
@@ -25,13 +25,13 @@ else MakeMapOther($zoom,$lat,$lon,$gpxfile);
 // *   с центром в текущей точке геолокации (если геолокация разрешена) или   *
 // *             в заданной точке (по умолчанию - Петрозаводск)               *
 // ****************************************************************************
-function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296) 
+function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296,$gpxfile='') 
 {
-  echo "<script> var nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom."; </script>"; 
+  echo "<script> var map, nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom.",gpxfile='".$gpxfile."'; </script>"; 
   ?>
   <script>
 	  let center=[nlat,nlon];
-	  let map = L.map('map', 
+	  map = L.map('map', 
     {
 	    center:center,
 	    zoom:nzoom,
@@ -56,10 +56,26 @@ function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296)
 
     L.control.layers(baseLayers,overlays,{collapsed:true}).addTo(map);
     let marker = L.marker(center, {draggable:false}).addTo(map);
- 	  map.locate({setView:true, maxZoom:19}).on('locationfound',function (e) 
+    // Центрируем карту по локации
+    if (gpxfile=='')
     {
-		  marker.setLatLng(e.latlng);
-    });
+ 	    map.locate({setView:true, maxZoom:19}).on('locationfound',function (e) 
+      {
+		    marker.setLatLng(e.latlng);
+      });
+    } 
+    // При необходимости определяем цвет трека и загружаем gpx-файл
+    else
+    {
+      const options = 
+      {
+        async: true,
+        polyline_options: {color:'red'},
+      };
+      const gpx = new L.GPX(gpxfile, options).on('loaded', (e) => {
+        map.fitBounds(e.target.getBounds());
+      }).addTo(map);
+    }
   
 	  function traffic() 
     {
@@ -128,6 +144,9 @@ function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296,$gpxfile='')
     {
       attribution: 'Map data © OpenStreetMap contributors',
       maxZoom: 19,
+      minZoom: 2,
+      tileSize: 512,
+      zoomOffset: -1
     }).addTo(map);
     // Готовим маркер 'флаг трека'
     var DirFlagIconOptions = 

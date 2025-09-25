@@ -38,16 +38,19 @@ function SimpleTrackMap(nlat,nlong,nzoom,idctrl)
 
   // Добавляем слой на карту (традиционный набор тайлов от Openstreetmap).
 
+  /*
   var mapOptions = {center:[nlat,nlong],zoom:nzoom};
   var map = new L.map('map',mapOptions);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data © OpenStreetMap contributors',
     maxZoom: 19,
   }).addTo(map);
-
+  */
+  
   // Перемещаем и масштабируем карту (по умолчанию в Эссойлу)
   map.flyTo([61.846308, 33.206584], 10);
-   
+ 
+  /*  
   // Запускаем трассировку поступающих координат
   var itrkwpt=0;
   intervalTrkWpt=setInterval(function() 
@@ -56,6 +59,7 @@ function SimpleTrackMap(nlat,nlong,nzoom,idctrl)
     ViewTrackNumCtrl(itrkwpt,ramTrack,idctrl);
   }
   ,998)
+  */
   
   // **************************************************************************
   // *                 Дополнить однозначные числа ноликом слева              *

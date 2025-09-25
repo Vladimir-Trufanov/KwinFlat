@@ -119,7 +119,8 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
   $pdo=$Kvizzy->BaseConnect();
   $Kvizzy->SelectNumCtrl($pdo,$idctrl,$num);
   // Загружаем карту
-  $gpxfile=$urlHome.'/gpx/track20250810.gpx';
+  //$gpxfile=$urlHome.'/gpx/track20250810.gpx';
+  $gpxfile='';
   require_once "../Leafgpx/Leafgpx.php";
   // ---Центруем (по умолчанию-Петрозаводск) и выводим карту для трассировки трека
   // if ($gpx==NULL) 
