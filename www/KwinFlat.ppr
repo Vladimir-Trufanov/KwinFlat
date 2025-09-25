@@ -198,7 +198,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		-Leafgpx
+		+Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -210,6 +210,7 @@ KwinFlat
 			Leafgpx\gpx_view.jpg
 			Leafgpx\index.php
 			Leafgpx\Leafgpx.js
+			Leafgpx\Leafgpx.php
 		-Leaflet
 			-assets
 				Leaflet\assets\github-icon.png
@@ -282,15 +283,18 @@ KwinFlat
 		leaflet_examples.md
 		manifest.json
 		Meet40.html
+		server.log
 		web.config
 [Open project files]
 0=State\index.php
 1=Controller\Controller.js
 2=iniMenu.php
-3=Ex8\index.php
+3=Leafgpx\Leafgpx.js
+4=Leafgpx\index.php
+5=Leafgpx\Leafgpx.php
 [Selected Project Files]
 Main=
-Selected=Ex8\index.php
+Selected=Leafgpx\Leafgpx.php
 [State\index.php]
 TopLine=41
 Caret=41,55
@@ -298,8 +302,14 @@ Caret=41,55
 TopLine=158
 Caret=11,183
 [iniMenu.php]
-TopLine=19
-Caret=44,36
-[Ex8\index.php]
-TopLine=1
-Caret=45,134
+TopLine=58
+Caret=1,1
+[Leafgpx\Leafgpx.js]
+TopLine=4
+Caret=1,13
+[Leafgpx\index.php]
+TopLine=157
+Caret=1,184
+[Leafgpx\Leafgpx.php]
+TopLine=101
+Caret=27,149

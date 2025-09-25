@@ -1,43 +1,24 @@
 <?php
-// PHP7/HTML5, EDGE/CHROME/YANDEX                             *** index.php ***
+// PHP7/HTML5, EDGE/CHROME/YANDEX                           *** Leafgpx.php ***
 
 // ****************************************************************************
-// *               Ex8. Переключение между картами Osm-Яндекс                 *
+// *                        Подключить OSM или Яндекс карту                   *
 // ****************************************************************************
 
-// v1.0.3, 24.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.4, 25.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 13.09.2025
 
 define ("tve",    "tve"); 
 define ("guest",  "гость"); 
 define ("nearby", "близкие"); 
-define ("permit", guest); 
-
-?>
-<html>
-<head>
-	<title>Ex8. Переключение между картами Osm-Яндекс</title>
-  <link rel="stylesheet" href="../gpx/js/leaflet171.css" />
-  <script src="../gpx/js/leaflet171.js"></script>
-	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=4e879c33-becb-4f85-8a6e-8f468e8dedeb" type="text/javascript"></script>
-	<script src="../layer/tile/Yandex.js"></script>
-	<style>
-		.leaflet-bottom { bottom: 20px }
-		.leaflet-control-attribution { margin-bottom: -10px !important }
-	</style>
-</head>
-<body>
-
-<div style="width:100%; height:100%" id="map"></div>
-
-<?php
+define ("permit", nearby); 
 
 $lat=61.846308; $lon=33.206584; $zoom=10;  // Центр в Эссойле
 
 // Строим Яндекс и OSM карты 
 if (permit==tve) MakeMapTVE($zoom,$lat,$lon); 
 // Строим только OSM карту 
-else MakeMapOther($zoom,$lat,$lon); 
+else MakeMapOther($zoom,$lat,$lon,$gpxfile); 
 
 // ****************************************************************************
 // *        Построить Яндекс и OSM-карты с возможностью переключения          *
@@ -95,9 +76,9 @@ function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296)
 // *   с центром в текущей точке геолокации (если геолокация разрешена) или   *
 // *             в заданной точке (по умолчанию - Петрозаводск)               *
 // ****************************************************************************
-function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296) 
+function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296,$gpxfile='') 
 {
-  echo "<script> var nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom."; </script>"; 
+  echo "<script> var map, nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom.",gpxfile='".$gpxfile."'; </script>"; 
   ?>
   <script>
   
@@ -136,7 +117,7 @@ function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296)
   {
     // Готовим пространство под карту с центром и зумом
 	  var center=[nlat,nlon];
-	  var map = L.map('map', 
+	  map = L.map('map', 
     {
 		  center:center,
 		  zoom:nzoom,
@@ -165,14 +146,28 @@ function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296)
     // Устанавливаем и подписываем маркер
     var DirFlagMarker = L.marker(center,DirFlagMarkerOptions);
     DirFlagMarker.addTo(map);
+    // При необходимости определяем цвет трека и загружаем gpx-файл
+    if (gpxfile!='')
+    {
+      const options = 
+      {
+        async: true,
+        polyline_options: {color:'red'},
+      };
+      const gpx = new L.GPX(gpxfile, options).on('loaded', (e) => {
+        map.fitBounds(e.target.getBounds());
+      }).addTo(map);
+    }
   }
   </script>
   <?php
 }
 
 ?>
+<!-- 
 </body>
 </html>
+-->
 <?php
 
-?> <!-- --> <?php // ******************************************** index.php ***
+?> <!-- --> <?php // ****************************************** Leafgpx.php ***

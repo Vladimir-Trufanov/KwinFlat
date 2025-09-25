@@ -51,18 +51,13 @@ define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools');
 require_once '../iniMenu.php'; 
 // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
 require_once "../iniPhpJS.php";  
-
 // Подключаем объект для работы с базой данных моего хозяйства
 require_once "../TKvizzyMaker/KvizzyMakerClass.php";
 
 ?>
 <head>
-   <title> Карта отслеживания треков и загрузки GPX </title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-   <link rel="stylesheet" href="../gpx/js/leaflet171.css" />
-   <script src="../gpx/js/leaflet171.js"></script>
-   <script src="../gpx/js/gpxtve.js"></script>
+  <title> Карта отслеживания треков и загрузки GPX </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <?php   
    // Подключаем jQuery
    echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
@@ -70,22 +65,34 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
       <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
       <script src="/jQuery/jquery-ui.min.js"></script>
    ';
-   // Подключаем SmartMenus
-   echo '<script src="/SmartMenus/jquery.smartmenus.min.js"></script>';
-   echo '<script src="/SmartMenus/MakeSmartMenu.js"></script>';
-   echo '<link rel="stylesheet" href="/SmartMenus/sm-core-css.css">';
-   echo '<link rel="stylesheet" href="/SmartMenus/sm-doortry-mobi.css">';
-   // Подключаем обработку страницы
-   echo '<script src="/CommonTools.js"></script>';
-   echo '<script src="Leafgpx.js"></script>';
-   // Разворачиваем смартменю
-   echo '<script> MakeSmartMenu(); </script>';
-   ?>
-   <style>
-     #ozhid {display:flex;}
-     .vtimer {color: blue; margin-top:0;}
-     /*  #map { height: 500px; } */
-   </style>
+   // Подключаем модули для работы с OSM и Яндекс-картами
+   echo '
+  <link rel="stylesheet" href="../gpx/js/leaflet171.css" />
+  <script src="../gpx/js/leaflet171.js"></script>
+  <script src="../gpx/js/gpxtve.js"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=4e879c33-becb-4f85-8a6e-8f468e8dedeb" type="text/javascript"></script>
+	<script src="../layer/tile/Yandex.js"></script>
+	<style>
+		.leaflet-bottom {bottom:20px}
+		.leaflet-control-attribution{margin-bottom:-10px !important}
+	</style>
+  ';
+  // Подключаем SmartMenus
+  echo '<script src="/SmartMenus/jquery.smartmenus.min.js"></script>';
+  echo '<script src="/SmartMenus/MakeSmartMenu.js"></script>';
+  echo '<link rel="stylesheet" href="/SmartMenus/sm-core-css.css">';
+  echo '<link rel="stylesheet" href="/SmartMenus/sm-doortry-mobi.css">';
+  // Подключаем обработку страницы
+  echo '<script src="/CommonTools.js"></script>';
+  echo '<script src="Leafgpx.js"></script>';
+  // Разворачиваем смартменю
+  echo '<script> MakeSmartMenu(); </script>';
+  ?>
+  <style>
+    #ozhid {display:flex;}
+    .vtimer {color: blue; margin-top:0;}
+    /*  #map { height: 500px; } */
+  </style>
 </head>
 
 <body>
@@ -111,11 +118,15 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
   // Подключаемся к базе данных
   $pdo=$Kvizzy->BaseConnect();
   $Kvizzy->SelectNumCtrl($pdo,$idctrl,$num);
-
-  // Центруем (по умолчанию-Петрозаводск) и выводим карту для трассировки трека
-  if ($gpx==NULL) SimpleTrackMap($idctrl);
+  // Загружаем карту
+  $gpxfile=$urlHome.'/gpx/track20250810.gpx';
+  require_once "../Leafgpx/Leafgpx.php";
+  // ---Центруем (по умолчанию-Петрозаводск) и выводим карту для трассировки трека
+  // if ($gpx==NULL) 
+  //SimpleTrackMap($idctrl);
   // Создаем карту для загрузки файла gps и загружаем файл          
-  else LoadGpsFile($urlHome,$gpx);
+  //else 
+  //LoadGpsFile($urlHome,$gpx);
 ?>
 </body>
 </html>
@@ -154,6 +165,7 @@ function LoadGpsFile($urlHome,$gpx)
    
    ?>
    <script type="module">
+   /*
    const mapgpx = L.map('map');
    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap',
@@ -162,17 +174,21 @@ function LoadGpsFile($urlHome,$gpx)
       tileSize: 512,
       zoomOffset: -1
    }).addTo(mapgpx);
-
+   */
    // Определяем цвет трека
    const options = 
    {
       async: true,
-      polyline_options: { color: 'red' },
+      polyline_options: {color:'red'},
    };
    // Загружаем gpx-файл
+   //const gpx = new L.GPX(url, options).on('loaded', (e) => {
+   //   mapgpx.fitBounds(e.target.getBounds());
+   //}).addTo(mapgpx);
+   // Загружаем gpx-файл
    const gpx = new L.GPX(url, options).on('loaded', (e) => {
-      mapgpx.fitBounds(e.target.getBounds());
-   }).addTo(mapgpx);
+      map.fitBounds(e.target.getBounds());
+   }).addTo(map);
    </script>
    <?php
 }
