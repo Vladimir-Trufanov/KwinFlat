@@ -83,16 +83,6 @@ KwinFlat
 				Ex2\leaflet194\leaflet.css
 				Ex2\leaflet194\leaflet.js
 			Ex2\index.php
-		-Ex3
-			-leaflet194
-				-images
-					Ex3\leaflet194\images\kwinflat32x32.png
-					Ex3\leaflet194\images\marker-icon.png
-					Ex3\leaflet194\images\marker-icon-2x.png
-					Ex3\leaflet194\images\marker-shadow.png
-				Ex3\leaflet194\leaflet.css
-				Ex3\leaflet194\leaflet.js
-			Ex3\index.php
 		-Ex4
 			-js
 				-images
@@ -115,10 +105,6 @@ KwinFlat
 				Ex4\js\leaflet.js
 			Ex4\favicon.ico
 			Ex4\index.php
-		-Ex7
-			Ex7\index.php
-		-Ex8
-			Ex8\index.php
 		-favicon260x260
 			favicon260x260\android-chrome-192x192.png
 			favicon260x260\android-chrome-256x256.png
@@ -198,7 +184,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -291,9 +277,10 @@ KwinFlat
 2=Leafgpx\Leafgpx.js
 3=Leafgpx\index.php
 4=Leafgpx\Leafgpx.php
+5=iniMenu.php
 [Selected Project Files]
 Main=
-Selected=Leafgpx\Leafgpx.js
+Selected=Leafgpx\Leafgpx.php
 [State\index.php]
 TopLine=41
 Caret=41,55
@@ -301,11 +288,14 @@ Caret=41,55
 TopLine=158
 Caret=11,183
 [Leafgpx\Leafgpx.js]
-TopLine=121
-Caret=15,134
+TopLine=122
+Caret=1,158
 [Leafgpx\index.php]
-TopLine=111
-Caret=3,123
+TopLine=93
+Caret=41,123
 [Leafgpx\Leafgpx.php]
-TopLine=132
-Caret=1,145
+TopLine=41
+Caret=6,71
+[iniMenu.php]
+TopLine=17
+Caret=1,34

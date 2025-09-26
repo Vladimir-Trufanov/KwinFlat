@@ -5,18 +5,18 @@
 // *                        Подключить OSM или Яндекс карту                   *
 // ****************************************************************************
 
-// v1.0.4, 25.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.5, 26.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 13.09.2025
 
 define ("tve",    "tve"); 
 define ("guest",  "гость"); 
 define ("nearby", "близкие"); 
-define ("permit", nearby); 
+define ("permit", tve); 
 
 $lat=61.846308; $lon=33.206584; $zoom=10;  // Центр в Эссойле
 
 // Строим Яндекс и OSM карты 
-if (permit==tve) MakeMapTVE($zoom,$lat,$lon,$gpxfile); 
+if (permit==tve) MakeMapTVE($zoom,$lat,$lon,$idctrl,$gpxfile); 
 // Строим только OSM карту 
 else MakeMapOther($zoom,$lat,$lon,$idctrl,$gpxfile); 
 
@@ -25,9 +25,9 @@ else MakeMapOther($zoom,$lat,$lon,$idctrl,$gpxfile);
 // *   с центром в текущей точке геолокации (если геолокация разрешена) или   *
 // *             в заданной точке (по умолчанию - Петрозаводск)               *
 // ****************************************************************************
-function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296,$gpxfile='') 
+function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296,$idctrl=204,$gpxfile='') 
 {
-  echo "<script> var map, nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom.",gpxfile='".$gpxfile."'; </script>"; 
+  echo "<script> var map, nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom.",gpxfile='".$gpxfile."',ctrl=".$idctrl."; </script>"; 
   ?>
   <script>
 	  let center=[nlat,nlon];
@@ -63,7 +63,9 @@ function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296,$gpxfile='')
       {
 		    marker.setLatLng(e.latlng);
       });
-    } 
+      // Выполняем трассировку трека
+      МакеTrackMap(nlat,nlon,nzoom,ctrl,map);
+    }
     // При необходимости определяем цвет трека и загружаем gpx-файл
     else
     {
@@ -177,21 +179,18 @@ function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296,$idctrl=204,$gpxfile=''
         map.fitBounds(e.target.getBounds());
       }).addTo(map);
     }
-    
-    //
-    МакеTrackMap(nlat,nlon,nzoom,ctrl,map);   
+    // Иначе выполняем трассировку трека
+    else
+    {
+      
+      // Перемещаем и масштабируем карту (по умолчанию в Эссойлу)
+      //map.flyTo([61.846308, 33.206584], 10);
 
-    
+      МакеTrackMap(nlat,nlon,nzoom,ctrl,map);
+    }   
   }
   </script>
   <?php
 }
-
-?>
-<!-- 
-</body>
-</html>
--->
-<?php
 
 ?> <!-- --> <?php // ****************************************** Leafgpx.php ***

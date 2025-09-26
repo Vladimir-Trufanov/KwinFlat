@@ -111,7 +111,8 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
   // Определяем контекст нужной страницы
   $gpx=prown\getComRequest('gpx');
   $idctrl=prown\getComRequest('ctrl');
-  $num=5; // последние данные трека
+  // Определяем выбор последних данных трека
+  $num=5; // dпоследние данные трека
   
   // Подключаем объект для работы с базой данных моего хозяйства
   $Kvizzy=new ttools\KvizzyMaker($SiteHost);
@@ -119,79 +120,12 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
   $pdo=$Kvizzy->BaseConnect();
   $Kvizzy->SelectNumCtrl($pdo,$idctrl,$num);
   // Загружаем карту
-  //$gpxfile=$urlHome.'/gpx/track20250810.gpx';
-  $gpxfile='';
+  //$gpxfile=$urlHome.'/gpx/track204.gpx';
+  //$gpxfile='';
   require_once "../Leafgpx/Leafgpx.php";
-  // ---Центруем (по умолчанию-Петрозаводск) и выводим карту для трассировки трека
-  // if ($gpx==NULL) 
-  //SimpleTrackMap($idctrl);
-  // Создаем карту для загрузки файла gps и загружаем файл          
-  //else 
-  //LoadGpsFile($urlHome,$gpx);
 ?>
 </body>
 </html>
 <?php
-
-// ****************************************************************************
-// *      Отцентрировать (по умолчанию - Петрозаводск) и вывести карту для    *
-// *                              трассировки трека                           *
-// ****************************************************************************
-function SimpleTrackMap($ctrl)
-{
-  if ($ctrl==NULL) $ctrl=204;
-  // $lat=61.783270; $long=33.808963;  $zoom=10;  // Центр в Матросах
-  $lat=61.8021;   $long=34.3296;    $zoom=11;     // Центр в Петрозаводске
-  // $lat=61.846308; $long=33.206584; $zoom=10;   // Центр в Эссойле
-  echo "
-  <script>
-  SimpleTrackMap(".$lat.",".$long.",".$zoom.",".$ctrl.");
-  </script>
-  ";
-}
-// ****************************************************************************
-// *         Создать карту для загрузки файла gps и загрузить файл            *
-// ****************************************************************************
-function LoadGpsFile($urlHome,$gpx)
-{
-   // !!! Для подключения файлов gpx в IIS следует установить MIME-тип "gpx", как text/xml
-   // const url = 'https://mpetazzoni.github.io/leaflet-gpx/demo.gpx';
-   // echo "const url = '"."http://localhost:100"."/gpx/mp20230923.gpx';";
-   // echo "const url = '".$urlHome."/gpx/mp20230923.gpx';";
-   echo "
-   <script>
-   const url = '".$urlHome."/gpx/track20250810.gpx';
-   </script>
-   ";
-   
-   ?>
-   <script type="module">
-   /*
-   const mapgpx = L.map('map');
-   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap',
-      maxZoom: 20,
-      minZoom: 2,
-      tileSize: 512,
-      zoomOffset: -1
-   }).addTo(mapgpx);
-   */
-   // Определяем цвет трека
-   const options = 
-   {
-      async: true,
-      polyline_options: {color:'red'},
-   };
-   // Загружаем gpx-файл
-   //const gpx = new L.GPX(url, options).on('loaded', (e) => {
-   //   mapgpx.fitBounds(e.target.getBounds());
-   //}).addTo(mapgpx);
-   // Загружаем gpx-файл
-   const gpx = new L.GPX(url, options).on('loaded', (e) => {
-      map.fitBounds(e.target.getBounds());
-   }).addTo(map);
-   </script>
-   <?php
-}
 
 ?> <!-- --> <?php // ******************************************** index.php ***
