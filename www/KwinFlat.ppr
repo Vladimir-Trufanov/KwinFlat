@@ -115,7 +115,7 @@ KwinFlat
 			favicon260x260\favicon-32x32.png
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
-		-gpx
+		+gpx
 			-js
 				-images
 					gpx\js\images\DirFlag47x47.png
@@ -144,10 +144,10 @@ KwinFlat
 				gpx\js\leaflet194.css
 				gpx\js\leaflet194.js
 			gpx\demo_mpetazzoni.gpx
-			gpx\mp20230923.gpx
 			gpx\mp20230923First.gpx
-			gpx\track20250810.gpx
+			gpx\mp204.gpx
 			gpx\track20250810First.gpx
+			gpx\track204.gpx
 		-htaccess
 			htaccess\.htaccess
 		-Images
@@ -278,24 +278,28 @@ KwinFlat
 3=Leafgpx\index.php
 4=Leafgpx\Leafgpx.php
 5=iniMenu.php
+6=TKvizzyMaker\CommonStateMaker.php
 [Selected Project Files]
 Main=
 Selected=Leafgpx\Leafgpx.php
 [State\index.php]
-TopLine=41
+TopLine=7
 Caret=41,55
 [Controller\Controller.js]
 TopLine=158
 Caret=11,183
 [Leafgpx\Leafgpx.js]
-TopLine=122
+TopLine=53
 Caret=1,158
 [Leafgpx\index.php]
-TopLine=93
-Caret=41,123
+TopLine=80
+Caret=19,50
 [Leafgpx\Leafgpx.php]
-TopLine=41
-Caret=6,71
+TopLine=17
+Caret=1,55
 [iniMenu.php]
 TopLine=17
 Caret=1,34
+[TKvizzyMaker\CommonStateMaker.php]
+TopLine=1
+Caret=16,9

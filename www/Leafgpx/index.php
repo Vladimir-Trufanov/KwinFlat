@@ -6,7 +6,7 @@
 // *                                                     треков и загрузки GPX *
 // ****************************************************************************
 
-// v1.0.10, 18.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.11, 27.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 07.08.2025
 
 echo '<!DOCTYPE html>';  // определили разметку HTML5
@@ -47,7 +47,7 @@ $HttpReferer  = $_WORKSPACE[wsHttpReferer];  // Адрес страницы, с 
 define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
 define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
 
-//
+// Подключаем меню
 require_once '../iniMenu.php'; 
 // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
 require_once "../iniPhpJS.php";  
@@ -108,20 +108,7 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
       <p id="timerEnd" class="vtimer"></p>-<p id="timerBeg" class="vtimer"></p>[<p id="delta" class="vtimer">0</p>]
     </div>
   ';
-  // Определяем контекст нужной страницы
-  $gpx=prown\getComRequest('gpx');
-  $idctrl=prown\getComRequest('ctrl');
-  // Определяем выбор последних данных трека
-  $num=5; // dпоследние данные трека
-  
-  // Подключаем объект для работы с базой данных моего хозяйства
-  $Kvizzy=new ttools\KvizzyMaker($SiteHost);
-  // Подключаемся к базе данных
-  $pdo=$Kvizzy->BaseConnect();
-  $Kvizzy->SelectNumCtrl($pdo,$idctrl,$num);
   // Загружаем карту
-  //$gpxfile=$urlHome.'/gpx/track204.gpx';
-  //$gpxfile='';
   require_once "../Leafgpx/Leafgpx.php";
 ?>
 </body>

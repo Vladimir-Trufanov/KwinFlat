@@ -5,7 +5,7 @@
 // *                        Подключить OSM или Яндекс карту                   *
 // ****************************************************************************
 
-// v1.0.5, 26.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.6, 27.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 13.09.2025
 
 define ("tve",    "tve"); 
@@ -13,19 +13,64 @@ define ("guest",  "гость");
 define ("nearby", "близкие"); 
 define ("permit", tve); 
 
-$lat=61.846308; $lon=33.206584; $zoom=10;  // Центр в Эссойле
+// Определяем начальную точку центрирования карты
+// - при загрузке gpx карта разместится по путевым точкам;
+// - при трассировке трека, карта центрируется при поступлении первой точки трека
+$lat=61.8021; $lon=34.3296; $zoom=10;         // Центр в Петрозаводске
+//$lat=61.783270; $lon=33.808963;  $zoom=10;  // Центр в Матросах
+//$lat=61.846308; $lon=33.206584; $zoom=10;   // Центр в Эссойле
+
+// Определяем контекст нужной страницы
+$gpx=prown\getComRequest('gpx');
+$idctrl=prown\getComRequest('ctrl');
+// Назначаем идентификатор контроллера и имя gpx-файла
+if ($idctrl==NULL) 
+{
+  if ($gpx==NULL) echo 'Не выбран идентификатор контроллера для gpx-файла<br>'; 
+  else 
+  {
+    $gpxfile=$urlHome.'/gpx/track'.$gpx.'.gpx';
+    $idctrl=$gpx;
+    // Проверяем существование gpx-файла
+    if ($gpxfile=='') {} 
+    else
+    {
+      if (!UR_exists($gpxfile)) echo 'GPX-файл для контроллера '.$idctrl.' отсутствует<br>';
+    }
+  }
+}
+else
+{
+  $gpx='NULL'; 
+  $gpxfile='';
+}
+// Трассируем переданные параметры
+//echo '$idctrl='.$idctrl.'<br>';
+//echo '$gpx='.$gpx.'<br>'; 
+//echo '$gpxfile='.$gpxfile.'<br>'; 
 
 // Строим Яндекс и OSM карты 
 if (permit==tve) MakeMapTVE($zoom,$lat,$lon,$idctrl,$gpxfile); 
 // Строим только OSM карту 
 else MakeMapOther($zoom,$lat,$lon,$idctrl,$gpxfile); 
 
+
+// ****************************************************************************
+// *                    Проверить существование файла по URL                  *
+// ****************************************************************************
+function UR_exists($url)
+//https://stackoverflow.com/questions/7684771/how-to-check-if-a-file-exists-from-a-url
+{
+   $headers=get_headers($url);
+   return stripos($headers[0],"200 OK")?true:false;
+}
+
 // ****************************************************************************
 // *        Построить Яндекс и OSM-карты с возможностью переключения          *
 // *   с центром в текущей точке геолокации (если геолокация разрешена) или   *
-// *             в заданной точке (по умолчанию - Петрозаводск)               *
+// *                            в заданной точке                              *
 // ****************************************************************************
-function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296,$idctrl=204,$gpxfile='') 
+function MakeMapTVE($nzoom,$nlat,$nlon,$idctrl,$gpxfile) 
 {
   echo "<script> var map, nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom.",gpxfile='".$gpxfile."',ctrl=".$idctrl."; </script>"; 
   ?>
@@ -92,9 +137,9 @@ function MakeMapTVE($nzoom,$nlat=61.8021,$nlon=34.3296,$idctrl=204,$gpxfile='')
 // ****************************************************************************
 // *                             Построить OSM-карту                          *
 // *   с центром в текущей точке геолокации (если геолокация разрешена) или   *
-// *             в заданной точке (по умолчанию - Петрозаводск)               *
+// *                              в заданной точке                            *
 // ****************************************************************************
-function MakeMapOther($nzoom,$nlat=61.8021,$nlon=34.3296,$idctrl=204,$gpxfile='') 
+function MakeMapOther($nzoom,$nlat,$nlon,$idctrl,$gpxfile) 
 {
   echo "<script> var map, nlat=".$nlat.",nlon=".$nlon.",nzoom=".$nzoom.",gpxfile='".$gpxfile."',ctrl=".$idctrl."; </script>"; 
   ?>
