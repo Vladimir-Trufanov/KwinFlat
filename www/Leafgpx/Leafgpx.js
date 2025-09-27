@@ -1,27 +1,45 @@
 // JS/HTML5, EDGE/CHROME/YANDEX                              *** Leafgpx.js ***
 
 // ****************************************************************************
-// * KwinFlat/Leaflet                Создать карту с Leaflet для отслеживания *
-// *                                                     треков и загрузки GPX *
+// * KwinFlat/Leaflet             Вспомогательные функции для создания карт с *
+// *                              Leaflet, отслеживания треков и загрузки GPX *
 // ****************************************************************************
 
-// v1.0.3, 26.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.4, 27.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 17.09.2025
 
+// ****************************************************************************
+// *                               Загрузить gpx-файл                         *
+// ****************************************************************************
+function LoadGpx(map)
+{
+  const options = 
+  {
+    async: true,
+    polyline_options: {color:'red'},
+  };
+  const gpx = new L.GPX(gpxfile, options).on('loaded', (e) => {
+    map.fitBounds(e.target.getBounds());
+  }).addTo(map);
+}
+// ****************************************************************************
+// *       Создать карту с Leaflet для отслеживания треков и загрузки GPX     *
+// ****************************************************************************
 function МакеTrackMap(nlat,nlong,nzoom,idctrl,map)   
 {
+
+  // Перемещаем и масштабируем карту (по умолчанию в Эссойлу)
+  // map.flyTo([61.846308, 33.206584], 10);
+
   // Создаём объект для работы с localStorage
   ramTrack = new TStorage; 
   //console.log('nlat='+nlat);
   //console.log('nlong='+nlong);
   //console.log('nzoom='+nzoom);
-  console.log('idctrl='+idctrl);
+  //console.log('idctrl='+idctrl);
   // 
   var tfirst = new Date();
   timerBeg.textContent = `${fulldec(tfirst.getHours())}:${fulldec(tfirst.getMinutes())}:${fulldec(tfirst.getSeconds())}`;
-   // Перемещаем и масштабируем карту (по умолчанию в Эссойлу)
-  map.flyTo([61.846308, 33.206584], 10);
-
   // Запускаем трассировку поступающих координат
   var itrkwpt=0;
   intervalTrkWpt=setInterval(function() 

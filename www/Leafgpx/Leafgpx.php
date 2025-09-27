@@ -11,7 +11,7 @@
 define ("tve",    "tve"); 
 define ("guest",  "гость"); 
 define ("nearby", "близкие"); 
-define ("permit", tve); 
+define ("permit", guest); 
 
 // Определяем начальную точку центрирования карты
 // - при загрузке gpx карта разместится по путевым точкам;
@@ -54,7 +54,6 @@ if (permit==tve) MakeMapTVE($zoom,$lat,$lon,$idctrl,$gpxfile);
 // Строим только OSM карту 
 else MakeMapOther($zoom,$lat,$lon,$idctrl,$gpxfile); 
 
-
 // ****************************************************************************
 // *                    Проверить существование файла по URL                  *
 // ****************************************************************************
@@ -93,7 +92,6 @@ function MakeMapTVE($nzoom,$nlat,$nlon,$idctrl,$gpxfile)
       'Yandex satellite':L.yandex({type:'satellite'}),  // тип может быть указан опционально
       'Yandex hybrid':   L.yandex('hybrid')
     };
-
     let overlays = 
     {
       'Traffic':L.yandex('overlay').on('load',traffic)
@@ -101,29 +99,19 @@ function MakeMapTVE($nzoom,$nlat,$nlon,$idctrl,$gpxfile)
 
     L.control.layers(baseLayers,overlays,{collapsed:true}).addTo(map);
     let marker = L.marker(center, {draggable:false}).addTo(map);
-    // Центрируем карту по локации
-    if (gpxfile=='')
-    {
- 	    map.locate({setView:true, maxZoom:19}).on('locationfound',function (e) 
-      {
-		    marker.setLatLng(e.latlng);
-      });
-      // Выполняем трассировку трека
-      МакеTrackMap(nlat,nlon,nzoom,ctrl,map);
-    }
     // При необходимости определяем цвет трека и загружаем gpx-файл
+    if (gpxfile!='') LoadGpx(map)
+    // Иначе выполняем трассировку трека
     else
     {
-      const options = 
+      // Центрируем карту по локации
+ 	    map.locate({setView:true,maxZoom:nzoom}).on('locationfound',function (e) 
       {
-        async: true,
-        polyline_options: {color:'red'},
-      };
-      const gpx = new L.GPX(gpxfile, options).on('loaded', (e) => {
-        map.fitBounds(e.target.getBounds());
-      }).addTo(map);
-    }
-  
+	  	  marker.setLatLng(e.latlng);
+      });
+      console.log('tve - выполняем трассировку трека');  
+      МакеTrackMap(nlat,nlon,nzoom,ctrl,map);
+    }   
 	  function traffic() 
     {
 		  // https://tech.yandex.ru/maps/jsbox/2.1/traffic_provider
@@ -213,24 +201,11 @@ function MakeMapOther($nzoom,$nlat,$nlon,$idctrl,$gpxfile)
     var DirFlagMarker = L.marker(center,DirFlagMarkerOptions);
     DirFlagMarker.addTo(map);
     // При необходимости определяем цвет трека и загружаем gpx-файл
-    if (gpxfile!='')
-    {
-      const options = 
-      {
-        async: true,
-        polyline_options: {color:'red'},
-      };
-      const gpx = new L.GPX(gpxfile, options).on('loaded', (e) => {
-        map.fitBounds(e.target.getBounds());
-      }).addTo(map);
-    }
+    if (gpxfile!='') LoadGpx(map)
     // Иначе выполняем трассировку трека
     else
     {
-      
-      // Перемещаем и масштабируем карту (по умолчанию в Эссойлу)
-      //map.flyTo([61.846308, 33.206584], 10);
-
+      console.log('Гость - выполняем трассировку трека');  
       МакеTrackMap(nlat,nlon,nzoom,ctrl,map);
     }   
   }
