@@ -81,17 +81,18 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
   echo '<script src="/SmartMenus/jquery.smartmenus.min.js"></script>';
   echo '<script src="/SmartMenus/MakeSmartMenu.js"></script>';
   echo '<link rel="stylesheet" href="/SmartMenus/sm-core-css.css">';
-  echo '<link rel="stylesheet" href="/SmartMenus/sm-doortry-mobi.css">';
+  echo '<link rel="stylesheet" href="/SmartMenus/sm-kwinflat-mobi.css">';
+  //echo '<link rel="stylesheet" href="/SmartMenus/sm-kwinflat.css">';
   // Подключаем обработку страницы
   echo '<script src="/CommonTools.js"></script>';
   echo '<script src="Leafgpx.js"></script>';
+  echo '<link rel="stylesheet" href="Leafgpx.css">';
   // Разворачиваем смартменю
   echo '<script> MakeSmartMenu(); </script>';
   ?>
   <style>
     #ozhid {display:flex;}
     .vtimer {color: blue; margin-top:0;}
-    /*  #map { height: 500px; } */
   </style>
 </head>
 
@@ -103,7 +104,7 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
   echo '</div>';
   // Для размещения карты создаем элемент-контейнер (как правило, тег <div>) и задаём его размеры
   echo '
-    <div id = "map" style = "width:900px; height:580px;"></div>
+    <div id = "map"></div>
     <div id="ozhid">
       <p id="timerEnd" class="vtimer"></p>-<p id="timerBeg" class="vtimer"></p>[<p id="delta" class="vtimer">0</p>]
     </div>

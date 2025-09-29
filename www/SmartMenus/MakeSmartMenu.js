@@ -46,6 +46,7 @@ function MakeSmartMenu()
          { 
             // your handler code
             var $arr=IncPosi();
+         console.log('IncPosi',$arr);
             //console.log('$arr='+$arr);
             //alert('AJAX скриптом управляется!');
             /*

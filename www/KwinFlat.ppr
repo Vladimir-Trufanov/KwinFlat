@@ -195,9 +195,10 @@ KwinFlat
 			Leafgpx\GPX_file.md
 			Leafgpx\gpx_view.jpg
 			Leafgpx\index.php
+			Leafgpx\Leafgpx.css
 			Leafgpx\Leafgpx.js
 			Leafgpx\Leafgpx.php
-		+Leaflet
+		-Leaflet
 			-assets
 				Leaflet\assets\github-icon.png
 				Leaflet\assets\location-data.json
@@ -211,8 +212,7 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
-		-SmartMenus
-			SmartMenus\AjaxBase.db3
+		+SmartMenus
 			SmartMenus\ColabLig-webfont.ttf
 			SmartMenus\ColabLig-webfont.woff
 			SmartMenus\jquery.smartmenus.min.js
@@ -221,8 +221,8 @@ KwinFlat
 			SmartMenus\MakeSmartMenu.js
 			SmartMenus\save.php
 			SmartMenus\sm-core-css.css
-			SmartMenus\sm-doortry.css
-			SmartMenus\sm-doortry-mobi.css
+			SmartMenus\sm-kwinflat.css
+			SmartMenus\sm-kwinflat-mobi.css
 		-State
 			State\index.php
 		-State40
@@ -272,30 +272,46 @@ KwinFlat
 		server.log
 		web.config
 [Open project files]
-0=State\index.php
-1=Controller\Controller.js
-2=Leafgpx\Leafgpx.js
-3=Leafgpx\index.php
-4=Leafgpx\Leafgpx.php
-5=iniMem.php
+0=index.php
+1=Leafgpx\index.php
+2=iniMenu.php
+3=Leafgpx\Leafgpx.css
+4=Home.css
+5=Update40\Update40.css
+6=SmartMenus\sm-kwinflat.css
+7=SmartMenus\sm-kwinflat-mobi.css
+8=SmartMenus\MakeSmartMenu.js
+9=SmartMenus\save.php
 [Selected Project Files]
 Main=
-Selected=iniMem.php
-[State\index.php]
-TopLine=16
-Caret=41,55
-[Controller\Controller.js]
-TopLine=158
-Caret=11,183
-[Leafgpx\Leafgpx.js]
-TopLine=1
-Caret=1,15
+Selected=SmartMenus\MakeSmartMenu.js
+[index.php]
+TopLine=115
+Caret=4,102
 [Leafgpx\index.php]
-TopLine=38
-Caret=19,50
-[Leafgpx\Leafgpx.php]
+TopLine=65
+Caret=3,84
+[iniMenu.php]
+TopLine=32
+Caret=49,55
+[Leafgpx\Leafgpx.css]
+TopLine=3
+Caret=5,25
+[Home.css]
+TopLine=19
+Caret=1,1
+[Update40\Update40.css]
+TopLine=106
+Caret=18,118
+[SmartMenus\sm-kwinflat.css]
+TopLine=8
+Caret=33,63
+[SmartMenus\sm-kwinflat-mobi.css]
+TopLine=2
+Caret=1,36
+[SmartMenus\MakeSmartMenu.js]
+TopLine=41
+Caret=45,44
+[SmartMenus\save.php]
 TopLine=1
-Caret=24,14
-[iniMem.php]
-TopLine=1
-Caret=42,9
+Caret=1,1

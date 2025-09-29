@@ -21,7 +21,7 @@ function TopMenu($urlHome)
       echo '<span class="main-menu-btn-icon"></span>'; // Кнопка меню-гамбургера
    echo '</label>';
    // Формируем смарт-меню
-   echo '<ul id="main-menu" class="sm sm-doortry">';
+   echo '<ul id="main-menu" class="sm sm-kwinflat">';
    // Переключаем пункты меню главных материалов сайта
    /*
    echo '<li>';
@@ -52,7 +52,7 @@ function GpxMenu($urlHome)
       echo '<span class="main-menu-btn-icon"></span>'; // Кнопка меню-гамбургера
    echo '</label>';
    // Формируем смарт-меню
-   echo '<ul id="main-menu" class="sm sm-doortry">';
+   echo '<ul id="main-menu" class="sm sm-kwinflat">';
    
    // Переключаем пункты меню главных материалов сайта
    echo '<li><a href="#">Загрузить файл .gpx</a>';

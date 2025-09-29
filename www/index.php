@@ -99,7 +99,8 @@ try
    echo '<script src="SmartMenus/jquery.smartmenus.min.js"></script>';
    echo '<script src="SmartMenus/MakeSmartMenu.js"></script>';
    echo '<link rel="stylesheet" href="SmartMenus/sm-core-css.css">';
-   echo '<link rel="stylesheet" href="SmartMenus/sm-doortry-mobi.css">';
+   echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat-mobi.css">';
+   //echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat.css">';
 
    /*
    // Делаем страницу для смартфона
@@ -107,14 +108,14 @@ try
    {   
      //echo '<script>alert("Mobile");</script>';
      echo '<link href="Styles/MobiStyles.css" rel="stylesheet">';
-     echo '<link rel="stylesheet" href="SmartMenus/sm-doortry-mobi.css">';
+     echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat-mobi.css">';
    }
    // Делаем страницу для компьютера
    else 
    {   
      echo '<link href="Styles/Styles.css" rel="stylesheet">';
      echo '<link href="Styles/ApiPogoda.css" rel="stylesheet">';
-     echo '<link rel="stylesheet" href="SmartMenus/sm-doortry.css">';
+     echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat.css">';
    }
    */
    //
