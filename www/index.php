@@ -99,8 +99,8 @@ try
    echo '<script src="SmartMenus/jquery.smartmenus.min.js"></script>';
    echo '<script src="SmartMenus/MakeSmartMenu.js"></script>';
    echo '<link rel="stylesheet" href="SmartMenus/sm-core-css.css">';
-   echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat-mobi.css">';
-   //echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat.css">';
+   echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat-desktop.css">';
+   //echo '<link rel="stylesheet" href="/SmartMenus/sm-kwinflat-mobi.css">';
 
    /*
    // Делаем страницу для смартфона

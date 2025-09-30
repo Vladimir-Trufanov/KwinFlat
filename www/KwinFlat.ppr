@@ -219,9 +219,8 @@ KwinFlat
 			SmartMenus\leaguegothic-regular-webfont.ttf
 			SmartMenus\leaguegothic-regular-webfont.woff
 			SmartMenus\MakeSmartMenu.js
-			SmartMenus\save.php
 			SmartMenus\sm-core-css.css
-			SmartMenus\sm-kwinflat.css
+			SmartMenus\sm-kwinflat-desktop.css
 			SmartMenus\sm-kwinflat-mobi.css
 		-State
 			State\index.php
@@ -272,25 +271,19 @@ KwinFlat
 		server.log
 		web.config
 [Open project files]
-0=index.php
-1=Leafgpx\index.php
-2=iniMenu.php
-3=Leafgpx\Leafgpx.css
-4=Home.css
-5=Update40\Update40.css
-6=SmartMenus\sm-kwinflat.css
-7=SmartMenus\sm-kwinflat-mobi.css
-8=SmartMenus\MakeSmartMenu.js
-9=SmartMenus\save.php
+0=Leafgpx\index.php
+1=iniMenu.php
+2=Leafgpx\Leafgpx.css
+3=Home.css
+4=Update40\Update40.css
+5=index.php
+6=SmartMenus\sm-kwinflat-desktop.css
 [Selected Project Files]
 Main=
-Selected=SmartMenus\MakeSmartMenu.js
-[index.php]
-TopLine=115
-Caret=4,102
+Selected=Leafgpx\index.php
 [Leafgpx\index.php]
-TopLine=65
-Caret=3,84
+TopLine=1
+Caret=43,10
 [iniMenu.php]
 TopLine=32
 Caret=49,55
@@ -298,20 +291,14 @@ Caret=49,55
 TopLine=3
 Caret=5,25
 [Home.css]
-TopLine=19
+TopLine=17
 Caret=1,1
 [Update40\Update40.css]
 TopLine=106
 Caret=18,118
-[SmartMenus\sm-kwinflat.css]
-TopLine=8
-Caret=33,63
-[SmartMenus\sm-kwinflat-mobi.css]
-TopLine=2
-Caret=1,36
-[SmartMenus\MakeSmartMenu.js]
-TopLine=41
-Caret=45,44
-[SmartMenus\save.php]
-TopLine=1
-Caret=1,1
+[index.php]
+TopLine=91
+Caret=6,103
+[SmartMenus\sm-kwinflat-desktop.css]
+TopLine=228
+Caret=35,266
