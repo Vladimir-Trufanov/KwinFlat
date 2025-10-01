@@ -4,17 +4,13 @@
  * kwinflat.ru/smartmenus     Подготовленные стили меню фрэймворка smartmenus *
  ******************************************************************************
  *
- * v1.0.3, 30.09.2025                                 Автор:      Труфанов В.Е.
+ * v1.0.4, 01.10.2025                                 Автор:      Труфанов В.Е.
  * Copyright © 2025 tve                               Дата создания: 17.09.2025
 **/
 
 /* Общие настройки */
 .sm-kwinflat 
 {
-  border-radius:0;
-  border-bottom:0.1rem solid rgba(255,255,255,.5);	
-  /*background-color:rgb(25,25,25);*/
-  /*background-color:yellow;*/
   zoom:1;	
   height:3.4rem;
 }
@@ -22,7 +18,15 @@
 .sm-kwinflat a
 {
   color:white;
-	background-color:rgb(25,25,25);
+	background:#3193c0;
+	background-image:url(css-gradients-fallback/main-menu-bg.png);
+	background-image:-moz-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#4cb1e0),color-stop(100%,#1675a1));
+	background-image:-webkit-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+	background-image:-o-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+	background-image:-ms-linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+	background-image:linear-gradient(top,#4cb1e0 0%,#1675a1 100%);
+
   font-size:1.6rem;
 	font-weight:normal;
   text-decoration:none;
@@ -31,22 +35,19 @@
 	padding:0.8rem;
 	transition:all .5s;
 }
-.sm-kwinflat a:hover 
-{
- 	background-color:rgb(93,43,78); /* Сиреневый цвет */
-}
-.sm-kwinflat a.current
-{
-  color: red;
-  background:#3092c0;
-  background-image:linear-gradient(to bottom, #3298c8, #2e8cb8);
-}
-.sm-kwinflat a.disabled
-{
-  color:#a1d1e8;
-  background:#006892;
-  background-image:linear-gradient(to bottom, #006188, #006f9c);
-}
+
+	.sm-kwinflat a:hover, .sm-kwinflat a:focus, .sm-kwinflat a:active,
+	.sm-kwinflat a.highlighted {
+		background:#1983af; 
+		background-image:url(css-gradients-fallback/main-item-hover-bg.png);
+		background-image:-moz-linear-gradient(top,#34a2d0 0%,#006791 100%);
+		background-image:-webkit-gradient(linear,left top, left bottom,color-stop(0%,#34a2d0),color-stop(100%,#006791));
+		background-image:-webkit-linear-gradient(top,#34a2d0 0%,#006791 100%);
+		background-image:-o-linear-gradient(top,#34a2d0 0%,#006791 100%);
+		background-image:-ms-linear-gradient(top,#34a2d0 0%,#006791 100%);
+		background-image:linear-gradient(top,#34a2d0 0%,#006791 100%);
+		color:#fff;
+	}
 
 .sm-kwinflat li ul li
 {
@@ -56,15 +57,6 @@
 {
   background-color:#f63;
 }
-/*
-.sm-kwinflat a:hover, 
-.sm-kwinflat a:focus, 
-.sm-kwinflat a:active, 
-.sm-kwinflat a.highlighted ! Выбираемый пункт меню с подменю 
-{
- 	background-color:yellow ! Цвет задан до выявления нежелательного эффекта its?; 
-}
-*/
 
 .sm-kwinflat a,
 .sm-kwinflat li:last-of-type a,
@@ -92,17 +84,17 @@
 }
 .sm-kwinflat a .sub-arrow::before 
 {
-   content:'+';
+  content:'\2BEF';
 }
 .sm-kwinflat a.highlighted .sub-arrow::before 
 {
-   content:'-';
+  content:'\2B9D';
 }
 /* Позиционирум текст-изображение гамбургера-меню */
 .main-menu-btn 
 {
    position:relative; 
-   top:0.5rem;   
+   top:0rem;   
    left:1rem; 
    
    display:inline-block;
@@ -122,9 +114,10 @@
    left:2px;
    height:2px;
    width:24px;
-   background:#bbb;
+   background:#1983af;
    -webkit-transition:all 0.25s;
    transition:all 0.25s;
+
 }
 .main-menu-btn-icon:before 
 {

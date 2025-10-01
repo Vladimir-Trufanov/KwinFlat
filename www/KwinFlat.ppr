@@ -72,7 +72,6 @@ KwinFlat
 				Controller\imgMulti\run9.png
 			Controller\Controller.js
 			Controller\Controller.php
-			Controller\counts.txt
 			Controller\multipartDigits.php
 			Controller\TrackTest.php
 		-Ex2
@@ -184,7 +183,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		-Leafgpx
+		+Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -272,33 +271,25 @@ KwinFlat
 		web.config
 [Open project files]
 0=Leafgpx\index.php
-1=iniMenu.php
-2=Leafgpx\Leafgpx.css
-3=Home.css
-4=Update40\Update40.css
-5=index.php
-6=SmartMenus\sm-kwinflat-desktop.css
+1=Home.css
+2=Update40\Update40.css
+3=index.php
+4=iniMem.php
 [Selected Project Files]
 Main=
-Selected=Leafgpx\index.php
+Selected=iniMem.php
 [Leafgpx\index.php]
-TopLine=1
+TopLine=10
 Caret=43,10
-[iniMenu.php]
-TopLine=32
-Caret=49,55
-[Leafgpx\Leafgpx.css]
-TopLine=3
-Caret=5,25
 [Home.css]
-TopLine=17
+TopLine=19
 Caret=1,1
 [Update40\Update40.css]
 TopLine=106
 Caret=18,118
 [index.php]
-TopLine=91
+TopLine=101
 Caret=6,103
-[SmartMenus\sm-kwinflat-desktop.css]
-TopLine=228
-Caret=35,266
+[iniMem.php]
+TopLine=1
+Caret=42,9
