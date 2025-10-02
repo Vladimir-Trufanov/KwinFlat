@@ -56,7 +56,7 @@ function MakeSmartMenu()
     {
       if (e.namespace == 'smapi')
       { 
-        console.log('smclicks',IncPosi());
+        //console.log('smclicks',IncPosi());
       }
     });
     // Определяем обработку меню-гамбургера

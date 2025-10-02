@@ -3,10 +3,10 @@
 
 // ****************************************************************************
 // * KwinFlat/Leaflet                Создать карту с Leaflet для отслеживания *
-// *                                                     треков и загрузки GPX *
+// *                                                    треков и загрузки GPX *
 // ****************************************************************************
 
-// v1.0.11, 27.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.12, 02.10.2025                                Автор:      Труфанов В.Е.
 // Copyright © 2025 tve       sla6en9edged            Дата создания: 07.08.2025
 
 echo '<!DOCTYPE html>';  // определили разметку HTML5
@@ -98,7 +98,16 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
 
 <body>
 <?php
+  //echo '<script>alert("Определяем контекст нужной страницы");</script>';
+  // Определяем контекст нужной страницы
+  $gpx=prown\getComRequest('gpx');
+  $idctrl=prown\getComRequest('ctrl');
+  if ($idctrl!=NULL) $MenuTitle=pageMapCtrl;  // "Отслеживание координат"
+  else if ($gpx!=NULL) $MenuTitle=pageMapGpx; // "Загрузка файлов .gpx"
+  else $MenuTitle=pageMapStart;               // "Карта отслеживания треков и загрузки GPX"
+
   // Размещаем гамбургер-меню
+  echo '<h2 id="pagename">'.$MenuTitle.'</h2>';
   echo '<div id="gamburg">';
     GpxMenu($urlHome); 
   echo '</div>';

@@ -5,8 +5,12 @@
 // * KwinFlat                                          Отработать пункты меню *
 // ****************************************************************************
 
-// v1.0.5, 26.09.2025                                 Автор:      Труфанов В.Е.
+// v1.0.6, 02.10.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 13.01.2019
+
+define ("pageMapStart", "Карта отслеживания треков и загрузки GPX"); 
+define ("pageMapGpx",   "Загрузка файлов .gpx"); 
+define ("pageMapCtrl",  "Отслеживание координат"); 
 
 // ****************************************************************************
 // *                      Отработать пункты верхнего меню                     *
@@ -29,7 +33,7 @@ function TopMenu($urlHome)
    echo '</li>';
    */
    echo '<li>';
-   echo '<a href="'.$urlHome.'/Leafgpx/?ctrl=204">'."Карта отслеживания треков и загрузки GPX".'</a>';
+   echo '<a href="'.$urlHome.'/Leafgpx/">'.pageMapStart.'</a>';
    echo '</li>';
    /*
    echo '<li>';
@@ -55,10 +59,19 @@ function GpxMenu($urlHome)
    echo '<ul id="main-menu" class="sm sm-kwinflat">';
    
    // Переключаем пункты меню главных материалов сайта
-   echo '<li><a href="#">Загрузить файл .gpx</a>';
+   echo '<li><a href="#">'.pageMapGpx.'</a>';
    echo '<ul>';
    echo '<li><a href="'.$urlHome.'/Leafgpx/?gpx=203">Sim900 в автомобиле    [203] </a></li>';
    echo '<li><a href="'.$urlHome.'/Leafgpx/?gpx=204">Виртуальный контроллер [204] </a></li>';
+   echo '</ul>';
+   echo '</li>';
+
+   echo '<li>';
+   //echo '<a href="'.$urlHome.'/Leafgpx/">'."Отследить координаты".'</a>';
+   echo '<li><a href="#">'.pageMapCtrl.'</a>';
+   echo '<ul>';
+   echo '<li><a href="'.$urlHome.'/Leafgpx/?ctrl=203">Sim900 в автомобиле    [203] </a></li>';
+   echo '<li><a href="'.$urlHome.'/Leafgpx/?ctrl=204">Виртуальный контроллер [204] </a></li>';
    echo '</ul>';
    echo '</li>';
 
@@ -73,14 +86,6 @@ function GpxMenu($urlHome)
    </li>
    -->
    <?php
-
-   echo '<li>';
-   echo '<a href="'.$urlHome.'/Leafgpx/">'."Отследить координаты".'</a>';
-   echo '<ul>';
-   echo '<li><a href="'.$urlHome.'/Leafgpx/?ctrl=203">Sim900 в автомобиле    [203] </a></li>';
-   echo '<li><a href="'.$urlHome.'/Leafgpx/?ctrl=204">Виртуальный контроллер [204] </a></li>';
-   echo '</ul>';
-   echo '</li>';
    
    echo '</ul>';
    return $Result;

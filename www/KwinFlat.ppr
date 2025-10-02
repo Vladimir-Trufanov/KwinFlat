@@ -183,7 +183,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -211,7 +211,7 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
-		+SmartMenus
+		-SmartMenus
 			SmartMenus\ColabLig-webfont.ttf
 			SmartMenus\ColabLig-webfont.woff
 			SmartMenus\jquery.smartmenus.min.js
@@ -270,26 +270,18 @@ KwinFlat
 		server.log
 		web.config
 [Open project files]
-0=Leafgpx\index.php
-1=Home.css
-2=Update40\Update40.css
-3=index.php
-4=iniMem.php
+0=index.php
+1=iniMem.php
+2=iniMenu.php
 [Selected Project Files]
 Main=
 Selected=iniMem.php
-[Leafgpx\index.php]
-TopLine=10
-Caret=43,10
-[Home.css]
-TopLine=19
-Caret=1,1
-[Update40\Update40.css]
-TopLine=106
-Caret=18,118
 [index.php]
-TopLine=101
+TopLine=1
 Caret=6,103
 [iniMem.php]
 TopLine=1
-Caret=42,9
+Caret=30,9
+[iniMenu.php]
+TopLine=25
+Caret=1,1
