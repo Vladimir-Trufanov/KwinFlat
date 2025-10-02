@@ -211,7 +211,7 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
-		-SmartMenus
+		+SmartMenus
 			SmartMenus\ColabLig-webfont.ttf
 			SmartMenus\ColabLig-webfont.woff
 			SmartMenus\jquery.smartmenus.min.js
@@ -234,7 +234,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		-Update40
+		+Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -277,11 +277,11 @@ KwinFlat
 Main=
 Selected=iniMem.php
 [index.php]
-TopLine=1
+TopLine=111
 Caret=6,103
 [iniMem.php]
 TopLine=1
 Caret=30,9
 [iniMenu.php]
-TopLine=25
-Caret=1,1
+TopLine=7
+Caret=1,20

@@ -5,7 +5,7 @@
 // * KwinFlat                                          Отработать пункты меню *
 // ****************************************************************************
 
-// v1.0.6, 02.10.2025                                 Автор:      Труфанов В.Е.
+// v1.0.7, 02.10.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 13.01.2019
 
 define ("pageMapStart", "Карта отслеживания треков и загрузки GPX"); 
@@ -19,8 +19,8 @@ function TopMenu($urlHome)
 {
    $Result = true;
 
-   // Формируем кнопку гамбургера (в компьютерном варианте она скрыта)
-   echo '<input id="main-menu-state" type="checkbox"/>';
+   // Формируем кнопку гамбургера 
+   echo '<input id="main-menu-state" name="topmenu" type="checkbox"/>';
    echo '<label class="main-menu-btn" for="main-menu-state">';
       echo '<span class="main-menu-btn-icon"></span>'; // Кнопка меню-гамбургера
    echo '</label>';

@@ -9,6 +9,8 @@
 
 $(document).ready(function() 
 {
+  $('#kwf').css('display','block');
+
   /*
   console.log('SiteHost:  '+SiteHost);
   console.log('urlHome:   '+urlHome);

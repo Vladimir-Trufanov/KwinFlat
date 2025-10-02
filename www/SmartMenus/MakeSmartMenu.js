@@ -55,7 +55,8 @@ function MakeSmartMenu()
     $('#main-menu').on('click.smapi',function(e,item)
     {
       if (e.namespace == 'smapi')
-      { 
+      {
+        if (this.id=="main-menu") $('#kwf').css('display','none');
         //console.log('smclicks',IncPosi());
       }
     });
@@ -71,21 +72,20 @@ function MakeSmartMenu()
           var $menu=$('#main-menu');
           if (this.checked)
           {
-            $menu.hide().slideDown(250,function(){$menu.css('display','');});
+            if (this.name=="topmenu") $('#kwf').css('display','none');
+            $menu.hide().slideDown(0,function(){$menu.css('display','');});
           } 
           else
           {
-            $menu.show().slideUp(250,function(){$menu.css('display','');});
-          }
+            $menu.show().slideUp(0,function(){$menu.css('display','');});
+            if (this.name=="topmenu") $('#kwf').css('display','block');
+         }
         });
         // Сворачиваем меню перед уходом со страницы
         $(window).on('beforeunload',
         function()
         {
-          if ($mainMenuState[0].checked)
-          {
-            $mainMenuState[0].click();
-          }
+          if ($mainMenuState[0].checked) $mainMenuState[0].click();
         });
       }
     });

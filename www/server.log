@@ -1,6 +1,6 @@
 Array
 (
-    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-56b1ebf8-b24f-4d77-bb6c-b1896c63bc2e
+    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-5788a305-ad75-4c03-a9f9-e7ad9ab1881b
     [PHP_FCGI_MAX_REQUESTS] => 200
     [PHPRC] => C:\PHP\
     [ALLUSERSPROFILE] => C:\ProgramData
@@ -37,23 +37,23 @@ Array
     [USERPROFILE] => C:\WINDOWS\system32\config\systemprofile
     [windir] => C:\WINDOWS
     [ZES_ENABLE_SYSMAN] => 1
-    [ORIG_PATH_INFO] => /Leafgpx/index.php
-    [URL] => /Leafgpx/index.php
+    [ORIG_PATH_INFO] => /index.php
+    [URL] => /index.php
     [SERVER_SOFTWARE] => Microsoft-IIS/10.0
     [SERVER_PROTOCOL] => HTTP/1.1
     [SERVER_PORT_SECURE] => 0
     [SERVER_PORT] => 100
     [SERVER_NAME] => localhost
-    [SCRIPT_NAME] => /Leafgpx/index.php
-    [SCRIPT_FILENAME] => C:\KwinFlat\www\Leafgpx\index.php
-    [REQUEST_URI] => /Leafgpx/
+    [SCRIPT_NAME] => /index.php
+    [SCRIPT_FILENAME] => C:\KwinFlat\www\index.php
+    [REQUEST_URI] => /
     [REQUEST_METHOD] => GET
     [REMOTE_USER] => 
-    [REMOTE_PORT] => 50316
+    [REMOTE_PORT] => 52620
     [REMOTE_HOST] => ::1
     [REMOTE_ADDR] => ::1
     [QUERY_STRING] => 
-    [PATH_TRANSLATED] => C:\KwinFlat\www\Leafgpx\index.php
+    [PATH_TRANSLATED] => C:\KwinFlat\www\index.php
     [LOGON_USER] => 
     [LOCAL_ADDR] => ::1
     [INSTANCE_META_PATH] => /LM/W3SVC/10
@@ -82,23 +82,22 @@ Array
     [HTTP_SEC_FETCH_DEST] => document
     [HTTP_SEC_FETCH_USER] => ?1
     [HTTP_SEC_FETCH_MODE] => navigate
-    [HTTP_SEC_FETCH_SITE] => same-origin
+    [HTTP_SEC_FETCH_SITE] => none
     [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
     [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
     [HTTP_SEC_CH_UA_MOBILE] => ?0
     [HTTP_SEC_CH_UA] => "Chromium";v="140", "Not=A?Brand";v="24", "Microsoft Edge";v="140"
     [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
-    [HTTP_REFERER] => http://localhost:100/
     [HTTP_HOST] => localhost:100
-    [HTTP_COOKIE] => BrowEntry=5432; PersEntry=4073; aInusl=a%3A4%3A%7Bi%3A0%3Bi%3A1%3Bi%3A1%3Bi%3A7%3Bi%3A2%3Bi%3A151%3Bi%3A3%3Bi%3A206%3B%7D; aTarif=a%3A4%3A%7Bi%3A0%3Bd%3A22.92%3Bi%3A1%3Bd%3A38.24%3Bi%3A2%3Bd%3A2.13%3Bi%3A3%3Bd%3A7.6%3B%7D; aKolich=a%3A4%3A%7Bi%3A0%3Bd%3A52.3%3Bi%3A1%3Bd%3A3.214%3Bi%3A2%3Bd%3A0.736%3Bi%3A3%3Bd%3A52.3%3B%7D; Comm=About; Orient=landscape; PHPSESSID=oasr0o9hlcutppbt9cv3oa1inf
+    [HTTP_COOKIE] => BrowEntry=5432; PersEntry=4073; aInusl=a%3A4%3A%7Bi%3A0%3Bi%3A1%3Bi%3A1%3Bi%3A7%3Bi%3A2%3Bi%3A151%3Bi%3A3%3Bi%3A206%3B%7D; aTarif=a%3A4%3A%7Bi%3A0%3Bd%3A22.92%3Bi%3A1%3Bd%3A38.24%3Bi%3A2%3Bd%3A2.13%3Bi%3A3%3Bd%3A7.6%3B%7D; aKolich=a%3A4%3A%7Bi%3A0%3Bd%3A52.3%3Bi%3A1%3Bd%3A3.214%3Bi%3A2%3Bd%3A0.736%3Bi%3A3%3Bd%3A52.3%3B%7D; Comm=About; Orient=landscape
     [HTTP_ACCEPT_LANGUAGE] => ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
     [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
     [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
     [HTTP_CONTENT_LENGTH] => 0
     [HTTP_CONNECTION] => keep-alive
     [FCGI_ROLE] => RESPONDER
-    [PHP_SELF] => /Leafgpx/index.php
-    [REQUEST_TIME_FLOAT] => 1759400262.3444
-    [REQUEST_TIME] => 1759400262
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1759435402.3354
+    [REQUEST_TIME] => 1759435402
 )
 
