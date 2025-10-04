@@ -98,7 +98,6 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
 
 <body>
 <?php
-  //echo '<script>alert("Определяем контекст нужной страницы");</script>';
   // Определяем контекст нужной страницы
   $gpx=prown\getComRequest('gpx');
   $idctrl=prown\getComRequest('ctrl');

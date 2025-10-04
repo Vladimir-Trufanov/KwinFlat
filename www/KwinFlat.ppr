@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		-Controller
+		+Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -183,7 +183,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		-Leafgpx
+		+Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -211,7 +211,7 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
-		+SmartMenus
+		-SmartMenus
 			SmartMenus\ColabLig-webfont.ttf
 			SmartMenus\ColabLig-webfont.woff
 			SmartMenus\jquery.smartmenus.min.js
@@ -235,7 +235,7 @@ KwinFlat
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
 		+Update40
-			-FlipOnHover
+			+FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
 			Update40\intrv.css
@@ -273,15 +273,31 @@ KwinFlat
 0=index.php
 1=iniMem.php
 2=iniMenu.php
+3=Controller\Controller.php
+4=Update40\Update40BODY.php
+5=Update40\Update40.js
+6=Update40\Update40.css
 [Selected Project Files]
 Main=
-Selected=iniMem.php
+Selected=Update40\Update40.css
 [index.php]
-TopLine=111
+TopLine=103
 Caret=6,103
 [iniMem.php]
 TopLine=1
 Caret=30,9
 [iniMenu.php]
-TopLine=7
-Caret=1,20
+TopLine=14
+Caret=1,14
+[Controller\Controller.php]
+TopLine=1
+Caret=1,1
+[Update40\Update40BODY.php]
+TopLine=5
+Caret=1,1
+[Update40\Update40.js]
+TopLine=1
+Caret=7,12
+[Update40\Update40.css]
+TopLine=15
+Caret=19,47

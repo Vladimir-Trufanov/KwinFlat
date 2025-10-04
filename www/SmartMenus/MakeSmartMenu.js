@@ -72,13 +72,21 @@ function MakeSmartMenu()
           var $menu=$('#main-menu');
           if (this.checked)
           {
-            if (this.name=="topmenu") $('#kwf').css('display','none');
+            if (this.name=="topmenu") 
+            {
+              $('#kwf').css('display','none');
+              $('#vcotr').css('display','none');
+            }     
             $menu.hide().slideDown(0,function(){$menu.css('display','');});
           } 
           else
           {
             $menu.show().slideUp(0,function(){$menu.css('display','');});
-            if (this.name=="topmenu") $('#kwf').css('display','block');
+            if (this.name=="topmenu") 
+            {
+              $('#kwf').css('display','block');
+              $('#vcotr').css('display','block');
+            }
          }
         });
         // Сворачиваем меню перед уходом со страницы

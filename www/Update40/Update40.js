@@ -10,6 +10,7 @@
 $(document).ready(function() 
 {
   $('#kwf').css('display','block');
+  $('#vcotr').css('display','block');
 
   /*
   console.log('SiteHost:  '+SiteHost);
