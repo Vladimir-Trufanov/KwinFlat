@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		+Controller
+		-Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -221,21 +221,21 @@ KwinFlat
 			SmartMenus\sm-core-css.css
 			SmartMenus\sm-kwinflat-desktop.css
 			SmartMenus\sm-kwinflat-mobi.css
-		-State
+		+State
 			State\index.php
 		-State40
 			State40\index.php
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		-TKvizzyMaker
+		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
-			+FlipOnHover
+		-Update40
+			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
 			Update40\intrv.css
@@ -273,31 +273,43 @@ KwinFlat
 0=index.php
 1=iniMem.php
 2=iniMenu.php
-3=Controller\Controller.php
-4=Update40\Update40BODY.php
-5=Update40\Update40.js
-6=Update40\Update40.css
+3=Update40\Update40.js
+4=Update40\Update40.css
+5=TKvizzyMaker\KvizzyMakerClass.php
+6=Leafgpx\index.php
+7=Leafgpx\Leafgpx.php
+8=TKvizzyMaker\CommonKvizzyMaker.php
+9=TKvizzyMaker\CommonStateMaker.php
 [Selected Project Files]
 Main=
-Selected=Update40\Update40.css
+Selected=TKvizzyMaker\CommonKvizzyMaker.php
 [index.php]
-TopLine=103
+TopLine=115
 Caret=6,103
 [iniMem.php]
-TopLine=1
+TopLine=69
 Caret=30,9
 [iniMenu.php]
-TopLine=14
+TopLine=36
 Caret=1,14
-[Controller\Controller.php]
-TopLine=1
-Caret=1,1
-[Update40\Update40BODY.php]
-TopLine=5
-Caret=1,1
 [Update40\Update40.js]
 TopLine=1
 Caret=7,12
 [Update40\Update40.css]
 TopLine=15
 Caret=19,47
+[TKvizzyMaker\KvizzyMakerClass.php]
+TopLine=50
+Caret=50,65
+[Leafgpx\index.php]
+TopLine=104
+Caret=50,117
+[Leafgpx\Leafgpx.php]
+TopLine=35
+Caret=1,55
+[TKvizzyMaker\CommonKvizzyMaker.php]
+TopLine=280
+Caret=45,313
+[TKvizzyMaker\CommonStateMaker.php]
+TopLine=189
+Caret=1,218

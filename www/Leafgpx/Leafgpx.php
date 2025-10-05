@@ -5,7 +5,7 @@
 // *                        Подключить OSM или Яндекс карту                   *
 // ****************************************************************************
 
-// v1.0.7, 02.10.2025                                 Автор:      Труфанов В.Е.
+// v1.0.8, 05.10.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 13.09.2025
 
 define ("tve",    "tve"); 
@@ -43,7 +43,6 @@ else
     $gpxfile='';
   }
 }
-
 // Трассируем переданные параметры
 //echo '$idctrl='.$idctrl.'<br>';
 //echo '$gpx='.$gpx.'<br>'; 
@@ -61,10 +60,9 @@ else MakeMapOther($zoom,$lat,$lon,$idctrl,$gpxfile);
 function UR_exists($url)
 //https://stackoverflow.com/questions/7684771/how-to-check-if-a-file-exists-from-a-url
 {
-   $headers=get_headers($url);
-   return stripos($headers[0],"200 OK")?true:false;
+  $headers=get_headers($url);
+  return stripos($headers[0],"200 OK")?true:false;
 }
-
 // ****************************************************************************
 // *        Построить Яндекс и OSM-карты с возможностью переключения          *
 // *   с центром в текущей точке геолокации (если геолокация разрешена) или   *

@@ -6,8 +6,8 @@
 // *                                                    треков и загрузки GPX *
 // ****************************************************************************
 
-// v1.0.12, 02.10.2025                                Автор:      Труфанов В.Е.
-// Copyright © 2025 tve       sla6en9edged            Дата создания: 07.08.2025
+// v1.0.13, 05.10.2025                                Автор:      Труфанов В.Е.
+// Copyright © 2025 tve                               Дата создания: 07.08.2025
 
 echo '<!DOCTYPE html>';  // определили разметку HTML5
 echo '<html lang="ru">'; // назначили русский язык для сайта
@@ -101,12 +101,28 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
   // Определяем контекст нужной страницы
   $gpx=prown\getComRequest('gpx');
   $idctrl=prown\getComRequest('ctrl');
-  if ($idctrl!=NULL) $MenuTitle=pageMapCtrl;  // "Отслеживание координат"
-  else if ($gpx!=NULL) $MenuTitle=pageMapGpx; // "Загрузка файлов .gpx"
-  else $MenuTitle=pageMapStart;               // "Карта отслеживания треков и загрузки GPX"
-
-  // Размещаем гамбургер-меню
+  
+  // При необходимости переопределяем идентификатор контроллера
+  // для формирования заголовка страницы
+  if (($idctrl==NULL)&&($gpx==NULL)) {}
+  else 
+  {
+    if ($idctrl==NULL) $idforname=$gpx;
+    else $idforname=$idctrl;
+    // Подключаем объект для работы с базой данных моего хозяйства
+    $Kvizzy=new ttools\KvizzyMaker($SiteHost);
+    // Подключаемся к базе данных
+    $pdo=$Kvizzy->BaseConnect();
+    // Выбираем название контроллера
+    $arr=$Kvizzy->SelectAboutCtrl($pdo,$idforname);
+    $CtrlName=$arr['namectrl'];
+  }
+  // Формируем заголовок страницы  
+  if ($idctrl!=NULL) $MenuTitle=pageMapCtrl. ' ['.$CtrlName.']';  // "Отслеживание координат"
+  else if ($gpx!=NULL) $MenuTitle=pageMapGpx.' ['.$CtrlName.']';  // "Загрузка файлов .gpx"
+  else $MenuTitle=pageMapStart;                                   // "Карта отслеживания треков и загрузки GPX"                                 
   echo '<h2 id="pagename">'.$MenuTitle.'</h2>';
+  // Размещаем гамбургер-меню
   echo '<div id="gamburg">';
     GpxMenu($urlHome); 
   echo '</div>';

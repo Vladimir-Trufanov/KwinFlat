@@ -5,7 +5,7 @@
 // ****************************************************************************
 // * KwinFlat/TTools                  Построитель базы данных моего хозяйства *
 // *                                                                          *
-// * v4.4.3, 19.06.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.4, 05.10.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2024 tve                          Дата создания:  03.11.2024 *
 // ****************************************************************************
 
@@ -13,6 +13,7 @@
 require_once("CommonKvizzyMaker.php"); 
 // BaseConnect();                                      - Открыть соединение с базой данных
 // BaseFirstCreate();                                  - Создать резервную копию и заново построить новую базу данных
+// SelectAboutCtrl($pdo,$idctrl);                      - Выбрать данные по контроллеру 
 require_once("CommonLeadMaker.php"); 
 // setMessLead($pdo,$num,$sjson)                       - Записать в базу данных изменения состояния управляющих json-команд 
 // TestSet($pdo,$INsjson,$action)                      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
@@ -59,6 +60,11 @@ class KvizzyMaker
    public function BaseFirstCreate() 
    {
       _BaseFirstCreate($this->basename,$this->username,$this->password);
+   }
+   // Выбрать данные по контроллеру 
+   public function SelectAboutCtrl($pdo,$idctrl) 
+   {
+      return _SelectAboutCtrl($pdo,$idctrl);
    }
    // ------------------------------------------------- CommonLeadMaker.php ---
    // Записать в базу данных изменения состояния управляющих json-команд 

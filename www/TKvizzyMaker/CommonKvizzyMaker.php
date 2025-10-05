@@ -6,13 +6,14 @@
 // * KwinFlat/TTools                   Блок общих функций класса TKvizzyMaker *
 // *                                          для базы данных моего хозяйства *
 // *                                                                          *
-// * v4.4.1, 26.08.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.2, 05.10.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2024 tve                          Дата создания:  13.11.2024 *
 // ****************************************************************************
 
 // _BaseConnect($basename,$username,$password);                - Открыть соединение с базой данных    
 // _BaseFirstCreate($basename,$username,$password,$aCharters); - Создать резервную копию базы данных и заново построить новую базу данных
 // _CreateTables($pdo);                                        - Создать таблицы базы данных и выполнить начальное заполнение  
+// _SelectAboutCtrl($pdo,$idctrl);                             - Выбрать данные по контроллеру 
 
 // ****************************************************************************
 // *      Создать таблицы базы данных и выполнить начальное заполнение        *
@@ -284,6 +285,35 @@ function _BaseFirstCreate($basename,$username,$password)
    // Создаём таблицы базы данных
    _CreateTables($pdo);
    \prown\ConsoleLog('Созданы таблицы и выполнено начальное заполнение'); 
+}
+// ****************************************************************************
+// *                         Выбрать данные по контроллеру                    * 
+// ****************************************************************************
+function _SelectAboutCtrl($pdo,$idctrl)
+{
+   /*
+   'idctrl    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.                   // идентификатор контроллера
+   'tidctrl   INTEGER NOT NULL REFERENCES ControllersType(tidctrl),'.  // идентификатор типа контроллера
+   'idplace   INTEGER NOT NULL REFERENCES Places(idplace),'.           // идентификатор места размещения
+   'namectrl  VARCHAR NOT NULL UNIQUE)';                               // тип контроллера и место размещения
+   */
+   try 
+   {
+      $pdo->beginTransaction();
+      $cSQL='SELECT tidctrl,idplace,namectrl FROM Controllers WHERE idctrl='.$idctrl;
+      $stmt = $pdo->query($cSQL);
+      $table = $stmt->fetchAll();
+      if (count($table)>0) $tableRet=["tidctrl"=>$table[0]['tidctrl'],"idplace"=>$table[0]['idplace'],"namectrl"=>$table[0]['namectrl']];
+      else $tableRet=["tidctrl"=>-1,"idplace"=>-1,"namectrl"=>'Данные по контроллеру не найдены'];
+      $pdo->commit();
+   } 
+   catch (Exception $e) 
+   {
+      $messa=$e->getMessage();
+      $tableRet=["tidctrl"=>-2,"idplace"=>-2,"namectrl"=>'Выборка данных по контроллеру вызвала исключение'];
+      if ($pdo->inTransaction()) $pdo->rollback();
+   }
+   return $tableRet;
 }
 
 // ************************************************** CommonKvizzyMaker.php ***
