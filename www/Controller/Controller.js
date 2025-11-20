@@ -5,7 +5,7 @@
 // *                                                           из окна jquiry *
 // ****************************************************************************
 
-// v2.0.6, 21.09.2025                                 Автор:      Труфанов В.Е.
+// v2.0.7, 20.09.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 01.02.2025
 
 // Готовим переменные обслуживания
@@ -78,13 +78,17 @@ function SendRequestState(url)
     let status=Http.status;
     let response=Http.response;
     if (status === 200) 
-    { 
+    {
+      // При необходимости трассируем ответ страницы State
+      console.log(response); 
+      /*
       let lStateJson=isStateJson(response);
       if (!lStateJson)
       {
         console.error("Неправильный ответ, ошибка в коде станицы State:"); 
         console.error(response); 
       }
+      */
     } 
     else 
     { 
@@ -180,7 +184,7 @@ function TestGpx()
         var nLat=Math.round(latcur*1000000);
         var nLon=Math.round(loncur*1000000);
         //console.log('nLat='+nLat,'nLon='+nLon);
-        //console.log     (urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}'); 
+        console.log     (urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}'); 
         SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}');
       }
     }

@@ -972,3 +972,41 @@ Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
 Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 
 ===kwinflatru===Sun, 05 Oct 2025 09:15:12 +0300 IP: ::1 URL: / 
 Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 
+***kwinflatru***Mon, 03 Nov 2025 16:33:28 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 
+***kwinflatru***Mon, 03 Nov 2025 16:40:52 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 
+***kwinflatru***Thu, 20 Nov 2025 09:44:06 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 09:49:02 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 09:56:13 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 10:00:02 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 10:03:44 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 10:07:25 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 10:25:21 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 10:27:04 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 11:03:14 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 11:05:19 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 11:06:35 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 11:08:40 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 11:08:45 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 11:10:44 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 11:19:24 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 11:20:05 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 
+===kwinflatru===Thu, 20 Nov 2025 11:20:12 +0300 IP: ::1 URL: / 
+Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 

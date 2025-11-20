@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		-Controller
+		+Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -183,7 +183,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -228,7 +228,7 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -271,45 +271,29 @@ KwinFlat
 		web.config
 [Open project files]
 0=index.php
-1=iniMem.php
-2=iniMenu.php
-3=Update40\Update40.js
-4=Update40\Update40.css
-5=TKvizzyMaker\KvizzyMakerClass.php
-6=Leafgpx\index.php
-7=Leafgpx\Leafgpx.php
-8=TKvizzyMaker\CommonKvizzyMaker.php
-9=TKvizzyMaker\CommonStateMaker.php
+1=State\index.php
+2=Controller\Controller.js
+3=iniMem.php
+4=TKvizzyMaker\KvizzyMakerClass.php
+5=TKvizzyMaker\CommonStateMaker.php
 [Selected Project Files]
 Main=
-Selected=TKvizzyMaker\CommonKvizzyMaker.php
+Selected=State\index.php
 [index.php]
-TopLine=115
+TopLine=64
 Caret=6,103
+[State\index.php]
+TopLine=82
+Caret=45,114
+[Controller\Controller.js]
+TopLine=65
+Caret=9,91
 [iniMem.php]
-TopLine=69
-Caret=30,9
-[iniMenu.php]
-TopLine=36
-Caret=1,14
-[Update40\Update40.js]
 TopLine=1
-Caret=7,12
-[Update40\Update40.css]
-TopLine=15
-Caret=19,47
+Caret=30,9
 [TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=50
-Caret=50,65
-[Leafgpx\index.php]
-TopLine=104
-Caret=50,117
-[Leafgpx\Leafgpx.php]
-TopLine=35
-Caret=1,55
-[TKvizzyMaker\CommonKvizzyMaker.php]
-TopLine=280
-Caret=45,313
+TopLine=107
+Caret=34,115
 [TKvizzyMaker\CommonStateMaker.php]
-TopLine=189
-Caret=1,218
+TopLine=251
+Caret=1,303
