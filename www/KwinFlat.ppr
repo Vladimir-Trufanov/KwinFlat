@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		-Controller
+		+Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -274,40 +274,24 @@ KwinFlat
 [Open project files]
 0=index.php
 1=State\index.php
-2=Update40\Update40BODY.php
-3=State\State.js
-4=j_getLastStateMess.php
-5=TKvizzyMaker\CommonStateMaker.php
-6=Update40\Update40HEAD.php
-7=iniPhpJS.php
-8=Update40\Update40.js
+2=State\State.js
+3=Update40\Update40.js
+4=Controller\Controller.js
 [Selected Project Files]
 Main=
-Selected=State\index.php
+Selected=State\State.js
 [index.php]
-TopLine=97
-Caret=6,103
+TopLine=115
+Caret=19,152
 [State\index.php]
-TopLine=87
-Caret=1,125
-[Update40\Update40BODY.php]
-TopLine=1
-Caret=1,113
+TopLine=105
+Caret=1,56
 [State\State.js]
 TopLine=1
-Caret=3,13
-[j_getLastStateMess.php]
-TopLine=1
-Caret=1,1
-[TKvizzyMaker\CommonStateMaker.php]
-TopLine=169
-Caret=1,1
-[Update40\Update40HEAD.php]
-TopLine=1
-Caret=1,19
-[iniPhpJS.php]
-TopLine=1
-Caret=1,1
+Caret=37,12
 [Update40\Update40.js]
-TopLine=1
-Caret=1,17
+TopLine=41
+Caret=1,60
+[Controller\Controller.js]
+TopLine=166
+Caret=9,188

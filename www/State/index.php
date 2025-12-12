@@ -52,9 +52,7 @@
 // ----1 -> s_MODE4,  '"led4":{"light":10,"time":2000}'                                          // режим работы вспышки
 // ----2 -> s_INTRV,  '"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}'  // интервалы подачи сообщений от контроллера
 
-echo '<script src="State.js"></script>';
-
-
+//echo '<script src="State.js"></script>';
 
 // Подключаем реестр json-сообщений на страницу State40
 require_once "../iniWorkSpace.php";  
@@ -121,9 +119,10 @@ else
     }
   }
 }
-
 echo "</State>";
-
+?> 
+<script src="State.js"></script>
+<?php 
 
 
 /*   ЧТО НИБУДЬ ПОНАДОБИТСЯ после 2025-11-20
