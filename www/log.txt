@@ -1,1 +1,0 @@
-[20-Nov-2025 11:19:24 Asia/Kuwait] PHP Parse error:  syntax error, unexpected '*' in C:\KwinFlat\www\TKvizzyMaker\CommonStateMaker.php on line 303

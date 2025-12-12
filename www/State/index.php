@@ -6,7 +6,7 @@
 // *                                           устройств и показаний датчиков *
 // ****************************************************************************
 
-// v4.5.6, 20.11.2025                                 Автор:      Труфанов В.Е.
+// v4.5.7, 12.12.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 08.10.2024
 
 // 2025-09-04 json-сообщения передаются через параметры запросов и записываются 
@@ -19,6 +19,8 @@
 // '{"exit":201}'  - не разобран тип сообщения 'num'
 // '{"exit":202}'  - не разобран номер контроллера 'ctrl'
 // '{"exit":203}'  - не выделено json-сообщение на приёме 'sjson'
+
+// '{"exit":401}'  - не обновлено последнее сообщение контроллера заданного типа
 
 // Примеры запросов к State от контроллеров и ответов State:
 
@@ -50,6 +52,10 @@
 // ----1 -> s_MODE4,  '"led4":{"light":10,"time":2000}'                                          // режим работы вспышки
 // ----2 -> s_INTRV,  '"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}'  // интервалы подачи сообщений от контроллера
 
+echo '<script src="State.js"></script>';
+
+
+
 // Подключаем реестр json-сообщений на страницу State40
 require_once "../iniWorkSpace.php";  
 // Подключаем объект для работы с базой данных моего хозяйства
@@ -78,34 +84,43 @@ echo "<State>";
 // Возвращаем информацию по циклу контроллера
 $cycle=getComRequest('cycle');
 if ($cycle==NULL) echo '{"exit":200}';
-else echo '{"cycle":'.$cycle.'}';
-// Возвращаем информацию по типу сообщения
-$num=getComRequest('num');
-if ($num==NULL) echo '{"exit":201}';
-else echo '{"num":'.$num.'}';
-// Возвращаем информацию по номеру контроллера
-$ctrl=getComRequest('ctrl');
-if ($ctrl==NULL) echo '{"exit":202}';
-else echo '{"ctrl":'.$ctrl.'}';
-// Возвращаем принятое json-сообщение
-$sjson=getComRequest('sjson');
-if ($sjson==NULL) echo '{"exit":203}';
-else echo '{"sjson":'.$sjson.'}';
-
-// Подключаем объект для работы с базой данных моего хозяйства
-$Kvizzy=new ttools\KvizzyMaker($SiteHost);
-// Подключаемся к базе данных
-$pdo=$Kvizzy->BaseConnect();
-// Обновляем последнее сообщение в базе данных
-$myTime = time();
-$myDate = date("y-m-d H:i:s");
-$Kvizzy->UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);
-// Обновляем последнее сообщения каждого типа, то есть по номеру,
-// от каждого контроллера на State   
-$messa=$Kvizzy->UpdateNumCtrl($pdo,$ctrl,$num,$sjson); 
-if ($messa!='Ok') $Result='{"exit":401}';
-
-//print_r($_GET);
+else 
+{
+  echo '{"cycle":'.$cycle.'}';
+  // Возвращаем информацию по типу сообщения
+  $num=getComRequest('num');
+  if ($num==NULL) echo '{"exit":201}';
+  else 
+  {
+    echo '{"num":'.$num.'}';
+    // Возвращаем информацию по номеру контроллера
+    $ctrl=getComRequest('ctrl');
+    if ($ctrl==NULL) echo '{"exit":202}';
+    else 
+    {
+      echo '{"ctrl":'.$ctrl.'}';
+      // Возвращаем принятое json-сообщение
+      $sjson=getComRequest('sjson');
+      if ($sjson==NULL) echo '{"exit":203}';
+      else 
+      {
+        echo '{"sjson":'.$sjson.'}';
+        // Подключаем объект для работы с базой данных моего хозяйства
+        $Kvizzy=new ttools\KvizzyMaker($SiteHost);
+        // Подключаемся к базе данных
+        $pdo=$Kvizzy->BaseConnect();
+        // Обновляем последнее сообщение в базе данных
+        $myTime = time();
+        $myDate = date("y-m-d H:i:s");
+        $Kvizzy->UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);
+        // Обновляем последнее сообщения каждого типа, то есть по номеру,
+        // от каждого контроллера на State   
+        $messa=$Kvizzy->UpdateNumCtrl($pdo,$ctrl,$num,$sjson); 
+        if ($messa!='Ok') $Result='{"exit":401}';
+      }
+    }
+  }
+}
 
 echo "</State>";
 

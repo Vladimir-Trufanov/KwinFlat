@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		+Controller
+		-Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -223,6 +223,7 @@ KwinFlat
 			SmartMenus\sm-kwinflat-mobi.css
 		+State
 			State\index.php
+			State\State.js
 		-State40
 			State40\index.php
 		-Stream40
@@ -234,7 +235,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		-Update40
+		+Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -265,6 +266,7 @@ KwinFlat
 		KwinFlat.ppr
 		kwinflat-log.txt
 		leaflet_examples.md
+		log.txt
 		manifest.json
 		Meet40.html
 		server.log
@@ -272,28 +274,40 @@ KwinFlat
 [Open project files]
 0=index.php
 1=State\index.php
-2=Controller\Controller.js
-3=iniMem.php
-4=TKvizzyMaker\KvizzyMakerClass.php
+2=Update40\Update40BODY.php
+3=State\State.js
+4=j_getLastStateMess.php
 5=TKvizzyMaker\CommonStateMaker.php
+6=Update40\Update40HEAD.php
+7=iniPhpJS.php
+8=Update40\Update40.js
 [Selected Project Files]
 Main=
 Selected=State\index.php
 [index.php]
-TopLine=64
+TopLine=97
 Caret=6,103
 [State\index.php]
-TopLine=82
-Caret=45,114
-[Controller\Controller.js]
-TopLine=65
-Caret=9,91
-[iniMem.php]
+TopLine=87
+Caret=1,125
+[Update40\Update40BODY.php]
 TopLine=1
-Caret=30,9
-[TKvizzyMaker\KvizzyMakerClass.php]
-TopLine=107
-Caret=34,115
+Caret=1,113
+[State\State.js]
+TopLine=1
+Caret=3,13
+[j_getLastStateMess.php]
+TopLine=1
+Caret=1,1
 [TKvizzyMaker\CommonStateMaker.php]
-TopLine=251
-Caret=1,303
+TopLine=169
+Caret=1,1
+[Update40\Update40HEAD.php]
+TopLine=1
+Caret=1,19
+[iniPhpJS.php]
+TopLine=1
+Caret=1,1
+[Update40\Update40.js]
+TopLine=1
+Caret=1,17

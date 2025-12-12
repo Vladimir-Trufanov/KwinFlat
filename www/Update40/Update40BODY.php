@@ -110,7 +110,6 @@ echo '</div>'; // id="LeftAndRight"
 
 // Определяем поле демонстрации поступающих json-сообщений
 echo '<div id="tickers">';
-//echo 'id="tickers"';
 echo '</div>';    // id="tickers"
 
 // Размещаем див сообщений от аякс-запросов
