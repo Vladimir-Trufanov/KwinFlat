@@ -5,30 +5,30 @@
 // ****************************************************************************
 // * KwinFlat/TTools                  Построитель базы данных моего хозяйства *
 // *                                                                          *
-// * v4.4.4, 05.10.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.5, 13.12.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2024 tve                          Дата создания:  03.11.2024 *
 // ****************************************************************************
 
 // ---------------------------------------------------------- МЕТОДЫ КЛАССА ---
 require_once("CommonKvizzyMaker.php"); 
-// BaseConnect();                                      - Открыть соединение с базой данных
-// BaseFirstCreate();                                  - Создать резервную копию и заново построить новую базу данных
-// SelectAboutCtrl($pdo,$idctrl);                      - Выбрать данные по контроллеру 
+// BaseConnect();                                                   - Открыть соединение с базой данных
+// BaseFirstCreate();                                               - Создать резервную копию и заново построить новую базу данных
+// SelectAboutCtrl($pdo,$idctrl);                                   - Выбрать данные по контроллеру 
 require_once("CommonLeadMaker.php"); 
-// setMessLead($pdo,$num,$sjson)                       - Записать в базу данных изменения состояния управляющих json-команд 
-// TestSet($pdo,$INsjson,$action)                      - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
-// SelChange($pdo)                                     - Выбрать изменения состояний управляющих команд  
-// --- SelLead($pdo,$action);                          - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+// setMessLead($pdo,$num,$sjson)                                    - Записать в базу данных изменения состояния управляющих json-команд 
+// TestSet($pdo,$INsjson,$action)                                   - Подтвердить изменения: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
+// SelChange($pdo)                                                  - Выбрать изменения состояний управляющих команд  
+// --- SelLead($pdo,$action);                                       - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
 require_once("CommonStateMaker.php"); 
-// SelectLastMess($pdo);                               - Выбрать запись из таблицы последнего полученного json-сообщения  
-// SelectNumCtrl($pdo,$idctrl,$num);                   - Выбрать последнее сообщение заданного типа от указанного контроллера  
-// UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson); - Обновить запись в таблице последнего полученного json-сообщения
-// UpdateNumCtrl($pdo,$idctrl,$num,$sjson);            - Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера                      *
-// SelState($pdo);                                     - Выбрать управляющие значения экрана и показания датчиков
-// setStateElem($pdo,$Name,$Value);                    - Записать в базу данных изменение управляющего элемента изображения 
+// SelectLastMess($pdo);                                            - Выбрать запись из таблицы последнего полученного json-сообщения  
+// SelectNumCtrl($pdo,$idctrl,$num);                                - Выбрать последнее сообщение заданного типа от указанного контроллера  
+// UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson); - Обновить запись в таблице последнего полученного json-сообщения
+// UpdateNumCtrl($pdo,$idctrl,$num,$sjson);                         - Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера                      *
+// SelState($pdo);                                                  - Выбрать управляющие значения экрана и показания датчиков
+// setStateElem($pdo,$Name,$Value);                                 - Записать в базу данных изменение управляющего элемента изображения 
 require_once("CommonStreamMaker.php"); 
-// InsertImgStream($pdo,$src,$time,$frame);            - Вставить текущее изображение  
-// SelImgStream($pdo,$intime,$inframe);                - Выбрать данные последнего записанного изображения из базы данных
+// InsertImgStream($pdo,$src,$time,$frame);                         - Вставить текущее изображение  
+// SelImgStream($pdo,$intime,$inframe);                             - Выбрать данные последнего записанного изображения из базы данных
 // ----------------------------------------------------------------------------
 
 class KvizzyMaker
@@ -112,9 +112,9 @@ class KvizzyMaker
       return $table;
    }
    // Обновить запись в таблице последнего полученного json-сообщения
-   public function UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson)
+   public function UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson)
    {
-      _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);
+      _UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson);
    }
    // Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера 
    public function UpdateNumCtrl($pdo,$idctrl,$num,$sjson)           

@@ -181,7 +181,7 @@ KwinFlat
 			layer\Layer.Deferred.js
 			layer\Marker.Rotate.js
 			layer\Marker.Text.js
-		-Lead40
+		+Lead40
 			Lead40\index.php
 		-Leafgpx
 			-icons
@@ -229,7 +229,7 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		-TKvizzyMaker
+		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -274,24 +274,24 @@ KwinFlat
 [Open project files]
 0=index.php
 1=State\index.php
-2=State\State.js
-3=Update40\Update40.js
-4=Controller\Controller.js
+2=Controller\Controller.js
+3=TKvizzyMaker\CommonStateMaker.php
+4=TKvizzyMaker\KvizzyMakerClass.php
 [Selected Project Files]
 Main=
-Selected=State\State.js
+Selected=State\index.php
 [index.php]
 TopLine=115
 Caret=19,152
 [State\index.php]
-TopLine=105
-Caret=1,56
-[State\State.js]
-TopLine=1
-Caret=37,12
-[Update40\Update40.js]
-TopLine=41
-Caret=1,60
+TopLine=87
+Caret=1,114
 [Controller\Controller.js]
-TopLine=166
-Caret=9,188
+TopLine=157
+Caret=35,171
+[TKvizzyMaker\CommonStateMaker.php]
+TopLine=224
+Caret=74,238
+[TKvizzyMaker\KvizzyMakerClass.php]
+TopLine=101
+Caret=83,115

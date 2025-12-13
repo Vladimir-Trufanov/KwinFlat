@@ -6,17 +6,17 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                            для базы данных json-сообщений страницы State *
 // *                                                                          *
-// * v4.4.7, 27.09.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.8, 13.12.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  07.01.2025 *
 // ****************************************************************************
 
-// _CreateStateTables($pdo);                             - Создать таблицы базы данных State
-// _SelectLastMess($pdo);                                - Выбрать запись из таблицы последнего полученного json-сообщения  
-// _SelectNumCtrl($pdo,$idctrl,$num);                    - Выбрать последнее сообщение заданного типа от указанного контроллера
-// _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson);  - Обновить запись в таблице последнего полученного json-сообщения  
-// _UpdateNumCtrl($pdo,$idctrl,$num,$sjson);             - Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера                      *
-// _SelState($pdo);                                      - Выбрать управляющие значения экрана и показания датчиков
-// _setStateElem($pdo,$Name,$Value);                     - Записать в базу данных изменение управляющего элемента изображения 
+// _CreateStateTables($pdo);                                          - Создать таблицы базы данных State
+// _SelectLastMess($pdo);                                             - Выбрать запись из таблицы последнего полученного json-сообщения  
+// _SelectNumCtrl($pdo,$idctrl,$num);                                 - Выбрать последнее сообщение заданного типа от указанного контроллера
+// _UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson);  - Обновить запись в таблице последнего полученного json-сообщения  
+// _UpdateNumCtrl($pdo,$idctrl,$num,$sjson);                          - Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера                      *
+// _SelState($pdo);                                                   - Выбрать управляющие значения экрана и показания датчиков
+// _setStateElem($pdo,$Name,$Value);                                  - Записать в базу данных изменение управляющего элемента изображения 
  
 // ****************************************************************************
 // *                       Создать таблицы базы данных State                  *
@@ -25,20 +25,24 @@ function _CreateStateTables($pdo)
 {
    // Создаём таблицу последнего полученного json-сообщения на State
    $sql='CREATE TABLE LastMess ('.
-      'myTime    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.  // абсолютное время в секундах с начала эпохи UNIX
-      'myDate    VARCHAR NOT NULL UNIQUE,'.              // date("y-m-d h:i:s");
-      'cycle     INTEGER NOT NULL,'.                     // цикл выдачи контроллером json-сообщения
-      'sjson     VARCHAR NOT NULL)';                     // json-сообщение
+      'myTime    INTEGER PRIMARY KEY NOT NULL UNIQUE,'.             // абсолютное время в секундах с начала эпохи UNIX
+      'myDate    VARCHAR NOT NULL UNIQUE,'.                         // date("y-m-d h:i:s");
+      'idctrl    INTEGER NOT NULL REFERENCES Controllers(idctrl),'. // идентификатор контроллера
+      'num       INTEGER NOT NULL,'.                                // номер управляющей json-команды (тип json-сообщения) 
+      'cycle     INTEGER NOT NULL,'.                                // цикл выдачи контроллером json-сообщения
+      'sjson     VARCHAR NOT NULL)';                                // json-сообщение
    $st = $pdo->query($sql);
    // Добавляем первую и единственную запись
    $statement = $pdo->prepare("INSERT INTO [LastMess] ".
-      "([myTime],[myDate],[cycle],[sjson]) VALUES ".
-      "(:myTime, :myDate, :cycle, :sjson);");
+      "([myTime],[myDate],[idctrl],[num],[cycle],[sjson]) VALUES ".
+      "(:myTime, :myDate, :idctrl, :num, :cycle, :sjson);");
    $statement->execute([
       "myTime" => time(),
       "myDate" => date("y-m-d H:i:s"),
-      "cycle"  => -1,
-      "sjson"  => '{"led4":{"light":10,"time":2000}}',
+      "idctrl" => 201,
+      "num"    => 2,
+      "cycle"  => 111,
+      "sjson"  => '{"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}}',
    ]);
 
    // Создаём таблицу json-сообщений от зарегистрированных контроллеров на State
@@ -61,7 +65,7 @@ function _CreateStateTables($pdo)
       "idctrl" => 201,
       "myTime" => time(),
       "myDate" => date("y-m-d H:i:s"),
-      "num"    => -1,
+      "num"    => 2,
       "sjson"  => '{"intrv":{"mode4":7007,"img":1001,"tempvl":3003,"lumin":2002,"bar":5005}}',
    ]);
    $statement->execute([
@@ -231,16 +235,18 @@ function _SelectNumCtrl($pdo,$idctrl,$num)
 // ****************************************************************************
 // *      Обновить запись в таблице последнего полученного json-сообщения     *
 // ****************************************************************************
-function _UpdateLastMess($pdo,$myTime,$myDate,$cycle,$sjson)
+function _UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson)
 {
    try 
    {
       $pdo->beginTransaction();
       $statement = $pdo->prepare("UPDATE [LastMess] ".
-         "SET [myTime]=:myTime, [myDate]=:myDate, [cycle]=:cycle, [sjson]=:sjson;");
+         "SET [myTime]=:myTime,[myDate]=:myDate,[idctrl]=:idctrl,[num]=:num,[cycle]=:cycle,[sjson]=:sjson;");
       $statement->execute([
          "myTime" => $myTime,
          "myDate" => $myDate,
+         "idctrl" => $idctrl,
+         "num"    => $num,
          "cycle"  => $cycle,
          "sjson"  => $sjson
       ]);
