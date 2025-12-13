@@ -4,7 +4,7 @@
 // * KwinFlat                    Обслужить ознакомительную страницу для гостя *
 // ****************************************************************************
 
-// v4.5.2, 19.09.2025                                 Автор:      Труфанов В.Е.
+// v4.5.3, 13.12.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 05.10.2024
 
 $(document).ready(function() 
@@ -483,6 +483,10 @@ function getLastStateMess(tickers)
             // Трассируем чистое сообщение, без метки
             // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led33":[{"status":"inLOW"}]}}
             // DialogWind(messa);
+            ctrl=parm.ctrl;
+            $('#ctrl').html("ctrl: "+ctrl.toString());
+            num=parm.num;
+            $('#num').html("num: "+num.toString());
             cycle=parm.cycle;
             $('#cycle').html("cycle: "+cycle.toString());
             sjson=parm.sjson;

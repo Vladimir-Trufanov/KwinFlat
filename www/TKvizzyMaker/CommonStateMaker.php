@@ -179,14 +179,16 @@ function _SelectLastMess($pdo)
    try 
    {
       $pdo->beginTransaction();
-      $cSQL='SELECT myTime,myDate,cycle,sjson FROM LastMess';
+      $cSQL='SELECT myTime,myDate,cycle,idctrl,num,sjson FROM LastMess';
       $stmt = $pdo->query($cSQL);
       $table = $stmt->fetchAll();
       if (count($table)>0) $table=[
-         "myTime"=>$table[0]['myTime'],"myDate"=>$table[0]['myDate'],
-         "cycle" =>$table[0]['cycle'], "sjson" =>$table[0]['sjson']];
+         "myTime"=>$table[0]['myTime'], "myDate"=>$table[0]['myDate'],
+         "idctrl"=>$table[0]['idctrl'], "num"   =>$table[0]['num'],
+         "cycle" =>$table[0]['cycle'],  "sjson" =>$table[0]['sjson']];
       else $table=[
-         "myTime"=>time(), "myDate"=> date("y-m-d h:i:s"),
+         "myTime"=>time(), "myDate"=> date("y-m-d h:i:s"), 
+         "idctrl"=>-2,     "num"   => -2,
          "cycle" =>-2,     "sjson" => 'sjson2'];
       $pdo->commit();
    } 
@@ -195,6 +197,7 @@ function _SelectLastMess($pdo)
       $messa=$e->getMessage();
       $table=[
          "myTime"=>time(), "myDate"=> date("y-m-d h:i:s"),
+         "idctrl"=>-3,     "num"   => -3,
          "cycle" =>-3,     "sjson" => $messa];
       if ($pdo->inTransaction()) $pdo->rollback();
    }
