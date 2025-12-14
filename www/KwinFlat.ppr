@@ -235,7 +235,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -274,28 +274,16 @@ KwinFlat
 [Open project files]
 0=index.php
 1=State\index.php
-2=Update40\Update40BODY.php
-3=TKvizzyMaker\CommonStateMaker.php
-4=Update40\Update40.js
-5=j_getLastStateMess.php
+2=State\State.js
 [Selected Project Files]
 Main=
-Selected=Update40\Update40.js
+Selected=State\index.php
 [index.php]
-TopLine=115
-Caret=19,152
+TopLine=31
+Caret=1,31
 [State\index.php]
-TopLine=85
-Caret=1,114
-[Update40\Update40BODY.php]
+TopLine=65
+Caret=40,81
+[State\State.js]
 TopLine=69
-Caret=11,100
-[TKvizzyMaker\CommonStateMaker.php]
-TopLine=173
-Caret=8,179
-[Update40\Update40.js]
-TopLine=475
-Caret=39,489
-[j_getLastStateMess.php]
-TopLine=1
-Caret=25,29
+Caret=15,24

@@ -6,7 +6,7 @@
 // *                                           устройств и показаний датчиков *
 // ****************************************************************************
 
-// v4.5.8, 13.12.2025                                 Автор:      Труфанов В.Е.
+// v4.5.9, 14.12.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 08.10.2024
 
 // 2025-09-04 json-сообщения передаются через параметры запросов и записываются 
@@ -52,16 +52,20 @@
 // ---State- ответ: <State>sjsonX={"led4":{"light":13,"time":2000}}cycleX=2</State>
 // ---State- время: 524 (мс)
 
-//echo '<script src="State.js"></script>';
+// Инициализируем рабочее пространство: корневой каталог сайта и т.д.
+require_once '../iniWorkSpace.php';
+$_WORKSPACE=iniWorkSpace();
 
-// Подключаем реестр json-сообщений на страницу State40
-require_once "../iniWorkSpace.php";  
+$SiteRoot     = $_WORKSPACE[wsSiteRoot];     // Корневой каталог сайта
+$SiteAbove    = $_WORKSPACE[wsSiteAbove];    // Надсайтовый каталог
+$SiteHost     = $_WORKSPACE[wsSiteHost];     // Каталог хостинга
+$urlHome      = $_WORKSPACE[wsUrlHome];      // Начальная страница сайта 
+
+define("pathPhpPrown",  $SiteHost.'/TPhpPrown/TPhpPrown'); 
+define("pathPhpTools",  $SiteHost.'/TPhpTools/TPhpTools'); 
+
 // Подключаем объект для работы с базой данных моего хозяйства
 require_once "../TKvizzyMaker/KvizzyMakerClass.php";
-
-$SiteRoot=$_SERVER['DOCUMENT_ROOT'];  // Корневой каталог сайта
-$SiteAbove=Above($SiteRoot);          // Надсайтовый каталог
-$SiteHost=Above($SiteAbove);          // Каталог хостинга
 
 // 2025-11-04 вид запроса, введенный вручную 
 // https://probatv.ru/State/?cycle=7&num=5&ctrl=204&sjson={"trkpt":{"lat":52518611,"lon":13376111,"color":"yellow"}}
@@ -76,54 +80,70 @@ $SiteHost=Above($SiteAbove);          // Каталог хостинга
 // https://github.com/lbussy/LCBUrl
 // https://github.com/plageoj/urlencode
 
-// Разбираем параметры запроса
-echo "<State>";
-
-// Возвращаем информацию по циклу контроллера
+// Выбираемем цикл контроллера
 $cycle=getComRequest('cycle');
-if ($cycle==NULL) echo '{"exit":200}';
-else 
+if ($cycle==NULL) 
 {
-  echo '{"cycle":'.$cycle.'}';
-  // Возвращаем информацию по типу сообщения
+  echo '{"exit":200}';
+  // Выбираем тип сообщения
   $num=getComRequest('num');
-  if ($num==NULL) echo '{"exit":201}';
-  else 
+  if ($num==NULL) 
   {
-    echo '{"num":'.$num.'}';
-    // Возвращаем информацию по номеру контроллера
+    echo '{"exit":201}';
+    // Выбираем номер контроллера
     $ctrl=getComRequest('ctrl');
-    if ($ctrl==NULL) echo '{"exit":202}';
-    else 
+    if ($ctrl==NULL) 
     {
-      echo '{"ctrl":'.$ctrl.'}';
-      // Возвращаем принятое json-сообщение
+      echo '{"exit":202}';
+      // Выбираем json-сообщение
       $sjson=getComRequest('sjson');
-      if ($sjson==NULL) echo '{"exit":203}';
-      else 
+
+      // Если все параметры отсутствуют, то считаем что вошли на State
+      // в режиме просмотра последних обращений контроллеров
+      if ($sjson==NULL) 
       {
-        echo '{"sjson":'.$sjson.'}';
-        // Подключаем объект для работы с базой данных моего хозяйства
-        $Kvizzy=new ttools\KvizzyMaker($SiteHost);
-        // Подключаемся к базе данных
-        $pdo=$Kvizzy->BaseConnect();
-        // Обновляем последнее сообщение в базе данных
-        $myTime = time();
-        $myDate = date("y-m-d H:i:s");
-        $Kvizzy->UpdateLastMess($pdo,$myTime,$myDate,$ctrl,$num,$cycle,$sjson);
-        // Обновляем последнее сообщения каждого типа, то есть по номеру,
-        // от каждого контроллера на State   
-        $messa=$Kvizzy->UpdateNumCtrl($pdo,$ctrl,$num,$sjson); 
-        if ($messa!='Ok') $Result='{"exit":401}';
+        // Подключаем jQuery
+        echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
+        echo '
+          <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
+          <script src="/jQuery/jquery-ui.min.js"></script>
+        ';
+        // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
+        require_once "../iniPhpJS.php";  
+        echo '{"exit":203}';
+        echo '<script src="State.js"></script>';
+      }
+      // Иначе считаем, что пришел удовлетворительный запрос от контроллера
+      // и обрабатываем его
+      else
+      {
+        // processing the request from the controller
+        PRFC($SiteHost,$ctrl,$num,$cycle,$sjson);
       }
     }
   }
 }
-echo "</State>";
-?> 
-<script src="State.js"></script>
-<?php 
-
+// ****************************************************************************
+// *                 Выполнить обработку запроса от контроллера               *
+// ****************************************************************************
+function PRFC($SiteHost,$ctrl,$num,$cycle,$sjson)
+{
+   //echo 'Выполнить обработку запроса от контроллера';
+   echo "<State>";
+   // Подключаем объект для работы с базой данных моего хозяйства
+   $Kvizzy=new ttools\KvizzyMaker($SiteHost);
+   // Подключаемся к базе данных
+   $pdo=$Kvizzy->BaseConnect();
+   // Обновляем последнее сообщение в базе данных
+   $myTime = time();
+   $myDate = date("y-m-d H:i:s");
+   $Kvizzy->UpdateLastMess($pdo,$myTime,$myDate,$ctrl,$num,$cycle,$sjson);
+   // Обновляем последнее сообщения каждого типа, то есть по номеру,
+   // от каждого контроллера на State   
+   $messa=$Kvizzy->UpdateNumCtrl($pdo,$ctrl,$num,$sjson); 
+   if ($messa!='Ok') $Result='{"exit":401}';
+   echo "</State>";
+}
 
 /*   ЧТО НИБУДЬ ПОНАДОБИТСЯ после 2025-11-20
 function StateAnswer($SiteHost)
