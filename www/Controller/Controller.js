@@ -80,6 +80,7 @@ function SendRequestState(url)
     if (status === 200) 
     {
       // При необходимости трассируем ответ страницы State
+      console.log('response'); 
       console.log(response); 
       /*
       let lStateJson=isStateJson(response);
@@ -184,7 +185,7 @@ function TestGpx()
         var nLat=Math.round(latcur*1000000);
         var nLon=Math.round(loncur*1000000);
         //console.log('nLat='+nLat,'nLon='+nLon);
-        console.log     (urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}'); 
+        //console.log     (urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}'); 
         SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}');
       }
     }

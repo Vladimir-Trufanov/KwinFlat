@@ -9,15 +9,20 @@
 
 //console.log('State.js');
 
-// Запускаем вызов четвертьсекундной (250 мсек) трассировки
+// Инициируем счетчик вызовов трассировки
+var iTrace=0;
+// Инициируем прежнее обращение контроллеров
+var oldMessa="*";
+// Запускаем вызов трассировок через 1250 мсек
 const IntTraceState = setInterval(function(){TraceState()},1250);
 
 // ****************************************************************************
-// *                   -----Получить последнее json-сообщение на State             *
+// *                Выбрать последнее json-сообщение на State                 *
 // ****************************************************************************
 function TraceState()
 {
   console.log('TraceState');
+  /*
   // Выводим в диалог предварительный результат выполнения запроса
   htmlText="Выбрать json-сообщение на State не удалось!";
   // Выполняем запрос
@@ -28,13 +33,12 @@ function TraceState()
     type: 'POST',
     data: {pathTools:pathPhpTools,pathPrown:pathPhpPrown,sh:SiteHost},
     // Выводим ошибки при выполнении запроса в PHP-сценарии
-    error: function (jqXHR,exception) {/*DialogWind(SmarttodoError(jqXHR,exception))*/},
+    error: function (jqXHR,exception) {console.log('SmarttodoError(jqXHR,exception);');},
     // Обрабатываем ответное сообщение
     success: function(message)
     {
       // Трассируем полный json-ответ
-      console.log(message);
-      /*
+      // console.log(message);
       // Вырезаем из запроса чистое сообщение
       let Fresh=FreshLabel(message);
       // Если чистое сообщение не вырезалось, считаем, что это ошибка и
@@ -42,89 +46,61 @@ function TraceState()
       if (Fresh=='NoFresh')
       {
         console.log(message);
-        DialogWind(message);
       }
       // Иначе считаем, что ответ на запрос пришел и можно
       // парсить сообщение
       else 
       {
         messa=Fresh;
-        // DialogWind(messa);
-        // console.log(messa)
+        //console.log(iTrace); 
+        //console.log(messa);
         
-        // Строим try catch, чтобы поймать ошибку в JSON-ответе
-        try 
-        {
-          parm=JSON.parse(messa);
-          // Если ошибка SQL-запроса
-          if (parm.cycle<0) 
+        if (oldMessa!=messa)
+        {        
+          // Строим try catch, чтобы поймать ошибку в JSON-ответе
+          try 
           {
-            if (parm.cycle==-1) 
-              DialogWind(
-              "Пересоздана таблица базы данных State.<br>"+
-              "Сообщений от контроллера ещё не поступало!<br>"+
-              "Можно проверить виртуальный контроллер.");
-            else
-              DialogWind(parm.cycle+': '+parm.sjson);
-          }
-          // Выводим результаты выполнения (параметры ответа)
-          // (отрабатываем распарсенный ответ)
-          else
-          {
-            // Трассируем чистое сообщение, без метки
-            // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led33":[{"status":"inLOW"}]}}
-            // DialogWind(messa);
-            ctrl=parm.ctrl;
-            $('#ctrl').html("ctrl: "+ctrl.toString());
-            num=parm.num;
-            $('#num').html("num: "+num.toString());
-            cycle=parm.cycle;
-            $('#cycle').html("cycle: "+cycle.toString());
-            sjson=parm.sjson;
-            $('#sjson').html ("sjson: "+JSON.stringify(sjson));
-            let myTime=parm.myTime;
-            $('#myTime').html("myTime: "+myTime.toString());
-            let myDate=parm.myDate;
-            $('#myDate').html("myDate: "+myDate);
-            / *    
-            // Парсим и обрабатываем sjson
-            if ((JSON.stringify(sjson)==s33_LOW)||(JSON.stringify(sjson)==s33_HIGH))
+            parm=JSON.parse(messa);
+            // Если ошибка SQL-запроса
+            if (parm.cycle<0) 
             {
-              parm=JSON.parse(JSON.stringify(sjson));
-              // Выделяем json-подстроку по led33
-              let led33=parm.led33[0];
-              // Парсим led33
-              parm=JSON.parse(JSON.stringify(led33));
-              // Выделяем состояние led33 (горит - не горит)
-              let status=parm.status;
-              // Высвечиваем led33 в соответствии с состоянием
-              //$('#status').html(status);
-              //if (status=="inHIGH") $('#spot').css('background','SandyBrown');
-              //else $('#spot').css('background','LightCyan');
+              if (parm.cycle==-1) 
+                console.log(
+                "Пересоздана таблица базы данных State.<br>"+
+                "Сообщений от контроллера ещё не поступало!<br>"+
+                "Можно проверить виртуальный контроллер.");
+              else
+                console.log(parm.cycle+': '+parm.sjson);
             }
-            else if (JSON.stringify(sjson)==s33_MODE0)
-            {
-              console.log('s33_MODE0: '+s33_MODE0);
-              //ram.set("LmpMode",0);  // 0 - выключен режим 
-            }
+            // Выводим результаты выполнения (параметры ответа)
+            // (отрабатываем распарсенный ответ)
             else
             {
-              console.log('sjson: '+JSON.stringify(sjson));
-            }
-            * /
-            //alert(JSON.stringify(sjson));
+              // Трассируем чистое сообщение, без метки
+              // {"myTime":1736962888,"myDate":"25-01-15 08:41:28","cycle":195, "sjson":{"led33":[{"status":"inLOW"}]}}
+              // console.log(messa);
+              ctrl=parm.ctrl;         // console.log("ctrl:  "+ctrl.toString());
+              num=parm.num;           // console.log("num:   "+num.toString());
+              cycle=parm.cycle;       // console.log("cycle: "+cycle.toString());
+              sjson=parm.sjson;       // console.log("sjson: "+JSON.stringify(sjson));
+              let myTime=parm.myTime; // console.log("myTime: "+myTime.toString());
+              let myDate=parm.myDate; // console.log("myDate: "+myDate);
+                                      //console.log('sjson:  '+JSON.stringify(sjson));
+              console.log(iTrace+' ['+ctrl.toString()+'] '+myDate+" "+JSON.stringify(sjson));
+           }
+          }
+          // Обрабатываем ошибку в JSON-ответе 
+          catch (err) 
+          {
+            console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
           }
         }
-        // Обрабатываем ошибку в JSON-ответе 
-        catch (err) 
-        {
-          console.log("Ошибка в JSON-ответе\n"+Error(err)+":\n"+messa);
-          DialogWind("Ошибка в JSON-ответе<br>"+Error(err)+":<br>"+messa);
-        }
+        // Готовим выборку следующего, отличного от предыдущего, обращения контроллера
+        iTrace++; oldMessa=messa;
       }
-      */  
     }
   });
+  */
 }
 
 // ************************************************************ Update40.js ***

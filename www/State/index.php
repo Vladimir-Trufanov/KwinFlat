@@ -108,6 +108,8 @@ if ($cycle==NULL)
           <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
           <script src="/jQuery/jquery-ui.min.js"></script>
         ';
+        // 
+        echo '<script src="../CommonTools.js"></script>';
         // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
         require_once "../iniPhpJS.php";  
         echo '{"exit":203}';
