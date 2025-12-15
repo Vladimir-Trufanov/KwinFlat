@@ -4,7 +4,7 @@
 // * KwinFlat          Оттрассировать обращения контроллеров к странице State *
 // ****************************************************************************
 
-// v1.0.1, 14.12.2025                                 Автор:      Труфанов В.Е.
+// v1.0.2, 15.12.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 12.12.2025
 
 //console.log('State.js');
@@ -21,10 +21,7 @@ const IntTraceState = setInterval(function(){TraceState()},1250);
 // ****************************************************************************
 function TraceState()
 {
-  console.log('TraceState');
-  /*
-  // Выводим в диалог предварительный результат выполнения запроса
-  htmlText="Выбрать json-сообщение на State не удалось!";
+  // console.log('TraceState');
   // Выполняем запрос
   pathphp="../j_getLastStateMess.php";
   // Делаем запрос последнего json-сообщения на State 
@@ -52,6 +49,9 @@ function TraceState()
       else 
       {
         messa=Fresh;
+        // Выводим отметку в консоль, что трассировка работает
+        console.log('*'); 
+
         //console.log(iTrace); 
         //console.log(messa);
         
@@ -85,7 +85,7 @@ function TraceState()
               sjson=parm.sjson;       // console.log("sjson: "+JSON.stringify(sjson));
               let myTime=parm.myTime; // console.log("myTime: "+myTime.toString());
               let myDate=parm.myDate; // console.log("myDate: "+myDate);
-                                      //console.log('sjson:  '+JSON.stringify(sjson));
+                                      // console.log('sjson:  '+JSON.stringify(sjson));
               console.log(iTrace+' ['+ctrl.toString()+'] '+myDate+" "+JSON.stringify(sjson));
            }
           }
@@ -100,7 +100,6 @@ function TraceState()
       }
     }
   });
-  */
 }
 
-// ************************************************************ Update40.js ***
+// *************************************************************** State.js ***

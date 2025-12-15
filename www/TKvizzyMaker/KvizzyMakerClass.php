@@ -5,7 +5,7 @@
 // ****************************************************************************
 // * KwinFlat/TTools                  Построитель базы данных моего хозяйства *
 // *                                                                          *
-// * v4.4.5, 13.12.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.6, 15.12.2025                            Автор:       Труфанов В.Е. *
 // * Copyright © 2024 tve                          Дата создания:  03.11.2024 *
 // ****************************************************************************
 
@@ -114,12 +114,14 @@ class KvizzyMaker
    // Обновить запись в таблице последнего полученного json-сообщения
    public function UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson)
    {
-      _UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson);
+      $messa=_UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson);
+      return $messa;
    }
    // Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера 
    public function UpdateNumCtrl($pdo,$idctrl,$num,$sjson)           
    {
       $messa=_UpdateNumCtrl($pdo,$idctrl,$num,$sjson); 
+      return $messa;
    }
    // Записать в базу данных изменение управляющего элемента изображения   
    public function setStateElem($pdo,$Name,$Value)

@@ -5,7 +5,7 @@
 // *                                                           из окна jquiry *
 // ****************************************************************************
 
-// v2.0.7, 20.09.2025                                 Автор:      Труфанов В.Е.
+// v2.0.8, 15.12.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2025 tve                               Дата создания: 01.02.2025
 
 // Готовим переменные обслуживания
@@ -80,7 +80,7 @@ function SendRequestState(url)
     if (status === 200) 
     {
       // При необходимости трассируем ответ страницы State
-      console.log('response'); 
+      // console.log('response'); 
       console.log(response); 
       /*
       let lStateJson=isStateJson(response);
@@ -180,13 +180,18 @@ function TestGpx()
         lonold=loncur;
         // Генерируем новую точку
         GenTrkpt(itrk);
-        //console.log('latcur='+latcur,'loncur='+loncur); 
+        // console.log('latcur='+latcur,'loncur='+loncur); 
         // 'Отправляем координаты на сайт' - это на будущее подключение
         var nLat=Math.round(latcur*1000000);
         var nLon=Math.round(loncur*1000000);
-        //console.log('nLat='+nLat,'nLon='+nLon);
-        //console.log     (urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}'); 
+        // console.log('nLat='+nLat,'nLon='+nLon);
+        // console.log  (urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}'); 
         SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}');
+        // При отладке генерируем ошибки: 200,201,202,203  
+        // SendRequestState(urlHome+'/State/?cycle1='+nCycle+'&num=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}');
+        // SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num1=5&ctrl=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}');
+        // SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl1=204&sjson={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}');
+        // SendRequestState(urlHome+'/State/?cycle='+nCycle+'&num=5&ctrl=204&sjson1={"trkpt":{"lat":'+nLat+',"lon":'+nLon+',"color":"'+ccolor+'"}}');
       }
     }
   }

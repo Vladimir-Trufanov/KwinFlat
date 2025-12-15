@@ -6,7 +6,7 @@
 // *                                           устройств и показаний датчиков *
 // ****************************************************************************
 
-// v4.5.9, 14.12.2025                                 Автор:      Труфанов В.Е.
+// v4.6.1, 15.12.2025                                 Автор:      Труфанов В.Е.
 // Copyright © 2024 tve                               Дата создания: 08.10.2024
 
 // 2025-09-04 json-сообщения передаются через параметры запросов и записываются 
@@ -20,7 +20,8 @@
 // '{"exit":202}'  - не разобран номер контроллера 'ctrl'
 // '{"exit":203}'  - не выделено json-сообщение на приёме 'sjson'
 
-// '{"exit":401}'  - не обновлено последнее сообщение контроллера заданного типа
+// '{"exit":216}'  - если все параметры отсутствуют, то считаем что вошли на 
+//                   State в режиме просмотра последних обращений контроллеров
 
 // Примеры запросов к State от контроллеров и ответов State:
 
@@ -80,72 +81,72 @@ require_once "../TKvizzyMaker/KvizzyMakerClass.php";
 // https://github.com/lbussy/LCBUrl
 // https://github.com/plageoj/urlencode
 
+// echo '{"exit":215}';
+
+echo "<State>";
 // Выбираемем цикл контроллера
 $cycle=getComRequest('cycle');
-if ($cycle==NULL) 
-{
-  echo '{"exit":200}';
-  // Выбираем тип сообщения
-  $num=getComRequest('num');
-  if ($num==NULL) 
-  {
-    echo '{"exit":201}';
-    // Выбираем номер контроллера
-    $ctrl=getComRequest('ctrl');
-    if ($ctrl==NULL) 
-    {
-      echo '{"exit":202}';
-      // Выбираем json-сообщение
-      $sjson=getComRequest('sjson');
+// Выбираем тип сообщения
+$num=getComRequest('num');
+// Выбираем номер контроллера
+$ctrl=getComRequest('ctrl');
+// Выбираем json-сообщение
+$sjson=getComRequest('sjson');
 
-      // Если все параметры отсутствуют, то считаем что вошли на State
-      // в режиме просмотра последних обращений контроллеров
-      if ($sjson==NULL) 
-      {
-        // Подключаем jQuery
-        echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
-        echo '
-          <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
-          <script src="/jQuery/jquery-ui.min.js"></script>
-        ';
-        // 
-        echo '<script src="../CommonTools.js"></script>';
-        // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
-        require_once "../iniPhpJS.php";  
-        echo '{"exit":203}';
-        echo '<script src="State.js"></script>';
-      }
-      // Иначе считаем, что пришел удовлетворительный запрос от контроллера
-      // и обрабатываем его
-      else
-      {
-        // processing the request from the controller
-        PRFC($SiteHost,$ctrl,$num,$cycle,$sjson);
-      }
+// Если все параметры отсутствуют, то считаем что вошли на State
+// в режиме просмотра последних обращений контроллеров
+if ($sjson==NULL || $ctrl==NULL || $num==NULL || $cycle==NULL) 
+{
+  echo '{"exit":216}';
+
+  // Подключаем jQuery
+  echo '<script src="/jQuery/jquery-1.11.1.min.js"></script>';
+  echo '
+    <link rel="stylesheet" type="text/css" href="/jQuery/jquery-ui.min.css">
+    <script src="/jQuery/jquery-ui.min.js"></script>
+  ';
+  // 
+  echo '<script src="../CommonTools.js"></script>';
+  // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
+  require_once "../iniPhpJS.php";  
+  // Запускаем просмотр последних обращений к State
+  echo '<script src="State.js"></script>';
+}
+// Делаем проход параметров и диагностируем ошибки
+else if ($cycle==NULL) echo '{"exit":200}';
+else if ($num==NULL)   echo '{"exit":201}';
+else if ($ctrl==NULL)  echo '{"exit":202}';
+else if ($sjson==NULL) echo '{"exit":203}';
+// Иначе считаем, что пришел удовлетворительный запрос от контроллера
+// и обрабатываем его
+else
+{
+  // echo '{"exit":217}';
+  // Подключаем объект для работы с базой данных моего хозяйства
+  $Kvizzy=new ttools\KvizzyMaker($SiteHost);
+  // Подключаемся к базе данных
+  $pdo=$Kvizzy->BaseConnect();
+  // Обновляем последнее сообщение в базе данных
+  $myTime = time();
+  $myDate = date("y-m-d H:i:s");
+  $messa=$Kvizzy->UpdateLastMess($pdo,$myTime,$myDate,$ctrl,$num,$cycle,$sjson);
+  if ($messa!='Ok') echo $messa;
+  else
+  {
+    // Обновляем последнее сообщения каждого типа, то есть по номеру,
+    // от каждого контроллера на State   
+    $messa=$Kvizzy->UpdateNumCtrl($pdo,$ctrl,$num,$sjson); 
+    if ($messa!='Ok') echo $messa;
+    else 
+    {
+      echo '{"cycle":'.$cycle.'}';
+      echo '{"num":'.$num.'}';
+      echo '{"ctrl":'.$ctrl.'}';
+      echo '{"sjson":'.$sjson.'}';
     }
   }
 }
-// ****************************************************************************
-// *                 Выполнить обработку запроса от контроллера               *
-// ****************************************************************************
-function PRFC($SiteHost,$ctrl,$num,$cycle,$sjson)
-{
-   //echo 'Выполнить обработку запроса от контроллера';
-   echo "<State>";
-   // Подключаем объект для работы с базой данных моего хозяйства
-   $Kvizzy=new ttools\KvizzyMaker($SiteHost);
-   // Подключаемся к базе данных
-   $pdo=$Kvizzy->BaseConnect();
-   // Обновляем последнее сообщение в базе данных
-   $myTime = time();
-   $myDate = date("y-m-d H:i:s");
-   $Kvizzy->UpdateLastMess($pdo,$myTime,$myDate,$ctrl,$num,$cycle,$sjson);
-   // Обновляем последнее сообщения каждого типа, то есть по номеру,
-   // от каждого контроллера на State   
-   $messa=$Kvizzy->UpdateNumCtrl($pdo,$ctrl,$num,$sjson); 
-   if ($messa!='Ok') $Result='{"exit":401}';
-   echo "</State>";
-}
+echo "</State>";
 
 /*   ЧТО НИБУДЬ ПОНАДОБИТСЯ после 2025-11-20
 function StateAnswer($SiteHost)
