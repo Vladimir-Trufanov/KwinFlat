@@ -114,8 +114,8 @@ KwinFlat
 			favicon260x260\favicon-32x32.png
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
-		+gpx
-			+fil
+		-gpx
+			-fil
 				gpx\fil\gtrack204.gpx
 			-js
 				-images
@@ -224,7 +224,7 @@ KwinFlat
 			SmartMenus\sm-core-css.css
 			SmartMenus\sm-kwinflat-desktop.css
 			SmartMenus\sm-kwinflat-mobi.css
-		-State
+		+State
 			State\index.php
 			State\State.js
 		-State40
@@ -275,17 +275,25 @@ KwinFlat
 		web.config
 [Open project files]
 0=index.php
-1=Leafgpx\index.php
-2=gpx\fil\gtrack204.gpx
+1=gpx\fil\gtrack204.gpx
+2=Update40\Update40BODY.php
+3=iniMem.php
+4=State\index.php
 [Selected Project Files]
 Main=
-Selected=gpx\fil\gtrack204.gpx
+Selected=State\index.php
 [index.php]
-TopLine=2
+TopLine=1
 Caret=22,8
-[Leafgpx\index.php]
-TopLine=104
-Caret=1,1
 [gpx\fil\gtrack204.gpx]
-TopLine=5
+TopLine=3
 Caret=1,17
+[Update40\Update40BODY.php]
+TopLine=4
+Caret=1,1
+[iniMem.php]
+TopLine=53
+Caret=1,1
+[State\index.php]
+TopLine=265
+Caret=28,270
