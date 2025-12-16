@@ -20,7 +20,7 @@ KwinFlat
 	+www
 		-.well-known
 			-acme-challenge
-		+Controller
+		-Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -114,7 +114,9 @@ KwinFlat
 			favicon260x260\favicon-32x32.png
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
-		-gpx
+		+gpx
+			+fil
+				gpx\fil\gtrack204.gpx
 			-js
 				-images
 					gpx\js\images\DirFlag47x47.png
@@ -143,6 +145,7 @@ KwinFlat
 				gpx\js\leaflet194.css
 				gpx\js\leaflet194.js
 			gpx\demo_mpetazzoni.gpx
+			gpx\gtrack204.gpx
 			gpx\mp20230923First.gpx
 			gpx\mp204.gpx
 			gpx\track20250810First.gpx
@@ -181,7 +184,7 @@ KwinFlat
 			layer\Layer.Deferred.js
 			layer\Marker.Rotate.js
 			layer\Marker.Text.js
-		+Lead40
+		-Lead40
 			Lead40\index.php
 		-Leafgpx
 			-icons
@@ -221,7 +224,7 @@ KwinFlat
 			SmartMenus\sm-core-css.css
 			SmartMenus\sm-kwinflat-desktop.css
 			SmartMenus\sm-kwinflat-mobi.css
-		+State
+		-State
 			State\index.php
 			State\State.js
 		-State40
@@ -229,7 +232,7 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -266,32 +269,23 @@ KwinFlat
 		KwinFlat.ppr
 		kwinflat-log.txt
 		leaflet_examples.md
-		log.txt
 		manifest.json
 		Meet40.html
 		server.log
 		web.config
 [Open project files]
 0=index.php
-1=State\index.php
-2=State\State.js
-3=Update40\Update40.js
-4=Update40\Update40HEAD.php
+1=Leafgpx\index.php
+2=gpx\fil\gtrack204.gpx
 [Selected Project Files]
 Main=
-Selected=State\State.js
+Selected=gpx\fil\gtrack204.gpx
 [index.php]
-TopLine=44
-Caret=1,44
-[State\index.php]
-TopLine=94
-Caret=1,101
-[State\State.js]
-TopLine=62
-Caret=24,53
-[Update40\Update40.js]
-TopLine=427
-Caret=9,444
-[Update40\Update40HEAD.php]
-TopLine=1
-Caret=1,18
+TopLine=2
+Caret=22,8
+[Leafgpx\index.php]
+TopLine=104
+Caret=1,1
+[gpx\fil\gtrack204.gpx]
+TopLine=5
+Caret=1,17

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1"
+version="1.1"
+creator="KwinFlat v4.0.2, 19.04.2025"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1"
+xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3"
+xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1"
+xsi:schemaLocation="http://www.topografix.com/GPX/1/1 https://www.topografix.com/GPX/1/1/gpx.xsd
+http://www.topografix.com/GPX/gpx_style/0/2 https://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd
+http://www.topografix.com/GPX/gpx_overlay/0/4 https://www.topografix.com/GPX/gpx_overlay/0/4/gpx_overlay.xsd
+http://www.topografix.com/GPX/gpx_modified/0/1 https://www.topografix.com/GPX/gpx_modified/0/1/gpx_modified.xsd
+http://www.garmin.com/xmlschemas/WaypointExtension/v1 https://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd
+http://www.garmin.com/xmlschemas/GpxExtensions/v3 https://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd
+http://www.garmin.com/xmlschemas/TrackPointExtension/v1 https://www8.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+
+<metadata><link href="https://www.kwinflat.ru"><text>tve58@inbox.ru</text></link><time>2025-08-10T08:56:08Z</time></metadata> 
+<trk>
+  <name>10-АВГ-25 11:56:05</name>
+  <extensions><gpxx:TrackExtension><gpxx:DisplayColor>Black</gpxx:DisplayColor></gpxx:TrackExtension></extensions>
+  <!-- <trkseg> -->
+    <trkpt lat="61.8432667013" lon="34.3725032452"></trkpt>
+    <trkpt lat="61.8432580680" lon="34.3725765031"></trkpt>
+    <trkpt lat="61.8450384680" lon="34.3790329155"></trkpt>
+    <trkpt lat="61.8450405635" lon="34.3790554628"></trkpt>
+    <trkpt lat="61.8450684752" lon="34.3792096060"></trkpt>
+    <!-- {"trkpt":{"lat":61856308,"lon":33396584,"color":"white"}} -->
+    <trkpt lat="61.8449481111" lon="34.3794051558"></trkpt>
+    <trkpt lat="61.8449408188" lon="34.3792157248"></trkpt>
+    <trkpt lat="61.8449624442" lon="34.3789060973"></trkpt>
+    <trkpt lat="61.8418392632" lon="34.3895073608"></trkpt>
+    <trkpt lat="61.8418965954" lon="34.3890168518"></trkpt>
+    <trkpt lat="61.8419382535" lon="34.3886460364"></trkpt>
+    <trkpt lat="61.8419766426" lon="34.3882269412"></trkpt>
+    <!-- <tttrkseg> -->
+    <trkpt lat="61.8425051216" lon="34.3830265570"></trkpt>
+    <trkpt lat="61.8425369728" lon="34.3826286681"></trkpt>
+    <trkpt lat="61.8424902018" lon="34.3821685854"></trkpt>
+    <trkpt lat="61.8419800792" lon="34.3791790120"></trkpt>
+    <trkpt lat="61.8420369085" lon="34.3786563165"></trkpt>
+    <trkpt lat="61.8432881590" lon="34.3726881500"></trkpt>
+  <!-- </trkseg> -->
+</trk>
+</gpx>

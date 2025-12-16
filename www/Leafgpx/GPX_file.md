@@ -83,7 +83,7 @@ XML-теги, окружающие каждую путевую точку мар
 
 #### [gps-wizard](https://logiqx.github.io/gps-wizard/gpx/)
 
-#### [Формат файла GPX](https://docs.fileformat.com/ru/gis/gpx/)
+#### [GPX for Developers](https://www.topografix.com/gpx_for_developers.asp)
 
 #### [GPX - OpenStreetMap Wiki](https://wiki.openstreetmap.org/wiki/GPX?ref=wwwy3y3.ghost.io)
 

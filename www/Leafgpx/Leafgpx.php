@@ -34,7 +34,7 @@ if ($idctrl!=NULL)
 }
 else
 {
-  $gpxfile=$urlHome.'/gpx/track'.$gpx.'.gpx';
+  $gpxfile=$urlHome.'/gpx/fil/gtrack'.$gpx.'.gpx';
   $idctrl=$gpx;
   // Проверяем существование gpx-файла
   if (!UR_exists($gpxfile)) 

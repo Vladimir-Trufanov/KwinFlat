@@ -1,6 +1,6 @@
 Array
 (
-    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-53820be0-4259-4214-b16e-ea04db559ba4
+    [_FCGI_X_PIPE_] => \\.\pipe\IISFCGI-58306d55-d5b1-4942-bc80-1ef38177f809
     [PHP_FCGI_MAX_REQUESTS] => 200
     [PHPRC] => C:\PHP\
     [ALLUSERSPROFILE] => C:\ProgramData
@@ -37,23 +37,23 @@ Array
     [USERPROFILE] => C:\WINDOWS\system32\config\systemprofile
     [windir] => C:\WINDOWS
     [ZES_ENABLE_SYSMAN] => 1
-    [ORIG_PATH_INFO] => /State/index.php
-    [URL] => /State/index.php
+    [ORIG_PATH_INFO] => /Leafgpx/index.php
+    [URL] => /Leafgpx/index.php
     [SERVER_SOFTWARE] => Microsoft-IIS/10.0
     [SERVER_PROTOCOL] => HTTP/1.1
     [SERVER_PORT_SECURE] => 0
     [SERVER_PORT] => 100
     [SERVER_NAME] => localhost
-    [SCRIPT_NAME] => /State/index.php
-    [SCRIPT_FILENAME] => C:\KwinFlat\www\State\index.php
-    [REQUEST_URI] => /State/?cycle=14&num=5&ctrl=204&sjson={%22trkpt%22:{%22lat%22:61886308,%22lon%22:33216584,%22color%22:%22black%22}}
+    [SCRIPT_NAME] => /Leafgpx/index.php
+    [SCRIPT_FILENAME] => C:\KwinFlat\www\Leafgpx\index.php
+    [REQUEST_URI] => /Leafgpx/?gpx=204
     [REQUEST_METHOD] => GET
     [REMOTE_USER] => 
-    [REMOTE_PORT] => 49282
+    [REMOTE_PORT] => 51652
     [REMOTE_HOST] => ::1
     [REMOTE_ADDR] => ::1
-    [QUERY_STRING] => cycle=14&num=5&ctrl=204&sjson={%22trkpt%22:{%22lat%22:61886308,%22lon%22:33216584,%22color%22:%22black%22}}
-    [PATH_TRANSLATED] => C:\KwinFlat\www\State\index.php
+    [QUERY_STRING] => gpx=204
+    [PATH_TRANSLATED] => C:\KwinFlat\www\Leafgpx\index.php
     [LOGON_USER] => 
     [LOCAL_ADDR] => ::1
     [INSTANCE_META_PATH] => /LM/W3SVC/10
@@ -79,26 +79,28 @@ Array
     [APPL_PHYSICAL_PATH] => C:\KwinFlat\www\
     [APPL_MD_PATH] => /LM/W3SVC/10/ROOT
     [WEBSOCKET_VERSION] => 13
-    [HTTP_SEC_FETCH_DEST] => empty
-    [HTTP_SEC_FETCH_MODE] => cors
+    [HTTP_SEC_FETCH_DEST] => document
+    [HTTP_SEC_FETCH_USER] => ?1
+    [HTTP_SEC_FETCH_MODE] => navigate
     [HTTP_SEC_FETCH_SITE] => same-origin
+    [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
     [HTTP_SEC_CH_UA_MOBILE] => ?0
     [HTTP_SEC_CH_UA] => "Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"
-    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
     [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-    [HTTP_REFERER] => http://localhost:100/
+    [HTTP_REFERER] => http://localhost:100/Leafgpx/
     [HTTP_HOST] => localhost:100
-    [HTTP_COOKIE] => UslCount=4; PlDom=2147.1; PlKvar=52.3; Vidblag=1; EtDom=9; GodStr=2016; KatDom=2; PerOto=1; NewsAmt=8; NewsView=1; CurrStih=sorevnovanie-s-hakerami; WasTest=WasTest; SignaPhoto=126; FileImg=images%2Fiphoto.jpg; FileProba=images%2Fiproba.jpeg; UserName=%D0%93%D0%BE%D1%81%D1%82%D1%8C; PersName=%D0%93%D0%BE%D1%81%D1%82%D1%8C; PersMail=username%40example.com; PersPass=%D0%93%D0%BE%D1%81%D1%82%D1%8C; aKolich=a%3A4%3A%7Bi%3A0%3Bd%3A52.3%3Bi%3A1%3Bd%3A3.214%3Bi%3A2%3Bd%3A52.3%3Bi%3A3%3Bd%3A52.3%3B%7D; aKorr=a%3A4%3A%7Bi%3A0%3Bd%3A214.17%3Bi%3A1%3Bd%3A0%3Bi%3A2%3Bd%3A-14.24%3Bi%3A3%3Bd%3A0%3B%7D; Comm=Common; wi=4; aTarif=a%3A4%3A%7Bi%3A0%3Bd%3A22.92%3Bi%3A1%3Bd%3A38.34%3Bi%3A2%3Bs%3A4%3A%222.12%22%3Bi%3A3%3Bd%3A7.6%3B%7D; _ga=GA1.1.1577668593.1740728791; _ga_JPTCR2MS0K=GS1.1.1740728790.1.1.1740731960.0.0.0; PunktMenu=osobennosti-ustrojstva-vintikov-v-moej-golove; __utma=111872281.1577668593.1740728791.1746075788.1746075788.1; _ga_70H4JGK2LY=GS1.1.1746075787.1.1.1746076105.60.0.0; ResCookie=0; NewsForm=2; EditImg=Images%2Fsampo.jpg; BrowEntry=6682; PersEntry=5420; PresMode=%D0%9E%D0%B4%D0%BD%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%BD%D0%BE%D1%87%D0%BD%D1%8B%D0%B9+%D1%81+%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9+%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D0%B5%D0%B9; PHPSESSID=n4s0g74iepr4l698d83d3am6iq
+    [HTTP_COOKIE] => UslCount=4; PlDom=2147.1; PlKvar=52.3; Vidblag=1; EtDom=9; GodStr=2016; KatDom=2; PerOto=1; NewsAmt=8; NewsView=1; CurrStih=sorevnovanie-s-hakerami; WasTest=WasTest; SignaPhoto=126; FileImg=images%2Fiphoto.jpg; FileProba=images%2Fiproba.jpeg; UserName=%D0%93%D0%BE%D1%81%D1%82%D1%8C; PersName=%D0%93%D0%BE%D1%81%D1%82%D1%8C; PersMail=username%40example.com; PersPass=%D0%93%D0%BE%D1%81%D1%82%D1%8C; aKolich=a%3A4%3A%7Bi%3A0%3Bd%3A52.3%3Bi%3A1%3Bd%3A3.214%3Bi%3A2%3Bd%3A52.3%3Bi%3A3%3Bd%3A52.3%3B%7D; aKorr=a%3A4%3A%7Bi%3A0%3Bd%3A214.17%3Bi%3A1%3Bd%3A0%3Bi%3A2%3Bd%3A-14.24%3Bi%3A3%3Bd%3A0%3B%7D; Comm=Common; wi=4; aTarif=a%3A4%3A%7Bi%3A0%3Bd%3A22.92%3Bi%3A1%3Bd%3A38.34%3Bi%3A2%3Bs%3A4%3A%222.12%22%3Bi%3A3%3Bd%3A7.6%3B%7D; _ga=GA1.1.1577668593.1740728791; _ga_JPTCR2MS0K=GS1.1.1740728790.1.1.1740731960.0.0.0; PunktMenu=osobennosti-ustrojstva-vintikov-v-moej-golove; __utma=111872281.1577668593.1740728791.1746075788.1746075788.1; _ga_70H4JGK2LY=GS1.1.1746075787.1.1.1746076105.60.0.0; ResCookie=0; NewsForm=2; EditImg=Images%2Fsampo.jpg; BrowEntry=6682; PersEntry=5420; PresMode=%D0%9E%D0%B4%D0%BD%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%BD%D0%BE%D1%87%D0%BD%D1%8B%D0%B9+%D1%81+%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9+%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D0%B5%D0%B9; PHPSESSID=0f593jgl6rke6i9av0kfheb6ja
     [HTTP_ACCEPT_LANGUAGE] => ru,en-US;q=0.9,en;q=0.8
     [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
-    [HTTP_ACCEPT] => */*
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
     [HTTP_CONTENT_LENGTH] => 0
     [HTTP_PRAGMA] => no-cache
     [HTTP_CONNECTION] => keep-alive
     [HTTP_CACHE_CONTROL] => no-cache
     [FCGI_ROLE] => RESPONDER
-    [PHP_SELF] => /State/index.php
-    [REQUEST_TIME_FLOAT] => 1765792108.6831
-    [REQUEST_TIME] => 1765792108
+    [PHP_SELF] => /Leafgpx/index.php
+    [REQUEST_TIME_FLOAT] => 1765875514.2147
+    [REQUEST_TIME] => 1765875514
 )
 
