@@ -74,7 +74,9 @@ KwinFlat
 			Controller\Controller.php
 			Controller\multipartDigits.php
 			Controller\TrackTest.php
-		-Ex2
+		+Esp32
+			Esp32\index.php
+		+Ex2
 			-d3js790
 				Ex2\d3js790\98147caa0bf62512153f28c587e0feb5-a7636fa325dfb94d129bb690aa39d708af429006.zip
 				Ex2\d3js790\d3.v7.min.js
@@ -82,7 +84,7 @@ KwinFlat
 				Ex2\leaflet194\leaflet.css
 				Ex2\leaflet194\leaflet.js
 			Ex2\index.php
-		-Ex4
+		+Ex4
 			-js
 				-images
 					Ex4\js\images\DirFlag47x47.png
@@ -214,6 +216,10 @@ KwinFlat
 			Meet40\Meet40.js
 			Meet40\Meet40BODY.php
 			Meet40\Meet40HEAD.php
+		-Server
+			Server\echo-server.php
+			Server\simple.php
+			Server\WebSocketServer.class.php
 		-SmartMenus
 			SmartMenus\ColabLig-webfont.ttf
 			SmartMenus\ColabLig-webfont.woff
@@ -224,7 +230,8 @@ KwinFlat
 			SmartMenus\sm-core-css.css
 			SmartMenus\sm-kwinflat-desktop.css
 			SmartMenus\sm-kwinflat-mobi.css
-		+State
+		-State
+			State\fili.txt
 			State\index.php
 			State\State.js
 		-State40
@@ -275,25 +282,13 @@ KwinFlat
 		web.config
 [Open project files]
 0=index.php
-1=gpx\fil\gtrack204.gpx
-2=Update40\Update40BODY.php
-3=iniMem.php
-4=State\index.php
+1=iniMem.php
 [Selected Project Files]
 Main=
-Selected=State\index.php
+Selected=index.php
 [index.php]
 TopLine=1
-Caret=22,8
-[gpx\fil\gtrack204.gpx]
-TopLine=3
-Caret=1,17
-[Update40\Update40BODY.php]
-TopLine=4
-Caret=1,1
+Caret=42,2
 [iniMem.php]
-TopLine=53
-Caret=1,1
-[State\index.php]
-TopLine=265
-Caret=28,270
+TopLine=3
+Caret=30,9

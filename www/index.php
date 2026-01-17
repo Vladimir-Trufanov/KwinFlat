@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
 // PHP7/HTML5, EDGE/CHROME                                    *** index.php ***
 
 // ****************************************************************************
