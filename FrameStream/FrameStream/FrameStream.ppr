@@ -1,0 +1,66 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.CompileOnBackground=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
+Compilator.LogType=0
+Compilator.LogEncoding=0
+DefaultDir=C:\KwinFlat\FrameStream\FrameStream
+DefaultCP=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+HTServer=localhost
+Extensions=*.*
+[Project tree]
+FrameStream
+	+FrameStream
+		camera.h
+		CameraServer.h
+		config.h
+		eprom.h
+		FrameStream.ino
+		FrameStream.ppr
+		inimem.h
+		sd.h
+		stream32.h
+		trass.h
+[Open project files]
+0=FrameStream.ino
+1=inimem.h
+2=CameraServer.h
+3=eprom.h
+4=sd.h
+5=config.h
+6=camera.h
+7=trass.h
+[Selected Project Files]
+Main=
+Selected=inimem.h
+[FrameStream.ino]
+TopLine=410
+Caret=2,410
+[inimem.h]
+TopLine=30
+Caret=18,48
+[CameraServer.h]
+TopLine=1260
+Caret=2,1295
+[eprom.h]
+TopLine=37
+Caret=5,37
+[sd.h]
+TopLine=19
+Caret=1,1
+[config.h]
+TopLine=23
+Caret=1,1
+[camera.h]
+TopLine=7
+Caret=1,1
+[trass.h]
+TopLine=20
+Caret=1,20

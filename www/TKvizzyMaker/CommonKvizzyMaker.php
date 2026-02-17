@@ -111,6 +111,7 @@ function _CreateTables($pdo)
          [ 202,103,15,'Esp01 на стене веранды'],  
          [ 203,104,16,'Sim900 в автомобиле'],  
          [ 204,105,17,'Виртуальный контроллер'],  
+         [ 205,101,14,'Esp32-CAM на дорогу к даче'],  
        ];
       $statement = $pdo->prepare("INSERT INTO [Controllers] ".
          "([idctrl],[tidctrl],[idplace],[namectrl]) VALUES ".
