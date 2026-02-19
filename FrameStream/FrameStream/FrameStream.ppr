@@ -41,9 +41,9 @@ FrameStream
 8=errors.txt
 [Selected Project Files]
 Main=
-Selected=sd.h
+Selected=FrameStream.ino
 [FrameStream.ino]
-TopLine=372
+TopLine=242
 Caret=2,410
 [inimem.h]
 TopLine=30
@@ -64,8 +64,8 @@ Caret=1,1
 TopLine=7
 Caret=1,1
 [trass.h]
-TopLine=20
-Caret=1,20
+TopLine=30
+Caret=37,50
 [errors.txt]
 TopLine=12
 Caret=26,44

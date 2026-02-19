@@ -2,7 +2,7 @@
  * 
  *                      Объявить/проинициализировать общепрограммные переменные
  *                                                     
- * v1.0.1, 17.02.2026                                 Автор:      Труфанов В.Е.
+ * v1.1.2, 19.02.2026                                 Автор:      Труфанов В.Е.
  * Copyright © 2026 tve                               Дата создания: 24.01.2026
 **/
 
@@ -11,54 +11,76 @@
 #include "FS.h"
 
 //#define isSAYALL true // разрешить вывод всех сообщений
-#define isSAYMEM true // разрешить трассировку только состояния памяти
-#define isSAYLOG true // вести файл ошибок дублированием сообщений
+#define isSAYMEM true   // разрешить трассировку только состояния памяти
+#define isSAYLOG true   // вести файл ошибок дублированием сообщений
 
-File logfile;  // дескриптор файла информационных сообщений и об ошибках
+File logfile;           // дескриптор файла информационных сообщений и об ошибках
+char buffer[256];       // буфер сообщения
 
-//   Variadic - макросы с переменным числом аргументов в #include <stdio.h> напоминают 
-// собой функции и могут содержать переменное число аргументов.
-//   Чтобы использовать макросы variadic, многоточие может быть указано в качестве 
-// окончательного формального аргумента в определении макроса, а идентификатор замены 
-// __VA_ARGS__ может использоваться в определении для вставки дополнительных аргументов.
-// __VA_ARGS__ заменяется всеми аргументами, которые соответствуют многоточию, 
-// включая запятые между ними.
-//   Стандарт C указывает, что не менее одного аргумента необходимо передать в многоточие, 
-// чтобы макрос не разрешал выражение с запятой. Традиционная реализация Microsoft C++ 
-// подавляет конечную запятую, если аргументы не передаются в многоточие
 
-#define sayf(format, ...) \
-  { \
-    char buffer[256]; \
-    snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__); \
-    Serial.print(buffer); \
-    if (logfile && isSAYLOG) { \
-      logfile.print(buffer); \
-    } \
-  }
+void addln() 
+{
+  Serial.println(""); 
+  if (logfile && isSAYLOG) 
+  { 
+    logfile.println(""); 
+  } 
+} 
 
-#define sayfln(format, ...) \
-  { \
-    char buffer[256]; \
-    snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__); \
-    Serial.println(buffer); \
-    if (logfile && isSAYLOG) { \
-      logfile.println(buffer); \
-    } \
-  }
+void say(char* format) 
+{
+  Serial.print(format); 
+  if (logfile && isSAYLOG) 
+  { 
+    logfile.print(format); 
+  } 
+} 
+void sayln(char* format) {say(format); addln();}
 
-void say(char* buffer) {} 
-void sayln(char* buffer) {} 
+void say(char* format, const char* s) 
+{
+  snprintf(buffer, sizeof(buffer), format, s); 
+  Serial.print(buffer); 
+  if (logfile && isSAYLOG) 
+  { 
+    logfile.print(buffer);
+  } 
+} 
+void sayln(char* format, const char* s) {say(format,s); addln();}
 
-void say(char* buffer, String s) {} 
-void sayln(char* buffer, String s) {} 
+void say(char* format, String s) 
+{
+  snprintf(buffer, sizeof(buffer), format, s); 
+  Serial.print(buffer); 
+  if (logfile && isSAYLOG) 
+  { 
+    logfile.print(buffer);
+  } 
+} 
+void sayln(char* format, String s) {say(format,s); addln();}
 
-void say(char* buffer, unsigned int n, const char* s) {} 
-void sayln(char* buffer, unsigned int n, const char* s) {} 
+void say(char* format, unsigned int n, const char* s) 
+{
+  snprintf(buffer, sizeof(buffer), format, n, s); 
+  Serial.print(buffer); 
+  if (logfile && isSAYLOG) 
+  { 
+    logfile.print(buffer);
+  } 
+} 
+void sayln(char* format, unsigned int n, const char* s) {say(format,n,s); addln();} 
 
-void say(char* buffer, uint64_t cardSize) {} 
-void sayln(char* buffer, uint64_t cardSize) {} 
-void sayln(char* buffer, const char* s) {} 
+void say(char* format, uint64_t n) 
+{
+  snprintf(buffer, sizeof(buffer), format, n); 
+  Serial.print(buffer); 
+  if (logfile && isSAYLOG) 
+  { 
+    logfile.print(buffer);
+  } 
+
+} 
+void sayln(char* format, uint64_t n) {say(format,n); addln();}
 
 // ****************************************************************************
 // *      Отмигать аварийную ситуацию контрольным светодиодом в 10 циклов     *

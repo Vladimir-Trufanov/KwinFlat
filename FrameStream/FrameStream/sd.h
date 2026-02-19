@@ -68,7 +68,7 @@ static bool init_sdcard()
     }
     uint64_t cardSize = SD_MMC.cardSize() / (1024 * 1024);
     //Serial.printf("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
-    sayf("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
+    say("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
   } 
   else 
   {
