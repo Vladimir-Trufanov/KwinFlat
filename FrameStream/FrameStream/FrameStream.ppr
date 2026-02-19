@@ -17,11 +17,12 @@ HTServer=localhost
 Extensions=*.*
 [Project tree]
 FrameStream
-	+FrameStream
+	-FrameStream
 		camera.h
 		CameraServer.h
 		config.h
 		eprom.h
+		errors.txt
 		FrameStream.ino
 		FrameStream.ppr
 		inimem.h
@@ -37,15 +38,16 @@ FrameStream
 5=config.h
 6=camera.h
 7=trass.h
+8=errors.txt
 [Selected Project Files]
 Main=
-Selected=inimem.h
+Selected=sd.h
 [FrameStream.ino]
-TopLine=410
+TopLine=372
 Caret=2,410
 [inimem.h]
 TopLine=30
-Caret=18,48
+Caret=1,48
 [CameraServer.h]
 TopLine=1260
 Caret=2,1295
@@ -53,8 +55,8 @@ Caret=2,1295
 TopLine=37
 Caret=5,37
 [sd.h]
-TopLine=19
-Caret=1,1
+TopLine=54
+Caret=22,69
 [config.h]
 TopLine=23
 Caret=1,1
@@ -64,3 +66,6 @@ Caret=1,1
 [trass.h]
 TopLine=20
 Caret=1,20
+[errors.txt]
+TopLine=12
+Caret=26,44

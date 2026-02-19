@@ -34,50 +34,51 @@ struct oneframe {
   long the_frame_number;
   long the_frame_total;
 };
-
+*/
 
 // ****************************************************************************
 // *                       Инициализировать SD-карту                          *
 // ****************************************************************************
 static bool init_sdcard()
 {
-  Serial.println("Инициализируется SD-карта ...");
+  sayln("Инициализируется SD-карта ...");
   bool Result=true;
   int succ = SD_MMC.begin("/sdcard", true, false, BOARD_MAX_SDMMC_FREQ, 7);
   if (succ) 
   {
-    Serial.println("SD_MMC инициализирована успешно");
+    sayln("SD_MMC инициализирована успешно");
     uint8_t cardType = SD_MMC.cardType();
-    Serial.print("Тип карты SD_MMC: ");
+    say("Тип карты SD_MMC: ");
     if (cardType == CARD_MMC) 
     {
-      Serial.println("MMC");
+      sayln("MMC");
     } 
     else 
     if (cardType == CARD_SD) 
     {
-      Serial.println("SDSC");
+      sayln("SDSC");
     } 
     else if (cardType == CARD_SDHC) 
     {
-      Serial.println("SDHC");
+      sayln("SDHC");
     } 
     else 
     {
       Serial.println("неопределена");
     }
     uint64_t cardSize = SD_MMC.cardSize() / (1024 * 1024);
-    Serial.printf("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
+    //Serial.printf("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
+    sayf("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
   } 
   else 
   {
-    Serial.printf("Ошибка инициализации SD-карты на файловой системе VFAT\n");
-    Serial.println("Проверьте контакты 12 и 13 , они не заземлены или заземлены резисторами 10 ком!");
+    sayln("Ошибка инициализации SD-карты на файловой системе VFAT\n");
     Result=false;
   }
   return Result;
 }
 
+/*
 //
 // Reads an uint32_t in Big Endian at current file position
 //

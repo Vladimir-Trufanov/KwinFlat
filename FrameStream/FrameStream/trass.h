@@ -27,7 +27,7 @@ File logfile;  // дескриптор файла информационных �
 // чтобы макрос не разрешал выражение с запятой. Традиционная реализация Microsoft C++ 
 // подавляет конечную запятую, если аргументы не передаются в многоточие
 
-#define say(format, ...) \
+#define sayf(format, ...) \
   { \
     char buffer[256]; \
     snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__); \
@@ -37,7 +37,7 @@ File logfile;  // дескриптор файла информационных �
     } \
   }
 
-#define sayln(format, ...) \
+#define sayfln(format, ...) \
   { \
     char buffer[256]; \
     snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__); \
@@ -46,6 +46,19 @@ File logfile;  // дескриптор файла информационных �
       logfile.println(buffer); \
     } \
   }
+
+void say(char* buffer) {} 
+void sayln(char* buffer) {} 
+
+void say(char* buffer, String s) {} 
+void sayln(char* buffer, String s) {} 
+
+void say(char* buffer, unsigned int n, const char* s) {} 
+void sayln(char* buffer, unsigned int n, const char* s) {} 
+
+void say(char* buffer, uint64_t cardSize) {} 
+void sayln(char* buffer, uint64_t cardSize) {} 
+void sayln(char* buffer, const char* s) {} 
 
 // ****************************************************************************
 // *      Отмигать аварийную ситуацию контрольным светодиодом в 10 циклов     *
@@ -88,10 +101,12 @@ void saymem(const char* text)
 {
   if (isSAYMEM)
   {
+    /*
     say("[%s] ядро: %d, приоритет: %d, ", text, xPortGetCoreID(), uxTaskPriorityGet(NULL));
     say("свободная куча %6d от ОЗУ %6d, ", ESP.getFreeHeap(), ESP.getHeapSize());
     say("FreePSRAM %6d от FLASH %6d", ESP.getFreePsram(), ESP.getPsramSize());
     sayln(" ");
+    */
   }
 }
 
