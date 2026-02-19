@@ -1,12 +1,12 @@
-/** Arduino, ESP32, C/C++ ********************************* FrameStream.ino ***
- *
- * Формирование потока изображений, постоянной записи фрагментов видео на 
- * SD-диск или при возникновении движения, а также передача снимков и фрагментов 
- * видео через сокеты на сайт KwinFlat 
- * 
- * v1.0.8, 17.02.2026                                 Автор:      Труфанов В.Е.
- * Copyright © 2026 tve                               Дата создания: 11.01.2026
- * 
+// Arduino, ESP32, C/C++ ********************************** FrameStream.ino ***
+//
+// Формирование потока изображений, постоянной записи фрагментов видео на 
+// SD-диск или при возникновении движения, а также передача снимков и фрагментов 
+// видео через сокеты на сайт KwinFlat 
+
+// Copyright © 2026 tve                               Труфанов В.Е., 11.01.2026
+static const char vernum[]="v2.0.8, 18.02.2026";  
+/** 
  * Arduino IDE 2.3.7 
  * Esp32 от Espressif Systems версии 3.3.5
  * Payment:           "Al Thinker ESP32-CAM"
@@ -266,6 +266,10 @@ void setup()
   Serial.begin(115200);
   Serial.println("\n\n---");
   Serial.println("Arduino IDE 2.3.7 - Espressif ESP32 3.3.5");
+  sayln(" ");
+  sayln("---------------------------------------");
+  sayln("FrameStream %s", vernum);
+  sayln("---------------------------------------");
 
   pinMode(33, OUTPUT);              // little red led on back of chip
   digitalWrite(33, LOW);            // turn on the red LED on the back of chip
@@ -276,17 +280,12 @@ void setup()
   pinMode(12, INPUT_PULLUP);        // pull this down to stop recording
   pinMode(13, INPUT_PULLUP);        // pull this down switch wifi
 
-  /*
   // Инициализируем SD-карту
   if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
   // Если неудача, то перезагружаем контроллер
-  else major_fail();
+  else blinkRestart();
   
-  jprln(" ");
-  jprln("---------------------------------------");
-  jprln("ESP32-CamRecorder %s", vernum);
-  jprln("---------------------------------------");
-
+  /*
   // Показываем состояние памяти 
   print_mem("MEM - В начале SETUP                           ");
   // Определяем и показываем причину последнего сброса (reset reason). 

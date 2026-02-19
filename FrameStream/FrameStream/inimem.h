@@ -22,7 +22,6 @@ File idxfile;  // файл указателей кадров
 
 static const char _hsoftIP[] ="IP-адрес своей сети контроллера - http://";
 static const char _hlocalIP[]="IP-адрес в локальной сети       - http://";
-static const char vernum[]="v62.34.0"; // версия приложения
 const word filemanagerport=8080;       // порт файлового менеджера
 char localip[20];                      // IP-адрес локальной сети
 char softip[20];                       // IP-адрес собственной сети контроллера
