@@ -15,9 +15,11 @@
 
 #include "eprom.h"
 
-char devname[30];           // название камеры
-int framesize;              // размер кадра
+int framesize;              // номер размера кадра в перечислении форматов изображений
 int quality;                // качество изображения
+int buffersconfig;          // количество отдельных буферов для кадров
+
+char devname[30];           // название камеры
 int avi_length ;            // сколько длится фильм в секундах -- 1800 sec = 30 min
 int frame_interval ;        // интервал между записями кадров в миллисекундах (ms) 
 int speed_up_factor ;       // ускорение воспроизведения (1 - в режиме реального времени)
@@ -335,7 +337,7 @@ void read_config_file()
 
   String junk;            // считаный фрагмент строки (как правило, комментарий)
   String cname;           // название камеры
-  int cframesize;         // размер кадра
+  int cframesize;         // номер размера кадра в перечисление форматов изображений
   int clength;            // размер видео в секундах
   int cinterval;          // интервал между записями кадров в миллисекундах (ms) 
   int cspeedup;           // частота кадров
@@ -397,9 +399,10 @@ void read_config_file()
   say("ssid                                %s\n",      cssid);
 
   // Назначаем считанные значения файла конфигурации
-  framesize = cframesize;
-  quality = cquality;
+  framesize = cframesize;          // номер размера кадра в перечислении форматов изображений
+  quality = cquality;              // качество изображения
   buffersconfig = cbuffersconfig;  // количество отдельных буферов для кадров
+  
   avi_length = clength;
   frame_interval = cinterval;
   speed_up_factor = cspeedup;

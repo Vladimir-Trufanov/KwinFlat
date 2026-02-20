@@ -42,10 +42,6 @@ bool web_stop = false;      // true - завершить запись для OTA
 #define blinking 0
 */
 
-int framesizeconfig;        //
-int qualityconfig;          //
-int buffersconfig;          // количество отдельных буферов для кадров
-
 /*
 // Буфер для 4 кадров, в соответствии с [config.h].cbuffersconfig = 4,
 // первоначально сформированный и загруженный при инициировании камеры

@@ -9,14 +9,14 @@
 
 #pragma once   
 
-/*
-
 #include "esp_camera.h"
 #include "sensor.h"
 
+/*
 #include "inimem.h"
 #include "jpr.h"
 #include "sd.h"
+*/
 
 // CAMERA_MODEL_AI_THINKER
 #define PWDN_GPIO_NUM     32
@@ -36,6 +36,7 @@
 #define HREF_GPIO_NUM     23
 #define PCLK_GPIO_NUM     22
 
+/*
 uint8_t* fb_streaming;
 uint8_t* fb_capture;
 
@@ -99,6 +100,8 @@ const int avi_header[AVIOFFSET] PROGMEM =
   0x76, 0x36, 0x32, 0x20, 0x4C, 0x49, 0x53, 0x54, 0x00, 0x01, 0x0E, 0x00, 0x6D, 0x6F, 0x76, 0x69,
 };
 
+*/
+
 // Здесь используются две ссылки на Git-репозитарии, которые сохранены в каталоге Info приложения: 
 // data structure from here https://github.com/s60sc/ESP32-CAM_MJPEG2SD/blob/master/avi.cpp, extended for ov5640
 // must match https://github.com/espressif/esp32-camera/blob/b6a8297342ed728774036089f196d599f03ea367/driver/include/sensor.h#L87
@@ -108,19 +111,54 @@ struct frameSizeStruct
   uint8_t frameWidth[2];
   uint8_t frameHeight[2];
 };
+
+// Перечисление форматов изображений, которое определено в sensor.h
+/*
+typedef enum {
+    FRAMESIZE_96X96,    // 96x96
+    FRAMESIZE_QQVGA,    // 160x120
+    FRAMESIZE_128X128,  // 128x128
+    FRAMESIZE_QCIF,     // 176x144
+    FRAMESIZE_HQVGA,    // 240x176
+    FRAMESIZE_240X240,  // 240x240
+    FRAMESIZE_QVGA,     // 320x240
+    FRAMESIZE_320X320,  // 320x320
+    FRAMESIZE_CIF,      // 400x296
+    FRAMESIZE_HVGA,     // 480x320
+    FRAMESIZE_VGA,      // 640x480
+    FRAMESIZE_SVGA,     // 800x600
+    FRAMESIZE_XGA,      // 1024x768
+    FRAMESIZE_HD,       // 1280x720
+    FRAMESIZE_SXGA,     // 1280x1024
+    FRAMESIZE_UXGA,     // 1600x1200
+    // 3MP Sensors
+    FRAMESIZE_FHD,      // 1920x1080
+    FRAMESIZE_P_HD,     //  720x1280
+    FRAMESIZE_P_3MP,    //  864x1536
+    FRAMESIZE_QXGA,     // 2048x1536
+    // 5MP Sensors
+    FRAMESIZE_QHD,      // 2560x1440
+    FRAMESIZE_WQXGA,    // 2560x1600
+    FRAMESIZE_P_FHD,    // 1080x1920
+    FRAMESIZE_QSXGA,    // 2560x1920
+    FRAMESIZE_5MP,      // 2592x1944
+    FRAMESIZE_INVALID
+} framesize_t;
+*/
+
 static const frameSizeStruct frameSizeData[] = 
-{                                                      // framesize:
-  {{0x60, 0x00}, {0x60, 0x00}}, // FRAMESIZE_96X96,    // 96x96    0 
-  {{0xA0, 0x00}, {0x78, 0x00}}, // FRAMESIZE_QQVGA,    // 160x120  1
-  {{0x60, 0x00}, {0x60, 0x00}}, // FRAMESIZE_128X128   // 128x128  2
-  {{0xB0, 0x00}, {0x90, 0x00}}, // FRAMESIZE_QCIF,     // 176x144  3
-  {{0xF0, 0x00}, {0xB0, 0x00}}, // FRAMESIZE_HQVGA,    // 240x176  4
-  {{0xF0, 0x00}, {0xF0, 0x00}}, // FRAMESIZE_240X240,  // 240x240  5
-  {{0x40, 0x01}, {0xF0, 0x00}}, // FRAMESIZE_QVGA,     // 320x240  6
-  {{0x40, 0x01}, {0xF0, 0x00}}, // FRAMESIZE_320X320,  // 320x320  7
-  {{0x90, 0x01}, {0x28, 0x01}}, // FRAMESIZE_CIF,      // 400x296  8
-  {{0xE0, 0x01}, {0x40, 0x01}}, // FRAMESIZE_HVGA,     // 480x320  9
-  {{0x80, 0x02}, {0xE0, 0x01}}, // FRAMESIZE_VGA,      // 640x480  10
+{                                                      //           framesize:
+  {{0x60, 0x00}, {0x60, 0x00}}, // FRAMESIZE_96X96,    // 96x96     0 
+  {{0xA0, 0x00}, {0x78, 0x00}}, // FRAMESIZE_QQVGA,    // 160x120   1
+  {{0x60, 0x00}, {0x60, 0x00}}, // FRAMESIZE_128X128   // 128x128   2
+  {{0xB0, 0x00}, {0x90, 0x00}}, // FRAMESIZE_QCIF,     // 176x144   3
+  {{0xF0, 0x00}, {0xB0, 0x00}}, // FRAMESIZE_HQVGA,    // 240x176   4
+  {{0xF0, 0x00}, {0xF0, 0x00}}, // FRAMESIZE_240X240,  // 240x240   5
+  {{0x40, 0x01}, {0xF0, 0x00}}, // FRAMESIZE_QVGA,     // 320x240   6
+  {{0x40, 0x01}, {0xF0, 0x00}}, // FRAMESIZE_320X320,  // 320x320   7
+  {{0x90, 0x01}, {0x28, 0x01}}, // FRAMESIZE_CIF,      // 400x296   8
+  {{0xE0, 0x01}, {0x40, 0x01}}, // FRAMESIZE_HVGA,     // 480x320   9
+  {{0x80, 0x02}, {0xE0, 0x01}}, // FRAMESIZE_VGA,      // 640x480   10
   //               38,400    61,440    153,600
   {{0x20, 0x03}, {0x58, 0x02}}, // FRAMESIZE_SVGA,     // 800x600   11
   {{0x00, 0x04}, {0x00, 0x03}}, // FRAMESIZE_XGA,      // 1024x768  12
@@ -139,6 +177,7 @@ static const frameSizeStruct frameSizeData[] =
   {{0x00, 0x0A}, {0x80, 0x07}}  // FRAMESIZE_QSXGA,    // 2560x1920 23
 };
 
+/*
 uint16_t remnant = 0;
 uint32_t startms;             // время начала работы с камерой и файлом avi    
 uint32_t elapsedms;           // общее время работы с камерой и файлом avi 
@@ -188,45 +227,61 @@ int we_are_already_stopped=0; // 1 - "видео-запись уже остан�
 
 // Сбрасываем флаг "удалить старые файлы по завершению записи текущего файла avi"
 int delete_old_stuff_flag = 0;
+*/
 
 // ****************************************************************************
 // *                      Установить параметры камеры                         *
 // ****************************************************************************
 static void config_camera() 
 {
+  // Определяем конфигурацию камеры
   camera_config_t config;
-  config.ledc_channel = LEDC_CHANNEL_0;
-  config.ledc_timer = LEDC_TIMER_0;
-  config.pin_d0 = Y2_GPIO_NUM;
-  config.pin_d1 = Y3_GPIO_NUM;
-  config.pin_d2 = Y4_GPIO_NUM;
-  config.pin_d3 = Y5_GPIO_NUM;
-  config.pin_d4 = Y6_GPIO_NUM;
-  config.pin_d5 = Y7_GPIO_NUM;
-  config.pin_d6 = Y8_GPIO_NUM;
-  config.pin_d7 = Y9_GPIO_NUM;
-  config.pin_xclk = XCLK_GPIO_NUM;
-  config.pin_pclk = PCLK_GPIO_NUM;
-  config.pin_vsync = VSYNC_GPIO_NUM;
-  config.pin_href = HREF_GPIO_NUM;
-  config.pin_sscb_sda = SIOD_GPIO_NUM;
-  config.pin_sscb_scl = SIOC_GPIO_NUM;
-  config.pin_pwdn = PWDN_GPIO_NUM;
-  config.pin_reset = RESET_GPIO_NUM;
-  config.xclk_freq_hz = 20000000;
-  config.pixel_format = PIXFORMAT_JPEG;
+  config.ledc_channel = LEDC_CHANNEL_0;   // номер канала для LEDC (светодиодного ШИМ-контроллера) 
+  config.ledc_timer = LEDC_TIMER_0;       // номер таймера для LEDC (светодиодного ШИМ-контроллера)
+  config.pin_d0 = Y2_GPIO_NUM;            // номер 0 контакта для передачи данных с камеры
+  config.pin_d1 = Y3_GPIO_NUM;            // 1
+  config.pin_d2 = Y4_GPIO_NUM;            // 2
+  config.pin_d3 = Y5_GPIO_NUM;            // 3
+  config.pin_d4 = Y6_GPIO_NUM;            // 4
+  config.pin_d5 = Y7_GPIO_NUM;            // 5
+  config.pin_d6 = Y8_GPIO_NUM;            // 6
+  config.pin_d7 = Y9_GPIO_NUM;            // номер 7 контакта для передачи данных с камеры
+  config.pin_xclk = XCLK_GPIO_NUM;        // номер контакта для тактового сигнала камеры
+  config.pin_pclk = PCLK_GPIO_NUM;        // номер контакта тактового сигнала для пикселей камеры 
+  config.pin_vsync = VSYNC_GPIO_NUM;      // номер контакта для вертикальной синхронизации 
+  config.pin_href = HREF_GPIO_NUM;        // номер контакта для горизонтальной синхронизации
+  config.pin_sscb_sda = SIOD_GPIO_NUM;    // номер контакта для передачи данных 
+  config.pin_sscb_scl = SIOC_GPIO_NUM;    // номер контакта тактового сигнала SCCB (по протоколу I2C) камеры 
+  config.pin_pwdn = PWDN_GPIO_NUM;        // номер контакта для отключения питания камеры
+  config.pin_reset = RESET_GPIO_NUM;      // номер контакта для сброса настроек камеры
+  config.xclk_freq_hz = 20000000;         // частота тактового сигнала в герцах
+  config.pixel_format = PIXFORMAT_JPEG;   // формат пикселей камеры, указанный как PIXFORMAT_JPEG
 
-  jpr("Frame config %d, quality config %d, buffers config %d\n", framesizeconfig, qualityconfig, buffersconfig);
+  say("framesize %d, ",     framesize);
+  say("quality %d, ",       quality);
+  say("buffersconfig %d\n", buffersconfig);
 
-  config.frame_size =  (framesize_t)framesize;
-  config.jpeg_quality = quality;
-  config.fb_count = buffersconfig;  // количество отдельных буферов для кадров
+  // Задаём размер кадра камеры как, например, FRAMESIZE_UXGA
+  config.frame_size=(framesize_t)framesize;   
+  Serial.print("config.frame_size="); Serial.println(config.frame_size); 
 
+  // Задаём качество JPEG-изображения камеры как, например, 12
+  config.jpeg_quality=quality;    
+  // Задаём количество отдельных буферов для кадров, по умолчанию 1           
+  config.fb_count=buffersconfig;   
   // Обеспечиваем размещение в буферах последних кадров
   // https://github.com/espressif/esp32-camera/issues/357#issuecomment-1047086477
-  config.grab_mode = CAMERA_GRAB_LATEST; // 61.92
+  // Для ESP32-CAM доступны два режима захвата изображений через параметр grab_mode:
+  // CAMERA_GRAB_WHEN_EMPTY. Драйвер записывает данные в буфер кадров, пока есть свободный буфер. 
+  // Когда все буферы заполняются, новые данные, отправленные сенсором камеры, принудительно 
+  // отбрасываются из-за отсутствия свободного буфера.
+  // CAMERA_GRAB_LATEST. Драйвер занимает один буфер кадров и пытается обновить в нём последние данные.
+  // Количество буферов кадров, которые может получить уровень приложения, равно fb_count - 1.
+  config.grab_mode = CAMERA_GRAB_LATEST; 
   // Показываем состояние памяти
-  if (Lots_of_Stats) print_mem("MEM - перед инициированием камеры              ");
+  saymem("MEM - перед инициированием камеры");
+
+  /*
   // Задаём 5 попыток инициации камеры
   esp_err_t cam_err = ESP_FAIL;
   int attempt = 5;
@@ -315,8 +370,11 @@ static void config_camera()
   frame_buffer_size  = (( (x * 4) / (16 * 1024) ) + 1) * 16 * 1024  ;
   //jprln("Размер буфера 4 изображени для %d равен %d", x, frame_buffer_size);
   jprln("Размер наибольшего буфера 4 изображений по кадру %d равен %d", y, frame_buffer_size);
-  print_mem("MEM - после завершения инициирования камеры    ");
+  */
+  saymem("MEM - после завершения инициирования камеры");
 }
+
+/*
 // ****************************************************************************
 // *       Cделать снимок и убедиться, что он имеет хороший формат jpeg       *
 // ****************************************************************************

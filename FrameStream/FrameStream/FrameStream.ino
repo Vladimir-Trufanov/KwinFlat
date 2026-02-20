@@ -264,12 +264,13 @@ bool init_wifi()
 void setup() 
 {
   Serial.begin(115200);
+  delay(3000);
   Serial.println("\n\n---");
   Serial.println("Arduino IDE 2.3.7 - Espressif ESP32 3.3.5");
-  sayln(" ");
-  sayln("---------------------------------------");
-  sayln("FrameStream %s", vernum);
-  sayln("---------------------------------------");
+  Serial.println(" ");
+  Serial.println("---------------------------------------");
+  Serial.print("FrameStream "); Serial.println(vernum);
+  Serial.println("---------------------------------------");
 
   pinMode(33, OUTPUT);              // little red led on back of chip
   digitalWrite(33, LOW);            // turn on the red LED on the back of chip
@@ -285,37 +286,37 @@ void setup()
   // Если неудача, то перезагружаем контроллер
   else blinkRestart();
   // Показываем состояние памяти 
-  saymem("MEM - В начале SETUP                           ");
+  saymem("MEM - В начале SETUP");
 
-  /*
   // Определяем и показываем причину последнего сброса (reset reason). 
   esp_reset_reason_t reason = esp_reset_reason();
-  jpr("Причина перезагрузки: ");
+  say("Причина перезагрузки: ");
   switch (reason) 
   {
-    case ESP_RST_UNKNOWN : jprln("ESP_RST_UNKNOWN");  break;
-    case ESP_RST_POWERON : jprln("ESP_RST_POWERON"); break;
-    case ESP_RST_EXT : jprln("ESP_RST_EXT");  break;
-    case ESP_RST_SW : jprln("ESP_RST_SW");  break;
-    case ESP_RST_PANIC : jprln("ESP_RST_PANIC");  break;
-    case ESP_RST_INT_WDT : jprln("ESP_RST_INT_WDT");  break;
-    case ESP_RST_TASK_WDT : jprln("ESP_RST_TASK_WDT");  break;
-    case ESP_RST_WDT : jprln("ESP_RST_WDT");  break;
-    case ESP_RST_DEEPSLEEP : jprln("ESP_RST_DEEPSLEEP");  break;
-    case ESP_RST_BROWNOUT : jprln("ESP_RST_BROWNOUT");  break;
-    case ESP_RST_SDIO : jprln("ESP_RST_SDIO");  break;
-    default  : jprln("Reset resaon"); break;
+    case ESP_RST_UNKNOWN : sayln("ESP_RST_UNKNOWN");  break;
+    case ESP_RST_POWERON : sayln("ESP_RST_POWERON"); break;
+    case ESP_RST_EXT : sayln("ESP_RST_EXT");  break;
+    case ESP_RST_SW : sayln("ESP_RST_SW");  break;
+    case ESP_RST_PANIC : sayln("ESP_RST_PANIC");  break;
+    case ESP_RST_INT_WDT : sayln("ESP_RST_INT_WDT");  break;
+    case ESP_RST_TASK_WDT : sayln("ESP_RST_TASK_WDT");  break;
+    case ESP_RST_WDT : sayln("ESP_RST_WDT");  break;
+    case ESP_RST_DEEPSLEEP : sayln("ESP_RST_DEEPSLEEP");  break;
+    case ESP_RST_BROWNOUT : sayln("ESP_RST_BROWNOUT");  break;
+    case ESP_RST_SDIO : sayln("ESP_RST_SDIO");  break;
+    default  : sayln("Reset resaon"); break;
   }
   // Запускаем продолжение нумерации файлов avi 
   // (или инициируем новую нумерацию)
-  do_eprom_read();
+  //do_eprom_read();
 
-  jprln("Выбираются параметры из config2.txt ...");
-  read_config_file();
+  //jprln("Выбираются параметры из config2.txt ...");
+  //read_config_file();
 
-  jprln("Устанавливаются параметры камеры ...");
+  sayln("Устанавливаются параметры камеры ...");
   config_camera();
-
+  
+  /*
   // Выделяем память под рабочие буферы для хранения jpg в движении 
   // (должны быть больше больших кадров с ov2640,ov5640),
   // размер устанавливаем от ранее сформированного и расчитанного config_camera

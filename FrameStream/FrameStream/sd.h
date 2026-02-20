@@ -49,26 +49,12 @@ static bool init_sdcard()
     sayln("SD_MMC инициализирована успешно");
     uint8_t cardType = SD_MMC.cardType();
     say("Тип карты SD_MMC: ");
-    if (cardType == CARD_MMC) 
-    {
-      sayln("MMC");
-    } 
-    else 
-    if (cardType == CARD_SD) 
-    {
-      sayln("SDSC");
-    } 
-    else if (cardType == CARD_SDHC) 
-    {
-      sayln("SDHC");
-    } 
-    else 
-    {
-      Serial.println("неопределена");
-    }
+    if      (cardType == CARD_MMC)  sayln("MMC");
+    else if (cardType == CARD_SD)   sayln("SDSC");
+    else if (cardType == CARD_SDHC) sayln("SDHC");
+    else sayln("неопределена");
     uint64_t cardSize = SD_MMC.cardSize() / (1024 * 1024);
-    //Serial.printf("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
-    say("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
+    sayln("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
   } 
   else 
   {
