@@ -284,10 +284,10 @@ void setup()
   if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
   // Если неудача, то перезагружаем контроллер
   else blinkRestart();
-  
-  /*
   // Показываем состояние памяти 
-  print_mem("MEM - В начале SETUP                           ");
+  saymem("MEM - В начале SETUP                           ");
+
+  /*
   // Определяем и показываем причину последнего сброса (reset reason). 
   esp_reset_reason_t reason = esp_reset_reason();
   jpr("Причина перезагрузки: ");

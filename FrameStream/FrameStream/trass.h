@@ -2,7 +2,7 @@
  * 
  *                      Объявить/проинициализировать общепрограммные переменные
  *                                                     
- * v1.1.2, 19.02.2026                                 Автор:      Труфанов В.Е.
+ * v1.1.3, 20.02.2026                                 Автор:      Труфанов В.Е.
  * Copyright © 2026 tve                               Дата создания: 24.01.2026
 **/
 
@@ -10,9 +10,10 @@
 
 #include "FS.h"
 
-//#define isSAYALL true // разрешить вывод всех сообщений
-#define isSAYMEM true   // разрешить трассировку только состояния памяти
-#define isSAYLOG true   // вести файл ошибок дублированием сообщений
+// Специальные сообщения - это сообщения по использованию памяти, по времени ... 
+#define isSAYLOG true   // true - вести файл дублирования сообщений
+bool isSAY=true;        // true - разрешить вывод неспециальных сообщений
+bool isSAYMEM=false;    // true - разрешить трассировку состояния памяти
 
 File logfile;           // дескриптор файла информационных сообщений и об ошибках
 char buffer[256];       // буфер сообщения
@@ -20,20 +21,26 @@ char buffer[256];       // буфер сообщения
 
 void addln() 
 {
-  Serial.println(""); 
-  if (logfile && isSAYLOG) 
-  { 
-    logfile.println(""); 
-  } 
+  if (isSAY)
+  {
+    Serial.println(""); 
+    if (logfile && isSAYLOG) 
+    { 
+      logfile.println(""); 
+    } 
+  }
 } 
 
 void say(char* format) 
 {
-  Serial.print(format); 
-  if (logfile && isSAYLOG) 
-  { 
-    logfile.print(format); 
-  } 
+  if (isSAY)
+  {
+    Serial.print(format); 
+    if (logfile && isSAYLOG) 
+    { 
+      logfile.print(format); 
+    } 
+  }
 } 
 void sayln(char* format) {say(format); addln();}
 
@@ -47,6 +54,17 @@ void say(char* format, const char* s)
   } 
 } 
 void sayln(char* format, const char* s) {say(format,s); addln();}
+
+void say(char* format, const char* s, uint64_t n) 
+{
+  snprintf(buffer, sizeof(buffer), format,s,n); 
+  Serial.print(buffer); 
+  if (logfile && isSAYLOG) 
+  { 
+    logfile.print(buffer);
+  } 
+} 
+void sayln(char* format, const char* s, uint64_t n) {say(format,s,n); addln();}
 
 void say(char* format, String s) 
 {
@@ -123,12 +141,20 @@ void saymem(const char* text)
 {
   if (isSAYMEM)
   {
-    /*
-    say("[%s] ядро: %d, приоритет: %d, ", text, xPortGetCoreID(), uxTaskPriorityGet(NULL));
-    say("свободная куча %6d от ОЗУ %6d, ", ESP.getFreeHeap(), ESP.getHeapSize());
-    say("FreePSRAM %6d от FLASH %6d", ESP.getFreePsram(), ESP.getPsramSize());
+    // Дополняем текст пробелами слева
+    char buf[48];
+    snprintf(buf,48,"%48s",text); 
+    // Запоминаем состояние разрешения на вывод сообщений
+    bool oldSay=isSAY;       
+    // Разрешаем вывод сообщений
+    isSAY=true;      
+    // Выводим специальное сообщение по памяти
+    say("[%s] ядро: %d,",buf, xPortGetCoreID());   say(" приоритет: %d, ", uxTaskPriorityGet(NULL));
+    say("свободная куча %6d ", ESP.getFreeHeap());  say("от ОЗУ %6d, ",     ESP.getHeapSize());
+    say("FreePSRAM %6d ",      ESP.getFreePsram()); say("от FLASH %6d",     ESP.getPsramSize());
     sayln(" ");
-    */
+    // Восстанавливаем состояние разрешения на вывод сообщений
+    isSAY=oldSay;      
   }
 }
 
