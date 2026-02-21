@@ -2,11 +2,15 @@
  * 
  *                                                 Обслужить работу с SD-картой
  *                                                     
- * v1.0.2, 17.02.2026                                 Автор:      Труфанов В.Е.
+ * v1.0.3, 21.02.2026                                 Автор:      Труфанов В.Е.
  * Copyright © 2026 tve                               Дата создания: 24.01.2026
 **/
 
 #pragma once   
+
+#include "inimem.h"
+#include "trass.h"
+#include <SD_MMC.h>
 
 /*
 #include "driver/sdmmc_host.h"
@@ -14,10 +18,6 @@
 #include "sdmmc_cmd.h"
 #include "esp_vfs_fat.h"
 #include "FS.h"
-#include <SD_MMC.h>
-
-#include "inimem.h"
-#include "jpr.h"
 
 // Обеспечиваем ускорение записи на SD-карту [https://github.com/espressif/esp32-camera/issues/182],
 // ранее было fbs=64 - столько КБ статической оперативной памяти 

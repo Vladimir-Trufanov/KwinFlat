@@ -5,7 +5,7 @@
 // видео через сокеты на сайт KwinFlat 
 
 // Copyright © 2026 tve                               Труфанов В.Е., 11.01.2026
-static const char vernum[]="v2.0.8, 18.02.2026";  
+static const char vernum[]="v2.0.9, 21.02.2026";  
 /** 
  * Arduino IDE 2.3.7 
  * Esp32 от Espressif Systems версии 3.3.5
@@ -55,9 +55,8 @@ WiFiEventId_t eventID;
 */
 
 #include "inimem.h"
-#include "config.h"
-#include "sd.h"
 #include "camera.h"
+#include "sd.h"
 #include "stream32.h"
 #include "CameraServer.h"
 
@@ -285,6 +284,9 @@ void setup()
   if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
   // Если неудача, то перезагружаем контроллер
   else blinkRestart();
+  // По имени камеры определяем имя устройства 
+  cname.toCharArray(devname,cname.length()+1);
+
   // Показываем состояние памяти 
   saymem("MEM - В начале SETUP");
 

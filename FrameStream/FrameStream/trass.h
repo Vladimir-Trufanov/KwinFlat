@@ -2,7 +2,7 @@
  * 
  *                      Объявить/проинициализировать общепрограммные переменные
  *                                                     
- * v1.1.3, 20.02.2026                                 Автор:      Труфанов В.Е.
+ * v1.1.4, 21.02.2026                                 Автор:      Труфанов В.Е.
  * Copyright © 2026 tve                               Дата создания: 24.01.2026
 **/
 
@@ -88,6 +88,20 @@ void say(char* format, unsigned int n, const char* s)
 } 
 void sayln(char* format, unsigned int n, const char* s) {say(format,n,s); addln();} 
 
+void say(char* format, int n) 
+{
+  snprintf(buffer, sizeof(buffer), format, n); 
+  _say(buffer); 
+} 
+void sayln(char* format, int n) {say(format,n); addln();}
+
+void say(char* format, uint32_t n) 
+{
+  snprintf(buffer, sizeof(buffer), format, n); 
+  _say(buffer); 
+} 
+void sayln(char* format, uint32_t n) {say(format,n); addln();}
+
 void say(char* format, uint64_t n) 
 {
   snprintf(buffer, sizeof(buffer), format, n); 
@@ -143,22 +157,25 @@ void saymem(char* text)
 {
   if (isSAYMEM)
   {
+    // Запоминаем состояние разрешения на вывод сообщений
+    bool oldSay=isSAY;       
+    // Разрешаем вывод сообщений
+    isSAY=true;      
     // Определяем наибольшее число символов текста вместе с пробелами
     // и дополняем текст пробелами слева 
     int nfill=48;   
     int j=nfill-utf8len(text)-2;
     for (int i = 0; i<j; i++) 
     {
+      _say(" "); 
+      /*
       Serial.print(" "); 
       if (logfile && isSAYLOG) 
       { 
         logfile.print(" "); 
       } 
+      */
     }
-    // Запоминаем состояние разрешения на вывод сообщений
-    bool oldSay=isSAY;       
-    // Разрешаем вывод сообщений
-    isSAY=true;      
     // Выводим специальное сообщение по памяти
     /**
      * xPortGetCoreID()        - функция возвращает номер ядра, на котором выполняется текущая задача
@@ -169,9 +186,9 @@ void saymem(char* text)
      * ESP.getPsramSize()      - полный объём внешней оперативной памяти PSRAM
     **/
     say("[%s]",text);
-    say(" ядро: %d,",          xPortGetCoreID());   say(" приоритет: %d, ", uxTaskPriorityGet(NULL));
-    say("свободная куча %6d ", ESP.getFreeHeap());  say("от ОЗУ %6d, ",     ESP.getHeapSize());
-    say("FreePSRAM %6d ",      ESP.getFreePsram()); say("от FLASH %6d",     ESP.getPsramSize());
+    say(" ядро: %d,",          int(xPortGetCoreID()));        say(" приоритет: %d, ", int(uxTaskPriorityGet(NULL)));
+    say("свободная куча %6d ", uint32_t(ESP.getFreeHeap()));  say("от ОЗУ %6d, ",     uint32_t(ESP.getHeapSize()));
+    say("FreePSRAM %6d ",      uint32_t(ESP.getFreePsram())); say("от FLASH %6d",     uint32_t(ESP.getPsramSize()));
     sayln(" ");
     // Восстанавливаем состояние разрешения на вывод сообщений
     isSAY=oldSay;      

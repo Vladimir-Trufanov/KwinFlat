@@ -12,9 +12,10 @@
 #include "esp_camera.h"
 #include "sensor.h"
 
-/*
 #include "inimem.h"
-#include "jpr.h"
+#include "trass.h"
+
+/*
 #include "sd.h"
 */
 
@@ -257,18 +258,14 @@ static void config_camera()
   config.xclk_freq_hz = 20000000;         // частота тактового сигнала в герцах
   config.pixel_format = PIXFORMAT_JPEG;   // формат пикселей камеры, указанный как PIXFORMAT_JPEG
 
-  say("framesize %d, ",     framesize);
-  say("quality %d, ",       quality);
-  say("buffersconfig %d\n", buffersconfig);
-
   // Задаём размер кадра камеры как, например, FRAMESIZE_UXGA
   config.frame_size=(framesize_t)framesize;   
   Serial.print("config.frame_size="); Serial.println(config.frame_size); 
 
   // Задаём качество JPEG-изображения камеры как, например, 12
   config.jpeg_quality=quality;    
-  // Задаём количество отдельных буферов для кадров, по умолчанию 1           
-  config.fb_count=buffersconfig;   
+  // Задаём количество отдельных буферов для кадров      
+  config.fb_count=buffersconfig;  
   // Обеспечиваем размещение в буферах последних кадров
   // https://github.com/espressif/esp32-camera/issues/357#issuecomment-1047086477
   // Для ESP32-CAM доступны два режима захвата изображений через параметр grab_mode:
@@ -278,6 +275,19 @@ static void config_camera()
   // CAMERA_GRAB_LATEST. Драйвер занимает один буфер кадров и пытается обновить в нём последние данные.
   // Количество буферов кадров, которые может получить уровень приложения, равно fb_count - 1.
   config.grab_mode = CAMERA_GRAB_LATEST; 
+
+  say("=================== Установленные настройки камеры ==================\n");
+  say("Название камеры                      %s\n",      cname);
+  say("Размер кадра                         %d\n",      framesize);
+  say("Качество                             %d\n",      quality);
+  say("Количество буферов для кадров        %d\n",      buffersconfig);
+  say("Размер видео в секундах              %d\n",      avi_length);
+  say("Интервал между записями кадров (ms)  %d\n",      frame_interval);
+  say("Ускорение воспроизведения            %d\n",      speed_up_factor);
+  say("Интервал между кадрами в потоке (ms) %d\n",      stream_delay);
+  say("TIMEZONE                             %d, %s\n",  TIMEZONE.length(), TIMEZONE.c_str());
+  say("Сеть WiFi                            %s\n",      ssid);
+
   // Показываем состояние памяти
   saymem("MEM - перед инициированием камеры");
 
