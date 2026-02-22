@@ -9,6 +9,11 @@
 
 #pragma once   
 
+/** 
+Рабочие материалы:
+
+[ESP32-CAM: Алгоритмы компьютерного зрения](https://habr.com/ru/articles/951838/)
+**/
 #include "esp_camera.h"
 #include "sensor.h"
 
@@ -318,7 +323,6 @@ static bool config_camera()
       attempt--;
     }
   }
-  /*
   // Если неудачное инициирование камеры, то будем перезагружать контроллер
   if (cam_err != ESP_OK) return false;
   // Показываем состояние памяти
@@ -368,13 +372,13 @@ static bool config_camera()
     {
       if (j < 3 || j > 27) 
       {
-        say("Кадр %2d, ",j); say("длина=%7d, ", long(fb->len)); //sayln("адрес в памяти %X",(long)fb->buf);
+        say("Кадр %2d, ",j); say("длина=%7d, ", long(fb->len)); sayln("адрес в памяти %X",(long)fb->buf);
         if (fb->len > x) {x = fb->len; y=j;}
       }
       else if (fb->len > x) 
       {
         x = fb->len; y=j;
-        say("Кадр %2d, ",j); say("длина=%7d, ", long(fb->len)); //sayln("адрес в памяти %X",(long)fb->buf);
+        say("Кадр %2d, ",j); say("длина=%7d, ", long(fb->len)); sayln("адрес в памяти %X",(long)fb->buf);
       }
       esp_camera_fb_return(fb);
       delay(30);
@@ -385,7 +389,6 @@ static bool config_camera()
   // Вычисляем 4-кратный размер наибольшего буфера, округленный до 16 Кбайт
   frame_buffer_size  = (( (x * 4) / (16 * 1024) ) + 1) * 16 * 1024  ;
   say("Размер наибольшего буфера 4 изображений по кадру %d ",y); sayln("равен %d",frame_buffer_size);
-  */
   saymem("MEM - после пробных фотографий");
   return true;
 }

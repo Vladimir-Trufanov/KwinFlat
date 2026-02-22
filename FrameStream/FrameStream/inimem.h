@@ -22,18 +22,22 @@ File idxfile;  // файл указателей кадров
 
 static const char _hsoftIP[] ="IP-адрес своей сети контроллера - http://";
 static const char _hlocalIP[]="IP-адрес в локальной сети       - http://";
+*/
 const word filemanagerport=8080;       // порт файлового менеджера
 char localip[20];                      // IP-адрес локальной сети
+time_t now;
+
+/*
 char softip[20];                       // IP-адрес собственной сети контроллера
 bool found_router = false;             // true - определена локальная сеть
 
-time_t now;
 struct tm timeinfo;
 
 TaskHandle_t the_camera_loop_task;
 TaskHandle_t the_streaming_loop_task;
+*/
 SemaphoreHandle_t baton;
-
+/*
 bool restart_now = false;   // true - начать запись нового avi-видео
 bool reboot_now = false;    // true - завершить запись и перезагрузить контроллер
 bool web_stop = false;      // true - завершить запись для OTA или по команде Stop из браузера
@@ -105,7 +109,7 @@ uint8_t buf[BUFFSIZE];
 long avi_start_time = 0;   // время начала видео-записи
 long avi_end_time = 0;
 char avi_file_name[100];   // название записываемого файла *.avi
-uint16_t frame_cnt = 0;    // общее количество кадров в файле
 */
+uint16_t frame_cnt = 0;    // общее количество кадров в файле
 
 // *************************************************************** inimem.h ***

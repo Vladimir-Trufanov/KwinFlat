@@ -15,6 +15,13 @@ static const char vernum[]="v2.0.9, 21.02.2026";
  * Flash Mode:        "QIO"
 **/
 
+#include "WiFi.h"
+#include <WiFiMulti.h>
+WiFiMulti jMulti;
+WiFiEventId_t eventID;      
+#include "ESPmDNS.h"
+
+
 /*
 #include "esp_log.h"
 #include "esp_http_server.h"
@@ -45,13 +52,8 @@ static const char vernum[]="v2.0.9, 21.02.2026";
 #include "lwip/sockets.h"
 #include <lwip/netdb.h>
 
-#include "WiFi.h"
-#include <WiFiMulti.h>
-WiFiMulti jMulti;
 #include <ArduinoOTA.h>
-#include "ESPmDNS.h"
 
-WiFiEventId_t eventID;      
 #include "esp_wifi.h"  
 */
 
@@ -62,18 +64,15 @@ WiFiEventId_t eventID;
 #include "CameraServer.h"
 
 /*
-
 #include "ESPxWebFlMgr.h"              // v56
 ESPxWebFlMgr filemgr(filemanagerport); // we want a different port than the webserver
+*/
 
 // ****************************************************************************
 // *       Подключить локальные WiFi и создать одну свою от контроллера       *
 // ****************************************************************************
 bool init_wifi() 
 {
-  // Выбираем и показываем версию ESP-IDF
-  String idfver = esp_get_idf_version();
-  Serial.println("Версия компилятора ESP:  "+idfver);
   //uint32_t brown_reg_temp = READ_PERI_REG(RTC_CNTL_BROWN_OUT_REG);
   //Serial.printf("Brownout was %d\n", brown_reg_temp);
   //WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);
@@ -106,23 +105,31 @@ bool init_wifi()
   WiFi.setHostname(devname);
   // Резервируем место для параметров входа первой локальной сети
   char ssidch1[20]; char passch1[20];
+  /*
   // Резервируем место для параметров входа второй локальной сети
   char ssidch2[20]; char passch2[20];
   // Резервируем место для параметров входа собственной сети контроллера
   char ssidch3[20]; char passch3[20];
+  */
   // Заполняем параметры для WiFi сетей и показываем их
-  cssid1.toCharArray(ssidch1, cssid1.length() + 1);
-  cpass1.toCharArray(passch1, cpass1.length() + 1);
+  ssid.toCharArray(ssidch1, ssid.length() + 1);
+  pass.toCharArray(passch1, pass.length() + 1);
+  /*
   cssid2.toCharArray(ssidch2, cssid2.length() + 1);
   cpass2.toCharArray(passch2, cpass2.length() + 1);
   if (cssid3 == "ssid") cssid3 = String(devname);
   cssid3.toCharArray(ssidch3, cssid3.length() + 1);
   cssid3.toCharArray(ssidota, cssid3.length() + 1);
   cpass3.toCharArray(passch3, cpass3.length() + 1);
-  jpr("\n>>>>>>>>>>>>>>>>>>>>>%s<\n", ssidch1);
-  jpr  (">>>>>>>>>>>>>>>>>>>>>%s<\n", ssidch2);
-  jpr  (">>>>>>>>>>>>>>>>>>>>>%s</>%s<\n", ssidch3, passch3);
-  // Подключаемся к локальным сетям
+  */
+  say("\n>>>>>>>>>>>>>>>>>>>>>%s<\n", ssidch1);
+  //jpr  (">>>>>>>>>>>>>>>>>>>>>%s<\n", ssidch2);
+  //jpr  (">>>>>>>>>>>>>>>>>>>>>%s</>%s<\n", ssidch3, passch3);
+  // Подключаемся к локальной сетим
+  jMulti.addAP(ssidch1, passch1);
+  jMulti.run();
+  
+  /*
   if (String(cssid1)!="ssid") 
   {
     found_router = true;
@@ -137,10 +144,12 @@ bool init_wifi()
   {
     jMulti.run();
   }
+  */
   // Выбираем и показываем Mac-адрес WiFi
   String wifiMacString = WiFi.macAddress();
   Serial.println("Mac-адрес точки доступа: "+wifiMacString);
 
+  /*
   // Задаем режим программной точки доступа (soft-AP) для установления Wi-Fi-сети. 
   // (то есть создаём собственную сеть Wi-Fi, а другие устройства (станции) могут 
   // подсоединяться к ней без необходимости соединения с маршрутизатором. 
@@ -160,9 +169,10 @@ bool init_wifi()
   WiFi.softAP(ssidch3, passch3);
   sprintf(softip, "%s", WiFi.softAPIP().toString().c_str());
   Serial.print(_soft_IP); Serial.println(softip); 
-  
+  */
+
   const char _localIP[] = "  Локальный IP: ";
-  jprln("Контроллер подключается к локальной точке доступа");
+  sayln("Контроллер подключается к локальной точке доступа");
   // Инициируем нулевую попытку подключения
   int connAttempts = 0;
   Serial.println(" ");
@@ -176,7 +186,7 @@ bool init_wifi()
   Serial.print(_localIP); Serial.println(localip); 
   
   Serial.println(" ");
-  jprln("Определяется местное время");
+  sayln("Определяется местное время");
   // configTime(0, 0, "pool.ntp.org");
   configTime(10800, 0, "ntp.msk-ix.ru");
   char tzchar[60];
@@ -220,11 +230,11 @@ bool init_wifi()
   // Решение: проверить политики сети и, если нужно, изменить их.
   if (!MDNS.begin(devname)) 
   {
-    jprln("Ошибка при запуске multicast DNS (mDNS)");
+    sayln("Ошибка при запуске multicast DNS (mDNS)");
   } 
   else 
   {
-    jprln("multicast DNS (mDNS) стартовал с именем '%s'", devname);
+    sayln("multicast DNS (mDNS) стартовал с именем '%s'", devname);
   }
 
   eventID = WiFi.onEvent([](WiFiEvent_t event, WiFiEventInfo_t info) 
@@ -232,7 +242,7 @@ bool init_wifi()
     //  info.disconnected.reason ==>  info.wifi_sta_disconnected.reason - update with esp32_arduino 2.00 v58
     if (info.wifi_sta_disconnected.reason != 201) 
     {
-      jpr( "\nframe_cnt: %8d, WiFi event Reason: %d , Status: %d\n", frame_cnt, info.wifi_sta_disconnected.reason, WiFi.status());
+      //say( "\nframe_cnt: %8d, WiFi event Reason: %d , Status: %d\n", frame_cnt, info.wifi_sta_disconnected.reason, WiFi.status());
     }
   });
 
@@ -250,6 +260,7 @@ bool init_wifi()
   // Важно: режим энергосбережения влияет на то, как драйвер Wi-Fi обрабатывает 
   // пакеты данных — при включённом режиме энергосбережения полученные данные могут 
   // быть задержаны на период, указанный в настройках DTIM. 
+  /*
   wifi_ps_type_t the_type;
   esp_err_t get_ps = esp_wifi_get_ps(&the_type);
   Serial.printf("Начальный режим энергосбережения: %d\n", the_type);
@@ -257,9 +268,9 @@ bool init_wifi()
   esp_err_t new_ps = esp_wifi_get_ps(&the_type);
   Serial.printf("-Текущий- режим энергосбережения: %d\n", the_type);
   //WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, brown_reg_temp);
+  */
   return true;
 }
-*/
 
 void setup() 
 {
@@ -268,6 +279,9 @@ void setup()
   Serial.println("\n\n---");
   Serial.println("Arduino IDE 2.3.7 - Espressif ESP32 3.3.5");
   Serial.println(" ");
+  // Выбираем и показываем версию ESP-IDF
+  String idfver = esp_get_idf_version();
+  Serial.println("Версия компилятора ESP:  "+idfver);
   Serial.println("---------------------------------------");
   Serial.print("FrameStream "); Serial.println(vernum);
   Serial.println("---------------------------------------");
@@ -299,6 +313,48 @@ void setup()
     case ESP_RST_SDIO : sayln("ESP_RST_SDIO");  break;
     default  : sayln("Reset resaon"); break;
   }
+  
+  /*
+  RTC_CNTL_BROWN_OUT_REG — регистр в микроконтроллере ESP32, который отключает защиту от пониженного напряжения (brownout). Этот регистр содержится в файле soc/rtc_cntl_reg.h. 
+stackoverflow.com
+iotespresso.com
+robmiles.com
+Принцип работы
+В ESP32 есть встроенный детектор brownout, который проверяет напряжение питания и сбрасывает процессор, если оно ниже определённого порога. Это сделано, чтобы сохранить содержимое памяти и избежать коррупции. 
+stackoverflow.com
+robmiles.com
+forum.arduino.cc
+Некоторые причины, по которым может срабатывать детектор:
+недостаточное питание (например, из-за плохого качества USB-кабеля или проблем с портом компьютера); 
+stackoverflow.com
+iotespresso.com
+внезапная высокая нагрузка (например, при включении питания для датчика, который потребляет много тока). 
+недостаточное питание (например, из-за плохого качества USB-кабеля или слишком длинного кабеля);
+проблемы с USB-портом компьютера, который не может обеспечить достаточно питания;
+неисправность ESP32;
+неправильная проводка компонентов в цепи, влияющая на питание.
+
+robmiles.com
+Сообщение «Brownout detector was triggered» в Serial Monitor появляется, когда детектор срабатывает. 
+iotespresso.com
+Настройка
+Чтобы отключить защиту от пониженного напряжения, нужно: 
+iotespresso.com
+Включить файлы: #include "soc/soc.h" и #include "soc/rtc_cntl_reg.h".
+В функции setup() добавить строку: WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0). 
+Это говорит ESP32 прекратить проверку на недостаточное питание и работать с тем, что есть.
+ 
+iotespresso.com
+Важно: отключение защиты от пониженного напряжения может не устранить другие ошибки, например, «Guru Mediation…». Также в некоторых случаях детектор brownout не работает правильно в ранних версиях ESP32 — в этом случае нужно использовать версии, заканчивающиеся на «E» (например, ESP32-WROOM-32E). 
+iotespresso.com
+Рекомендуется: вместо отключения защиты от пониженного напряжения лучше использовать адекватный источник питания. 
+  */
+  //uint32_t brown_reg_temp = READ_PERI_REG(RTC_CNTL_BROWN_OUT_REG);
+  //Serial.printf("Brownout was %d\n", brown_reg_temp);
+  //WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);
+
+  
+  
   // Инициализируем SD-карту
   if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
   // Если неудача, то перезагружаем контроллер
@@ -322,13 +378,47 @@ void setup()
   fb_curr_record_buf = (uint8_t*)ps_malloc(frame_buffer_size);
   fb_streaming =       (uint8_t*)ps_malloc(frame_buffer_size); 
   fb_capture =         (uint8_t*)ps_malloc(frame_buffer_size); 
+  */
   // Показываем состояние памяти 
-  print_mem("MEM - после выделения памяти для jpg в движении");
+  saymem("MEM - после выделения памяти кадрам потока");
+  // Подключаем WiFi
+  
+  //if (InternetOff) 
+  //{
+    saymem("MEM - перед подключением WiFi");
+    // Подключаем локальные WiFi и создаём одну свою от контроллера
+    init_wifi();
+
+    //jpr("---Filemanager в своей сети     - http://");
+    //Serial.print(WiFi.softAPIP()); logfile.print(WiFi.softAPIP());
+    //jprln(":%d/", filemanagerport);
+    /*
+    jpr("Адрес контроллера в локальной сети - http://");
+    Serial.print(WiFi.localIP()); logfile.print(WiFi.localIP());
+    jprln(":%d/", filemanagerport);
+    */
+    saymem("MEM - перед запуском Web-сервисов");
+    //startCameraServer();
+    //start_Stream_81_server();
+    //start_Stream_82_server();
+
+    //InternetOff = false;
+    //print_mem("МЕМ - после запуска WiFi                       ");
+  //}
+
+
+
+
+
+
 
   // Объявляем мьютекс между задачами
   baton = xSemaphoreCreateMutex();
 
-  jprln("Создаётся задача the_camera_loop на 0 ядре");
+
+  sayln("Создаётся задача the_camera_loop на 0 ядре");
+
+  /*
   xTaskCreatePinnedToCore(
     the_camera_loop,       // TaskFunction_t pvTaskCode          - имя функции, которая содержит код
     "the_camera_loop",     // const char * const pcName          - имя задачи
@@ -337,9 +427,10 @@ void setup()
     4,                     // UBaseType_t uxPriority             - приоритет задачи
     &the_camera_loop_task, // TaskHandle_t * const pxCreatedTask - указатель на задачу, который можно использовать для ссылки на задачу позже (например, для её завершения)
     0                      // const BaseType_t xCoreID           - ядро процессора, на которое нужно назначить задачу (0 для ядра 0, 1 для 1 или tskNO_AFFINITY - на обоих ядрах
-  ); //soc14
+  ); 
   delay(100);
-
+  
+  
   jprln("Создаётся задача the_streaming_loop");
   xTaskCreate(
     the_streaming_loop,    // TaskFunction_t pvTaskCode          - имя функции, которая содержит код
@@ -353,30 +444,6 @@ void setup()
   {
     //vTaskDelete( xHandle );
     Serial.printf("Не удалось запустить задачу do_the_steaming_task! %d\n", the_streaming_loop_task);
-  }
-  
-  if (InternetOff) 
-  {
-    print_mem("MEM - перед подключением WiFi                  ");
-    // Подключаем локальные WiFi и создаём одну свою от контроллера
-    init_wifi();
-    print_mem("MEM - перед запуском Filemanager               ");
-    filemgr.begin();
-    filemgr.setBackGroundColor("Gray");
-    jpr("Filemanager в своей сети     - http://");
-    Serial.print(WiFi.softAPIP()); logfile.print(WiFi.softAPIP());
-    jprln(":%d/", filemanagerport);
-    jpr("Filemanager в локальной сети - http://");
-    Serial.print(WiFi.localIP()); logfile.print(WiFi.localIP());
-    jprln(":%d/", filemanagerport);
-
-    print_mem("MEM - перед запуском Web-сервисов              ");
-    startCameraServer();
-    start_Stream_81_server();
-    start_Stream_82_server();
-
-    InternetOff = false;
-    print_mem("МЕМ - после запуска WiFi                       ");
   }
 
   jprln("Проверяется SD-карта на наличие свободного места ...");
