@@ -1,52 +1,121 @@
-FQBN: esp32:esp32:esp32cam
-использование платы 'esp32cam' из платформы в каталоге: C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5
-Использование ядра 'esp32' из платформы в каталоге: C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5
 
-cmd /c if exist "C:\\KwinFlat\\FrameStream\\FrameStream\\partitions.csv" COPY /y "C:\\KwinFlat\\FrameStream\\FrameStream\\partitions.csv" "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\partitions.csv"
-cmd /c if not exist "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\partitions.csv" if exist "C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.3.5\\variants\\esp32\\partitions.csv" COPY "C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.3.5\\variants\\esp32\\partitions.csv" "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\partitions.csv"
-cmd /c if not exist "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\partitions.csv" COPY "C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.3.5\\tools\\partitions\\huge_app.csv" "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\partitions.csv"
-cmd /c IF EXIST "C:\\KwinFlat\\FrameStream\\FrameStream\\bootloader.bin" ( COPY /y "C:\\KwinFlat\\FrameStream\\FrameStream\\bootloader.bin" "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\FrameStream.ino.bootloader.bin" ) ELSE ( IF EXIST "C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.3.5\\variants\\esp32\\bootloader.bin" ( COPY "C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.3.5\\variants\\esp32\\bootloader.bin" "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\FrameStream.ino.bootloader.bin" ) ELSE ( "C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esptool_py\\5.1.0\\esptool.exe" --chip esp32 elf2image --flash-mode dio --flash-freq 80m --flash-size 4MB -o "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\FrameStream.ino.bootloader.bin" "C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esp32-arduino-libs\\idf-release_v5.5-9bb7aa84-v2\\esp32\\bin\\bootloader_qio_80m.elf" ) )
-esptool v5.1.0
-Creating ESP32 image...
-Merged 2 ELF sections.
-Successfully created ESP32 image.
-cmd /c if exist "C:\\KwinFlat\\FrameStream\\FrameStream\\build_opt.h" COPY /y "C:\\KwinFlat\\FrameStream\\FrameStream\\build_opt.h" "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\build_opt.h"
-cmd /c if not exist "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\build_opt.h" type nul > "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\build_opt.h"
-cmd /c type nul > "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2/file_opts"
-cmd /c COPY /y "C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esp32-arduino-libs\\idf-release_v5.5-9bb7aa84-v2\\esp32\\sdkconfig" "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\sdkconfig"
-????????? ????:         1.
-Обнаружение используемых библиотек...
-C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp-x32\2511/bin/xtensa-esp32-elf-g++ -c @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/cpp_flags -w -Os -Werror=return-type -w -x c++ -E -CC -DF_CPU=240000000L -DARDUINO=10607 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 -DARDUINO_BOARD="ESP32_DEV" -DARDUINO_VARIANT="esp32" -DARDUINO_PARTITION_huge_app -DARDUINO_HOST_OS="windows" -DARDUINO_FQBN="esp32:esp32:esp32cam:CPUFreq=240,FlashFreq=80,FlashMode=qio,PartitionScheme=huge_app,DebugLevel=none,EraseFlash=none" -DESP32=ESP32 -DCORE_DEBUG_LEVEL=0 -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue -mfix-esp32-psram-cache-strategy=memw -DARDUINO_USB_CDC_ON_BOOT=0 @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/defines -IC:\KwinFlat\FrameStream\FrameStream -iprefix C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/include/ @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/includes -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/qio_qspi/include -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\cores\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\variants\esp32 @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/build_opt.h @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/file_opts C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2\sketch\FrameStream.ino.cpp -o nul
-Альтернативы для FS.h: [FS@3.3.5]
-ResolveLibrary(FS.h)
-  -> кандидаты: [FS@3.3.5]
-C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp-x32\2511/bin/xtensa-esp32-elf-g++ -c @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/cpp_flags -w -Os -Werror=return-type -w -x c++ -E -CC -DF_CPU=240000000L -DARDUINO=10607 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 -DARDUINO_BOARD="ESP32_DEV" -DARDUINO_VARIANT="esp32" -DARDUINO_PARTITION_huge_app -DARDUINO_HOST_OS="windows" -DARDUINO_FQBN="esp32:esp32:esp32cam:CPUFreq=240,FlashFreq=80,FlashMode=qio,PartitionScheme=huge_app,DebugLevel=none,EraseFlash=none" -DESP32=ESP32 -DCORE_DEBUG_LEVEL=0 -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue -mfix-esp32-psram-cache-strategy=memw -DARDUINO_USB_CDC_ON_BOOT=0 @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/defines -IC:\KwinFlat\FrameStream\FrameStream -iprefix C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/include/ @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/includes -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/qio_qspi/include -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\cores\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\variants\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\FS\src @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/build_opt.h @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/file_opts C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2\sketch\FrameStream.ino.cpp -o nul
-Альтернативы для SD_MMC.h: [SD_MMC@3.3.5]
-ResolveLibrary(SD_MMC.h)
-  -> кандидаты: [SD_MMC@3.3.5]
-C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp-x32\2511/bin/xtensa-esp32-elf-g++ -c @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/cpp_flags -w -Os -Werror=return-type -w -x c++ -E -CC -DF_CPU=240000000L -DARDUINO=10607 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 -DARDUINO_BOARD="ESP32_DEV" -DARDUINO_VARIANT="esp32" -DARDUINO_PARTITION_huge_app -DARDUINO_HOST_OS="windows" -DARDUINO_FQBN="esp32:esp32:esp32cam:CPUFreq=240,FlashFreq=80,FlashMode=qio,PartitionScheme=huge_app,DebugLevel=none,EraseFlash=none" -DESP32=ESP32 -DCORE_DEBUG_LEVEL=0 -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue -mfix-esp32-psram-cache-strategy=memw -DARDUINO_USB_CDC_ON_BOOT=0 @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/defines -IC:\KwinFlat\FrameStream\FrameStream -iprefix C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/include/ @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/includes -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/qio_qspi/include -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\cores\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\variants\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\FS\src -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\SD_MMC\src @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/build_opt.h @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/file_opts C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2\sketch\FrameStream.ino.cpp -o nul
-C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp-x32\2511/bin/xtensa-esp32-elf-g++ -c @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/cpp_flags -w -Os -Werror=return-type -w -x c++ -E -CC -DF_CPU=240000000L -DARDUINO=10607 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 -DARDUINO_BOARD="ESP32_DEV" -DARDUINO_VARIANT="esp32" -DARDUINO_PARTITION_huge_app -DARDUINO_HOST_OS="windows" -DARDUINO_FQBN="esp32:esp32:esp32cam:CPUFreq=240,FlashFreq=80,FlashMode=qio,PartitionScheme=huge_app,DebugLevel=none,EraseFlash=none" -DESP32=ESP32 -DCORE_DEBUG_LEVEL=0 -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue -mfix-esp32-psram-cache-strategy=memw -DARDUINO_USB_CDC_ON_BOOT=0 @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/defines -IC:\KwinFlat\FrameStream\FrameStream -iprefix C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/include/ @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/includes -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/qio_qspi/include -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\cores\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\variants\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\FS\src -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\SD_MMC\src @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/build_opt.h @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/file_opts C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\FS\src\FS.cpp -o nul
-C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp-x32\2511/bin/xtensa-esp32-elf-g++ -c @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/cpp_flags -w -Os -Werror=return-type -w -x c++ -E -CC -DF_CPU=240000000L -DARDUINO=10607 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 -DARDUINO_BOARD="ESP32_DEV" -DARDUINO_VARIANT="esp32" -DARDUINO_PARTITION_huge_app -DARDUINO_HOST_OS="windows" -DARDUINO_FQBN="esp32:esp32:esp32cam:CPUFreq=240,FlashFreq=80,FlashMode=qio,PartitionScheme=huge_app,DebugLevel=none,EraseFlash=none" -DESP32=ESP32 -DCORE_DEBUG_LEVEL=0 -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue -mfix-esp32-psram-cache-strategy=memw -DARDUINO_USB_CDC_ON_BOOT=0 @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/defines -IC:\KwinFlat\FrameStream\FrameStream -iprefix C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/include/ @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/includes -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/qio_qspi/include -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\cores\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\variants\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\FS\src -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\SD_MMC\src @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/build_opt.h @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/file_opts C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\FS\src\vfs_api.cpp -o nul
-C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp-x32\2511/bin/xtensa-esp32-elf-g++ -c @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/cpp_flags -w -Os -Werror=return-type -w -x c++ -E -CC -DF_CPU=240000000L -DARDUINO=10607 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 -DARDUINO_BOARD="ESP32_DEV" -DARDUINO_VARIANT="esp32" -DARDUINO_PARTITION_huge_app -DARDUINO_HOST_OS="windows" -DARDUINO_FQBN="esp32:esp32:esp32cam:CPUFreq=240,FlashFreq=80,FlashMode=qio,PartitionScheme=huge_app,DebugLevel=none,EraseFlash=none" -DESP32=ESP32 -DCORE_DEBUG_LEVEL=0 -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue -mfix-esp32-psram-cache-strategy=memw -DARDUINO_USB_CDC_ON_BOOT=0 @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/defines -IC:\KwinFlat\FrameStream\FrameStream -iprefix C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/include/ @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/includes -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/qio_qspi/include -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\cores\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\variants\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\FS\src -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\SD_MMC\src @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/build_opt.h @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/file_opts C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\SD_MMC\src\SD_MMC.cpp -o nul
-Создание прототипов функций...
-C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp-x32\2511/bin/xtensa-esp32-elf-g++ -c @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/cpp_flags -w -Os -Werror=return-type -w -x c++ -E -CC -DF_CPU=240000000L -DARDUINO=10607 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 -DARDUINO_BOARD="ESP32_DEV" -DARDUINO_VARIANT="esp32" -DARDUINO_PARTITION_huge_app -DARDUINO_HOST_OS="windows" -DARDUINO_FQBN="esp32:esp32:esp32cam:CPUFreq=240,FlashFreq=80,FlashMode=qio,PartitionScheme=huge_app,DebugLevel=none,EraseFlash=none" -DESP32=ESP32 -DCORE_DEBUG_LEVEL=0 -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue -mfix-esp32-psram-cache-strategy=memw -DARDUINO_USB_CDC_ON_BOOT=0 @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/defines -IC:\KwinFlat\FrameStream\FrameStream -iprefix C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/include/ @C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/flags/includes -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\tools\esp32-arduino-libs\idf-release_v5.5-9bb7aa84-v2\esp32/qio_qspi/include -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\cores\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\variants\esp32 -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\FS\src -IC:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\SD_MMC\src @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/build_opt.h @C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2/file_opts C:\Users\Евгеньевич\AppData\Local\arduino\sketches\64575C5EB8F23CEE4681DD4993AD7DF2\sketch\FrameStream.ino.cpp -o C:\Users\Евгеньевич\AppData\Local\Temp\2795683244\sketch_merged.cpp
-C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\builtin\tools\ctags\5.8-arduino11/ctags -u --language-force=c++ -f - --c++-kinds=svpf --fields=KSTtzns --line-directives C:\Users\Евгеньевич\AppData\Local\Temp\2795683244\sketch_merged.cpp
 
-Компиляция скетча...
-"C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esp-x32\\2511/bin/xtensa-esp32-elf-g++" -MMD -c "@C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esp32-arduino-libs\\idf-release_v5.5-9bb7aa84-v2\\esp32/flags/cpp_flags" -w -Os -Werror=return-type -DF_CPU=240000000L -DARDUINO=10607 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"ESP32_DEV\"" "-DARDUINO_VARIANT=\"esp32\"" -DARDUINO_PARTITION_huge_app "-DARDUINO_HOST_OS=\"windows\"" "-DARDUINO_FQBN=\"esp32:esp32:esp32cam:CPUFreq=240,FlashFreq=80,FlashMode=qio,PartitionScheme=huge_app,DebugLevel=none,EraseFlash=none\"" -DESP32=ESP32 -DCORE_DEBUG_LEVEL=0 -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue -mfix-esp32-psram-cache-strategy=memw -DARDUINO_USB_CDC_ON_BOOT=0 "@C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esp32-arduino-libs\\idf-release_v5.5-9bb7aa84-v2\\esp32/flags/defines" "-IC:\\KwinFlat\\FrameStream\\FrameStream" -iprefix "C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esp32-arduino-libs\\idf-release_v5.5-9bb7aa84-v2\\esp32/include/" "@C:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esp32-arduino-libs\\idf-release_v5.5-9bb7aa84-v2\\esp32/flags/includes" "-IC:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\esp32-arduino-libs\\idf-release_v5.5-9bb7aa84-v2\\esp32/qio_qspi/include" "-IC:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.3.5\\cores\\esp32" "-IC:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.3.5\\variants\\esp32" "-IC:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.3.5\\libraries\\FS\\src" "-IC:\\Users\\Евгеньевич\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\3.3.5\\libraries\\SD_MMC\\src" "@C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2/build_opt.h" "@C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2/file_opts" "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\sketch\\FrameStream.ino.cpp" -o "C:\\Users\\Евгеньевич\\AppData\\Local\\arduino\\sketches\\64575C5EB8F23CEE4681DD4993AD7DF2\\sketch\\FrameStream.ino.cpp.o"
-In file included from C:\KwinFlat\FrameStream\FrameStream\FrameStream.ino:57:
-C:\KwinFlat\FrameStream\FrameStream\inimem.h:90:1: error: 'cname' does not name a type; did you mean 'tzname'?
-   90 | cname.toCharArray(devname,cname.length()+1);
-      | ^~~~~
-      | tzname
-In file included from C:\KwinFlat\FrameStream\FrameStream\FrameStream.ino:59:
-C:\KwinFlat\FrameStream\FrameStream\camera.h: In function 'void config_camera()':
-C:\KwinFlat\FrameStream\FrameStream\camera.h:288:57: error: 'cssid' was not declared in this scope; did you mean 'ssid'?
-  288 |   say("Сеть WiFi                            %s\n",      cssid);
-      |                                                         ^~~~~
-      |                                                         ssid
-Используем библиотеку FS версии 3.3.5 из папки: C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\FS 
-Используем библиотеку SD_MMC версии 3.3.5 из папки: C:\Users\Евгеньевич\AppData\Local\Arduino15\packages\esp32\hardware\esp32\3.3.5\libraries\SD_MMC 
-exit status 1
+---
+Arduino IDE 2.3.7 - Espressif ESP32 3.3.5
+ 
+---------------------------------------
+FrameStream v2.0.9, 21.02.2026
+---------------------------------------
+                          [MEM - В начале SETUP] ядро: 1, приоритет: 1, свободная куча 308800 от ОЗУ 352328, FreePSRAM 2095104 от FLASH 2097152 
+Причина перезагрузки: ESP_RST_POWERON
+SD_MMC инициализирована успешно
+Тип карты SD_MMC: SDHC
+Ёмкость SD_MMC-карты: 15103 MB
 
-Compilation error: 'cname' does not name a type; did you mean 'tzname'?
+config.frame_size=13
+=================== Установленные настройки камеры ==================
+Название камеры                      DachWay
+Размер кадра                         13
+Качество                             12
+Количество буферов для кадров        4
+Размер видео в секундах              420
+Интервал между записями кадров (ms)  0
+Ускорение воспроизведения            1
+Интервал между кадрами в потоке (ms) 0
+TIMEZONE                             5, MSK-3
+Сеть WiFi                            OPPO A9 2020
+             [MEM - перед инициированием камеры] ядро: 1, приоритет: 1, свободная куча 302576 от ОЗУ 352328, FreePSRAM 2057168 от FLASH 2097152 
+E (3290) cam_hal: cam_dma_config(509): frame buffer malloc failed
+E (3291) cam_hal: cam_config(599): cam_dma_config failed
+E (3291) camera: Camera config failed with error 0xffffffff
+Ошибка инициировании камеры 0xffffffff
+E (3806) gpio: gpio_install_isr_service(530): GPIO isr service already installed
+E (3911) cam_hal: cam_dma_config(509): frame buffer malloc failed
+E (3912) cam_hal: cam_config(599): cam_dma_config failed
+E (3912) camera: Camera config failed with error 0xffffffff
+Ошибка инициировании камеры 0xffffffff
+E (4427) gpio: gpio_install_isr_service(530): GPIO isr service already installed
+E (4532) cam_hal: cam_dma_config(509): frame buffer malloc failed
+E (4533) cam_hal: cam_config(599): cam_dma_config failed
+E (4533) camera: Camera config failed with error 0xffffffff
+Ошибка инициировании камеры 0xffffffff
+E (5048) gpio: gpio_install_isr_service(530): GPIO isr service already installed
+E (5153) cam_hal: cam_dma_config(509): frame buffer malloc failed
+E (5154) cam_hal: cam_config(599): cam_dma_config failed
+E (5154) camera: Camera config failed with error 0xffffffff
+Ошибка инициировании камеры 0xffffffff
+E (5669) gpio: gpio_install_isr_service(530): GPIO isr service already installed
+E (5774) cam_hal: cam_dma_config(509): frame buffer malloc failed
+E (5775) cam_hal: cam_config(599): cam_dma_config failed
+E (5775) camera: Camera config failed with error 0xffffffff
+Ошибка инициировании камеры 0xffffffff
+Аварийная ситуация [0/10], перезагрузка контроллера
+Аварийная ситуация [1/10], перезагрузка контроллера
+
+
+---
+Arduino IDE 2.3.7 - Espressif ESP32 3.3.5
+Инициализируется SD-карта ...
+SD_MMC инициализирована успешно
+Тип карты SD_MMC: SDHC
+Ёмкость SD_MMC-карты: 15103 MB
+ 
+---------------------------------------
+ESP32-CamRecorder v62.34.0
+---------------------------------------
+[MEM - В начале SETUP                           ] ядро: 1, приоритет: 1, свободная куча 245620 от ОЗУ 295712, FreePSRAM 2057168 от FLASH 2097152
+Причина перезагрузки: ESP_RST_POWERON
+Продолжение существующей нумерации файлов!
+Новый номер файлов потока изображений 
+3
+Выполняется запись в EPROM ...
+Выбираются параметры из config2.txt ...
+Открывается config2.txt на SD
+Читается config2.txt
+=========   Данные, считанные из config2.txt и по умолчанию  =========
+Название камеры                      Esp32dacha
+Размер кадра                         13
+Качество                             12
+Количество буферов для кадров        4
+Размер видео в секундах              420
+Интервал между записями кадров (ms)  0
+Частота кадров                       1
+Интервал между кадрами в потоке (ms) 0
+TIMEZONE                             5, MSK-3
+ssid1                                OPPO A9 2020
+ssid2                                ssid
+ssid3                                ssid
+pass3                                12344321
+Устанавливаются параметры камеры ...
+Frame config 0, quality config 0, buffers config 4
+[MEM - перед инициированием камеры              ] ядро: 1, приоритет: 1, свободная куча 245096 от ОЗУ 295712, FreePSRAM 2057168 от FLASH 2097152
+[MEM - после инициирования камеры               ] ядро: 1, приоритет: 1, свободная куча 202212 от ОЗУ 295712, FreePSRAM 1319824 от FLASH 2097152
+Камера стартовала корректно, id.PID: 26 (hex) of 9650, 7725, 2640, 3660, 5640
+Выполняются 30 пробных кадров с камеры
+(следует перезагрузить контроллер, если не будет захвата с камеры !!!)
+Кадр  0, длина=  63846, адрес в памяти 3F863C80
+Кадр  1, длина=  67363, адрес в памяти 3F890CA0
+Кадр  2, длина=  66197, адрес в памяти 3F809C40
+Кадр 28, длина=  48211, адрес в памяти 3F836C60
+Кадр 29, длина=  47723, адрес в памяти 3F809C40
+Размер наибольшего буфера 4 изображений по кадру 1 равен 278528
+[MEM - после завершения инициирования камеры    ] ядро: 1, приоритет: 1, свободная куча 202212 от ОЗУ 295712, FreePSRAM 1319824 от FLASH 2097152
+[MEM - после выделения памяти для jpg в движении] ядро: 1, приоритет: 1, свободная куча 202212 от ОЗУ 295712, FreePSRAM 172928 от FLASH 2097152
+Создаётся задача the_camera_loop на 0 ядре
+[MEM - стартовала задача the_camera_loop        ] ядро: 0, приоритет: 4, свободная куча 196608 от ОЗУ 295712, FreePSRAM 172928 от FLASH 2097152
+Создаётся задача the_streaming_loop
+[MEM - стартовала задача the_streaming_loop     ] ядро: 1, приоритет: 2, свободная куча 188040 от ОЗУ 295712, FreePSRAM 172928 от FLASH 2097152
+[MEM - перед подключением WiFi                  ] ядро: 1, приоритет: 1, свободная куча 188040 от ОЗУ 295712, FreePSRAM 172928 от FLASH 2097152
+Версия компилятора ESP:  v5.5.1-931-g9bb7aa84fe
+
+>>>>>>>>>>>>>>>>>>>>>OPPO A9 2020<
+>>>>>>>>>>>>>>>>>>>>>ssid<
+>>>>>>>>>>>>>>>>>>>>>Esp32dacha</>12344321<
+
+Отсоедините Pin12 от GND для того, чтобы начать запись или http://192.168.1.100/start 
+Mac-адрес точки доступа: A8:42:E3:4D:0A:7C
+Контроллер устанавливает собственную точку доступа
+IP контроллера: 192.168.4.1
+Контроллер подключается к локальной точке доступа
+ 
+....

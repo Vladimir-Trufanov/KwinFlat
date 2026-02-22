@@ -15,7 +15,7 @@ static const char vernum[]="v2.0.9, 21.02.2026";
  * Flash Mode:        "QIO"
 **/
 
-/*
+
 #include "esp_log.h"
 #include "esp_http_server.h"
 #include "esp_camera.h"
@@ -31,6 +31,9 @@ static const char vernum[]="v2.0.9, 21.02.2026";
 #include "soc/soc.h"
 #include "esp_cpu.h" // #include "soc/cpu.h"
 #include "soc/rtc_cntl_reg.h"
+
+#include "eprom.h"
+#include <pgmspace.h>
 
 static esp_err_t cam_err;
 
@@ -52,7 +55,7 @@ WiFiMulti jMulti;
 
 WiFiEventId_t eventID;      
 #include "esp_wifi.h"  
-*/
+
 
 #include "inimem.h"
 #include "camera.h"
@@ -273,23 +276,13 @@ void setup()
 
   pinMode(33, OUTPUT);              // little red led on back of chip
   digitalWrite(33, LOW);            // turn on the red LED on the back of chip
-
   pinMode(4, OUTPUT);               // Blinding Disk-Avtive Light
   digitalWrite(4, LOW);             // turn off
-
-  pinMode(12, INPUT_PULLUP);        // pull this down to stop recording
-  pinMode(13, INPUT_PULLUP);        // pull this down switch wifi
-
-  // Инициализируем SD-карту
-  if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
-  // Если неудача, то перезагружаем контроллер
-  else blinkRestart();
-  // По имени камеры определяем имя устройства 
-  cname.toCharArray(devname,cname.length()+1);
+  //pinMode(12, INPUT_PULLUP);        // pull this down to stop recording
+  //pinMode(13, INPUT_PULLUP);        // pull this down switch wifi
 
   // Показываем состояние памяти 
   saymem("MEM - В начале SETUP");
-
   // Определяем и показываем причину последнего сброса (reset reason). 
   esp_reset_reason_t reason = esp_reset_reason();
   say("Причина перезагрузки: ");
@@ -308,15 +301,31 @@ void setup()
     case ESP_RST_SDIO : sayln("ESP_RST_SDIO");  break;
     default  : sayln("Reset resaon"); break;
   }
+  // Инициализируем SD-карту
+  if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
+  // Если неудача, то перезагружаем контроллер
+  else blinkRestart();
+  // Конфигурируем камеру и если неудача, то перезагружаем контроллер
+  /*
+  say("=================== Установленные настройки камеры ==================\n");
+  say("Название камеры                      %s\n",      cname);
+  say("Размер кадра                         %d\n",      framesize);
+  say("Качество                             %d\n",      quality);
+  say("Количество буферов для кадров        %d\n",      buffersconfig);
+  say("Размер видео в секундах              %d\n",      avi_length);
+  say("Интервал между записями кадров (ms)  %d\n",      frame_interval);
+  say("Ускорение воспроизведения            %d\n",      speed_up_factor);
+  say("Интервал между кадрами в потоке (ms) %d\n",      stream_delay);
+  say("TIMEZONE                             %d, %s\n",  TIMEZONE.length(), TIMEZONE.c_str());
+  say("Сеть WiFi                            %s\n",      ssid);
+  */
+  if (!config_camera()) blinkRestart();
+  // По имени камеры назначаем имя устройства 
+  cname.toCharArray(devname,cname.length()+1);
+
   // Запускаем продолжение нумерации файлов avi 
   // (или инициируем новую нумерацию)
   //do_eprom_read();
-
-  //jprln("Выбираются параметры из config2.txt ...");
-  //read_config_file();
-
-  sayln("Устанавливаются параметры камеры ...");
-  config_camera();
   
   /*
   // Выделяем память под рабочие буферы для хранения jpg в движении 

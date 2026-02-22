@@ -8,16 +8,17 @@
 
 #pragma once   
 
+#include "FS.h"
+#include <SD_MMC.h>
+
 #include "inimem.h"
 #include "trass.h"
-#include <SD_MMC.h>
 
 /*
 #include "driver/sdmmc_host.h"
 #include "driver/sdmmc_defs.h"
 #include "sdmmc_cmd.h"
 #include "esp_vfs_fat.h"
-#include "FS.h"
 
 // Обеспечиваем ускорение записи на SD-карту [https://github.com/espressif/esp32-camera/issues/182],
 // ранее было fbs=64 - столько КБ статической оперативной памяти 
@@ -41,7 +42,6 @@ struct oneframe {
 // ****************************************************************************
 static bool init_sdcard()
 {
-  sayln("Инициализируется SD-карта ...");
   bool Result=true;
   int succ = SD_MMC.begin("/sdcard", true, false, BOARD_MAX_SDMMC_FREQ, 7);
   if (succ) 

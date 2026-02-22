@@ -88,20 +88,42 @@ void say(char* format, unsigned int n, const char* s)
 } 
 void sayln(char* format, unsigned int n, const char* s) {say(format,n,s); addln();} 
 
+/* Целочисленные типы
+Тип	               Синоним	Число байт    От                       До
+------------------ -------- ---------- --------------------------- ------
+bool	             -	      1          0,false                     1,true
+signed char	       int8_t	1	           -128	                       127
+unsigned char	     uint8_t	1	         0                           255
+int	               -	      2 или 4		
+short	             int16_t	2	         -32 768                     32 767
+unsigned short     uint16_t	2	         0                           65 535
+long	             int32_t	4	         -2 147 483 648	             2 147 483 647
+unsigned long	     uint32_t	4	         0	                         4 294 967 295
+long long	         int64_t	8	         -9 223 372 036 854 775 808	 9 223 372 036 854 775 807
+unsigned long long uint64_t	8	         0	                         18 446 744 073 709 551 615
+*/
+// --- int = int = 2 или 4	 
 void say(char* format, int n) 
 {
   snprintf(buffer, sizeof(buffer), format, n); 
   _say(buffer); 
 } 
 void sayln(char* format, int n) {say(format,n); addln();}
-
+// --- long = int32_t = 4 
+void say(char* format, long n) // int32_t 
+{
+  snprintf(buffer, sizeof(buffer), format, n); 
+  _say(buffer); 
+} 
+void sayln(char* format, long n) {say(format,n); addln();}
+// --- unsigned long = uint32_t = 4 
 void say(char* format, uint32_t n) 
 {
   snprintf(buffer, sizeof(buffer), format, n); 
   _say(buffer); 
 } 
 void sayln(char* format, uint32_t n) {say(format,n); addln();}
-
+// --- unsigned long long = uint64_t = 8
 void say(char* format, uint64_t n) 
 {
   snprintf(buffer, sizeof(buffer), format, n); 
@@ -168,13 +190,6 @@ void saymem(char* text)
     for (int i = 0; i<j; i++) 
     {
       _say(" "); 
-      /*
-      Serial.print(" "); 
-      if (logfile && isSAYLOG) 
-      { 
-        logfile.print(" "); 
-      } 
-      */
     }
     // Выводим специальное сообщение по памяти
     /**

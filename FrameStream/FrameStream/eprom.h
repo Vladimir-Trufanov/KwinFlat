@@ -28,7 +28,7 @@
 #pragma once   
 
 #include <EEPROM.h>
-#include <trass.h>
+//#include <trass.h>
 
 // (следует изменить этот номер, чтобы сбросить номера файлов в eprom esp32)
 int MagicNumber = 12; // признак инициации новой нумерации файлов avi
@@ -63,14 +63,14 @@ void do_eprom_read()
   EEPROM.get(0, ed);
   if (ed.eprom_good == MagicNumber) 
   {
-    sayln("Продолжение существующей нумерации файлов!");
+    //sayln("Продолжение существующей нумерации файлов!");
     file_group = ed.file_group;
     file_group++;
-    sayln("Новый номер файлов потока изображений "); Serial.println(file_group);
+    //sayln("Новый номер файлов потока изображений "); Serial.println(file_group);
   } 
   else 
   {
-    sayln("Начинается новая нумерация файлов потока изображений с 1");
+    //sayln("Начинается новая нумерация файлов потока изображений с 1");
     file_group = 1;
   }
   do_eprom_write();
