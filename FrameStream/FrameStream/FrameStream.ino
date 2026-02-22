@@ -15,7 +15,7 @@ static const char vernum[]="v2.0.9, 21.02.2026";
  * Flash Mode:        "QIO"
 **/
 
-
+/*
 #include "esp_log.h"
 #include "esp_http_server.h"
 #include "esp_camera.h"
@@ -29,13 +29,11 @@ static const char vernum[]="v2.0.9, 21.02.2026";
 #include "nvs_flash.h"
 #include "nvs.h"
 #include "soc/soc.h"
-#include "esp_cpu.h" // #include "soc/cpu.h"
+#include "esp_cpu.h" 
 #include "soc/rtc_cntl_reg.h"
 
 #include "eprom.h"
 #include <pgmspace.h>
-
-static esp_err_t cam_err;
 
 #include "driver/sdmmc_host.h"
 #include "driver/sdmmc_defs.h"
@@ -55,11 +53,11 @@ WiFiMulti jMulti;
 
 WiFiEventId_t eventID;      
 #include "esp_wifi.h"  
-
+*/
 
 #include "inimem.h"
-#include "camera.h"
 #include "sd.h"
+#include "camera.h"
 #include "stream32.h"
 #include "CameraServer.h"
 
@@ -305,20 +303,9 @@ void setup()
   if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
   // Если неудача, то перезагружаем контроллер
   else blinkRestart();
+  // Показываем установленные настройки камеры и видео
+  saycamconf(); 
   // Конфигурируем камеру и если неудача, то перезагружаем контроллер
-  /*
-  say("=================== Установленные настройки камеры ==================\n");
-  say("Название камеры                      %s\n",      cname);
-  say("Размер кадра                         %d\n",      framesize);
-  say("Качество                             %d\n",      quality);
-  say("Количество буферов для кадров        %d\n",      buffersconfig);
-  say("Размер видео в секундах              %d\n",      avi_length);
-  say("Интервал между записями кадров (ms)  %d\n",      frame_interval);
-  say("Ускорение воспроизведения            %d\n",      speed_up_factor);
-  say("Интервал между кадрами в потоке (ms) %d\n",      stream_delay);
-  say("TIMEZONE                             %d, %s\n",  TIMEZONE.length(), TIMEZONE.c_str());
-  say("Сеть WiFi                            %s\n",      ssid);
-  */
   if (!config_camera()) blinkRestart();
   // По имени камеры назначаем имя устройства 
   cname.toCharArray(devname,cname.length()+1);
