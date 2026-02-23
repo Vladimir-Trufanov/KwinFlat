@@ -15,18 +15,27 @@ static const char vernum[]="v2.0.9, 21.02.2026";
  * Flash Mode:        "QIO"
 **/
 
+/*
 #include "WiFi.h"
 #include <WiFiMulti.h>
 WiFiMulti jMulti;
 WiFiEventId_t eventID;      
 #include "ESPmDNS.h"
+#include "esp_wifi.h" 
+*/ 
 
+//#include "esp_camera.h"
+//#include "sensor.h"
+
+//#include "soc/soc.h"
+//#include "soc/rtc_cntl_reg.h"
+
+//#include "eprom.h"
+//#include <pgmspace.h>
 
 /*
 #include "esp_log.h"
 #include "esp_http_server.h"
-#include "esp_camera.h"
-#include "sensor.h"
 
 #include <stdio.h>
 #include "time.h"
@@ -35,12 +44,7 @@ WiFiEventId_t eventID;
 #include "esp_system.h"
 #include "nvs_flash.h"
 #include "nvs.h"
-#include "soc/soc.h"
 #include "esp_cpu.h" 
-#include "soc/rtc_cntl_reg.h"
-
-#include "eprom.h"
-#include <pgmspace.h>
 
 #include "driver/sdmmc_host.h"
 #include "driver/sdmmc_defs.h"
@@ -54,30 +58,23 @@ WiFiEventId_t eventID;
 
 #include <ArduinoOTA.h>
 
-#include "esp_wifi.h"  
 */
 
 #include "inimem.h"
 #include "sd.h"
 #include "camera.h"
+#include "eprom.h"
+#include "hwifi.h"
 #include "stream32.h"
 #include "CameraServer.h"
 
-/*
-#include "ESPxWebFlMgr.h"              // v56
-ESPxWebFlMgr filemgr(filemanagerport); // we want a different port than the webserver
-*/
 
+/*
 // ****************************************************************************
 // *       Подключить локальные WiFi и создать одну свою от контроллера       *
 // ****************************************************************************
 bool init_wifi() 
 {
-  //uint32_t brown_reg_temp = READ_PERI_REG(RTC_CNTL_BROWN_OUT_REG);
-  //Serial.printf("Brownout was %d\n", brown_reg_temp);
-  //WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);
-  //WiFi.disconnect(true, true);
-
   // Устанавливаем режим работы WiFi, как станции (STA). В этом режиме контроллер 
   // не создаёт собственную сеть, а подключается к уже существующей сети WiFi, 
   // например, к локальной сети (роутеру или иному «раздающему» устройству). 
@@ -103,73 +100,19 @@ bool init_wifi()
   // затем вызвать WiFi.setHostname() и перезагрузить Wi-Fi с нуля. 
   // Если hostname не указан, будет назначено стандартное имя на основе типа чипа и MAC-адреса. 
   WiFi.setHostname(devname);
-  // Резервируем место для параметров входа первой локальной сети
+  // Резервируем место для параметров входа локальной сети
   char ssidch1[20]; char passch1[20];
-  /*
-  // Резервируем место для параметров входа второй локальной сети
-  char ssidch2[20]; char passch2[20];
-  // Резервируем место для параметров входа собственной сети контроллера
-  char ssidch3[20]; char passch3[20];
-  */
-  // Заполняем параметры для WiFi сетей и показываем их
+  // Заполняем параметры для WiFi сети и показываем их
   ssid.toCharArray(ssidch1, ssid.length() + 1);
   pass.toCharArray(passch1, pass.length() + 1);
-  /*
-  cssid2.toCharArray(ssidch2, cssid2.length() + 1);
-  cpass2.toCharArray(passch2, cpass2.length() + 1);
-  if (cssid3 == "ssid") cssid3 = String(devname);
-  cssid3.toCharArray(ssidch3, cssid3.length() + 1);
-  cssid3.toCharArray(ssidota, cssid3.length() + 1);
-  cpass3.toCharArray(passch3, cpass3.length() + 1);
-  */
   say("\n>>>>>>>>>>>>>>>>>>>>>%s<\n", ssidch1);
-  //jpr  (">>>>>>>>>>>>>>>>>>>>>%s<\n", ssidch2);
-  //jpr  (">>>>>>>>>>>>>>>>>>>>>%s</>%s<\n", ssidch3, passch3);
   // Подключаемся к локальной сетим
   jMulti.addAP(ssidch1, passch1);
   jMulti.run();
   
-  /*
-  if (String(cssid1)!="ssid") 
-  {
-    found_router = true;
-    jMulti.addAP(ssidch1, passch1);
-  }
-  if (String(cssid2)!="ssid") 
-  {
-    found_router = true;
-    jMulti.addAP(ssidch2, passch2);
-  }
-  if (found_router) 
-  {
-    jMulti.run();
-  }
-  */
-  // Выбираем и показываем Mac-адрес WiFi
+   // Выбираем и показываем Mac-адрес WiFi
   String wifiMacString = WiFi.macAddress();
   Serial.println("Mac-адрес точки доступа: "+wifiMacString);
-
-  /*
-  // Задаем режим программной точки доступа (soft-AP) для установления Wi-Fi-сети. 
-  // (то есть создаём собственную сеть Wi-Fi, а другие устройства (станции) могут 
-  // подсоединяться к ней без необходимости соединения с маршрутизатором. 
-
-  // Простая версия функции — WiFi.softAP(ssid) — используется для настройки открытой 
-  // Wi-Fi-сети. Чтобы задать сеть, защищённую паролем, или настроить дополнительные 
-  // параметры сети, используется вариант WiFi.softAP(ssid, password, channel, hidden). 
-  // Первый параметр обязателен: ssid — символьная строка, содержащая SSID сети (не более 63 символов);
-  // password — опциональная символьная строка для пароля. Для сети WPA-PSK её размер 
-  // должен быть не более 8 символов; channel — параметр для настройки WiFi-канала (от «1» до «13»). 
-  // Канал по умолчанию — «1»; hidden = true спрячет SSID.
-  
-  // По умолчанию IP-адресом настроенной программной точки доступа будет «192.168.4.1». 
-  // Его можно поменять при помощи функции softAPConfig. 
-  const char _soft_IP[] = "IP контроллера: ";
-  jprln("Контроллер устанавливает собственную точку доступа");
-  WiFi.softAP(ssidch3, passch3);
-  sprintf(softip, "%s", WiFi.softAPIP().toString().c_str());
-  Serial.print(_soft_IP); Serial.println(softip); 
-  */
 
   const char _localIP[] = "  Локальный IP: ";
   sayln("Контроллер подключается к локальной точке доступа");
@@ -260,7 +203,6 @@ bool init_wifi()
   // Важно: режим энергосбережения влияет на то, как драйвер Wi-Fi обрабатывает 
   // пакеты данных — при включённом режиме энергосбережения полученные данные могут 
   // быть задержаны на период, указанный в настройках DTIM. 
-  /*
   wifi_ps_type_t the_type;
   esp_err_t get_ps = esp_wifi_get_ps(&the_type);
   Serial.printf("Начальный режим энергосбережения: %d\n", the_type);
@@ -268,21 +210,19 @@ bool init_wifi()
   esp_err_t new_ps = esp_wifi_get_ps(&the_type);
   Serial.printf("-Текущий- режим энергосбережения: %d\n", the_type);
   //WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, brown_reg_temp);
-  */
   return true;
 }
+*/
 
 void setup() 
 {
   Serial.begin(115200);
   delay(3000);
-  Serial.println("\n\n---");
-  Serial.println("Arduino IDE 2.3.7 - Espressif ESP32 3.3.5");
-  Serial.println(" ");
-  // Выбираем и показываем версию ESP-IDF
-  String idfver = esp_get_idf_version();
-  Serial.println("Версия компилятора ESP:  "+idfver);
+  Serial.println("\n\n");
   Serial.println("---------------------------------------");
+  Serial.println("Arduino IDE 2.3.7 - Espressif ESP32 3.3.5");
+    String idfver = esp_get_idf_version();
+  Serial.println("ESP IDF: "+idfver);
   Serial.print("FrameStream "); Serial.println(vernum);
   Serial.println("---------------------------------------");
 
@@ -314,46 +254,29 @@ void setup()
     default  : sayln("Reset resaon"); break;
   }
   
-  /*
-  RTC_CNTL_BROWN_OUT_REG — регистр в микроконтроллере ESP32, который отключает защиту от пониженного напряжения (brownout). Этот регистр содержится в файле soc/rtc_cntl_reg.h. 
-stackoverflow.com
-iotespresso.com
-robmiles.com
-Принцип работы
-В ESP32 есть встроенный детектор brownout, который проверяет напряжение питания и сбрасывает процессор, если оно ниже определённого порога. Это сделано, чтобы сохранить содержимое памяти и избежать коррупции. 
-stackoverflow.com
-robmiles.com
-forum.arduino.cc
-Некоторые причины, по которым может срабатывать детектор:
-недостаточное питание (например, из-за плохого качества USB-кабеля или проблем с портом компьютера); 
-stackoverflow.com
-iotespresso.com
-внезапная высокая нагрузка (например, при включении питания для датчика, который потребляет много тока). 
-недостаточное питание (например, из-за плохого качества USB-кабеля или слишком длинного кабеля);
-проблемы с USB-портом компьютера, который не может обеспечить достаточно питания;
-неисправность ESP32;
-неправильная проводка компонентов в цепи, влияющая на питание.
-
-robmiles.com
-Сообщение «Brownout detector was triggered» в Serial Monitor появляется, когда детектор срабатывает. 
-iotespresso.com
-Настройка
-Чтобы отключить защиту от пониженного напряжения, нужно: 
-iotespresso.com
-Включить файлы: #include "soc/soc.h" и #include "soc/rtc_cntl_reg.h".
-В функции setup() добавить строку: WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0). 
-Это говорит ESP32 прекратить проверку на недостаточное питание и работать с тем, что есть.
- 
-iotespresso.com
-Важно: отключение защиты от пониженного напряжения может не устранить другие ошибки, например, «Guru Mediation…». Также в некоторых случаях детектор brownout не работает правильно в ранних версиях ESP32 — в этом случае нужно использовать версии, заканчивающиеся на «E» (например, ESP32-WROOM-32E). 
-iotespresso.com
-Рекомендуется: вместо отключения защиты от пониженного напряжения лучше использовать адекватный источник питания. 
-  */
+  /* 
+  RTC_CNTL_BROWN_OUT_REG — регистр в микроконтроллере ESP32, который отключает защиту от пониженного напряжения (brownout). 
+  Этот регистр содержится в файле soc/rtc_cntl_reg.h. Детектор brownout проверяет напряжение питания и сбрасывает процессор, 
+  если оно ниже определённого порога. Это сделано, чтобы сохранить содержимое памяти и избежать разрушения. 
+    Некоторые причины, по которым может срабатывать детектор:
+  недостаточное питание (например, из-за плохого качества USB-кабеля или проблем с портом компьютера); 
+  внезапная высокая нагрузка (например, при включении питания для датчика, который потребляет много тока); 
+  проблемы с USB-портом компьютера, который не может обеспечить достаточно питания;
+  неисправность ESP32;
+  неправильная проводка компонентов в цепи, влияющая на питание.
+  Сообщение «Brownout detector was triggered» в Serial Monitor появляется, когда детектор срабатывает. 
+    Настройка. Чтобы отключить защиту от пониженного напряжения, нужно: 
+  - включить файлы: #include "soc/soc.h" и #include "soc/rtc_cntl_reg.h".
+  - В функции setup() добавить строку: WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0). 
+  Это говорит ESP32 прекратить проверку на недостаточное питание и работать с тем, что есть.
+  Важно: отключение защиты от пониженного напряжения может не устранить другие ошибки, например, 
+  «Guru Mediation…». Также в некоторых случаях детектор brownout не работает правильно в ранних версиях ESP32 — 
+  в этом случае нужно использовать версии, заканчивающиеся на «E» (например, ESP32-WROOM-32E). 
+  Рекомендуется: вместо отключения защиты от пониженного напряжения лучше использовать адекватный источник питания. 
   //uint32_t brown_reg_temp = READ_PERI_REG(RTC_CNTL_BROWN_OUT_REG);
   //Serial.printf("Brownout was %d\n", brown_reg_temp);
   //WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);
-
-  
+  */
   
   // Инициализируем SD-карту
   if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
@@ -368,7 +291,7 @@ iotespresso.com
 
   // Запускаем продолжение нумерации файлов avi 
   // (или инициируем новую нумерацию)
-  //do_eprom_read();
+  do_eprom_read();
   
   /*
   // Выделяем память под рабочие буферы для хранения jpg в движении 
@@ -379,45 +302,52 @@ iotespresso.com
   fb_streaming =       (uint8_t*)ps_malloc(frame_buffer_size); 
   fb_capture =         (uint8_t*)ps_malloc(frame_buffer_size); 
   */
-  // Показываем состояние памяти 
-  saymem("MEM - после выделения памяти кадрам потока");
+  //saymem("MEM - после выделения памяти кадрам потока");
   // Подключаем WiFi
-  
-  //if (InternetOff) 
-  //{
-    saymem("MEM - перед подключением WiFi");
-    // Подключаем локальные WiFi и создаём одну свою от контроллера
-    init_wifi();
+  saymem("MEM - перед подключением WiFi");
+  init_wifi();
+  saymem("МЕМ - после запуска WiFi");
 
-    //jpr("---Filemanager в своей сети     - http://");
-    //Serial.print(WiFi.softAPIP()); logfile.print(WiFi.softAPIP());
-    //jprln(":%d/", filemanagerport);
-    /*
-    jpr("Адрес контроллера в локальной сети - http://");
-    Serial.print(WiFi.localIP()); logfile.print(WiFi.localIP());
-    jprln(":%d/", filemanagerport);
-    */
-    saymem("MEM - перед запуском Web-сервисов");
-    //startCameraServer();
-    //start_Stream_81_server();
-    //start_Stream_82_server();
-
-    //InternetOff = false;
-    //print_mem("МЕМ - после запуска WiFi                       ");
-  //}
-
-
-
-
-
-
-
-  // Объявляем мьютекс между задачами
+  // Объявляем мьютекс между задачами, который будет держать и передавать кадры камеры
   baton = xSemaphoreCreateMutex();
-
-
   sayln("Создаётся задача the_camera_loop на 0 ядре");
 
+  /*
+  Программное обеспечение в микропроцессоре ESP32 распределяется по ядрам (CPU0 и CPU1) 
+  с помощью встроенного программного обеспечения FreeRTOS — операционной системы реального времени. 
+  ESP32 — двухъядерный микроконтроллер, и задачи могут выполняться независимо на обоих ядрах. 
+    Пример распределения задач: 
+    Ядро 0 выполняет задачу loopCore0 — захват изображения и сетевое взаимодействие 
+  (кадры с камеры отправляются по HTTP, обмен данными — по WebSocket).
+    Ядро 1 занято задачей loopCore1 — навигацией и управлением (опрашивает датчики, 
+  фильтрует данные, вычисляет ошибки и корректирует движение).
+    Важно: по умолчанию код, загруженный в ESP32 с помощью Arduino IDE, выполняется только на ядре 1, 
+    поскольку ядро 0 уже запрограммировано для радиочастотной связи. 
+  При распределении задач по ядрам могут возникнуть, например:
+  - ошибка таймаута Watchdog — если код для задачи не содержит задержки (например, 
+  бесконечный цикл без задержки). Решение: добавить задержку (delay(1) или vTaskDelay(1));
+  - переполнение стека — если для задачи выделено мало стека. Решение: увеличить размер 
+  стека задачи или изменить большие массивы на динамическое выделение;
+  - конкуренция задач за таймер — если в обе задачи добавлены задержки (например, delay(1)), 
+  это может привести к перезапускам. Решение: использовать разные таймеры для каждой задачи;
+  - рекомендуется использовать неблокирующий подход, например, вместо функции delay() применять millis().
+  Она не останавливает программу, а возвращает количество миллисекунд, прошедших с момента запуска ESP32, 
+  что позволяет организовать выполнение задач по расписанию без блокировки основного цикла loop();
+  - нельзя блокировать задачу Idle. Она (приоритет 0) отвечает за очистку фона, поэтому не стоит блокировать 
+  её с помощью интенсивных циклов.  
+  https://www.teachmemicro.com/multitask-with-esp32-and-freertos/
+  https://www.iotsharing.com/2017/06/arduino-esp32-freertos-how-to-use-task-param-task-priority-task-handle.html
+  Задача Idle — это задача во FreeRTOS для ESP32, которая выполняется, когда другие задачи не готовы к выполнению. 
+  Idle создаются автоматически для каждого ядра процессора (называются «IDLE0» и «IDLE1»). 
+  Основная задача Idle - очистка памяти, выделенной ядром задачам, которые были удалены. 
+  */
+  
+  // Запускаем задачи
+  //saymem("MEM - перед запуском Web-сервисов");
+  //startCameraServer();
+  //start_Stream_81_server();
+  //start_Stream_82_server();
+ 
   /*
   xTaskCreatePinnedToCore(
     the_camera_loop,       // TaskFunction_t pvTaskCode          - имя функции, которая содержит код

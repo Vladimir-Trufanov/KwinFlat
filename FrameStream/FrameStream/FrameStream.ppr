@@ -27,20 +27,20 @@ FrameStream
 		inimem.h
 		sd.h
 		stream32.h
-		trass.h
+		hwifi.h
 [Open project files]
 0=FrameStream.ino
 1=inimem.h
 2=errors.txt
 3=camera.h
 4=CameraServer.h
-5=trass.h
+5=hwifi.h
 [Selected Project Files]
 Main=
-Selected=errors.txt
+Selected=FrameStream.ino
 [FrameStream.ino]
-TopLine=384
-Caret=5,407
+TopLine=50
+Caret=3,335
 [inimem.h]
 TopLine=77
 Caret=1,113
@@ -53,6 +53,6 @@ Caret=5,345
 [CameraServer.h]
 TopLine=1008
 Caret=5,1023
-[trass.h]
-TopLine=21
-Caret=1,1
+[hwifi.h]
+TopLine=4
+Caret=1,17
