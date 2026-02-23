@@ -25,13 +25,10 @@ static const char _hlocalIP[]="IP-адрес в локальной сети     
 */
 const word filemanagerport=8080;       // порт файлового менеджера
 char localip[20];                      // IP-адрес локальной сети
-time_t now;
 
 /*
 char softip[20];                       // IP-адрес собственной сети контроллера
 bool found_router = false;             // true - определена локальная сеть
-
-struct tm timeinfo;
 
 TaskHandle_t the_camera_loop_task;
 TaskHandle_t the_streaming_loop_task;

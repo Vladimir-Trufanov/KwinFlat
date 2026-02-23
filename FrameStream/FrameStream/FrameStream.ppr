@@ -37,9 +37,9 @@ FrameStream
 5=hwifi.h
 [Selected Project Files]
 Main=
-Selected=FrameStream.ino
+Selected=hwifi.h
 [FrameStream.ino]
-TopLine=50
+TopLine=297
 Caret=3,335
 [inimem.h]
 TopLine=77
@@ -54,5 +54,5 @@ Caret=5,345
 TopLine=1008
 Caret=5,1023
 [hwifi.h]
-TopLine=4
-Caret=1,17
+TopLine=5
+Caret=1,148

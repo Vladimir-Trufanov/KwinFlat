@@ -221,7 +221,7 @@ void setup()
   Serial.println("\n\n");
   Serial.println("---------------------------------------");
   Serial.println("Arduino IDE 2.3.7 - Espressif ESP32 3.3.5");
-    String idfver = esp_get_idf_version();
+  String idfver = esp_get_idf_version();
   Serial.println("ESP IDF: "+idfver);
   Serial.print("FrameStream "); Serial.println(vernum);
   Serial.println("---------------------------------------");
@@ -413,6 +413,7 @@ int loops = 0;
 void loop() 
 {
   loops++;
+  delay(1000);
   /*
   if (loops % 10000 == 17) / *Serial.printf("looooooooooooooooooooooooooooops %10d\n",loops)* /;
   //
