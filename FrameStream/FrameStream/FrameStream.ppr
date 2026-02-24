@@ -24,10 +24,11 @@ FrameStream
 		errors.txt
 		FrameStream.ino
 		FrameStream.ppr
+		hwifi.h
 		inimem.h
 		sd.h
 		stream32.h
-		hwifi.h
+		trass.h
 [Open project files]
 0=FrameStream.ino
 1=inimem.h
@@ -35,24 +36,28 @@ FrameStream
 3=camera.h
 4=CameraServer.h
 5=hwifi.h
+6=trass.h
 [Selected Project Files]
 Main=
 Selected=hwifi.h
 [FrameStream.ino]
-TopLine=297
-Caret=3,335
+TopLine=266
+Caret=1,290
 [inimem.h]
-TopLine=77
-Caret=1,113
+TopLine=5
+Caret=10,5
 [errors.txt]
 TopLine=34
 Caret=40,71
 [camera.h]
-TopLine=345
-Caret=5,345
+TopLine=400
+Caret=1,421
 [CameraServer.h]
 TopLine=1008
 Caret=5,1023
 [hwifi.h]
-TopLine=5
-Caret=1,148
+TopLine=41
+Caret=1,170
+[trass.h]
+TopLine=102
+Caret=1,102

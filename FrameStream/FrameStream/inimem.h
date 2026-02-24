@@ -2,7 +2,7 @@
  * 
  * FrameStream - объявить/проинициализировать общепрограммные переменные
  *                                                     
- * v1.0.6, 17.02.2026                                 Автор:      Труфанов В.Е.
+ * v2.1.0, 17.02.2026                                 Автор:      Труфанов В.Е.
  * Copyright © 2026 tve                               Дата создания: 24.01.2026
 **/
 
@@ -10,6 +10,18 @@
 
 #define idctrl   205                           // идентификатор контроллера
 #define namectrl "Esp32-CAM на дорогу к даче"  // тип контроллера и место размещения
+
+bool isLocalWiFi=false;     // true - контроллер подключился к локальной сети WiFi
+bool isSoftWiFi=false;      // true - контроллер создал свою собственную сеть WiFi
+bool isFastSD=false;        // true - подключена и работает SD-карта в быстром режиме
+bool isSD4=false;           // true - подключена и работает SD-карта через 4-контактную линию
+bool isSD1=false;           // true - подключена и работает SD-карта через 1-контактную линию
+bool isCamera=false;        // true - камера сконфигурирована и работает
+
+uint32_t errState=0;        // карта ошибочных состояний [4 294 967 295]
+#define errWiFi 1000000000  // проблема с WiFi
+#define errSD    100000000  // проблема с SD
+#define errCamera 10000000  // проблема с камерой
 
 /*
 #include "time.h"
@@ -23,8 +35,9 @@ File idxfile;  // файл указателей кадров
 static const char _hsoftIP[] ="IP-адрес своей сети контроллера - http://";
 static const char _hlocalIP[]="IP-адрес в локальной сети       - http://";
 */
-const word filemanagerport=8080;       // порт файлового менеджера
-char localip[20];                      // IP-адрес локальной сети
+
+//const word filemanagerport=8080;       // порт файлового менеджера
+//char localip[20];                      // IP-адрес локальной сети
 
 /*
 char softip[20];                       // IP-адрес собственной сети контроллера
@@ -83,8 +96,8 @@ int frame_interval  = 0;         // интервал между записями
 int speed_up_factor = 1;         // ускорение воспроизведения (1 - в режиме реального времени)
 int stream_delay    = 0;         // задержка между кадрами (интервал между потоковыми кадрами - ms)
 String TIMEZONE     = "MSK-3";   // часовой пояс для определения дат и времени в файлах
-String ssid         = "OPPO A9 2020";  // "TP-Link_B394" "tve-DESKTOP" "linksystve"
-String pass         = "b277a4ee84e8";  // "18009217"     "Ue18-647"    "x93k6kq6wf"
+String ssid         = "ssid";  
+String pass         = "pass";  
 
 // Резервируем место под имя устройства по названию камеры
 char devname[30];                 
@@ -108,5 +121,7 @@ long avi_end_time = 0;
 char avi_file_name[100];   // название записываемого файла *.avi
 */
 uint16_t frame_cnt = 0;    // общее количество кадров в файле
+
+
 
 // *************************************************************** inimem.h ***

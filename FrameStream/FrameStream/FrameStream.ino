@@ -5,7 +5,7 @@
 // видео через сокеты на сайт KwinFlat 
 
 // Copyright © 2026 tve                               Труфанов В.Е., 11.01.2026
-static const char vernum[]="v2.0.9, 21.02.2026";  
+static const char vernum[]="v2.1.0, 24.02.2026";  
 /** 
  * Arduino IDE 2.3.7 
  * Esp32 от Espressif Systems версии 3.3.5
@@ -61,10 +61,10 @@ WiFiEventId_t eventID;
 */
 
 #include "inimem.h"
+#include "hwifi.h"
 #include "sd.h"
 #include "camera.h"
 #include "eprom.h"
-#include "hwifi.h"
 #include "stream32.h"
 #include "CameraServer.h"
 
@@ -180,6 +180,13 @@ bool init_wifi()
     sayln("multicast DNS (mDNS) стартовал с именем '%s'", devname);
   }
 
+  /*
+12:56:58.974 -> [366612][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+12:57:01.399 -> [369029][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+12:57:03.821 -> [371446][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+12:57:06.258 -> [373863][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+12:57:08.666 -> [376281][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+  */
   eventID = WiFi.onEvent([](WiFiEvent_t event, WiFiEventInfo_t info) 
   {
     //  info.disconnected.reason ==>  info.wifi_sta_disconnected.reason - update with esp32_arduino 2.00 v58
@@ -188,28 +195,6 @@ bool init_wifi()
       //say( "\nframe_cnt: %8d, WiFi event Reason: %d , Status: %d\n", frame_cnt, info.wifi_sta_disconnected.reason, WiFi.status());
     }
   });
-
-  // Отключаем режим энергосбережения: 
-  // esp_wifi_get_ps — функция из API драйвера Wi-Fi для платы ESP32, которая получает 
-  // режим энергосбережения (sleep mode) Wi-Fi. 
-  // Функция входит в класс WiFi и возвращает значение типа wifi_ps_type_t. 
-  // Режим энергосбережения WiFi влияет на скорость соединения. Можно установить один из трёх режимов: 
-  // WIFI_PS_NONE — режим отключён; WIFI_PS_MIN_MODEM — минимальное энергосбережение; WIFI_PS_MAX_MODEM — максимальное энергосбережение.
-  // Функция позволяет системе автоматически просыпаться из сна, когда это требуется драйвером Wi-Fi, 
-  // и поддерживать соединение с точкой доступа (AP). 
-  // Функция esp_wifi_get_ps вызывается в коде приложения, когда нужно получить текущий 
-  // режим энергосбережения Wi-Fi. Например, в функции, которая управляет работой Wi-Fi, 
-  // можно вызвать WiFi.getSleep() — она вернёт значение типа wifi_ps_type_t.
-  // Важно: режим энергосбережения влияет на то, как драйвер Wi-Fi обрабатывает 
-  // пакеты данных — при включённом режиме энергосбережения полученные данные могут 
-  // быть задержаны на период, указанный в настройках DTIM. 
-  wifi_ps_type_t the_type;
-  esp_err_t get_ps = esp_wifi_get_ps(&the_type);
-  Serial.printf("Начальный режим энергосбережения: %d\n", the_type);
-  esp_err_t set_ps = esp_wifi_set_ps(WIFI_PS_NONE);
-  esp_err_t new_ps = esp_wifi_get_ps(&the_type);
-  Serial.printf("-Текущий- режим энергосбережения: %d\n", the_type);
-  //WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, brown_reg_temp);
   return true;
 }
 */
@@ -230,11 +215,8 @@ void setup()
   digitalWrite(33, LOW);            // turn on the red LED on the back of chip
   pinMode(4, OUTPUT);               // Blinding Disk-Avtive Light
   digitalWrite(4, LOW);             // turn off
-  //pinMode(12, INPUT_PULLUP);        // pull this down to stop recording
-  //pinMode(13, INPUT_PULLUP);        // pull this down switch wifi
+  //pinMode(16, INPUT_PULLUP);      // контакт датчика движения
 
-  // Показываем состояние памяти 
-  saymem("MEM - В начале SETUP");
   // Определяем и показываем причину последнего сброса (reset reason). 
   esp_reset_reason_t reason = esp_reset_reason();
   say("Причина перезагрузки: ");
@@ -251,8 +233,13 @@ void setup()
     case ESP_RST_DEEPSLEEP : sayln("ESP_RST_DEEPSLEEP");  break;
     case ESP_RST_BROWNOUT : sayln("ESP_RST_BROWNOUT");  break;
     case ESP_RST_SDIO : sayln("ESP_RST_SDIO");  break;
-    default  : sayln("Reset resaon"); break;
+    default  : sayln("не определена!"); break;
   }
+  // Показываем состояние памяти 
+  say("PSRAM - псевдооперативная память ");
+  if (psramFound()) sayln("доступна");
+  else say("ОТКЛЮЧЕНА или ОТСУТСТВУЕТ");
+  saymem("MEM - В начале SETUP");
   
   /* 
   RTC_CNTL_BROWN_OUT_REG — регистр в микроконтроллере ESP32, который отключает защиту от пониженного напряжения (brownout). 
@@ -278,20 +265,30 @@ void setup()
   //WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);
   */
   
+  // Подключаем WiFi
+  saymem("MEM - перед подключением WiFi");
+  iniLocalWiFi();
+  if (!isLocalWiFi) 
+  {
+  }
+  iniWiFiPsNone(); // отключили режим энергосбережения 
+  saymem("МЕМ - после подключения к WiFi");
+
+
+
+
   // Инициализируем SD-карту
-  if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
+  //if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
   // Если неудача, то перезагружаем контроллер
-  else blinkRestart();
-  // Показываем установленные настройки камеры и видео
-  saycamconf(); 
+  //else blinkRestart();
   // Конфигурируем камеру и если неудача, то перезагружаем контроллер
-  if (!config_camera()) blinkRestart();
+  //if (!config_camera()) blinkRestart();
   // По имени камеры назначаем имя устройства 
-  cname.toCharArray(devname,cname.length()+1);
+  //cname.toCharArray(devname,cname.length()+1);
 
   // Запускаем продолжение нумерации файлов avi 
   // (или инициируем новую нумерацию)
-  do_eprom_read();
+  //do_eprom_read();
   
   /*
   // Выделяем память под рабочие буферы для хранения jpg в движении 
@@ -303,10 +300,6 @@ void setup()
   fb_capture =         (uint8_t*)ps_malloc(frame_buffer_size); 
   */
   //saymem("MEM - после выделения памяти кадрам потока");
-  // Подключаем WiFi
-  saymem("MEM - перед подключением WiFi");
-  init_wifi();
-  saymem("МЕМ - после запуска WiFi");
 
   // Объявляем мьютекс между задачами, который будет держать и передавать кадры камеры
   baton = xSemaphoreCreateMutex();
@@ -396,8 +389,12 @@ void setup()
   const char *strdate = ctime(&now);
   //logfile.println(strdate);
   digitalWrite(33, HIGH);         // red light turns off when setup is complete
-  print_mem("МЕМ - после завершения setup                   ");
   */
+
+  // Показываем установленные настройки камеры и видео
+  sayconfig(); 
+
+  saymem("МЕМ - после завершения setup");
 }
 
 /*
@@ -413,7 +410,7 @@ int loops = 0;
 void loop() 
 {
   loops++;
-  delay(1000);
+  delay(10);
   /*
   if (loops % 10000 == 17) / *Serial.printf("looooooooooooooooooooooooooooops %10d\n",loops)* /;
   //
