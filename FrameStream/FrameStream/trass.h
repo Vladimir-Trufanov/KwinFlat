@@ -225,6 +225,13 @@ void sayconfig()
   say("Интервал между кадрами в потоке (ms) %d\n",      stream_delay);
   say("TIMEZONE                             %d, %s\n",  TIMEZONE.length(), TIMEZONE.c_str());
   say("Сеть WiFi                            %s\n",      ssid);
+  say("Тип карты SD_MMC                     "); 
+  if (ncardType == 1)                       sayln("MMC");      
+  else if (ncardType == 2)                  sayln("SDSC"); 
+  else if (ncardType == 3)                  sayln("SDHC");
+  else if (ncardType == 4)                  sayln("неопределён");
+  else                                      sayln("карта не подключена");
+  say("Ёмкость SD_MMC-карты                 %llu MB\n", cardSize);
 }
 
 // **************************************************************** trass.h ***

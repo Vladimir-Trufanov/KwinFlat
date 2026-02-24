@@ -9,7 +9,7 @@
 #pragma once   
 
 #include "WiFi.h"
-// Обеспечиваем режим энергосбережения
+// Обслуживаем режим энергосбережения
 #include "esp_wifi.h" 
 // Подключаем библиотеку для связи с сервером SNTP, которая является 
 // библиотекой ядра ESP32 по умолчанию и не требуют установки
@@ -25,6 +25,28 @@ time_t now;
 // Создаем структуру времени timeinfo в которую будем вкладывать
 // выбранное и преобразованное время в секундах с начала эпохи
 struct tm timeinfo;
+
+// ****************************************************************************
+// *      Обеспечить заглушку через макрос на событие с WiFi=201, когда не    *
+// *                 удаётся подключиться к локальной сети                    *
+// ****************************************************************************
+// По настройке в IDE "Core Debug Level: Error", выводим только ошибки,
+// сообщения "Reason: 201 - NO_AP_FOUND" зажимаем в обработке события  WiFi.onEvent:
+/*
+12:56:58.974 -> [366612][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+12:57:01.399 -> [369029][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+12:57:03.821 -> [371446][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ESP 32 Arduino: Получение информации о событиях Wi-Fi](https://techtutorialsx.wordpress.com/2019/08/15/esp32-arduino-getting-wifi-event-information/)
+[tools/sdk/include/esp32/esp_event_legacy.h](https://github.com/espressif/arduino-esp32/blob/04963009eedfbc1e0ea2e1378ae69e7cebda6fd6/tools/sdk/include/esp32/esp_event_legacy.h#L56)
+[libraries/WiFi/src/WiFiType.h](https://github.com/espressif/arduino-esp32/blob/a59eafbc9dfa3ce818c110f996eebf68d755be24/libraries/WiFi/src/WiFiType.h#L35)
+*/
+#define onEventWiFi();                                                                       \
+  eventID = WiFi.onEvent([](WiFiEvent_t event, WiFiEventInfo_t info)                         \ 
+  {                                                                                          \
+    if (info.wifi_sta_disconnected.reason == 201) {}                                         \
+    else if (info.wifi_sta_disconnected.reason == 64) {}                                     \
+    else sayln("info.wifi_sta_disconnected.reason =  %d",info.wifi_sta_disconnected.reason); \
+  });
 
 // ****************************************************************************
 // *      Подключить ESP32 к указанной сети Wi-Fi (непрерывно проверять       *

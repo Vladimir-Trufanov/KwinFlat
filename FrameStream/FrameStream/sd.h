@@ -2,7 +2,7 @@
  * 
  *                                                 Обслужить работу с SD-картой
  *                                                     
- * v1.0.3, 21.02.2026                                 Автор:      Труфанов В.Е.
+ * v1.0.4, 24.02.2026                                 Автор:      Труфанов В.Е.
  * Copyright © 2026 tve                               Дата создания: 24.01.2026
 **/
 
@@ -38,27 +38,32 @@ struct oneframe {
 */
 
 // ****************************************************************************
-// *                       Инициализировать SD-карту                          *
+// *                                                Инициализировать SD-карту *
+// *  CARD_NONE — карта не подключена;                                        *
+// *  CARD_MMC  — карта MMC;                                                  *
+// *  CARD_SD   — карта SDSC;                                                 *
+// *  CARD_SDHC — карта SDHC.                                                 *
 // ****************************************************************************
 static bool init_sdcard()
 {
+  ncardType=0;  // тип карты SD_MMC для инфо.сообщения
   bool Result=true;
   int succ = SD_MMC.begin("/sdcard", true, false, BOARD_MAX_SDMMC_FREQ, 7);
   if (succ) 
   {
     sayln("SD_MMC инициализирована успешно");
     uint8_t cardType = SD_MMC.cardType();
-    say("Тип карты SD_MMC: ");
-    if      (cardType == CARD_MMC)  sayln("MMC");
-    else if (cardType == CARD_SD)   sayln("SDSC");
-    else if (cardType == CARD_SDHC) sayln("SDHC");
-    else sayln("неопределена");
-    uint64_t cardSize = SD_MMC.cardSize() / (1024 * 1024);
-    sayln("Ёмкость SD_MMC-карты: %llu MB\n", cardSize);
+    cardSize = SD_MMC.cardSize() / (1024 * 1024);
+    if (cardType == CARD_MMC)  ncardType=1;         // "MMC"
+    else if (cardType == CARD_SD) ncardType=2;      // "SDSC"
+    else if (cardType == CARD_SDHC) ncardType=3;    // "SDHC"
+    else ncardType=4;                               // "неопределён"
   } 
   else 
   {
     sayln("Ошибка инициализации SD-карты на файловой системе VFAT\n");
+    ncardType = 5;                                  // "карта не подключена"
+    cardSize = 0;
     Result=false;
   }
   return Result;

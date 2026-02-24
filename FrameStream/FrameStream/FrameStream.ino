@@ -15,11 +15,11 @@ static const char vernum[]="v2.1.0, 24.02.2026";
  * Flash Mode:        "QIO"
 **/
 
-/*
 #include "WiFi.h"
+WiFiEventId_t eventID;      
+/*
 #include <WiFiMulti.h>
 WiFiMulti jMulti;
-WiFiEventId_t eventID;      
 #include "ESPmDNS.h"
 #include "esp_wifi.h" 
 */ 
@@ -180,13 +180,6 @@ bool init_wifi()
     sayln("multicast DNS (mDNS) стартовал с именем '%s'", devname);
   }
 
-  /*
-12:56:58.974 -> [366612][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
-12:57:01.399 -> [369029][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
-12:57:03.821 -> [371446][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
-12:57:06.258 -> [373863][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
-12:57:08.666 -> [376281][W][STA.cpp:137] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
-  */
   eventID = WiFi.onEvent([](WiFiEvent_t event, WiFiEventInfo_t info) 
   {
     //  info.disconnected.reason ==>  info.wifi_sta_disconnected.reason - update with esp32_arduino 2.00 v58
@@ -270,17 +263,14 @@ void setup()
   iniLocalWiFi();
   if (!isLocalWiFi) 
   {
+    onEventWiFi();   // включили заглушку на событие с WiFi=201
   }
-  iniWiFiPsNone(); // отключили режим энергосбережения 
+  iniWiFiPsNone();   // отключили режим энергосбережения 
   saymem("МЕМ - после подключения к WiFi");
-
-
-
-
   // Инициализируем SD-карту
-  //if (init_sdcard()) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
-  // Если неудача, то перезагружаем контроллер
-  //else blinkRestart();
+  isSD=init_sdcard();
+  if (isSD) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
+
   // Конфигурируем камеру и если неудача, то перезагружаем контроллер
   //if (!config_camera()) blinkRestart();
   // По имени камеры назначаем имя устройства 
