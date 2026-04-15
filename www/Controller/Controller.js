@@ -80,16 +80,13 @@ function SendRequestState(url)
     if (status === 200) 
     {
       // При необходимости трассируем ответ страницы State
-      // console.log('response'); 
-      console.log(response); 
-      /*
+      console.log('response',response); 
       let lStateJson=isStateJson(response);
       if (!lStateJson)
       {
         console.error("Неправильный ответ, ошибка в коде станицы State:"); 
         console.error(response); 
       }
-      */
     } 
     else 
     { 

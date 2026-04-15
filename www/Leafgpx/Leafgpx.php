@@ -11,7 +11,8 @@
 define ("tve",    "tve"); 
 define ("guest",  "гость"); 
 define ("nearby", "близкие"); 
-define ("permit", guest); 
+//define ("permit", guest); 
+define ("permit", tve); 
 
 // Определяем начальную точку центрирования карты
 // - при загрузке gpx карта разместится по путевым точкам;
