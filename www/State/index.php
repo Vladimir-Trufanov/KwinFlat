@@ -149,7 +149,7 @@ else
       else if ($num==5) 
       {
         require_once 'num5_GPXtrkpt.php';
-        $messa=GPXtrkpt($ctrl,$sjson); 
+        $messa=GPXtrkpt($Kvizzy,$pdo,$ctrl,$sjson); 
       }
       // Включаем в ответ сообщение, если не все хорошо
       echo '{"messa":"'.$messa.'"}';    

@@ -5,7 +5,7 @@
 // ****************************************************************************
 // * KwinFlat/TTools                  Построитель базы данных моего хозяйства *
 // *                                                                          *
-// * v4.4.6, 15.12.2025                            Автор:       Труфанов В.Е. *
+// * v4.4.7, 15.04.2026                            Автор:       Труфанов В.Е. *
 // * Copyright © 2024 tve                          Дата создания:  03.11.2024 *
 // ****************************************************************************
 
@@ -21,6 +21,7 @@ require_once("CommonLeadMaker.php");
 // --- SelLead($pdo,$action);                                       - Выбрать управляющее выражение: $action=-1, текущего режима работы вспышки; $action=-2, интервалов подачи сообщений от контроллера 
 require_once("CommonStateMaker.php"); 
 // SelectLastMess($pdo);                                            - Выбрать запись из таблицы последнего полученного json-сообщения  
+// InsertTrkpt($pdo,$idctrl,$time,$lat,$lon,$color,$ele);           - Вставить данные по точке трека  
 // SelectNumCtrl($pdo,$idctrl,$num);                                - Выбрать последнее сообщение заданного типа от указанного контроллера  
 // UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson); - Обновить запись в таблице последнего полученного json-сообщения
 // UpdateNumCtrl($pdo,$idctrl,$num,$sjson);                         - Обновить последние сообщения каждого типа, то есть по номеру, от каждого контроллера                      *
@@ -121,6 +122,12 @@ class KvizzyMaker
    public function UpdateNumCtrl($pdo,$idctrl,$num,$sjson)           
    {
       $messa=_UpdateNumCtrl($pdo,$idctrl,$num,$sjson); 
+      return $messa;
+   }
+   // Вставить данные по точке трека 
+   public function InsertTrkpt($pdo,$idctrl,$time,$lat,$lon,$color,$ele)           
+   {
+      $messa=_InsertTrkpt($pdo,$idctrl,$time,$lat,$lon,$color,$ele);  
       return $messa;
    }
    // Записать в базу данных изменение управляющего элемента изображения   

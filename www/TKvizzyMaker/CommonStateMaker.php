@@ -6,11 +6,12 @@
 // * KwinFlat/State                    Блок общих функций класса TKvizzyMaker *
 // *                            для базы данных json-сообщений страницы State *
 // *                                                                          *
-// * v4.4.10, 13.04.2026                           Автор:       Труфанов В.Е. *
+// * v4.4.11, 15.04.2026                           Автор:       Труфанов В.Е. *
 // * Copyright © 2025 tve                          Дата создания:  07.01.2025 *
 // ****************************************************************************
 
 // _CreateStateTables($pdo);                                          - Создать таблицы базы данных State
+// _InsertTrkpt($pdo,$idctrl,$time,$lat,$lon,$color,$ele);            - Вставить данные по точке трека  
 // _SelectLastMess($pdo);                                             - Выбрать запись из таблицы последнего полученного json-сообщения  
 // _SelectNumCtrl($pdo,$idctrl,$num);                                 - Выбрать последнее сообщение заданного типа от указанного контроллера
 // _UpdateLastMess($pdo,$myTime,$myDate,$idctrl,$num,$cycle,$sjson);  - Обновить запись в таблице последнего полученного json-сообщения  
@@ -219,6 +220,38 @@ function _CreateStateTables($pdo)
    // Создаем индекс по контроллеру и времени точки
    $sql='CREATE INDEX IF NOT EXISTS iCtrlTime ON Tracks (idctrl,time)'; 
    $st = $pdo->query($sql);
+}
+// ****************************************************************************
+// *                       Вставить данные по точке трека                     *
+// ****************************************************************************
+function _InsertTrkpt($pdo,$idctrl,$time,$lat,$lon,$color,$ele)
+{
+   try 
+   {
+      $pdo->beginTransaction();
+      // Формируем запрос по добавлению записи
+      $statement = $pdo->prepare("INSERT INTO [Tracks] ".
+        "([idctrl],[time],[lat],[lon],[color],[ele]) VALUES ".
+        "(:idctrl, :time, :lat, :lon, :color, :ele);");
+      // Добавляем запись
+      $statement->execute([
+        "idctrl" => $idctrl,
+        "time"   => $time,
+        "lat"    => $lat,
+        "lon"    => $lon,
+        "color"  => $color,
+        "ele"    => $ele,
+      ]);
+      $pdo->commit();
+      $messa='Ok';
+   } 
+   catch (Exception $e) 
+   {
+      $messa=$e->getMessage();
+      // Если в транзакции, то делаем откат изменений
+      if ($pdo->inTransaction()) $pdo->rollback();
+   }
+   return $messa;
 }
 // ****************************************************************************
 // *         Выбрать управляющие значения экрана и показания датчиков         *
