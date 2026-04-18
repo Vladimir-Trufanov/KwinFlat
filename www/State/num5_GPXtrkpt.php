@@ -18,8 +18,8 @@ function GPXtrkpt($Kvizzy,$pdo,$ctrl,$sjson)
   $messa='Ok';
   $obj = json_decode($sjson,true);
   // Выбираем значения из $sjson
-  $lat = $obj['trkpt']['lat'];
-  $lon = $obj['trkpt']['lon'];
+  $lat = $obj['trkpt']['lat']/1000000;
+  $lon = $obj['trkpt']['lon']/1000000;
   $color = $obj['trkpt']['color'];
   // Формируем дополнительные значения
   $ele=0;
@@ -27,8 +27,8 @@ function GPXtrkpt($Kvizzy,$pdo,$ctrl,$sjson)
   //$time = date('Y-m-dTH:i:sZ'); // Получает текущую дату и время в формате YYYY-MM-DDTHH:MM:SSZ
   $time = date('Y-m-d').'T'.date('H:i:s').'Z'; // Получает текущую дату и время в формате YYYY-MM-DDTHH:MM:SSZ
   // При отладке трассируем ответ
-  // $messa=$lat;    // {"messa":"61916308"}
-  // $messa=$lon;    // {"messa":"32929247"}
+  // $messa=$lat;    // {"messa":"61.916308"}
+  // $messa=$lon;    // {"messa":"32.929247"}
   // $messa=$color;  // {"messa":"yellow"}
   // $messa=$time;   // {"messa":"2026-04-15T16:58:01Z"}
   // Записываем точку трека в базу данных 

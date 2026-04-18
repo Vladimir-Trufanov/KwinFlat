@@ -84,7 +84,7 @@ KwinFlat
 			favicon260x260\favicon-32x32.png
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
-		-gpx
+		+gpx
 			-fil
 				gpx\fil\gtrack204.gpx
 			-js
@@ -254,11 +254,9 @@ KwinFlat
 3=State\index.php
 4=State\State.js
 5=State\num5_GPXtrkpt.php
-6=..\wwwRes\State40\index.php
-7=TKvizzyMaker\CommonStateMaker.php
 [Selected Project Files]
 Main=
-Selected=TKvizzyMaker\CommonStateMaker.php
+Selected=State\num5_GPXtrkpt.php
 [index.php]
 TopLine=2
 Caret=1,2
@@ -276,10 +274,4 @@ TopLine=60
 Caret=9,99
 [State\num5_GPXtrkpt.php]
 TopLine=4
-Caret=27,16
-[..\wwwRes\State40\index.php]
-TopLine=36
-Caret=1,1
-[TKvizzyMaker\CommonStateMaker.php]
-TopLine=221
-Caret=54,233
+Caret=29,33
