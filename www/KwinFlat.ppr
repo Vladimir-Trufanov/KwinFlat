@@ -87,6 +87,10 @@ KwinFlat
 		+gpx
 			-fil
 				gpx\fil\gtrack204.gpx
+			+g203
+				gpx\g203\track204.gpx
+			-g204
+				gpx\g204\demo_mpetazzoni.gpx
 			-js
 				-images
 					gpx\js\images\DirFlag47x47.png
@@ -114,12 +118,10 @@ KwinFlat
 				gpx\js\leaflet171.js
 				gpx\js\leaflet194.css
 				gpx\js\leaflet194.js
-			gpx\demo_mpetazzoni.gpx
 			gpx\gtrack204.gpx
 			gpx\mp20230923First.gpx
 			gpx\mp204.gpx
 			gpx\track20250810First.gpx
-			gpx\track204.gpx
 		-htaccess
 			htaccess\.htaccess
 		-Images
@@ -198,8 +200,7 @@ KwinFlat
 			SmartMenus\sm-core-css.css
 			SmartMenus\sm-kwinflat-desktop.css
 			SmartMenus\sm-kwinflat-mobi.css
-		+State
-			State\fili.txt
+		-State
 			State\index.php
 			State\num3_DHT11.php
 			State\num5_GPXtrkpt.php
@@ -207,7 +208,7 @@ KwinFlat
 		-Stream40
 			Stream40\index.php
 			Stream40\Stream40BODY.php
-		+TKvizzyMaker
+		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -253,10 +254,11 @@ KwinFlat
 2=Controller\Controller.js
 3=State\index.php
 4=State\State.js
-5=State\num5_GPXtrkpt.php
+5=Leafgpx\index.php
+6=Leafgpx\Leafgpx.php
 [Selected Project Files]
 Main=
-Selected=State\num5_GPXtrkpt.php
+Selected=Leafgpx\Leafgpx.php
 [index.php]
 TopLine=2
 Caret=1,2
@@ -272,6 +274,9 @@ Caret=33,152
 [State\State.js]
 TopLine=60
 Caret=9,99
-[State\num5_GPXtrkpt.php]
-TopLine=4
-Caret=29,33
+[Leafgpx\index.php]
+TopLine=104
+Caret=1,1
+[Leafgpx\Leafgpx.php]
+TopLine=33
+Caret=1,59
