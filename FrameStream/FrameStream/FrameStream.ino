@@ -272,13 +272,13 @@ void setup()
   if (isSD) logfile = SD_MMC.open("/boot.txt", FILE_WRITE);
 
   // Конфигурируем камеру и если неудача, то перезагружаем контроллер
-  //if (!config_camera()) blinkRestart();
+  if (!config_camera()) blinkRestart();
   // По имени камеры назначаем имя устройства 
-  //cname.toCharArray(devname,cname.length()+1);
+  cname.toCharArray(devname,cname.length()+1);
 
   // Запускаем продолжение нумерации файлов avi 
   // (или инициируем новую нумерацию)
-  //do_eprom_read();
+  do_eprom_read();
   
   /*
   // Выделяем память под рабочие буферы для хранения jpg в движении 
@@ -326,7 +326,7 @@ void setup()
   */
   
   // Запускаем задачи
-  //saymem("MEM - перед запуском Web-сервисов");
+  saymem("MEM - перед запуском Web-сервисов");
   //startCameraServer();
   //start_Stream_81_server();
   //start_Stream_82_server();
