@@ -86,15 +86,37 @@ $pdo=$Kvizzy->BaseConnect();
 
 // Определяем данные для работы с базой данных моего хозяйства 
 
-//$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note); 
-// Меняем кукис ориентации устройства 
-$c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr,true);             // ориентация устройства
-if (IsSet($_GET["orient"]))
+//$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note);
+
+*/
+
+// Определяем ориентации устройства 
+define ("oriLandscape", 'landscape'); // ландшафтное расположение устройства
+define ("oriPortrait",  'portrait');  // портретное расположение устройства
+require_once pathPhpPrown."/MakeCookie.php";
+if ($SiteDevice=='Mobile') 
 {
-   if ($_GET["orient"]==oriLandscape) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
-   if ($_GET["orient"]==oriPortrait)  $c_Orient=prown\MakeCookie('Orient',oriPortrait,tStr); 
-   if ($SiteDevice==Computer) $c_Orient=prown\MakeCookie('Orient',oriLandscape,tStr); 
+  // Если кукиса в БРАУЗЕРЕ УСТРОЙСТВА нет, то устанавливаем $c_Orient и кукис 'сOrient'
+  // в первоначальную ориентацию - портретную
+  $c_Orient=prown\MakeCookie('cOrient',oriPortrait,tStr,true);  
+  // Если передан параметр ориентации, то переустанавливаем $c_Orient и кукис по параметру 
+  if (IsSet($_GET["orient"]))
+  {
+    if ($_GET["orient"]==oriLandscape) $c_Orient=prown\MakeCookie('cOrient',oriLandscape,tStr); 
+    if ($_GET["orient"]==oriPortrait)  $c_Orient=prown\MakeCookie('cOrient',oriPortrait,tStr); 
+  }
+  // Если параметр не передавался, то по умолчанию задаем для смартфона портретт
+  else
+  {
+    $c_Orient=prown\MakeCookie('cOrient',oriPortrait,tStr);
+  }
 }
+else                       
+{
+  $c_Orient=prown\MakeCookie('cOrient',oriLandscape,tStr);
+}      
+
+/*
 //Moditap(moditap,$c_UserName,$c_PersName);
 // Инициализируем настройки, далее они могут быть изменены
 //$c_PresMode=prown\MakeCookie('PresMode',rpmOneRight,tStr,true);         // режим представления материалов
@@ -126,7 +148,7 @@ $browseri = get_browser(null, true);
 $platform = $browseri['platform'];
 $browser = $browseri['browser'];
 $version = $browseri['version'];
-$device_type = $browseri['device_type'];
+$device_type = $browseri['device_type']; // может было можно использовать $SiteDevice
 // При запросе через $UserAgent=ESP32HTTPClient
 if ($UserAgent=='ESP32HTTPClient') $platform=$UserAgent;
 

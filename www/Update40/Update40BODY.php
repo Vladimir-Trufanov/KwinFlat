@@ -32,12 +32,12 @@ echo '<div id="Left">';
    echo '<div id="Footer">';
       echo '<div id="FooterTop">';
       echo '<pre>';
-      echo 'www.probatv.ru = '.gethostbyname('www.probatv.ru').'<BR>';
+      echo '$Orient        = '.$c_Orient.'<BR>';
+      echo '$device_type   = '.$device_type.'<BR>';
       echo '$browser       = '.$browser.'<BR>';
       echo '$version       = '.$version.'<BR>';
       echo '$platform      = '.$platform.'<BR>';
-      echo '$device_type   = '.$device_type.'<BR>';
-      echo '<BR>';
+      echo 'www.probatv.ru = '.gethostbyname('www.probatv.ru').'<BR>';
       echo '$mes_wpt       = '.$mes_wpt.'<BR>';
       echo '</pre>';
       echo '</div>';    // id="FooterTop"

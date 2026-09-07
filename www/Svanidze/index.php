@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Untitled</title>
+  <title>Ручей Сванидзе</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -107,6 +107,11 @@
 <h4 id="каньон-ручья-сванидзе"><a href="https://nunataka.ru/odnodnevnye-poxody/kanion_ruchia_svanidze/?ysclid=mtbn4u2816357270591">Каньон ручья Сванидзе</a></h4>
 <h4 id="речь-о-ручье-сванидзе"><a href="https://vk.ru/wall-65121368_99497?ysclid=mtbn8km647714999381">Речь о ручье Сванидзе</a></h4>
 <h4 id="поход-по-экотропе-ажек-в-сочи"><a href="https://dzen.ru/a/aeYWJ4A4vlNlQZNX">Поход по экотропе “Ажек” в Сочи</a></h4>
+<h3>Геокэшинг на Водопадах Сванидзе</h3>
+<h4> <a href="pritokpritokasochi.pdf">Приток притока реки Сочи</a></h4>
+<h4> <a href="orehovskijvodopad.pdf">Ореховский водопад</a></h4>
+<h4> <a href="hramagua.pdf">Храм Агуа 11 век</a></h4>
+
 </body>
 </html>
 

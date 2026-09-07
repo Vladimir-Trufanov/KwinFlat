@@ -5,7 +5,7 @@
 // *  KwinFlat                                         KwinFlat-близкий всем! *
 // ****************************************************************************
 
-// v4.0.2, 19.04.2025                                 Автор:      Труфанов В.Е.
+// v4.0.3, 06.09.2026                                 Автор:      Труфанов В.Е.
 // Copyright © 2016 tve                               Дата создания: 14.08.2016
 
 // task=NULL     - ознакомление гостя с умным хозяйством [Meet40]
@@ -67,6 +67,11 @@ try
    // и пользователей, подключаем персональные стили для настольных и мобильных 
    // версий страниц сайта
    echo "<head>";
+   // Обобщаем мобильную версию сайта
+   if ($SiteDevice=='Mobile')
+   {
+      echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+   }
    // Добавляем мета-тег для яндекс-вебмастера
    echo "<meta name=\"yandex-verification\" content=\"b2eb9e02a692ce99\" />";
    // Выводим данные о favicon
@@ -89,42 +94,31 @@ try
    ';
    // Определяем общие стили
    echo '<link href="/Home.css" rel="stylesheet">';
-   // Обобщаем мобильную версию сайта
-   if ($SiteDevice=='Mobile')
-   {
-      echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-   }
 
    // Подключаем SmartMenus
    echo '<script src="SmartMenus/jquery.smartmenus.min.js"></script>';
    echo '<script src="SmartMenus/MakeSmartMenu.js"></script>';
    echo '<link rel="stylesheet" href="SmartMenus/sm-core-css.css">';
-   echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat-desktop.css">';
-   //echo '<link rel="stylesheet" href="/SmartMenus/sm-kwinflat-mobi.css">';
 
-   /*
    // Делаем страницу для смартфона
-   if ($SiteDevice==Mobile) 
+   if ($SiteDevice=='Mobile') 
    {   
      //echo '<script>alert("Mobile");</script>';
-     echo '<link href="Styles/MobiStyles.css" rel="stylesheet">';
      echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat-mobi.css">';
    }
    // Делаем страницу для компьютера
    else 
    {   
-     echo '<link href="Styles/Styles.css" rel="stylesheet">';
-     echo '<link href="Styles/ApiPogoda.css" rel="stylesheet">';
-     echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat.css">';
+     echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat-desktop.css">';
    }
-   */
+   
    //
    if ($task=='Update40') require_once 'Update40/Update40HEAD.php';
    else require_once 'Meet40/Meet40HEAD.php';
    echo "</head>";
    // ---------------------------------------------------------------- BODY ---
    // Разбираем параметры запроса, запускаем общую оболочку и страницы сайта
-   echo '<body>'; 
+   echo "\n".'<body>'; 
    
    // 1.
    if ($task=='Update40') require_once 'Update40/Update40BODY.php';

@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Untitled</title>
+  <title>Тропа «Путь тритона»</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -71,6 +71,7 @@
 <li>Перепад высот: набор — 86 м, сброс — 735 м.</li>
 <li>Сложность: умеренная.</li>
 </ul>
+<h4 id="паспорт-тропы"><a href="Pasport_Tropa_Tritona.pdf">Паспорт тропы</a></h4>
 <h4 id="несколько-важных-нюансов">Несколько важных нюансов</h4>
 <ul>
 <li>Тропа промаркирована указателями.</li>
