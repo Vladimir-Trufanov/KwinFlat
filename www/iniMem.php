@@ -5,11 +5,14 @@
 // * kwinflat.ru             Подключить общесайтовые определения и переменные *
 // ****************************************************************************
 
-// v4.0.2, 23.04.2025 9f703858-3bcf-46fb-847f-798ac6dc1798 Автор: Труфанов В.Е. 
+// v4.0.3, 08.09.2026 9f703858-3bcf-46fb-847f-798ac6dc1798 Автор: Труфанов В.Е. 
 // Copyright © 2025 tve      sla6en9edged          Дата создания:    13.01.2025 
 
-// Подключаем блок общесайтовых функций
 require_once "Common.php";  
+// Подключаем контроль ориентации 
+require_once "iniOrient.php";  
+// Определяем ориентацию устройства 
+$c_Orient=setOrient($SiteDevice);
 
 /*
 define ("RootDir",      $_SERVER['DOCUMENT_ROOT']); 
@@ -90,6 +93,10 @@ $pdo=$Kvizzy->BaseConnect();
 
 */
 
+// Определяем ориентацию устройства 
+//$c_Orient=setOrient($SiteDevice);
+
+/*
 // Определяем ориентации устройства 
 define ("oriLandscape", 'landscape'); // ландшафтное расположение устройства
 define ("oriPortrait",  'portrait');  // портретное расположение устройства
@@ -115,6 +122,7 @@ else
 {
   $c_Orient=prown\MakeCookie('cOrient',oriLandscape,tStr);
 }      
+*/
 
 /*
 //Moditap(moditap,$c_UserName,$c_PersName);

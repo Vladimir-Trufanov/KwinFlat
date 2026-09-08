@@ -100,6 +100,8 @@ try
    echo '<script src="SmartMenus/MakeSmartMenu.js"></script>';
    echo '<link rel="stylesheet" href="SmartMenus/sm-core-css.css">';
 
+   echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat-desktop.css">';
+   /*
    // Делаем страницу для смартфона
    if ($SiteDevice=='Mobile') 
    {   
@@ -111,6 +113,7 @@ try
    {   
      echo '<link rel="stylesheet" href="SmartMenus/sm-kwinflat-desktop.css">';
    }
+   */
    
    //
    if ($task=='Update40') require_once 'Update40/Update40HEAD.php';

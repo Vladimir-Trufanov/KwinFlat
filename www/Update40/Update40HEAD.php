@@ -11,12 +11,15 @@
 
 // ---------------------------------------------------------- HEAD and LAST ---
 // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
-require_once "iniPhpJS.php";  
+require_once "iniPhpJS.php"; 
 
 // Подключаем js и CSS
 echo '<script src="CommonTools.js"></script>';
 echo '<script src="Update40/Update40.js"></script>';
 echo '<script src="Update40/Update40led4.js"></script>';
+
+// Активизируем обнаружение ориентации устройства 
+// activateOrient($SignaUrl,$SignaPortraitUrl);
 
 if ($SiteDevice=='Mobile') 
 {   

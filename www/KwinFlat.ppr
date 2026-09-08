@@ -236,7 +236,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -261,12 +261,14 @@ KwinFlat
 		index.php
 		iniMem.php
 		iniMenu.php
+		iniOrient.php
 		iniPhpJS.php
 		iniWorkSpace.php
 		j_getLastNumCtrl.php
 		j_getLastStateMess.php
 		KwinFlat.ppr
 		kwinflat-log.txt
+		log.txt
 		manifest.json
 		Meet40.html
 		server.log
@@ -275,23 +277,27 @@ KwinFlat
 0=index.php
 1=Update40\Update40HEAD.php
 2=iniPhpJS.php
-3=iniMem.php
+3=iniOrient.php
 4=Update40\Update40BODY.php
+5=iniMem.php
 [Selected Project Files]
 Main=
-Selected=iniMem.php
+Selected=Update40\Update40HEAD.php
 [index.php]
-TopLine=29
-Caret=1,44
+TopLine=27
+Caret=1,103
 [Update40\Update40HEAD.php]
-TopLine=1
-Caret=15,14
+TopLine=3
+Caret=3,26
 [iniPhpJS.php]
-TopLine=98
-Caret=1,137
-[iniMem.php]
-TopLine=1
-Caret=42,9
+TopLine=66
+Caret=1,135
+[iniOrient.php]
+TopLine=18
+Caret=1,55
 [Update40\Update40BODY.php]
 TopLine=13
 Caret=1,41
+[iniMem.php]
+TopLine=1
+Caret=1,15

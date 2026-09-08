@@ -73,11 +73,10 @@ function DefineJS($SiteHost,$urlHome,$jlight,$jnolight,$jtime,$jevent,$jmode4,$j
 //  Создаем переменные и константы JavaScript, соответствующие определениям в PHP   
 DefineJS($SiteHost,$urlHome,$jlight,$jnolight,$jtime,$jevent,$jmode4,$jimg,$jtempvl,$jlumin,$jbar,$coLight,$conolight);
 
-// Определяем uri вызова страниц с различной ориентацией
-$SignaUrl=$_SERVER['SCRIPT_NAME'].'?orient='.oriLandscape;
-$SignaPortraitUrl=$_SERVER['SCRIPT_NAME'].'?orient='.oriPortrait;
 // Подключаем обнаружение ориентации устройства по завершению загрузки страницы
 ?> <script>
+oriPortrait="<?php echo oriPortrait;?>";
+oriLandscape="<?php echo oriLandscape;?>";
 xOrient="<?php echo $c_Orient;?>";
 $(document).ready(function() 
 {
