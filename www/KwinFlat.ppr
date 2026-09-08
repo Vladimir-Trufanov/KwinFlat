@@ -21,7 +21,7 @@ KwinFlat
 		-.well-known
 			-pki-validation
 				.well-known\pki-validation\gsdv.txt
-		-Controller
+		+Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -159,7 +159,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		-Leafgpx
+		+Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -236,7 +236,7 @@ KwinFlat
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		-Update40
+		+Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -276,36 +276,12 @@ KwinFlat
 [Open project files]
 0=index.php
 1=Update40\Update40HEAD.php
-2=iniPhpJS.php
-3=iniOrient.php
-4=Update40\Update40BODY.php
-5=iniMem.php
-6=Leafgpx\index.php
-7=State\index.php
 [Selected Project Files]
 Main=
 Selected=Update40\Update40HEAD.php
 [index.php]
-TopLine=64
-Caret=1,103
+TopLine=48
+Caret=8,106
 [Update40\Update40HEAD.php]
-TopLine=2
-Caret=15,14
-[iniPhpJS.php]
-TopLine=1
-Caret=76,2
-[iniOrient.php]
-TopLine=52
-Caret=1,52
-[Update40\Update40BODY.php]
-TopLine=13
-Caret=1,41
-[iniMem.php]
-TopLine=1
-Caret=1,24
-[Leafgpx\index.php]
-TopLine=41
-Caret=18,53
-[State\index.php]
-TopLine=93
-Caret=20,105
+TopLine=53
+Caret=1,1

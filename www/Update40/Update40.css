@@ -10,18 +10,22 @@
  * 
 **/
 
+/*
 #LeftAndRight
 {
    display:flex;
    flex-direction:row;
    height:97%;
 }
+*/
+
+/*
 #Left
 {
    background:LightYellow;
    width:67%;
    height:100%;
-   /*background:transparent;*/ 
+   background:transparent; 
    z-index:1;
 }
 #Right
@@ -31,6 +35,8 @@
    height:100%;
    z-index:1;
 }
+*/
+
 #Header 
 {
    background:White;

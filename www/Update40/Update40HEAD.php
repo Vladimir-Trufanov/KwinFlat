@@ -22,8 +22,69 @@ echo '<script src="CommonTools.js"></script>';
 echo '<script src="Update40/Update40.js"></script>';
 echo '<script src="Update40/Update40led4.js"></script>';
 
-// Активизируем обнаружение ориентации устройства 
-// activateOrient($SignaUrl,$SignaPortraitUrl);
+?> <style> <?php   
+if ($SiteDevice=='Mobile' and $c_Orient==oriPortrait) 
+{   
+echo '  
+#LeftAndRight
+{
+  display:flex;
+  flex-direction:column;
+  height:97%;
+}
+';
+echo '  
+#Left
+{
+   background:LightYellow;
+   width:100%;
+   height:60%;
+   /*background:transparent;*/ 
+   z-index:1;
+}
+#Right
+{
+   background:LightCyan;
+   width:100%;
+   height:40%;
+   z-index:1;
+}
+';
+}
+// Делаем страницу для компьютера
+else 
+{   
+echo '  
+#LeftAndRight
+{
+  display:flex;
+  flex-direction:row;
+  height:97%;
+}
+';
+echo '  
+#Left
+{
+   background:LightYellow;
+   width:67%;
+   height:100%;
+   /*background:transparent;*/ 
+   z-index:1;
+}
+#Right
+{
+   background:LightCyan;
+   width:33%;
+   height:100%;
+   z-index:1;
+}
+';
+}
+
+
+?> </style> <?php   
+
+
 
 if ($SiteDevice=='Mobile') 
 {   

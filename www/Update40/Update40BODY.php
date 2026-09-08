@@ -106,6 +106,7 @@ echo '<div id="Right">';
    echo '</div>'; // id="lastmess" 
 
 echo '</div>'; // id="Right"
+
 // Загружаем панель виртуального контроллера   
 require_once("Controller/Controller.php"); 
 echo '</div>'; // id="LeftAndRight"
