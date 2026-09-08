@@ -91,40 +91,6 @@ $pdo=$Kvizzy->BaseConnect();
 
 //$Entry=new ttools\Entrying($urlHome,$basename,$username,$password,$note);
 
-*/
-
-// Определяем ориентацию устройства 
-//$c_Orient=setOrient($SiteDevice);
-
-/*
-// Определяем ориентации устройства 
-define ("oriLandscape", 'landscape'); // ландшафтное расположение устройства
-define ("oriPortrait",  'portrait');  // портретное расположение устройства
-require_once pathPhpPrown."/MakeCookie.php";
-if ($SiteDevice=='Mobile') 
-{
-  // Если кукиса в БРАУЗЕРЕ УСТРОЙСТВА нет, то устанавливаем $c_Orient и кукис 'сOrient'
-  // в первоначальную ориентацию - портретную
-  $c_Orient=prown\MakeCookie('cOrient',oriPortrait,tStr,true);  
-  // Если передан параметр ориентации, то переустанавливаем $c_Orient и кукис по параметру 
-  if (IsSet($_GET["orient"]))
-  {
-    if ($_GET["orient"]==oriLandscape) $c_Orient=prown\MakeCookie('cOrient',oriLandscape,tStr); 
-    if ($_GET["orient"]==oriPortrait)  $c_Orient=prown\MakeCookie('cOrient',oriPortrait,tStr); 
-  }
-  // Если параметр не передавался, то по умолчанию задаем для смартфона портретт
-  else
-  {
-    $c_Orient=prown\MakeCookie('cOrient',oriPortrait,tStr);
-  }
-}
-else                       
-{
-  $c_Orient=prown\MakeCookie('cOrient',oriLandscape,tStr);
-}      
-*/
-
-/*
 //Moditap(moditap,$c_UserName,$c_PersName);
 // Инициализируем настройки, далее они могут быть изменены
 //$c_PresMode=prown\MakeCookie('PresMode',rpmOneRight,tStr,true);         // режим представления материалов

@@ -12,6 +12,10 @@
 // ---------------------------------------------------------- HEAD and LAST ---
 // Подключаем переменные и константы JavaScript, соответствующие определениям в PHP
 require_once "iniPhpJS.php"; 
+// Активируем обнаружение ориентации устройства          
+activateOrient($SignaUrl,$SignaPortraitUrl,$c_Orient);
+// Настраиваем стили на устройство
+//cssDivPosition($SiteDevice,$c_Orient);
 
 // Подключаем js и CSS
 echo '<script src="CommonTools.js"></script>';
