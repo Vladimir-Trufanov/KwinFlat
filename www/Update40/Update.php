@@ -25,7 +25,7 @@
       <p>НЕТ</p>
    </div>
    <div id="shtime" class="shled4" onclick="onLed4('pitime','time',100,100000)" title="От 100 до 100 тысяч мсек">
-      <p class="pshled4">ПЕРИОД (мсек)</p>
+      <p class="pshled4">ПЕРИОД,мсек</p>
    </div>
    <div id="shspot" class="shled4">
    </div>

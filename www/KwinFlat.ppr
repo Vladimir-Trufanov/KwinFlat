@@ -21,7 +21,7 @@ KwinFlat
 		-.well-known
 			-pki-validation
 				.well-known\pki-validation\gsdv.txt
-		+Controller
+		-Controller
 			-imgDigits
 				Controller\imgDigits\png0.png
 				Controller\imgDigits\png1.png
@@ -159,7 +159,7 @@ KwinFlat
 			layer\Marker.Text.js
 		-Lead40
 			Lead40\index.php
-		+Leafgpx
+		-Leafgpx
 			-icons
 				Leafgpx\icons\pin-icon-end.png
 				Leafgpx\icons\pin-icon-start.png
@@ -247,15 +247,16 @@ KwinFlat
 			Update40\j_setMessForLead.php
 			Update40\j_setStateElem.php
 			Update40\Update.php
-			Update40\Update40.css
 			Update40\Update40.js
 			Update40\Update40BODY.php
 			Update40\Update40HEAD.php
+			Update40\Update40landscape.css
 			Update40\Update40led4.js
-			Update40\Update40mobi.css
+			Update40\Update40portrait.css
 		android-chrome-192x192.png
 		Common.php
 		CommonTools.js
+		errors.txt
 		favicon.ico
 		Home.css
 		index.php
@@ -267,21 +268,50 @@ KwinFlat
 		j_getLastNumCtrl.php
 		j_getLastStateMess.php
 		KwinFlat.ppr
-		kwinflat-log.txt
-		log.txt
 		manifest.json
 		Meet40.html
-		server.log
 		web.config
 [Open project files]
 0=index.php
 1=Update40\Update40HEAD.php
+2=Update40\Update40landscape.css
+3=Update40\Update40portrait.css
+4=iniMem.php
+5=Update40\Update40BODY.php
+6=Update40\FlipOnHover\FlipOnHover.css
+7=Update40\Update.php
+8=Update40\intrv.php
+9=Update40\intrv.css
 [Selected Project Files]
 Main=
-Selected=Update40\Update40HEAD.php
+Selected=Update40\intrv.css
 [index.php]
-TopLine=48
+TopLine=67
 Caret=8,106
 [Update40\Update40HEAD.php]
-TopLine=53
-Caret=1,1
+TopLine=3
+Caret=38,31
+[Update40\Update40landscape.css]
+TopLine=124
+Caret=1,54
+[Update40\Update40portrait.css]
+TopLine=17
+Caret=21,29
+[iniMem.php]
+TopLine=9
+Caret=42,9
+[Update40\Update40BODY.php]
+TopLine=25
+Caret=9,45
+[Update40\FlipOnHover\FlipOnHover.css]
+TopLine=1
+Caret=1,6
+[Update40\Update.php]
+TopLine=27
+Caret=37,28
+[Update40\intrv.php]
+TopLine=5
+Caret=48,13
+[Update40\intrv.css]
+TopLine=97
+Caret=13,9

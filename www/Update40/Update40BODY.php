@@ -30,17 +30,19 @@ echo '<div id="Left">';
    echo '</div>';
 
    echo '<div id="Footer">';
-      echo '<div id="FooterTop">';
+      //echo '<div id="FooterTop">';
       echo '<pre>';
       echo '$Orient        = '.$c_Orient.'<BR>';
       echo '$device_type   = '.$device_type.'<BR>';
+      /*
       echo '$browser       = '.$browser.'<BR>';
       echo '$version       = '.$version.'<BR>';
       echo '$platform      = '.$platform.'<BR>';
       echo 'www.probatv.ru = '.gethostbyname('www.probatv.ru').'<BR>';
       echo '$mes_wpt       = '.$mes_wpt.'<BR>';
+      */
       echo '</pre>';
-      echo '</div>';    // id="FooterTop"
+      //echo '</div>';    // id="FooterTop"
   
    echo '</div>';       // id="Footer"
 echo '</div>';          // id="Left"

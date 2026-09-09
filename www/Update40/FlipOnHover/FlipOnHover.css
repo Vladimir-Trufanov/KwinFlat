@@ -3,11 +3,7 @@
 .btnflip 
 {
   position: absolute;
-  top: 6.4%;
-  left: 57%;
   transform: translate(-50%, -50%);
-  height: 10%; 
-  width:calc( ( 200vw - 480px ) / ( 1920 - 480 ) * ( 160 - 8 ) + 8px );
   text-align: center;
   transform-style: preserve-3d;
   perspective: 1000px;

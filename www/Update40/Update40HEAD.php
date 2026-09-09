@@ -22,78 +22,13 @@ echo '<script src="CommonTools.js"></script>';
 echo '<script src="Update40/Update40.js"></script>';
 echo '<script src="Update40/Update40led4.js"></script>';
 
-?> <style> <?php   
 if ($SiteDevice=='Mobile' and $c_Orient==oriPortrait) 
 {   
-echo '  
-#LeftAndRight
-{
-  display:flex;
-  flex-direction:column;
-  height:97%;
+  echo '<link href="Update40/Update40portrait.css" rel="stylesheet">';
 }
-';
-echo '  
-#Left
-{
-   background:LightYellow;
-   width:100%;
-   height:60%;
-   /*background:transparent;*/ 
-   z-index:1;
-}
-#Right
-{
-   background:LightCyan;
-   width:100%;
-   height:40%;
-   z-index:1;
-}
-';
-}
-// Делаем страницу для компьютера
 else 
 {   
-echo '  
-#LeftAndRight
-{
-  display:flex;
-  flex-direction:row;
-  height:97%;
-}
-';
-echo '  
-#Left
-{
-   background:LightYellow;
-   width:67%;
-   height:100%;
-   /*background:transparent;*/ 
-   z-index:1;
-}
-#Right
-{
-   background:LightCyan;
-   width:33%;
-   height:100%;
-   z-index:1;
-}
-';
-}
-
-
-?> </style> <?php   
-
-
-
-if ($SiteDevice=='Mobile') 
-{   
-  echo '<link href="Update40/Update40mobi.css" rel="stylesheet">';
-}
-// Делаем страницу для компьютера
-else 
-{   
-  echo '<link href="Update40/Update40.css" rel="stylesheet">';
+  echo '<link href="Update40/Update40landscape.css" rel="stylesheet">';
 }
 
 echo '<link href="Update40/intrv.css" rel="stylesheet">';
