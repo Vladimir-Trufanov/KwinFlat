@@ -17,7 +17,7 @@
   display:table;
 	/*margin-left:auto;
 	margin-right:auto;*/
-	*text-align:center;
+	text-align:center;
 }
 /*
 #plans
@@ -29,7 +29,7 @@
 */
 #plans .plan
 {
-  font-size:.8rem;
+  /*font-size:.8rem;*/
 	font-weight:bold;
   float:left;
 	height:4rem;
@@ -64,7 +64,7 @@
 }
 #plans .plan:hover
 {
-	font-size:.9rem;
+	/*font-size:.9rem;*/
 	color:red;
 	font-weight:bold;
 	border:3px solid #97d947;
