@@ -230,13 +230,15 @@ KwinFlat
 			svanidze\index.php
 			svanidze\orehovskijvodopad.pdf
 			svanidze\pritokpritokasochi.pdf
+		+tisosamshit
+			tisosamshit\index.php
 		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
 			TKvizzyMaker\CommonStreamMaker.php
 			TKvizzyMaker\KvizzyMakerClass.php
-		+Update40
+		-Update40
 			-FlipOnHover
 				Update40\FlipOnHover\FlipOnHover.css
 				Update40\FlipOnHover\FlipOnHover.html
@@ -268,50 +270,25 @@ KwinFlat
 		j_getLastNumCtrl.php
 		j_getLastStateMess.php
 		KwinFlat.ppr
+		kwinflat-log.txt
+		log.txt
 		manifest.json
 		Meet40.html
+		server.log
 		web.config
 [Open project files]
 0=index.php
-1=Update40\Update40HEAD.php
-2=Update40\Update40landscape.css
-3=Update40\Update40portrait.css
-4=iniMem.php
-5=Update40\Update40BODY.php
-6=Update40\FlipOnHover\FlipOnHover.css
-7=Update40\Update.php
-8=Update40\intrv.php
-9=Update40\intrv.css
+1=tisosamshit\index.php
+2=iniMem.php
 [Selected Project Files]
 Main=
-Selected=Update40\Update40HEAD.php
+Selected=tisosamshit\index.php
 [index.php]
-TopLine=91
+TopLine=99
 Caret=1,104
-[Update40\Update40HEAD.php]
-TopLine=23
-Caret=39,42
-[Update40\Update40landscape.css]
-TopLine=158
-Caret=1,54
-[Update40\Update40portrait.css]
-TopLine=17
-Caret=21,29
+[tisosamshit\index.php]
+TopLine=60
+Caret=1,79
 [iniMem.php]
-TopLine=9
+TopLine=1
 Caret=30,9
-[Update40\Update40BODY.php]
-TopLine=45
-Caret=9,45
-[Update40\FlipOnHover\FlipOnHover.css]
-TopLine=1
-Caret=1,6
-[Update40\Update.php]
-TopLine=1
-Caret=33,28
-[Update40\intrv.php]
-TopLine=4
-Caret=44,13
-[Update40\intrv.css]
-TopLine=29
-Caret=22,67
