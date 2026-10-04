@@ -152,6 +152,14 @@
 <h4 id="метеостанция"><a href="meteostancija.pdf">Метеостанция</a></h4>
 <h4 id="скала-сосновая"><a href="skalasosnovaija.pdf">Скала Сосновая</a></h4>
 <h4 id="памяти-защитников-кавказа"><a href="zaschithikikavkaza.pdf">Памяти защитников Кавказа</a></h4>
+
+<h3 id="наши-походы-в-сочи"><a href="#sla6en9edged">Наши походы в Сочи</a></h3>
+<h4 id="путь-тритона"><a href="https://kwinflat.ru/putitritona">Путь тритона</a></h4>
+<h4 id="водопады-на-ручье-сванидзе"><a href="https://kwinflat.ru/svanidze">Водопады на ручье Сванидзе</a></h4>
+<h4 id="зеркальное-озеро"><a href="https://kwinflat.ru/ozerozerkali">Зеркальное озеро</a></h4>
+<h4 id="тисо-самшитовая-роща-2"><a href="https://kwinflat.ru/tisosamshit">Тисо-самшитовая роща</a></h4>
+<h4 id="южные-культуры-карта"><a href="https://yuzhnye-kultury.ru/m">Южные культуры, карта</a></h4>
+
 </body>
 </html>
 

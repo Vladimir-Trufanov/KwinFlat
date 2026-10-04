@@ -85,6 +85,8 @@ KwinFlat
 			favicon260x260\favicon-32x32.png
 			favicon260x260\mstile-150x150.png
 			favicon260x260\safari-pinned-tab.svg
+		-files
+			files\hello-world.pdf
 		-gpx
 			-fil
 				gpx\fil\gtrack204.gpx
@@ -197,6 +199,9 @@ KwinFlat
 			ozerozerkali\skalasosnovaija.pdf
 			ozerozerkali\zaschithikikavkaza.pdf
 			ozerozerkali\zerkali.jpg
+		+proba
+			proba\hello.pdf
+			proba\index.php
 		-putitritona
 			putitritona\index.php
 			putitritona\Pasport_Tropa_Tritona.pdf
@@ -230,8 +235,22 @@ KwinFlat
 			svanidze\index.php
 			svanidze\orehovskijvodopad.pdf
 			svanidze\pritokpritokasochi.pdf
-		+tisosamshit
+		-tisosamshit
+			tisosamshit\153052742712594294.jpg
+			tisosamshit\ChVorota.pdf
+			tisosamshit\hello-world.pdf
 			tisosamshit\index.php
+			tisosamshit\Kreposti.pdf
+			tisosamshit\medium.jpeg
+			tisosamshit\morozn_3.jpg
+			tisosamshit\pdf_viewer.php
+			tisosamshit\Probka.pdf
+			tisosamshit\Roscha.pdf
+			tisosamshit\samshit.jpg
+			tisosamshit\scale1.jpg
+			tisosamshit\scale2.jpg
+			tisosamshit\tis1.png
+			tisosamshit\zzin681q5505227bny58xhfbi1qjo64u.png
 		-TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
@@ -260,6 +279,7 @@ KwinFlat
 		CommonTools.js
 		errors.txt
 		favicon.ico
+		hello-world.pdf
 		Home.css
 		index.php
 		iniMem.php
@@ -274,21 +294,30 @@ KwinFlat
 		log.txt
 		manifest.json
 		Meet40.html
+		pdf_viewer.php
 		server.log
 		web.config
 [Open project files]
 0=index.php
 1=tisosamshit\index.php
 2=iniMem.php
+3=proba\index.php
+4=..\..\Users\Евгеньевич\Desktop\Отпуск\Походы\Путь тритона\PutiTritona_UTF8.wpt
 [Selected Project Files]
 Main=
-Selected=tisosamshit\index.php
+Selected=..\..\Users\Евгеньевич\Desktop\Отпуск\Походы\Путь тритона\PutiTritona_UTF8.wpt
 [index.php]
-TopLine=99
+TopLine=97
 Caret=1,104
 [tisosamshit\index.php]
-TopLine=60
-Caret=1,79
+TopLine=166
+Caret=1,157
 [iniMem.php]
 TopLine=1
-Caret=30,9
+Caret=42,9
+[proba\index.php]
+TopLine=36
+Caret=18,48
+[..\..\Users\Евгеньевич\Desktop\Отпуск\Походы\Путь тритона\PutiTritona_UTF8.wpt]
+TopLine=1
+Caret=50,12
