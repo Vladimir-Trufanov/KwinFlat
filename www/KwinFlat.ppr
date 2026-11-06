@@ -204,6 +204,8 @@ KwinFlat
 			proba\index.php
 		-putitritona
 			putitritona\index.php
+			putitritona\mendeliha.pdf
+			putitritona\p2320.pdf
 			putitritona\Pasport_Tropa_Tritona.pdf
 			putitritona\PutiTritona2.jpg
 			putitritona\PutiTritona3.jpg
@@ -274,6 +276,8 @@ KwinFlat
 			Update40\Update40landscape.css
 			Update40\Update40led4.js
 			Update40\Update40portrait.css
+		+Vid17b
+			Vid17b\index.php
 		android-chrome-192x192.png
 		Common.php
 		CommonTools.js
@@ -298,26 +302,26 @@ KwinFlat
 		server.log
 		web.config
 [Open project files]
-0=index.php
-1=tisosamshit\index.php
-2=iniMem.php
-3=proba\index.php
-4=..\..\Users\Евгеньевич\Desktop\Отпуск\Походы\Путь тритона\PutiTritona_UTF8.wpt
+0=proba\index.php
+1=Update40\Update40HEAD.php
+2=index.php
+3=Vid17b\index.php
+4=iniMem.php
 [Selected Project Files]
 Main=
-Selected=..\..\Users\Евгеньевич\Desktop\Отпуск\Походы\Путь тритона\PutiTritona_UTF8.wpt
+Selected=iniMem.php
+[proba\index.php]
+TopLine=34
+Caret=1,1
+[Update40\Update40HEAD.php]
+TopLine=3
+Caret=1,1
 [index.php]
-TopLine=97
-Caret=1,104
-[tisosamshit\index.php]
-TopLine=166
-Caret=1,157
+TopLine=93
+Caret=1,129
+[Vid17b\index.php]
+TopLine=1
+Caret=23,23
 [iniMem.php]
 TopLine=1
-Caret=42,9
-[proba\index.php]
-TopLine=36
-Caret=18,48
-[..\..\Users\Евгеньевич\Desktop\Отпуск\Походы\Путь тритона\PutiTritona_UTF8.wpt]
-TopLine=1
-Caret=50,12
+Caret=30,9
