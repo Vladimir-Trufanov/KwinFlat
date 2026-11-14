@@ -53,7 +53,7 @@ function _CreateTables($pdo)
          'idsys      INTEGER NOT NULL REFERENCES SubSystems(idsys),'.  // идентификатор подсистемы
          'nameplace  VARCHAR NOT NULL UNIQUE)';                        // место размещения
       $st = $pdo->query($sql);
-      // Заполняем таблицу мест размещения
+      // Заполняем таблицу мест размещения контроллеров
       $aPlaces=[
          [ 11,1,'На площадку из гостиной'],
          [ 12,1,'На дорогу с балкона'],
@@ -62,6 +62,8 @@ function _CreateTables($pdo)
          [ 15,2,'На стене веранды'],
          [ 16,3,'В автомобиле'],
          [ 17,4,'На сайте'],
+         [ 18,4,'В квартире по подвалу'],
+         [ 19,4,'В кладовой подвала'],
       ];
       $statement = $pdo->prepare("INSERT INTO [Places] ".
          "([idplace],[idsys],[nameplace]) VALUES ".
@@ -88,6 +90,8 @@ function _CreateTables($pdo)
          [ 103,'Esp01'],
          [ 104,'Sim900'],
          [ 105,'Virt'],
+         [ 106,'Esp32-C3 Super Mini'],
+         [ 107,'Piranha Pro Mini'],
       ];
       $statement = $pdo->prepare("INSERT INTO [ControllersType] ".
          "([tidctrl],[typectrl]) VALUES ".
@@ -111,7 +115,9 @@ function _CreateTables($pdo)
          [ 202,103,15,'Esp01 на стене веранды'],  
          [ 203,104,16,'Sim900 в автомобиле'],  
          [ 204,105,17,'Виртуальный контроллер'],  
-         [ 205,101,14,'Esp32-CAM на дорогу к даче'],  
+         [ 205,101,14,'Esp32-CAM на дорогу к даче'],         
+         [ 206,106,18,'Esp32-C3 от подвала'],  
+         [ 207,107,18,'Piranha Pro Mini в подвале'],  
        ];
       $statement = $pdo->prepare("INSERT INTO [Controllers] ".
          "([idctrl],[tidctrl],[idplace],[namectrl]) VALUES ".
@@ -176,7 +182,9 @@ function _CreateTables($pdo)
       $aSensorsType=[
          [ 501,'DHT11'],         
          [ 502,'DHT22'],       
-         [ 503,'V.KEL TTL'],       
+         [ 503,'V.KEL TTL'],      
+         [ 504,'Water'],       // уровень воды       
+         [ 505,'VCC'],         // напряжение питания схемы       
       ];
       $statement = $pdo->prepare("INSERT INTO [SensorsType] ".
          "([tidsens],[typesens]) VALUES ".

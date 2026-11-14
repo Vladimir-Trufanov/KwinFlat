@@ -223,7 +223,7 @@ KwinFlat
 			SmartMenus\sm-core-css.css
 			SmartMenus\sm-kwinflat-desktop.css
 			SmartMenus\sm-kwinflat-mobi.css
-		-State
+		+State
 			State\index.php
 			State\num3_DHT11.php
 			State\num5_GPXtrkpt.php
@@ -253,7 +253,7 @@ KwinFlat
 			tisosamshit\scale2.jpg
 			tisosamshit\tis1.png
 			tisosamshit\zzin681q5505227bny58xhfbi1qjo64u.png
-		-TKvizzyMaker
+		+TKvizzyMaker
 			TKvizzyMaker\CommonKvizzyMaker.php
 			TKvizzyMaker\CommonLeadMaker.php
 			TKvizzyMaker\CommonStateMaker.php
@@ -307,9 +307,13 @@ KwinFlat
 2=index.php
 3=Vid17b\index.php
 4=iniMem.php
+5=State\index.php
+6=TKvizzyMaker\KvizzyMakerClass.php
+7=TKvizzyMaker\CommonKvizzyMaker.php
+8=..\..\RF24toStudy\KvizzyVid17base\include\Vid17baseCommon.h
 [Selected Project Files]
 Main=
-Selected=iniMem.php
+Selected=TKvizzyMaker\CommonKvizzyMaker.php
 [proba\index.php]
 TopLine=34
 Caret=1,1
@@ -325,3 +329,15 @@ Caret=23,23
 [iniMem.php]
 TopLine=1
 Caret=30,9
+[State\index.php]
+TopLine=13
+Caret=1,1
+[TKvizzyMaker\KvizzyMakerClass.php]
+TopLine=69
+Caret=1,1
+[TKvizzyMaker\CommonKvizzyMaker.php]
+TopLine=99
+Caret=43,119
+[..\..\RF24toStudy\KvizzyVid17base\include\Vid17baseCommon.h]
+TopLine=69
+Caret=1,1
